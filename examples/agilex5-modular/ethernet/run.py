@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Linux host: exclusive board ownership, DDR boot, network tests and restoration."""
-import argparse,contextlib,datetime,json,os,pathlib,re,select,subprocess,sys,termios,time,signal,ipaddress
+import argparse,contextlib,datetime,json,os,pathlib,re,select,subprocess,sys,termios,time,signal,ipaddress,shutil,hashlib
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from bench import BenchError,container_path,verify_mount,verify_mapped_files,validate_uart
@@ -14,6 +14,15 @@ def root_command(args):
  result=subprocess.run(cmd,capture_output=True,text=True,timeout=15)
  if result.returncode:raise BenchError('Host NIC command failed: '+result.stderr.strip()+'; use a host-network container with NET_ADMIN for temporary addressing.')
  return result.stdout
+
+def nic_snapshot(interface):
+ """Read Linux link state and cumulative counters without configuring it."""
+ base=pathlib.Path('/sys/class/net')/interface
+ values={}
+ for name in ('speed','duplex','mtu','operstate','carrier','statistics/rx_packets','statistics/tx_packets','statistics/rx_errors','statistics/tx_errors','statistics/rx_dropped','statistics/tx_dropped','statistics/rx_crc_errors'):
+  try:values[name]=(base/name).read_text().strip()
+  except OSError:values[name]=None
+ return values
 
 def main():
  p=argparse.ArgumentParser(description=__doc__)
@@ -35,6 +44,11 @@ def main():
    raise BenchError('The benchmark subnet overlaps an existing route on another interface.')
  out=ROOT/'runs'/('ethernet-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ'));out.mkdir(parents=True)
  result={'started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'interface_before':ipdata,'tests':[],'restoration':'pending'}
+ result['nic_before']=nic_snapshot(a.interface)
+ result['command']=sys.argv
+ result['runner_sha256']=hashlib.sha256(pathlib.Path(__file__).read_bytes()).hexdigest()
+ revision=subprocess.run(['git','-C',str(ROOT),'rev-parse','HEAD'],capture_output=True,text=True)
+ result['source_revision']=revision.stdout.strip() if revision.returncode==0 else None
  print('Evidence: '+str(out),flush=True)
  added=False;fd=None;peer=None;uncertain=False;failure=None;uart=b''
  with contextlib.ExitStack() as stack:
@@ -44,6 +58,7 @@ def main():
   if (ROOT/'build/network.json').is_file():
    result['build']=json.loads((ROOT/'build/network.json').read_text())
    if result['build']['elf_sha256']!=result['hashes'][str((ROOT/'build/network.elf').resolve())]:raise BenchError('Firmware differs from its build manifest')
+  shutil.copy2(ROOT/'build/network.elf',out/'network.elf')
 
   try:
    if not v4:root_command(['ip','addr','add','192.168.50.1/24','dev',a.interface]);added=True
@@ -112,6 +127,7 @@ def main():
     try:root_command(['ip','addr','del','192.168.50.1/24','dev',a.interface]);result['host_address_restored']=True
     except Exception as exc:result['host_address_restored']=False;result['host_restore_error']=str(exc)
    result['interface_after']=json.loads(root_command(['ip','-j','address','show','dev',a.interface]))[0]
+   result['nic_after']=nic_snapshot(a.interface)
    (out/'results.json').write_text(json.dumps(result,indent=2)+'\n')
  return 1 if failure or result['restoration']!='pass' or result.get('host_address_restored') is False else 0
 if __name__=='__main__':
