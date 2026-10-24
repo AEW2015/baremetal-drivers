@@ -112,9 +112,11 @@ class Peer:
     info=s.getsockopt(socket.IPPROTO_TCP,socket.TCP_INFO,104)
     return dict(bytes=count,seconds=elapsed,local_total_retransmissions=struct.unpack_from('I',info,100)[0])
   with concurrent.futures.ThreadPoolExecutor(max_workers=streams) as pool:
-   try:values=list(pool.map(worker,range(streams)))
+   futures={pool.submit(worker,i):i for i in range(streams)};values=[None]*streams
+   try:
+    for future in concurrent.futures.as_completed(futures):values[futures[future]]=future.result()
    except BaseException:
-    cancel.set()
+    cancel.set();barrier.abort()
     for s in sockets:
      try:s.shutdown(socket.SHUT_RDWR)
      except OSError:pass
@@ -148,9 +150,11 @@ class Peer:
     elapsed=time.monotonic()-start
     return dict(direction=direction,bytes=count,seconds=elapsed,receiver_mbps=count*8/elapsed/1e6)
   with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
-   try:values=list(pool.map(worker,['pc_to_som','som_to_pc']))
+   futures={pool.submit(worker,direction):i for i,direction in enumerate(['pc_to_som','som_to_pc'])};values=[None]*2
+   try:
+    for future in concurrent.futures.as_completed(futures):values[futures[future]]=future.result()
    except BaseException:
-    cancel.set()
+    cancel.set();barrier.abort()
     for s in sockets:
      try:s.shutdown(socket.SHUT_RDWR)
      except OSError:pass

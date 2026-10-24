@@ -16,6 +16,7 @@ from unittest import mock
 spec = importlib.util.spec_from_file_location('ethernet_peer', Path(__file__).resolve().parents[1]/'ethernet/peer.py')
 network = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(network)
+CONNECT = socket.create_connection
 
 @unittest.skipUnless(sys.platform.startswith('linux'), 'Linux TCP_INFO contract')
 class EthernetPeer(unittest.TestCase):
@@ -59,12 +60,13 @@ class EthernetPeer(unittest.TestCase):
                 counts['received'] = 0
             def stats(self):
                 return {'tcp_rx_bytes': counts['received'], 'tcp_bad_chunks': 0}
-        connect = socket.create_connection
         def local_connection(address, **kwargs):
-            return connect(server.server_address, **kwargs)
+            return CONNECT(server.server_address, **kwargs)
+        peer = Peer()
+        peer.endpoint = server.server_address
         try:
             with mock.patch.object(network.socket, 'create_connection', side_effect=local_connection):
-                yield Peer(), counts
+                yield peer, counts
         finally:
             server.shutdown()
             server.server_close()
@@ -89,3 +91,13 @@ class EthernetPeer(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, 'TCP payload mismatch'):
                 peer.tcp_trial('som_to_pc', 30, 4)
         self.assertLess(time.monotonic()-start, 3)
+
+    def test_corrupt_receive_cancels_the_other_bidirectional_sender(self):
+        with self.fixture() as (peer, _), self.fixture(source=True, corrupt=True) as (source, _):
+            def route(address, **kwargs):
+                return CONNECT(peer.endpoint if address[1] == 5004 else source.endpoint, **kwargs)
+            start = time.monotonic()
+            with mock.patch.object(network.socket, 'create_connection', side_effect=route):
+                with self.assertRaisesRegex(RuntimeError, 'Bidirectional TCP payload mismatch'):
+                    peer.tcp_bidir(5)
+            self.assertLess(time.monotonic()-start, 3)
