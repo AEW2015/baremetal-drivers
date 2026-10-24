@@ -7,6 +7,7 @@ Choose an example in the **Examples** navigation. Each page has **What it does**
 | Example | Runs on | Expected result |
 |---|---|---|
 | [QEMU CPU/NEON/RAM](examples/qemu.md) | Generic QEMU virt | EL3, vector `{11,22,33,44}`, verified 4 KiB copy, exit 0 |
+| [Six QEMU practice labs](examples/qemu-labs.md) | Generic QEMU virt | Startup, watchpoint, exception, timer, permissions and UART checks |
 | [OCRAM Hello](examples/ocram.md) | Modular SOM | Repeated OCRAM UART Hello; no DDR initialization |
 | [DDR bring-up](examples/ddr.md) | Modular SOM | Four 64 MiB patterns, payload readback, fresh Hello and DDR PC |
 

@@ -95,4 +95,5 @@ Do not reuse these addresses or its UART driver on the physical SOM.
 See [the QEMU sources](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/qemu)
 and [QEMU's generic platform documentation](https://www.qemu.org/docs/master/system/arm/virt.html).
 
-Next: [run on the Modular kit](hardware.md).
+Next: try the [six QEMU practice labs](examples/qemu-labs.md), or
+[run on the Modular kit](hardware.md).

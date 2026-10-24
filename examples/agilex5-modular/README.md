@@ -188,3 +188,18 @@ and matched full-image deployment. The
 covers static partitions, freeze/reset and live-swap acceptance checks. The new
 whole-board fabric design and live PR remain unqualified; these are separate
 from the historical HPS suite results. Start with `./fabric/test.sh`.
+
+## Six QEMU practice labs
+
+Build and test startup relocation, a corrupted copy, synchronous exceptions,
+timer interrupts, MMU permissions and a UART command parser with
+[the practice lab instructions](../../docs/examples/qemu-labs.md).
+From this directory, with the AArch64 compiler, QEMU and GDB on `PATH`:
+
+```sh
+bash qemu/labs/build.sh
+python3 qemu/labs/run.py --negative --gdb
+```
+
+The runner saves logs, source/ELF hashes and results under `runs/`.
+[Recorded QEMU evidence](validation/qemu-labs/README.md) describes the tested versions.

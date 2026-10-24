@@ -55,6 +55,7 @@ nav:
   - Examples:
       - Overview: examples.md
       - QEMU CPU, NEON and RAM: examples/qemu.md
+      - Six QEMU practice labs: examples/qemu-labs.md
       - OCRAM UART Hello: examples/ocram.md
       - DDR bring-up and Hello: examples/ddr.md
       - "CPU, NEON and core checks": examples/core.md
