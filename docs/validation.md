@@ -20,7 +20,7 @@ older binary's hardware result.
 | Physical A55 GDB break at `example_main`, instruction step, `finish` | PASS |
 | Physical core-example UART markers after continuing | PASS |
 | Final DDR restore, patterns, payload and PC proof | PASS, DDR Hello left running |
-| Desktop VS Code F5 session | Not exercised; supplied configuration mirrors tested GDB operations |
+| Desktop VS Code F5 session | Not exercised in this original campaign; subsequently checked in the [desktop follow-up](feedback-followup.md) |
 
 The debugger checks used GDB 15.1. Hardware used Quartus OpenOCD
 `0.12.0+quartus-gc58ca4ebc`, the existing matching Modular design and the
@@ -66,3 +66,10 @@ packaging path. Evidence distinguishes these software/component checks from
 a fitted whole-board project. The new fabric design has not been board-qualified;
 [partial reconfiguration](partial-reconfiguration.md) remains an advanced
 integration lab requiring a compiled static base, isolation and tested transport.
+
+## Onboarding feedback follow-up
+
+The [follow-up report](feedback-followup.md) records a clean-container QEMU
+trial, public-source container builds, desktop QEMU/hardware debugger checks
+and remaining fresh-kit limitations. These are later checks; the original
+logs and historical hardware results remain unchanged.

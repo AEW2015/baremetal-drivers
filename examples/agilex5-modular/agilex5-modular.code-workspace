@@ -142,7 +142,8 @@
             "text": "set architecture aarch64"
           }
         ],
-        "launchCompleteCommand": "exec-continue"
+        "launchCompleteCommand": "exec-continue",
+        "targetArchitecture": "arm64"
       },
       {
         "name": "Hardware: HPS core (initialize DDR first)",
@@ -159,6 +160,9 @@
         "preLaunchTask": "Build HPS core",
         "customLaunchSetupCommands": [
           {
+            "text": "-file-exec-and-symbols \"${workspaceFolder}/build/core_examples.elf\""
+          },
+          {
             "text": "-target-select remote 127.0.0.1:3337"
           },
           {
@@ -168,13 +172,16 @@
             "text": "-target-download"
           },
           {
-            "text": "-break-insert -h example_main"
-          },
-          {
             "text": "-interpreter-exec console \"set $pc=0x82100000\""
           }
         ],
-        "launchCompleteCommand": "exec-continue"
+        "launchCompleteCommand": "exec-continue",
+        "targetArchitecture": "arm64",
+        "setupCommands": [
+          {
+            "text": "set architecture aarch64"
+          }
+        ]
       }
     ]
   }

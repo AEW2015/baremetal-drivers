@@ -216,3 +216,18 @@ The standard DDR hook branches before normal bridge enable; a fabric build must
 explicitly select `AGILEX_ENABLE_LWH2F=1`. A CPU poll timeout cannot recover a
 stalled bus transaction. Never feed a persona RBF into the full-image or HPS-only
 loader, and retain PR isolation after controller errors.
+
+## Desktop F5 starts at the wrong place or cannot download
+
+QEMU initially stops at `_start`, before C startup. Set source breakpoints at
+`main` and `qemu_done`, then continue. For hardware, set a source breakpoint on
+the first statement of `example_main`. Use the current workspace: it declares
+`targetArchitecture: arm64`, sets GDB to AArch64 and explicitly selects the ELF
+before `-target-download`. Older configurations could report an invalid `arch`
+or “No executable file specified.” A raw MI breakpoint may appear as an exception
+in the UI even when GDB says a breakpoint was hit; use managed source breakpoints.
+
+Wait for the debug session to end and ports/lock to release before a new DDR
+bootstrap. A command issued immediately after Shift+F5 may correctly report
+“Hardware is busy.” Do not bypass that lock. Read the
+[desktop validation and screenshots](feedback-followup.md).

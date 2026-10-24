@@ -1,0 +1,6 @@
+#7 [1/6] FROM docker.io/alterafpga/quartus-pro:26.1.1-all@sha256:2a8df893f43c88799768bd1cdff73d3c66c1b5c0006faf69cc1aa401f9522761
+#9 [3/6] COPY install-arm.sh /tmp/install-arm.sh
+#10 [4/6] RUN bash /tmp/install-arm.sh && rm /tmp/install-arm.sh
+#10 107.7 /tmp/tmp.aMk1uaswFB/arm-gnu-toolchain-13.2.rel1-x86_64-aarch64-none-elf.tar.xz: OK
+#13 writing image sha256:8919ad450cf24559f47a41b2c62dea4135eb420d205bfe255ea448ffdcfe662c done
+#13 naming to docker.io/library/aew-agilex-hardware:26.1.1 done

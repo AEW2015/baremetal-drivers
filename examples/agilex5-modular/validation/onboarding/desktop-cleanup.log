@@ -1,0 +1,9 @@
+PASS debug port free: 3337
+PASS debug port free: 3338
+PASS debug port free: 6677
+PASS debug port free: 4457
+PASS final debug port free: 3337
+PASS final debug port free: 3338
+PASS final debug port free: 6677
+PASS final debug port free: 4457
+PASS final hardware lock released

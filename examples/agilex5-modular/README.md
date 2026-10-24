@@ -203,3 +203,12 @@ python3 qemu/labs/run.py --negative --gdb
 
 The runner saves logs, source/ELF hashes and results under `runs/`.
 [Recorded QEMU evidence](validation/qemu-labs/README.md) describes the tested versions.
+
+## Recreate the environment and inspect FPGA provenance
+
+Use the [public container recipe](https://aew2015.github.io/baremetal-drivers/container/)
+and [FPGA onboarding](https://aew2015.github.io/baremetal-drivers/fpga-design/).
+`check_artifacts.py --sof <file> --handoff <file>` checks exact identity against
+the recorded bench profile; a hash match is not a qualification of a new PCB.
+The [desktop follow-up](https://aew2015.github.io/baremetal-drivers/feedback-followup/)
+records actual GUI checks and screenshots separately from historical evidence.

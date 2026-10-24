@@ -47,6 +47,8 @@ nav:
   - Start here: index.md
   - Tutorial:
       - 1. Install the tools: setup.md
+      - Recreate the container: container.md
+      - Obtain the FPGA design: fpga-design.md
       - 2. Set up VS Code: vscode.md
       - 3. Run and debug QEMU: qemu.md
       - 4. Run on the Modular kit: hardware.md
@@ -77,4 +79,5 @@ nav:
       - Validation and limits: validation.md
       - Troubleshooting: troubleshooting.md
       - Simulated student reviews: student-review.md
+      - Onboarding and desktop follow-up: feedback-followup.md
       - Build this website: website.md

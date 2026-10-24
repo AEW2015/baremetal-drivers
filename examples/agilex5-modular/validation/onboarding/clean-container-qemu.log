@@ -1,0 +1,17 @@
+Cloning into '/home/dev/fresh-student'...
+4cea446bec16b67d584e8582b455158bb977f911
+PASS environment: container; Linux x86_64; workspace /home/dev/fresh-student/examples/agilex5-modular
+PASS compiler: aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009
+PASS QEMU: QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)
+PASS GDB: GNU gdb (Ubuntu 15.1-1ubuntu1~24.04.1) 15.1
+WARN QEMU ELF: Not built yet. Run ./qemu/build.sh; this is expected on a fresh clone.
+PASS GDB port 3338: Available now; the debug runner reserves its own listener atomically.
+NEXT: Run ./qemu/build.sh then python3 qemu/run.py --check.
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/qemu/hello.elf has a LOAD segment with RWX permissions
+QEMU: running bounded checks...
+QEMU VIRT AARCH64 BEGIN
+PASS EL3
+PASS NEON: 11 22 33 44
+PASS MEMORY: 4096-byte CPU copy
+QEMU EXAMPLE COMPLETE
+PASS QEMU_CHECK: all required markers and exit status zero

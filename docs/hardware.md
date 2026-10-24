@@ -5,6 +5,10 @@ These instructions use volatile programming and scratch RAM. They replace the
 running HPS diagnostic application, while leaving flash and SD contents alone.
 Use one board owner/debugger at a time.
 
+Before connecting, use the [container recipe and host/container map](container.md)
+and [FPGA artifact onboarding](fpga-design.md). The latter identifies the exact
+recorded design, its upstream origin, and the current new-kit qualification gap.
+
 ## 1. Connect the actual SOM UART and JTAG
 
 Connect carrier JTAG and the separate **J2 HPS_UART on the small SOM**. The
@@ -88,6 +92,9 @@ Before programming, check configuration without changing board state:
 
 ```sh
 python3 doctor.py --target hardware
+# When checking the recorded instructor pair, also supply its HOST paths:
+# python3 doctor.py --target hardware --sof /host/path/memory_test.sof \
+#   --handoff /host/path/hps_bootloader_handoff.bin
 ```
 
 Require no FAIL results. A missing DAP warning requires the full-recovery route
@@ -146,9 +153,9 @@ python3 bootstrap/ddr/run_ddr.py
 
 In the VS Code window attached to the **container**:
 
-1. Open `core/core_examples.c`.
+1. Open `core/core_examples.c` and set a source breakpoint on the first statement in `example_main` (F9 or click the gutter).
 2. Select **Hardware: HPS core (initialize DDR first)** and press F5.
-3. The configuration starts OpenOCD, loads the ELF, sets PC to `0x82100000` and breaks at `example_main`.
+3. The configuration starts OpenOCD, loads the ELF, sets PC to `0x82100000` and continues to your `example_main` source breakpoint.
 4. Inspect `pc`, `sp` and `cpsr` with `-exec info registers pc sp cpsr` in Debug Console.
 5. Step through the source or instructions, then continue to execute the checks.
 

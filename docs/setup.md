@@ -17,10 +17,17 @@ can instead connect to the documented Linux environment.
     Cloning this repository does not provide a board-specific FPGA design.
     Before hardware work, obtain the matching Modular ES SOF/handoff, its
     provenance/checksum and the expected board/DDR configuration from the FPGA
-    project or instructor. If these are not available, complete the QEMU track
+    project or instructor. See [FPGA design onboarding](fpga-design.md) for the exact reference, recorded
+    pair checker and remaining new-kit qualification gap. If these are not available, complete the QEMU track
     first. The Premium kit image is not interchangeable.
 
-## Option A: existing development container
+## Option A: development container
+
+A public-source [container recipe](container.md) now supports a new Linux
+machine: use its learning image for QEMU or its Quartus-based image for hardware.
+The existing XRDP container below remains an alternative for this bench.
+
+### Use the existing bench container
 
 The established `agilex-xrdp` container has Arm GNU 13.2.Rel1, Quartus 26.1.1
 and Quartus OpenOCD. Its image is a local bench asset, not a public Docker Hub
@@ -135,7 +142,7 @@ The process should exit successfully; it does not stay silently running.
 **No-board students can stop setup here and go directly to [VS Code](vscode.md).**
 They do not need a kit, Quartus, a SOF or the full vendor reference build.
 
-## Optional: compile the hardware pack
+## Hardware track only: compile the hardware pack
 
 For the hardware track, in the **development environment**:
 

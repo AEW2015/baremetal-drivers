@@ -1,0 +1,2 @@
+ERROR: Hardware is busy in this checkout. Stop your own VS Code/OpenOCD/suite session and retry. Do not delete hardware.lock; deleting it does not release the active owner.
+Help: https://aew2015.github.io/baremetal-drivers/troubleshooting/

@@ -12,13 +12,21 @@ from pathlib import Path
 from bench import (ROOT, BenchError, HELP, checked_container, container_path, validate_uart,
                    verify_container_tools, verify_mapped_files, verify_mount)
 from hardware_lock import HardwareLock
+from check_artifacts import check as check_artifacts
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--target', choices=['qemu', 'hardware'], default='qemu')
     parser.add_argument('--port', default=os.environ.get('AGILEX_UART', ''))
     parser.add_argument('--json', action='store_true', help='Print machine-readable checks')
+    parser.add_argument('--sof', help='Host path to instructor-qualified source SOF')
+    parser.add_argument('--handoff', help='Host path to the matching HPS handoff')
+    parser.add_argument('--profile', default=str(ROOT/'profiles/modular-es-ddr1600.json'))
     args = parser.parse_args()
+    if bool(args.sof) != bool(args.handoff):
+        parser.error('Supply --sof and --handoff together.')
+    if args.sof and args.target != 'hardware':
+        parser.error('Artifact-pair checking belongs to --target hardware.')
     checks = []
     def add(name, status, message):
         checks.append({'check': name, 'status': status, 'message': message})
@@ -58,6 +66,13 @@ def main():
     else:
         # This checks configuration/mounts and may query JTAG identity; it never
         # sets JTAG speed, programs an image, reads UART bytes, or loads an ELF.
+        if args.sof:
+            def artifacts():
+                try:result=check_artifacts(args.profile,args.sof,args.handoff)
+                except (OSError,ValueError,KeyError) as exc:raise BenchError(f'Artifact profile/pair cannot be read: {exc}') from exc
+                if result['status']!='match':raise BenchError('SOF/handoff pair is unqualified for the selected profile; inspect check_artifacts.py output and FPGA onboarding.')
+                return result['scope']
+            attempt('qualified SOF/handoff identity', artifacts)
         attempt('host UART access', lambda: validate_uart(args.port))
         if attempt('container path', lambda: container_path(ROOT)):
             mounted = attempt('same bind-mounted checkout', verify_mount)

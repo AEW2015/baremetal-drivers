@@ -1,0 +1,55 @@
+{
+  "captured_utc": "2026-10-24T02:03:08.228455+00:00",
+  "methods": "Agent-operated actual GUI/CLI checks; no real student study",
+  "checks": {
+    "python_tests": 29,
+    "python_result": "pass",
+    "clean_container_qemu": "pass, clean public clone at 4cea446bec16b67d584e8582b455158bb977f911",
+    "clean_container_exercise": "pass, current source mounted read-only",
+    "learning_image_build": "pass",
+    "hardware_image_build_and_versions": "pass; no USB connected to new image",
+    "desktop_qemu": "pass: startup/main/completion, values, stop and relaunch",
+    "desktop_physical_core": "pass: two launches with fresh DDR between, managed breakpoint, source step, complete UART markers",
+    "final_ddr_restoration": "pass; PC 0x82000014",
+    "final_debug_ports_and_lock": "released"
+  },
+  "versions": {
+    "vscode": "1.143.1",
+    "vscode_commit": "e646868227c3e3a9e3f24277c8c7220be42c0be7",
+    "cpptools": "1.34.4",
+    "compiler": "13.2.Rel1",
+    "qemu": "8.2.2",
+    "gdb": "15.1",
+    "quartus_openocd": "0.12.0+quartus-gc58ca4ebc"
+  },
+  "images": {
+    "learning": "sha256:f1bc8c87a85bfd28ad921771a0db70f51390f6943ca967d8b66cf29edf729573",
+    "hardware": "sha256:8919ad450cf24559f47a41b2c62dea4135eb420d205bfe255ea448ffdcfe662c"
+  },
+  "software_sha256": {
+    "agilex5-modular.code-workspace": "3e561ef6463bb1bb50798fdd5baf9706a1b882a64b7c1e318750b1cec1cda10d",
+    "check_artifacts.py": "13a298451292c7d333a78ab79ce4a9cc6816d0c9269dfc0c7a3f9e09e61a4ca5",
+    "doctor.py": "098bb3a6d4019b3ab5affcee6584c798a6865b7c6402e00c9ad822341355150b",
+    "qemu/experiment.py": "82b92016f47454f6249522542828a187a3c1fa4fef38804da57480376c3be25d",
+    "qemu/hello.c": "1f207df3c0399b351fe878a792727b627872198670d82c6e2ca741cc00e3f7cb",
+    "qemu/start.S": "014173c05846dcea47c6f4dc84b67fa44806d8606949da993ed529a3f79e678a",
+    "profiles/modular-es-ddr1600.json": "3cd3c8f8a6254c029ce1faa2c3c1f0b202011c5a939d5bce13e83220091debf8",
+    "container/Dockerfile": "2c98de72fd33d9a0b06d25b4d04bb63b63ee5cbe6f484fe8764098a059318bd5",
+    "container/install-arm.sh": "0e6549dd11a56d0a3de6f4dbf2c269e232e29d1f7789a5a2a6688956c696ad4b",
+    "tests/test_artifact_pair.py": "832331cfe3cd4fc87b91a8565d428c594048b9e4826f372b397fcfdda0c6ee25"
+  },
+  "core_elf_sha256": "2028d07bc2df227e7c2b47b27934447ad280fefe9fcfb05e7bd7efe53eb22f3b",
+  "screenshots_sha256": {
+    "qemu-done.png": "8344a7d30e2b36bd65a238dfdcdfed8c7acd6be8de6603316cb7a88b527bb51c",
+    "hardware-breakpoint.png": "40597ba5d8a3211625cb81cf32d35337328555890f746d87aa37846089321970",
+    "qemu-main.png": "520105cfb78652ab5901bc4fbe2aca4dd6c7b4da31db52de0b7e14b270aa3e52"
+  },
+  "not_tested": [
+    "Independent human/fresh-kit trial",
+    "Dev Containers attach UI",
+    "Windows/macOS",
+    "USB/JTAG access from newly built hardware image",
+    "New fabric or live partial reconfiguration"
+  ],
+  "normalization": "workspace/UART paths, line endings and trailing whitespace in text; nonprintable UART bytes escaped; PNGs unedited; build logs summarized by selected lines"
+}

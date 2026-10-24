@@ -1,0 +1,15 @@
+{
+  "name": "Established Modular ES custom HPS + dual DDR1600 r3",
+  "qualification": "recorded-bench-pass",
+  "device": "A5ED065BB32AE6SR0",
+  "fpga_jtag_id": "0364F0DD",
+  "sof_sha256": "ba3ff98750be5969bccae62e68fdc8d6f757336ee0b5936cd725a411501d25bb",
+  "handoff_sha256": "9f1a8035d71c5735f88be7763e4f68c9d11c7b4b4263e2632c69ee5da0945640",
+  "hps_ddr": "bank 3A, 8 GiB DDR4-1600, 150 MHz EMIF reference",
+  "upstream_reference": "altera-fpga/agilex5e-ed-gsrd",
+  "upstream_commit": "d970f25424bb413081fa7d4329535b0071d79627",
+  "upstream_design": "mk-a5e065bb32aes1/baseline-a55",
+  "local_integration": "agilex5-litedram-phylite/build/dual_ddr1600_hps_lw_r3",
+  "redistributable_complete_project_in_this_repository": false,
+  "limits": "Qualified on the recorded bench, not every PCB revision. Full custom FPGA project/artifacts must be supplied separately. DDR scratch checks cover 64 MiB, not the entire bank."
+}

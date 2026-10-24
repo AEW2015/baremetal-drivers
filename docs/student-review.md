@@ -78,3 +78,10 @@ command, expected and actual output, doctor results and the failed run's
 credentials and personal paths before sharing. State whether the failure is
 repeatable and whether DDR restoration passed; do not report an older PASS log
 as the outcome of the failing attempt.
+
+## Later supplied feedback
+
+The [onboarding follow-up](feedback-followup.md) adds clean-container and actual
+desktop GUI checks after the original simulated reviews. Its screenshots and
+execution evidence supersede the GUI-untested limitation for the explicitly
+tested Linux configuration; the earlier review methods remain as recorded.

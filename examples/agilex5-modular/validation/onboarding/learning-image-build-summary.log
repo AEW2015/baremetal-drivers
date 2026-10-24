@@ -1,0 +1,6 @@
+#6 [1/6] FROM docker.io/library/ubuntu:24.04@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac
+#9 [3/6] COPY install-arm.sh /tmp/install-arm.sh
+#10 [4/6] RUN bash /tmp/install-arm.sh && rm /tmp/install-arm.sh
+#10 98.86 /tmp/tmp.CYbVga45gu/arm-gnu-toolchain-13.2.rel1-x86_64-aarch64-none-elf.tar.xz: OK
+#13 writing image sha256:f1bc8c87a85bfd28ad921771a0db70f51390f6943ca967d8b66cf29edf729573 done
+#13 naming to docker.io/library/aew-agilex-learning:13.2 done

@@ -26,8 +26,8 @@ success/failure status to QEMU and exits. No guest Linux image is involved.
 
 ## Break and inspect in VS Code
 
-1. Open `qemu/hello.c` and set a breakpoint at `qemu_done`.
-2. Select **QEMU: AArch64 hello (no board)** and press F5.
+1. Open `qemu/hello.c` and set source breakpoints at `main` and `qemu_done`.
+2. Select **QEMU: AArch64 hello (no board)** and press F5. The initial remote stop is `_start` in `qemu/start.S`; continue to `main`.
 3. At `main`, inspect the call stack and step over the first output/check.
 4. Continue to `qemu_done`.
 5. Add `failures`, `vector_result`, `source[511]` and `destination[511]` to Watch.
@@ -94,6 +94,50 @@ Do not reuse these addresses or its UART driver on the physical SOM.
 
 See [the QEMU sources](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/qemu)
 and [QEMU's generic platform documentation](https://www.qemu.org/docs/master/system/arm/virt.html).
+
+## Understand what startup prepares
+
+Read `qemu/start.S`, `qemu/link.ld` and `qemu/hello.c` together:
+
+| Code / state | Why it exists | Prediction to check |
+|---|---|---|
+| QEMU secure machine + paused loader | This exercise enters at EL3, the most privileged AArch64 exception level | `CurrentEL >> 2` is `3`; startup does not elevate a lower-EL caller |
+| `msr spsel,#1`, then `mov sp,x0` | Select the current EL's stack and establish its linker-reserved top before calling C | GDB `sp` initially points below `0x41000000` after C's prologue |
+| CPTR/CPACR setup | Permit the FP/SIMD instructions used by the NEON helper | Removing setup may trap; vector arithmetic is not guaranteed just because C compiled |
+| `__bss_start` to `__bss_end` zero loop | Initialize zero-initialized globals without a C runtime | `failures` and `vector_result` are zero when `main` begins |
+| `REG(0x09000018)` / `REG(0x09000000)` | Poll PL011 TX-full status and write a character through memory-mapped registers | UART output uses volatile device accesses, not a host `printf` or Linux syscall |
+| `hlt #0xf000` with semihosting enabled | Ask the emulator's debugger service to report exit status | A failing check exits nonzero; the same instruction needs suitable debugger support outside this QEMU setup |
+
+EL3 means exception level, not “third CPU core.” BSS means the zero-initialized
+storage section, not a RAM chip. The linker places sections and reserves a stack;
+the loader places ELF data, while the startup code supplies the C-entry state.
+The hardware startup uses a different UART and depends on the matching DDR boot
+flow. These roles explain why swapping only the ELF between platforms fails.
+
+## Predict, modify, explain
+
+Before changing anything, predict `{1,2,3,4} + {11,20,30,40}`. Then:
+
+1. Change only `vector_b[0]` from 10 to 11 in a **scratch copy**. Predict the first
+   lane and whether the old check will pass.
+2. Rebuild and run: expect vector `{12,22,33,44}`, **FAIL NEON**, **PASS MEMORY**,
+   overall failure and nonzero process status. At `qemu_done`, explain why
+   `failures` increased even though the independent copy still matches.
+3. Update the comparison to `i==0 ? 12 : (i+1)*11`, the printed success label,
+   and the runner's expected NEON marker. Rebuild: require the new vector and a
+   successful overall check. Updating only a PASS string does not fix arithmetic.
+4. Restore the original exercise before continuing. Explain which changes were
+   input data, which were assertions and which were human-readable diagnostics.
+
+For an executable version that uses temporary copies and preserves your checkout:
+
+```sh
+python3 qemu/experiment.py
+```
+
+Expect three lines labeled `BASELINE`, `MISMATCH` and `CORRECTED`, with the last
+line confirming the original checkout is unchanged. This is a teaching exercise,
+not a replacement for the debugger breakpoints above.
 
 Next: try the [six QEMU practice labs](examples/qemu-labs.md), or
 [run on the Modular kit](hardware.md).

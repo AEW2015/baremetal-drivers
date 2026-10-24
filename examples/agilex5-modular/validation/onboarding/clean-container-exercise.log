@@ -1,0 +1,3 @@
+BASELINE: vector {11,22,33,44}; all checks pass.
+MISMATCH: predicted vector {12,22,33,44}; old expectation fails; memory still passes.
+CORRECTED: expected values and marker agree; all checks pass; original checkout unchanged.

@@ -1,0 +1,53 @@
+{"time":"2026-10-24T01:50:37.058Z","type":"activated"}
+{"time":"2026-10-24T01:50:59.558Z","type":"started","session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T01:50:59.909Z","type":"stopped","session":"QEMU: AArch64 hello (no board)","reason":"step","threadId":1,"frame":{"id":1000,"name":"_start()","source":{"name":"start.S","path":"<CONTAINER_REPO>/examples/agilex5-modular/qemu/start.S","sources":[],"checksums":[]},"line":4,"column":1,"instructionPointerReference":"0x0000000040200000"}}
+{"time":"2026-10-24T01:52:00.813Z","type":"session_ended","session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T01:52:00.815Z","type":"adapter_error","error":"Error: read error"}
+{"time":"2026-10-24T01:52:00.818Z","type":"adapter_exit","code":143,"session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T01:52:57.073Z","type":"started","session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T01:52:57.796Z","type":"stopped","session":"QEMU: AArch64 hello (no board)","reason":"exception","threadId":1,"frame":{"id":1000,"name":"main()","source":{"name":"hello.c","path":"<CONTAINER_REPO>/examples/agilex5-modular/qemu/hello.c","sources":[],"checksums":[]},"line":19,"column":1,"instructionPointerReference":"0x00000000402000d0"}}
+{"time":"2026-10-24T01:53:38.708Z","type":"adapter_error","error":"Error: read error"}
+{"time":"2026-10-24T01:53:38.709Z","type":"adapter_exit","code":0,"session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T01:53:38.723Z","type":"session_ended","session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T01:54:05.536Z","type":"started","session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T01:54:05.943Z","type":"stopped","session":"QEMU: AArch64 hello (no board)","reason":"step","threadId":1,"frame":{"id":1000,"name":"_start()","source":{"name":"start.S","path":"<CONTAINER_REPO>/examples/agilex5-modular/qemu/start.S","sources":[],"checksums":[]},"line":4,"column":1,"instructionPointerReference":"0x0000000040200000"}}
+{"time":"2026-10-24T01:54:11.335Z","type":"stopped","session":"QEMU: AArch64 hello (no board)","reason":"breakpoint","threadId":1,"frame":{"id":1000,"name":"main()","source":{"name":"hello.c","path":"<CONTAINER_REPO>/examples/agilex5-modular/qemu/hello.c","sources":[],"checksums":[]},"line":19,"column":1,"instructionPointerReference":"0x00000000402000d0"}}
+{"time":"2026-10-24T01:54:47.835Z","type":"stopped","session":"QEMU: AArch64 hello (no board)","reason":"breakpoint","threadId":1,"frame":{"id":1000,"name":"qemu_done(unsigned int status)","source":{"name":"hello.c","path":"<CONTAINER_REPO>/examples/agilex5-modular/qemu/hello.c","sources":[],"checksums":[]},"line":13,"column":1,"instructionPointerReference":"0x00000000402000a8"}}
+{"time":"2026-10-24T01:54:47.888Z","type":"volatile unsigned int","expression":"failures","result":"0","variablesReference":0,"memoryReference":"0x0000000000000000"}
+{"time":"2026-10-24T01:54:47.899Z","type":"uint32_t [4]","expression":"vector_result","result":"[4]","variablesReference":1000,"memoryReference":"0x00000000402003c0"}
+{"time":"2026-10-24T01:54:47.982Z","type":"int","expression":"source[511] == destination[511]","result":"1","variablesReference":0,"memoryReference":"0x0000000000000001"}
+{"time":"2026-10-24T01:55:24.676Z","type":"session_ended","session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T01:55:24.678Z","type":"adapter_error","error":"Error: read error"}
+{"time":"2026-10-24T01:55:24.680Z","type":"adapter_exit","code":143,"session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T01:55:56.016Z","type":"started","session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T01:55:56.420Z","type":"stopped","session":"QEMU: AArch64 hello (no board)","reason":"step","threadId":1,"frame":{"id":1000,"name":"_start()","source":{"name":"start.S","path":"<CONTAINER_REPO>/examples/agilex5-modular/qemu/start.S","sources":[],"checksums":[]},"line":4,"column":1,"instructionPointerReference":"0x0000000040200000"}}
+{"time":"2026-10-24T01:56:05.846Z","type":"session_ended","session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T01:56:05.847Z","type":"adapter_error","error":"Error: read error"}
+{"time":"2026-10-24T01:56:05.849Z","type":"adapter_exit","code":0,"session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T01:56:24.732Z","type":"adapter_error","error":"Error: read error"}
+{"time":"2026-10-24T01:56:24.733Z","type":"adapter_exit","code":143,"session":"Hardware: HPS core (initialize DDR first)"}
+{"time":"2026-10-24T01:56:51.327Z","type":"exited","body":{"exitCode":42},"session":"Hardware: HPS core (initialize DDR first)"}
+{"time":"2026-10-24T01:56:51.328Z","type":"terminated","body":{},"session":"Hardware: HPS core (initialize DDR first)"}
+{"time":"2026-10-24T01:56:51.341Z","type":"adapter_error","error":"Error: read error"}
+{"time":"2026-10-24T01:56:51.345Z","type":"adapter_exit","code":0,"session":"Hardware: HPS core (initialize DDR first)"}
+{"time":"2026-10-24T01:57:11.889Z","type":"started","session":"Hardware: HPS core (initialize DDR first)"}
+{"time":"2026-10-24T01:57:12.428Z","type":"stopped","session":"Hardware: HPS core (initialize DDR first)","reason":"breakpoint","threadId":1,"frame":{"id":1000,"name":"example_main()","source":{"name":"core_examples.c","path":"<CONTAINER_REPO>/examples/agilex5-modular/core/core_examples.c","sources":[],"checksums":[]},"line":52,"column":1,"instructionPointerReference":"0x00000000821019ac"}}
+{"time":"2026-10-24T01:57:55.920Z","type":"session_ended","session":"Hardware: HPS core (initialize DDR first)"}
+{"time":"2026-10-24T01:57:55.921Z","type":"adapter_error","error":"Error: read error"}
+{"time":"2026-10-24T01:57:55.922Z","type":"adapter_exit","code":143,"session":"Hardware: HPS core (initialize DDR first)"}
+{"time":"2026-10-24T01:59:01.869Z","type":"started","session":"Hardware: HPS core (initialize DDR first)"}
+{"time":"2026-10-24T01:59:02.148Z","type":"stopped","session":"Hardware: HPS core (initialize DDR first)","reason":"breakpoint","threadId":1,"frame":{"id":1000,"name":"example_main()","source":{"name":"core_examples.c","path":"<CONTAINER_REPO>/examples/agilex5-modular/core/core_examples.c","sources":[],"checksums":[]},"line":52,"column":1,"instructionPointerReference":"0x00000000821019ac"}}
+{"time":"2026-10-24T01:59:26.642Z","type":"stopped","session":"Hardware: HPS core (initialize DDR first)","reason":"step","threadId":1,"frame":{"id":1000,"name":"example_main()","source":{"name":"core_examples.c","path":"<CONTAINER_REPO>/examples/agilex5-modular/core/core_examples.c","sources":[],"checksums":[]},"line":53,"column":1,"instructionPointerReference":"0x00000000821019c0"}}
+{"time":"2026-10-24T01:59:59.695Z","type":"session_ended","session":"Hardware: HPS core (initialize DDR first)"}
+{"time":"2026-10-24T01:59:59.696Z","type":"adapter_error","error":"Error: read error"}
+{"time":"2026-10-24T01:59:59.699Z","type":"adapter_exit","code":143,"session":"Hardware: HPS core (initialize DDR first)"}
+{"time":"2026-10-24T02:00:25.269Z","type":"started","session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T02:00:25.682Z","type":"stopped","session":"QEMU: AArch64 hello (no board)","reason":"step","threadId":1,"frame":{"id":1000,"name":"_start()","source":{"name":"start.S","path":"<CONTAINER_REPO>/examples/agilex5-modular/qemu/start.S","sources":[],"checksums":[]},"line":4,"column":1,"instructionPointerReference":"0x0000000040200000"}}
+{"time":"2026-10-24T02:01:15.464Z","type":"stopped","session":"QEMU: AArch64 hello (no board)","reason":"breakpoint","threadId":1,"frame":{"id":1000,"name":"main()","source":{"name":"hello.c","path":"<CONTAINER_REPO>/examples/agilex5-modular/qemu/hello.c","sources":[],"checksums":[]},"line":19,"column":1,"instructionPointerReference":"0x00000000402000d0"}}
+{"time":"2026-10-24T02:01:35.965Z","type":"stopped","session":"QEMU: AArch64 hello (no board)","reason":"breakpoint","threadId":1,"frame":{"id":1000,"name":"qemu_done(unsigned int status)","source":{"name":"hello.c","path":"<CONTAINER_REPO>/examples/agilex5-modular/qemu/hello.c","sources":[],"checksums":[]},"line":13,"column":1,"instructionPointerReference":"0x00000000402000a8"}}
+{"time":"2026-10-24T02:01:36.016Z","type":"volatile unsigned int","expression":"failures","result":"0","variablesReference":0,"memoryReference":"0x0000000000000000"}
+{"time":"2026-10-24T02:01:36.018Z","type":"uint32_t [4]","expression":"vector_result","result":"[4]","variablesReference":1000,"memoryReference":"0x00000000402003c0"}
+{"time":"2026-10-24T02:01:36.102Z","type":"int","expression":"source[511] == destination[511]","result":"1","variablesReference":0,"memoryReference":"0x0000000000000001"}
+{"time":"2026-10-24T02:01:54.407Z","type":"session_ended","session":"QEMU: AArch64 hello (no board)"}
+{"time":"2026-10-24T02:01:54.409Z","type":"adapter_error","error":"Error: read error"}
+{"time":"2026-10-24T02:01:54.411Z","type":"adapter_exit","code":143,"session":"QEMU: AArch64 hello (no board)"}
