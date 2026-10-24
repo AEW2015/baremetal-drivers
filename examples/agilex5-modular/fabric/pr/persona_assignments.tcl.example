@@ -1,0 +1,8 @@
+# QSF fragment for an ALREADY defined/floorplanned PR partition.
+# This does not create the static shell, freeze bridge or PR controller.
+# Replace with the exact hierarchy from your generated design.
+set slot_path {REPLACE_WITH_FULL_PATH_TO_LAB_IP_INSTANCE}
+if {[string match REPLACE_* $slot_path]} { error "Set the actual PR partition hierarchy first" }
+# MODE=1 for ADD1 implementation; MODE=2 for XOR1 implementation.
+set_instance_assignment -name RTL_PARAMETER "MODE=2" -to $slot_path
+set_instance_assignment -name ENTITY_REBINDING lab_ip -to $slot_path

@@ -16,3 +16,4 @@ __pycache__/
 # Temporary host/container mount verification files
 /.agilex-mount-*
 /.agilex-process-*
+/bootstrap/ddr/build-manifest.json

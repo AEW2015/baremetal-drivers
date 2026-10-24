@@ -1,0 +1,51 @@
+{
+  "captured_utc": "2026-10-24T01:45:13.128193+00:00",
+  "checks": {
+    "python_regressions": {
+      "count": 24,
+      "result": "pass",
+      "real_qemu_option": true
+    },
+    "rtl_c_driver_cosimulation": {
+      "ADD1": "pass",
+      "XOR1": "pass"
+    },
+    "aarch64_fabric_application": "build pass",
+    "optional_atf_lwh2f": "compile and full/HPS image packaging pass using existing baseline SOF; no arithmetic IP integrated in that SOF",
+    "quartus_component_wrapper_generation": "pass for A5ED065BB32AE6SR0, exported CSR/clock/reset; no whole-board fit"
+  },
+  "hardware": {
+    "new_fabric_project_fitted": false,
+    "arithmetic_ip_run_on_board": false,
+    "live_partial_reconfiguration": false,
+    "new_programming_performed": false
+  },
+  "software_sha256": {
+    "bootstrap/ddr/build_ddr.sh": "147fd54cdf91e5318eb39aa82c92a733bee47952437f60f0b388d97587c8dc1f",
+    "bootstrap/ddr/local_ddr_probe.inc.in": "934e16f715c91a2574c443bbadf0b2b3c2f24fcc1201471e514014c18e8f10c7",
+    "fabric/README.md": "8c82dffdf654ab8ec7ac1e267003fe65e90fb781812c2cf0f9c95efb56e7c15f",
+    "fabric/__init__.py": "51c1c60af9769121c0a5a032fcffa1026960f651557473601495b4641168fd32",
+    "fabric/build.sh": "7a60b53e4338ff479a13fc54a4169df7e5c9c46453bfae39bdb894a0002ca7c8",
+    "fabric/check_component.sh": "41c397a8874d309a0657400c661204d2db400940ac23180263c8ce4133bb5d64",
+    "fabric/fabric_example.c": "846099acde24d043aa5e277814552f666c71a85cd4b950e03f373ca01d3cd6bc",
+    "fabric/lab_driver.c": "98850c2e6abd00426e62538483123c15e9743c690594c636087fc2a0e859730f",
+    "fabric/lab_driver.h": "686fd2f24480929609024cccbe3569668d640298443d8e8b3a4a5c528325d5b1",
+    "fabric/lab_ip_hw.tcl": "3033bfcfcec9b9d6dfe3b7f93add8c8c1edad6a854b0ca68153f949c9c5088ae",
+    "fabric/lab_mmio.c": "587018d3b9af7b115bac789ab44a97ffe6200547f918b3873392bdd364253615",
+    "fabric/pr/persona_assignments.tcl.example": "0047c152bac89c275285e41c2e512e096223cce461a9d5ebbfe255b8f9587761",
+    "fabric/rtl/lab_ip.sv": "3ac67d8a752cb38b9fd55c606a9757144dc7ae3dc99efbf91409b388d1a6d07c",
+    "fabric/rtl/lab_persona.sv": "f78b8b773cd784b5b85cf2a0442baaebfe13e2e3a513096b398c248db563edd1",
+    "fabric/run.py": "2538d608645fd63f7994e2acd79e2559cc2840ec3df419167ed69580f7842130",
+    "fabric/test.sh": "5497a54e19fd169aedc739f0fa21ddf47f7037345249797fa85268124f8e4145",
+    "fabric/tests/test_lab.cpp": "a4e506c445d9de81357f1da27e1927d477d96ffcbe63a196f97943027fdacf8f",
+    "run_suite.py": "39a51569b3c4c8aa4cd89a7558acefae9be2b82d6043cd367cc8d7e4cbddb647",
+    "tests/test_fabric_deployment.py": "58aeb46d3c1b0e5ed6883ef04b69c7ed3e27ff8b3063843fa5111125abd0a6f5"
+  },
+  "artifacts_sha256": {
+    "build/fabric_example.elf": "06a88e43cd637235e314d0f473e99927dc6b46e59386eb7572658b276cfbf831",
+    "bootstrap/ddr/ddr_probe.hps.rbf": "ef957dc9d0e561af6df6123d8dd2e41232b7972a352dc7030629507040ea2f87",
+    "bootstrap/ddr/ddr_recovery.sof": "3e79ce271c7a89400e523f1a6aa3efeeaab70feb7e74c2419171bb15d35d25d8"
+  },
+  "cpu_csr_address_used_for_compile_only": "0x20020000",
+  "normalization": "workspace paths, line endings and trailing whitespace"
+}

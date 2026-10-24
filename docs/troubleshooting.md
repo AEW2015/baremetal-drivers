@@ -207,3 +207,12 @@ Read the [scope table](examples.md). An ID read does not establish USB
 enumeration, Ethernet traffic, SD reads, SMMU translation or ECC recovery.
 Preserve warnings and failing runs instead of changing expected values solely
 to produce PASS. For a new chip revision, decode documented ID fields first.
+
+## Custom fabric IP or PR fails
+
+Check the [fabric register/map/deployment checkpoints](fabric-ip.md#troubleshooting-checkpoints)
+and [PR swap diagnostics](partial-reconfiguration.md#troubleshoot-the-swap).
+The standard DDR hook branches before normal bridge enable; a fabric build must
+explicitly select `AGILEX_ENABLE_LWH2F=1`. A CPU poll timeout cannot recover a
+stalled bus transaction. Never feed a persona RBF into the full-image or HPS-only
+loader, and retain PR isolation after controller errors.

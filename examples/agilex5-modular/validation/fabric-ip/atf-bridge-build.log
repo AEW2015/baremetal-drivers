@@ -1,0 +1,70 @@
+make: Entering directory '<CONTAINER_REPO>/examples/agilex5-modular/bootstrap/atf-26.1.1'
+  CC      plat/intel/soc/agilex5/bl2_plat_setup.c
+  LD      <CONTAINER_REPO>/examples/agilex5-modular/bootstrap/atf-26.1.1/build/agilex5/debug/bl2/bl2.elf
+  BIN     <CONTAINER_REPO>/examples/agilex5-modular/bootstrap/atf-26.1.1/build/agilex5/debug/bl2.bin
+  OD      <CONTAINER_REPO>/examples/agilex5-modular/bootstrap/atf-26.1.1/build/agilex5/debug/bl2/bl2.dump
+
+Built <CONTAINER_REPO>/examples/agilex5-modular/bootstrap/atf-26.1.1/build/agilex5/debug/bl2.bin successfully
+
+make: Leaving directory '<CONTAINER_REPO>/examples/agilex5-modular/bootstrap/atf-26.1.1'
+Info: *******************************************************************
+Info: Running Quartus Prime Programming File Generator
+    Info: Version 26.1.1 Build 130 08/06/2026 SC Pro Edition
+    Info: Copyright (C) 2026  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions
+    Info: and other software and tools, and any partner logic
+    Info: functions, and any output files from any of the foregoing
+    Info: (including device programming or simulation files), and any
+    Info: associated documentation or information are expressly subject
+    Info: to the terms and conditions of the Altera Program License
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Sat Oct 24 01:41:01 2026
+    Info: System process ID: 2266469
+Info: Command: quartus_pfg -c <FPGA_PROJECT>/build/dual_ddr1600_hps_lw_r3/memory_test.sof ddr_probe.rbf -o hps_path=bl2-ddr.hex -o hps=1
+Info (19848): HPS IO hash is 8A81B8E7615E9E781B7DDAAADB31E5F2182F6D2583A0FF1910815B6CF3DD1B7D
+Info (19848): Keyed hash is ECA833FE31002A206A73A45CA703D06F2D64CFCD65A9233A02A39E477D3A39F0
+Info (19848): HPS IO hash is 8A81B8E7615E9E781B7DDAAADB31E5F2182F6D2583A0FF1910815B6CF3DD1B7D
+Info (19848): Keyed hash is 1B6CF530464E36B6A8AA737C8287F6B8568C6D4E4328A7A9A2DE719DDAEB5C8B
+Info (19848): Regular SEU info => 9 sector(s), 9 thread(s), 10000000 interval time in microsecond(s)
+Info (19848): IO hash is 4004581A35FC96FF3BCF459C807EA345EFB8BB8B0BC172D401201D6C339CD341
+Info (19848): HPS IO hash is 8A81B8E7615E9E781B7DDAAADB31E5F2182F6D2583A0FF1910815B6CF3DD1B7D
+Info (19848): Keyed hash is F2315932926C07F83179AEBBDAA0BAE33E23084560473ABC4B12EEA6517FB791
+Info (19848): Design hash is 465762CCDF2B9D71EFE3DB796DD3BBE9B9847B5BB6D396AFC3C51051F199D5F7
+Info (19848): IO hash is 4004581A35FC96FF3BCF459C807EA345EFB8BB8B0BC172D401201D6C339CD341
+Info (19848): Keyed hash is 1166DB14D02BC8BEFE0E17BB83EDDC521B3C08D669C9A51488CF4E989EDEF3C3
+Info: Quartus Prime Programming File Generator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 1400 megabytes
+    Info: Processing ended: Sat Oct 24 01:41:23 2026
+    Info: Elapsed time: 00:00:22
+    Info: System process ID: 2266469
+Info: *******************************************************************
+Info: Running Quartus Prime Programming File Generator
+    Info: Version 26.1.1 Build 130 08/06/2026 SC Pro Edition
+    Info: Copyright (C) 2026  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions
+    Info: and other software and tools, and any partner logic
+    Info: functions, and any output files from any of the foregoing
+    Info: (including device programming or simulation files), and any
+    Info: associated documentation or information are expressly subject
+    Info: to the terms and conditions of the Altera Program License
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Sat Oct 24 01:41:23 2026
+    Info: System process ID: 2271642
+Info: Command: quartus_pfg -c <FPGA_PROJECT>/build/dual_ddr1600_hps_lw_r3/memory_test.sof ddr_recovery.sof -o hps_path=bl2-ddr.hex
+Info: Quartus Prime Programming File Generator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 984 megabytes
+    Info: Processing ended: Sat Oct 24 01:41:29 2026
+    Info: Elapsed time: 00:00:06
+    Info: System process ID: 2271642

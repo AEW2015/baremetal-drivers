@@ -57,3 +57,12 @@ Ethernet PHY IDs, USB controller IDs and SD card detect do not establish packet
 traffic, enumeration or media read/write. No populated NAND/eMMC was established
 on this SOM. EEPROM contents were read, not programmed. External-peer and
 U-Boot/Linux recipes are separate setup references.
+
+## Fabric IP extension
+
+The new [fabric lesson](fabric-ip.md) includes ADD/XOR RTL, its register ABI,
+actual C-driver/RTL co-simulation, an AArch64 build and a bridge-enabled ATF
+packaging path. Evidence distinguishes these software/component checks from
+a fitted whole-board project. The new fabric design has not been board-qualified;
+[partial reconfiguration](partial-reconfiguration.md) remains an advanced
+integration lab requiring a compiled static base, isolation and tested transport.

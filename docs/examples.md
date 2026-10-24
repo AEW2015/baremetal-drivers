@@ -49,3 +49,11 @@ The original [15-entry hardware record](validation.md) and [tutorial debugger ch
 ## Supporting and deferred examples
 
 `secondary_core.c` is a compile-only PSCI wrapper requiring resident BL31 and a nonsecure caller, absent in the current EL3 bootstrap. `fault_probe.c` is a manual diagnostic utility, not a peripheral qualification test. The U-Boot/Linux recipes are unexecuted setup references. Ethernet traffic, USB enumeration, SD media access, native I3C protocols, SMMU translation, ECC injection and coherent multicore sharing are not claimed by these tests.
+
+## Fabric IP extension
+
+The optional [ADD/XOR fabric lesson](fabric-ip.md) adds a memory map, RTL,
+a common bare-metal driver and full-image deployment steps. Both cores pass
+RTL/driver simulation; the new fabric integration is not included in the
+historical 15 board passes. The [PR integration lab](partial-reconfiguration.md)
+then describes live persona replacement and its continuity checks.

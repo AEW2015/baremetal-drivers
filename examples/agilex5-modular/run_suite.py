@@ -124,7 +124,7 @@ def restore_ddr(out,results,port,lock,skip=False):
  if results['restoration']!='pass':
   print('STOP: restoration is not verified. Keep these logs; stop further examples until programmer state, matching image, fresh DDR markers and PC proof are checked. '+str(out/'restore.log'),file=sys.stderr,flush=True)
 
-def main():
+def main(preflight=None):
  p=argparse.ArgumentParser(description=__doc__)
  p.add_argument('--only',default=','.join(TESTS));p.add_argument('--port',default=PORT)
  p.add_argument('--list',action='store_true')
@@ -141,6 +141,7 @@ def main():
   images=[ROOT/'bootstrap/ddr/ddr_probe.hps.rbf',ROOT/'bootstrap/ocram/agilex5.cfg']
   if a.full_recovery:images.append(ROOT/'bootstrap/ddr/ddr_recovery.sof')
   verify_mapped_files(images+[ROOT/'build'/(TESTS[name]['elf']+'.elf') for name in names])
+  if preflight is not None:preflight()
   out=ROOT/'runs'/datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ');out.mkdir(parents=True)
   results={'requested_tests':names,'started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'initial_full_recovery':a.full_recovery,'tests':[],'restoration':'pending'}
   print('Evidence: '+str(out),flush=True);save(out,results)

@@ -105,6 +105,15 @@
           }
         },
         "problemMatcher": "$gcc"
+      },
+      {
+        "label": "Test fabric RTL and driver (no board)",
+        "type": "shell",
+        "command": "./fabric/test.sh",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
       }
     ]
   },

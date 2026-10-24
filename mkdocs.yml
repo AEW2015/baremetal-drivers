@@ -50,6 +50,8 @@ nav:
       - 2. Set up VS Code: vscode.md
       - 3. Run and debug QEMU: qemu.md
       - 4. Run on the Modular kit: hardware.md
+      - 5. Fabric IP, map and driver: fabric-ip.md
+      - 6. Swap IP with partial reconfiguration: partial-reconfiguration.md
   - Examples:
       - Overview: examples.md
       - QEMU CPU, NEON and RAM: examples/qemu.md

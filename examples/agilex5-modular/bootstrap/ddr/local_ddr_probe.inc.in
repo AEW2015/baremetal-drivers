@@ -20,6 +20,7 @@ static void local_ddr_probe(void)
         }
         NOTICE("LOCAL DDR: pattern %u PASS (67108864 bytes)\n", pass);
     }
+BRIDGE_ENABLE
     static const unsigned char payload[] = {PAYLOAD_BYTES};
     volatile unsigned char *target = (volatile unsigned char *)0x82000000UL;
     for (size_t i=0; i<sizeof(payload); i++) target[i] = payload[i];

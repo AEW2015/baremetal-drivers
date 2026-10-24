@@ -178,3 +178,13 @@ and [simulated student review](https://aew2015.github.io/baremetal-drivers/stude
 for failure checks, recovery steps and validation limits. Software regressions:
 `AGILEX_TEST_REAL_QEMU=1 python3 -m unittest discover -s tests -v`
 (omit the environment flag to skip the real compiler/emulator exercise).
+
+## Fabric IP and persona swaps
+
+The optional [fabric IP lesson](https://aew2015.github.io/baremetal-drivers/fabric-ip/)
+provides ADD/XOR RTL, a 64-byte register ABI, an actual C driver/RTL co-simulation
+and matched full-image deployment. The
+[PR lesson](https://aew2015.github.io/baremetal-drivers/partial-reconfiguration/)
+covers static partitions, freeze/reset and live-swap acceptance checks. The new
+whole-board fabric design and live PR remain unqualified; these are separate
+from the historical HPS suite results. Start with `./fabric/test.sh`.

@@ -43,3 +43,10 @@ packaged sources also build separately. This tutorial adds a tested QEMU exercis
 and debugger walkthrough; consult [the validation record](validation.md) for the
 precise distinction between tested commands, supplied GUI configuration and
 untested end-to-end peripheral behavior.
+
+## Extend the lab into the fabric
+
+[Build a memory-mapped ADD/XOR IP and bare-metal driver](fabric-ip.md), then
+follow the [partial-reconfiguration integration lab](partial-reconfiguration.md)
+to plan live persona swaps. The software/RTL tests are executable now; the new
+whole-board FPGA integration and live PR are explicitly marked unvalidated.
