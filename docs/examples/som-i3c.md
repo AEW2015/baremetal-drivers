@@ -74,4 +74,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     Targets communicate using legacy I2C, not native I3C. No dynamic address assignment, CCC, IBI, hot-join or native-I3C target transfer is tested. The script’s fresh bootstrap is important after any early failure, including a reset timeout.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

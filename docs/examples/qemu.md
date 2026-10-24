@@ -45,4 +45,3 @@ A board-free exercise for generic QEMU `virt`; separate from the hardware suite.
 === "Limits"
 
     This does not emulate the Agilex 5 Modular board. It does not test HPS DMA, DDR training, SOM I2C/I3C, real GIC-600 integration or the external connectors. The CPU is a single Cortex-A53 model, not the mixed A55/A76 HPS. Follow the hardware pages for the physical examples.
-

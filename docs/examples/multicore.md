@@ -74,4 +74,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     Direct EL3 reset/power control is used, not PSCI CPU_ON. The test does not establish shared-cache coherency, SMP scheduling, interprocessor messaging or multicore throughput. Secondaries remain parked until the next bootstrap.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

@@ -79,4 +79,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     The watchdog is not allowed to reset the system. SPI is internal loopback, so external pins/peers are not qualified. LED verification is electrical pad readback, not a claim of a visible blink. The controller-ID portion performs no I2C/I3C bus transfer.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

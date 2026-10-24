@@ -64,4 +64,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     The current test requires D-cache disabled and an idle controller. It does not establish coherent DMA, cache maintenance, scatter/gather across multiple descriptors or peripheral-to-memory transfers.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

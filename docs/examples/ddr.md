@@ -64,4 +64,3 @@ Hardware prerequisite used before every DDR suite entry; this is not a `--only` 
     The board’s HPS bank 3A is 8 GiB; this checks only a 64 MiB scratch region and payload execution. The vendor configured-2-GiB/detected-8-GiB warning remains relevant. This is not memory-margin, retention, full-bank, cache-coherency or performance qualification.
 
     It overwrites the scratch region and replaces volatile execution. It does not access SD/flash contents. The hook runs before storage/combo-PHY initialization and does not provide resident BL31/PSCI services to the application.
-

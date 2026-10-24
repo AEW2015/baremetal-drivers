@@ -69,4 +69,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     This qualifies GPIO-generated legacy I2C, not native I2C0/I2C1 controller transfers. EEPROM pointer writes select the read address; no array data is programmed. The raw temperature print is optional and is not a calibrated temperature-accuracy test.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

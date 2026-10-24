@@ -60,4 +60,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     Interrupt acknowledgement is polled. This does not test a C exception handler, vector entry, IRQ latency, external interrupts or cross-core interrupt delivery. The test temporarily owns GIC configuration.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

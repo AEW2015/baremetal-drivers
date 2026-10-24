@@ -65,4 +65,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     The test does not measure clock frequency, jitter, stability or tolerance, and does not reconfigure the external clock generator. Zero return status does not assert equality with every reference register.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

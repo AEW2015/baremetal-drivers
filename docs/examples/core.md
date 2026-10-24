@@ -80,4 +80,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     Cache registers describe configuration; they do not prove coherency or cache performance. GPIO input values depend on board state. GIC ID reads are not interrupt delivery. CNTFRQ was zero, so this test does not establish a usable delay calibration.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

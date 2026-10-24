@@ -62,4 +62,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     This is an EL3 identity-map example with D-cache off. It does not exercise paging, EL1 process isolation, access faults, virtual-address remapping or cache coherency.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

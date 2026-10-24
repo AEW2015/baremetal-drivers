@@ -53,4 +53,3 @@ A local-memory hardware example that does not initialize DDR. Build support is i
 === "Limits"
 
     The handoff layout and UART divisor must match the hardware image and input clock. This is UART transmit only, without receive/flow-control testing. The separate `hello_semihost.S` is a reference source, not an additional automated test. OCRAM build support alone does not establish that an arbitrary supplied SOF can boot this program.
-

@@ -68,4 +68,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     Register access and the vendor’s return code do not establish cache coherency or correct data sharing between CPUs/DMA. Warning-only comparisons do not turn into strict equality checks just because the wrapper reports PASS.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

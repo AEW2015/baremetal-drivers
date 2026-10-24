@@ -62,4 +62,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     This is one read-only management command. It does not test secure services, FPGA reconfiguration, sensor mailbox commands, authentication or error recovery. A busy ring causes a failure without consuming existing messages.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

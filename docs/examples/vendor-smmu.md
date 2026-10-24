@@ -65,4 +65,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     No stream table, context descriptor or translated DMA transaction is installed. This is identification, not SMMU translation or isolation validation. The expected ID is specific to the documented SOM profile.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

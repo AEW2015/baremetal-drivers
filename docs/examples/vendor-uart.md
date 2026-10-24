@@ -60,4 +60,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     This is a transmit/driver sample. It does not test UART receive, flow control, an external loopback or every baud rate.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-

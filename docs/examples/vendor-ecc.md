@@ -73,4 +73,3 @@ All hardware commands assume the matching Modular ES profile and host/container 
     No single-bit/double-bit error is deliberately injected, and no interrupt handler, correction, syndrome decoding or recovery is tested. Register defaults alone do not establish that all HPS memories are ECC protected.
 
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.
-
