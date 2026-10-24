@@ -12,7 +12,8 @@ def verify(label, result, expected_status, *markers):
     if result.returncode != expected_status or any(marker not in output for marker in markers):
         raise RuntimeError(f'{label}: unexpected result (runner exit {result.returncode}).\n'+output)
     for check in ('NEON', 'MEMORY'):
-        if f'PASS {check}' in output and f'FAIL {check}' in output:
+        lines = result.stdout.splitlines()
+        if any(line.startswith(f'PASS {check}:') for line in lines) and f'FAIL {check}' in lines:
             raise RuntimeError(f'{label}: contradictory {check} diagnostics.\n'+output)
     if expected_status == 1 and 'PASS QEMU_CHECK' in output:
         raise RuntimeError(f'{label}: failed run claimed success.\n'+output)

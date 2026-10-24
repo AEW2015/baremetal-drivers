@@ -117,3 +117,9 @@ Fresh replay evidence is in
 all six experiment stages, the linker warning/program headers, source hashes
 and the regression test transcript. No new physical-board run is claimed for
 this documentation and emulator follow-up.
+
+The first CI replay of the extended exercise exposed a checker mistake: it
+searched the runner's combined output and mistook a diagnostic listing a missing
+PASS marker for an actual PASS. The checker now checks guest stdout lines for
+contradictions and keeps stderr for exit diagnostics. That rejected attempt is
+retained as `checker-first-attempt.log`; the final local replay passes all stages.

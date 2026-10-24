@@ -29,6 +29,6 @@ test_uncertain_process_shutdown_prevents_reprogramming (test_student_experience.
 test_unresolved_record_blocks_new_hardware_owner (test_student_experience.StudentFailures.test_unresolved_record_blocks_new_hardware_owner) ... ok
 
 ----------------------------------------------------------------------
-Ran 29 tests in 4.112s
+Ran 29 tests in 4.117s
 
 OK

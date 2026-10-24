@@ -6,10 +6,14 @@
     "qemu/start.S": "014173c05846dcea47c6f4dc84b67fa44806d8606949da993ed529a3f79e678a",
     "qemu/link.ld": "9b215693e5f0f01d42445595b10be1de37983257515bddb1ef2e6604a52114cc",
     "qemu/run.py": "e8519626decf5883d8650554fd77aa2384825abc632a304739380e272188589a",
-    "qemu/experiment.py": "25c997a11a13b683d0c0b13aaae7e1804417480e223573ff09df4c2ee32d0d16"
+    "qemu/experiment.py": "5f1e749b38a4d87585f83174500a4fec7b88d908b1c152ae3cae1967ab01f6f8"
   },
   "experiment_exit": 0,
   "linker_build_exit": 0,
   "regression_exit": 0,
-  "scope": "Local emulator replay; supplied external audit files unavailable; no new hardware run"
+  "scope": "Local emulator replay; supplied external audit files unavailable; no new hardware run",
+  "first_ci_attempt": {
+    "run": 40053459975,
+    "result": "Checker incorrectly matched a missing-marker diagnostic as a PASS; fixed to inspect guest stdout lines. Failed log retained."
+  }
 }

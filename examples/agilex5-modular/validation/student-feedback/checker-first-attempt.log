@@ -1,0 +1,39 @@
+qemu	Check QEMU, fabric RTL and driver builds	﻿2026-10-24T02:16:27.5952863Z ##[group]Run ./qemu/build.sh
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.5953183Z [36;1m./qemu/build.sh[0m
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.5953426Z [36;1mpython3 qemu/run.py --check[0m
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.5954351Z [36;1mpython3 qemu/experiment.py[0m
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.5954726Z [36;1mAGILEX_TEST_REAL_QEMU=1 python3 -m unittest discover -s tests -v[0m
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.5955118Z [36;1m./fabric/test.sh[0m
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.5955388Z [36;1mLAB_CPU_BASE=0x20020000 ./fabric/build.sh[0m
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.6022525Z shell: /usr/bin/bash -e {0}
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.6022776Z env:
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.6022978Z   CROSS_COMPILE: aarch64-linux-gnu-
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.6023243Z ##[endgroup]
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.6598333Z /usr/lib/gcc-cross/aarch64-linux-gnu/13/../../../../aarch64-linux-gnu/bin/ld: warning: build/qemu/hello.elf has a LOAD segment with RWX permissions
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.6937004Z QEMU: running bounded checks...
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.8295608Z QEMU VIRT AARCH64 BEGIN
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.8295982Z PASS EL3
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.8296232Z PASS NEON: 11 22 33 44
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.8296613Z PASS MEMORY: 4096-byte CPU copy
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.8296933Z QEMU EXAMPLE COMPLETE
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.8297294Z PASS QEMU_CHECK: all required markers and exit status zero
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.9860058Z BASELINE: runner exit 0
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.9860581Z QEMU: running bounded checks...
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.9860989Z QEMU VIRT AARCH64 BEGIN
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.9861344Z PASS EL3
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.9861658Z PASS NEON: 11 22 33 44
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.9862043Z PASS MEMORY: 4096-byte CPU copy
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.9862691Z QEMU EXAMPLE COMPLETE
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:27.9863206Z PASS QEMU_CHECK: all required markers and exit status zero
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:28.1081784Z ERROR: MISMATCH: contradictory NEON diagnostics.
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:28.1082522Z BASELINE: vector {11,22,33,44}; all checks pass.
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:28.1084067Z QEMU: running bounded checks...
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:28.1086229Z QEMU VIRT AARCH64 BEGIN
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:28.1086753Z PASS EL3
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:28.1087177Z FAIL NEON
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:28.1087654Z PASS MEMORY: 4096-byte CPU copy
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:28.1088167Z QEMU EXAMPLE FAILED
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:28.1089288Z ERROR: QEMU check failed (exit 1); missing markers: PASS NEON: 11 22 33 44, QEMU EXAMPLE COMPLETE. Inspect FAIL lines and restore any deliberate source changes, then rebuild.
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:28.1090668Z Help: https://aew2015.github.io/baremetal-drivers/troubleshooting/#qemu
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:28.1091274Z 
+qemu	Check QEMU, fabric RTL and driver builds	2026-10-24T02:16:28.1155124Z ##[error]Process completed with exit code 1.
