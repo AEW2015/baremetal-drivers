@@ -1,0 +1,58 @@
+PS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+HPS_SUITE_BEGIN ecc
+Started Logging
+ECC Test Starts
+ECC successfully open
+REV_ID =0
+REV_ID_2=1500b
+INSTAT=0
+ERRINTEN=0
+ERRINTENS=0
+ERRINTENR=0
+INTMODE=0
+INSTAT=0
+INTEST=0
+MODSTAT=0
+DERRADDRA=0
+SERRADDRA=0
+DERRADDRB=0
+SERRADDRB=0
+SERRCNTREG=0
+ECC_ADDRBUS=0
+ECC_RDATA0BUS=0
+ECC_RDATA1BUS=0
+ECC_RDATA2BUS=0
+ECC_RDATA3BUS=0
+ECC_RDATAECC0BUS=0
+ECC_RDATAECC1BUS=0
+ECC_DBYTECTRL=0
+ECC_ACCCTRL=0
+ECC_STARTACC=0
+ECC_WDCTRL=0
+ECC_DECODERSTAT=0
+SERRLKUPA0=0
+SERRLKUPB0=0
+ECC close: OK
+ECC Tests successful!!!
+HPS_SUITE_PASS ecc rc=0x00000000

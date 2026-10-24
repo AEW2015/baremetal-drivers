@@ -1,0 +1,9 @@
+# U-Boot console, after matching boot/SDMMC initialization.
+# Reserve 0x85000000..0x850001ff as scratch before running.
+mmc list
+mmc dev 0
+mmc rescan
+mmc info
+mmc part
+mmc read 0x85000000 0 1
+md.b 0x85000000 0x200

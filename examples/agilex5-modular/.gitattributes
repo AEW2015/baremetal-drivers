@@ -1,0 +1,2 @@
+# Unified diff context requires leading spaces before tabs and empty lines.
+/bootstrap/ddr/*.patch -whitespace

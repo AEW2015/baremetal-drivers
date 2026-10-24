@@ -1,0 +1,14 @@
+/build/
+/runs/
+/hardware.lock
+__pycache__/
+*.pyc
+/bootstrap/atf-26.1.1/
+/bootstrap/ocram/build/
+/bootstrap/ddr/*.elf
+/bootstrap/ddr/*.bin
+/bootstrap/ddr/*.hex
+/bootstrap/ddr/*.rbf
+/bootstrap/ddr/*.sof
+/bootstrap/ddr/*.log
+/bootstrap/ddr/local_ddr_probe.inc

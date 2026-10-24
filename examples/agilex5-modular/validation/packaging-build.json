@@ -1,0 +1,37 @@
+{
+  "built_utc": "2026-10-24T00:16:22.978127+00:00",
+  "upstream_base_commit": "1419101568f1a9034630b632634fe9fe71773266",
+  "toolchain": "Arm GNU 13.2.Rel1 AArch64 bare metal",
+  "checks": {
+    "build_all.sh": "pass: 15 reference targets, 11 local DDR ELFs, PSCI object, 9 vendor adapters",
+    "bootstrap/ocram/build_uart.sh": "pass: ELF/bin/hex",
+    "bootstrap/ddr/build_ddr.sh": "pass: pinned ATF build, HPS RBF and merged SOF generated",
+    "python_compileall": "pass",
+    "shell_syntax": "pass",
+    "hardware_rerun_of_packaged_paths": "not performed"
+  },
+  "note": "Hashes identify the separately rebuilt packaged artifacts. Generated binaries and FPGA images are not included. Original hardware evidence is in results.json.",
+  "packaged_elf_sha256": {
+    "build/core_examples.elf": "f20a36e1d921e10431c615674eb7f13e6410d9b61cf49ab1c363ed6791958b45",
+    "build/dma_copy.elf": "92770d3bd6f3c79c9306cb1d76b7c24b6135d99e262725acb6b00501484c7c37",
+    "build/fault_probe.elf": "6bc21d9094dccb35f4ac3875a98aa2f3a08fea809fe05a4eec468cd93244ef4d",
+    "build/gic_sgi.elf": "d2b5c12fd7f32caedf5b58787d399ee87e651c22c3a17a71c2dff158fdf67ae7",
+    "build/mailbox_status.elf": "21d12b6e75188c65d0706c3775c593b2302012cdbef4588417507b8e9572a11c",
+    "build/mmu_translation.elf": "0e33e05fd1f9a46d725f84560ab82b3ef802ac5de25017704cc5e46f7d401c9b",
+    "build/multicore.elf": "22cc868eb2dc642e70beee49b290d2b9121fa482df1e402489dccaf023ad29cf",
+    "build/som_i2c.elf": "5603ec281f859f219b7d977677e2f664b194ba0227ed89c0c73eb63ea1650c36",
+    "build/som_i3c.elf": "0c4c75e9df2f72aab6c0a00f5db8efb85e89b65f558a9cef14548552443bacd8",
+    "build/som_interfaces.elf": "af11f802377c8e0ac7410c05d23985d58a86f01fa7ce7f70f35746bab3650806",
+    "build/som_peripherals.elf": "2c84c5160f1de92eca97b76670917885a4615da56438d121f19ae5ae3cdf155a",
+    "build/vendor_ccu.elf": "abf83b591bf4a04989a4ae610a6264030aa2d8dd64002c45a9689738d1b3f639",
+    "build/vendor_clkmgr.elf": "f476aa0798518bbb43404fab62527020a8097ee50761addb8c88d2f5271eb03b",
+    "build/vendor_ecc.elf": "11006ee348079e9000e4ce2157be40bdae4d6c20051aa01e730c3ce7a86e6f0c",
+    "build/vendor_hps_mailbox.elf": "58da0bb8255e55b1d905414ef3cecc77fbe59d146ff431e93680e7690e896cd2",
+    "build/vendor_smmu.elf": "783a1a3752fda7bd566b68e46695fc7f2c962a448ce47d9db7129b8cb20c0b67",
+    "build/vendor_spi.elf": "007045b4b205e453c97cdcad588354f77dde72402f019a2726aaa97ee94e1549",
+    "build/vendor_timer.elf": "467fd270fa307dac1cfee8c5330f4688cc1db25a72efa648f8f7779a95e0b7f4",
+    "build/vendor_uart.elf": "6d0916b909ccad3a152533f98fd7e07966bc2ba9edaa4b03b09c98f49a7f8a9d",
+    "build/vendor_watchdog.elf": "d9bbb32ff58453b8ba02ff2f94b4cd367e3b099550b7cc78c6cb103f264e12ad",
+    "bootstrap/ocram/build/hello_uart.elf": "8cc2960dbbd94b679cf8a942425297923337c207bcbe5f423656d694770f94ee"
+  }
+}

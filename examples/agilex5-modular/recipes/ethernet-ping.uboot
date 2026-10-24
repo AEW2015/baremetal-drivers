@@ -1,0 +1,7 @@
+# U-Boot console: use the SOM HPS Ethernet jack and a matching EMAC2/PHY setup.
+# Example isolated subnet; configure the connected peer as 192.168.50.1/24.
+# These setenv values are runtime only; no saveenv is needed.
+printenv ethact ethaddr
+setenv ipaddr 192.168.50.2
+setenv serverip 192.168.50.1
+ping 192.168.50.1

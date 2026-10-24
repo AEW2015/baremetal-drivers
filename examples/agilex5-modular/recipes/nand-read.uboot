@@ -1,0 +1,8 @@
+# Requires a physically populated NAND target and NAND pinmux, controller and
+# device-tree support in the matching U-Boot. The current SDMMC design does
+# not establish this. Reserve 4 KiB of DDR scratch at 0x85000000 first.
+nand info
+nand device
+nand bad
+nand read 0x85000000 0 0x1000
+md.b 0x85000000 0x100

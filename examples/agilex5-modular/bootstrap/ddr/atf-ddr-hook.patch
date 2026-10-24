@@ -1,0 +1,22 @@
+diff --git a/plat/intel/soc/agilex5/bl2_plat_setup.c b/plat/intel/soc/agilex5/bl2_plat_setup.c
+index 374d1c0..7614a9e 100644
+--- a/plat/intel/soc/agilex5/bl2_plat_setup.c
++++ b/plat/intel/soc/agilex5/bl2_plat_setup.c
+@@ -70,6 +70,8 @@ const mmap_region_t agilex_plat_mmap[] = {
+ 
+ boot_source_type boot_source = BOOT_SOURCE;
+ 
++#include "local_ddr_probe.inc"
++
+ void bl2_el3_early_platform_setup(u_register_t x0 __unused,
+ 				  u_register_t x1 __unused,
+ 				  u_register_t x2 __unused,
+@@ -144,6 +146,8 @@ void bl2_el3_early_platform_setup(u_register_t x0 __unused,
+ 		panic();
+ 	}
+ 
++	local_ddr_probe();
++
+ 	/* TODO: DTB not available */
+ 	// if (socfpga_dt_open_and_check(SOCFPGA_DTB_BASE, DT_COMPATIBLE_STR) < 0) {
+ 		// ERROR("SOCFPGA: Failed to open device tree\n");

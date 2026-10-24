@@ -1,0 +1,250 @@
+{
+  "generated_utc": "2026-10-23T23:32:16.371803+00:00",
+  "vendor_commit": "1419101568f1a9034630b632634fe9fe71773266",
+  "tests": [
+    {
+      "name": "core",
+      "elf": "build/core_examples.elf",
+      "status": "pass",
+      "entry": "0x82100000",
+      "elapsed_seconds": 31.3,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS CPU_NEON: four vector additions",
+        "PASS CACHE_INFO: configuration read; cache coherency is a separate test",
+        "PASS DDR_BUFFERS: CPU copied and verified 64 KiB",
+        "PASS GPIO_READ: no output pin direction changed",
+        "PASS COUNTER: generic timer increments",
+        "PASS GIC_INFO: identification only; interrupt delivery is a separate example"
+      ],
+      "failure_lines": [],
+      "evidence": "validation/20261023T230642.472989Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "9d3ff03e1834cb8bc2ebd70e3f530bbd0c6dcdfdf2426b121733d67792df2a49"
+    },
+    {
+      "name": "dma",
+      "elf": "build/dma_copy.elf",
+      "status": "pass",
+      "entry": "0x82200000",
+      "elapsed_seconds": 31.5,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS DMA_COPY: 4096 bytes transferred by DMAC0 and verified"
+      ],
+      "failure_lines": [],
+      "evidence": "validation/20261023T230642.472989Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "a308ba557a83798b590339361d67029fd52644a88ba754b533a8aeeb400ecdae"
+    },
+    {
+      "name": "gic",
+      "elf": "build/gic_sgi.elf",
+      "status": "pass",
+      "entry": "0x82300000",
+      "elapsed_seconds": 30.9,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS GIC_SGI: core 0 received and acknowledged SGI 0"
+      ],
+      "failure_lines": [],
+      "evidence": "validation/20261023T230642.472989Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "02517ac4df8cca22810649c974ef401358c0bf48fbcae578fda89d818c3868a2"
+    },
+    {
+      "name": "interfaces",
+      "elf": "build/som_interfaces.elf",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 30.9,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS SOM_PHY_ID: EMAC2 MDIO reached Marvell 88E1512",
+        "PASS SDMMC_IDENT: controller revision matches",
+        "PASS USB_IDENT: DWC_usb31 controller ID; enumeration not tested"
+      ],
+      "failure_lines": [],
+      "evidence": "validation/20261023T231719.793441Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "d83a0188b7f4616fd88a9affe8f63e4a18c0af5bab18b5f81b7dcd987f59f28d"
+    },
+    {
+      "name": "mailbox",
+      "elf": "build/mailbox_status.elf",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 30.8,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS MAILBOX_IDCODE: SDM returned matching Agilex 5 device ID"
+      ],
+      "failure_lines": [],
+      "evidence": "validation/20261023T230642.472989Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "41f7907f953bb430e2073a8dbcfd576e85677831c2676dcef7432bc63bf4f5fb"
+    },
+    {
+      "name": "mmu",
+      "elf": "build/mmu_translation.elf",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 30.7,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS MMU_TRANSLATION: EL3 translation and DDR readback"
+      ],
+      "failure_lines": [],
+      "evidence": "validation/20261023T230642.472989Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "fab277fbc4f82e342e748ff9e1c091fb441e1c63758af1873f09daf52396daa1"
+    },
+    {
+      "name": "multicore",
+      "elf": "build/multicore.elf",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 30.4,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS MULTICORE: three secondary cores executed and published records"
+      ],
+      "failure_lines": [],
+      "evidence": "validation/20261023T230642.472989Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "f00e335ecdbcdba3689a978169ef075338f08e8c28d7b41a7ecc6c5009938fbd"
+    },
+    {
+      "name": "som",
+      "elf": "build/som_peripherals.elf",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 35.9,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS HPS_TIMER: periodic timer expiry and clear",
+        "PASS WATCHDOG_IRQ: watchdog 1 expiry observed, peripheral reset",
+        "PASS SPI_LOOPBACK: four bytes through internal loopback",
+        "PASS GPIO_LED_PAD: SOM heartbeat output high/low readback",
+        "PASS I2C_IDENT: two controller IDs; no bus transfer"
+      ],
+      "failure_lines": [],
+      "evidence": "validation/20261023T230642.472989Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "4d0b3733acf3bf3db6b48665ce272512c6dbe2726a4b87509ad0f844e51dd5d5"
+    },
+    {
+      "name": "som-i2c",
+      "elf": "build/som_i2c.elf",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 30.6,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS SOM_TEMP_ID: TMP464 manufacturer read",
+        "PASS SOM_EEPROM_READ: 16 bytes received; no data written"
+      ],
+      "failure_lines": [],
+      "evidence": "validation/20261023T230642.472989Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "9aebf05b576ab39015368ae9581f8169f455f43501aa46733083b830a42755fb"
+    },
+    {
+      "name": "som-i3c",
+      "elf": "build/som_i3c.elf",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 29.5,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS NATIVE_I3C_TEMP: legacy I2C read via I3C1",
+        "PASS NATIVE_I3C_EEPROM: 16-byte read, no data writes"
+      ],
+      "failure_lines": [],
+      "evidence": "validation/20261023T230642.472989Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "bd67ac4630265cb953efae09585f6b83ade6984c6995ca6f14956d5feda6f263"
+    },
+    {
+      "name": "vendor-ccu",
+      "elf": "build/vendor_ccu.elf",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 33.3,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": [],
+      "evidence": "validation/20261023T232734.166542Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "68d2ae2c4dd483f258eabc2fc8e1c2011cef7cbb0f79b29202c141c72449cb5b"
+    },
+    {
+      "name": "vendor-clkmgr",
+      "elf": "build/vendor_clkmgr.elf",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 32.2,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": [],
+      "evidence": "validation/20261023T232734.166542Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "43195d8991ad541ba8e120f3eed9582878f07ee231079114a565287bb58266bd"
+    },
+    {
+      "name": "vendor-ecc",
+      "elf": "build/vendor_ecc.elf",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 31.8,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": [],
+      "evidence": "validation/20261023T232734.166542Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "e6bcb8d285f8f414ba3ba607d45c89f1a89e1917b52757721e063680d08d504b"
+    },
+    {
+      "name": "vendor-smmu",
+      "elf": "build/vendor_smmu.elf",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 32.2,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": [],
+      "evidence": "validation/20261023T233101.494937Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "9dc3940ca8755726191bb93460e620e15a6210689eac79741f5757e657bd863b"
+    },
+    {
+      "name": "vendor-uart",
+      "elf": "build/vendor_uart.elf",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 40.4,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": [],
+      "evidence": "validation/20261023T232734.166542Z",
+      "suite_restoration": "pass",
+      "original_elf_sha256": "01d816a13877c4af27a55db461c88ecc254e5ef393b87077c3d50e54ecbea35a"
+    }
+  ],
+  "note": "Historical bench execution before packaging. Paths, line endings and trailing whitespace in text logs are normalized; hashes identify original tested ELFs. Packaged builds are compiled separately and do not inherit hardware validation."
+}

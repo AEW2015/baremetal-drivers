@@ -1,0 +1,62 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+HPS_SUITE_BEGIN clkmgr
+[Warning] IOCTL_CLKMGR_REGS_READ at offset 0x0: expected: 0x3, actual: 0x0. bit diff location: 0, 1,
+[Warning] IOCTL_CLKMGR_REGS_READ at offset 0x4: expected: 0x31c1c00, actual: 0x2030300. bit diff location: 8, 9, 10, 11, 12, 16, 17, 18, 19, 20, 24,
+[Warning] IOCTL_CLKMGR_REGS_READ at offset 0x8: expected: 0x100808, actual: 0x0. bit diff location: 3, 11, 20,
+[Warning] IOCTL_CLKMGR_REGS_READ at offset 0x14: expected: 0x0, actual: 0x3. bit diff location: 0, 1,
+[Warning] IOCTL_CLKMGR_REGS_READ at offset 0x1c: expected: 0x0, actual: 0x3. bit diff location: 0, 1,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x0: expected: 0xfff, actual: 0xf5e. bit diff location: 0, 5, 7,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x4: expected: 0xfde, actual: 0xf5e. bit diff location: 7,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x8: expected: 0xfde, actual: 0xf5e. bit diff location: 7,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0xc: expected: 0xff, actual: 0x0. bit diff location: 0, 1, 2, 3, 4, 5, 6, 7,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x10: expected: 0xff, actual: 0x0. bit diff location: 0, 1, 2, 3, 4, 5, 6, 7,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x14: expected: 0xff, actual: 0x0. bit diff location: 0, 1, 2, 3, 4, 5, 6, 7,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x20: expected: 0x20260198, actual: 0x28240098. bit diff location: 8, 17, 27,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x24: expected: 0x16000101, actual: 0x36000103. bit diff location: 1, 29,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x28: expected: 0x2a000000, actual: 0x0. bit diff location: 25, 27, 29,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x2c: expected: 0x0, actual: 0x2ca4007. bit diff location: 0, 1, 2, 14, 17, 19, 22, 23, 25,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x30: expected: 0x0, actual: 0xca. bit diff location: 1, 3, 6, 7,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x34: expected: 0x1087c, actual: 0x1007c. bit diff location: 11,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x38: expected: 0x5, actual: 0x28000004. bit diff location: 0, 27, 29,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x3c: expected: 0x4, actual: 0x28000004. bit diff location: 27, 29,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x40: expected: 0x7, actual: 0x28000006. bit diff location: 0, 27, 29,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x44: expected: 0x8, actual: 0x28000008. bit diff location: 27, 29,
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x54: expected: 0x0, actual: 0x1. bit diff location: 0,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x0: expected: 0x3fffffff, actual: 0xfffffff. bit diff location: 28, 29,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0xc: expected: 0xff, actual: 0x0. bit diff location: 0, 1, 2, 3, 4, 5, 6, 7,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x10: expected: 0xff, actual: 0x0. bit diff location: 0, 1, 2, 3, 4, 5, 6, 7,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x14: expected: 0xff, actual: 0x0. bit diff location: 0, 1, 2, 3, 4, 5, 6, 7,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x20: expected: 0x15000101, actual: 0x35000103. bit diff location: 1, 29,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x28: expected: 0x0, actual: 0x2ca4007. bit diff location: 0, 1, 2, 14, 17, 19, 22, 23, 25,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x2c: expected: 0x0, actual: 0xca. bit diff location: 1, 3, 6, 7,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x30: expected: 0x10874, actual: 0x10074. bit diff location: 11,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x34: expected: 0x5, actual: 0x28000005. bit diff location: 27, 29,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x38: expected: 0x5, actual: 0x28000005. bit diff location: 27, 29,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x3c: expected: 0x7d, actual: 0x2800007d. bit diff location: 27, 29,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x40: expected: 0x6, actual: 0x28000006. bit diff location: 27, 29,
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x50: expected: 0x0, actual: 0x1. bit diff location: 0,
+[Warning] IOCTL_CLKMGR_CTLGRP_REGS_READ at offset 0x8: expected: 0x10009, actual: 0x9. bit diff location: 16,
+[Warning] IOCTL_CLKMGR_CTLGRP_REGS_READ at offset 0x24: expected: 0x3ce4, actual: 0x0. bit diff location: 2, 5, 6, 7, 10, 11, 12, 13,
+[Warning] IOCTL_CLKMGR_CTLGRP_REGS_READ at offset 0x30: expected: 0x10000, actual: 0x0. bit diff location: 16,
+HPS_SUITE_PASS clkmgr rc=0x00000000

@@ -1,0 +1,9 @@
+# U-Boot console, after a matching Modular-kit U-Boot boot.
+# Attach a USB device to the kit's HPS USB data connector (not J2 UART).
+# Requires CONFIG_CMD_USB, the matching host controller/PHY and power routing.
+usb start
+usb tree
+usb info
+usb storage
+# Optional: list a FAT filesystem on the first enumerated USB disk.
+# fatls usb 0:1 /

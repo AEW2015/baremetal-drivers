@@ -1,0 +1,50 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+HPS NATIVE I3C EXAMPLE BEGIN
+I3C1 pin selection = 0x0000000400000004
+I3C1 version = 0x000000003130302a
+I3C1 DAT pointer = 0x00000000000b0280
+I3C response = 0x0000000000000000
+I3C response = 0x0000000001000002
+TMP464 manufacturer = 0x0000000000005449
+PASS NATIVE_I3C_TEMP: legacy I2C read via I3C1
+I3C response = 0x0000000000000000
+I3C response = 0x0000000001000010
+PASS NATIVE_I3C_EEPROM: 16-byte read, no data writes
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+HPS NATIVE I3C EXAMPLE COMPLETE

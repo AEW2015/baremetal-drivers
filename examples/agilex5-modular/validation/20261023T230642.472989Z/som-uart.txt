@@ -1,0 +1,36 @@
+x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executHPS SOM PERIPHERALS BEGIN
+PASS HPS_TIMER: periodic timer expiry and clear
+PASS WATCHDOG_IRQ: watchdog 1 expiry observed, peripheral reset
+SPI version = 0x000000003430302a
+PASS SPI_LOOPBACK: four bytes through internal loopback
+PASS GPIO_LED_PAD: SOM heartbeat output high/low readback
+I2C0 component type = 0x0000000044570140
+I2C1 component type = 0x0000000044570140
+PASS I2C_IDENT: two controller IDs; no bus transfer
+I3C0 version = 0x000000003130302a
+I3C1 version = 0x000000003130302a
+I3C1 pin 8 selection = 0x0000000000000004
+I3C1 pin 9 selection = 0x0000000000000004
+HPS SOM PERIPHERALS COMPLETE

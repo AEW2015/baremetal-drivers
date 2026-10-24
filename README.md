@@ -23,3 +23,10 @@ Coding style checks require MISRA C 2012 compliance. Style formatting is enforce
 ## License
 
 This project is licensed under the terms of the [LICENSE](LICENSE) file.
+
+
+## Agilex 5 Modular kit physical-board examples
+
+See [examples/agilex5-modular](examples/agilex5-modular/README.md) for SOM-first
+HPS/OCRAM/DDR examples, physical-board vendor adapters, build/run instructions,
+schematic mappings and the recorded validation scope.
