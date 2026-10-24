@@ -114,6 +114,25 @@ python3 doctor.py --target hardware
 Fix all FAIL items. You still need [matching FPGA artifacts](fpga-design.md)
 before DDR initialization; a tool image does not establish board compatibility.
 
+## Ethernet access
+
+For the [Ethernet bandwidth lab](examples/ethernet.md), add these options to the
+hardware container's `docker run` command:
+
+```sh
+--network host --cap-add NET_ADMIN
+```
+
+Create the container with those options before starting the lab. The runner
+checks that host and container share the network namespace, then uses
+`docker exec -u root` and `ip` to add and remove a temporary address on the
+explicitly selected wired NIC. A bridge-network container cannot configure
+that host NIC. Keep your Internet connection on a separate interface.
+
+The peer and UART runner execute on the Linux host. They need Python 3 and
+`ping` (`sudo apt-get install python3 iputils-ping` on Ubuntu); `ethtool` is
+useful for checking negotiated link speed. No iperf installation is required.
+
 ## Persistent host/container map
 
 ```text

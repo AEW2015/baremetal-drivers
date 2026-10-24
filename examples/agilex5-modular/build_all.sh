@@ -7,3 +7,5 @@ cd "$(dirname "$0")"
 ./build_vendor.sh
 
 ./build_board.sh
+
+./ethernet/build.sh

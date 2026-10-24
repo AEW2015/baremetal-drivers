@@ -33,6 +33,20 @@ jobs:
           AGILEX_TEST_REAL_QEMU=1 python3 -m unittest discover -s tests -v
           ./fabric/test.sh
           LAB_CPU_BASE=0x20020000 ./fabric/build.sh
+  ethernet:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install the checksum-pinned Arm bare-metal compiler
+        run: sudo bash examples/agilex5-modular/container/install-arm.sh
+      - name: Build both Ethernet memory configurations
+        working-directory: examples/agilex5-modular
+        run: |
+          export PATH="/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin:$PATH"
+          NET_CACHED=0 ./ethernet/build.sh
+          NET_CACHED=1 ./ethernet/build.sh
   build:
     permissions:
       contents: read
@@ -59,7 +73,7 @@ jobs:
           path: site
   deploy:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-    needs: [build, qemu]
+    needs: [build, qemu, ethernet]
     runs-on: ubuntu-24.04
     permissions:
       pages: write

@@ -17,3 +17,4 @@ __pycache__/
 /.agilex-mount-*
 /.agilex-process-*
 /bootstrap/ddr/build-manifest.json
+/ethernet/lwip/

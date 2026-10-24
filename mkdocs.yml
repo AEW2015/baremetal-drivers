@@ -68,6 +68,7 @@ nav:
       - "SOM: timer, watchdog, SPI and GPIO": examples/som.md
       - "GPIO I2C: temperature sensor and EEPROM": examples/som-i2c.md
       - "I3C1 controller: legacy-I2C reads": examples/som-i3c.md
+      - "Ethernet bandwidth: UDP and TCP": examples/ethernet.md
       - "Ethernet PHY, SD and USB identification": examples/interfaces.md
       - "SDM mailbox: read FPGA IDCODE": examples/mailbox.md
       - "Vendor UART transmit example": examples/vendor-uart.md

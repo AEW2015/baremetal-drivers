@@ -219,3 +219,13 @@ The repository includes a portable
 [agilex5-baremetal skill](../../skills/agilex5-baremetal/SKILL.md) with board
 identity checks, host/container guidance and demonstrated recovery lessons.
 See [installation and example prompts](../../docs/agent-skill.md).
+
+## Ethernet bandwidth example
+
+The separate [Ethernet lab](../../docs/examples/ethernet.md) provides a real
+XGMAC2 DMA adapter and a pinned lwIP TCP/IP stack for the SOM's direct PC link.
+`build_all.sh` now also builds its default cached-CPU/noncacheable-DMA image.
+Use `ethernet/build.sh` for an individual build and `ethernet/run.py --help`
+for host-side execution. The network run requires an explicitly selected wired
+interface and is separate from the 15-entry on-chip/SOM suite. It uses a custom
+socket benchmark protocol; it is not an iperf server.

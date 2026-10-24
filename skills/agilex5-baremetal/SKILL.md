@@ -69,6 +69,9 @@ public reference rebuild as independently qualified.
   timeout/fault logs and restoration; restoration alone does not prove tests passed.
 - `build_vendor.sh` compiles simulation references; `build_board_vendor.py`
   produces board adaptations. Their scope and observed results differ.
+- For SOM Ethernet traffic and UDP/TCP bandwidth work, read
+  [the Ethernet workflow](references/ethernet.md). PHY identification alone
+  does not qualify packets or throughput; use the separate Ethernet runner.
 
 Respect the hardware lock, debugger ownership records and any shared lock used
 by other checkouts. An unresolved process record or uncertain cancellation is a
