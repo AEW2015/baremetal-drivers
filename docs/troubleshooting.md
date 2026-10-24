@@ -24,6 +24,31 @@ directory, and run `python3 doctor.py --target hardware`. This checks access,
 mount identity, hashes, tools, JTAG identity and ports without programming or
 reading UART bytes. Read warnings as well as the final status.
 
+## RWX linker warning
+
+**Symptom:** `warning: ... has a LOAD segment with RWX permissions` appears,
+but the build exits zero and creates the ELF. The compact hello/core linker
+scripts put executable text and writable data together in one loadable segment;
+its ELF flags are read, write and execute (`RWE` in `readelf`). Inspect QEMU's ELF
+in the development environment:
+
+```sh
+"${CROSS_COMPILE:-aarch64-none-elf-}readelf" -lW build/qemu/hello.elf
+```
+
+Find the `LOAD` row and its section mapping. This warning describes the segment
+permissions; it is not a failed arithmetic test. GNU ld documents
+[the RWX warning and its error option](https://sourceware.org/binutils/docs/ld/Options.html#index-_002d_002dwarn_002drwx_002dsegments).
+With the supplied build flags it remains a warning. Other errors, nonzero build
+status or missing output require investigation; do not ignore every warning or
+suppress them globally.
+
+This minimal RAM-resident lab does not establish production memory protection.
+A hardened application needs a reviewed linker layout separating executable
+code from writable data, and matching MMU mappings. ELF flags alone do not
+configure the HPS MMU. **Recovery check:** the build exits zero and
+`python3 qemu/run.py --check` reports `PASS QEMU_CHECK` and exits zero.
+
 ## Compiler, source paths or VS Code tasks fail
 
 **Symptoms:** command not found, missing ELF, source lookup failure, or F5 fails

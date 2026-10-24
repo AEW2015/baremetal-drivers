@@ -85,3 +85,35 @@ Native Windows/macOS, the Dev Containers attach UI, new-image USB permissions,
 new FPGA fabric integration and live partial reconfiguration remain outside
 this desktop check. The next human trial should record every instructor-supplied
 input and intervention, using the exact software/image revisions in its report.
+
+## Additional execution feedback: independent failure checks
+
+A supplied student report describes successful QEMU output, CLI GDB inspection,
+full example compilation, all 15 registered hardware-suite builds and OCRAM
+ELF/binary/HEX generation. The reporter did not execute hardware or test the
+VS Code GUI; those limits apply to that report and are separate from the
+bench desktop/hardware evidence above. Its source revision was not supplied.
+The linked `/home/Workspace/baremetal-student-audit/` files are unavailable in
+this workspace, so their raw transcripts and JSON have not been independently
+inspected or incorporated as local execution evidence.
+
+The reported misleading `FAIL MEMORY` after only NEON corruption is already
+fixed in the current hello source: the memory check compares the failure count
+before and after copying. A fresh local replay now exercises both a vector-result
+bit flip and a final-word-only copy corruption. Each reports exactly its own
+failed check and guest/runner exit 1. Restoring the original source gives exit 0.
+The [optional failure-and-recovery exercise](qemu.md#predict-modify-explain)
+shows the actual output, expected statuses and distinction between a deliberately
+failed guest and a successfully completed experiment script.
+
+The setup, QEMU and troubleshooting pages now explain the expected RWX linker
+warning next to the build instructions. A fresh pinned-toolchain build returned
+zero; `readelf -lW` confirmed one `RWE` load segment containing `.text`, `.data`
+and `.bss`. It remains a minimal teaching layout, not a production protection
+configuration.
+
+Fresh replay evidence is in
+[validation/student-feedback](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/student-feedback):
+all six experiment stages, the linker warning/program headers, source hashes
+and the regression test transcript. No new physical-board run is claimed for
+this documentation and emulator follow-up.

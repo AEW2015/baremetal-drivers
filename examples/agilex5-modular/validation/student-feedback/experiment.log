@@ -1,0 +1,19 @@
+BASELINE: runner exit 0
+QEMU: running bounded checks...
+QEMU VIRT AARCH64 BEGIN
+PASS EL3
+PASS NEON: 11 22 33 44
+PASS MEMORY: 4096-byte CPU copy
+QEMU EXAMPLE COMPLETE
+PASS QEMU_CHECK: all required markers and exit status zero
+ERROR: MISMATCH: contradictory NEON diagnostics.
+QEMU: running bounded checks...
+QEMU VIRT AARCH64 BEGIN
+PASS EL3
+FAIL NEON
+PASS MEMORY: 4096-byte CPU copy
+QEMU EXAMPLE FAILED
+ERROR: QEMU check failed (exit 1); missing markers: PASS NEON: 11 22 33 44, QEMU EXAMPLE COMPLETE. Inspect FAIL lines and restore any deliberate source changes, then rebuild.
+Help: https://aew2015.github.io/baremetal-drivers/troubleshooting/#qemu
+
+BASELINE: vector {11,22,33,44}; all checks pass.

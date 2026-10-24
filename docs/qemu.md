@@ -9,6 +9,13 @@ From the example directory, in the compiler environment:
 python3 qemu/run.py --check
 ```
 
+!!! info "Expected linker warning"
+    `warning: ... has a LOAD segment with RWX permissions` can appear in a
+    successful build of this small bare-metal example. Require build exit status
+    **0**, then the QEMU PASS checks. See [what RWX means](troubleshooting.md#rwx-linker-warning)
+    for the reason and how to inspect the ELF.
+
+
 Expected output:
 
 ```text
@@ -135,9 +142,31 @@ For an executable version that uses temporary copies and preserves your checkout
 python3 qemu/experiment.py
 ```
 
-Expect three lines labeled `BASELINE`, `MISMATCH` and `CORRECTED`, with the last
-line confirming the original checkout is unchanged. This is a teaching exercise,
-not a replacement for the debugger breakpoints above.
+The script builds temporary copies, prints each run's output and checks these
+results. It never edits your checkout or accesses the board:
+
+| Stage | Deliberate change | NEON / memory | Guest QEMU / runner exit |
+|---|---|---|---|
+| `BASELINE` | None | PASS / PASS | 0 / 0 |
+| `MISMATCH` | First input lane 10 → 11, old assertion | FAIL / PASS | 1 / 1 |
+| `CORRECTED` | Teach assertion and marker to expect 12 | PASS / PASS | 0 / 0 |
+| `NEON_RESULT` | Restore original inputs; flip `vector_result[0]` after calculation | FAIL / PASS | 1 / 1 |
+| `LAST_WORD` | Restore original source; flip only `destination[511]` after copying | PASS / FAIL | 1 / 1 |
+| `RECOVERED` | Restore original source and checks | PASS / PASS | 0 / 0 |
+
+For `NEON_RESULT`, expect `FAIL NEON`, `PASS MEMORY: 4096-byte CPU copy`,
+`QEMU EXAMPLE FAILED`, and an `ERROR: QEMU check failed (exit 1)` diagnostic.
+For `LAST_WORD`, expect `PASS NEON: 11 22 33 44`, `FAIL MEMORY`, the same overall
+failure and exit-1 diagnostic. No failed run should print `PASS QEMU_CHECK`.
+Each injected fault starts from the original source, so faults do not accumulate.
+
+The **experiment script itself exits 0** when all expected successes, deliberate
+failures and recovery checks behave correctly; it exits 1 if an expectation is
+violated. Check it immediately with `echo $?`. The final line confirms that the
+original checkout is unchanged. In GDB, predict why the NEON-only case has
+`failures == 1` while all 512 copied words still match, and why the last-word
+case instead has `source[511] != destination[511]`. This complements the debugger
+walkthrough above.
 
 Next: try the [six QEMU practice labs](examples/qemu-labs.md), or
 [run on the Modular kit](hardware.md).

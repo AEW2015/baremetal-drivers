@@ -134,6 +134,13 @@ feedback report. The doctor does not install or change system packages.
 python3 qemu/run.py --check
 ```
 
+!!! info "Expected linker warning"
+    `warning: ... has a LOAD segment with RWX permissions` can appear in a
+    successful build of this small bare-metal example. Require build exit status
+    **0**, then the QEMU PASS checks. See [what RWX means](troubleshooting.md#rwx-linker-warning)
+    for the reason and how to inspect the ELF.
+
+
 Require `PASS EL3`, `PASS NEON: 11 22 33 44`,
 `PASS MEMORY: 4096-byte CPU copy`, `QEMU EXAMPLE COMPLETE`, and
 `PASS QEMU_CHECK: all required markers and exit status zero`.
@@ -150,6 +157,11 @@ For the hardware track, in the **development environment**:
 ./build_all.sh
 ./bootstrap/ocram/build_uart.sh
 ```
+
+Some hardware ELFs use the same compact section layout and can emit the
+[RWX linker warning](troubleshooting.md#rwx-linker-warning). Require each build
+to exit zero; compilation alone is not hardware execution evidence.
+
 
 The full build fetches upstream CMake dependencies on first use and compiles the
 simulation references plus board adaptations. It does not run the references on

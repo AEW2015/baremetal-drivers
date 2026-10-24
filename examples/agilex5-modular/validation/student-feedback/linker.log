@@ -1,0 +1,13 @@
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/qemu/hello.elf has a LOAD segment with RWX permissions
+
+Elf file type is EXEC (Executable file)
+Entry point 0x40200000
+There is 1 program header, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  LOAD           0x010000 0x0000000040200000 0x0000000040200000 0x0003c0 0x0023d8 RWE 0x10000
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .text .data .bss 

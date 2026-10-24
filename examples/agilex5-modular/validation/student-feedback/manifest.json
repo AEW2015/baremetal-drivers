@@ -1,0 +1,15 @@
+{
+  "base_commit": "602bc1b3a1e2390a1be3e20ac3fb47f06ac49379",
+  "environment": "agilex-xrdp; Arm GNU 13.2.Rel1; QEMU 8.2.2",
+  "source_sha256": {
+    "qemu/hello.c": "1f207df3c0399b351fe878a792727b627872198670d82c6e2ca741cc00e3f7cb",
+    "qemu/start.S": "014173c05846dcea47c6f4dc84b67fa44806d8606949da993ed529a3f79e678a",
+    "qemu/link.ld": "9b215693e5f0f01d42445595b10be1de37983257515bddb1ef2e6604a52114cc",
+    "qemu/run.py": "e8519626decf5883d8650554fd77aa2384825abc632a304739380e272188589a",
+    "qemu/experiment.py": "25c997a11a13b683d0c0b13aaae7e1804417480e223573ff09df4c2ee32d0d16"
+  },
+  "experiment_exit": 0,
+  "linker_build_exit": 0,
+  "regression_exit": 0,
+  "scope": "Local emulator replay; supplied external audit files unavailable; no new hardware run"
+}
