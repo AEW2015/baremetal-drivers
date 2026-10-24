@@ -1,0 +1,37 @@
+{
+  "source_commit": "c943a0bf9cfe7709ef225800ea93cdf56fbc7ff8",
+  "stages": [
+    {
+      "name": "ocram-hardware",
+      "exit": 0,
+      "seconds": 10.02,
+      "command": [
+        "/usr/bin/python3",
+        "/home/lada/altera-agilex/home/baremetal-remote-audit-evidence/run_ocram_from_bench.py",
+        "--port",
+        "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0"
+      ]
+    },
+    {
+      "name": "ocram-ddr-restore",
+      "exit": 0,
+      "seconds": 29.57,
+      "command": [
+        "/usr/bin/python3",
+        "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/bootstrap/ddr/run_ddr.py"
+      ]
+    },
+    {
+      "name": "hardware-suite-after",
+      "exit": 0,
+      "seconds": 97.5,
+      "command": [
+        "/usr/bin/python3",
+        "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/run_suite.py",
+        "--only",
+        "core,dma"
+      ]
+    }
+  ],
+  "ocram_pc": "0x138"
+}

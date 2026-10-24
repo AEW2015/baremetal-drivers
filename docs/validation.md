@@ -1,5 +1,15 @@
 # Validation and practical limits
 
+## Fresh-clone remote campaign
+
+A new clone of remote `main` at `0daff10` built and passed all 15 registered
+hardware tests in one campaign, with fresh DDR initialization and successful
+restoration. QEMU labs, negative controls, GDB, fabric simulation and the skill
+package were also checked. Two additional compiler/launcher defects were
+reproduced and fixed, with expanded CI coverage. Read the
+[fresh-clone report and evidence](remote-validation.md) for revisions, results
+and the follow-up with the corrected launcher.
+
 ## Original SOM campaign
 
 All 15 registered board suite entries passed against their recorded original

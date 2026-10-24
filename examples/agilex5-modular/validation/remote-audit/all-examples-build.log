@@ -1,0 +1,206 @@
+-- Defaulting architecture to ARM
+-- The C compiler identification is GNU 13.2.1
+-- The CXX compiler identification is GNU 13.2.1
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/local/bin/aarch64-none-elf-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/local/bin/aarch64-none-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/local/bin/aarch64-none-elf-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done (28.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor
+[1/174] Building C object test/simics/uart/CMakeFiles/uart_test.elf.dir/__/__/__/src/base/device.c.obj
+[2/174] Building C object test/simics/uart/CMakeFiles/uart_test.elf.dir/uart_test.c.obj
+[3/174] Building CXX object test/simics/uart/CMakeFiles/uart_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[4/174] Building C object test/simics/uart/CMakeFiles/uart_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[5/174] Building C object test/simics/uart/CMakeFiles/uart_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[6/174] Building C object test/simics/uart/CMakeFiles/uart_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[7/174] Building C object test/simics/i2c/CMakeFiles/i2c_test.elf.dir/i2c_test.c.obj
+[8/174] Building C object test/simics/uart/CMakeFiles/uart_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[9/174] Building CXX object test/simics/i2c/CMakeFiles/i2c_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[10/174] Building C object test/simics/i2c/CMakeFiles/i2c_test.elf.dir/__/__/__/src/base/device.c.obj
+[11/174] Building C object test/simics/i2c/CMakeFiles/i2c_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[12/174] Building C object test/simics/i2c/CMakeFiles/i2c_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[13/174] Building C object test/simics/i2c/CMakeFiles/i2c_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[14/174] Building C object test/simics/i2c/CMakeFiles/i2c_test.elf.dir/__/__/__/src/i2c/i2c.c.obj
+[15/174] Building C object test/simics/i2c/CMakeFiles/i2c_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[16/174] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test.elf.dir/mmu_el3_test.c.obj
+[17/174] Building C object test/simics/i2c/CMakeFiles/i2c_test.elf.dir/__/__/__/src/i2c/i2c_internal.c.obj
+[18/174] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[19/174] Building CXX object test/simics/uart/CMakeFiles/uart_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[20/174] Building CXX object test/simics/mmu_el3/CMakeFiles/mmu_el3_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[21/174] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test.elf.dir/__/__/__/src/base/device.c.obj
+[22/174] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[23/174] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[24/174] Building CXX object test/simics/i2c/CMakeFiles/i2c_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[25/174] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[26/174] Building C object test/simics/spi/CMakeFiles/spi_test.elf.dir/spi_test.c.obj
+[27/174] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[28/174] Building C object test/simics/spi/CMakeFiles/spi_test.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[29/174] Building CXX object test/simics/spi/CMakeFiles/spi_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[30/174] Building C object test/simics/spi/CMakeFiles/spi_test.elf.dir/__/__/__/src/base/device.c.obj
+[31/174] Building C object test/simics/spi/CMakeFiles/spi_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[32/174] Building C object test/simics/spi/CMakeFiles/spi_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[33/174] Building C object test/simics/spi/CMakeFiles/spi_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[34/174] Building C object test/simics/spi/CMakeFiles/spi_test.elf.dir/__/__/__/src/spi/spi.c.obj
+[35/174] Building C object test/simics/spi/CMakeFiles/spi_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[36/174] Building CXX object test/simics/mmu_el3/CMakeFiles/mmu_el3_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[37/174] Building C object test/simics/i3c/CMakeFiles/i3c_test.elf.dir/i3c_test.c.obj
+[38/174] Building C object test/simics/spi/CMakeFiles/spi_test.elf.dir/__/__/__/src/spi/spi_internal.c.obj
+[39/174] Building CXX object test/simics/i3c/CMakeFiles/i3c_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[40/174] Building C object test/simics/i3c/CMakeFiles/i3c_test.elf.dir/__/__/__/src/base/device.c.obj
+[41/174] Building C object test/simics/i3c/CMakeFiles/i3c_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[42/174] Building C object test/simics/i3c/CMakeFiles/i3c_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[43/174] Building C object test/simics/i3c/CMakeFiles/i3c_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[44/174] Building CXX object test/simics/spi/CMakeFiles/spi_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[45/174] Building C object test/simics/i3c/CMakeFiles/i3c_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[46/174] Building C object test/simics/i3c/CMakeFiles/i3c_test.elf.dir/__/__/__/src/i3c/i3c.c.obj
+[47/174] Building C object test/simics/timer/CMakeFiles/timer_test.elf.dir/timer_test.c.obj
+[48/174] Building CXX object test/simics/timer/CMakeFiles/timer_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[49/174] Building C object test/simics/i3c/CMakeFiles/i3c_test.elf.dir/__/__/__/src/i3c/i3c_internal.c.obj
+[50/174] Building C object test/simics/timer/CMakeFiles/timer_test.elf.dir/__/__/__/src/base/device.c.obj
+[51/174] Building C object test/simics/timer/CMakeFiles/timer_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[52/174] Building C object test/simics/timer/CMakeFiles/timer_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[53/174] Building C object test/simics/timer/CMakeFiles/timer_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[54/174] Building C object test/simics/timer/CMakeFiles/timer_test.elf.dir/__/__/__/src/timer/timer.c.obj
+[55/174] Building CXX object test/simics/i3c/CMakeFiles/i3c_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[56/174] Building C object test/simics/timer/CMakeFiles/timer_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[57/174] Building C object test/simics/timer/CMakeFiles/timer_test.elf.dir/__/__/__/src/timer/timer_internal.c.obj
+[58/174] Building C object test/simics/watchdog/CMakeFiles/watchdog_test.elf.dir/watchdog_test.c.obj
+[59/174] Building C object test/simics/watchdog/CMakeFiles/watchdog_test.elf.dir/__/__/__/src/base/device.c.obj
+[60/174] Building CXX object test/simics/watchdog/CMakeFiles/watchdog_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[61/174] Building C object test/simics/watchdog/CMakeFiles/watchdog_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[62/174] Building C object test/simics/watchdog/CMakeFiles/watchdog_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[63/174] Building C object test/simics/watchdog/CMakeFiles/watchdog_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[64/174] Building CXX object test/simics/timer/CMakeFiles/timer_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[65/174] Building C object test/simics/watchdog/CMakeFiles/watchdog_test.elf.dir/__/__/__/src/watchdog/watchdog.c.obj
+[66/174] Building C object test/simics/watchdog/CMakeFiles/watchdog_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[67/174] Building C object test/simics/watchdog/CMakeFiles/watchdog_test.elf.dir/__/__/__/src/watchdog/watchdog_internal.c.obj
+[68/174] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test.elf.dir/sdmmc_test.c.obj
+[69/174] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test.elf.dir/__/__/__/src/base/device.c.obj
+[70/174] Building CXX object test/simics/sdmmc/CMakeFiles/sdmmc_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[71/174] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[72/174] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[73/174] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[74/174] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test.elf.dir/__/__/__/src/sdmmc/sdmmc.c.obj
+[75/174] Building CXX object test/simics/watchdog/CMakeFiles/watchdog_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[76/174] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[77/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/dma_test.c.obj
+[78/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[79/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/src/base/device.c.obj
+[80/174] Building CXX object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[81/174] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test.elf.dir/__/__/__/src/sdmmc/sdmmc_internal.c.obj
+[82/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[83/174] Building CXX object test/simics/sdmmc/CMakeFiles/sdmmc_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[84/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[85/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[86/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/src/dma/dma.c.obj
+[87/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/src/dma/dma_internal.c.obj
+[88/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[89/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/src/noc_firewall/noc_firewall.c.obj
+[90/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/src/sysmgr/sysmgr.c.obj
+[91/174] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test.elf.dir/hps_mailbox_test.c.obj
+[92/174] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[93/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/src/noc_firewall/noc_firewall_internal.c.obj
+[94/174] Building CXX object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[95/174] Building C object test/simics/dma/CMakeFiles/dma_test.elf.dir/__/__/__/src/sysmgr/sysmgr_internal.c.obj
+[96/174] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test.elf.dir/__/__/__/src/base/device.c.obj
+[97/174] Building CXX object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[98/174] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[99/174] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[100/174] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[101/174] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[102/174] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test.elf.dir/__/__/__/src/hps_mailbox/hps_mailbox.c.obj
+[103/174] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test.elf.dir/__/__/__/src/hps_mailbox/hps_mailbox_internal.c.obj
+[104/174] Building C object test/simics/ccu/CMakeFiles/ccu_test.elf.dir/__/__/__/src/base/device.c.obj
+[105/174] Building C object test/simics/ccu/CMakeFiles/ccu_test.elf.dir/ccu_test.c.obj
+[106/174] Building CXX object test/simics/ccu/CMakeFiles/ccu_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[107/174] Building C object test/simics/ccu/CMakeFiles/ccu_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[108/174] Building C object test/simics/ccu/CMakeFiles/ccu_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[109/174] Building C object test/simics/ccu/CMakeFiles/ccu_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[110/174] Building C object test/simics/ccu/CMakeFiles/ccu_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[111/174] Building C object test/simics/ccu/CMakeFiles/ccu_test.elf.dir/__/__/__/src/ccu/ccu.c.obj
+[112/174] Building CXX object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[113/174] Building C object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/xgmac_test.c.obj
+[114/174] Building C object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[115/174] Building C object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/src/base/device.c.obj
+[116/174] Building CXX object test/simics/ccu/CMakeFiles/ccu_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[117/174] Building CXX object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[118/174] Building C object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/src/clkmgr/clkmgr.c.obj
+[119/174] Building C object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/src/clkmgr/clkmgr_internal.c.obj
+[120/174] Building C object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[121/174] Building C object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[122/174] Building C object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[123/174] Building C object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[124/174] Building C object test/simics/ccu/CMakeFiles/ccu_test.elf.dir/__/__/__/src/ccu/ccu_internal.c.obj
+[125/174] Building CXX object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[126/174] Building C object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/src/xgmac/mrvl_phy_helper.c.obj
+[127/174] Building C object test/simics/smmu/CMakeFiles/smmu_test.elf.dir/smmu_test.c.obj
+[128/174] Building C object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/src/xgmac/xgmac.c.obj
+[129/174] Building C object test/simics/smmu/CMakeFiles/smmu_test.elf.dir/__/__/__/src/base/device.c.obj
+[130/174] Building CXX object test/simics/smmu/CMakeFiles/smmu_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[131/174] Building C object test/simics/smmu/CMakeFiles/smmu_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[132/174] Building C object test/simics/smmu/CMakeFiles/smmu_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[133/174] Building C object test/simics/smmu/CMakeFiles/smmu_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[134/174] Building C object test/simics/smmu/CMakeFiles/smmu_test.elf.dir/__/__/__/src/smmu/smmu.c.obj
+[135/174] Building C object test/simics/smmu/CMakeFiles/smmu_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[136/174] Building C object test/simics/ecc/CMakeFiles/ecc_test.elf.dir/ecc_test.c.obj
+[137/174] Building C object test/simics/smmu/CMakeFiles/smmu_test.elf.dir/__/__/__/src/smmu/smmu_internal.c.obj
+[138/174] Building CXX object test/simics/smmu/CMakeFiles/smmu_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[139/174] Building C object test/simics/ecc/CMakeFiles/ecc_test.elf.dir/__/__/__/src/base/device.c.obj
+[140/174] Building CXX object test/simics/ecc/CMakeFiles/ecc_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[141/174] Building C object test/simics/ecc/CMakeFiles/ecc_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[142/174] Building C object test/simics/ecc/CMakeFiles/ecc_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[143/174] Building C object test/simics/ecc/CMakeFiles/ecc_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[144/174] Building C object test/simics/xgmac/CMakeFiles/xgmac_test.elf.dir/__/__/__/src/xgmac/xgmac_internal.c.obj
+[145/174] Building C object test/simics/ecc/CMakeFiles/ecc_test.elf.dir/__/__/__/src/ecc/ecc.c.obj
+[146/174] Building C object test/simics/ecc/CMakeFiles/ecc_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[147/174] Building C object test/simics/ecc/CMakeFiles/ecc_test.elf.dir/__/__/__/src/ecc/ecc_internal.c.obj
+[148/174] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test.elf.dir/clkmgr_test.c.obj
+[149/174] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[150/174] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test.elf.dir/__/__/__/src/base/device.c.obj
+[151/174] Building CXX object test/simics/clkmgr/CMakeFiles/clkmgr_test.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[152/174] Building CXX object test/simics/ecc/CMakeFiles/ecc_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[153/174] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test.elf.dir/__/__/__/src/uart/uart.c.obj
+[154/174] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[155/174] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[156/174] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[157/174] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test.elf.dir/__/__/__/src/clkmgr/clkmgr_internal.c.obj
+[158/174] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test.elf.dir/__/__/__/src/clkmgr/clkmgr.c.obj
+[159/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/uart_test.elf
+[160/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/mmu_el3_test.elf
+[161/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/i2c_test.elf
+[162/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/spi_test.elf
+[163/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/timer_test.elf
+[164/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/i3c_test.elf
+[165/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/watchdog_test.elf
+[166/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/sdmmc_test.elf
+[167/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/hps_mailbox_test.elf
+[168/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/dma_test.elf
+[169/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/ccu_test.elf
+[170/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/smmu_test.elf
+[171/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/xgmac_test.elf
+[172/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/ecc_test.elf
+[173/174] Building CXX object test/simics/clkmgr/CMakeFiles/clkmgr_test.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[174/174] Linking CXX executable /home/dev/baremetal-remote-audit-0daff10/build/aarch64/out/clkmgr_test.elf
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/mmu_translation.elf has a LOAD segment with RWX permissions
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/som_i2c.elf has a LOAD segment with RWX permissions
+/home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_uart.elf
+/home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_timer.elf
+/home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_watchdog.elf
+/home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_spi.elf
+/home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_ccu.elf
+/home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_clkmgr.elf
+/home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_smmu.elf
+/home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_ecc.elf
+/home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_hps_mailbox.elf

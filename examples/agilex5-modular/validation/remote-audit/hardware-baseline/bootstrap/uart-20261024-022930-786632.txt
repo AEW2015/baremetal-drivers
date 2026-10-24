@@ -1,0 +1,46 @@
+NOTICE:  DDR: Reset type is 'JTAG Config'
+INFO:    DDR: IO96B0 0x18400000 CSR enabled
+INFO:    IOSSM: timeout_sec 15, val 4
+INFO:    IOSSM: wait_for_bit, success
+NOTICE:  IOSSM: Calibration success status check...
+INFO:    IOSSM: timeout_sec 15, val 4
+INFO:    IOSSM: timeout_sec 14, val 4
+INFO:    IOSSM: timeout_sec 13, val 1
+INFO:    IOSSM: wait_for_bit, success
+NOTICE:  IOSSM: All EMIF instances within the IO96 have calibrated successfully!
+INFO:    IOSSM: init_mem_cal: Initial DDR calibration IO96B_0 succeeded
+NOTICE:  DDR: Calibration success
+INFO:    IOSSM: timeout_sec 120, val 0
+INFO:    IOSSM: wait_for_bit, success
+INFO:    IOSSM: timeout_sec 120, val 0
+INFO:    IOSSM: timeout_sec 119, val 3
+INFO:    IOSSM: wait_for_bit, success
+INFO:    IOSSM: DDR type on IO96B_0 iface 0 is DDR4
+INFO:    DDR: ECC enable type: Enabled with error correction and detection
+INFO:    DDR: ECC type: Out-of-Band
+NOTICE:  DDR: ECC is enabled
+WARNING: DDR: DDR size configured is (2048 MiB)
+WARNING: DDR: Mismatch with hardware size (8192 MiB).
+INFO:    DDR: ECC error status register on IO96B_0: 0x0
+INFO:    IOSSM: timeout_sec 120, val 0
+INFO:    IOSSM: wait_for_bit, success
+INFO:    IOSSM: io96b_mb_req: Write 0x20040303 to IOSSM_CMD_REQ_OFFSET 0x1840043c
+INFO:    IOSSM: timeout_sec 120, val 10001
+INFO:    IOSSM: wait_for_bit, success
+INFO:    IOSSM: io96b_mb_req: CMD_RESPONSE_STATUS 0x1840045c: 0x10001
+INFO:    IOSSM: io96b_mb_req: CMD_RESPONSE_STATUS 0x1840045c: 0x10001
+INFO:    IOSSM: io96b_mb_req: CMD_RESPONSE_READY 0x1840045c: 0x10000
+NOTICE:  IOSSM: Memory initialized successfully on IO96B
+INFO:    DDR: ECC initialized successfully
+INFO:    DDR: firewall init done
+NOTICE:  ###DDR:init success###
+NOTICE:  LOCAL DDR: 64 MiB uncached test at 0x84000000, four address-dependent patterns
+NOTICE:  LOCAL DDR: pattern 0 PASS (67108864 bytes)
+NOTICE:  LOCAL DDR: pattern 1 PASS (67108864 bytes)
+NOTICE:  LOCAL DDR: pattern 2 PASS (67108864 bytes)
+NOTICE:  LOCAL DDR: pattern 3 PASS (67108864 bytes)
+NOTICE:  LOCAL DDR: payload readback PASS, entering DDR code at 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, Wo

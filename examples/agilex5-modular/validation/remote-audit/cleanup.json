@@ -1,0 +1,21 @@
+{
+  "ports": {
+    "3337": "free",
+    "3338": "free",
+    "3339": "free",
+    "6677": "free",
+    "4457": "free"
+  },
+  "locks": {
+    "/home/lada/altera-agilex/home/baremetal-guide-validation/examples": "released",
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular": "released",
+    "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular": "released"
+  },
+  "ownership_records": {
+    "/home/lada/altera-agilex/home/baremetal-guide-validation/examples": [],
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular": [],
+    "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular": []
+  },
+  "uart_readers": "",
+  "remaining_qemu_openocd": ""
+}

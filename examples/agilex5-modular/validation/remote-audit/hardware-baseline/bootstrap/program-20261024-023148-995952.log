@@ -1,0 +1,32 @@
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 26.1.1 Build 130 08/06/2026 SC Pro Edition
+    Info: Copyright (C) 2026  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Sat Oct 24 02:31:49 2026
+    Info: System process ID: 2533363
+Info: Command: quartus_pgm -c "Agilex_5E MDK Carrier [1-4.2.1]" -m jtag -o p;/home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/bootstrap/ddr/ddr_probe.hps.rbf@2
+Info (213045): Using programming cable "Agilex_5E MDK Carrier [1-4.2.1]"
+Info (213011): Using programming file /home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/bootstrap/ddr/ddr_probe.hps.rbf with checksum 0x213346AA for device A5ED065BB32AR0@2
+Info (209060): Started Programmer operation at Sat Oct 24 02:31:50 2026
+Info (18942): Configuring device index 2
+Info (18943): Configuration succeeded at device index 2
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Sat Oct 24 02:31:54 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 1752 megabytes
+    Info: Processing ended: Sat Oct 24 02:31:54 2026
+    Info: Elapsed time: 00:00:05
+    Info: System process ID: 2533363

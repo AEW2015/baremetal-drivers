@@ -1,0 +1,46 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+HPS SOM I2C EXAMPLE BEGIN
+Original SDA/SCL pin selection = 0x0000000400000004
+TMP464 manufacturer = 0x0000000000005449
+PASS SOM_TEMP_ID: TMP464 manufacturer read
+TMP464 local temperature raw = 0x0000000000001528
+PASS SOM_EEPROM_READ: 16 bytes received; no data written
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+HPS SOM I2C EXAMPLE COMPLETE

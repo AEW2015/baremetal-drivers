@@ -1,0 +1,4 @@
+PASS REAL_DOCKER_CANCEL 1: exact PID 2515179 stopped; ownership record removed
+PASS REAL_DOCKER_CANCEL 2: exact PID 2515199 stopped; ownership record removed
+PASS REAL_DOCKER_CANCEL 3: exact PID 2515265 stopped; ownership record removed
+PASS REAL_DOCKER_COMPLETION: captured output; verified remote exit; no ownership records

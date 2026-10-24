@@ -1,0 +1,61 @@
+{
+  "tested_remote": "https://github.com/AEW2015/baremetal-drivers.git",
+  "baseline_commit": "0daff10b3ea2d1075fa75c8f5c16526ed99b2e98",
+  "baseline_tracked_diff": "",
+  "tool_versions": "aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nQEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)\nCopyright (c) 2003-2023 Fabrice Bellard and the QEMU Project developers\nGNU gdb (Ubuntu 15.1-1ubuntu1~24.04.1) 15.1\nCopyright (C) 2024 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\nVerilator 5.020 2024-01-01 rev (Debian 5.020-1)\n",
+  "vendor_atf_commit": "4837356693ede42b849ed72f1864cc9c76c53a46",
+  "googletest_archive_tag": "v1.15.2",
+  "ddr_atf_commit": "2ea5afda7f34774ddcc677fb3a728fa57f780a1e",
+  "ddr_build_exit": 0,
+  "ddr_artifacts": {
+    "lwh2f_enabled": false,
+    "source_sof": "/home/dev/agilex5-litedram-phylite/build/dual_ddr1600_hps_lw_r3/memory_test.sof",
+    "source_sof_sha256": "ba3ff98750be5969bccae62e68fdc8d6f757336ee0b5936cd725a411501d25bb",
+    "images": {
+      "ddr_probe.hps.rbf": "57cb8a882d37c321870c85adc2a14b8f5d63307031fe9123927ad0d0c64e2d66",
+      "ddr_recovery.sof": "55cd198552a1eced0849ee7d79b98248317c7762aefc176eca1adfff7ba312c2"
+    }
+  },
+  "elf_sha256": {
+    "build/core_examples.elf": "0420591a148d3cf12e50079e02f89b31f03529e8e7e2f140154fb8339be431a6",
+    "build/dma_copy.elf": "df66286cc4b30cf39622ba13f5e35e43c173f4e56e71a4731a62ba7a248114b0",
+    "build/fabric_example.elf": "50ba5e5a059d20c041fb15b72bab27ac5398a339c34a743752a6b698ccd55311",
+    "build/fault_probe.elf": "3305072a2a4f50933b297a6589bf21a4c9bcf3d37e216f9f7e81cb3366534917",
+    "build/gic_sgi.elf": "cb39db66a1560d138f2bd0739000288b6105b690f1bb5d83116fbbb34015ac49",
+    "build/mailbox_status.elf": "1fff8ada50d7ffd094cf1abf103378ff46ba1aa3b1e3499f24a53b2a9ea3c975",
+    "build/mmu_translation.elf": "eeb7f8f16ed8cae0139694b65cf9a3228583306e5cc7d1d1b64edf7b1a967ffa",
+    "build/multicore.elf": "5f111d6c5bcbcc7d689a0af884e787288058eb38f5ebe1a6ca65f2558747c912",
+    "build/som_i2c.elf": "8f679738d1b9372192141ad521589a30a5a85c86b7ad57a33aceb8d51626f07a",
+    "build/som_i3c.elf": "4e0ae332d9f255f0543de3412401daa9f9a1ec6347fb2c7756b000d849e0df2d",
+    "build/som_interfaces.elf": "2be3e34ce923878bd957552aae380ac9aeb3cbc6c85c0e78f77b3ff5b41243df",
+    "build/som_peripherals.elf": "5843c2432a11c7756200bf8fd7bd1295ccb0e7ab7c655de8be90c72bce23a556",
+    "build/vendor_ccu.elf": "45ddd4cf84b7a93be3e1ded737e986d44381e7432b78b963fb329d9f4bd10954",
+    "build/vendor_clkmgr.elf": "47a528139b3e49188c34a596905d3afbde06f9ec6851807571b2983c6c679b92",
+    "build/vendor_ecc.elf": "f054c453cea520e050c449c129993620b96c573c23c7717e7f3f4411b20147e0",
+    "build/vendor_hps_mailbox.elf": "34846a9168fa776a1c15d0e2dc482a36d9dae74ab402f42327647e377faed155",
+    "build/vendor_smmu.elf": "3550309c3b0b654ea42484345ff16eefb7ceed066c7a8702e462801d38313e10",
+    "build/vendor_spi.elf": "a16ba296d745bfa712e36395060823a6920f08a9adde883bb267d1ecd858382c",
+    "build/vendor_timer.elf": "f9a83faf1d6f59c1e916eff9418393e5293eee271e2104f3a64299bd955ac87e",
+    "build/vendor_uart.elf": "c6871ab8bcd0e4199715f13be992b22f0608f674e317aee48b51e00b12a2cdb0",
+    "build/vendor_watchdog.elf": "eb918666410de04a2bc5fddfd9696e9c4a235432d8f65b92914e75f00d880e84"
+  },
+  "hello_gdb_exit": 0,
+  "website_strict_build_exit": 0,
+  "website_pages": 36,
+  "broken_local_paths": 0,
+  "skill_validation_exit": 0,
+  "runtime_fix_commit": "65182bc1791932b62e8fe594c45a8c26d53bd23c",
+  "final_fixed_commit": "c943a0bf9cfe7709ef225800ea93cdf56fbc7ff8",
+  "final_ddr_pc": "0x82000024",
+  "fixed_source_sha256": {
+    "owned_process.py": "970db137be9f92fe058824d041f4c8a794a86d7bd4fb90d0839fecb288830658",
+    "qemu/labs/build.sh": "cfe937501b749afff3aff7c4fc992068c657be97d44bdfa4c69ef6ea575d3ca2",
+    "qemu/labs/run.py": "81d0cae98802072e809dff27895b34c1a4b3ff1444d31610fccf3c54bb1ef06a",
+    "tests/test_student_experience.py": "d24f349bb98c0316660bb81850ee30bdeec845cddb9ccc8a88caaabb4dfa342b"
+  },
+  "expanded_ci": {
+    "run": 40054538908,
+    "conclusion": "success"
+  },
+  "website_after_pages": 37
+}

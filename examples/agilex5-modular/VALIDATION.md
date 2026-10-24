@@ -1,6 +1,18 @@
 # Hardware validation record
 
-All 15 suite entries passed on the original Modular ES bench, across several targeted runs. The preserved SHA-256 values identify the original tested ELFs. Source/log paths, line endings and trailing whitespace were normalized while exporting this record. The fork was rebuilt separately; the packaged paths and runners have not been rerun on hardware.
+## Fresh-clone remote campaign, 24 October 2026 UTC
+
+All 15 registered examples passed in one run of freshly built remote source at
+`0daff10b3ea2d1075fa75c8f5c16526ed99b2e98`. Final DDR restoration passed,
+including four 64 MiB patterns, payload readback and PC `0x82000028`.
+See [fresh structured results](validation/remote-audit/hardware-baseline/results.json)
+and [the full report](../../docs/remote-validation.md) for the subsequent fixes,
+OCRAM execution and corrected-launcher retests. Original results below retain
+their historical binary hashes and scope.
+
+## Original bench campaign
+
+All 15 suite entries passed on the original Modular ES bench, across several targeted runs. The preserved SHA-256 values identify the original tested ELFs. Source/log paths, line endings and trailing whitespace were normalized while exporting this record. At the time this original record was exported, the fork had only been rebuilt; later fork execution is recorded separately above.
 
 | Entry | Original result | Evidence |
 |---|---|---|

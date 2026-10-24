@@ -1,0 +1,2 @@
+PASS FABRIC_RTL_DRIVER: persona 41444431, vectors, byte enables, W1C, read-only, quiesce, timeout, reset
+PASS FABRIC_RTL_DRIVER: persona 584f5231, vectors, byte enables, W1C, read-only, quiesce, timeout, reset

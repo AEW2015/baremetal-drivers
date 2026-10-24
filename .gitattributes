@@ -1,0 +1,3 @@
+# Preserve captured console/UART bytes, including CRLF and prompt spaces.
+examples/agilex5-modular/validation/remote-audit/**/*.log -text -whitespace
+examples/agilex5-modular/validation/remote-audit/**/*.txt -text -whitespace

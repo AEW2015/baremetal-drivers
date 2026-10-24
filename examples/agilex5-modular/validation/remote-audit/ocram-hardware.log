@@ -1,0 +1,12 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! Agilex 5 HPS OCRAM UART
+Hello, World! Agilex 5 HPS OCRAM UART
+Hello, World! Agilex 5 HPS OCRAM UART
+PASS: physical HPS UART /dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0, 115200 8N1; application runs in OCRAM.

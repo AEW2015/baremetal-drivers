@@ -1,0 +1,91 @@
+{
+  "source_commit": "0daff10b3ea2d1075fa75c8f5c16526ed99b2e98",
+  "remote": "https://github.com/AEW2015/baremetal-drivers.git",
+  "started_utc": "2026-10-24T02:23:55.690646+00:00",
+  "tests": [
+    {
+      "name": "versions",
+      "command": "aarch64-none-elf-gcc --version && qemu-system-aarch64 --version && gdb-multiarch --version && verilator --version",
+      "exit": 0,
+      "seconds": 0.21,
+      "log": "versions.log"
+    },
+    {
+      "name": "qemu-doctor",
+      "command": "python3 doctor.py --target qemu",
+      "exit": 0,
+      "seconds": 0.21,
+      "log": "qemu-doctor.log"
+    },
+    {
+      "name": "qemu-build",
+      "command": "./qemu/build.sh",
+      "exit": 0,
+      "seconds": 0.16,
+      "log": "qemu-build.log"
+    },
+    {
+      "name": "qemu-hello",
+      "command": "python3 qemu/run.py --check",
+      "exit": 0,
+      "seconds": 0.21,
+      "log": "qemu-hello.log"
+    },
+    {
+      "name": "qemu-experiment",
+      "command": "python3 qemu/experiment.py",
+      "exit": 0,
+      "seconds": 0.72,
+      "log": "qemu-experiment.log"
+    },
+    {
+      "name": "qemu-labs-build",
+      "command": "bash qemu/labs/build.sh",
+      "exit": 0,
+      "seconds": 0.87,
+      "log": "qemu-labs-build.log"
+    },
+    {
+      "name": "qemu-labs-run",
+      "command": "python3 qemu/labs/run.py --negative --gdb",
+      "exit": 0,
+      "seconds": 0.87,
+      "log": "qemu-labs-run.log"
+    },
+    {
+      "name": "regressions",
+      "command": "AGILEX_TEST_REAL_QEMU=1 python3 -m unittest discover -s tests -v",
+      "exit": 0,
+      "seconds": 4.27,
+      "log": "regressions.log"
+    },
+    {
+      "name": "fabric-simulation",
+      "command": "./fabric/test.sh",
+      "exit": 0,
+      "seconds": 6.98,
+      "log": "fabric-simulation.log"
+    },
+    {
+      "name": "fabric-driver-build",
+      "command": "LAB_CPU_BASE=0x20020000 ./fabric/build.sh",
+      "exit": 0,
+      "seconds": 0.26,
+      "log": "fabric-driver-build.log"
+    },
+    {
+      "name": "all-examples-build",
+      "command": "./build_all.sh",
+      "exit": 0,
+      "seconds": 32.37,
+      "log": "all-examples-build.log"
+    },
+    {
+      "name": "ocram-build",
+      "command": "./bootstrap/ocram/build_uart.sh",
+      "exit": 0,
+      "seconds": 0.21,
+      "log": "ocram-build.log"
+    }
+  ]
+}

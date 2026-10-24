@@ -1,0 +1,36 @@
+ting from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, HPS SOM INTERFACES BEGIN
+EMAC2 MDIO pin selection = 0x0000000600000006
+PHY address = 0x0000000000000000
+PHY ID1 = 0x0000000000000141
+PHY ID2 = 0x0000000000000dd1
+PASS SOM_PHY_ID: EMAC2 MDIO reached Marvell 88E1512
+SDMMC HRS29 = 0x0000000000006061
+SD present state = 0x0000000001f700f0
+PASS SDMMC_IDENT: controller revision matches
+INFO SD_CARD: card-detect reports inserted; media not read
+USB1 GSNPSID = 0x0000000033313130
+PASS USB_IDENT: DWC_usb31 controller ID; enumeration not tested
+HPS SOM INTERFACES COMPLETE

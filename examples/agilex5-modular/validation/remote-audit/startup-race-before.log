@@ -1,0 +1,3 @@
+Owned wrapper has published its record; exec is deliberately delayed.
+REPRODUCED: early cancellation incorrectly rejects its own pre-exec wrapper.
+Hardware process shutdown is not verified: Could not confirm cancellation of the owned process; keep /tmp/tmpzk1jzbvr/.agilex-process-au0ifnuc. Container command failed (python3): PID ownership changed; no further signal sent. Check AGILEX_CONTAINER, AGILEX_CONTAINER_USER, docker ps, and Docker permissions.

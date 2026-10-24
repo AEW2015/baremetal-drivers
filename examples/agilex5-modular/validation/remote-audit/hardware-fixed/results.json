@@ -1,0 +1,44 @@
+{
+  "requested_tests": [
+    "core",
+    "dma"
+  ],
+  "started_utc": "2026-10-24T02:34:55.941084+00:00",
+  "initial_full_recovery": false,
+  "tests": [
+    {
+      "name": "core",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/core_examples.elf",
+      "sha256": "0420591a148d3cf12e50079e02f89b31f03529e8e7e2f140154fb8339be431a6",
+      "status": "pass",
+      "entry": "0x82100000",
+      "elapsed_seconds": 33.1,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS CPU_NEON: four vector additions",
+        "PASS CACHE_INFO: configuration read; cache coherency is a separate test",
+        "PASS DDR_BUFFERS: CPU copied and verified 64 KiB",
+        "PASS GPIO_READ: no output pin direction changed",
+        "PASS COUNTER: generic timer increments",
+        "PASS GIC_INFO: identification only; interrupt delivery is a separate example"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "dma",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/dma_copy.elf",
+      "sha256": "df66286cc4b30cf39622ba13f5e35e43c173f4e56e71a4731a62ba7a248114b0",
+      "status": "pass",
+      "entry": "0x82200000",
+      "elapsed_seconds": 32.7,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS DMA_COPY: 4096 bytes transferred by DMAC0 and verified"
+      ],
+      "failure_lines": []
+    }
+  ],
+  "restoration": "pass"
+}

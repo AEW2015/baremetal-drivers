@@ -1,0 +1,237 @@
+{
+  "requested_tests": [
+    "core",
+    "dma",
+    "gic",
+    "mmu",
+    "som",
+    "som-i2c",
+    "multicore",
+    "som-i3c",
+    "mailbox",
+    "interfaces",
+    "vendor-uart",
+    "vendor-ccu",
+    "vendor-clkmgr",
+    "vendor-smmu",
+    "vendor-ecc"
+  ],
+  "started_utc": "2026-10-24T02:25:02.660431+00:00",
+  "initial_full_recovery": false,
+  "tests": [
+    {
+      "name": "core",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/core_examples.elf",
+      "sha256": "0420591a148d3cf12e50079e02f89b31f03529e8e7e2f140154fb8339be431a6",
+      "status": "pass",
+      "entry": "0x82100000",
+      "elapsed_seconds": 32.9,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS CPU_NEON: four vector additions",
+        "PASS CACHE_INFO: configuration read; cache coherency is a separate test",
+        "PASS DDR_BUFFERS: CPU copied and verified 64 KiB",
+        "PASS GPIO_READ: no output pin direction changed",
+        "PASS COUNTER: generic timer increments",
+        "PASS GIC_INFO: identification only; interrupt delivery is a separate example"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "dma",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/dma_copy.elf",
+      "sha256": "df66286cc4b30cf39622ba13f5e35e43c173f4e56e71a4731a62ba7a248114b0",
+      "status": "pass",
+      "entry": "0x82200000",
+      "elapsed_seconds": 32.5,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS DMA_COPY: 4096 bytes transferred by DMAC0 and verified"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "gic",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/gic_sgi.elf",
+      "sha256": "cb39db66a1560d138f2bd0739000288b6105b690f1bb5d83116fbbb34015ac49",
+      "status": "pass",
+      "entry": "0x82300000",
+      "elapsed_seconds": 32.5,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS GIC_SGI: core 0 received and acknowledged SGI 0"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "mmu",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/mmu_translation.elf",
+      "sha256": "eeb7f8f16ed8cae0139694b65cf9a3228583306e5cc7d1d1b64edf7b1a967ffa",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 32.5,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS MMU_TRANSLATION: EL3 translation and DDR readback"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "som",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/som_peripherals.elf",
+      "sha256": "5843c2432a11c7756200bf8fd7bd1295ccb0e7ab7c655de8be90c72bce23a556",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 38.9,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS HPS_TIMER: periodic timer expiry and clear",
+        "PASS WATCHDOG_IRQ: watchdog 1 expiry observed, peripheral reset",
+        "PASS SPI_LOOPBACK: four bytes through internal loopback",
+        "PASS GPIO_LED_PAD: SOM heartbeat output high/low readback",
+        "PASS I2C_IDENT: two controller IDs; no bus transfer"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "som-i2c",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/som_i2c.elf",
+      "sha256": "8f679738d1b9372192141ad521589a30a5a85c86b7ad57a33aceb8d51626f07a",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 33.8,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS SOM_TEMP_ID: TMP464 manufacturer read",
+        "PASS SOM_EEPROM_READ: 16 bytes received; no data written"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "multicore",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/multicore.elf",
+      "sha256": "5f111d6c5bcbcc7d689a0af884e787288058eb38f5ebe1a6ca65f2558747c912",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 31.8,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS MULTICORE: three secondary cores executed and published records"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "som-i3c",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/som_i3c.elf",
+      "sha256": "4e0ae332d9f255f0543de3412401daa9f9a1ec6347fb2c7756b000d849e0df2d",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 32.4,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS NATIVE_I3C_TEMP: legacy I2C read via I3C1",
+        "PASS NATIVE_I3C_EEPROM: 16-byte read, no data writes"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "mailbox",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/mailbox_status.elf",
+      "sha256": "1fff8ada50d7ffd094cf1abf103378ff46ba1aa3b1e3499f24a53b2a9ea3c975",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 32.3,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS MAILBOX_IDCODE: SDM returned matching Agilex 5 device ID"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "interfaces",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/som_interfaces.elf",
+      "sha256": "2be3e34ce923878bd957552aae380ac9aeb3cbc6c85c0e78f77b3ff5b41243df",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 32.4,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS SOM_PHY_ID: EMAC2 MDIO reached Marvell 88E1512",
+        "PASS SDMMC_IDENT: controller revision matches",
+        "PASS USB_IDENT: DWC_usb31 controller ID; enumeration not tested"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "vendor-uart",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_uart.elf",
+      "sha256": "c6871ab8bcd0e4199715f13be992b22f0608f674e317aee48b51e00b12a2cdb0",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 33.8,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": []
+    },
+    {
+      "name": "vendor-ccu",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_ccu.elf",
+      "sha256": "45ddd4cf84b7a93be3e1ded737e986d44381e7432b78b963fb329d9f4bd10954",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 39.2,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": []
+    },
+    {
+      "name": "vendor-clkmgr",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_clkmgr.elf",
+      "sha256": "47a528139b3e49188c34a596905d3afbde06f9ec6851807571b2983c6c679b92",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 37.0,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": []
+    },
+    {
+      "name": "vendor-smmu",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_smmu.elf",
+      "sha256": "3550309c3b0b654ea42484345ff16eefb7ceed066c7a8702e462801d38313e10",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 37.7,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": []
+    },
+    {
+      "name": "vendor-ecc",
+      "elf": "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/vendor_ecc.elf",
+      "sha256": "f054c453cea520e050c449c129993620b96c573c23c7717e7f3f4411b20147e0",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 34.3,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": []
+    }
+  ],
+  "restoration": "pass"
+}

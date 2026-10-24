@@ -1,0 +1,30 @@
+{
+  "source_commit": "0daff10b3ea2d1075fa75c8f5c16526ed99b2e98",
+  "uart": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+  "stages": [
+    {
+      "name": "hardware-doctor",
+      "command": [
+        "/usr/bin/python3",
+        "doctor.py",
+        "--target",
+        "hardware",
+        "--sof",
+        "/home/lada/altera-agilex/home/agilex5-litedram-phylite/build/dual_ddr1600_hps_lw_r3/memory_test.sof",
+        "--handoff",
+        "/home/lada/altera-agilex/home/agilex5-litedram-phylite/build/dual_ddr1600_hps_lw_r3/hps_bootloader_handoff.bin"
+      ],
+      "exit": 0,
+      "seconds": 0.96
+    },
+    {
+      "name": "hardware-suite",
+      "command": [
+        "/usr/bin/python3",
+        "run_suite.py"
+      ],
+      "exit": 0,
+      "seconds": 543.52
+    }
+  ]
+}

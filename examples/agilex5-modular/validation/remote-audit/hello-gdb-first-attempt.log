@@ -1,0 +1,16 @@
+QEMU GDB ready on 127.0.0.1:60383
+Traceback (most recent call last):
+  File "/home/dev/baremetal-remote-audit-evidence/check_hello_gdb.py", line 18, in <module>
+    result=subprocess.run(args,capture_output=True,text=True,timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['gdb-multiarch', '--batch', '/home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular/build/qemu/hello.elf', '-ex', 'target remote 127.0.0.1:60383', '-ex', 'hbreak main', '-ex', 'continue', '-ex', 'info line', '-ex', 'stepi', '-ex', 'hbreak qemu_done', '-ex', 'continue', '-ex', 'print status', '-ex', 'print failures', '-ex', 'print vector_result', '-ex', 'print source[511] == destination[511]', '-ex', "python assert int(gdb.parse_and_eval('status')) == 0", '-ex', "python assert int(gdb.parse_and_eval('failures')) == 0", '-ex', "python assert [int(gdb.parse_and_eval('vector_result[%d]' % i)) for i in range(4)] == [11,22,33,44]", '-ex', "python assert all(int(gdb.parse_and_eval('source[%d]' % i)) == int(gdb.parse_and_eval('destination[%d]' % i)) for i in range(512))", '-ex', 'continue']' timed out after 30 seconds

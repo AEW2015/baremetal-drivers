@@ -1,0 +1,7 @@
+PASS environment: container; Linux x86_64; workspace /home/dev/baremetal-remote-audit-0daff10/examples/agilex5-modular
+PASS compiler: aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009
+PASS QEMU: QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)
+PASS GDB: GNU gdb (Ubuntu 15.1-1ubuntu1~24.04.1) 15.1
+WARN QEMU ELF: Not built yet. Run ./qemu/build.sh; this is expected on a fresh clone.
+PASS GDB port 3338: Available now; the debug runner reserves its own listener atomically.
+NEXT: Run ./qemu/build.sh then python3 qemu/run.py --check.
