@@ -21,6 +21,9 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - content.tabs.link
     - navigation.sections
     - navigation.top
     - navigation.footer
@@ -36,6 +39,8 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - toc:
       permalink: true
 nav:
@@ -45,7 +50,27 @@ nav:
       - 2. Set up VS Code: vscode.md
       - 3. Run and debug QEMU: qemu.md
       - 4. Run on the Modular kit: hardware.md
-  - Example catalog: examples.md
-  - Validation and limits: validation.md
-  - Troubleshooting: troubleshooting.md
-  - Build this website: website.md
+  - Examples:
+      - Overview: examples.md
+      - QEMU CPU, NEON and RAM: examples/qemu.md
+      - OCRAM UART Hello: examples/ocram.md
+      - DDR bring-up and Hello: examples/ddr.md
+      - "CPU, NEON and core checks": examples/core.md
+      - "DMA: 4096-byte transfer": examples/dma.md
+      - "GIC: secure software interrupt": examples/gic.md
+      - "MMU: EL3 translation and readback": examples/mmu.md
+      - "Multicore: release A55/A76 secondaries": examples/multicore.md
+      - "SOM: timer, watchdog, SPI and GPIO": examples/som.md
+      - "GPIO I2C: temperature sensor and EEPROM": examples/som-i2c.md
+      - "I3C1 controller: legacy-I2C reads": examples/som-i3c.md
+      - "Ethernet PHY, SD and USB identification": examples/interfaces.md
+      - "SDM mailbox: read FPGA IDCODE": examples/mailbox.md
+      - "Vendor UART transmit example": examples/vendor-uart.md
+      - "Vendor CCU register checks": examples/vendor-ccu.md
+      - "Vendor clock-manager register readout": examples/vendor-clkmgr.md
+      - "Vendor SMMU identity check": examples/vendor-smmu.md
+      - "Vendor ECC register/default checks": examples/vendor-ecc.md
+  - Reference:
+      - Validation and limits: validation.md
+      - Troubleshooting: troubleshooting.md
+      - Build this website: website.md

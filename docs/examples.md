@@ -1,58 +1,51 @@
 # Example catalog
 
-All commands here are **host-side hardware commands**, after the
-[hardware setup](hardware.md). Only the separately ported `qemu/` exercise runs
-on QEMU `virt`. Controller names shared between platforms do not imply identical
-addresses, integration or behavior.
+Choose an example in the **Examples** navigation. Each page has **What it does**, **Build and run**, **Expected results**, and **Limits** subtabs, with source links and captured output.
 
-## CPU, memory and interrupt foundations
+## Start here
 
-| `--only` entry | Open this source | Successful observation |
+| Example | Runs on | Expected result |
 |---|---|---|
-| `core` | [core_examples.c](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/core_examples.c) | CPU/NEON, cache geometry, CPU copy, GPIO snapshot, advancing counter, GIC ID |
-| `dma` | [dma_copy.c](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/dma_copy.c) | Real completion bit plus all 4096 bytes match |
-| `gic` | [gic_sgi.c](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/gic_sgi.c) | Redistributor powered, SGI0 acknowledged by polling |
-| `mmu` | [mmu_translation.c](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/mmu_translation.c) | AT/PAR translation and DDR access with EL3 MMU enabled |
-| `multicore` | [multicore.c](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/multicore.c) | Three secondary MIDR/MPIDR records verified |
+| [QEMU CPU/NEON/RAM](examples/qemu.md) | Generic QEMU virt | EL3, vector `{11,22,33,44}`, verified 4 KiB copy, exit 0 |
+| [OCRAM Hello](examples/ocram.md) | Modular SOM | Repeated OCRAM UART Hello; no DDR initialization |
+| [DDR bring-up](examples/ddr.md) | Modular SOM | Four 64 MiB patterns, payload readback, fresh Hello and DDR PC |
 
-Start with `core`, then `dma,gic,mmu`, then multicore. Generic-counter advancement
-has no calibrated-delay claim because CNTFRQ was zero in the diagnostic boot.
-DMA runs with D-cache off. Secondary cores park outside reloadable example code.
-The separate PSCI wrapper requires resident BL31 and a nonsecure caller, absent
-in this direct EL3 diagnostic.
+## The 15 hardware suite entries
 
-## Actual SOM devices
+Complete [hardware setup](hardware.md), build the selected image inside the development container, then run the selector from the configured **Linux host**:
 
-| Entry | Source | Successful observation |
+```sh
+python3 run_suite.py --only core
+```
+
+The runner freshly initializes DDR before each program and restores DDR Hello afterward. Example pages provide their exact command, ELF and recorded entry. Only the separate QEMU exercise runs on generic QEMU virt.
+
+| Selector | Detailed example | What to expect |
 |---|---|---|
-| `som` | [som_peripherals.c](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/som_peripherals.c) | Timer expiry, watchdog IRQ-first mode, SPI internal loopback, LED pad high/low and controller IDs |
-| `som-i2c` | [som_i2c.c](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/som_i2c.c) | GPIO-I2C reads TMP464 manufacturer `0x5449` and 16 EEPROM bytes |
-| `som-i3c` | [som_i3c.c](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/som_i3c.c) | I3C1 legacy-I2C mode reads the same devices |
-| `interfaces` | [som_interfaces.c](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/som_interfaces.c) | Marvell PHY IDs, SD controller/card-detect and DWC_usb31 ID |
-| `mailbox` | [mailbox_status.c](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/mailbox_status.c) | SDM returns matching FPGA IDCODE |
+| `core` | [CPU, NEON and core checks](examples/core.md) | CPU/NEON, 64 KiB CPU copy, GPIO/counter/GIC snapshots |
+| `dma` | [DMA: 4096-byte transfer](examples/dma.md) | DMAC0 completion plus 4096-byte readback |
+| `gic` | [GIC: secure software interrupt](examples/gic.md) | Core 0 acknowledges secure SGI0 |
+| `mmu` | [MMU: EL3 translation and readback](examples/mmu.md) | EL3 AT/PAR translation and DDR store/read |
+| `multicore` | [Multicore: release A55/A76 secondaries](examples/multicore.md) | A55.1 and both A76 cores publish verified records |
+| `som` | [SOM: timer, watchdog, SPI and GPIO](examples/som.md) | Timer, watchdog IRQ-first, SPI loopback, LED pad and IDs |
+| `som-i2c` | [GPIO I2C: temperature sensor and EEPROM](examples/som-i2c.md) | TMP464 manufacturer 0x5449 and 16 EEPROM bytes |
+| `som-i3c` | [I3C1 controller: legacy-I2C reads](examples/som-i3c.md) | Same targets through I3C1 legacy-I2C commands |
+| `interfaces` | [Ethernet PHY, SD and USB identification](examples/interfaces.md) | Marvell PHY, SD controller/card detect and USB1 ID |
+| `mailbox` | [SDM mailbox: read FPGA IDCODE](examples/mailbox.md) | SDM returns matching 0x0364f0dd device ID |
+| `vendor-uart` | [Vendor UART transmit example](examples/vendor-uart.md) | Hello, World! and zero return code |
+| `vendor-ccu` | [Vendor CCU register checks](examples/vendor-ccu.md) | CCU register checks complete; version warnings retained |
+| `vendor-clkmgr` | [Vendor clock-manager register readout](examples/vendor-clkmgr.md) | Clock-register reads complete; default-value warnings retained |
+| `vendor-smmu` | [Vendor SMMU identity check](examples/vendor-smmu.md) | Exact SOM IIDR 0x4832243b |
+| `vendor-ecc` | [Vendor ECC register/default checks](examples/vendor-ecc.md) | ECC register/default checks complete; no fault injection |
 
-The management targets are SOM TMP464 `0x48` and EEPROM `0x57`; carrier devices
-have other addresses. EEPROM pointer writes are used to select bytes for reading,
-without writing the EEPROM array. Native I3C target protocols are not tested.
-See the [schematic mapping](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/HARDWARE.md)
-before changing pins or connecting another peripheral.
+## How to judge a result
 
-## Adapted vendor references
+Every page distinguishes fixed acceptance criteria from recorded snapshots. Temperature, EEPROM contents, counter deltas, GPIO values and SD presence can change. CCU and clock-manager PASS results can include explicitly nonfatal reference-value warnings; inspect them. A controller ID is not an end-to-end traffic test.
 
-| Entry | Checked scope | Limitation |
-|---|---|---|
-| `vendor-uart` | Vendor UART example with board startup/divisor preservation | Transmit example, not an external loopback test |
-| `vendor-ccu` | Register access and ID/default checks | ES/version warnings remain; no coherency test |
-| `vendor-clkmgr` | Clock-register readout | Initialized/default warnings; no frequency measurement |
-| `vendor-smmu` | Exact SOM revision-2 IIDR `0x4832243b` | No translated DMA transaction |
-| `vendor-ecc` | ECC register/default checks | No injected error or recovery exercise |
+Require a fresh begin marker, every required result, no failure marker, a successful debugger operation and `DDR Hello restoration: pass`. The runner saves UART/debug/bootstrap logs and an ELF hash under `runs/<UTC timestamp>/`. Rebuilt binaries do not inherit the original hashes’ hardware results.
 
-The adapters establish a physical EL3 runtime, repair the libc write contract,
-allow normal-memory unaligned library accesses, and report `main`'s result.
-See [vendor_wrapper.c](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/vendor_wrapper.c)
-and [porting lessons](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/PORTING.md).
+The original [15-entry hardware record](validation.md) and [tutorial debugger checks](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/tutorial) remain separate. The supplied hardware F5 launch targets the `core` ELF; use each page’s runner command for the other entries.
 
-Ethernet packet traffic, USB enumeration and SD media access need further setup.
-The U-Boot/Linux recipes in the pack are separate, unexecuted references for a
-properly configured board environment. They are not commands for the host
-container. No populated NAND/eMMC was established on this SOM.
+## Supporting and deferred examples
+
+`secondary_core.c` is a compile-only PSCI wrapper requiring resident BL31 and a nonsecure caller, absent in the current EL3 bootstrap. `fault_probe.c` is a manual diagnostic utility, not a peripheral qualification test. The U-Boot/Linux recipes are unexecuted setup references. Ethernet traffic, USB enumeration, SD media access, native I3C protocols, SMMU translation, ECC injection and coherent multicore sharing are not claimed by these tests.
