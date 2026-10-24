@@ -28,6 +28,24 @@
     "version": "2.0.0",
     "tasks": [
       {
+        "label": "Check QEMU setup",
+        "type": "shell",
+        "command": "python3 doctor.py --target qemu",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Prepare QEMU debug",
+        "dependsOrder": "sequence",
+        "dependsOn": [
+          "Check QEMU setup",
+          "Build QEMU"
+        ],
+        "problemMatcher": []
+      },
+      {
         "label": "Build QEMU",
         "type": "shell",
         "command": "./qemu/build.sh",
@@ -108,7 +126,7 @@
         "filterStdout": true,
         "filterStderr": true,
         "serverLaunchTimeout": 15000,
-        "preLaunchTask": "Build QEMU",
+        "preLaunchTask": "Prepare QEMU debug",
         "stopAtEntry": true,
         "setupCommands": [
           {

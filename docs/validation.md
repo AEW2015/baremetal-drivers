@@ -32,6 +32,15 @@ Future GitHub Actions runs check the QEMU exercise with Ubuntu's freestanding
 cross-compiler invocation, plus the strict website build. Those CI results do not
 represent physical-board tests or a test of the desktop GUI.
 
+## Robustness follow-up
+
+Three simulated student reviews drove setup, runner and recovery improvements.
+The follow-up includes 18 automated checks, positive/negative real QEMU runs,
+command-line GDB and a physical core run with successful DDR restoration.
+Read the [review methods, feedback and evidence](student-review.md). These are
+agent simulations and executed technical checks, not independent human usability
+results. The historical 15-example hardware results remain separate.
+
 ## What these results do not establish
 
 The 64 MiB scratch check does not qualify the entire 8 GiB bank. The configured

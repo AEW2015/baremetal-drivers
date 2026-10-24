@@ -1,0 +1,28 @@
+[preflight] Checking host/container mapping, tools and artifact hashes...
+Evidence: <HOST_REPO>/examples/agilex5-modular/runs/20261024T013215.799391Z
+[core] Initializing DDR; follow <HOST_REPO>/examples/agilex5-modular/runs/20261024T013215.799391Z/core-bootstrap.log for live stages.
+[core] Loading core_examples.elf and collecting fresh UART results...
+core: pass
+HPS CORE EXAMPLES BEGIN (DDR 0x82100000)
+MIDR_EL1 = 0x00000000412fd050
+MPIDR_EL1 = 0x0000000081000000
+CurrentEL = 0x000000000000000c
+PASS CPU_NEON: four vector additions
+CTR_EL0 = 0x0000000084448004
+CLIDR_EL1 = 0x00000000c3000123
+SCTLR_EL3 = 0x0000000030c5183a
+PASS CACHE_INFO: configuration read; cache coherency is a separate test
+PASS DDR_BUFFERS: CPU copied and verified 64 KiB
+GPIO0 direction = 0x0000000000000000
+GPIO0 external inputs = 0x00000000008d1f48
+PASS GPIO_READ: no output pin direction changed
+CNTFRQ_EL0 = 0x0000000000000000
+Counter delta = 0x00000000027ac642
+PASS COUNTER: generic timer increments
+GICD_TYPER = 0x00000000007b0411
+GICD_IIDR = 0x000000000201743b
+PASS GIC_INFO: identification only; interrupt delivery is a separate example
+HPS CORE EXAMPLES COMPLETE
+
+[restore] Restoring DDR Hello; inspect restore.log for live stages.
+DDR Hello restoration: pass

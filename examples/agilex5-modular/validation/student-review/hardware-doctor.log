@@ -1,0 +1,9 @@
+PASS environment: host/native environment; Linux x86_64; workspace <HOST_REPO>/examples/agilex5-modular
+PASS host UART access: OK
+PASS container path: <CONTAINER_REPO>/examples/agilex5-modular
+PASS same bind-mounted checkout: OK
+PASS container tools: OK
+PASS core/image hashes: Host/container artifact hashes match.
+PASS JTAG identity/ownership: Verified Modular ES cable 1; no programming or clock changes performed.
+PASS OpenOCD ports: 3337, 6677 and 4457 available now.
+NEXT: Review fresh-board versus running-design initialization before run_suite.py --only core.

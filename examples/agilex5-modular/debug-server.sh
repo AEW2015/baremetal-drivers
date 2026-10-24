@@ -6,6 +6,9 @@ exec 9>hardware.lock
 flock -n 9 || { echo 'Another process owns this example tree hardware.lock' >&2; exit 1; }
 python3 - <<'PY'
 import re,subprocess
+from pathlib import Path
+records=list(Path(".").glob(".agilex-process-*"))
+if records: raise SystemExit(f"Unresolved hardware process record: {records[0]}; investigate before debugging")
 chain=subprocess.check_output(['jtagconfig'],text=True)
 first=chain.split('2)')[0]
 if not re.search(r'^1\) Agilex_5E MDK Carrier ',first,re.M) or not re.search(r'^\s+0364F0DD\s',first,re.M):

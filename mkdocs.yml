@@ -73,4 +73,5 @@ nav:
   - Reference:
       - Validation and limits: validation.md
       - Troubleshooting: troubleshooting.md
+      - Simulated student reviews: student-review.md
       - Build this website: website.md

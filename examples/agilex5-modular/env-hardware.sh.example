@@ -1,0 +1,6 @@
+# Copy to ~/.config/agilex5/hardware.env on the Linux HOST, edit, then source.
+# These are configuration placeholders. Nothing is programmed by sourcing this.
+export AGILEX_CONTAINER=agilex-xrdp
+export AGILEX_CONTAINER_USER=dev
+export AGILEX_CONTAINER_ROOT=/absolute/container/path/baremetal-drivers/examples/agilex5-modular
+export AGILEX_UART=/dev/serial/by-path/CHANGE-ME-TO-VERIFIED-SOM-J2

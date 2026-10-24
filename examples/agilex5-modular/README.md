@@ -168,3 +168,13 @@ Follow the [web tutorial](https://aew2015.github.io/baremetal-drivers/) and open
 environment. The separate [QEMU exercise](qemu/) targets generic QEMU `virt`;
 the Agilex MMIO examples require the physical kit. New debugger and emulator
 checks are recorded in [tutorial validation](validation/tutorial/results.json).
+
+## Environment checks and troubleshooting
+
+Run `python3 doctor.py --target qemu` in the compiler environment, or
+`python3 doctor.py --target hardware` on the configured Linux host before board
+work. See the [troubleshooting guide](https://aew2015.github.io/baremetal-drivers/troubleshooting/)
+and [simulated student review](https://aew2015.github.io/baremetal-drivers/student-review/)
+for failure checks, recovery steps and validation limits. Software regressions:
+`AGILEX_TEST_REAL_QEMU=1 python3 -m unittest discover -s tests -v`
+(omit the environment flag to skip the real compiler/emulator exercise).

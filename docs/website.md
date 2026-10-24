@@ -17,7 +17,7 @@ Open `http://127.0.0.1:8000/baremetal-drivers/` (or the URL printed by MkDocs) t
 preview. Generated `site/` and the virtual environment are untracked.
 
 The GitHub Actions workflow builds the site, runs the freestanding QEMU smoke
-check and deploys the static output after a push to `main`. Pull requests build
+check, student-failure regressions (including an intentional QEMU failure) and deploys the static output after a push to `main`. Pull requests build
 and check without publishing. No FPGA image is programmed by CI, and GitHub's
 runner has no access to the bench.
 

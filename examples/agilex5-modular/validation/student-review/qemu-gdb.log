@@ -1,0 +1,18 @@
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/qemu/hello.elf has a LOAD segment with RWX permissions
+_start () at qemu/start.S:4
+4	 msr daifset,#15
+Hardware assisted breakpoint 1 at 0x402000a4: file qemu/hello.c, line 12.
+
+Breakpoint 1, qemu_done (status=0) at qemu/hello.c:12
+12	__attribute__((noreturn,noinline)) void qemu_done(unsigned status){
+$1 = 0
+$2 = {11, 22, 33, 44}
+$3 = 1
+[Inferior 1 (process 1) detached]
+
+QEMU GDB ready on 127.0.0.1:3338
+QEMU VIRT AARCH64 BEGIN
+PASS EL3
+PASS NEON: 11 22 33 44
+PASS MEMORY: 4096-byte CPU copy
+QEMU EXAMPLE COMPLETE

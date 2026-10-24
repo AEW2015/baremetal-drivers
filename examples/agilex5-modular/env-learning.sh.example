@@ -1,0 +1,15 @@
+# Copy to ~/.config/agilex5/learning.env, edit if needed, and source in each
+# development terminal before starting native VS Code. This runs no tools.
+if [[ -f /etc/profile.d/baremetal-tools.sh ]]; then
+    source /etc/profile.d/baremetal-tools.sh
+fi
+agilex_compiler_bin="$HOME/tools/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin"
+if [[ -d "$agilex_compiler_bin" ]]; then
+    case ":$PATH:" in
+        *":$agilex_compiler_bin:"*) ;;
+        *) export PATH="$agilex_compiler_bin:$PATH" ;;
+    esac
+fi
+unset agilex_compiler_bin
+export CROSS_COMPILE=aarch64-none-elf-
+# Append the actual absolute clone path as shown in setup.md.

@@ -1,0 +1,23 @@
+test_positive_and_deliberate_neon_failure_are_separate (test_student_experience.RealQemuExercise.test_positive_and_deliberate_neon_failure_are_separate) ... ok
+test_check_rejects_missing_markers_even_on_exit_zero (test_student_experience.StudentFailures.test_check_rejects_missing_markers_even_on_exit_zero) ... ok
+test_direct_bootstrap_respects_debugger_lock_before_docker (test_student_experience.StudentFailures.test_direct_bootstrap_respects_debugger_lock_before_docker) ... ok
+test_disconnected_transport_kills_owned_process_ignoring_term (test_student_experience.StudentFailures.test_disconnected_transport_kills_owned_process_ignoring_term) ... ok
+test_exited_transport_still_checks_remote_ownership (test_student_experience.StudentFailures.test_exited_transport_still_checks_remote_ownership) ... ok
+test_inherited_lock_does_not_unlock_parent (test_student_experience.StudentFailures.test_inherited_lock_does_not_unlock_parent) ... ok
+test_missing_elf_points_to_build (test_student_experience.StudentFailures.test_missing_elf_points_to_build) ... ok
+test_missing_emulator_is_actionable (test_student_experience.StudentFailures.test_missing_emulator_is_actionable) ... ok
+test_mount_nonce_rejects_another_clone_and_is_cleaned (test_student_experience.StudentFailures.test_mount_nonce_rejects_another_clone_and_is_cleaned) ... ok
+test_nonzero_exit_preserves_diagnostic (test_student_experience.StudentFailures.test_nonzero_exit_preserves_diagnostic) ... ok
+test_occupied_port_never_launches_or_claims_ready (test_student_experience.StudentFailures.test_occupied_port_never_launches_or_claims_ready) ... ok
+test_owned_container_cancellation_preserves_unrelated_process (test_student_experience.StudentFailures.test_owned_container_cancellation_preserves_unrelated_process) ... ok
+test_owned_container_refuses_a_pid_with_wrong_ownership_token (test_student_experience.StudentFailures.test_owned_container_refuses_a_pid_with_wrong_ownership_token) ... ok
+test_regular_file_is_not_a_uart (test_student_experience.StudentFailures.test_regular_file_is_not_a_uart) ... ok
+test_restore_timeout_is_durable_and_preserves_original_error (test_student_experience.StudentFailures.test_restore_timeout_is_durable_and_preserves_original_error) ... ok
+test_timeout_preserves_partial_output_and_reaps_child (test_student_experience.StudentFailures.test_timeout_preserves_partial_output_and_reaps_child) ... ok
+test_uncertain_process_shutdown_prevents_reprogramming (test_student_experience.StudentFailures.test_uncertain_process_shutdown_prevents_reprogramming) ... ok
+test_unresolved_record_blocks_new_hardware_owner (test_student_experience.StudentFailures.test_unresolved_record_blocks_new_hardware_owner) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 4.097s
+
+OK

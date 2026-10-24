@@ -1,0 +1,48 @@
+{
+  "captured_utc": "2026-10-24T01:33:23.238531+00:00",
+  "review_type": "three simulated agent student personas; not a human usability study",
+  "software_checks": {
+    "tests": 18,
+    "status": "pass",
+    "real_qemu_positive_and_deliberate_negative": "pass",
+    "qemu_gdb": "pass",
+    "desktop_vscode": "not exercised"
+  },
+  "hardware": {
+    "selected_run": "20261024T013215.799391Z",
+    "requested": [
+      "core"
+    ],
+    "status": "pass",
+    "restoration": "pass",
+    "fpga_id": "0364F0DD",
+    "whole_15_example_campaign_repeated": false,
+    "physical_disconnect_or_power_loss_injected": false
+  },
+  "software_sha256": {
+    "bench.py": "fe32e7285e3e971574bd4179ee1d4936f308ccbf4b18ffd4700c93d104baf39f",
+    "hardware_lock.py": "d804fef64f6582e4266feec39f252f2d5e0039bd3e8c12d6c181ace67ad959d7",
+    "owned_process.py": "599dd960d766f64e7405be8c3972e87f5af958feed6db42587fe99dbc618534c",
+    "doctor.py": "90aa7417dfa65eda316a18d20ccdf7896e10b54dbe87f72e2d222cb046b9a9ae",
+    "run_suite.py": "64386a809445bafbf5e0b487af0a02443c7f08ca752f88bb2d963ae4c021e840",
+    "debug-server.sh": "847ee1ff15276d750fd2c20821e7407aeb993fb57ac03560c92f782bf5a522ee",
+    "bootstrap/ddr/run_ddr.py": "9f0d96b93dd8de8266a942f51d9899bd2ebc3c750c137a5fc87ce4bf42a24029",
+    "qemu/run.py": "e8519626decf5883d8650554fd77aa2384825abc632a304739380e272188589a",
+    "qemu/hello.c": "1f207df3c0399b351fe878a792727b627872198670d82c6e2ca741cc00e3f7cb",
+    "qemu/start.S": "014173c05846dcea47c6f4dc84b67fa44806d8606949da993ed529a3f79e678a",
+    "qemu/build.sh": "3e1596c888e15e5b1ab2bb4c19df09c7cf07145bb71db0f5f6f9adb14a2a680c",
+    "tests/test_student_experience.py": "2649362904a1da836c40a4a4ad14a75d9e9ce590083a1acae77709d0b17f1c45",
+    "agilex5-modular.code-workspace": "877c191d3ae83db60fc2f35473851246372594ab1e838c29203e61c925cf9769"
+  },
+  "artifacts_sha256": {
+    "build/core_examples.elf": "f20a36e1d921e10431c615674eb7f13e6410d9b61cf49ab1c363ed6791958b45",
+    "build/qemu/hello.elf": "692671f8a075794522a9f55dfa9a9efafd6dc282df1639aa8f010091f133e621",
+    "bootstrap/ddr/ddr_probe.hps.rbf": "ef957dc9d0e561af6df6123d8dd2e41232b7972a352dc7030629507040ea2f87",
+    "bootstrap/ocram/agilex5.cfg": "7dee0b6a2457845733e773d855dd24b6f525fbef31e15f77dea5250148f4b98d"
+  },
+  "normalization": "workspace/UART paths, line endings, trailing whitespace; nonprintable UART bytes escaped",
+  "limitations": [
+    "Per-checkout advisory lock requires shared board ownership across clones/tools.",
+    "Physical USB/power faults and desktop GUI were not exercised."
+  ]
+}

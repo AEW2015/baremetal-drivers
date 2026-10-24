@@ -24,10 +24,11 @@ int main(void){
  qemu_neon_add(vector_a,vector_b,vector_result);
  for(unsigned i=0;i<4;i++)if(vector_result[i]!=(i+1)*11)failures++;
  text(failures?"FAIL NEON\n":"PASS NEON: 11 22 33 44\n");
+ unsigned failures_before_memory=failures;
  for(unsigned i=0;i<512;i++){source[i]=0x1234567800000000ULL^i;destination[i]=0;}
  for(unsigned i=0;i<512;i++)destination[i]=source[i];
  for(unsigned i=0;i<512;i++)if(destination[i]!=source[i])failures++;
- text(failures?"FAIL MEMORY\n":"PASS MEMORY: 4096-byte CPU copy\n");
+ text(failures!=failures_before_memory?"FAIL MEMORY\n":"PASS MEMORY: 4096-byte CPU copy\n");
  text(failures?"QEMU EXAMPLE FAILED\n":"QEMU EXAMPLE COMPLETE\n");
  qemu_done(failures?1:0);
 }

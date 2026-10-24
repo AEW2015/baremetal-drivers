@@ -78,6 +78,35 @@ no whitespace or Tcl metacharacters. The UART path belongs to the **host**;
 serial capture stays on the host so USB hotplug does not rely on stale container
 serial nodes.
 
+Persist these exports in `~/.config/agilex5/hardware.env` using
+`env-hardware.sh.example` as a template. In each new **host** terminal, source
+that file and change to the host example directory. Keep the learning environment
+inside the compiler/container environment; the hardware environment belongs on
+the host.
+
+Before programming, check configuration without changing board state:
+
+```sh
+python3 doctor.py --target hardware
+```
+
+Require no FAIL results. A missing DAP warning requires the full-recovery route
+below. The doctor verifies the same bind-mounted checkout using a temporary
+nonce, compares artifact hashes and queries the selected JTAG chain. It does
+not program the board or consume UART bytes.
+
+**Choose the initial state before the first run:** after a power cycle, when
+HPS DAP is missing, or when another FPGA design is loaded, use:
+
+```sh
+python3 run_suite.py --only core --full-recovery
+```
+
+This uses your matching merged image for the first bootstrap and replaces
+volatile fabric/HPS state. If the matching design and DAP are already present,
+use the normal command below. If you cannot establish the image/handoff
+provenance, stop and obtain it from the FPGA project owner.
+
 Close any UART terminal before running the automated capture:
 
 ```sh
@@ -87,6 +116,12 @@ python3 run_suite.py --only core
 A successful run shows fresh DDR initialization, four 64 MiB pattern checks,
 payload readback, core-example PASS markers and a final DDR Hello restoration.
 Evidence goes to `runs/<UTC timestamp>/` with ELF hashes, UART and debug logs.
+Bootstrap can take several minutes. Stage messages identify live log paths;
+use `tail -f runs/<timestamp>/core-bootstrap.log` in a second host terminal.
+Read `results.json`: each requested example and `restoration` must pass. A
+restoration error is a STOP condition; follow [troubleshooting](troubleshooting.md)
+before starting another debugger.
+
 The DDR test is a scratch-region check, not full-bank qualification; the original
 ATF also reports a configured-2-GiB versus detected-8-GiB warning.
 
@@ -125,8 +160,8 @@ cat "$AGILEX_UART"
 ```
 
 Stop `cat` with Ctrl+C before automated capture. Stop the debugger completely
-before running a host runner again: OpenOCD holds the same example-tree
-`hardware.lock` as `run_suite.py`. Separate checkouts still need a single human
+before running a host runner again: OpenOCD, the standalone DDR bootstrap and `run_suite.py` share the same
+example-tree `hardware.lock`. Never delete the lockfile to bypass an active owner. Separate checkouts still need a single human
 or automation owner; the file lock does not coordinate arbitrary other tools.
 
 Restore the diagnostic after stopping the debugger and UART reader:

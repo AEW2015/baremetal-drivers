@@ -17,6 +17,7 @@ PASS EL3
 PASS NEON: 11 22 33 44
 PASS MEMORY: 4096-byte CPU copy
 QEMU EXAMPLE COMPLETE
+PASS QEMU_CHECK: all required markers and exit status zero
 ```
 
 This runs a freestanding ELF using QEMU's software CPU emulator (TCG), so no
@@ -48,6 +49,8 @@ Wait for `QEMU GDB ready on 127.0.0.1:3338`. In another terminal in the same
 container or native environment:
 
 ```sh
+source "$HOME/.config/agilex5/learning.env"
+cd "$AGILEX_EXAMPLES"
 gdb-multiarch build/qemu/hello.elf
 ```
 

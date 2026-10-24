@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Host hardware runner; fresh DDR boot per ELF, bounded capture, durable results."""
-import argparse,datetime,fcntl,hashlib,json,os,pathlib,re,select,signal,subprocess,termios,time
-from bench import container_command, container_path
+import argparse,datetime,hashlib,json,os,pathlib,re,select,signal,subprocess,sys,termios,time
+from bench import (BenchError, HELP, container_command, container_path, validate_uart,
+                   verify_mount, verify_container_tools, verify_mapped_files)
+from hardware_lock import HardwareLock
+from owned_process import OwnedContainerProcess, OwnedProcessError, run_owned
 ROOT=pathlib.Path(__file__).resolve().parent
 PORT=os.environ.get('AGILEX_UART','')
 TESTS={
@@ -23,13 +26,16 @@ def container(args,timeout=45):
  return subprocess.run(container_command(args),capture_output=True,timeout=timeout)
 def save(out,result):
  temp=out/'results.json.tmp';temp.write_text(json.dumps(result,indent=2)+'\n');temp.replace(out/'results.json')
-def run_one(name,out,port):
+def run_one(name,out,port,lock,full_recovery=False):
  t=TESTS[name];elf=ROOT/'build'/(t['elf']+'.elf')
  result={'name':name,'elf':str(elf),'sha256':hashlib.sha256(elf.read_bytes()).hexdigest(),'status':'running'}
  start=time.monotonic()
- bootstrap=subprocess.run(['python3',str(ROOT/'bootstrap/ddr/run_ddr.py'),'--port',port],capture_output=True,timeout=230)
- (out/(name+'-bootstrap.log')).write_bytes(bootstrap.stdout+bootstrap.stderr)
- if bootstrap.returncode:raise RuntimeError('DDR bootstrap failed: '+str(out/(name+'-bootstrap.log')))
+ print(f'[{name}] Initializing DDR; follow {out/(name+"-bootstrap.log")} for live stages.',flush=True)
+ bootstrap=run_bootstrap(out/(name+'-bootstrap.log'),port,lock,full_recovery)
+ if bootstrap.returncode==3:raise OwnedProcessError('Bootstrap could not confirm process shutdown; inspect its log before another hardware operation.')
+ if bootstrap.returncode:raise BenchError('DDR bootstrap failed: '+str(out/(name+'-bootstrap.log')))
+ verify_mapped_files([elf],expected={str(elf):result['sha256']})
+ print(f'[{name}] Loading {elf.name} and collecting fresh UART results...',flush=True)
  entry=t['entry']
  if entry is None:
   hdr=container(['aarch64-none-elf-readelf','-h',container_path(elf)])
@@ -43,7 +49,7 @@ def run_one(name,out,port):
   cfg=container_path(ROOT/'bootstrap/ocram/agilex5.cfg')
   cmd=f'hps.a55.0 configure -event halted {{}}; hps.a55.0 configure -event resumed {{}}; gdb port disabled; tcl port disabled; telnet port disabled; init; halt; load_image {container_path(elf)}; resume 0x{entry:x}; shutdown'
   with (out/(name+'-debug.log')).open('wb') as log:
-   proc=subprocess.Popen(container_command(['openocd','-f',cfg,'-c',cmd]),stdout=log,stderr=subprocess.STDOUT)
+   proc=OwnedContainerProcess(['openocd','-f',cfg,'-c',cmd],stdout=log,stderr=subprocess.STDOUT)
    deadline=time.monotonic()+35;terminal_at=None
    while time.monotonic()<deadline:
     if select.select([fd],[],[],.2)[0]:
@@ -67,51 +73,98 @@ def run_one(name,out,port):
     if proc.poll() is not None and (all(x.encode() in current for x in t['markers']) or b'HPS_SUITE_FAIL' in current or b'FAIL ' in current):
      if terminal_at is None:terminal_at=time.monotonic()
      if time.monotonic()-terminal_at>.5:break
-   if proc.poll() is None:
-    proc.terminate();proc.wait(timeout=5)
+   proc.close()
   current=data[data.find(begin):] if begin in data else b''
   passed=proc.returncode==0 and bool(current) and all(x.encode() in current for x in t['markers']) and b'HPS_SUITE_FAIL' not in current and b'FAIL ' not in current
   if not passed:
-   diagnostic=container(['openocd','-f',cfg,'-c','hps.a55.0 configure -event halted {}; hps.a55.0 configure -event resumed {}; gdb port disabled; tcl port disabled; telnet port disabled; init; halt; echo [reg pc]; echo [reg cpsr]; echo [reg x0]; echo [reg x1]; shutdown'],timeout=45)
-   (out/(name+'-halt.log')).write_bytes(diagnostic.stdout+diagnostic.stderr)
+   diagnostic=run_owned(['openocd','-f',cfg,'-c','hps.a55.0 configure -event halted {}; hps.a55.0 configure -event resumed {}; gdb port disabled; tcl port disabled; telnet port disabled; init; halt; echo [reg pc]; echo [reg cpsr]; echo [reg x0]; echo [reg x1]; shutdown'],timeout=45)
+   (out/(name+'-halt.log')).write_text(diagnostic)
   result.update(status='pass' if passed else 'fail',entry=f'0x{entry:x}',elapsed_seconds=round(time.monotonic()-start,1),missing=[x for x in t['markers'] if x.encode() not in current],debug_returncode=proc.returncode,observed_pass_markers=re.findall(r'^PASS[^\r\n]*',current.decode(errors='replace'),re.M),failure_lines=re.findall(r'^(?:FAIL|HPS_SUITE_FAIL)[^\r\n]*',current.decode(errors='replace'),re.M))
   print(name+': '+result['status'],flush=True)
   print(current.decode(errors='replace')[-2200:],flush=True)
   return result
  finally:
   os.close(fd)
-  if proc is not None and proc.poll() is None:proc.terminate();proc.wait(timeout=5)
+  if proc is not None:proc.close()
+def run_bootstrap(log_path,port,lock,full_recovery=False):
+ cmd=[sys.executable,str(ROOT/'bootstrap/ddr/run_ddr.py'),'--port',port]
+ if full_recovery:cmd.append('--full-recovery')
+ with log_path.open('wb') as log:
+  proc=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT,**lock.child_options())
+  try:
+   proc.wait(timeout=420)
+  except (subprocess.TimeoutExpired,KeyboardInterrupt):
+   # Let the child run its owned-container-process cleanup before restoring.
+   proc.terminate()
+   try:proc.wait(timeout=30)
+   except subprocess.TimeoutExpired:
+    proc.kill();proc.wait()
+    raise OwnedProcessError(f'Bootstrap cleanup did not finish; keep {log_path}. Do not reprogram until owned process state is checked.')
+   if proc.returncode==3:raise OwnedProcessError(f'Bootstrap cancellation is uncertain; inspect {log_path}.')
+   raise
+  return proc
+
+def restore_ddr(out,results,port,lock,skip=False):
+ print('[restore] Restoring DDR Hello; inspect restore.log for live stages.',flush=True)
+ if skip:
+  results['restoration']='error'
+  results['restoration_error']='Not attempted: previous owned-process shutdown was not verified.'
+  (out/'restore.log').write_text(results['restoration_error']+'\n')
+ else:
+  try:
+   restore=run_bootstrap(out/'restore.log',port,lock)
+   results['restoration']='pass' if restore.returncode==0 else 'fail'
+   if restore.returncode:results['restoration_error']=f'DDR initializer exited {restore.returncode}; inspect restore.log.'
+  except BaseException as exc:
+   results['restoration']='error'
+   results['restoration_error']=f'{type(exc).__name__}: {exc}'
+   with (out/'restore.log').open('a') as log:log.write('\nRESTORATION ERROR: '+results['restoration_error']+'\n')
+ save(out,results)
+ print('DDR Hello restoration: '+results['restoration'],flush=True)
+ if results['restoration']!='pass':
+  print('STOP: restoration is not verified. Keep these logs; stop further examples until programmer state, matching image, fresh DDR markers and PC proof are checked. '+str(out/'restore.log'),file=sys.stderr,flush=True)
+
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--only',default=','.join(TESTS));p.add_argument('--port',default=PORT);p.add_argument('--list',action='store_true')
+ p=argparse.ArgumentParser(description=__doc__)
+ p.add_argument('--only',default=','.join(TESTS));p.add_argument('--port',default=PORT)
+ p.add_argument('--list',action='store_true')
+ p.add_argument('--full-recovery',action='store_true',help='Use the matching merged volatile SOF for the first bootstrap')
  a=p.parse_args()
- signal.signal(signal.SIGTERM,lambda *_: (_ for _ in ()).throw(KeyboardInterrupt()))
- signal.signal(signal.SIGINT,lambda *_: (_ for _ in ()).throw(KeyboardInterrupt()))
- if a.list:
-  print('\n'.join(TESTS));return
- if not a.port:p.error('Set AGILEX_UART or pass --port with the SOM J2 UART device')
+ if a.list:print('\n'.join(TESTS));return 0
  names=a.only.split(',')
- for n in names:
-  if n not in TESTS:p.error('Unknown test '+n)
- # Reject configuration errors before touching hardware or attempting restoration.
- container_path(ROOT)
- if not pathlib.Path(a.port).exists():p.error('UART device does not exist: '+a.port)
- for n in names:
-  if not (ROOT/'build'/(TESTS[n]['elf']+'.elf')).is_file():p.error('Missing ELF for '+n+'; run build_all.sh')
- if not (ROOT/'bootstrap/ddr/ddr_probe.hps.rbf').is_file():p.error('Missing DDR HPS RBF; run bootstrap/ddr/build_ddr.sh')
- lock=(ROOT/'hardware.lock').open('w');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
- out=ROOT/'runs'/datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ');out.mkdir(parents=True)
- results={'requested_tests':names,'started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'tests':[],'restoration':'pending'}
- print('Evidence: '+str(out),flush=True);save(out,results)
- try:
-  for n in names:
-   try:r=run_one(n,out,a.port)
-   except BaseException as exc:
-    results['tests'].append({'name':n,'status':'error','error':repr(exc)});save(out,results);raise
-   results['tests'].append(r);save(out,results)
- finally:
-  restore=subprocess.run(['python3',str(ROOT/'bootstrap/ddr/run_ddr.py'),'--port',a.port],capture_output=True,timeout=230)
-  (out/'restore.log').write_bytes(restore.stdout+restore.stderr)
-  results['restoration']='pass' if restore.returncode==0 else 'fail';save(out,results)
-  print('DDR Hello restoration: '+results['restoration'],flush=True)
- if results['restoration']!='pass' or any(r['status']!='pass' for r in results['tests']):raise SystemExit(1)
-if __name__=='__main__':main()
+ for name in names:
+  if name not in TESTS:p.error('Unknown test '+name+'; use --list')
+ validate_uart(a.port)
+ with HardwareLock() as lock:
+  print('[preflight] Checking host/container mapping, tools and artifact hashes...',flush=True)
+  verify_mount();verify_container_tools(['jtagconfig','quartus_pgm','openocd','aarch64-none-elf-readelf'])
+  images=[ROOT/'bootstrap/ddr/ddr_probe.hps.rbf',ROOT/'bootstrap/ocram/agilex5.cfg']
+  if a.full_recovery:images.append(ROOT/'bootstrap/ddr/ddr_recovery.sof')
+  verify_mapped_files(images+[ROOT/'build'/(TESTS[name]['elf']+'.elf') for name in names])
+  out=ROOT/'runs'/datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ');out.mkdir(parents=True)
+  results={'requested_tests':names,'started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'initial_full_recovery':a.full_recovery,'tests':[],'restoration':'pending'}
+  print('Evidence: '+str(out),flush=True);save(out,results)
+  failed=None
+  try:
+   for index,name in enumerate(names):
+    try:r=run_one(name,out,a.port,lock,a.full_recovery and index==0)
+    except BaseException as exc:
+     results['tests'].append({'name':name,'status':'error','error':f'{type(exc).__name__}: {exc}'});save(out,results);raise
+    results['tests'].append(r);save(out,results)
+  except BaseException as exc:
+   failed=exc;results['error']=f'{type(exc).__name__}: {exc}';save(out,results)
+  finally:
+   restore_ddr(out,results,a.port,lock,skip=isinstance(failed,OwnedProcessError))
+  if failed:
+   print(f'ERROR: {type(failed).__name__}: {failed}. Evidence: {out}',file=sys.stderr)
+   return 130 if isinstance(failed,KeyboardInterrupt) else 1
+  return 1 if results['restoration']!='pass' or any(r['status']!='pass' for r in results['tests']) else 0
+
+if __name__=='__main__':
+ def interrupted(*_):raise KeyboardInterrupt
+ for sig in (signal.SIGINT,signal.SIGTERM):signal.signal(sig,interrupted)
+ try:raise SystemExit(main())
+ except KeyboardInterrupt:
+  print('Hardware command interrupted before a completed run; check the board state before retrying.',file=sys.stderr);raise SystemExit(130)
+ except (BenchError,OSError,subprocess.TimeoutExpired) as exc:
+  print(f'ERROR: {exc}\nHelp: {HELP}',file=sys.stderr);raise SystemExit(1)

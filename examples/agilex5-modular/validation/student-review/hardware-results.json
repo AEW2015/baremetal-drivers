@@ -1,0 +1,29 @@
+{
+  "requested_tests": [
+    "core"
+  ],
+  "started_utc": "2026-10-24T01:32:15.799467+00:00",
+  "initial_full_recovery": false,
+  "tests": [
+    {
+      "name": "core",
+      "elf": "<HOST_REPO>/examples/agilex5-modular/build/core_examples.elf",
+      "sha256": "f20a36e1d921e10431c615674eb7f13e6410d9b61cf49ab1c363ed6791958b45",
+      "status": "pass",
+      "entry": "0x82100000",
+      "elapsed_seconds": 32.5,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS CPU_NEON: four vector additions",
+        "PASS CACHE_INFO: configuration read; cache coherency is a separate test",
+        "PASS DDR_BUFFERS: CPU copied and verified 64 KiB",
+        "PASS GPIO_READ: no output pin direction changed",
+        "PASS COUNTER: generic timer increments",
+        "PASS GIC_INFO: identification only; interrupt delivery is a separate example"
+      ],
+      "failure_lines": []
+    }
+  ],
+  "restoration": "pass"
+}

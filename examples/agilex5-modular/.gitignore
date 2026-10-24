@@ -12,3 +12,7 @@ __pycache__/
 /bootstrap/ddr/*.sof
 /bootstrap/ddr/*.log
 /bootstrap/ddr/local_ddr_probe.inc
+
+# Temporary host/container mount verification files
+/.agilex-mount-*
+/.agilex-process-*
