@@ -1,0 +1,142 @@
+{
+  "started_utc": "2026-10-24T15:28:28.512220+00:00",
+  "interface_before": {
+    "ifindex": 2,
+    "ifname": "enp111s0",
+    "flags": [
+      "BROADCAST",
+      "MULTICAST",
+      "UP",
+      "LOWER_UP"
+    ],
+    "mtu": 1500,
+    "qdisc": "fq_codel",
+    "operstate": "UP",
+    "group": "default",
+    "txqlen": 1000,
+    "link_type": "ether",
+    "address": "9c:6b:00:86:f0:d9",
+    "broadcast": "ff:ff:ff:ff:ff:ff",
+    "addr_info": []
+  },
+  "tests": [
+    {
+      "name": "counter_calibration",
+      "status": "pass",
+      "measured_hz": 400000728.7719129,
+      "configured_hz": 400000000
+    },
+    {
+      "name": "udp_echo",
+      "status": "pass",
+      "sizes": [
+        64,
+        256,
+        512,
+        1024,
+        1472
+      ]
+    },
+    {
+      "name": "udp_sequence_and_corruption_controls",
+      "status": "pass",
+      "stats": {
+        "run": 1024,
+        "ticks": 16649775692,
+        "counter_hz": 400000000,
+        "rx_packets": 102,
+        "rx_bytes": 104448,
+        "bad": 1,
+        "duplicates": 2,
+        "reordered": 1,
+        "tx_packets": 0,
+        "tx_errors": 0,
+        "tx_active": 0,
+        "tcp_rx_bytes": 0,
+        "tcp_tx_acked": 0,
+        "tcp_bad_chunks": 0,
+        "mac_tx": 14,
+        "mac_rx": 119,
+        "mac_tx_full": 0,
+        "mac_rx_errors": 0,
+        "dma_status": 4
+      }
+    },
+    {
+      "name": "tcp_board_receive",
+      "status": "pass",
+      "bytes": 65536
+    },
+    {
+      "name": "tcp_board_transmit",
+      "status": "pass",
+      "bytes": 262144
+    }
+  ],
+  "restoration": "pass",
+  "hashes": {
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/build/network.elf": "a764be585c9514462da264933c3dfaf2008766cc1fe08fad67d45a64efef5f51",
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/bootstrap/ddr/ddr_probe.hps.rbf": "57cb8a882d37c321870c85adc2a14b8f5d63307031fe9123927ad0d0c64e2d66",
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/bootstrap/ocram/agilex5.cfg": "7dee0b6a2457845733e773d855dd24b6f525fbef31e15f77dea5250148f4b98d"
+  },
+  "build": {
+    "lwip_commit": "77dcd25a72509eb83f72b033d219b1d40cd8eb95",
+    "cpu_cache": 1,
+    "dma_memory": "normal noncacheable 0x85000000..0x853fffff",
+    "entry": "0x82600000",
+    "counter_hz": 400000000,
+    "elf_sha256": "a764be585c9514462da264933c3dfaf2008766cc1fe08fad67d45a64efef5f51",
+    "source_sha256": {
+      "ethernet/mac.c": "c7d8650464686341ec70d9533fdaf4d93effd4ef4f3b91fe1303b74233fddcc2",
+      "ethernet/main.c": "c10e32381f3597ca2a3565a72876350e25491ea5ab82744dbe07f81dd1dc90a3",
+      "ethernet/platform.c": "fb126042133d591b6b945bc6a94cc87739a32334c92d5179cd5f62c0765efba0",
+      "ethernet/lwipopts.h": "5876ca0bdc3e7a5d5601694dbf452aa223fa70d3157cf60591a2d43f837868e5",
+      "ethernet/start.S": "14b7c93d5897ab2aa9054c15bd318094e203c96607dcf40d87286620c58187fb",
+      "ethernet/platform.h": "ff34448883a419f9330c1dc0b2367a63a546a6d8ad49fe37f13a4dc8670b58ff",
+      "ethernet/link.ld": "1b23f3716bdcdd704737041eefba291aabd739d8597b6117b293cfd6d884b46c",
+      "ethernet/arch/cc.h": "66449444537fda94eb55fb0ad65ae77755179f46e24f36b46992927544497014"
+    }
+  },
+  "initial_stats": {
+    "run": 0,
+    "ticks": 15339350603,
+    "counter_hz": 400000000,
+    "rx_packets": 0,
+    "rx_bytes": 0,
+    "bad": 0,
+    "duplicates": 0,
+    "reordered": 0,
+    "tx_packets": 0,
+    "tx_errors": 0,
+    "tx_active": 0,
+    "tcp_rx_bytes": 0,
+    "tcp_tx_acked": 0,
+    "tcp_bad_chunks": 0,
+    "mac_tx": 2,
+    "mac_rx": 2,
+    "mac_tx_full": 0,
+    "mac_rx_errors": 0,
+    "dma_status": 4
+  },
+  "error": "TimeoutError: timed out",
+  "host_address_restored": true,
+  "interface_after": {
+    "ifindex": 2,
+    "ifname": "enp111s0",
+    "flags": [
+      "BROADCAST",
+      "MULTICAST",
+      "UP",
+      "LOWER_UP"
+    ],
+    "mtu": 1500,
+    "qdisc": "fq_codel",
+    "operstate": "UP",
+    "group": "default",
+    "txqlen": 1000,
+    "link_type": "ether",
+    "address": "9c:6b:00:86:f0:d9",
+    "broadcast": "ff:ff:ff:ff:ff:ff",
+    "addr_info": []
+  }
+}

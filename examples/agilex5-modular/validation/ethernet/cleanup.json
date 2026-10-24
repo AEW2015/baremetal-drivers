@@ -1,0 +1,42 @@
+{
+  "checked_utc": "2026-10-24T16:05:37.614796+00:00",
+  "latest_run": "ethernet-20261024T160302.077834Z",
+  "restoration": "pass",
+  "interface_after": {
+    "ifindex": 2,
+    "ifname": "enp111s0",
+    "flags": [
+      "BROADCAST",
+      "MULTICAST",
+      "UP",
+      "LOWER_UP"
+    ],
+    "mtu": 1500,
+    "qdisc": "fq_codel",
+    "operstate": "UP",
+    "group": "default",
+    "txqlen": 1000,
+    "link_type": "ether",
+    "address": "9c:6b:00:86:f0:d9",
+    "broadcast": "ff:ff:ff:ff:ff:ff",
+    "addr_info": []
+  },
+  "nic_after": {
+    "speed": "1000",
+    "duplex": "full",
+    "mtu": "1500",
+    "operstate": "up",
+    "carrier": "1",
+    "statistics/rx_packets": "31671175",
+    "statistics/tx_packets": "8782805",
+    "statistics/rx_errors": "0",
+    "statistics/tx_errors": "0",
+    "statistics/rx_dropped": "0",
+    "statistics/tx_dropped": "3",
+    "statistics/rx_crc_errors": "0"
+  },
+  "owned_process_records": [],
+  "coordination_locks": "all three acquired/released successfully",
+  "uart_readers": "fuser returned no owners",
+  "debug_listeners": "ss returned no listeners on 3337/6677/4457"
+}

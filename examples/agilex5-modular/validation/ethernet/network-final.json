@@ -1,0 +1,20 @@
+{
+  "lwip_commit": "77dcd25a72509eb83f72b033d219b1d40cd8eb95",
+  "cpu_cache": 1,
+  "dma_memory": "normal noncacheable 0x85000000..0x853fffff",
+  "entry": "0x82600000",
+  "counter_hz": 400000000,
+  "elf_sha256": "3656c3b19d6341c9a683710a48290e9f22b75da7be9275f4fa2af1e71f76c068",
+  "source_sha256": {
+    "ethernet/mac.c": "c7d8650464686341ec70d9533fdaf4d93effd4ef4f3b91fe1303b74233fddcc2",
+    "ethernet/main.c": "0b5960b9e229f0dcb68eb981016e4b6a86261924a506f4531907c0e16e9c6cd0",
+    "ethernet/platform.c": "fb126042133d591b6b945bc6a94cc87739a32334c92d5179cd5f62c0765efba0",
+    "ethernet/lwipopts.h": "5c531702ff18374d8777ceb0f9b23776e75a0f1a73fea27d9adfcf02239942af",
+    "ethernet/start.S": "14b7c93d5897ab2aa9054c15bd318094e203c96607dcf40d87286620c58187fb",
+    "ethernet/platform.h": "ff34448883a419f9330c1dc0b2367a63a546a6d8ad49fe37f13a4dc8670b58ff",
+    "ethernet/link.ld": "1b23f3716bdcdd704737041eefba291aabd739d8597b6117b293cfd6d884b46c",
+    "ethernet/arch/cc.h": "66449444537fda94eb55fb0ad65ae77755179f46e24f36b46992927544497014",
+    "ethernet/build.sh": "64db5167b6f4d579c6e64b3520e4d9b8950b76a9bd37a95ea594e19dc38a755a",
+    "core/fault.c": "be53d1703a3aa3ce52bebb1570d1b74435f15ec169c9c110c7d6a9611367d748"
+  }
+}

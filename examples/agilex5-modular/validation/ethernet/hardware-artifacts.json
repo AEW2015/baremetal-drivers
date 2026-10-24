@@ -1,0 +1,6 @@
+{
+  "/home/lada/altera-agilex/home/agilex5-litedram-phylite/build/dual_ddr1600_hps_lw_r3/memory_test.sof": "ba3ff98750be5969bccae62e68fdc8d6f757336ee0b5936cd725a411501d25bb",
+  "/home/lada/altera-agilex/home/agilex5-litedram-phylite/build/dual_ddr1600_hps_lw_r3/hps_bootloader_handoff.bin": "9f1a8035d71c5735f88be7763e4f68c9d11c7b4b4263e2632c69ee5da0945640",
+  "examples/agilex5-modular/bootstrap/ddr/ddr_probe.hps.rbf": "57cb8a882d37c321870c85adc2a14b8f5d63307031fe9123927ad0d0c64e2d66",
+  "examples/agilex5-modular/bootstrap/ddr/ddr_recovery.sof": "55cd198552a1eced0849ee7d79b98248317c7762aefc176eca1adfff7ba312c2"
+}

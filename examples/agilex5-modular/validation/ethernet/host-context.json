@@ -1,0 +1,62 @@
+{
+  "captured_utc": "2026-10-24T15:44:34.488819+00:00",
+  "note": "Read-only host snapshot during final campaign; counters are cumulative, not a pre-run baseline.",
+  "link": {
+    "command": [
+      "ethtool",
+      "enp111s0"
+    ],
+    "exit": 0,
+    "stdout": "Settings for enp111s0:\n\tSupported ports: [ TP\t MII ]\n\tSupported link modes:   10baseT/Half 10baseT/Full\n\t                        100baseT/Half 100baseT/Full\n\t                        1000baseT/Full\n\t                        2500baseT/Full\n\tSupported pause frame use: Symmetric Receive-only\n\tSupports auto-negotiation: Yes\n\tSupported FEC modes: Not reported\n\tAdvertised link modes:  10baseT/Half 10baseT/Full\n\t                        100baseT/Half 100baseT/Full\n\t                        1000baseT/Full\n\t                        2500baseT/Full\n\tAdvertised pause frame use: Symmetric Receive-only\n\tAdvertised auto-negotiation: Yes\n\tAdvertised FEC modes: Not reported\n\tLink partner advertised link modes:  10baseT/Half 10baseT/Full\n\t                                     100baseT/Half 100baseT/Full\n\t                                     1000baseT/Half 1000baseT/Full\n\tLink partner advertised pause frame use: No\n\tLink partner advertised auto-negotiation: Yes\n\tLink partner advertised FEC modes: Not reported\n\tSpeed: 1000Mb/s\n\tDuplex: Full\n\tAuto-negotiation: on\n\tmaster-slave cfg: preferred slave\n\tmaster-slave status: slave\n\tPort: Twisted Pair\n\tPHYAD: 0\n\tTransceiver: internal\n\tMDI-X: Unknown\n\tLink detected: yes\n",
+    "stderr": "netlink error: Operation not permitted\n"
+  },
+  "offloads": {
+    "command": [
+      "ethtool",
+      "-k",
+      "enp111s0"
+    ],
+    "exit": 0,
+    "stdout": "Features for enp111s0:\nrx-checksumming: on\ntx-checksumming: on\n\ttx-checksum-ipv4: on\n\ttx-checksum-ip-generic: off [fixed]\n\ttx-checksum-ipv6: on\n\ttx-checksum-fcoe-crc: off [fixed]\n\ttx-checksum-sctp: off [fixed]\nscatter-gather: on\n\ttx-scatter-gather: on\n\ttx-scatter-gather-fraglist: off [fixed]\ntcp-segmentation-offload: on\n\ttx-tcp-segmentation: on\n\ttx-tcp-ecn-segmentation: off [fixed]\n\ttx-tcp-mangleid-segmentation: off\n\ttx-tcp6-segmentation: on\n\ttx-tcp-accecn-segmentation: off [fixed]\ngeneric-segmentation-offload: on\ngeneric-receive-offload: on\nlarge-receive-offload: off [fixed]\nrx-vlan-offload: on\ntx-vlan-offload: on\nntuple-filters: off [fixed]\nreceive-hashing: off [fixed]\nhighdma: on [fixed]\nrx-vlan-filter: off [fixed]\nvlan-challenged: off [fixed]\ntx-gso-robust: off [fixed]\ntx-fcoe-segmentation: off [fixed]\ntx-gre-segmentation: off [fixed]\ntx-gre-csum-segmentation: off [fixed]\ntx-ipxip4-segmentation: off [fixed]\ntx-ipxip6-segmentation: off [fixed]\ntx-udp_tnl-segmentation: off [fixed]\ntx-udp_tnl-csum-segmentation: off [fixed]\ntx-gso-partial: off [fixed]\ntx-tunnel-remcsum-segmentation: off [fixed]\ntx-sctp-segmentation: off [fixed]\ntx-esp-segmentation: off [fixed]\ntx-udp-segmentation: off [fixed]\ntx-gso-list: off [fixed]\ntx-nocache-copy: off\nloopback: off [fixed]\nrx-fcs: off\nrx-all: off\ntx-vlan-stag-hw-insert: off [fixed]\nrx-vlan-stag-hw-parse: off [fixed]\nrx-vlan-stag-filter: off [fixed]\nl2-fwd-offload: off [fixed]\nhw-tc-offload: off [fixed]\nesp-hw-offload: off [fixed]\nesp-tx-csum-hw-offload: off [fixed]\nrx-udp_tunnel-port-offload: off [fixed]\ntls-hw-tx-offload: off [fixed]\ntls-hw-rx-offload: off [fixed]\nrx-gro-hw: off [fixed]\ntls-hw-record: off [fixed]\nrx-gro-list: off\nmacsec-hw-offload: off [fixed]\nrx-udp-gro-forwarding: off\nhsr-tag-ins-offload: off [fixed]\nhsr-tag-rm-offload: off [fixed]\nhsr-fwd-offload: off [fixed]\nhsr-dup-offload: off [fixed]\n",
+    "stderr": ""
+  },
+  "driver": {
+    "command": [
+      "ethtool",
+      "-i",
+      "enp111s0"
+    ],
+    "exit": 0,
+    "stdout": "driver: r8169\nversion: 7.0.0-31-generic\nfirmware-version: rtl8125b-2_0.0.2 07/13/20\nexpansion-rom-version: \nbus-info: 0000:6f:00.0\nsupports-statistics: yes\nsupports-test: no\nsupports-eeprom-access: no\nsupports-register-dump: yes\nsupports-priv-flags: no\n",
+    "stderr": ""
+  },
+  "nic_statistics": {
+    "command": [
+      "ethtool",
+      "-S",
+      "enp111s0"
+    ],
+    "exit": 0,
+    "stdout": "NIC statistics:\n     tx_packets: 5493180\n     rx_packets: 3498700\n     tx_errors: 0\n     rx_errors: 1\n     rx_missed: 0\n     align_errors: 0\n     tx_single_collisions: 0\n     tx_multi_collisions: 0\n     unicast: 3498694\n     broadcast: 6\n     multicast: 0\n     tx_aborted: 0\n     tx_underrun: 0\n",
+    "stderr": ""
+  },
+  "routes": {
+    "command": [
+      "ip",
+      "-j",
+      "route"
+    ],
+    "exit": 0,
+    "stdout": "[{\"dst\":\"default\",\"gateway\":\"192.168.0.1\",\"dev\":\"wlp110s0\",\"protocol\":\"dhcp\",\"prefsrc\":\"192.168.0.66\",\"metric\":600,\"flags\":[]},{\"dst\":\"128.187.48.19\",\"gateway\":\"192.168.0.1\",\"dev\":\"wlp110s0\",\"protocol\":\"static\",\"metric\":50,\"flags\":[]},{\"dst\":\"172.17.0.0/16\",\"dev\":\"docker0\",\"protocol\":\"kernel\",\"scope\":\"link\",\"prefsrc\":\"172.17.0.1\",\"flags\":[]},{\"dst\":\"192.168.0.0/24\",\"dev\":\"wlp110s0\",\"protocol\":\"kernel\",\"scope\":\"link\",\"prefsrc\":\"192.168.0.66\",\"metric\":600,\"flags\":[]},{\"dst\":\"192.168.0.1\",\"dev\":\"wlp110s0\",\"protocol\":\"static\",\"scope\":\"link\",\"metric\":50,\"flags\":[]},{\"dst\":\"192.168.50.0/24\",\"dev\":\"enp111s0\",\"protocol\":\"kernel\",\"scope\":\"link\",\"prefsrc\":\"192.168.50.1\",\"flags\":[]}]\n",
+    "stderr": ""
+  },
+  "host_python": {
+    "command": [
+      "python3",
+      "--version"
+    ],
+    "exit": 0,
+    "stdout": "Python 3.12.3\n",
+    "stderr": ""
+  }
+}

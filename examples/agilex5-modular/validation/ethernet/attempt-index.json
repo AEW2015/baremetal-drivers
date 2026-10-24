@@ -1,0 +1,82 @@
+[
+  {
+    "run": "ethernet-20261024T151305.508553Z",
+    "status": "fail",
+    "error": "TimeoutError: timed out",
+    "restoration": "pass",
+    "elf_sha256": "3eed6efbf7f88d34713747ebef87f6920d7646731898c69623488e585bedff4c",
+    "measurements_saved": 0
+  },
+  {
+    "run": "ethernet-20261024T151515.725556Z",
+    "status": "fail",
+    "error": "TimeoutError: timed out",
+    "restoration": "pass",
+    "elf_sha256": "3eed6efbf7f88d34713747ebef87f6920d7646731898c69623488e585bedff4c",
+    "measurements_saved": 0
+  },
+  {
+    "run": "ethernet-20261024T151724.452900Z",
+    "status": "fail",
+    "error": "TimeoutError: timed out",
+    "restoration": "pass",
+    "elf_sha256": "a460cab6a8e1bd4bfa9c694d4f4a3758ee6d9cbd6c4718b73ab4793057c9d7c0",
+    "measurements_saved": 0
+  },
+  {
+    "run": "ethernet-20261024T151927.732984Z",
+    "status": "fail",
+    "error": "TimeoutError: timed out",
+    "restoration": "pass",
+    "elf_sha256": "7685cf62dd89ba623eac41d26abc8b71f80fca63691335bf3fba7e9233690685",
+    "measurements_saved": 0
+  },
+  {
+    "run": "ethernet-20261024T152200.325935Z",
+    "status": "pass",
+    "error": null,
+    "restoration": "pass",
+    "elf_sha256": "925c1d3f1cdff65f51d58057ce89f46f8e14eca067b491f2652ad7e81f7c004d",
+    "measurements_saved": 0
+  },
+  {
+    "run": "ethernet-20261024T152427.553137Z",
+    "status": "pass",
+    "error": null,
+    "restoration": "pass",
+    "elf_sha256": "925c1d3f1cdff65f51d58057ce89f46f8e14eca067b491f2652ad7e81f7c004d",
+    "measurements_saved": 29
+  },
+  {
+    "run": "ethernet-20261024T152828.512115Z",
+    "status": "fail",
+    "error": "TimeoutError: timed out",
+    "restoration": "pass",
+    "elf_sha256": "a764be585c9514462da264933c3dfaf2008766cc1fe08fad67d45a64efef5f51",
+    "measurements_saved": 30
+  },
+  {
+    "run": "ethernet-20261024T154029.165530Z",
+    "status": "pass",
+    "error": null,
+    "restoration": "pass",
+    "elf_sha256": "b5b75d902a4ed599d7092ad2eaf4b428c509e547033743f6e3a50593f8250117",
+    "measurements_saved": 3
+  },
+  {
+    "run": "ethernet-20261024T154231.864079Z",
+    "status": "pass",
+    "error": null,
+    "restoration": "pass",
+    "elf_sha256": "3656c3b19d6341c9a683710a48290e9f22b75da7be9275f4fa2af1e71f76c068",
+    "measurements_saved": 40
+  },
+  {
+    "run": "ethernet-20261024T160302.077834Z",
+    "status": "pass",
+    "error": null,
+    "restoration": "pass",
+    "elf_sha256": "3656c3b19d6341c9a683710a48290e9f22b75da7be9275f4fa2af1e71f76c068",
+    "measurements_saved": 3
+  }
+]

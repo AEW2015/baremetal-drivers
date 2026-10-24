@@ -1,0 +1,383 @@
+{
+  "started_utc": "2026-10-24T16:03:02.077931+00:00",
+  "interface_before": {
+    "ifindex": 2,
+    "ifname": "enp111s0",
+    "flags": [
+      "BROADCAST",
+      "MULTICAST",
+      "UP",
+      "LOWER_UP"
+    ],
+    "mtu": 1500,
+    "qdisc": "fq_codel",
+    "operstate": "UP",
+    "group": "default",
+    "txqlen": 1000,
+    "link_type": "ether",
+    "address": "9c:6b:00:86:f0:d9",
+    "broadcast": "ff:ff:ff:ff:ff:ff",
+    "addr_info": []
+  },
+  "tests": [
+    {
+      "name": "counter_calibration",
+      "status": "pass",
+      "measured_hz": 400018662.5584359,
+      "configured_hz": 400000000
+    },
+    {
+      "name": "udp_echo",
+      "status": "pass",
+      "sizes": [
+        64,
+        256,
+        512,
+        1024,
+        1472
+      ]
+    },
+    {
+      "name": "udp_sequence_and_corruption_controls",
+      "status": "pass",
+      "stats": {
+        "run": 1024,
+        "ticks": 15982041576,
+        "counter_hz": 400000000,
+        "rx_packets": 102,
+        "rx_bytes": 104448,
+        "bad": 1,
+        "duplicates": 2,
+        "reordered": 1,
+        "tx_packets": 0,
+        "tx_errors": 0,
+        "tx_active": 0,
+        "tcp_rx_bytes": 0,
+        "tcp_tx_acked": 0,
+        "tcp_bad_chunks": 0,
+        "mac_tx": 14,
+        "mac_rx": 119,
+        "mac_tx_full": 0,
+        "mac_rx_errors": 0,
+        "dma_status": 4,
+        "pbuf_used": 0,
+        "pbuf_max": 1,
+        "pbuf_errors": 0,
+        "tcp_drops": 0,
+        "tcp_checksum_errors": 0
+      }
+    },
+    {
+      "name": "tcp_board_receive",
+      "status": "pass",
+      "bytes": 65536
+    },
+    {
+      "name": "tcp_board_transmit",
+      "status": "pass",
+      "bytes": 262144
+    }
+  ],
+  "restoration": "pass",
+  "nic_before": {
+    "speed": "1000",
+    "duplex": "full",
+    "mtu": "1500",
+    "operstate": "up",
+    "carrier": "1",
+    "statistics/rx_packets": "30605383",
+    "statistics/tx_packets": "8415363",
+    "statistics/rx_errors": "0",
+    "statistics/tx_errors": "0",
+    "statistics/rx_dropped": "0",
+    "statistics/tx_dropped": "3",
+    "statistics/rx_crc_errors": "0"
+  },
+  "command": [
+    "examples/agilex5-modular/ethernet/run.py",
+    "--interface",
+    "enp111s0",
+    "--tcp-stress",
+    "--seconds",
+    "10",
+    "--soak-seconds",
+    "0",
+    "--coordination-lock",
+    "/home/lada/altera-agilex/home/baremetal-guide-validation/examples/hardware.lock",
+    "--coordination-lock",
+    "/home/lada/altera-agilex/home/baremetal-remote-audit-0daff10/examples/agilex5-modular/hardware.lock"
+  ],
+  "runner_sha256": "998d5fd486d2c66533782139afdc4c50dd234fd8cee901a6b2003eeb9e396044",
+  "source_revision": "75b621e4d34d461201c762751c5ecf524cce6512",
+  "hashes": {
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/build/network.elf": "3656c3b19d6341c9a683710a48290e9f22b75da7be9275f4fa2af1e71f76c068",
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/bootstrap/ddr/ddr_probe.hps.rbf": "57cb8a882d37c321870c85adc2a14b8f5d63307031fe9123927ad0d0c64e2d66",
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/bootstrap/ocram/agilex5.cfg": "7dee0b6a2457845733e773d855dd24b6f525fbef31e15f77dea5250148f4b98d"
+  },
+  "build": {
+    "lwip_commit": "77dcd25a72509eb83f72b033d219b1d40cd8eb95",
+    "cpu_cache": 1,
+    "dma_memory": "normal noncacheable 0x85000000..0x853fffff",
+    "entry": "0x82600000",
+    "counter_hz": 400000000,
+    "elf_sha256": "3656c3b19d6341c9a683710a48290e9f22b75da7be9275f4fa2af1e71f76c068",
+    "source_sha256": {
+      "ethernet/mac.c": "c7d8650464686341ec70d9533fdaf4d93effd4ef4f3b91fe1303b74233fddcc2",
+      "ethernet/main.c": "0b5960b9e229f0dcb68eb981016e4b6a86261924a506f4531907c0e16e9c6cd0",
+      "ethernet/platform.c": "fb126042133d591b6b945bc6a94cc87739a32334c92d5179cd5f62c0765efba0",
+      "ethernet/lwipopts.h": "5c531702ff18374d8777ceb0f9b23776e75a0f1a73fea27d9adfcf02239942af",
+      "ethernet/start.S": "14b7c93d5897ab2aa9054c15bd318094e203c96607dcf40d87286620c58187fb",
+      "ethernet/platform.h": "ff34448883a419f9330c1dc0b2367a63a546a6d8ad49fe37f13a4dc8670b58ff",
+      "ethernet/link.ld": "1b23f3716bdcdd704737041eefba291aabd739d8597b6117b293cfd6d884b46c",
+      "ethernet/arch/cc.h": "66449444537fda94eb55fb0ad65ae77755179f46e24f36b46992927544497014",
+      "ethernet/build.sh": "64db5167b6f4d579c6e64b3520e4d9b8950b76a9bd37a95ea594e19dc38a755a",
+      "core/fault.c": "be53d1703a3aa3ce52bebb1570d1b74435f15ec169c9c110c7d6a9611367d748"
+    }
+  },
+  "initial_stats": {
+    "run": 0,
+    "ticks": 14678059182,
+    "counter_hz": 400000000,
+    "rx_packets": 0,
+    "rx_bytes": 0,
+    "bad": 0,
+    "duplicates": 0,
+    "reordered": 0,
+    "tx_packets": 0,
+    "tx_errors": 0,
+    "tx_active": 0,
+    "tcp_rx_bytes": 0,
+    "tcp_tx_acked": 0,
+    "tcp_bad_chunks": 0,
+    "mac_tx": 2,
+    "mac_rx": 2,
+    "mac_tx_full": 0,
+    "mac_rx_errors": 0,
+    "dma_status": 4,
+    "pbuf_used": 0,
+    "pbuf_max": 1,
+    "pbuf_errors": 0,
+    "tcp_drops": 0,
+    "tcp_checksum_errors": 0
+  },
+  "bandwidth": [
+    {
+      "protocol": "tcp",
+      "direction": "pc_to_som",
+      "streams": 4,
+      "seconds": 10,
+      "received_bytes": 236109824,
+      "receiver_mbps": 149.0887897154134,
+      "host_cpu_seconds": 0.17592352500000003,
+      "connections": [
+        {
+          "bytes": 36093952,
+          "seconds": 11.6720927413553,
+          "local_total_retransmissions": 346
+        },
+        {
+          "bytes": 110329856,
+          "seconds": 10.009829247836024,
+          "local_total_retransmissions": 418
+        },
+        {
+          "bytes": 46858240,
+          "seconds": 10.672375753056258,
+          "local_total_retransmissions": 401
+        },
+        {
+          "bytes": 42827776,
+          "seconds": 12.669487730134279,
+          "local_total_retransmissions": 635
+        }
+      ],
+      "board_stats": {
+        "run": 2000,
+        "ticks": 21176165982,
+        "counter_hz": 400000000,
+        "rx_packets": 0,
+        "rx_bytes": 0,
+        "bad": 0,
+        "duplicates": 0,
+        "reordered": 0,
+        "tx_packets": 0,
+        "tx_errors": 0,
+        "tx_active": 0,
+        "tcp_rx_bytes": 236109824,
+        "tcp_tx_acked": 0,
+        "tcp_bad_chunks": 0,
+        "mac_tx": 83321,
+        "mac_rx": 163580,
+        "mac_tx_full": 0,
+        "mac_rx_errors": 0,
+        "dma_status": 132,
+        "pbuf_used": 0,
+        "pbuf_max": 65,
+        "pbuf_errors": 0,
+        "tcp_drops": 0,
+        "tcp_checksum_errors": 0
+      }
+    },
+    {
+      "protocol": "tcp",
+      "direction": "som_to_pc",
+      "streams": 4,
+      "seconds": 10,
+      "received_bytes": 1186654420,
+      "receiver_mbps": 949.3091837062225,
+      "host_cpu_seconds": 3.95599465,
+      "connections": [
+        {
+          "bytes": 297263300,
+          "seconds": 10.000016822945327,
+          "local_total_retransmissions": 0
+        },
+        {
+          "bytes": 327727660,
+          "seconds": 10.000018773134798,
+          "local_total_retransmissions": 0
+        },
+        {
+          "bytes": 273913520,
+          "seconds": 10.000151186715811,
+          "local_total_retransmissions": 0
+        },
+        {
+          "bytes": 287749940,
+          "seconds": 10.000095050316304,
+          "local_total_retransmissions": 0
+        }
+      ],
+      "board_stats": {
+        "run": 2000,
+        "ticks": 25257394029,
+        "counter_hz": 400000000,
+        "rx_packets": 0,
+        "rx_bytes": 0,
+        "bad": 0,
+        "duplicates": 0,
+        "reordered": 0,
+        "tx_packets": 0,
+        "tx_errors": 0,
+        "tx_active": 0,
+        "tcp_rx_bytes": 0,
+        "tcp_tx_acked": 1186651500,
+        "tcp_bad_chunks": 0,
+        "mac_tx": 896206,
+        "mac_rx": 488621,
+        "mac_tx_full": 504747,
+        "mac_rx_errors": 0,
+        "dma_status": 132,
+        "pbuf_used": 0,
+        "pbuf_max": 65,
+        "pbuf_errors": 0,
+        "tcp_drops": 0,
+        "tcp_checksum_errors": 0
+      }
+    },
+    {
+      "protocol": "tcp_bidir",
+      "seconds": 10,
+      "directions": [
+        {
+          "direction": "pc_to_som",
+          "bytes": 322912256,
+          "seconds": 10.008406184148043,
+          "receiver_mbps": 258.1128304016671
+        },
+        {
+          "direction": "som_to_pc",
+          "bytes": 86099120,
+          "seconds": 10.000241714995354,
+          "receiver_mbps": 68.87763112437128
+        }
+      ],
+      "board_stats": {
+        "run": 3000,
+        "ticks": 29341800831,
+        "counter_hz": 400000000,
+        "rx_packets": 0,
+        "rx_bytes": 0,
+        "bad": 0,
+        "duplicates": 0,
+        "reordered": 0,
+        "tx_packets": 0,
+        "tx_errors": 0,
+        "tx_active": 0,
+        "tcp_rx_bytes": 322912256,
+        "tcp_tx_acked": 86099120,
+        "tcp_bad_chunks": 0,
+        "mac_tx": 1065789,
+        "mac_rx": 724598,
+        "mac_tx_full": 504747,
+        "mac_rx_errors": 0,
+        "dma_status": 132,
+        "pbuf_used": 0,
+        "pbuf_max": 65,
+        "pbuf_errors": 0,
+        "tcp_drops": 0,
+        "tcp_checksum_errors": 0
+      }
+    }
+  ],
+  "final_stats": {
+    "run": 3000,
+    "ticks": 29342037114,
+    "counter_hz": 400000000,
+    "rx_packets": 0,
+    "rx_bytes": 0,
+    "bad": 0,
+    "duplicates": 0,
+    "reordered": 0,
+    "tx_packets": 0,
+    "tx_errors": 0,
+    "tx_active": 0,
+    "tcp_rx_bytes": 322912256,
+    "tcp_tx_acked": 86099120,
+    "tcp_bad_chunks": 0,
+    "mac_tx": 1065790,
+    "mac_rx": 724599,
+    "mac_tx_full": 504747,
+    "mac_rx_errors": 0,
+    "dma_status": 132,
+    "pbuf_used": 0,
+    "pbuf_max": 65,
+    "pbuf_errors": 0,
+    "tcp_drops": 0,
+    "tcp_checksum_errors": 0
+  },
+  "host_address_restored": true,
+  "interface_after": {
+    "ifindex": 2,
+    "ifname": "enp111s0",
+    "flags": [
+      "BROADCAST",
+      "MULTICAST",
+      "UP",
+      "LOWER_UP"
+    ],
+    "mtu": 1500,
+    "qdisc": "fq_codel",
+    "operstate": "UP",
+    "group": "default",
+    "txqlen": 1000,
+    "link_type": "ether",
+    "address": "9c:6b:00:86:f0:d9",
+    "broadcast": "ff:ff:ff:ff:ff:ff",
+    "addr_info": []
+  },
+  "nic_after": {
+    "speed": "1000",
+    "duplex": "full",
+    "mtu": "1500",
+    "operstate": "up",
+    "carrier": "1",
+    "statistics/rx_packets": "31671175",
+    "statistics/tx_packets": "8782805",
+    "statistics/rx_errors": "0",
+    "statistics/tx_errors": "0",
+    "statistics/rx_dropped": "0",
+    "statistics/tx_dropped": "3",
+    "statistics/rx_crc_errors": "0"
+  }
+}

@@ -114,6 +114,23 @@ the established Modular ES bench, connected directly to a Linux PC.
     A successful completion requires DDR Hello restoration and removal of any
     host address added by the runner. Evidence is under `runs/ethernet-<UTC>/`.
 
+=== "Measured hardware results"
+
+    The complete 24 October 2026 campaign passed all 40 measurements and the
+    ten-minute simultaneous TCP soak on the direct SOM-to-PC connection.
+
+    | Receiver payload goodput | PC → SOM | SOM → PC |
+    |---|---:|---:|
+    | UDP, conservative rate with no measured loss | 80 Mb/s | 720 Mb/s |
+    | TCP, mean of three 30-second single-stream tests | 230 Mb/s | 949 Mb/s |
+    | TCP, 600 seconds simultaneously | 258 Mb/s | 69 Mb/s |
+
+    These are measurements for the recorded board, handoff and software, not
+    minimum performance requirements. UDP receive saturates near 198 Mb/s and
+    loses packets at higher offered rates. Read the
+    [full results, plots, failures and raw evidence](../ethernet-validation.md)
+    before comparing a different setup.
+
 === "Protocol and files"
 
     | Port | Firmware endpoint |

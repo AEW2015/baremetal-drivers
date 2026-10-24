@@ -1,0 +1,13 @@
+test_corrupt_receive_cancels_the_other_bidirectional_sender (test_ethernet_peer.EthernetPeer.test_corrupt_receive_cancels_the_other_bidirectional_sender) ... START TCP simultaneous seconds=5
+ok
+test_four_receive_streams_have_exact_aggregate_count (test_ethernet_peer.EthernetPeer.test_four_receive_streams_have_exact_aggregate_count) ... START TCP pc_to_som streams=4 seconds=0.1
+ok
+test_four_transmit_streams_verify_their_own_pattern_offsets (test_ethernet_peer.EthernetPeer.test_four_transmit_streams_verify_their_own_pattern_offsets) ... START TCP som_to_pc streams=4 seconds=0.1
+ok
+test_parallel_corruption_fails_and_closes_workers_promptly (test_ethernet_peer.EthernetPeer.test_parallel_corruption_fails_and_closes_workers_promptly) ... START TCP som_to_pc streams=4 seconds=30
+ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.647s
+
+OK

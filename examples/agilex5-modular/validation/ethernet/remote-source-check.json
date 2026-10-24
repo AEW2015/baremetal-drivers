@@ -1,0 +1,56 @@
+{
+  "source_commit": "2b34e074c15b2bc1794b052392890b4870d90f8c",
+  "elf_sha256": "3656c3b19d6341c9a683710a48290e9f22b75da7be9275f4fa2af1e71f76c068",
+  "files": {
+    "ethernet/mac.c": {
+      "recorded_sha256": "c7d8650464686341ec70d9533fdaf4d93effd4ef4f3b91fe1303b74233fddcc2",
+      "committed_sha256": "c7d8650464686341ec70d9533fdaf4d93effd4ef4f3b91fe1303b74233fddcc2",
+      "matches": true
+    },
+    "ethernet/main.c": {
+      "recorded_sha256": "0b5960b9e229f0dcb68eb981016e4b6a86261924a506f4531907c0e16e9c6cd0",
+      "committed_sha256": "0b5960b9e229f0dcb68eb981016e4b6a86261924a506f4531907c0e16e9c6cd0",
+      "matches": true
+    },
+    "ethernet/platform.c": {
+      "recorded_sha256": "fb126042133d591b6b945bc6a94cc87739a32334c92d5179cd5f62c0765efba0",
+      "committed_sha256": "fb126042133d591b6b945bc6a94cc87739a32334c92d5179cd5f62c0765efba0",
+      "matches": true
+    },
+    "ethernet/lwipopts.h": {
+      "recorded_sha256": "5c531702ff18374d8777ceb0f9b23776e75a0f1a73fea27d9adfcf02239942af",
+      "committed_sha256": "5c531702ff18374d8777ceb0f9b23776e75a0f1a73fea27d9adfcf02239942af",
+      "matches": true
+    },
+    "ethernet/start.S": {
+      "recorded_sha256": "14b7c93d5897ab2aa9054c15bd318094e203c96607dcf40d87286620c58187fb",
+      "committed_sha256": "14b7c93d5897ab2aa9054c15bd318094e203c96607dcf40d87286620c58187fb",
+      "matches": true
+    },
+    "ethernet/platform.h": {
+      "recorded_sha256": "ff34448883a419f9330c1dc0b2367a63a546a6d8ad49fe37f13a4dc8670b58ff",
+      "committed_sha256": "ff34448883a419f9330c1dc0b2367a63a546a6d8ad49fe37f13a4dc8670b58ff",
+      "matches": true
+    },
+    "ethernet/link.ld": {
+      "recorded_sha256": "1b23f3716bdcdd704737041eefba291aabd739d8597b6117b293cfd6d884b46c",
+      "committed_sha256": "1b23f3716bdcdd704737041eefba291aabd739d8597b6117b293cfd6d884b46c",
+      "matches": true
+    },
+    "ethernet/arch/cc.h": {
+      "recorded_sha256": "66449444537fda94eb55fb0ad65ae77755179f46e24f36b46992927544497014",
+      "committed_sha256": "66449444537fda94eb55fb0ad65ae77755179f46e24f36b46992927544497014",
+      "matches": true
+    },
+    "ethernet/build.sh": {
+      "recorded_sha256": "64db5167b6f4d579c6e64b3520e4d9b8950b76a9bd37a95ea594e19dc38a755a",
+      "committed_sha256": "64db5167b6f4d579c6e64b3520e4d9b8950b76a9bd37a95ea594e19dc38a755a",
+      "matches": true
+    },
+    "core/fault.c": {
+      "recorded_sha256": "be53d1703a3aa3ce52bebb1570d1b74435f15ec169c9c110c7d6a9611367d748",
+      "committed_sha256": "be53d1703a3aa3ce52bebb1570d1b74435f15ec169c9c110c7d6a9611367d748",
+      "matches": true
+    }
+  }
+}

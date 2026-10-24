@@ -1,0 +1,18 @@
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/network.elf has a LOAD segment with RWX permissions
+   text	   data	    bss	    dec	    hex	filename
+ 139504	   3192	5781800	5924496	 5a6690	build/network.elf
+ninja: no work to do.
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/mmu_translation.elf has a LOAD segment with RWX permissions
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/som_i2c.elf has a LOAD segment with RWX permissions
+/home/dev/baremetal-drivers-aew2015/examples/agilex5-modular/build/vendor_uart.elf
+/home/dev/baremetal-drivers-aew2015/examples/agilex5-modular/build/vendor_timer.elf
+/home/dev/baremetal-drivers-aew2015/examples/agilex5-modular/build/vendor_watchdog.elf
+/home/dev/baremetal-drivers-aew2015/examples/agilex5-modular/build/vendor_spi.elf
+/home/dev/baremetal-drivers-aew2015/examples/agilex5-modular/build/vendor_ccu.elf
+/home/dev/baremetal-drivers-aew2015/examples/agilex5-modular/build/vendor_clkmgr.elf
+/home/dev/baremetal-drivers-aew2015/examples/agilex5-modular/build/vendor_smmu.elf
+/home/dev/baremetal-drivers-aew2015/examples/agilex5-modular/build/vendor_ecc.elf
+/home/dev/baremetal-drivers-aew2015/examples/agilex5-modular/build/vendor_hps_mailbox.elf
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/network.elf has a LOAD segment with RWX permissions
+   text	   data	    bss	    dec	    hex	filename
+ 139680	   3192	5785896	5928768	 5a7740	build/network.elf

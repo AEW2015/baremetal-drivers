@@ -80,6 +80,7 @@ nav:
       - Codex skill: agent-skill.md
       - Validation and limits: validation.md
       - Fresh-clone remote validation: remote-validation.md
+      - Ethernet hardware measurements: ethernet-validation.md
       - Troubleshooting: troubleshooting.md
       - Simulated student reviews: student-review.md
       - Onboarding and desktop follow-up: feedback-followup.md

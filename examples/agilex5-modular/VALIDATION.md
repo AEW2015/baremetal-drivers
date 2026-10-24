@@ -1,5 +1,15 @@
 # Hardware validation record
 
+## SOM Ethernet traffic, 24 October 2026 UTC
+
+The separate Ethernet runner passed functional packet checks, 40 measurements
+and a 600-second simultaneous TCP soak. One-way single-stream TCP averaged
+229.68 Mb/s PC-to-SOM and 949.20 Mb/s SOM-to-PC over three 30-second samples.
+Conservative UDP rates of 80/720 Mb/s had no measured loss. DDR Hello restoration
+passed with PC `0x82000024`, and the temporary peer address was removed.
+See [the detailed report](../../docs/ethernet-validation.md) and
+[raw evidence](validation/ethernet/). Historical suite scopes below are unchanged.
+
 ## Fresh-clone remote campaign, 24 October 2026 UTC
 
 All 15 registered examples passed in one run of freshly built remote source at

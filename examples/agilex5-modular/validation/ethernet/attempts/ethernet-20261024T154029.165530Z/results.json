@@ -1,0 +1,337 @@
+{
+  "started_utc": "2026-10-24T15:40:29.165626+00:00",
+  "interface_before": {
+    "ifindex": 2,
+    "ifname": "enp111s0",
+    "flags": [
+      "BROADCAST",
+      "MULTICAST",
+      "UP",
+      "LOWER_UP"
+    ],
+    "mtu": 1500,
+    "qdisc": "fq_codel",
+    "operstate": "UP",
+    "group": "default",
+    "txqlen": 1000,
+    "link_type": "ether",
+    "address": "9c:6b:00:86:f0:d9",
+    "broadcast": "ff:ff:ff:ff:ff:ff",
+    "addr_info": []
+  },
+  "tests": [
+    {
+      "name": "counter_calibration",
+      "status": "pass",
+      "measured_hz": 400002424.4390607,
+      "configured_hz": 400000000
+    },
+    {
+      "name": "udp_echo",
+      "status": "pass",
+      "sizes": [
+        64,
+        256,
+        512,
+        1024,
+        1472
+      ]
+    },
+    {
+      "name": "udp_sequence_and_corruption_controls",
+      "status": "pass",
+      "stats": {
+        "run": 1024,
+        "ticks": 16102987608,
+        "counter_hz": 400000000,
+        "rx_packets": 102,
+        "rx_bytes": 104448,
+        "bad": 1,
+        "duplicates": 2,
+        "reordered": 1,
+        "tx_packets": 0,
+        "tx_errors": 0,
+        "tx_active": 0,
+        "tcp_rx_bytes": 0,
+        "tcp_tx_acked": 0,
+        "tcp_bad_chunks": 0,
+        "mac_tx": 14,
+        "mac_rx": 119,
+        "mac_tx_full": 0,
+        "mac_rx_errors": 0,
+        "dma_status": 4,
+        "pbuf_used": 0,
+        "pbuf_max": 1,
+        "pbuf_errors": 0,
+        "tcp_drops": 0,
+        "tcp_checksum_errors": 0
+      }
+    },
+    {
+      "name": "tcp_board_receive",
+      "status": "pass",
+      "bytes": 65536
+    },
+    {
+      "name": "tcp_board_transmit",
+      "status": "pass",
+      "bytes": 262144
+    }
+  ],
+  "restoration": "pass",
+  "hashes": {
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/build/network.elf": "b5b75d902a4ed599d7092ad2eaf4b428c509e547033743f6e3a50593f8250117",
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/bootstrap/ddr/ddr_probe.hps.rbf": "57cb8a882d37c321870c85adc2a14b8f5d63307031fe9123927ad0d0c64e2d66",
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/bootstrap/ocram/agilex5.cfg": "7dee0b6a2457845733e773d855dd24b6f525fbef31e15f77dea5250148f4b98d"
+  },
+  "build": {
+    "lwip_commit": "77dcd25a72509eb83f72b033d219b1d40cd8eb95",
+    "cpu_cache": 1,
+    "dma_memory": "normal noncacheable 0x85000000..0x853fffff",
+    "entry": "0x82600000",
+    "counter_hz": 400000000,
+    "elf_sha256": "b5b75d902a4ed599d7092ad2eaf4b428c509e547033743f6e3a50593f8250117",
+    "source_sha256": {
+      "ethernet/mac.c": "c7d8650464686341ec70d9533fdaf4d93effd4ef4f3b91fe1303b74233fddcc2",
+      "ethernet/main.c": "0b5960b9e229f0dcb68eb981016e4b6a86261924a506f4531907c0e16e9c6cd0",
+      "ethernet/platform.c": "fb126042133d591b6b945bc6a94cc87739a32334c92d5179cd5f62c0765efba0",
+      "ethernet/lwipopts.h": "5c531702ff18374d8777ceb0f9b23776e75a0f1a73fea27d9adfcf02239942af",
+      "ethernet/start.S": "14b7c93d5897ab2aa9054c15bd318094e203c96607dcf40d87286620c58187fb",
+      "ethernet/platform.h": "ff34448883a419f9330c1dc0b2367a63a546a6d8ad49fe37f13a4dc8670b58ff",
+      "ethernet/link.ld": "1b23f3716bdcdd704737041eefba291aabd739d8597b6117b293cfd6d884b46c",
+      "ethernet/arch/cc.h": "66449444537fda94eb55fb0ad65ae77755179f46e24f36b46992927544497014"
+    }
+  },
+  "initial_stats": {
+    "run": 0,
+    "ticks": 14782380162,
+    "counter_hz": 400000000,
+    "rx_packets": 0,
+    "rx_bytes": 0,
+    "bad": 0,
+    "duplicates": 0,
+    "reordered": 0,
+    "tx_packets": 0,
+    "tx_errors": 0,
+    "tx_active": 0,
+    "tcp_rx_bytes": 0,
+    "tcp_tx_acked": 0,
+    "tcp_bad_chunks": 0,
+    "mac_tx": 2,
+    "mac_rx": 2,
+    "mac_tx_full": 0,
+    "mac_rx_errors": 0,
+    "dma_status": 4,
+    "pbuf_used": 0,
+    "pbuf_max": 1,
+    "pbuf_errors": 0,
+    "tcp_drops": 0,
+    "tcp_checksum_errors": 0
+  },
+  "bandwidth": [
+    {
+      "protocol": "tcp",
+      "direction": "pc_to_som",
+      "streams": 4,
+      "seconds": 10,
+      "received_bytes": 260587520,
+      "receiver_mbps": 171.1925518969746,
+      "host_cpu_seconds": 0.18840131300000001,
+      "connections": [
+        {
+          "bytes": 84393984,
+          "seconds": 10.679405071306974,
+          "local_total_retransmissions": 477
+        },
+        {
+          "bytes": 88375296,
+          "seconds": 10.179220597725362,
+          "local_total_retransmissions": 403
+        },
+        {
+          "bytes": 58884096,
+          "seconds": 10.009741669055074,
+          "local_total_retransmissions": 354
+        },
+        {
+          "bytes": 28934144,
+          "seconds": 12.17751670209691,
+          "local_total_retransmissions": 554
+        }
+      ],
+      "board_stats": {
+        "run": 2000,
+        "ticks": 21099943132,
+        "counter_hz": 400000000,
+        "rx_packets": 0,
+        "rx_bytes": 0,
+        "bad": 0,
+        "duplicates": 0,
+        "reordered": 0,
+        "tx_packets": 0,
+        "tx_errors": 0,
+        "tx_active": 0,
+        "tcp_rx_bytes": 260587520,
+        "tcp_tx_acked": 0,
+        "tcp_bad_chunks": 0,
+        "mac_tx": 91801,
+        "mac_rx": 180363,
+        "mac_tx_full": 0,
+        "mac_rx_errors": 0,
+        "dma_status": 132,
+        "pbuf_used": 0,
+        "pbuf_max": 65,
+        "pbuf_errors": 0,
+        "tcp_drops": 0,
+        "tcp_checksum_errors": 0
+      }
+    },
+    {
+      "protocol": "tcp",
+      "direction": "som_to_pc",
+      "streams": 4,
+      "seconds": 10,
+      "received_bytes": 1186622300,
+      "receiver_mbps": 949.2835397689381,
+      "host_cpu_seconds": 3.916417724,
+      "connections": [
+        {
+          "bytes": 328152520,
+          "seconds": 10.000150642357767,
+          "local_total_retransmissions": 0
+        },
+        {
+          "bytes": 297402000,
+          "seconds": 10.000015173573047,
+          "local_total_retransmissions": 0
+        },
+        {
+          "bytes": 271405240,
+          "seconds": 10.000084363855422,
+          "local_total_retransmissions": 0
+        },
+        {
+          "bytes": 289662540,
+          "seconds": 10.000018914230168,
+          "local_total_retransmissions": 0
+        }
+      ],
+      "board_stats": {
+        "run": 2000,
+        "ticks": 25181009887,
+        "counter_hz": 400000000,
+        "rx_packets": 0,
+        "rx_bytes": 0,
+        "bad": 0,
+        "duplicates": 0,
+        "reordered": 0,
+        "tx_packets": 0,
+        "tx_errors": 0,
+        "tx_active": 0,
+        "tcp_rx_bytes": 0,
+        "tcp_tx_acked": 1186620840,
+        "tcp_bad_chunks": 0,
+        "mac_tx": 904666,
+        "mac_rx": 505473,
+        "mac_tx_full": 504917,
+        "mac_rx_errors": 0,
+        "dma_status": 132,
+        "pbuf_used": 0,
+        "pbuf_max": 65,
+        "pbuf_errors": 0,
+        "tcp_drops": 0,
+        "tcp_checksum_errors": 0
+      }
+    },
+    {
+      "protocol": "tcp_bidir",
+      "seconds": 10,
+      "directions": [
+        {
+          "direction": "pc_to_som",
+          "bytes": 322846720,
+          "seconds": 10.008273433893919,
+          "receiver_mbps": 258.0638685643024
+        },
+        {
+          "direction": "som_to_pc",
+          "bytes": 86075760,
+          "seconds": 10.000672018155456,
+          "receiver_mbps": 68.85598075308222
+        }
+      ],
+      "board_stats": {
+        "run": 3000,
+        "ticks": 29265087258,
+        "counter_hz": 400000000,
+        "rx_packets": 0,
+        "rx_bytes": 0,
+        "bad": 0,
+        "duplicates": 0,
+        "reordered": 0,
+        "tx_packets": 0,
+        "tx_errors": 0,
+        "tx_active": 0,
+        "tcp_rx_bytes": 322846720,
+        "tcp_tx_acked": 86075760,
+        "tcp_bad_chunks": 0,
+        "mac_tx": 1074212,
+        "mac_rx": 741373,
+        "mac_tx_full": 504917,
+        "mac_rx_errors": 0,
+        "dma_status": 132,
+        "pbuf_used": 0,
+        "pbuf_max": 65,
+        "pbuf_errors": 0,
+        "tcp_drops": 0,
+        "tcp_checksum_errors": 0
+      }
+    }
+  ],
+  "final_stats": {
+    "run": 3000,
+    "ticks": 29265345994,
+    "counter_hz": 400000000,
+    "rx_packets": 0,
+    "rx_bytes": 0,
+    "bad": 0,
+    "duplicates": 0,
+    "reordered": 0,
+    "tx_packets": 0,
+    "tx_errors": 0,
+    "tx_active": 0,
+    "tcp_rx_bytes": 322846720,
+    "tcp_tx_acked": 86075760,
+    "tcp_bad_chunks": 0,
+    "mac_tx": 1074213,
+    "mac_rx": 741374,
+    "mac_tx_full": 504917,
+    "mac_rx_errors": 0,
+    "dma_status": 132,
+    "pbuf_used": 0,
+    "pbuf_max": 65,
+    "pbuf_errors": 0,
+    "tcp_drops": 0,
+    "tcp_checksum_errors": 0
+  },
+  "host_address_restored": true,
+  "interface_after": {
+    "ifindex": 2,
+    "ifname": "enp111s0",
+    "flags": [
+      "BROADCAST",
+      "MULTICAST",
+      "UP",
+      "LOWER_UP"
+    ],
+    "mtu": 1500,
+    "qdisc": "fq_codel",
+    "operstate": "UP",
+    "group": "default",
+    "txqlen": 1000,
+    "link_type": "ether",
+    "address": "9c:6b:00:86:f0:d9",
+    "broadcast": "ff:ff:ff:ff:ff:ff",
+    "addr_info": []
+  }
+}

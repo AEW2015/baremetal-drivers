@@ -32,6 +32,7 @@ The runner freshly initializes DDR before each program and restores DDR Hello af
 | `som-i2c` | [GPIO I2C: temperature sensor and EEPROM](examples/som-i2c.md) | TMP464 manufacturer 0x5449 and 16 EEPROM bytes |
 | `som-i3c` | [I3C1 controller: legacy-I2C reads](examples/som-i3c.md) | Same targets through I3C1 legacy-I2C commands |
 | `interfaces` | [Ethernet PHY, SD and USB identification](examples/interfaces.md) | Marvell PHY, SD controller/card detect and USB1 ID |
+| Separate `ethernet/run.py` | [Ethernet UDP/TCP bandwidth](examples/ethernet.md) | Actual SOM EMAC2 packets, payload checks, rate sweeps and sustained traffic with a dedicated PC peer |
 | `mailbox` | [SDM mailbox: read FPGA IDCODE](examples/mailbox.md) | SDM returns matching 0x0364f0dd device ID |
 | `vendor-uart` | [Vendor UART transmit example](examples/vendor-uart.md) | Hello, World! and zero return code |
 | `vendor-ccu` | [Vendor CCU register checks](examples/vendor-ccu.md) | CCU register checks complete; version warnings retained |
@@ -49,7 +50,7 @@ The original [15-entry hardware record](validation.md) and [tutorial debugger ch
 
 ## Supporting and deferred examples
 
-`secondary_core.c` is a compile-only PSCI wrapper requiring resident BL31 and a nonsecure caller, absent in the current EL3 bootstrap. `fault_probe.c` is a manual diagnostic utility, not a peripheral qualification test. The U-Boot/Linux recipes are unexecuted setup references. Ethernet traffic, USB enumeration, SD media access, native I3C protocols, SMMU translation, ECC injection and coherent multicore sharing are not claimed by these tests.
+`secondary_core.c` is a compile-only PSCI wrapper requiring resident BL31 and a nonsecure caller, absent in the current EL3 bootstrap. `fault_probe.c` is a manual diagnostic utility, not a peripheral qualification test. The U-Boot/Linux recipes are unexecuted setup references. Ethernet traffic uses its separate peer-dependent runner above. USB enumeration, SD media access, native I3C protocols, SMMU translation, ECC injection and coherent multicore sharing are not claimed by these tests.
 
 ## Fabric IP extension
 

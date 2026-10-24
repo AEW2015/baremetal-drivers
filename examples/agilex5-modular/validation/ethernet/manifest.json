@@ -1,0 +1,578 @@
+{
+  "generated_utc": "2026-10-24T16:05:37.644962+00:00",
+  "campaign_elf_sha256": "3656c3b19d6341c9a683710a48290e9f22b75da7be9275f4fa2af1e71f76c068",
+  "files": {
+    "README.md": {
+      "sha256": "becf38f93639a582863ed817ead01b108679bacfbdb6cad2dad888f6017eb78c",
+      "bytes": 4349
+    },
+    "attempt-index.json": {
+      "sha256": "e2cc484c3c4a575ec13c420c015f0f5f5ceebfa422b37e6d6b17ff339a6379ce",
+      "bytes": 2491
+    },
+    "attempts/ethernet-20261024T151305.508553Z/bootstrap-pc.log": {
+      "sha256": "5b4f5d4191ab8a13e203da1857310382e439a707ebb357c6d0de916dfe82f0ef",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T151305.508553Z/bootstrap-programmer.log": {
+      "sha256": "42b34946fb1dc78cdceebb48dcfc76e2ebf1ab1f05002302768faeaf2075fcd7",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T151305.508553Z/bootstrap-uart.txt": {
+      "sha256": "9fef4cbfa6e44e0c80b76cdd2750d60e9c8f94c7824b33f87e086f7c04059234",
+      "bytes": 9716
+    },
+    "attempts/ethernet-20261024T151305.508553Z/bootstrap.log": {
+      "sha256": "1f4c6a560b7ef8b5f6e9974585bdcfe8c51c29043082c74cbb124822912c9e67",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T151305.508553Z/load.log": {
+      "sha256": "be5ac606b634759a0ef184911aeb380591dcf31324749f6f9f807c7f3b5aba7b",
+      "bytes": 2390
+    },
+    "attempts/ethernet-20261024T151305.508553Z/restore-pc.log": {
+      "sha256": "aebace8c61f3bc6f247a141fca70b40ae69c72bf9ec6552dd9e19c3b80f51574",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T151305.508553Z/restore-programmer.log": {
+      "sha256": "6dfb8385564db29fff06c65842ca17aa2273f63688407685c278ad3c3ac8a2b4",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T151305.508553Z/restore-uart.txt": {
+      "sha256": "9026bb2da44f55429cb5b53acd5e5ae55ce2a7d77155fb42dd432df9b97af396",
+      "bytes": 2300
+    },
+    "attempts/ethernet-20261024T151305.508553Z/restore.log": {
+      "sha256": "2b3324f81de7a45fa979de5e30999334b0e11c12affd9f6972f2c0e49b22c0f6",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T151305.508553Z/results.json": {
+      "sha256": "e089c8d41cfcec5b3a0359283f983e10d6a927b530e6999d1f3f0b5e6fab31f8",
+      "bytes": 1122
+    },
+    "attempts/ethernet-20261024T151305.508553Z/server-uart.txt": {
+      "sha256": "29bd5776547215132bea71d929d177e8fb48f94257d6b90487a354ccfb601217",
+      "bytes": 1714
+    },
+    "attempts/ethernet-20261024T151515.725556Z/bootstrap-pc.log": {
+      "sha256": "c49d5ed0807b751cb240ff77e6e7714111cea465e87b11b7ebe5abb420fec4c3",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T151515.725556Z/bootstrap-programmer.log": {
+      "sha256": "ac61e1469beade4224f1ec5051a5ca3fd6d854c59e31c53448592b151818529d",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T151515.725556Z/bootstrap-uart.txt": {
+      "sha256": "821c78f7d488e84d68c37ba030611924e64d9a59f0a680079d2e6554883a2514",
+      "bytes": 9205
+    },
+    "attempts/ethernet-20261024T151515.725556Z/bootstrap.log": {
+      "sha256": "c4c4fd92282b7c757c0058b7978ac8affffdcb0b2fcd3429208e3f84393589ab",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T151515.725556Z/load.log": {
+      "sha256": "1671eff87ec45be2eb91555daca91705181d4f1038b083b892e5484362a42f93",
+      "bytes": 2390
+    },
+    "attempts/ethernet-20261024T151515.725556Z/restore-pc.log": {
+      "sha256": "d16916435090604bbca56f4183a72dadeb03b3e5a6e943fa10f32d6041da9edb",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T151515.725556Z/restore-programmer.log": {
+      "sha256": "88a2f60ac9666b8bdf92f2c1c369ae6e732b39d225074d91ea7a98d35015a5ca",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T151515.725556Z/restore-uart.txt": {
+      "sha256": "9026bb2da44f55429cb5b53acd5e5ae55ce2a7d77155fb42dd432df9b97af396",
+      "bytes": 2300
+    },
+    "attempts/ethernet-20261024T151515.725556Z/restore.log": {
+      "sha256": "1001603284b4ef8d00a5e677ae6465a054b47fb7c2417ed4c24c2ecfd7bb84b3",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T151515.725556Z/results.json": {
+      "sha256": "77c523d679b661f55bbe9afd0c75653f542e806f51afeab081a1c27d9655967d",
+      "bytes": 1122
+    },
+    "attempts/ethernet-20261024T151515.725556Z/server-uart.txt": {
+      "sha256": "7ab221633c77e4e3670e8fbbaf8dd4fbe479bc87ffa55978668990ec93720178",
+      "bytes": 2989
+    },
+    "attempts/ethernet-20261024T151724.452900Z/bootstrap-pc.log": {
+      "sha256": "43713f5d587b9770d9cf35a8d1060ef314e81039115c7f3e35d99921033ddbf7",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T151724.452900Z/bootstrap-programmer.log": {
+      "sha256": "05f1d1f6c613b264b101e8684494af398463550945238ea99349f23dd9fd9462",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T151724.452900Z/bootstrap-uart.txt": {
+      "sha256": "c0d48766c9a7329b78b26aeda233c8345994b66a7e53e3645e867d1e0b1aefb2",
+      "bytes": 10490
+    },
+    "attempts/ethernet-20261024T151724.452900Z/bootstrap.log": {
+      "sha256": "2971277ec3419f33b65484e95c88d711b6e95ed73219903a0b8b38c66348b5f5",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T151724.452900Z/load.log": {
+      "sha256": "bc3367bfef29ea15f8d770cc0cf9b0386fc58c5f9ff1d52ae2654a8ddc3b426c",
+      "bytes": 2390
+    },
+    "attempts/ethernet-20261024T151724.452900Z/restore-pc.log": {
+      "sha256": "d7c94ada5dad32fc3c79d9b3f1197963bf1d8183a864bcf7981ff67a5ddd15eb",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T151724.452900Z/restore-programmer.log": {
+      "sha256": "d4e3e967656caad552d8708742530bfd90b2340db200065896038e5a5153d6d2",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T151724.452900Z/restore-uart.txt": {
+      "sha256": "286d70d597538bb81fde00c6781ee3ade209e77b7070cbf2b6ab196abab6f4c0",
+      "bytes": 2345
+    },
+    "attempts/ethernet-20261024T151724.452900Z/restore.log": {
+      "sha256": "3a15da72ae3fc5a684b45fb6888965bb1bf58fbfb4a32b96b12044b131ed1e71",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T151724.452900Z/results.json": {
+      "sha256": "b309481f67ba2cf6bc0f675d050a087aad93bb0d052768fd512b727d67f1bcf3",
+      "bytes": 1122
+    },
+    "attempts/ethernet-20261024T151724.452900Z/server-uart.txt": {
+      "sha256": "389ae5678822ec22217a50cfa9dced9e698bea1f128c168edbaecbaba7b9e3be",
+      "bytes": 3403
+    },
+    "attempts/ethernet-20261024T151927.732984Z/bootstrap-pc.log": {
+      "sha256": "cf7934d5b4db56edb65b30c697969337ad5aae03279f7f9bc17286a033fdd7c1",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T151927.732984Z/bootstrap-programmer.log": {
+      "sha256": "53af5b3184c45853dba28c52273d58b07a8875dedda37ffed88bbe9f7e9e38ac",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T151927.732984Z/bootstrap-uart.txt": {
+      "sha256": "941ba633f98f5eaa31409891fe9f663aafc4721446a58d50e344471bafaac11d",
+      "bytes": 7909
+    },
+    "attempts/ethernet-20261024T151927.732984Z/bootstrap.log": {
+      "sha256": "85130a8d14d8137c398cd7687340e4bfd0edd3edc91a94fe2415303d05ed15b8",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T151927.732984Z/load.log": {
+      "sha256": "b17f1e2dfe004fcf3e515916d23bfa853526f0247a27046ed1aaef48bb5812a4",
+      "bytes": 2390
+    },
+    "attempts/ethernet-20261024T151927.732984Z/ping.log": {
+      "sha256": "52c1e0ca239e19a1aef7b829dbba99aeebdaca534af178c47a863472712e0802",
+      "bytes": 417
+    },
+    "attempts/ethernet-20261024T151927.732984Z/restore-pc.log": {
+      "sha256": "b451232f59831e9be43a5c9d4f739d32b66988b76221fc4019dc108c3036b352",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T151927.732984Z/restore-programmer.log": {
+      "sha256": "9c03e61474db4f63b915351fb70231cdf677d52b33a0e1dd9fab4ad5789081fc",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T151927.732984Z/restore-uart.txt": {
+      "sha256": "9026bb2da44f55429cb5b53acd5e5ae55ce2a7d77155fb42dd432df9b97af396",
+      "bytes": 2300
+    },
+    "attempts/ethernet-20261024T151927.732984Z/restore.log": {
+      "sha256": "e58ad00b026938299ab4b5f07dbf6751d47b3630492126067291888364408f15",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T151927.732984Z/results.json": {
+      "sha256": "bdd4b67edb6c994d32f29381df6f088bd0b8bff2e1e4e9e2fae604b10f326e7d",
+      "bytes": 1544
+    },
+    "attempts/ethernet-20261024T151927.732984Z/server-uart.txt": {
+      "sha256": "947d064fc90e88837f792888f01db7e616459c209cd2a66b07f36e98846912c5",
+      "bytes": 4051
+    },
+    "attempts/ethernet-20261024T152200.325935Z/bootstrap-pc.log": {
+      "sha256": "3b3445ababb4b0abd71faddc640997496bc1255f8212614b11bef27ab86d1543",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T152200.325935Z/bootstrap-programmer.log": {
+      "sha256": "efcdb6ca1b3991b0f47fd65001a9a41a4f6ba89b8cd17f1f30cbfd175dfa1ad1",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T152200.325935Z/bootstrap-uart.txt": {
+      "sha256": "d7877be641923afb22615d61633d00f498b8c50c0d1022d2bc23d50543e21bb3",
+      "bytes": 11181
+    },
+    "attempts/ethernet-20261024T152200.325935Z/bootstrap.log": {
+      "sha256": "ac3d583088a4b58bdf2b807946d35aa63337bfe393455a61d1a86939b9fa3a92",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T152200.325935Z/load.log": {
+      "sha256": "f2ff1c293516791f14bfbdcda3e012a44ef5c2481b1dc2c2ac877026be8095c5",
+      "bytes": 2390
+    },
+    "attempts/ethernet-20261024T152200.325935Z/ping.log": {
+      "sha256": "36e1996f1e2db6eadac3f4ca22c54eee4c88cc836ae1a15750625f55ddfe146b",
+      "bytes": 417
+    },
+    "attempts/ethernet-20261024T152200.325935Z/restore-pc.log": {
+      "sha256": "b53bac5954c61b8973fd63f72fff1acc0911f9f28507dce3d4405049f1729006",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T152200.325935Z/restore-programmer.log": {
+      "sha256": "95d8af42daed5884bcf374ce286bd08097293aa7cc6f50316d9dfe6ed05b9caf",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T152200.325935Z/restore-uart.txt": {
+      "sha256": "63436959d546dee76f2faed5f4f6e79664c684ef02e35563b392b81a510a4f49",
+      "bytes": 2306
+    },
+    "attempts/ethernet-20261024T152200.325935Z/restore.log": {
+      "sha256": "ffd04cee1751178cffa89764490026b5608331db84959e8cbc966b405a239952",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T152200.325935Z/results.json": {
+      "sha256": "687c1ba547d13b05ac95fc509a25138013d6ac1ff341c82be62a90367da00065",
+      "bytes": 3029
+    },
+    "attempts/ethernet-20261024T152200.325935Z/server-uart.txt": {
+      "sha256": "6635ff5f82ba97d2400865fa3fff33703f707c4d4e75691e89a8989df50d5a94",
+      "bytes": 6624
+    },
+    "attempts/ethernet-20261024T152427.553137Z/bandwidth.json": {
+      "sha256": "21a1db5b0dd3100d320b3a543bb20b99449a4061e064e9696e15fbcaa85df048",
+      "bytes": 28798
+    },
+    "attempts/ethernet-20261024T152427.553137Z/bootstrap-pc.log": {
+      "sha256": "a5f9d69d93122f9db224d25810cee2de9a1de89370498bc61f88b85512e73b3b",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T152427.553137Z/bootstrap-programmer.log": {
+      "sha256": "05644684755a8157bda0fb9ea8681b45643222f43141d02143cbdf4c1b8a3ed0",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T152427.553137Z/bootstrap-uart.txt": {
+      "sha256": "d34ed5d9634f974db125664cc4b5b1cecbee79101d5e512bebc68b96f50617d5",
+      "bytes": 7860
+    },
+    "attempts/ethernet-20261024T152427.553137Z/bootstrap.log": {
+      "sha256": "8b5e24ad4f0a6e6e3698d9f690207fcafe43381017581ce7f826c296868972be",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T152427.553137Z/load.log": {
+      "sha256": "d5b2ad3144645d41a20342e31e48d2ab5cf2018b4e25bbc26a3e20e276473ff0",
+      "bytes": 2390
+    },
+    "attempts/ethernet-20261024T152427.553137Z/ping.log": {
+      "sha256": "f321287d41f73c1ed1d2fee15d7474cb9f6f9d207fde8dae3b472a3b4ad93934",
+      "bytes": 417
+    },
+    "attempts/ethernet-20261024T152427.553137Z/restore-pc.log": {
+      "sha256": "9f7db8040493880917160ba621bad2a665b0403abca536cbea6d85063f47e5d7",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T152427.553137Z/restore-programmer.log": {
+      "sha256": "d7162df953b4bd6789fdfb458695bad6d728f01b339b02212939d4b40499721f",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T152427.553137Z/restore-uart.txt": {
+      "sha256": "9026bb2da44f55429cb5b53acd5e5ae55ce2a7d77155fb42dd432df9b97af396",
+      "bytes": 2300
+    },
+    "attempts/ethernet-20261024T152427.553137Z/restore.log": {
+      "sha256": "68a1903d6e033226815b02453219bc91ffc4370682d9e8b9fde194ada4ff82ab",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T152427.553137Z/results.json": {
+      "sha256": "992cf27f405edbf0867e1deb8bc773890c8b74d87bec2c492a283c49a1cb3578",
+      "bytes": 34228
+    },
+    "attempts/ethernet-20261024T152427.553137Z/server-uart.txt": {
+      "sha256": "70e796370d8b289c869e805405ccd3fe4c2b6df342711b73fdb8ffa97fee03b8",
+      "bytes": 1878
+    },
+    "attempts/ethernet-20261024T152828.512115Z/bandwidth.json": {
+      "sha256": "9cad801bd93c65944490001567de13ce9e9ff65e7e90166319b27167b8cdb17d",
+      "bytes": 29850
+    },
+    "attempts/ethernet-20261024T152828.512115Z/bootstrap-pc.log": {
+      "sha256": "a38f6d6a25fd040c2944daf6d132160645647447ccaf06fa5975bfd269621b08",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T152828.512115Z/bootstrap-programmer.log": {
+      "sha256": "d992371e550f6971c8675079641a2dbf0de869a4253c88194f8fbaaf6a084444",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T152828.512115Z/bootstrap-uart.txt": {
+      "sha256": "a16d94c79d29526678d15a252877793619392b79d5cf98d2aa92df3512a6646c",
+      "bytes": 8516
+    },
+    "attempts/ethernet-20261024T152828.512115Z/bootstrap.log": {
+      "sha256": "1ed07fc59dd7787749c1d26db7718b006b65b792baa2c035fe7d96036da8b10b",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T152828.512115Z/load.log": {
+      "sha256": "6cd20819e73569299cb8e9d139485184e7aa58fe28894261b4639a20d2d3ed22",
+      "bytes": 2390
+    },
+    "attempts/ethernet-20261024T152828.512115Z/ping.log": {
+      "sha256": "c3968e91d7205c2766eeaea1fd8b055633909ae2b4ef106a45f5b11aadbfb88a",
+      "bytes": 417
+    },
+    "attempts/ethernet-20261024T152828.512115Z/restore-pc.log": {
+      "sha256": "2f70559c3063661175b8815c8663e5da509112fe3c7f9bead91d2eb638c6a827",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T152828.512115Z/restore-programmer.log": {
+      "sha256": "36e0328055f88aaba3233c3358b9441a8205486cdbac9ade798e5ffe68218297",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T152828.512115Z/restore-uart.txt": {
+      "sha256": "a44a2f8e901ea4e27c4236b86bb245cf2215dfc366f486f9018e7fed9ef77042",
+      "bytes": 2344
+    },
+    "attempts/ethernet-20261024T152828.512115Z/restore.log": {
+      "sha256": "6c93a23f65a48befece5cee3a2fb5b148be774f014bce385c385329c33d631dc",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T152828.512115Z/results.json": {
+      "sha256": "252d18468ca373fea76f08531fa9586e5e3fa8d53786c437445b3099e3be4712",
+      "bytes": 4120
+    },
+    "attempts/ethernet-20261024T152828.512115Z/server-uart.txt": {
+      "sha256": "56e6a3c79001d788f0747db89a458ff8fed2a65a63e5077107eadbccd75698be",
+      "bytes": 3894
+    },
+    "attempts/ethernet-20261024T154029.165530Z/bandwidth.json": {
+      "sha256": "ef0bfe4ec17315ee829d6e1041d19dbe07be561396fbc30823087e4a4ce1eea4",
+      "bytes": 3727
+    },
+    "attempts/ethernet-20261024T154029.165530Z/bootstrap-pc.log": {
+      "sha256": "3961ab2db0b257cd481609ee9f2cf276a34da62d7eef58c1d79c0b4ccf8abbf1",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T154029.165530Z/bootstrap-programmer.log": {
+      "sha256": "136f516e72f69dbed2c8d36c827111cf47a08d8a33ada146af767785e9bdf327",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T154029.165530Z/bootstrap-uart.txt": {
+      "sha256": "a33314baa6242784c398778fcb65db33631073f3cbd93391afc1306e75e36fb7",
+      "bytes": 8814
+    },
+    "attempts/ethernet-20261024T154029.165530Z/bootstrap.log": {
+      "sha256": "ec1eb254457fab8e42ccee9205fee6cfc877192ca5a188f149f2c41e59e8324b",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T154029.165530Z/load.log": {
+      "sha256": "fe9a81a6d4063321013fe793685c371c1a47858bb8a386e67e668271a06e66b3",
+      "bytes": 2390
+    },
+    "attempts/ethernet-20261024T154029.165530Z/ping.log": {
+      "sha256": "3adf9d71827facef4b72990324915fdc87c4eb443d5b01c5ad947a1ddf37ea61",
+      "bytes": 417
+    },
+    "attempts/ethernet-20261024T154029.165530Z/restore-pc.log": {
+      "sha256": "a17e70589f533630ed4044e3251e28ff5c40674c6abff98e678f6b11b1f6538f",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T154029.165530Z/restore-programmer.log": {
+      "sha256": "51e08b42d6d27d40b4c1ddd784396aa9207d0fd082c4edc045754e372e8e5be5",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T154029.165530Z/restore-uart.txt": {
+      "sha256": "9026bb2da44f55429cb5b53acd5e5ae55ce2a7d77155fb42dd432df9b97af396",
+      "bytes": 2300
+    },
+    "attempts/ethernet-20261024T154029.165530Z/restore.log": {
+      "sha256": "4e6f1767ca38d11367c983d0ed4c49169d3ea81a598a25532897e283bab8da67",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T154029.165530Z/results.json": {
+      "sha256": "ff5cd077ed0c4c188e477de76924fd6c76a74979a83451a069ab5311a51f0ba0",
+      "bytes": 8953
+    },
+    "attempts/ethernet-20261024T154029.165530Z/server-uart.txt": {
+      "sha256": "da12f036271bb66f9002f6a3c32393e812891e1f67eb7aaf517bee143963c114",
+      "bytes": 2557
+    },
+    "attempts/ethernet-20261024T154231.864079Z/bandwidth.json": {
+      "sha256": "6df1641aad2c22ff41b0cd92fe2544244fa9ab9b4b6d978a7af497eb4b0c4057",
+      "bytes": 44799
+    },
+    "attempts/ethernet-20261024T154231.864079Z/bootstrap-pc.log": {
+      "sha256": "bfe93f05741c471e51a99ce86a3c889ac6713c53205fa7b0dbaf2741a3ba84f9",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T154231.864079Z/bootstrap-programmer.log": {
+      "sha256": "b305489b7ebfa0d72bd3703a84c47f27a35b8cfb6e0be3bba7c438084e63a2ea",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T154231.864079Z/bootstrap-uart.txt": {
+      "sha256": "bff61eeb3823bb1665412defdd2ea38eaaa6b3f166cd1055277791f595c0e972",
+      "bytes": 10267
+    },
+    "attempts/ethernet-20261024T154231.864079Z/bootstrap.log": {
+      "sha256": "e32e57431bb53c86e6842b68e55f467734833a619cfa9e564bc9f7ccab43a5bc",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T154231.864079Z/load.log": {
+      "sha256": "4b180eccc9fafcd1cf8f86c45661d4beb4be4ec268096a4be4f62a6eec02acec",
+      "bytes": 2390
+    },
+    "attempts/ethernet-20261024T154231.864079Z/ping.log": {
+      "sha256": "cbafb61ad747673285e7312b48f77c02168a82756dcac07c7c3c111a2724708c",
+      "bytes": 417
+    },
+    "attempts/ethernet-20261024T154231.864079Z/restore-pc.log": {
+      "sha256": "5cf26bc36359202980f0dc53eccc4d2603e27c1f1054ec482051d2170e5c4793",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T154231.864079Z/restore-programmer.log": {
+      "sha256": "ef6fbc485aa8fd2592a24e3b8ad3558bc22a0d21132fa0582b9459627bf4acb5",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T154231.864079Z/restore-uart.txt": {
+      "sha256": "286d70d597538bb81fde00c6781ee3ade209e77b7070cbf2b6ab196abab6f4c0",
+      "bytes": 2345
+    },
+    "attempts/ethernet-20261024T154231.864079Z/restore.log": {
+      "sha256": "71bc286fa514f424f67ddeb4566fdff8f864ecefc85c9c304ba7201ab3cd775b",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T154231.864079Z/results.json": {
+      "sha256": "99746cfb8b1f27ad20ae8c8fa5b5158cb67fd1dd7fa0013a7a5ff7bd69010fbe",
+      "bytes": 53597
+    },
+    "attempts/ethernet-20261024T154231.864079Z/server-uart.txt": {
+      "sha256": "423698d0e19ee800a58eeb414054bc008f3529d73f245323bf788d0ec5243726",
+      "bytes": 2304
+    },
+    "attempts/ethernet-20261024T160302.077834Z/bandwidth.json": {
+      "sha256": "8e9a87b553250e706f10d6c4e1248e134fb2a13a57660ba3c8b05c7f86ab4d22",
+      "bytes": 3726
+    },
+    "attempts/ethernet-20261024T160302.077834Z/bootstrap-pc.log": {
+      "sha256": "c466a75d0501ebdab1a56558eeaee93c6ec6f891dd6fc2adccbbc0ef9614f6f8",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T160302.077834Z/bootstrap-programmer.log": {
+      "sha256": "c555a1c1b1b30bb599ac3ecd94f419b8c98ad5b0cb5b686005e1d2110454fca0",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T160302.077834Z/bootstrap-uart.txt": {
+      "sha256": "b4e74ebca36109e5e7c23566b1fcdf2c2c13f186985bb77ebc3575535a80baaa",
+      "bytes": 9500
+    },
+    "attempts/ethernet-20261024T160302.077834Z/bootstrap.log": {
+      "sha256": "6c593cbde90af533d10c787456d0c666040a16a00f6ecb170b22bc622c93acd3",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T160302.077834Z/load.log": {
+      "sha256": "2795b25ef0ed330970f0ed1830cd785df32cb7b6f9223f16fafc92f14a6ee285",
+      "bytes": 2390
+    },
+    "attempts/ethernet-20261024T160302.077834Z/ping.log": {
+      "sha256": "a78d7db05a64bffbadb8458cda86db74d43a583c0fd534c7486c9928bab341ea",
+      "bytes": 417
+    },
+    "attempts/ethernet-20261024T160302.077834Z/restore-pc.log": {
+      "sha256": "b19e83e741d5be03108c55d19a6d7837d71d3f2ca1e0a265ef1ca9878d6770bd",
+      "bytes": 2455
+    },
+    "attempts/ethernet-20261024T160302.077834Z/restore-programmer.log": {
+      "sha256": "f1414f23b7c21cd91e04cd647f2efc946b2c216f0dfe3abd3af99dce3bf723fb",
+      "bytes": 2209
+    },
+    "attempts/ethernet-20261024T160302.077834Z/restore-uart.txt": {
+      "sha256": "9026bb2da44f55429cb5b53acd5e5ae55ce2a7d77155fb42dd432df9b97af396",
+      "bytes": 2300
+    },
+    "attempts/ethernet-20261024T160302.077834Z/restore.log": {
+      "sha256": "ce234dc810d27f07af96ffa2ddb71d6b87ad054e23c18b274be94bbd8f0b1fe5",
+      "bytes": 837
+    },
+    "attempts/ethernet-20261024T160302.077834Z/results.json": {
+      "sha256": "aae4d239b0feb5b14beb2e5a21f213d8088be0e9ee0fa56782a2f6c4ec173add",
+      "bytes": 10474
+    },
+    "attempts/ethernet-20261024T160302.077834Z/server-uart.txt": {
+      "sha256": "2dc99998a9a273db3de7caa0125a994764e50840a36355b023fcd37db136c0dc",
+      "bytes": 1881
+    },
+    "bidir-regression-after.log": {
+      "sha256": "a6b3d11821c45d811e5c816316ae25a932f63f97a1cc99f717c5ddc27ab53a0d",
+      "bytes": 884
+    },
+    "bidir-regression-before.log": {
+      "sha256": "8663314c77d4767443019bf8c0462afd5570f756f2f3666a68253daf4f2dcb34",
+      "bytes": 1530
+    },
+    "bringup.pcap.gz": {
+      "sha256": "88776f242041aaef47f9ce79b39dd6fe77a959154c57202d36f8e0212a82c1f3",
+      "bytes": 17392
+    },
+    "build-all.log": {
+      "sha256": "fd519f8f7294dd906cf2921c2868ba9220016b3fd1487ab2fa49709251631d07",
+      "bytes": 1802
+    },
+    "campaign-peer.py": {
+      "sha256": "2248ff8c630f14ed9383bbbd0bd84ba489375a85b228daf26cd4856a1505d70e",
+      "bytes": 11449
+    },
+    "campaign-run.py": {
+      "sha256": "4940df25729574f1fa371b0181e6524e32ecab0a51d9e9d5bdd5a30274812175",
+      "bytes": 7724
+    },
+    "campaign-source.json": {
+      "sha256": "90137691583625e6ed74a02c30a5a7090937bd6271ee83cf6c08931ccb571e32",
+      "bytes": 485
+    },
+    "ci-75b621e.json": {
+      "sha256": "a4e9c0b77d76406e2f18982cd3a50cd0d858441e4de30564823bf012ce6729d7",
+      "bytes": 3805
+    },
+    "cleanup.json": {
+      "sha256": "8e7a227087365fc636f43449d4a0e60aca3efacb3b7cfc8a33da5a9ed13db095",
+      "bytes": 1113
+    },
+    "ddr-build-manifest.json": {
+      "sha256": "6bf866f5402dd095a8f7875817833026f0a567db8b616c9f6de352447db746f5",
+      "bytes": 422
+    },
+    "docs-build.log": {
+      "sha256": "831812bd0f63b4d92c954e96136d70f80b2bb95f958c559be8543fbbd26059ce",
+      "bytes": 191
+    },
+    "hardware-artifacts.json": {
+      "sha256": "35164f396bbbf602a9b5b71aaa8f0a9fdd3c3ff87c6137636748fb847ee1d315",
+      "bytes": 619
+    },
+    "host-context.json": {
+      "sha256": "a4e471452236bd0a77bf5f8989780f9b7a32ff505f6db67d85a2b11e4b26d4a8",
+      "bytes": 5646
+    },
+    "metrics.json": {
+      "sha256": "ad606e525679e83ef05547a9e1fe6a57fac7c2eb23b38bcde737ea189372251d",
+      "bytes": 3141
+    },
+    "network-final.json": {
+      "sha256": "832f54a7a2f19cc9d73e66a58c837dccb498b2aea88847aaf01258d29daf68b5",
+      "bytes": 1230
+    },
+    "qemu-regression.log": {
+      "sha256": "e82d7242aba3fe7cb67a33aeb1b905f316706eb0e41aefea9dc91a5ac59e0d56",
+      "bytes": 6909
+    },
+    "regression-final.log": {
+      "sha256": "a3d60b37a5b242e24e95ca78d7f3e40a776fb28bf3e5ec50becebd73886c44b2",
+      "bytes": 4982
+    },
+    "regression.log": {
+      "sha256": "137d59e54c054946fe705ace3beabf4807e833f5015e09c1d1081586987e65e6",
+      "bytes": 4863
+    },
+    "remote-source-check.json": {
+      "sha256": "4e9b77a9919d12ab97f4b31c49bd9d2e7fd2c817fe3e16e7f0bfa3783863a469",
+      "bytes": 2592
+    }
+  }
+}

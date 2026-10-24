@@ -1,0 +1,43 @@
+test_changed_handoff_is_unqualified (test_artifact_pair.ArtifactPair.test_changed_handoff_is_unqualified) ... ok
+test_changed_sof_is_unqualified (test_artifact_pair.ArtifactPair.test_changed_sof_is_unqualified) ... ok
+test_exact_pair_matches (test_artifact_pair.ArtifactPair.test_exact_pair_matches) ... ok
+test_invalid_profile_has_actionable_schema_error (test_artifact_pair.ArtifactPair.test_invalid_profile_has_actionable_schema_error) ... ok
+test_unqualified_profile_cannot_pass_on_hashes_alone (test_artifact_pair.ArtifactPair.test_unqualified_profile_cannot_pass_on_hashes_alone) ... ok
+test_corrupt_receive_cancels_the_other_bidirectional_sender (test_ethernet_peer.EthernetPeer.test_corrupt_receive_cancels_the_other_bidirectional_sender) ... START TCP simultaneous seconds=5
+ok
+test_four_receive_streams_have_exact_aggregate_count (test_ethernet_peer.EthernetPeer.test_four_receive_streams_have_exact_aggregate_count) ... START TCP pc_to_som streams=4 seconds=0.1
+ok
+test_four_transmit_streams_verify_their_own_pattern_offsets (test_ethernet_peer.EthernetPeer.test_four_transmit_streams_verify_their_own_pattern_offsets) ... START TCP som_to_pc streams=4 seconds=0.1
+ok
+test_parallel_corruption_fails_and_closes_workers_promptly (test_ethernet_peer.EthernetPeer.test_parallel_corruption_fails_and_closes_workers_promptly) ... START TCP som_to_pc streams=4 seconds=30
+ok
+test_changed_elf_rejected (test_fabric_deployment.FabricDeployment.test_changed_elf_rejected) ... ok
+test_changed_image_rejected (test_fabric_deployment.FabricDeployment.test_changed_image_rejected) ... ok
+test_disabled_bridge_rejected (test_fabric_deployment.FabricDeployment.test_disabled_bridge_rejected) ... ok
+test_invalid_base_rejected (test_fabric_deployment.FabricDeployment.test_invalid_base_rejected) ... ok
+test_matching_metadata (test_fabric_deployment.FabricDeployment.test_matching_metadata) ... ok
+test_missing_metadata_is_actionable (test_fabric_deployment.FabricDeployment.test_missing_metadata_is_actionable) ... ok
+test_positive_and_deliberate_neon_failure_are_separate (test_student_experience.RealQemuExercise.test_positive_and_deliberate_neon_failure_are_separate) ... ok
+test_cancellation_before_exec_has_initial_ownership_token (test_student_experience.StudentFailures.test_cancellation_before_exec_has_initial_ownership_token) ... ok
+test_check_rejects_missing_markers_even_on_exit_zero (test_student_experience.StudentFailures.test_check_rejects_missing_markers_even_on_exit_zero) ... ok
+test_direct_bootstrap_respects_debugger_lock_before_docker (test_student_experience.StudentFailures.test_direct_bootstrap_respects_debugger_lock_before_docker) ... ok
+test_disconnected_transport_kills_owned_process_ignoring_term (test_student_experience.StudentFailures.test_disconnected_transport_kills_owned_process_ignoring_term) ... ok
+test_exited_transport_still_checks_remote_ownership (test_student_experience.StudentFailures.test_exited_transport_still_checks_remote_ownership) ... ok
+test_inherited_lock_does_not_unlock_parent (test_student_experience.StudentFailures.test_inherited_lock_does_not_unlock_parent) ... ok
+test_missing_elf_points_to_build (test_student_experience.StudentFailures.test_missing_elf_points_to_build) ... ok
+test_missing_emulator_is_actionable (test_student_experience.StudentFailures.test_missing_emulator_is_actionable) ... ok
+test_mount_nonce_rejects_another_clone_and_is_cleaned (test_student_experience.StudentFailures.test_mount_nonce_rejects_another_clone_and_is_cleaned) ... ok
+test_nonzero_exit_preserves_diagnostic (test_student_experience.StudentFailures.test_nonzero_exit_preserves_diagnostic) ... ok
+test_occupied_port_never_launches_or_claims_ready (test_student_experience.StudentFailures.test_occupied_port_never_launches_or_claims_ready) ... ok
+test_owned_container_cancellation_preserves_unrelated_process (test_student_experience.StudentFailures.test_owned_container_cancellation_preserves_unrelated_process) ... ok
+test_owned_container_refuses_a_pid_with_wrong_ownership_token (test_student_experience.StudentFailures.test_owned_container_refuses_a_pid_with_wrong_ownership_token) ... ok
+test_regular_file_is_not_a_uart (test_student_experience.StudentFailures.test_regular_file_is_not_a_uart) ... ok
+test_restore_timeout_is_durable_and_preserves_original_error (test_student_experience.StudentFailures.test_restore_timeout_is_durable_and_preserves_original_error) ... ok
+test_timeout_preserves_partial_output_and_reaps_child (test_student_experience.StudentFailures.test_timeout_preserves_partial_output_and_reaps_child) ... ok
+test_uncertain_process_shutdown_prevents_reprogramming (test_student_experience.StudentFailures.test_uncertain_process_shutdown_prevents_reprogramming) ... ok
+test_unresolved_record_blocks_new_hardware_owner (test_student_experience.StudentFailures.test_unresolved_record_blocks_new_hardware_owner) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 4.923s
+
+OK

@@ -1,5 +1,14 @@
 # Validation and practical limits
 
+## SOM Ethernet traffic campaign
+
+The separate Ethernet lab passed real UDP/TCP packet checks, 40 bandwidth
+measurements and a ten-minute simultaneous TCP soak on the direct SOM-to-PC
+link. Mean one-way TCP payload goodput was about 230 Mb/s into the SOM and
+949 Mb/s out. See [Ethernet measurements and evidence](ethernet-validation.md)
+for rates, loss, exact artifacts, failures and recovery. This extends the earlier
+PHY identification result; it does not add Ethernet to the 15-test register suite.
+
 ## Fresh-clone remote campaign
 
 A new clone of remote `main` at `0daff10` built and passed all 15 registered

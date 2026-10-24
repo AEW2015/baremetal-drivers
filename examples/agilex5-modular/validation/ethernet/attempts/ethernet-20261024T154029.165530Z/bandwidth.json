@@ -1,0 +1,160 @@
+[
+  {
+    "protocol": "tcp",
+    "direction": "pc_to_som",
+    "streams": 4,
+    "seconds": 10,
+    "received_bytes": 260587520,
+    "receiver_mbps": 171.1925518969746,
+    "host_cpu_seconds": 0.18840131300000001,
+    "connections": [
+      {
+        "bytes": 84393984,
+        "seconds": 10.679405071306974,
+        "local_total_retransmissions": 477
+      },
+      {
+        "bytes": 88375296,
+        "seconds": 10.179220597725362,
+        "local_total_retransmissions": 403
+      },
+      {
+        "bytes": 58884096,
+        "seconds": 10.009741669055074,
+        "local_total_retransmissions": 354
+      },
+      {
+        "bytes": 28934144,
+        "seconds": 12.17751670209691,
+        "local_total_retransmissions": 554
+      }
+    ],
+    "board_stats": {
+      "run": 2000,
+      "ticks": 21099943132,
+      "counter_hz": 400000000,
+      "rx_packets": 0,
+      "rx_bytes": 0,
+      "bad": 0,
+      "duplicates": 0,
+      "reordered": 0,
+      "tx_packets": 0,
+      "tx_errors": 0,
+      "tx_active": 0,
+      "tcp_rx_bytes": 260587520,
+      "tcp_tx_acked": 0,
+      "tcp_bad_chunks": 0,
+      "mac_tx": 91801,
+      "mac_rx": 180363,
+      "mac_tx_full": 0,
+      "mac_rx_errors": 0,
+      "dma_status": 132,
+      "pbuf_used": 0,
+      "pbuf_max": 65,
+      "pbuf_errors": 0,
+      "tcp_drops": 0,
+      "tcp_checksum_errors": 0
+    }
+  },
+  {
+    "protocol": "tcp",
+    "direction": "som_to_pc",
+    "streams": 4,
+    "seconds": 10,
+    "received_bytes": 1186622300,
+    "receiver_mbps": 949.2835397689381,
+    "host_cpu_seconds": 3.916417724,
+    "connections": [
+      {
+        "bytes": 328152520,
+        "seconds": 10.000150642357767,
+        "local_total_retransmissions": 0
+      },
+      {
+        "bytes": 297402000,
+        "seconds": 10.000015173573047,
+        "local_total_retransmissions": 0
+      },
+      {
+        "bytes": 271405240,
+        "seconds": 10.000084363855422,
+        "local_total_retransmissions": 0
+      },
+      {
+        "bytes": 289662540,
+        "seconds": 10.000018914230168,
+        "local_total_retransmissions": 0
+      }
+    ],
+    "board_stats": {
+      "run": 2000,
+      "ticks": 25181009887,
+      "counter_hz": 400000000,
+      "rx_packets": 0,
+      "rx_bytes": 0,
+      "bad": 0,
+      "duplicates": 0,
+      "reordered": 0,
+      "tx_packets": 0,
+      "tx_errors": 0,
+      "tx_active": 0,
+      "tcp_rx_bytes": 0,
+      "tcp_tx_acked": 1186620840,
+      "tcp_bad_chunks": 0,
+      "mac_tx": 904666,
+      "mac_rx": 505473,
+      "mac_tx_full": 504917,
+      "mac_rx_errors": 0,
+      "dma_status": 132,
+      "pbuf_used": 0,
+      "pbuf_max": 65,
+      "pbuf_errors": 0,
+      "tcp_drops": 0,
+      "tcp_checksum_errors": 0
+    }
+  },
+  {
+    "protocol": "tcp_bidir",
+    "seconds": 10,
+    "directions": [
+      {
+        "direction": "pc_to_som",
+        "bytes": 322846720,
+        "seconds": 10.008273433893919,
+        "receiver_mbps": 258.0638685643024
+      },
+      {
+        "direction": "som_to_pc",
+        "bytes": 86075760,
+        "seconds": 10.000672018155456,
+        "receiver_mbps": 68.85598075308222
+      }
+    ],
+    "board_stats": {
+      "run": 3000,
+      "ticks": 29265087258,
+      "counter_hz": 400000000,
+      "rx_packets": 0,
+      "rx_bytes": 0,
+      "bad": 0,
+      "duplicates": 0,
+      "reordered": 0,
+      "tx_packets": 0,
+      "tx_errors": 0,
+      "tx_active": 0,
+      "tcp_rx_bytes": 322846720,
+      "tcp_tx_acked": 86075760,
+      "tcp_bad_chunks": 0,
+      "mac_tx": 1074212,
+      "mac_rx": 741373,
+      "mac_tx_full": 504917,
+      "mac_rx_errors": 0,
+      "dma_status": 132,
+      "pbuf_used": 0,
+      "pbuf_max": 65,
+      "pbuf_errors": 0,
+      "tcp_drops": 0,
+      "tcp_checksum_errors": 0
+    }
+  }
+]

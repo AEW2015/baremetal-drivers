@@ -1,0 +1,9 @@
+{
+  "lwh2f_enabled": false,
+  "source_sof": "/home/dev/agilex5-litedram-phylite/build/dual_ddr1600_hps_lw_r3/memory_test.sof",
+  "source_sof_sha256": "ba3ff98750be5969bccae62e68fdc8d6f757336ee0b5936cd725a411501d25bb",
+  "images": {
+    "ddr_probe.hps.rbf": "57cb8a882d37c321870c85adc2a14b8f5d63307031fe9123927ad0d0c64e2d66",
+    "ddr_recovery.sof": "55cd198552a1eced0849ee7d79b98248317c7762aefc176eca1adfff7ba312c2"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "started_utc": "2026-10-24T15:17:24.453005+00:00",
+  "interface_before": {
+    "ifindex": 2,
+    "ifname": "enp111s0",
+    "flags": [
+      "BROADCAST",
+      "MULTICAST",
+      "UP",
+      "LOWER_UP"
+    ],
+    "mtu": 1500,
+    "qdisc": "fq_codel",
+    "operstate": "UP",
+    "group": "default",
+    "txqlen": 1000,
+    "link_type": "ether",
+    "address": "9c:6b:00:86:f0:d9",
+    "broadcast": "ff:ff:ff:ff:ff:ff",
+    "addr_info": []
+  },
+  "tests": [],
+  "restoration": "pass",
+  "hashes": {
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/build/network.elf": "a460cab6a8e1bd4bfa9c694d4f4a3758ee6d9cbd6c4718b73ab4793057c9d7c0",
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/bootstrap/ddr/ddr_probe.hps.rbf": "57cb8a882d37c321870c85adc2a14b8f5d63307031fe9123927ad0d0c64e2d66",
+    "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/bootstrap/ocram/agilex5.cfg": "7dee0b6a2457845733e773d855dd24b6f525fbef31e15f77dea5250148f4b98d"
+  },
+  "error": "TimeoutError: timed out",
+  "host_address_restored": true
+}

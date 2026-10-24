@@ -1,0 +1,21 @@
+test_corrupt_receive_cancels_the_other_bidirectional_sender (test_ethernet_peer.EthernetPeer.test_corrupt_receive_cancels_the_other_bidirectional_sender) ... START TCP simultaneous seconds=5
+FAIL
+test_four_receive_streams_have_exact_aggregate_count (test_ethernet_peer.EthernetPeer.test_four_receive_streams_have_exact_aggregate_count) ... START TCP pc_to_som streams=4 seconds=0.1
+ok
+test_four_transmit_streams_verify_their_own_pattern_offsets (test_ethernet_peer.EthernetPeer.test_four_transmit_streams_verify_their_own_pattern_offsets) ... START TCP som_to_pc streams=4 seconds=0.1
+ok
+test_parallel_corruption_fails_and_closes_workers_promptly (test_ethernet_peer.EthernetPeer.test_parallel_corruption_fails_and_closes_workers_promptly) ... START TCP som_to_pc streams=4 seconds=30
+ok
+
+======================================================================
+FAIL: test_corrupt_receive_cancels_the_other_bidirectional_sender (test_ethernet_peer.EthernetPeer.test_corrupt_receive_cancels_the_other_bidirectional_sender)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/tests/test_ethernet_peer.py", line 103, in test_corrupt_receive_cancels_the_other_bidirectional_sender
+    self.assertLess(time.monotonic()-start, 3)
+AssertionError: 5.002910381183028 not less than 3
+
+----------------------------------------------------------------------
+Ran 4 tests in 5.639s
+
+FAILED (failures=1)

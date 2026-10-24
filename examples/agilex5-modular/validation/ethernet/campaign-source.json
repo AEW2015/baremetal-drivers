@@ -1,0 +1,9 @@
+{
+  "campaign_source_commit": "5077adfcd8aa35b10c9896e0fdac3e349a70308e",
+  "firmware_elf_sha256": "3656c3b19d6341c9a683710a48290e9f22b75da7be9275f4fa2af1e71f76c068",
+  "host_sources_sha256": {
+    "run.py": "4940df25729574f1fa371b0181e6524e32ecab0a51d9e9d5bdd5a30274812175",
+    "peer.py": "2248ff8c630f14ed9383bbbd0bd84ba489375a85b228daf26cd4856a1505d70e"
+  },
+  "later_changes": "2b34e07 adds capture metadata; 75b621e fixes failure cancellation. Firmware sources are unchanged."
+}

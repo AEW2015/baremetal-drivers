@@ -73,4 +73,7 @@ All hardware commands assume the matching Modular ES profile and host/container 
 
     No Ethernet cable/peer is needed for PHY ID reads; packet traffic is not tested. SD card presence is not required to pass the controller check, and no media blocks are read or written. USB IDs do not test the PHY, connector power or device enumeration.
 
+    To test actual Ethernet packets and bandwidth with a PC peer, use the
+    separate [UDP/TCP bandwidth lab](ethernet.md).
+
     If the test fails, keep `results.json`, its ELF SHA-256, UART, debug and bootstrap logs. Check [troubleshooting](../troubleshooting.md) before changing expected values or retrying with altered pinmux.

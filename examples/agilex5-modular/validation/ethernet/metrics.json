@@ -1,0 +1,132 @@
+{
+  "pc_to_som": {
+    "udp_repeat": {
+      "mean_mbps": 79.99823116664949,
+      "min_mbps": 79.9982294249092,
+      "max_mbps": 79.99823208967251,
+      "samples": 3
+    },
+    "tcp_repeat": {
+      "mean_mbps": 229.67703856656013,
+      "min_mbps": 229.5161804451056,
+      "max_mbps": 229.7673998032282,
+      "samples": 3
+    },
+    "tcp_four_streams": {
+      "mean_mbps": 203.94144016286813,
+      "min_mbps": 203.94144016286813,
+      "max_mbps": 203.94144016286813,
+      "samples": 1
+    }
+  },
+  "som_to_pc": {
+    "udp_repeat": {
+      "mean_mbps": 720.0246784,
+      "min_mbps": 720.0246784,
+      "max_mbps": 720.0246784,
+      "samples": 3
+    },
+    "tcp_repeat": {
+      "mean_mbps": 949.1984683631891,
+      "min_mbps": 949.0907749805393,
+      "max_mbps": 949.2540426926644,
+      "samples": 3
+    },
+    "tcp_four_streams": {
+      "mean_mbps": 949.3355949682067,
+      "min_mbps": 949.3355949682067,
+      "max_mbps": 949.3355949682067,
+      "samples": 1
+    }
+  },
+  "tcp_bidir": {
+    "protocol": "tcp_bidir",
+    "seconds": 30,
+    "directions": [
+      {
+        "direction": "pc_to_som",
+        "bytes": 969277440,
+        "seconds": 30.00844473671168,
+        "receiver_mbps": 258.4012463169628
+      },
+      {
+        "direction": "som_to_pc",
+        "bytes": 258519280,
+        "seconds": 30.002045353874564,
+        "receiver_mbps": 68.93377486788285
+      }
+    ],
+    "board_stats": {
+      "run": 3000,
+      "ticks": 229041803144,
+      "counter_hz": 400000000,
+      "rx_packets": 0,
+      "rx_bytes": 0,
+      "bad": 0,
+      "duplicates": 0,
+      "reordered": 0,
+      "tx_packets": 1834302,
+      "tx_errors": 0,
+      "tx_active": 0,
+      "tcp_rx_bytes": 969277440,
+      "tcp_tx_acked": 258519280,
+      "tcp_bad_chunks": 0,
+      "mac_tx": 17475203,
+      "mac_rx": 6804903,
+      "mac_tx_full": 1516116,
+      "mac_rx_errors": 0,
+      "dma_status": 132,
+      "pbuf_used": 0,
+      "pbuf_max": 65,
+      "pbuf_errors": 0,
+      "tcp_drops": 0,
+      "tcp_checksum_errors": 0
+    },
+    "stage": "tcp_bidir"
+  },
+  "tcp_soak": {
+    "protocol": "tcp_bidir",
+    "seconds": 600,
+    "directions": [
+      {
+        "direction": "pc_to_som",
+        "bytes": 19379716096,
+        "seconds": 600.0083682476543,
+        "receiver_mbps": 258.3926107910681
+      },
+      {
+        "direction": "som_to_pc",
+        "bytes": 5169118320,
+        "seconds": 600.0003257831559,
+        "receiver_mbps": 68.92154017753856
+      }
+    ],
+    "board_stats": {
+      "run": 3000,
+      "ticks": 469133294268,
+      "counter_hz": 400000000,
+      "rx_packets": 0,
+      "rx_bytes": 0,
+      "bad": 0,
+      "duplicates": 0,
+      "reordered": 0,
+      "tx_packets": 1834302,
+      "tx_errors": 0,
+      "tx_active": 0,
+      "tcp_rx_bytes": 19379716096,
+      "tcp_tx_acked": 5169118320,
+      "tcp_bad_chunks": 0,
+      "mac_tx": 27653244,
+      "mac_rx": 20966958,
+      "mac_tx_full": 1516116,
+      "mac_rx_errors": 0,
+      "dma_status": 132,
+      "pbuf_used": 0,
+      "pbuf_max": 65,
+      "pbuf_errors": 0,
+      "tcp_drops": 0,
+      "tcp_checksum_errors": 0
+    },
+    "stage": "tcp_soak"
+  }
+}
