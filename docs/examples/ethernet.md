@@ -51,6 +51,16 @@ the established Modular ES bench, connected directly to a Linux PC.
     downloaded sources. The compact linker layout can emit the documented
     [RWX warning](../troubleshooting.md#rwx-linker-warning).
 
+    Captured output from the cached build (final size report):
+
+    ```text
+       text	   data	    bss	    dec	    hex	filename
+     139680	   3192	5785896	5928768	 5a7740	build/network.elf
+    ```
+
+    The [full build log](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/ethernet/build-all.log) also records the expected RWX
+    warning. Addresses and memory use can change with source/tool versions.
+
     To compare CPU memory configurations:
 
     ```sh
@@ -92,27 +102,136 @@ the established Modular ES bench, connected directly to a Linux PC.
 
 === "Expected results"
 
-    Smoke checks require:
+    These are **captured terminal excerpts** from the 24 October 2026 hardware
+    campaign, not invented sample output. Boot chatter and intervening benchmark
+    repetitions are omitted. UART and host output are shown separately because
+    they can interleave in the terminal. Interface names, paths, timings and
+    throughput will vary; compare PASS markers, payload checks and restoration.
 
-    - `PASS NETWORK_LINK: 1000 Mbps full duplex` and `READY NETWORK` on fresh UART.
-    - Successful ARP/ping and an independently checked 400 MHz counter rate.
-    - Exact UDP echoes for 64, 256, 512, 1024 and 1472-byte payloads.
-    - Correct duplicate, out-of-order and deliberately corrupted UDP detection.
-    - Verified TCP payloads into and out of the board.
+    **1. Firmware startup — SOM UART**
 
-    The normal benchmark sweeps requested UDP payload rates from 1 to 900 Mb/s
-    at 1472 bytes, characterizes all five payload sizes, then repeats conservative
-    stable UDP rates and single-stream TCP three times for 30 seconds. It also
-    runs four-stream TCP, simultaneous TCP and a ten-minute simultaneous TCP soak.
+    ```text
+    MEMORY MODE: cached CPU, noncacheable DMA
+    HPS NETWORK BENCH BEGIN
+    Counter frequency0x0000000017d78400
+    PER0MODRST0x0000000000000000
+    SYSMGR_EMAC20x0000000000000001
+    EMAC2_USEFPGA0x0000000000000000
+    PHY control0x0000000000001140
+    PHY status0x000000000000796d
+    PHY resolved0x000000000000bc08
+    PHY RGMII timing before0x0000000000001076
+    PASS NETWORK_LINK: 1000 Mbps full duplex
+    READY NETWORK: 192.168.50.2 UDP control=5001 echo=5002 sink=5003 TCP sink=5004 source=5005
+    ```
 
-    Each run records requested rate, actual offered rate, receiver goodput, loss,
-    duplicates, reordering, corruption, source errors and board statistics.
-    High-rate UDP loss is a measured result, not hidden by a PASS marker. TCP
-    payload/count mismatches fail the run. TCP retransmissions reported by the
-    host describe its local sender; they do not count the board sender's retries.
+    The default cached build must identify normal-noncacheable DMA memory,
+    establish 1000 Mb/s full duplex, and print `READY NETWORK`. The recorded PHY
+    timing value is the original setting before this bench's volatile adjustment.
 
-    A successful completion requires DDR Hello restoration and removal of any
-    host address added by the runner. Evidence is under `runs/ethernet-<UTC>/`.
+    **2. Functional checks — host runner**
+
+    ```text
+    PASS ARP_PING
+    PASS counter_calibration
+    PASS udp_echo
+    PASS udp_sequence_and_corruption_controls
+    PASS tcp_board_receive
+    PASS tcp_board_transmit
+    ```
+
+    `--smoke` runs these checks without the bandwidth campaign. `udp_echo`
+    verifies exact payloads at 64, 256, 512, 1024 and 1472 bytes. The sequence
+    check deliberately injects duplicates, reordered packets and one corrupt
+    payload; PASS means those cases were classified correctly. Both TCP
+    directions verify their payload patterns. Counter calibration independently
+    compares the configured 400 MHz counter with the host clock.
+
+    **3. Ping — saved `ping.log`**
+
+    ```text
+    PING 192.168.50.2 (192.168.50.2) from 192.168.50.1 enp111s0: 56(84) bytes of data.
+    64 bytes from 192.168.50.2: icmp_seq=1 ttl=255 time=0.041 ms
+    64 bytes from 192.168.50.2: icmp_seq=2 ttl=255 time=0.055 ms
+    64 bytes from 192.168.50.2: icmp_seq=3 ttl=255 time=0.048 ms
+
+    --- 192.168.50.2 ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss, time 2053ms
+    rtt min/avg/max/mdev = 0.041/0.048/0.055/0.005 ms
+    ```
+
+    The runner saves ping output instead of echoing it to the terminal. Expect
+    three replies and zero loss; the round-trip timings are measurements from
+    this direct connection, not required exact values.
+
+    **4. UDP saturation — host runner**
+
+    This contiguous excerpt corresponds to requested rates of 100, 250, 500
+    and 900 Mb/s into the SOM. The printed Mb/s value is receiver payload
+    goodput; `loss` is the fraction of sent datagrams not received.
+
+    ```text
+    MEASURE udp_ramp pc_to_som 99.998 Mbps loss=0.000000
+    MEASURE udp_ramp pc_to_som 197.864 Mbps loss=0.208529
+    MEASURE udp_ramp pc_to_som 197.876 Mbps loss=0.604243
+    MEASURE udp_ramp pc_to_som 197.875 Mbps loss=0.779977
+    ```
+
+    This shows receive saturation, not a successful loss-free 900 Mb/s receive
+    test. In the other direction, the last two three-second sweep steps were:
+
+    ```text
+    MEASURE udp_ramp som_to_pc 500.044 Mbps loss=0.000000
+    MEASURE udp_ramp som_to_pc 900.134 Mbps loss=0.000000
+    ```
+
+    The benchmark also checks all five payload sizes, then repeats conservative
+    UDP rates and single-stream TCP three times for 30 seconds. Selected captured
+    lines below show the first repeat in each direction; intervening tests are
+    omitted between these two excerpts.
+
+    **5. Sustained UDP and TCP — host runner**
+
+    ```text
+    MEASURE udp_repeat pc_to_som 79.998 Mbps loss=0.000000
+    START TCP pc_to_som streams=1 seconds=30
+    MEASURE tcp_repeat pc_to_som 229.516 Mbps loss=0.000000
+    ```
+
+    ```text
+    MEASURE udp_repeat som_to_pc 720.025 Mbps loss=0.000000
+    START TCP som_to_pc streams=1 seconds=30
+    MEASURE tcp_repeat som_to_pc 949.254 Mbps loss=0.000000
+    ```
+
+    For TCP, the console's `loss=0.000000` is a generic formatter field, **not
+    a measured TCP packet-loss or retransmission count**. TCP payload/count
+    mismatches fail the run. The JSON contains byte counts and local-sender
+    retransmission statistics; those do not count the board sender's retries.
+
+    **6. Ten-minute soak and restoration — host runner**
+
+    The final lines of the default campaign were:
+
+    ```text
+    PROGRESS tcp_bidir pc_to_som: 600s, 258.396 Mbps
+    PROGRESS tcp_bidir som_to_pc: 600s, 68.922 Mbps
+    MEASURE tcp_soak completed
+    [restore] Restoring DDR Hello; inspect restore.log for live stages.
+    DDR Hello restoration: pass
+    ```
+
+    `--smoke` and `--quick --soak-seconds 0` do not print the soak lines.
+    Require successful restoration as well as test completion. The runner also
+    removes any host address it added; confirm `host_address_restored: true`
+    and the before/after interface state in `results.json`. High-rate UDP loss
+    remains recorded even when the campaign completes.
+
+    Read the complete [terminal capture](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/ethernet/attempts/ethernet-20261024T154231.864079Z/terminal.log),
+    [UART capture](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/ethernet/attempts/ethernet-20261024T154231.864079Z/server-uart.txt),
+    [ping log](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/ethernet/attempts/ethernet-20261024T154231.864079Z/ping.log) and
+    [structured results](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/ethernet/attempts/ethernet-20261024T154231.864079Z/results.json).
+    New run evidence is under `runs/ethernet-<UTC>/`.
 
 === "Measured hardware results"
 

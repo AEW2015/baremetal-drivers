@@ -1,0 +1,145 @@
+Evidence: /home/lada/altera-agilex/home/baremetal-drivers-aew2015/examples/agilex5-modular/runs/ethernet-20261024T154231.864079Z
+Initializing DDR...
+nk 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0xDMA PAR_EL10x4400000085000900
+RX DMA PAR_EL10x4400000085200900
+CPU PAR_EL10xff00000082600980
+MEMORY MODE: cached CPU, noncacheable DMA
+HPS NETWORK BENCH BEGIN
+Counter frequency0x0000000017d78400
+PER0MODRST0x0000000000000000
+SYSMGR_EMAC20x0000000000000001
+EMAC2_USEFPGA0x0000000000000000
+PHY control0x0000000000001140
+PHY status0x000000000000796d
+PHY resolved0x000000000000bc08
+PHY RGMII timing before0x0000000000001076
+PASS NETWORK_LINK: 1000 Mbps full duplex
+READY NETWORK: 192.168.50.2 UDP control=5001 echo=5002 sink=5003 TCP sinPASS ARP_PING
+PASS counter_calibration
+PASS udp_echo
+PASS udp_sequence_and_corruption_controls
+PASS tcp_board_receive
+PASS tcp_board_transmit
+MEASURE udp_ramp pc_to_som 1.001 Mbps loss=0.000000
+MEASURE udp_ramp pc_to_som 10.000 Mbps loss=0.000000
+MEASURE udp_ramp pc_to_som 49.999 Mbps loss=0.000000
+MEASURE udp_ramp pc_to_som 99.998 Mbps loss=0.000000
+MEASURE udp_ramp pc_to_som 197.864 Mbps loss=0.208529
+MEASURE udp_ramp pc_to_som 197.876 Mbps loss=0.604243
+MEASURE udp_ramp pc_to_som 197.875 Mbps loss=0.779977
+MEASURE udp_sizes pc_to_som 10.000 Mbps loss=0.000000
+MEASURE udp_sizes pc_to_som 10.000 Mbps loss=0.000000
+MEASURE udp_sizes pc_to_som 10.000 Mbps loss=0.000000
+MEASURE udp_sizes pc_to_som 10.000 Mbps loss=0.000000
+MEASURE udp_sizes pc_to_som 10.000 Mbps loss=0.000000
+MEASURE udp_ramp som_to_pc 1.001 Mbps loss=0.000000
+MEASURE udp_ramp som_to_pc 10.002 Mbps loss=0.000000
+MEASURE udp_ramp som_to_pc 50.001 Mbps loss=0.000000
+MEASURE udp_ramp som_to_pc 100.002 Mbps loss=0.000000
+MEASURE udp_ramp som_to_pc 250.008 Mbps loss=0.000000
+MEASURE udp_ramp som_to_pc 500.044 Mbps loss=0.000000
+MEASURE udp_ramp som_to_pc 900.134 Mbps loss=0.000000
+MEASURE udp_sizes som_to_pc 10.000 Mbps loss=0.000000
+MEASURE udp_sizes som_to_pc 10.000 Mbps loss=0.000000
+MEASURE udp_sizes som_to_pc 10.001 Mbps loss=0.000000
+MEASURE udp_sizes som_to_pc 10.002 Mbps loss=0.000000
+MEASURE udp_sizes som_to_pc 10.002 Mbps loss=0.000000
+MEASURE udp_repeat pc_to_som 79.998 Mbps loss=0.000000
+START TCP pc_to_som streams=1 seconds=30
+MEASURE tcp_repeat pc_to_som 229.516 Mbps loss=0.000000
+MEASURE udp_repeat pc_to_som 79.998 Mbps loss=0.000000
+START TCP pc_to_som streams=1 seconds=30
+MEASURE tcp_repeat pc_to_som 229.767 Mbps loss=0.000000
+MEASURE udp_repeat pc_to_som 79.998 Mbps loss=0.000000
+START TCP pc_to_som streams=1 seconds=30
+MEASURE tcp_repeat pc_to_som 229.748 Mbps loss=0.000000
+START TCP pc_to_som streams=4 seconds=30
+MEASURE tcp_four_streams pc_to_som 203.941 Mbps loss=0.000000
+MEASURE udp_repeat som_to_pc 720.025 Mbps loss=0.000000
+START TCP som_to_pc streams=1 seconds=30
+MEASURE tcp_repeat som_to_pc 949.254 Mbps loss=0.000000
+MEASURE udp_repeat som_to_pc 720.025 Mbps loss=0.000000
+START TCP som_to_pc streams=1 seconds=30
+MEASURE tcp_repeat som_to_pc 949.251 Mbps loss=0.000000
+MEASURE udp_repeat som_to_pc 720.025 Mbps loss=0.000000
+START TCP som_to_pc streams=1 seconds=30
+MEASURE tcp_repeat som_to_pc 949.091 Mbps loss=0.000000
+START TCP som_to_pc streams=4 seconds=30
+MEASURE tcp_four_streams som_to_pc 949.336 Mbps loss=0.000000
+START TCP simultaneous seconds=30
+PROGRESS tcp_bidir pc_to_som: 30s, 258.471 Mbps
+PROGRESS tcp_bidir som_to_pc: 30s, 68.934 Mbps
+MEASURE tcp_bidir completed
+START TCP simultaneous seconds=600
+PROGRESS tcp_bidir pc_to_som: 30s, 258.472 Mbps
+PROGRESS tcp_bidir som_to_pc: 30s, 68.939 Mbps
+PROGRESS tcp_bidir som_to_pc: 60s, 68.930 Mbps
+PROGRESS tcp_bidir pc_to_som: 60s, 258.440 Mbps
+PROGRESS tcp_bidir pc_to_som: 90s, 258.428 Mbps
+PROGRESS tcp_bidir som_to_pc: 90s, 68.932 Mbps
+PROGRESS tcp_bidir pc_to_som: 120s, 258.426 Mbps
+PROGRESS tcp_bidir som_to_pc: 120s, 68.931 Mbps
+PROGRESS tcp_bidir pc_to_som: 150s, 258.423 Mbps
+PROGRESS tcp_bidir som_to_pc: 150s, 68.928 Mbps
+PROGRESS tcp_bidir pc_to_som: 180s, 258.421 Mbps
+PROGRESS tcp_bidir som_to_pc: 180s, 68.927 Mbps
+PROGRESS tcp_bidir som_to_pc: 210s, 68.929 Mbps
+PROGRESS tcp_bidir pc_to_som: 210s, 258.419 Mbps
+PROGRESS tcp_bidir pc_to_som: 240s, 258.418 Mbps
+PROGRESS tcp_bidir som_to_pc: 240s, 68.926 Mbps
+PROGRESS tcp_bidir som_to_pc: 270s, 68.925 Mbps
+PROGRESS tcp_bidir pc_to_som: 270s, 258.413 Mbps
+PROGRESS tcp_bidir pc_to_som: 300s, 258.409 Mbps
+PROGRESS tcp_bidir som_to_pc: 300s, 68.923 Mbps
+PROGRESS tcp_bidir som_to_pc: 330s, 68.923 Mbps
+PROGRESS tcp_bidir pc_to_som: 330s, 258.406 Mbps
+PROGRESS tcp_bidir som_to_pc: 360s, 68.924 Mbps
+PROGRESS tcp_bidir pc_to_som: 360s, 258.405 Mbps
+PROGRESS tcp_bidir som_to_pc: 390s, 68.923 Mbps
+PROGRESS tcp_bidir pc_to_som: 390s, 258.403 Mbps
+PROGRESS tcp_bidir pc_to_som: 420s, 258.402 Mbps
+PROGRESS tcp_bidir som_to_pc: 420s, 68.922 Mbps
+PROGRESS tcp_bidir pc_to_som: 450s, 258.401 Mbps
+PROGRESS tcp_bidir som_to_pc: 450s, 68.922 Mbps
+PROGRESS tcp_bidir pc_to_som: 480s, 258.400 Mbps
+PROGRESS tcp_bidir som_to_pc: 480s, 68.922 Mbps
+PROGRESS tcp_bidir pc_to_som: 510s, 258.399 Mbps
+PROGRESS tcp_bidir som_to_pc: 510s, 68.922 Mbps
+PROGRESS tcp_bidir pc_to_som: 540s, 258.397 Mbps
+PROGRESS tcp_bidir som_to_pc: 540s, 68.921 Mbps
+PROGRESS tcp_bidir pc_to_som: 570s, 258.396 Mbps
+PROGRESS tcp_bidir som_to_pc: 570s, 68.921 Mbps
+PROGRESS tcp_bidir pc_to_som: 600s, 258.396 Mbps
+PROGRESS tcp_bidir som_to_pc: 600s, 68.922 Mbps
+MEASURE tcp_soak completed
+[restore] Restoring DDR Hello; inspect restore.log for live stages.
+DDR Hello restoration: pass

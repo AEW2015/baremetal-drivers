@@ -35,6 +35,8 @@ stress and sustained runs. Those changes do not isolate a sole cause.
 
 ## Files
 
+- The sustained campaign's `terminal.log` preserves the complete host terminal
+  capture, including interleaved boot/UART chatter and all measurement lines.
 - Per-attempt JSON, fresh server UART, load, ping, DDR programmer, raw DDR UART,
   PC proof and restoration logs preserve outcomes with their recorded hashes.
 - `network-final.json` identifies the sustained campaign ELF and source hashes;
