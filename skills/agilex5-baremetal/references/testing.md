@@ -99,3 +99,9 @@ process did not make it part of the initial environment exposed by `/proc`.
 The launcher now receives the token through `env` before Python starts and
 publishes the record. Preserve that order; do not fix the symptom by weakening
 the exact PID/token check or deleting unresolved ownership records.
+
+The QEMU practice labs use explicit `-fno-pie -no-pie`: the pinned bare-metal GCC
+and Ubuntu's cross GCC have different defaults. PIE-generated GOT entries were
+not part of this minimal startup's `.data` relocation, producing real failures
+in startup/exception/timer/MMU lessons despite a successful link. Keep the static
+fixed-address build contract and test both toolchains when changing it.

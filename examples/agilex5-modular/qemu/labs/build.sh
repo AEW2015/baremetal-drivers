@@ -7,7 +7,7 @@ build_one() {
  local name=$1 output=$2
  shift 2
  "${compiler_prefix}gcc" -Og -g3 -Wall -Wextra -Werror -mcpu=cortex-a53 \
-  -mgeneral-regs-only -ffreestanding -fno-builtin -fno-stack-protector \
+  -mgeneral-regs-only -ffreestanding -fno-builtin -fno-stack-protector -fno-pie -no-pie \
   -nostdlib -static -Wl,--build-id=none,-T,qemu/labs/link.ld,-Map,build/qemu-labs/"$output".map \
   "$@" -o "build/qemu-labs/$output.elf" qemu/labs/start.S qemu/labs/runtime.c "qemu/labs/$name.c"
 }

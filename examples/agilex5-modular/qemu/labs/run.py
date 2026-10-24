@@ -255,6 +255,13 @@ def main():
         results.append(result)
         (out / 'results.json').write_text(json.dumps(manifest, indent=2) + '\n')
         print(result['name'] + ': ' + ('PASS' if result['passed'] else 'FAIL'), flush=True)
+        if not result['passed']:
+            if result.get('error'):
+                print(result['error'], flush=True)
+            for suffix in ('.log', '-qemu.log'):
+                log = out / (result['name'] + suffix)
+                if log.is_file():
+                    print(f'--- {log.name} ---\n{log.read_text(errors="replace")[-8000:]}', flush=True)
 
     names = [args.only] if args.only else list(LABS)
     for name in names + (list(NEGATIVES) if args.negative else []):

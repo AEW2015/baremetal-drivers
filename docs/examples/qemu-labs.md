@@ -25,6 +25,13 @@ results, and `startup-gdb: PASS` plus `corruption-gdb: PASS`. A negative-control
 PASS means the broken guest exited with failure and the checker rejected it.
 The overall command exits zero only when every selected check passes.
 
+The build explicitly disables PIE (`-fno-pie -no-pie`) for these fixed-address,
+freestanding ELFs. This matters with Ubuntu's `aarch64-linux-gnu-gcc`, whose
+PIE defaults can otherwise add GOT entries outside the startup's `.data` copy.
+A successful link alone would then hide runtime failures in startup, exceptions,
+timer and MMU lessons. Both that compiler and Arm GNU 13.2.Rel1 are checked.
+Failed runs print their guest/debugger diagnostics as well as saving the logs.
+
 Run one exercise with `python3 qemu/labs/run.py --only startup`, replacing
 `startup` with `corruption`, `exception`, `timer`, `mmu` or `uart`.
 The runner writes guest logs, exact QEMU commands, tool versions, source and
