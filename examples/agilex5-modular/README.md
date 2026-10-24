@@ -212,3 +212,10 @@ and [FPGA onboarding](https://aew2015.github.io/baremetal-drivers/fpga-design/).
 the recorded bench profile; a hash match is not a qualification of a new PCB.
 The [desktop follow-up](https://aew2015.github.io/baremetal-drivers/feedback-followup/)
 records actual GUI checks and screenshots separately from historical evidence.
+
+## Use with Codex
+
+The repository includes a portable
+[agilex5-baremetal skill](../../skills/agilex5-baremetal/SKILL.md) with board
+identity checks, host/container guidance and demonstrated recovery lessons.
+See [installation and example prompts](../../docs/agent-skill.md).

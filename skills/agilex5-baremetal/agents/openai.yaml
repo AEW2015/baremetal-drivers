@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agilex 5 Bare Metal"
+  short_description: "Build and validate Modular-kit HPS applications"
+  default_prompt: "Use $agilex5-baremetal to build and run the SOM examples and report UART evidence."

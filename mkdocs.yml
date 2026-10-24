@@ -76,6 +76,7 @@ nav:
       - "Vendor SMMU identity check": examples/vendor-smmu.md
       - "Vendor ECC register/default checks": examples/vendor-ecc.md
   - Reference:
+      - Codex skill: agent-skill.md
       - Validation and limits: validation.md
       - Troubleshooting: troubleshooting.md
       - Simulated student reviews: student-review.md

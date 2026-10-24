@@ -36,3 +36,10 @@ schematic mappings and the recorded validation scope.
 [Agilex 5 Bare-Metal Lab](https://aew2015.github.io/baremetal-drivers/) walks through
 compiler installation, the supplied VS Code workspace, a runnable QEMU exercise
 and debugging the Modular kit over JTAG. Website sources are in [docs/](docs/).
+
+## Codex skill
+
+The versioned [agilex5-baremetal skill](skills/agilex5-baremetal/SKILL.md)
+packages the Modular-kit build, QEMU, JTAG/UART, debug and recovery workflow.
+See [installation and usage](docs/agent-skill.md). The skill uses the examples
+in this checkout; it does not include tools or FPGA programming images.
