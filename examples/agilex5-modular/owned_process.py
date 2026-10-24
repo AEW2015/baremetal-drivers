@@ -19,11 +19,12 @@ class OwnedContainerProcess:
         self.token = os.urandom(24).hex()
         self.closed = False
         code = ('import json,os,pathlib,sys; '
-                'os.environ["AGILEX_RUN_OWNER"]=sys.argv[2]; '
                 'pathlib.Path(sys.argv[1]).write_text(json.dumps({"pid":os.getpid(),"token":sys.argv[2]})); '
                 'os.execvp(sys.argv[3],sys.argv[3:])')
         try:
-            self.proc = subprocess.Popen(container_command(['python3', '-c', code,
+            # /proc/environ exposes the initial environment. Set ownership before
+            # Python starts, so publishing the PID cannot race with exec.
+            self.proc = subprocess.Popen(container_command(['env', 'AGILEX_RUN_OWNER='+self.token, 'python3', '-c', code,
                 container_path(self.record), self.token, *args]), **kwargs)
         except BaseException:
             self.record.unlink(missing_ok=True)

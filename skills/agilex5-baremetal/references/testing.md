@@ -92,3 +92,10 @@ a legitimate busy rejection. See `docs/feedback-followup.md` for the recorded
 GUI trials and `validation/student-feedback/` under the example directory for
 independent corruption checks. Historical GUI evidence does not qualify native
 Windows/macOS or the Dev Containers attach UI.
+
+An early-cancellation race was reproduced with the launcher paused after writing
+its PID record but before exec. Setting `AGILEX_RUN_OWNER` inside that Python
+process did not make it part of the initial environment exposed by `/proc`.
+The launcher now receives the token through `env` before Python starts and
+publishes the record. Preserve that order; do not fix the symptom by weakening
+the exact PID/token check or deleting unresolved ownership records.

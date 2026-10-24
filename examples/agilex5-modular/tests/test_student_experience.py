@@ -152,6 +152,26 @@ class StudentFailures(unittest.TestCase):
                 self.assertIsNone(outsider.poll())
         finally:outsider.terminate();outsider.wait(timeout=5)
 
+    def test_cancellation_before_exec_has_initial_ownership_token(self):
+        env = self.fake_docker()
+        docker = self.root/'fake-docker-bin/docker'
+        docker.write_text('#!'+sys.executable+'\n'
+                          'import os,sys\n'
+                          'i=sys.argv.index("-c")+1\n'
+                          'sys.argv[i]=sys.argv[i].replace("os.execvp(sys.argv[3],sys.argv[3:])", '
+                          '"__import__(\'time\').sleep(30); os.execvp(sys.argv[3],sys.argv[3:])")\n'
+                          'os.execvp(sys.argv[5],sys.argv[5:])\n')
+        with mock.patch.object(bench,'ROOT',self.root), mock.patch.object(owned_process,'ROOT',self.root), mock.patch.dict(os.environ,env,clear=True):
+            proc = OwnedContainerProcess([sys.executable,'-c','import time;time.sleep(30)'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            try:
+                self.wait_for_record(proc)
+                proc.close()
+                self.assertIsNotNone(proc.poll())
+                self.assertFalse(proc.record.exists())
+            finally:
+                if proc.poll() is None:
+                    proc.proc.terminate();proc.proc.wait(timeout=5)
+
     def test_owned_container_refuses_a_pid_with_wrong_ownership_token(self):
         env=self.fake_docker()
         outsider=subprocess.Popen([sys.executable,'-c','import time;time.sleep(30)'])
