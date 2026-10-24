@@ -125,3 +125,7 @@ atf/
 
 # GoogleTest artifacts
 /modules/
+
+# Tutorial website
+/site/
+/.venv-docs/

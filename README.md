@@ -30,3 +30,9 @@ This project is licensed under the terms of the [LICENSE](LICENSE) file.
 See [examples/agilex5-modular](examples/agilex5-modular/README.md) for SOM-first
 HPS/OCRAM/DDR examples, physical-board vendor adapters, build/run instructions,
 schematic mappings and the recorded validation scope.
+
+## Web tutorial
+
+[Agilex 5 Bare-Metal Lab](https://aew2015.github.io/baremetal-drivers/) walks through
+compiler installation, the supplied VS Code workspace, a runnable QEMU exercise
+and debugging the Modular kit over JTAG. Website sources are in [docs/](docs/).

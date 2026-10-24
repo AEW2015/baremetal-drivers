@@ -1,0 +1,154 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "C_Cpp.default.compilerPath": "aarch64-none-elf-gcc",
+    "C_Cpp.default.intelliSenseMode": "linux-gcc-arm64",
+    "C_Cpp.default.includePath": [
+      "${workspaceFolder}/core",
+      "${workspaceFolder}/../../inc",
+      "${workspaceFolder}/../../inc/dma"
+    ],
+    "C_Cpp.default.cStandard": "c11",
+    "files.associations": {
+      "*.S": "asm"
+    },
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.cpptools",
+      "ms-vscode.cmake-tools"
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build QEMU",
+        "type": "shell",
+        "command": "./qemu/build.sh",
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": {
+            "executable": "/bin/bash",
+            "args": [
+              "-lc"
+            ]
+          }
+        },
+        "problemMatcher": "$gcc"
+      },
+      {
+        "label": "Run QEMU checks",
+        "type": "shell",
+        "command": "python3 qemu/run.py --check",
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": {
+            "executable": "/bin/bash",
+            "args": [
+              "-lc"
+            ]
+          }
+        },
+        "problemMatcher": "$gcc",
+        "dependsOn": "Build QEMU"
+      },
+      {
+        "label": "Build HPS core",
+        "type": "shell",
+        "command": "./build_core.sh",
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": {
+            "executable": "/bin/bash",
+            "args": [
+              "-lc"
+            ]
+          }
+        },
+        "problemMatcher": "$gcc"
+      },
+      {
+        "label": "Build all board examples",
+        "type": "shell",
+        "command": "./build_all.sh",
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": {
+            "executable": "/bin/bash",
+            "args": [
+              "-lc"
+            ]
+          }
+        },
+        "problemMatcher": "$gcc"
+      }
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "QEMU: AArch64 hello (no board)",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/qemu/hello.elf",
+        "cwd": "${workspaceFolder}",
+        "MIMode": "gdb",
+        "miDebuggerPath": "/usr/bin/gdb-multiarch",
+        "miDebuggerServerAddress": "127.0.0.1:3338",
+        "debugServerPath": "/usr/bin/python3",
+        "debugServerArgs": "\"${workspaceFolder}/qemu/run.py\" --debug",
+        "serverStarted": "QEMU GDB ready",
+        "filterStdout": true,
+        "filterStderr": true,
+        "serverLaunchTimeout": 15000,
+        "preLaunchTask": "Build QEMU",
+        "stopAtEntry": true,
+        "setupCommands": [
+          {
+            "text": "set architecture aarch64"
+          }
+        ],
+        "launchCompleteCommand": "exec-continue"
+      },
+      {
+        "name": "Hardware: HPS core (initialize DDR first)",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/core_examples.elf",
+        "cwd": "${workspaceFolder}",
+        "MIMode": "gdb",
+        "miDebuggerPath": "/usr/bin/gdb-multiarch",
+        "debugServerPath": "${workspaceFolder}/debug-server.sh",
+        "serverStarted": "Listening on port 3337",
+        "filterStderr": true,
+        "serverLaunchTimeout": 20000,
+        "preLaunchTask": "Build HPS core",
+        "customLaunchSetupCommands": [
+          {
+            "text": "-target-select remote 127.0.0.1:3337"
+          },
+          {
+            "text": "-interpreter-exec console \"monitor halt\""
+          },
+          {
+            "text": "-target-download"
+          },
+          {
+            "text": "-break-insert -h example_main"
+          },
+          {
+            "text": "-interpreter-exec console \"set $pc=0x82100000\""
+          }
+        ],
+        "launchCompleteCommand": "exec-continue"
+      }
+    ]
+  }
+}

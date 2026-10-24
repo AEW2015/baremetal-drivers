@@ -31,3 +31,9 @@ This campaign did not test Ethernet packet traffic, USB enumeration, SD media re
 See [structured results and original ELF hashes](validation/results.json), [hardware mapping](HARDWARE.md), and [porting lessons](PORTING.md).
 
 The fork's full source build, OCRAM build and pinned ATF/Quartus image packaging passed separately; see [packaging build record](validation/packaging-build.json). No board programming was performed during this packaging step.
+
+Tutorial follow-up: QEMU EL3/NEON/memory checks, QEMU GDB breakpoints/stepping,
+and physical HPS source breakpoints/stepping/finish plus core UART checks passed.
+DDR Hello was restored. See [follow-up evidence](validation/tutorial/results.json).
+The desktop VS Code UI was not exercised; its supplied configuration mirrors
+the checked debugger operations.

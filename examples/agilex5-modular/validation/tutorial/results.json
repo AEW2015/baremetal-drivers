@@ -1,0 +1,32 @@
+{
+  "checked_utc": "2026-10-24T00:29:14.790194+00:00",
+  "environment": {
+    "compiler": "Arm GNU 13.2.Rel1",
+    "qemu": "8.2.2",
+    "gdb": "15.1",
+    "openocd": "0.12.0+quartus-gc58ca4ebc",
+    "hardware": "Agilex 5 Modular ES, A55.0, FPGA 0x0364f0dd"
+  },
+  "checks": {
+    "qemu_EL3_NEON_memory": "pass",
+    "qemu_GDB_breakpoint_step_and_results": "pass",
+    "hardware_GDB_source_breakpoint_step_finish": "pass",
+    "hardware_core_UART_checks": "pass",
+    "DDR_Hello_restoration": "pass",
+    "desktop_VS_Code_F5_session": "not exercised; supplied workspace mirrors checked debugger operations"
+  },
+  "normalization": "Published text evidence has workspace paths, line endings and trailing whitespace normalized.",
+  "tested_elf_sha256": {
+    "build/qemu/hello.elf": "aa7cd2e433629dcf354e1d380e4e5300b59d820cb775367089d0596bf63a4311",
+    "build/core_examples.elf": "f20a36e1d921e10431c615674eb7f13e6410d9b61cf49ab1c363ed6791958b45"
+  },
+  "source_sha256": {
+    "agilex5-modular.code-workspace": "628a47fe675e12a7fdac06188339afc9ea97990c72cdbee63c1dafcea181df2c",
+    "debug-server.sh": "fed3c03dd7884d74d063e70e5758327888c188d4ee6bb42521f7725ba818b1c9",
+    "qemu/build.sh": "3e1596c888e15e5b1ab2bb4c19df09c7cf07145bb71db0f5f6f9adb14a2a680c",
+    "qemu/hello.c": "47617fe66ffc1df868f26b79e063e9028787980b2e0c6800794490598fb04339",
+    "qemu/link.ld": "9b215693e5f0f01d42445595b10be1de37983257515bddb1ef2e6604a52114cc",
+    "qemu/run.py": "13831022559ee767e43354d43d9aa2ba38413483db64ef71c92e028180f2da78",
+    "qemu/start.S": "014173c05846dcea47c6f4dc84b67fa44806d8606949da993ed529a3f79e678a"
+  }
+}

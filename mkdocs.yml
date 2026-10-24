@@ -1,0 +1,51 @@
+site_name: Agilex 5 Bare-Metal Lab
+site_description: Learn AArch64 development with VS Code, QEMU and the Agilex 5 Modular kit.
+site_url: https://aew2015.github.io/baremetal-drivers/
+repo_url: https://github.com/AEW2015/baremetal-drivers
+repo_name: AEW2015/baremetal-drivers
+edit_uri: edit/main/docs/
+strict: true
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+nav:
+  - Start here: index.md
+  - Tutorial:
+      - 1. Install the tools: setup.md
+      - 2. Set up VS Code: vscode.md
+      - 3. Run and debug QEMU: qemu.md
+      - 4. Run on the Modular kit: hardware.md
+  - Example catalog: examples.md
+  - Validation and limits: validation.md
+  - Troubleshooting: troubleshooting.md
+  - Build this website: website.md

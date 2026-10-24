@@ -160,3 +160,11 @@ The interactive recipe has not been separately hardware-qualified; the batch
 OpenOCD ELF load and PC checks have.
 
 See [PORTING.md](PORTING.md) for demonstrated startup, libc and recovery lessons.
+
+## VS Code, QEMU and hardware tutorial
+
+Follow the [web tutorial](https://aew2015.github.io/baremetal-drivers/) and open
+[agilex5-modular.code-workspace](agilex5-modular.code-workspace) in the compiler
+environment. The separate [QEMU exercise](qemu/) targets generic QEMU `virt`;
+the Agilex MMIO examples require the physical kit. New debugger and emulator
+checks are recorded in [tutorial validation](validation/tutorial/results.json).

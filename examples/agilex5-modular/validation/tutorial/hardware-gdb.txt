@@ -1,0 +1,20 @@
+The target architecture is set to "aarch64".
+0x0000000082000010 in ?? ()
+Loading section .text, size 0x1f23 lma 0x82100000
+Start address 0x0000000082100000, load size 7971
+Transfer rate: 63768 bits in <1 sec, 7971 bytes/write.
+Hardware assisted breakpoint 1 at 0x821019ac: file core/core_examples.c, line 52.
+
+Breakpoint 1, example_main () at core/core_examples.c:52
+52	    text("HPS CORE EXAMPLES BEGIN (DDR 0x82100000)\n");
+Line 52 of "core/core_examples.c" starts at address 0x821019ac <example_main> and ends at 0x821019b0 <example_main+4>.
+=> 0x821019ac <example_main>:	stp	x29, x30, [sp, #-64]!
+   0x821019b0 <example_main+4>:	adrp	x0, 0x82101000 <board_exception_vectors>
+   0x821019b4 <example_main+8>:	add	x0, x0, #0xceb
+0x00000000821019b0	52	    text("HPS CORE EXAMPLES BEGIN (DDR 0x82100000)\n");
+pc             0x821019b0          0x821019b0 <example_main+4>
+sp             0x83ffefc0          0x83ffefc0
+cpsr           0x600002cc          [ SP=0 EL=3 nRW=0 F I D C Z ]
+_start () at core/start.S:20
+20	3:  wfi
+[Inferior 1 (Remote target) detached]
