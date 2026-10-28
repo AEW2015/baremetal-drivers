@@ -1,0 +1,39 @@
+Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 22:22:46 Oct 28 2026
+
+Commit: cd74c90
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > hello_selftest
+
+
+
++------------------------------------------------------------+
+
+|                  HELLO SELFTEST SELF-TEST                  |
+
++------------------------------------------------------------+
+
+
+
+Test 1 of 1 : Command 'hello_selftest' execution
+
+------------------------------------------------------------
+
+  Run command ............................... Hello, Baremetal World!
+
+DONE
+
+------------------------------------------------------------
+
+
+
+RESULT : command completed  -  CHECK DETAILED OUTPUT
+
+
+
+SoCFPGA Bare-Metal > 

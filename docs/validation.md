@@ -1,5 +1,15 @@
 # Validation and practical limits
 
+## Upstream 26.3 sync and Simics
+
+The repository root merges upstream `66bdcc3`. A clean checkout of merge
+`cd74c90` compiled both new profiles and passed five current OCRAM console
+checks in Simics 26.3. The pinned legacy suite recorded 13 passes and three
+failures separately. QEMU/fabric checks and all 39 regressions passed.
+See [the Simics workflow and evidence](simics.md) and
+[the API/migration guide](upstream-26.3.md). No new upstream image was deployed
+onto the physical kit during this sync.
+
 ## SOM Ethernet traffic campaign
 
 The separate Ethernet lab passed real UDP/TCP packet checks, 40 bandwidth

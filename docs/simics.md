@@ -92,7 +92,8 @@
 
 === "Expected results: real output"
 
-    The current 26.3 OCRAM console produced these captured runner lines:
+    The current 26.3 OCRAM console produced these captured runner lines. Extra
+    serial blank lines are collapsed in the excerpts below:
 
     ```text
     PASS hello

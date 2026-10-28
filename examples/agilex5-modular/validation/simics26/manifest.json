@@ -1,0 +1,243 @@
+{
+  "generated_utc": "2026-10-28T22:24:17.891261+00:00",
+  "source_commit": "cd74c908764652e99f72e19cd9214b8873bd4a97",
+  "upstream_commit": "66bdcc347564c5698a8997169bce83a31647d618",
+  "files": {
+    "LEGACY-LICENSE.txt": {
+      "sha256": "da65c39c83de86a984987fc9a914db88d190b5b1cda2732d530bdf1cf770a578",
+      "bytes": 1064
+    },
+    "README.md": {
+      "sha256": "4dd662ed506022bea61dac1c3a09cc0d61476028c3a48b6c9890557190c32299",
+      "bytes": 3212
+    },
+    "all-examples-build.log": {
+      "sha256": "a7067c4ecfa5bab96dc60aa932a96108a04047eee9ed5ef0392352369adc7a9b",
+      "bytes": 2161
+    },
+    "clean-checkout-validation.log": {
+      "sha256": "e17588e482c230b1c9195eec96c5dc7c57a0ac72a2c544b89784b77dd045c8ef",
+      "bytes": 26341
+    },
+    "ddr-build.json": {
+      "sha256": "0548fb65e037840c5a98665817d971b1e5be3e70dbf7e66bb88e3eeea873063d",
+      "bytes": 26357
+    },
+    "legacy25-compatibility/ccu/terminal.log": {
+      "sha256": "20ff7803a8918748b9a4de35022635beb32f5fbcbd512104e22fa69a4e5370c6",
+      "bytes": 136678
+    },
+    "legacy25-compatibility/ccu/test.simics": {
+      "sha256": "9e4efa7bfd2f0e1a6b8111b7ed666c82399047e95f873ec4235d9b9c78ad125c",
+      "bytes": 1475
+    },
+    "legacy25-compatibility/clkmgr/terminal.log": {
+      "sha256": "702d2f11d2cdf73cd6dc8fb55f5975d34698a52b0fed3775e5450c8520d99bf3",
+      "bytes": 136126
+    },
+    "legacy25-compatibility/clkmgr/test.simics": {
+      "sha256": "c04e25cf69c5136227cabd454635f06556d626de3cc8d7ef68f40813f1d14a10",
+      "bytes": 1726
+    },
+    "legacy25-compatibility/dma/terminal.log": {
+      "sha256": "b5283ef8de94084de2350ec87799cf6f6db859ebf9a0e8c75d14d5adc48b3bf7",
+      "bytes": 137025
+    },
+    "legacy25-compatibility/dma/test.simics": {
+      "sha256": "9792aa84bc6fe78a946e14386431e56e727d8ba5e806633c5ec673a4cc905b2d",
+      "bytes": 1475
+    },
+    "legacy25-compatibility/ecc/terminal.log": {
+      "sha256": "14cdb3d58de2f095db994236fc94927cf2f425dfb92fda1642a64587eefc27ab",
+      "bytes": 136934
+    },
+    "legacy25-compatibility/ecc/test.simics": {
+      "sha256": "a21d3565594c818fc3cd369ccea585d9c50e3d273ed9d1ce36889ecf59442389",
+      "bytes": 1477
+    },
+    "legacy25-compatibility/hello-world/terminal.log": {
+      "sha256": "7c45624690e2077a28118c95069b1631a7d880a01058f5ece2792aea7902e1b6",
+      "bytes": 135275
+    },
+    "legacy25-compatibility/hello-world/test.simics": {
+      "sha256": "e772e01eef6dfe403abd87ab81b116359e87bd3f044d22b6d59e5b1ee387fda2",
+      "bytes": 1745
+    },
+    "legacy25-compatibility/hps_mailbox/terminal.log": {
+      "sha256": "35b016398d6e09ed790a9fd7fd24aa8a8e85a5947b4c494e9c67378e5cf0282e",
+      "bytes": 136588
+    },
+    "legacy25-compatibility/hps_mailbox/test.simics": {
+      "sha256": "c9d8f4c757fad3e4f7cca183f747d77a4099aa2673c5fddba80c0b9c3ea7a34e",
+      "bytes": 1502
+    },
+    "legacy25-compatibility/i2c/terminal.log": {
+      "sha256": "d7f5f255ea841bb24ff909118bc6c29ce5c6652be45d0c24ef80ef2d96e90858",
+      "bytes": 134951
+    },
+    "legacy25-compatibility/i2c/test.simics": {
+      "sha256": "317ed4ff7ce8c1dc50c50e25f4765aa6a764287d95f13090a300f63cfdf7aab9",
+      "bytes": 1525
+    },
+    "legacy25-compatibility/i3c/terminal.log": {
+      "sha256": "4d61f1b47e8a5f9a2e60e7beb5fe2c2f9cba15387353d7b2c01f846193ed264d",
+      "bytes": 134910
+    },
+    "legacy25-compatibility/i3c/test.simics": {
+      "sha256": "54ba5b2a06596a9db1357082602ec2ec5c529fd389e645b5904b721b5df4740b",
+      "bytes": 1537
+    },
+    "legacy25-compatibility/mmu_el3/terminal.log": {
+      "sha256": "af83cac2a6275476a83fd9459ff1fe728121561a6c484ec59830d20d4cdc03ee",
+      "bytes": 135352
+    },
+    "legacy25-compatibility/mmu_el3/test.simics": {
+      "sha256": "70a7d7b98db43e9eba23636c75c5715133d10483a11a808fa0b439fc8741d92b",
+      "bytes": 1490
+    },
+    "legacy25-compatibility/results.json": {
+      "sha256": "bc723f191ad5cb87bddcbfa6c81c1ba50dd87b55e651c51b812e034ac2ec9d57",
+      "bytes": 5402
+    },
+    "legacy25-compatibility/sdmmc/terminal.log": {
+      "sha256": "fd2dffdbbdba4bb2e43fce86400dfc81544971e39bc6ba9fb51e473d463cd2d2",
+      "bytes": 137769
+    },
+    "legacy25-compatibility/sdmmc/test.simics": {
+      "sha256": "1c1cbd31020e6ade4d3a4aabb8dd2b7efd7de5af2010d8bbb7eeda3f3a53c96c",
+      "bytes": 1483
+    },
+    "legacy25-compatibility/smmu/terminal.log": {
+      "sha256": "f321bb87a088c7635b7520b98fd278b3d645170d7bddd0492ec64184692d4969",
+      "bytes": 134421
+    },
+    "legacy25-compatibility/smmu/test.simics": {
+      "sha256": "17f7613ceaa8c46c69eb1ce9735d0e7b24223ab16b7013238b5c4af655df7485",
+      "bytes": 1481
+    },
+    "legacy25-compatibility/spi/terminal.log": {
+      "sha256": "88410c8641915837cf2a808666b4b3827107dc178e73a93bb6b4afb8cf0afe51",
+      "bytes": 138295
+    },
+    "legacy25-compatibility/spi/test.simics": {
+      "sha256": "70ab9eca34f83b5c7d35afb7823563fb7e4eb68f86c7b5cce85b41ce179fae0a",
+      "bytes": 1478
+    },
+    "legacy25-compatibility/timer/terminal.log": {
+      "sha256": "01ff42f664d5fa8f1f90d0ace31d8b7a9516e338a0acca6c07ff2bc88eddb636",
+      "bytes": 134149
+    },
+    "legacy25-compatibility/timer/test.simics": {
+      "sha256": "1b94531318070ba3c53de4a3c2fa4d81aea2ed435e3243d341a63fe015013c63",
+      "bytes": 1484
+    },
+    "legacy25-compatibility/uart/terminal.log": {
+      "sha256": "2e504b8e925fc96cb2b8ff94ac4c73cbb8254213be599f3ac2ef16b97317f4f3",
+      "bytes": 134132
+    },
+    "legacy25-compatibility/uart/test.simics": {
+      "sha256": "aa68d5544a2f59337a6f5bc0e8267d312f936b490d5bf2d084627f64b8d85aa6",
+      "bytes": 1481
+    },
+    "legacy25-compatibility/watchdog/terminal.log": {
+      "sha256": "fc798d83e3d4935dc44f6ce456ed5b967dbf5cab5baa56027f84e7af909a3098",
+      "bytes": 134881
+    },
+    "legacy25-compatibility/watchdog/test.simics": {
+      "sha256": "4bf3d4491b1c1b311086dd5956ceb4e9a67b6f6f757edca50390de533343077c",
+      "bytes": 1493
+    },
+    "legacy25-compatibility/xgmac/terminal.log": {
+      "sha256": "94d2498766cabbbee96eefafc7dd8e34627134ecf2e057840861d9cd518fd82e",
+      "bytes": 136622
+    },
+    "legacy25-compatibility/xgmac/test.simics": {
+      "sha256": "05d8fd52fe3776c02bafa67f18dddcb7bad613634d70d4f5b2dba3513ada5795",
+      "bytes": 1484
+    },
+    "newlib-ddr-build-failure.log": {
+      "sha256": "74ae11698686d22877fa5b9d450d281c23ed8edf9e0cbeb1930f1e594ba231a5",
+      "bytes": 17934
+    },
+    "ocram-build.json": {
+      "sha256": "ac561ec72014f7c57643c9044ab746db8707baf15551da2e977516f9501aa74e",
+      "bytes": 26359
+    },
+    "qemu-regressions.log": {
+      "sha256": "d03784c6dbf8e14bd11a819f6acd7dc71965cbf2025c20e2208e9834a36201fe",
+      "bytes": 9114
+    },
+    "simics-packages.json": {
+      "sha256": "e56d389e94695262310a6feb0ac74d257354478ae0b374a24b8e2e433459b797",
+      "bytes": 683
+    },
+    "upstream26-clean-checkout/ddr/terminal.log": {
+      "sha256": "9d8db77db0d01d79d6ff606665a8c78e7ed36219229417089fbfede467930a3c",
+      "bytes": 144524
+    },
+    "upstream26-clean-checkout/ddr/test.simics": {
+      "sha256": "3f805e40d27eb7e7a454cfeb9d921994e3af7198e5ac4ef50646e4c71c4b914d",
+      "bytes": 739
+    },
+    "upstream26-clean-checkout/ddr/uart.txt": {
+      "sha256": "3eaa1fcfc46ef378adad300150c12f34a4dd5646012158e892d2f852e3305a72",
+      "bytes": 1829
+    },
+    "upstream26-clean-checkout/gic/terminal.log": {
+      "sha256": "b5336d86a7ee58d60ed1144749dce75bd5f48596d54c7367835bd9c477eff226",
+      "bytes": 141950
+    },
+    "upstream26-clean-checkout/gic/test.simics": {
+      "sha256": "c5395db1a0acd1bd58b13e1eecf12c4b07a4dff092e7859b2a6b506d66aab471",
+      "bytes": 739
+    },
+    "upstream26-clean-checkout/gic/uart.txt": {
+      "sha256": "f45e8875903f4d90a1f6b25ff9c262f852b66a950fe4ebcb8d2d0c07e29f5f14",
+      "bytes": 1163
+    },
+    "upstream26-clean-checkout/hello/terminal.log": {
+      "sha256": "678b2a9045efb0ae95658d9bd9bac4cf5c2612665adeaa9f6c784cc4e18cb1e4",
+      "bytes": 140358
+    },
+    "upstream26-clean-checkout/hello/test.simics": {
+      "sha256": "f7bcf333ea660e0258f725f40fac4c42aa07eed7cec00b52263ed4bae69cb1ef",
+      "bytes": 741
+    },
+    "upstream26-clean-checkout/hello/uart.txt": {
+      "sha256": "897049210ab7ddab3df0fff42500eaf13c2fbab518ac42a21a115351017d71e1",
+      "bytes": 713
+    },
+    "upstream26-clean-checkout/help/terminal.log": {
+      "sha256": "7f1ab2bd5ef7b8e2406a38eb63a22b64975e2c9064a0576f9104992d7d5baa2c",
+      "bytes": 140914
+    },
+    "upstream26-clean-checkout/help/test.simics": {
+      "sha256": "3fabbd5fd8809a1c3c32b6f98da5a36f4f3ff9f957dedbaa97ddaf70ef2fc26d",
+      "bytes": 731
+    },
+    "upstream26-clean-checkout/help/uart.txt": {
+      "sha256": "c5f9e2a924ae6f5dd57bde0ca40570d449fee7dfc489dd6b67eee268114a7a9a",
+      "bytes": 852
+    },
+    "upstream26-clean-checkout/results.json": {
+      "sha256": "ce4856513451e7b4d1bfffe0cf6a2a52d2b2efa430c264df4e3e476cea00f484",
+      "bytes": 28879
+    },
+    "upstream26-clean-checkout/timer/terminal.log": {
+      "sha256": "7d0b6f242cd6dd2b83d538fc3ca6dc9f12245c3a59cc3cd046e0190b5a1a6fbc",
+      "bytes": 144022
+    },
+    "upstream26-clean-checkout/timer/test.simics": {
+      "sha256": "50120203e763e9c1687016e7d5375091dddbddcf932e1437a5dadd9da04339f3",
+      "bytes": 741
+    },
+    "upstream26-clean-checkout/timer/uart.txt": {
+      "sha256": "67e43abd51a84ccf157612886f5850d1070e4468b0cb59a21787491b49f8fe75",
+      "bytes": 1716
+    },
+    "website-build.log": {
+      "sha256": "05b1d2b49c935797dd51ade932fa4ec1fe3f057bf9b3a1d165d6c0487ec5b30a",
+      "bytes": 197
+    }
+  }
+}

@@ -1,0 +1,59 @@
+Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 22:22:46 Oct 28 2026
+
+Commit: cd74c90
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > gic_selftest
+
+
+
++------------------------------------------------------------+
+
+|              GIC SGI INTERRUPT SELF-TEST                   |
+
++------------------------------------------------------------+
+
+
+
+Initializing GIC environment ................ done
+
+
+
+Test 1 of 2 : Masked SGI must NOT be delivered
+
+------------------------------------------------------------
+
+  Register ISR for SGI 2 .................... OK
+
+  Trigger SGI 2 while disabled .............. OK
+
+  Verify no ISR was invoked ................. PASS
+
+
+
+Test 2 of 2 : Enabled SGI must be delivered
+
+------------------------------------------------------------
+
+  Register ISR for SGI 1 .................... OK
+
+  Enable SGI 1 .............................. OK
+
+  Trigger SGI 1 ............................. OK
+
+  Verify ISR was invoked .................... PASS (IRQ=1, count=1)
+
+------------------------------------------------------------
+
+
+
+RESULT : 2 of 2 tests passed  -  SELF-TEST PASSED
+
+
+
+SoCFPGA Bare-Metal > 

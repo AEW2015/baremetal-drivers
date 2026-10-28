@@ -1,0 +1,33 @@
+ninja: no work to do.
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/mmu_translation.elf has a LOAD segment with RWX permissions
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/som_i2c.elf has a LOAD segment with RWX permissions
+/workspace/baremetal-sync-simics-20261028/examples/agilex5-modular/build/vendor_uart.elf
+/workspace/baremetal-sync-simics-20261028/examples/agilex5-modular/build/vendor_timer.elf
+/workspace/baremetal-sync-simics-20261028/examples/agilex5-modular/build/vendor_watchdog.elf
+/workspace/baremetal-sync-simics-20261028/examples/agilex5-modular/build/vendor_spi.elf
+/workspace/baremetal-sync-simics-20261028/examples/agilex5-modular/build/vendor_ccu.elf
+/workspace/baremetal-sync-simics-20261028/examples/agilex5-modular/build/vendor_clkmgr.elf
+/workspace/baremetal-sync-simics-20261028/examples/agilex5-modular/build/vendor_smmu.elf
+/workspace/baremetal-sync-simics-20261028/examples/agilex5-modular/build/vendor_ecc.elf
+/workspace/baremetal-sync-simics-20261028/examples/agilex5-modular/build/vendor_hps_mailbox.elf
+Cloning into 'ethernet/lwip'...
+Note: switching to '77dcd25a72509eb83f72b033d219b1d40cd8eb95'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/network.elf has a LOAD segment with RWX permissions
+   text	   data	    bss	    dec	    hex	filename
+ 139680	   3192	5785896	5928768	 5a7740	build/network.elf

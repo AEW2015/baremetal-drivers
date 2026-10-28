@@ -11,7 +11,7 @@ the established Modular ES bench, connected directly to a Linux PC.
     interpreting bandwidth. A 1 Gb/s PHY link is not a promise of 1 Gb/s payload
     throughput from this software adapter.
 
-    The supplied upstream `xgmac_send`/`xgmac_recv` are stubs. This lab supplies a
+    The pinned 25.1 reference’s `xgmac_send`/`xgmac_recv` are stubs. This lab supplies a
     separate single-queue DMA adapter; it does not mistake the register test or
     internal loopback sample for external network traffic.
 

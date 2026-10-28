@@ -1,0 +1,47 @@
+Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 22:22:46 Oct 28 2026
+
+Commit: cd74c90
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > help
+
+Commands:
+
+  help      - show this help
+
+  core      - show current core id
+
+  mpidr     - dump mpidr_el1 hex
+
+  el        - show current EL
+
+  clear     - clear console screen
+
+  memdump   - dump memory: memdump <addr> [count]
+
+  memread   - read 32-bit value: memread <addr>
+
+  memwrite  - write 32-bit value: memwrite <addr> <value>
+
+  exit      - exit shell (hang)
+
+
+
+Example Applications:
+
+  hello_selftest            - basic shell command sanity check
+
+  ddr_selftest              - DDR init/BIST and memory validation
+
+  gic_selftest              - GIC SGI interrupt self-test
+
+  timer_selftest            - timer start/poll and timeout checks
+
+
+
+SoCFPGA Bare-Metal > 

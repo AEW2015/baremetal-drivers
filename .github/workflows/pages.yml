@@ -19,7 +19,7 @@ jobs:
       - name: Install freestanding cross compiler and QEMU
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends gcc-aarch64-linux-gnu qemu-system-arm gdb-multiarch verilator g++ make
+          sudo apt-get install -y --no-install-recommends gcc-aarch64-linux-gnu qemu-system-arm gdb-multiarch verilator g++ make cmake ninja-build
       - name: Check QEMU, fabric RTL and driver builds
         working-directory: examples/agilex5-modular
         env:
