@@ -66,7 +66,7 @@ Linux development machine**:
 sudo apt-get update
 sudo apt-get install -y build-essential cmake ninja-build git curl xz-utils \
   ca-certificates python3 python3-venv qemu-system-arm gdb-multiarch \
-  device-tree-compiler gcc-aarch64-linux-gnu verilator
+  device-tree-compiler gcc-aarch64-linux-gnu libc6-dev-arm64-cross verilator
 mkdir -p "$HOME/tools"
 cd "$HOME/tools"
 curl -fL \

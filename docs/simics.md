@@ -54,7 +54,7 @@
 
 === "Build and run current upstream"
 
-    Install `gcc-aarch64-linux-gnu`, CMake 3.24+, Ninja, Python 3, make and g++.
+    Install `gcc-aarch64-linux-gnu`, `libc6-dev-arm64-cross`, CMake 3.24+, Ninja, Python 3, make and g++.
     They are included by the updated learning-container recipe. In the container:
 
     ```sh
