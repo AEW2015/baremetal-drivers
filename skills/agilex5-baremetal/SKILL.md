@@ -1,6 +1,6 @@
 ---
 name: agilex5-baremetal
-description: Build, run, debug, and validate the Agilex 5 Modular kit bare-metal HPS examples in AEW2015/baremetal-drivers, using QEMU or the matching board, container, JTAG and SOM UART. Use for OCRAM/DDR bring-up and schematic-based SOM peripheral work.
+description: Build, run, debug, and validate the Agilex 5 Modular kit bare-metal HPS examples in AEW2015/baremetal-drivers, using QEMU, Simics or the matching board, container, JTAG and SOM UART. Use for OCRAM/DDR bring-up and schematic-based SOM peripheral work.
 ---
 
 # Agilex 5 bare-metal workflow
@@ -39,6 +39,24 @@ Use the supplied `agilex5-modular.code-workspace` and `docs/vscode.md` for GUI
 setup. QEMU first stops at `_start`; set managed source breakpoints at `main`
 and `qemu_done`, then continue. Use `docs/qemu.md` for the CLI GDB walkthrough.
 Do not reuse the QEMU PL011 address or ELF on physical hardware.
+
+## Simics and upstream versions
+
+The root repository now contains the 26.3 API rewrite (`api/`, `drivers/`, typed
+handles and a command console). Read `docs/upstream-26.3.md` before porting older
+open/ioctl examples. The qualified legacy board adapters intentionally fetch
+25.1 commit `1419101568f1a9034630b632634fe9fe71773266`; they do not build against
+the new root API. Do not silently retarget or transfer their results.
+
+For Simics, read `docs/simics.md`. In the tool environment, deploy/build the
+locally installed proprietary model using `simics/setup.py`, compile
+`./simics/build.sh OCRAM`, then run `python3 simics/run.py --only hello`.
+The current console and `simics/legacy.py` are distinct suites. The recorded
+legacy run has three failures; a new current timer PASS does not erase them.
+Require fresh detailed completion, not simulator exit zero or a generic command
+completion line. Keep deployment outside the C source root and use fresh output
+folders for repeat coverage exports. QEMU remains the generic CPU-lab track;
+Simics results do not qualify real-board wiring or Ethernet bandwidth.
 
 ## Hardware work
 

@@ -6,7 +6,7 @@ Use host serial capture before programming the volatile HPS RBF. Preserve the se
 
 The local `bootstrap/ddr` initializer uses ATF 26.1.1 commit `2ea5afda7f34774ddcc677fb3a728fa57f780a1e`. Its small diagnostic hook runs immediately after successful DDR initialization and before storage/combo-PHY boot. It tests scratch DDR with MMU/data cache off, copies the UART payload to 0x82000000, checks readback, invalidates instruction cache and branches there. This is an EL3 diagnostic, not a complete resident BL31/PSCI environment. Successful DDR bring-up does not establish SD/USB/other PHY initialization.
 
-The pinned baremetal-drivers tag is `QPDS25.1_REL_GSRD_PR`, commit `1419101568f1a9034630b632634fe9fe71773266`. The guide's 25.1.1 tag was absent for that repository. Keep pinning explicit. Driver sources are under `test/simics/`; the prefix is meaningful.
+The pinned baremetal-drivers tag is `QPDS25.1_REL_GSRD_PR`, commit `1419101568f1a9034630b632634fe9fe71773266`. The guide's 25.1.1 tag was absent for that repository. Keep pinning explicit. The legacy sample sources are under the fetched dependency’s `test/simics/`; the current repository root instead contains the rewritten 26.3 `api/` and `drivers/`. Use `legacy_source.py` for the recorded old API.
 
 ## Load and verify
 

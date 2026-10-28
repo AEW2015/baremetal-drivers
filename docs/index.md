@@ -3,7 +3,8 @@
 Build an AArch64 bare-metal application, inspect it in VS Code, and then use the
 same compiler and debugger workflow on an Agilex 5 Modular development kit.
 
-Start with QEMU if you do not have a board connected. Move to hardware to test
+Start with QEMU if you do not have a board connected. Use [Simics](simics.md) for the Agilex HPS model and the current upstream
+command-console examples. Move to hardware to test
 the HPS controllers and the devices actually populated on the SOM.
 
 [Install the tools](setup.md){ .md-button .md-button--primary }
@@ -14,6 +15,7 @@ the HPS controllers and the devices actually populated on the SOM.
 | Track | Runs where | What you learn |
 |---|---|---|
 | QEMU exercise | Generic `virt` machine, Cortex-A53 model | Startup, ELF addresses, EL3, NEON, RAM, UART output and GDB |
+| Simics 26.3 | Agilex 5 universal virtual platform | Current upstream console, timer, GIC and memory self-tests |
 | Hardware examples | Modular ES kit, A55/A76 HPS | DDR bring-up, source debugging, DMA, GIC and SOM peripherals |
 
 QEMU `virt` is a generic virtual board. It does **not** reproduce this kit's

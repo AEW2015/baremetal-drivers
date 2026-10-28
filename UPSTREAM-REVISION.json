@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/altera-fpga/baremetal-drivers",
+  "branch": "main",
+  "release": "26.3",
+  "commit": "66bdcc347564c5698a8997169bce83a31647d618",
+  "legacy_compatibility_commit": "1419101568f1a9034630b632634fe9fe71773266"
+}

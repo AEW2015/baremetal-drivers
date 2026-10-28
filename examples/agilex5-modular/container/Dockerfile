@@ -6,7 +6,7 @@ FROM ${BASE_IMAGE}
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential cmake ninja-build git curl ca-certificates xz-utils \
+    build-essential cmake ninja-build git curl ca-certificates xz-utils gcc-aarch64-linux-gnu \
     python3 python3-venv device-tree-compiler libssl-dev zlib1g-dev \
     qemu-system-arm gdb-multiarch verilator libusb-1.0-0 libudev1 usbutils \
     iproute2 procps util-linux \

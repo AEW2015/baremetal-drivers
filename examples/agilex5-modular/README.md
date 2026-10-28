@@ -47,9 +47,9 @@ docker exec -u dev agilex-xrdp bash -lc \
 Or run `./build_all.sh` directly in this directory with `aarch64-none-elf-*` on
 PATH. If present, `/etc/profile.d/baremetal-tools.sh` supplies the existing bench
 tools. `build/` contains local ELFs, while upstream reference ELFs use the
-repository's existing `build/aarch64/out/` output convention.
+pinned dependency's `build/aarch64/out/` output convention.
 
-`configure_vendor.sh` configures the repository in `build/vendor/` and accepts
+`configure_vendor.sh` fetches the 25.1 source at commit `1419101568f1a9034630b632634fe9fe71773266` into ignored `.deps/baremetal-25.1` and configures it in `build/legacy-vendor/` and accepts
 additional CMake arguments. Upstream FetchContent downloads Arm Trusted Firmware
 and GoogleTest; to reuse existing sources, pass
 `-DFETCHCONTENT_SOURCE_DIR_ATF=/path/to/atf` and
@@ -229,3 +229,11 @@ Use `ethernet/build.sh` for an individual build and `ethernet/run.py --help`
 for host-side execution. The network run requires an explicitly selected wired
 interface and is separate from the 15-entry on-chip/SOM suite. It uses a custom
 socket benchmark protocol; it is not an iperf server.
+
+## Current upstream and Simics
+
+The repository root now contains the upstream 26.3 driver/API rewrite. Existing
+vendor board adaptations intentionally use the pinned 25.1 compatibility source;
+the root no longer contains the old `inc/` and `test/simics/` API. Use
+[the migration guide](../../docs/upstream-26.3.md) for the current API and
+[Simics](../../docs/simics.md) alongside the existing QEMU labs.

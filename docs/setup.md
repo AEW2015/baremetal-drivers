@@ -5,6 +5,7 @@
 | Track | You need | First success checkpoint |
 |---|---|---|
 | **No board / QEMU** | An x86-64 Linux development environment | QEMU prints its PASS lines and exits zero |
+| **Simics virtual HPS** | Learning tools, Linux AArch64 cross compiler and separate Altera Simics installation | Current 26.3 console prints Hello and passes selected model self-tests |
 | **Physical Modular kit** | The learning tools plus the kit, Quartus/JTAG access, mounted source and a matching FPGA image | Hardware doctor passes, then fresh DDR Hello and core PASS results |
 
 This walkthrough uses Ubuntu 24.04 on **x86-64**. Check `uname -m` before
@@ -65,7 +66,7 @@ Linux development machine**:
 sudo apt-get update
 sudo apt-get install -y build-essential cmake ninja-build git curl xz-utils \
   ca-certificates python3 python3-venv qemu-system-arm gdb-multiarch \
-  device-tree-compiler
+  device-tree-compiler gcc-aarch64-linux-gnu verilator
 mkdir -p "$HOME/tools"
 cd "$HOME/tools"
 curl -fL \
@@ -80,6 +81,15 @@ Use the AArch64 **bare-metal** toolchain, not an Arm 32-bit compiler. The versio
 follows the [Altera compiler setup](https://altera-fpga.github.io/rel-25.1/baremetal-embedded/agilex-5/e-series/premium/ug-baremetal-agx5e-premium/).
 Hardware work additionally needs your licensed Quartus installation and the
 adapter/DAP-capable OpenOCD described in the [hardware chapter](hardware.md).
+
+## Simics and the current upstream API
+
+Use [the Simics 26.3 track](simics.md) for the Agilex HPS virtual platform.
+The updated learning image includes both cross compilers; the separate simulator
+installer/models are not bundled. Our existing Quartus 26.3 bench container is
+`agilex26-mcp-demos`, with host `/home/lada/quartus26-mcp-demos` mounted at
+`/workspace`. Use the same checkout and the correct container path for your task.
+The older `agilex-xrdp` environment below remains the qualified hardware setup.
 
 ## Clone into a known location
 

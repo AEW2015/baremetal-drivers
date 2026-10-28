@@ -51,6 +51,7 @@ nav:
       - Obtain the FPGA design: fpga-design.md
       - 2. Set up VS Code: vscode.md
       - 3. Run and debug QEMU: qemu.md
+      - Simics 26.3 virtual HPS: simics.md
       - 4. Run on the Modular kit: hardware.md
       - 5. Fabric IP, map and driver: fabric-ip.md
       - 6. Swap IP with partial reconfiguration: partial-reconfiguration.md
@@ -58,6 +59,7 @@ nav:
       - Overview: examples.md
       - QEMU CPU, NEON and RAM: examples/qemu.md
       - Six QEMU practice labs: examples/qemu-labs.md
+      - Simics upstream and legacy examples: simics.md
       - OCRAM UART Hello: examples/ocram.md
       - DDR bring-up and Hello: examples/ddr.md
       - "CPU, NEON and core checks": examples/core.md
@@ -80,8 +82,14 @@ nav:
       - Codex skill: agent-skill.md
       - Validation and limits: validation.md
       - Fresh-clone remote validation: remote-validation.md
+      - Upstream 26.3 API and migration: upstream-26.3.md
       - Ethernet hardware measurements: ethernet-validation.md
       - Troubleshooting: troubleshooting.md
       - Simulated student reviews: student-review.md
       - Onboarding and desktop follow-up: feedback-followup.md
       - Build this website: website.md
+
+# Upstream Natural Docs reference sources are viewed on GitHub, not as tutorial pages.
+exclude_docs: |
+  TERMINOLOGY.md
+  examples/README.md

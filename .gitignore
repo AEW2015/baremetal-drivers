@@ -12,14 +12,11 @@ atf_env.simics
 *.ninja
 *.ninja_log
 *.ninja_deps
-*.cmake
 CMakeCache.txt
 CMakeFiles/
 _deps/
 
 # Makefiles
-Makefile
-!not_shipped/regtest/**/Makefile
 
 # Python venv
 venv/
@@ -129,3 +126,7 @@ atf/
 # Tutorial website
 /site/
 /.venv-docs/
+
+# Generated build trees and locally deployed proprietary Simics models
+/build/
+/examples/agilex5-modular/.deps/

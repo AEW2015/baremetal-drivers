@@ -9,8 +9,10 @@
     "C_Cpp.default.intelliSenseMode": "linux-gcc-arm64",
     "C_Cpp.default.includePath": [
       "${workspaceFolder}/core",
-      "${workspaceFolder}/../../inc",
-      "${workspaceFolder}/../../inc/dma"
+      "${workspaceFolder}/.deps/baremetal-25.1/inc",
+      "${workspaceFolder}/.deps/baremetal-25.1/inc/dma",
+      "${workspaceFolder}/../../include",
+      "${workspaceFolder}/../../api/**"
     ],
     "C_Cpp.default.cStandard": "c11",
     "files.associations": {
@@ -114,6 +116,110 @@
           "cwd": "${workspaceFolder}"
         },
         "problemMatcher": []
+      },
+      {
+        "label": "Build upstream 26.3 OCRAM",
+        "type": "shell",
+        "command": "./simics/build.sh OCRAM",
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": {
+            "executable": "/bin/bash",
+            "args": [
+              "-lc"
+            ]
+          }
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Build upstream 26.3 DDR",
+        "type": "shell",
+        "command": "./simics/build.sh DDR",
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": {
+            "executable": "/bin/bash",
+            "args": [
+              "-lc"
+            ]
+          }
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Setup Simics Agilex 5 model",
+        "type": "shell",
+        "command": "python3 simics/setup.py",
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": {
+            "executable": "/bin/bash",
+            "args": [
+              "-lc"
+            ]
+          }
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Run Simics upstream Hello",
+        "type": "shell",
+        "command": "python3 simics/run.py --only hello",
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": {
+            "executable": "/bin/bash",
+            "args": [
+              "-lc"
+            ]
+          }
+        },
+        "problemMatcher": [],
+        "dependsOn": [
+          "Build upstream 26.3 OCRAM",
+          "Setup Simics Agilex 5 model"
+        ],
+        "dependsOrder": "sequence"
+      },
+      {
+        "label": "Run Simics upstream OCRAM checks",
+        "type": "shell",
+        "command": "python3 simics/run.py --only hello,help,timer,gic,ddr",
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": {
+            "executable": "/bin/bash",
+            "args": [
+              "-lc"
+            ]
+          }
+        },
+        "problemMatcher": [],
+        "dependsOn": [
+          "Build upstream 26.3 OCRAM",
+          "Setup Simics Agilex 5 model"
+        ],
+        "dependsOrder": "sequence"
+      },
+      {
+        "label": "Run legacy Simics Hello",
+        "type": "shell",
+        "command": "python3 simics/legacy.py --build --only hello-world",
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": {
+            "executable": "/bin/bash",
+            "args": [
+              "-lc"
+            ]
+          }
+        },
+        "problemMatcher": [],
+        "dependsOn": [
+          "Setup Simics Agilex 5 model"
+        ],
+        "dependsOrder": "sequence"
       }
     ]
   },

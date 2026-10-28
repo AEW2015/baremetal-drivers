@@ -8,8 +8,12 @@ Choose an example in the **Examples** navigation. Each page has **What it does**
 |---|---|---|
 | [QEMU CPU/NEON/RAM](examples/qemu.md) | Generic QEMU virt | EL3, vector `{11,22,33,44}`, verified 4 KiB copy, exit 0 |
 | [Six QEMU practice labs](examples/qemu-labs.md) | Generic QEMU virt | Startup, watchpoint, exception, timer, permissions and UART checks |
+| [Simics current and legacy suites](simics.md) | Agilex 5 virtual platform | Current 26.3 console checks and separately pinned 25.1 samples |
 | [OCRAM Hello](examples/ocram.md) | Modular SOM | Repeated OCRAM UART Hello; no DDR initialization |
 | [DDR bring-up](examples/ddr.md) | Modular SOM | Four 64 MiB patterns, payload readback, fresh Hello and DDR PC |
+
+The [26.3 API migration guide](upstream-26.3.md) explains the new source layout
+and command catalog. The board suite below retains its pinned legacy API.
 
 ## The 15 hardware suite entries
 

@@ -2,7 +2,7 @@
 
 `vendor-clkmgr` · `build/vendor_clkmgr.elf` · recorded entry `0x80200800`
 
-[Board adapter](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/vendor_wrapper.c) · [Vendor sample](https://github.com/AEW2015/baremetal-drivers/blob/main/test/simics/clkmgr/clkmgr_test.c) · [Captured UART](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/20261023T232734.166542Z/vendor-clkmgr-uart.txt) · [Hardware setup](../hardware.md)
+[Board adapter](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/core/vendor_wrapper.c) · [Vendor sample](https://github.com/altera-fpga/baremetal-drivers/blob/1419101568f1a9034630b632634fe9fe71773266/test/simics/clkmgr/clkmgr_test.c) · [Captured UART](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/20261023T232734.166542Z/vendor-clkmgr-uart.txt) · [Hardware setup](../hardware.md)
 
 All hardware commands assume the matching Modular ES profile and host/container environment from the tutorial. Register snapshots below distinguish fixed checks from values that can vary.
 

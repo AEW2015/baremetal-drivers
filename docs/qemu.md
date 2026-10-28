@@ -1,5 +1,8 @@
 # 3. Run and debug QEMU
 
+For an Agilex HPS peripheral model, use the separate [Simics lab](simics.md).
+QEMU remains the board-free CPU/debugging track.
+
 ## Run the exercise
 
 From the example directory, in the compiler environment:
