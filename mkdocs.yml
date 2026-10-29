@@ -83,6 +83,7 @@ nav:
       - Validation and limits: validation.md
       - Fresh-clone remote validation: remote-validation.md
       - Upstream 26.3 API and migration: upstream-26.3.md
+      - New upstream example tests: upstream-examples-validation.md
       - Ethernet hardware measurements: ethernet-validation.md
       - Troubleshooting: troubleshooting.md
       - Simulated student reviews: student-review.md

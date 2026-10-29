@@ -1,0 +1,3 @@
+PASS: HPS DDR bank 3A initialized; four 64 MiB patterns and payload readback passed.
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+CPU PC confirmed in DDR: 0x82000024. Application left running.

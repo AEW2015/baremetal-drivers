@@ -1,0 +1,6 @@
+{
+  "cli": "/home/dev/altera_pro/intel-fpga-ext_26.3/simics/bin/simics_intelfpga_cli",
+  "project": "/workspace/baremetal-simics-cleancheck-20261028/examples/agilex5-modular/build/simics26",
+  "platform": "agilex5e-universal",
+  "version": "Simics Base            1000    7.89.0    (                7163) 2026-06-09\nCrypto Engine          1030    7.18.0    (                7150) 2026-04-10\nSimics GDB             1031    7.11.0    (                7155) 2026-04-29\nSimics Python          1033    7.15.0    (                7150) 2026-04-10\nIntel FPGA External    9000    7.1.0     (intel.fpga:263000013)           \nPython version: 3.10.19\nVMP kernel module is not loaded\n"
+}

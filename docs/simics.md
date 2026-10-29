@@ -1,5 +1,8 @@
 # Simics 26.3: Agilex HPS examples alongside QEMU
 
+For additional DDR-loaded example handlers, physical-board comparisons and
+captured output, see the [new upstream example campaign](upstream-examples-validation.md).
+
 === "Choose a track"
 
     | Track | Source and target | What the result establishes |

@@ -105,3 +105,26 @@ and Ubuntu's cross GCC have different defaults. PIE-generated GOT entries were
 not part of this minimal startup's `.data` relocation, producing real failures
 in startup/exception/timer/MMU lessons despite a successful link. Keep the static
 fixed-address build contract and test both toolchains when changing it.
+
+## Selected 26.3 examples across environments
+
+`examples/agilex5-modular/upstream-lab` invokes unchanged 26.3 handlers through
+an isolated adapter. QEMU runs software CRC and memory performance; it does not
+model the Agilex peripherals. The Simics runner first initializes DDR using the
+OCRAM console, then loads each adapter into DDR in a fresh model. This is not
+qualification of the stock DDR console or BL31/BL33 boot flow.
+
+On this Modular ES bench, `verify_image` fails because the A55 target lacks
+`checksum_memory`. Dump the payload through `hps.sys_bus`, compare every byte
+on the host, and only then resume via the core. An attempted in-Tcl binary
+comparison also failed (`read ?-nonewline? chan`); the host comparison is the
+demonstrated remedy. Preserve the failed load and restoration evidence.
+
+The hardware performance exercise passed all 16,384 memory-word comparisons,
+but CNTFRQ_EL0 was zero. Treat its timing/rate output as unavailable until the
+counter frequency is established; do not substitute a guessed clock frequency.
+In standalone EL3 Simics, bridge enable and warm reboot trapped at `smc_call`
+with ESR 0x5e000000. They require a suitable SiP caller/service boot flow.
+IOSSM image readback passed, but SBE/DBE event counters stayed zero after
+successful injection requests: request success does not qualify ECC recovery.
+See `docs/upstream-examples-validation.md` and its captured evidence.

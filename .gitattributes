@@ -5,3 +5,5 @@ examples/agilex5-modular/validation/ethernet/**/*.log -text -whitespace
 examples/agilex5-modular/validation/ethernet/**/*.txt -text -whitespace
 examples/agilex5-modular/validation/simics26/**/*.log -text -whitespace
 examples/agilex5-modular/validation/simics26/**/*.txt -text -whitespace
+examples/agilex5-modular/validation/upstream26-examples/**/*.log -text -whitespace
+examples/agilex5-modular/validation/upstream26-examples/**/*.txt -text -whitespace

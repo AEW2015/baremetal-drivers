@@ -67,6 +67,11 @@ The direct DDR validation window in this release is 16 MiB at `0x83000000`.
 
 ## Builds and validation
 
+The subsequent [new-example campaign](upstream-examples-validation.md) exercises
+selected unchanged handlers through an adapter on QEMU, Simics and the physical
+Modular ES kit. Its results qualify those paths, separately from the stock DDR
+console and complete secure-firmware boot flow.
+
 From `examples/agilex5-modular`, in the configured Linux environment:
 
 ```sh

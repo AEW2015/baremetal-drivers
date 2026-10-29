@@ -1,5 +1,13 @@
 # Validation and practical limits
 
+## New 26.3 examples across environments
+
+The follow-up campaign runs unchanged upstream example handlers through a small
+bench adapter on QEMU, Simics and the physical Modular ES kit. It adds independent
+memory readback, records SMC failures and partial IOSSM ECC results, and expands
+the regression suite to 45 checks. See the
+[per-example results and captured terminal output](upstream-examples-validation.md).
+
 ## Upstream 26.3 sync and Simics
 
 The repository root merges upstream `66bdcc3`. A clean checkout of merge
