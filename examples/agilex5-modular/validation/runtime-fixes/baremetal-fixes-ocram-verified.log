@@ -1,0 +1,41 @@
+-- The C compiler identification is GNU 13.3.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/aarch64-linux-gnu-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/aarch64-linux-gnu-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- ====================================
+-- Selected platform: agilex5
+-- Build mode       : OCRAM
+-- Debug            : 1
+-- ATF direct boot  : 0
+-- ====================================
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ocram
+[0/2] Re-checking globbed directories...
+[1/13] Building ASM object CMakeFiles/baremetal.elf.dir/src/vectors.S.obj
+[2/13] Building ASM object CMakeFiles/baremetal.elf.dir/src/startup.S.obj
+[3/13] Building C object CMakeFiles/baremetal.elf.dir/src/main.c.obj
+[4/13] Building C object CMakeFiles/baremetal.elf.dir/src/crt0.c.obj
+[5/13] Building C object api/CMakeFiles/bm_api.dir/iossm/iossm_api.c.obj
+[6/13] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdm_mailbox/socfpga_sip_handler.c.obj
+[7/13] Building C object api/CMakeFiles/bm_api.dir/perf/perf_api.c.obj
+[8/13] Building C object drivers/CMakeFiles/socfpga_drivers.dir/iossm/socfpga_iossm_ll.c.obj
+[9/13] Building C object middleware/CMakeFiles/bm_middleware.dir/iossm/socfpga_iossm.c.obj
+[10/13] Linking C static library drivers/libsocfpga_drivers.a
+[11/13] Linking C static library middleware/libbm_middleware.a
+[12/13] Linking C static library api/libbm_api.a
+[13/13] Linking C executable baremetal.elf
+/usr/lib/gcc-cross/aarch64-linux-gnu/13/../../../../aarch64-linux-gnu/bin/ld: warning: .note.gnu.build-id section discarded, --build-id ignored
+   text	   data	    bss	    dec	    hex	filename
+  65056	   4704	  18736	  88496	  159b0	/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ocram/baremetal.elf
+-- ------------------------------------------------------------
+--   Section size report: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ocram/baremetal.elf
+-- ------------------------------------------------------------
+--   Section    Used        Budget      Used%   Status
+--   .text      65056 B  262144 B  24%  PASS
+--   .data+bss  23376 B  258048 B  9%  PASS
+-- ------------------------------------------------------------

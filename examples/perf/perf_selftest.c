@@ -196,6 +196,8 @@ static void cmd_perf_timer(void)
     printf("\n[PERF][TIMER] ARM generic counter frequency: %llu Hz\n",
            (unsigned long long)hz);
 
+    if (hz == 0ULL) { printf("[PERF][TIMER] TIMING_UNAVAILABLE: counter frequency is zero\n"); return; }
+
     for (uint32_t i = 0U; i < 32U; i++) {
         t0 = perf_counter_ticks();
         uint64_t dt = perf_elapsed_us(t0);

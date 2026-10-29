@@ -33,7 +33,7 @@
  * ECC error status and data registers (offsets from instance base)
  */
 #define IOSSM_ECC_ERROR_STATUS       0x300U
-#define IOSSM_ECC_COUNT_MASK         0xFFU
+#define IOSSM_ECC_COUNT_MASK         0xFFFFU
 
 #define IOSSM_ECC_ERR_DATA_START     0x310U
 #define IOSSM_ECC_GET_ERR_TYPE(idx)      (IOSSM_ECC_ERR_DATA_START + ((idx) * 8U))

@@ -1,0 +1,6 @@
+{
+  "state": "waiting",
+  "pid": 3654161,
+  "lock": "/home/lada/altera-agilex/home/baremetal-guide-validation/examples/hardware.lock",
+  "wait_seconds": 110
+}

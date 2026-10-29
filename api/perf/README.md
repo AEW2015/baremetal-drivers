@@ -50,7 +50,7 @@ uint64_t perf_span_us(void)
 
 ## Before You Start
 
-- The processor's counter frequency register must have been programmed by the firmware that started this image. If it reads zero, every conversion silently returns zero, so check the reported frequency before trusting any measurement.
+- The processor's counter frequency register must have been programmed by the firmware that started this image. If it reads zero, conversions return zero. The print helpers now report `TIMING_UNAVAILABLE` and log `-ENODATA` instead of presenting a successful measurement; direct conversion/logging callers must still check the frequency.
 - The API itself needs no attached hardware. Only the SD card subcommands of the example `perf_selftest` need an SD card.
 
 ## Public API Summary
@@ -93,7 +93,7 @@ These functions do not use `-EINVAL`, `-ENOSYS`, or `-ETIMEDOUT`.
 | `perf_elapsed_us`, `perf_elapsed_ns` | non-zero | The elapsed conversion of a forward counter delta. | The unit is the function name: microseconds or nanoseconds. |
 | `perf_kib_per_sec`, `perf_mbps_x1000` | `0` | `elapsed_us` is 0, bytes is 0, or integer division truncates the rate to zero. Arithmetic overflow can also corrupt the result. | Zero carries no separate error status; check inputs and units. |
 | `perf_log_count` | `uint32_t` | How many rows are stored. | Zero means the log is empty. |
-| `perf_log_add_result`, `perf_log_add_latency`, `perf_log_clear`, `perf_log_dump`, `perf_print_*`, `perf_dmb`, `perf_dsb`, `perf_isb` | No return value. | No status. | A print or a barrier cannot report failure. |
+| `perf_log_add_result`, `perf_log_add_latency`, `perf_log_clear`, `perf_log_dump`, `perf_print_*`, `perf_dmb`, `perf_dsb`, `perf_isb` | No return value. | No status. | Print helpers report unavailable timing through output/log status; barriers have no error return. |
 
 ## Example source and limitations
 
@@ -115,7 +115,7 @@ Source: [`examples/perf/perf_selftest.c`](../../examples/perf/perf_selftest.c)
 | Constraint | Application impact |
 |---|---|
 | Elapsed time only | You cannot attribute a slow operation to cache misses or to any other processor event with this module; it tells you how long, not why. |
-| Failures present as zero, not as an error | A missing counter frequency yields plausible-looking zero measurements. Always check the reported frequency before trusting results. |
+| Failures present as zero, not as an error | The print helpers report `TIMING_UNAVAILABLE` and store `-ENODATA` when frequency is zero (or throughput elapsed time is zero). Raw conversion helpers still return zero; check their inputs before interpreting results. |
 | Several self-test subcommands overwrite storage or memory | If you enable `perf_selftest`: its SD card `rw` subcommand overwrites the blocks it measures, and its memory subcommands write external memory starting at `0x80500000` by default, which lies inside this image's own data region in a `DDR` build. Pass explicit addresses outside `0x80200000`-`0x81300000` and outside any data you need. |
 | Single global result log | Results are kept in one in-memory log shared by all callers; the calls are not re-entrant. |
 | Nanosecond conversions overflow on long intervals | The `_ns` conversions multiply the tick count by 10^9 in 64 bits, so they overflow for intervals longer than about 2^64 / (10^9 × counter frequency) seconds (about 184 s at 100 MHz). Use the microsecond variants for long intervals. |
@@ -134,3 +134,7 @@ Source: [`examples/perf/perf_selftest.c`](../../examples/perf/perf_selftest.c)
 - [`examples/perf/perf_selftest.c`](../../examples/perf/perf_selftest.c) - example source for `perf_selftest`.
 - [`README.md`](../../README.md) - board bring-up, boot modes, UART and the first console session.
 - [`Timer`](../timer/README.md) - related module.
+
+### Diagnostic output when timing is unavailable
+
+`perf_print_result()` and `perf_print_result_status()` report `TIMING_UNAVAILABLE` and record `-ENODATA` when frequency or elapsed microseconds are zero. `perf_print_latency_result()` does so for zero frequency. The log dump preserves that label. These functions remain `void`; the low-level conversion/rate helper contracts above are unchanged.

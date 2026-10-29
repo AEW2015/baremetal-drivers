@@ -51,6 +51,10 @@ static void mailbox_example_main(const char *args)
     resp[0] = 0U;
     ret = mailbox_exec(MAILBOX_CMD_GET_IDCODE, NULL, 0U,
                        (uint32_t *)MBOX_DDR_RESP_ADDR, 1U);
+    if (ret == MAILBOX_OK && (resp[0] == 0U || resp[0] == UINT32_MAX)) {
+        printf("[MBOX][FAIL] GET_IDCODE returned no valid device ID\n");
+        ret = MAILBOX_ERROR;
+    }
     printf("[MBOX][%s] GET_IDCODE: ret=%d idcode=0x%08x\n",
            PF(ret), ret, (unsigned int)resp[0]);
 

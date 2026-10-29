@@ -10,9 +10,18 @@
  */
 
 #include "socfpga_sip_handler.h"
+#include <stddef.h>
+#include <stdio.h>
 
 int smc_call(uint64_t function_id, uint64_t *register_val)
 {
+    uint64_t el;
+    if (register_val == NULL) return -2; /* SMCCC invalid parameter */
+    __asm__ volatile ("mrs %0, CurrentEL" : "=r" (el));
+    if (el == 12U) {
+        printf("SMC_UNAVAILABLE: caller is EL3; enter EL1/EL2 through resident TF-A BL31\n");
+        return -1; /* SMCCC not supported; SMC at EL3 would trap. */
+    }
     /* Bind C variables directly to specific ARM64 registers (X1..X11). */
     register uint64_t x0 __asm__("x0") = function_id;
     register uint64_t x1 __asm__("x1") = register_val[0];

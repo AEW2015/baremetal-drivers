@@ -160,3 +160,9 @@ Source: [`examples/iossm/iossm_selftest.c`](../../examples/iossm/iossm_selftest.
 - [`README.md`](../../README.md) - board bring-up, boot modes, UART and the first console session.
 - [`ECC`](../ecc/README.md) - related module.
 - [`CCU`](../ccu/README.md) - related module.
+
+### Response validation and ECC evidence
+
+The middleware requires response-ready **and zero general/command error bits**; ready alone is not success. Failures return `-EIO` with the raw response status in the diagnostic. Agilex 5 ECC count extraction uses bits 15:0, matching the pinned TF-A register definitions.
+
+The demo labels injection-request acceptance separately from an observed counter increase. It reports unverified events explicitly and does not establish event type or recovery from a successful request. Simics 26.3 leaves the ECC counter offset `0x300` unmapped and rejects the tested injection operations; image readback can pass while ECC remains unqualified.

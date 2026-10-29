@@ -1,5 +1,9 @@
 # Simics 26.3: Agilex HPS examples alongside QEMU
 
+The [secure-runtime follow-up](runtime-fixes.md) adds verified BL31/EL2 bridge
+loopback and warm reboot, counter/diagnostic fixes, mailbox coverage and queued
+hardware validation. Earlier tables below retain their original campaign scope.
+
 For additional DDR-loaded example handlers, physical-board comparisons and
 captured output, see the [new upstream example campaign](upstream-examples-validation.md).
 

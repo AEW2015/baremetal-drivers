@@ -35,6 +35,10 @@
  * IOSSM_LL_NO_TYPE        - No IP type is specified.
  * IOSSM_LL_NO_ID          - No instance id is specified.
  */
+#define IOSSM_LL_RESPONSE_READY 1U
+#define IOSSM_LL_RESPONSE_ERROR_MASK 0xFEU
+#define IOSSM_LL_RESPONSE_OK(status) (((status) & (IOSSM_LL_RESPONSE_READY | IOSSM_LL_RESPONSE_ERROR_MASK)) == IOSSM_LL_RESPONSE_READY)
+
 #define IOSSM_LL_NO_PARAM          0U    /* Indicates no parameter is required  */
 #define IOSSM_LL_CMD_TYPE_NO_OP    0U    /* No-operation command type           */
 #define IOSSM_LL_TRIG_CNTRL_OP     4U    /* Trigger/control command type        */

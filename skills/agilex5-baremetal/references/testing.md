@@ -128,3 +128,11 @@ with ESR 0x5e000000. They require a suitable SiP caller/service boot flow.
 IOSSM image readback passed, but SBE/DBE event counters stayed zero after
 successful injection requests: request success does not qualify ECC recovery.
 See `docs/upstream-examples-validation.md` and its captured evidence.
+
+## Preloaded BL31 and queued hardware ownership
+
+The runtime follow-up uses pinned TF-A `2ea5afda7f34774ddcc677fb3a728fa57f780a1e`, `RESET_TO_BL31=1`, BL31 at 0x80000000 and BL33 at 0x82400000. Build with `upstream-lab/build_bl31.sh`, then pass `--bl31` to the runner. The EL2 path fixes the earlier SMC trap: Simics bridge loopback and a fresh post-request warm boot pass. Reject an EL3 SMC caller before the instruction; `mailbox_init` alone does not prove firmware availability.
+
+BL31 programs CNTFRQ from its pinned 400 MHz platform definition. Require the queued hardware one-second interval check before claiming rates. The missing-clock QEMU control checks explicit `TIMING_UNAVAILABLE` output. IOSSM ready-plus-error responses are failures; the model's ECC register 0x300 is unmapped and its injection commands remain unqualified. Mailbox NOOP/configuration status pass in the model, but GET_IDCODE is rejected. Preserve those partial results.
+
+Use `--wait-for-hardware` to queue on the existing shared mutex. Do not interrupt its owner, replace the lock inode, or silently switch to an independent lock. Freeze the artifacts before queuing. Read per-run `mutex.json`; `CANCEL` cancels a waiting run before hardware access. The hardware `bridge-control` selection only toggles the verified lightweight bridge and does not assume the model's HPS2FPGA memory exists on this SOM. See `docs/runtime-fixes.md`.

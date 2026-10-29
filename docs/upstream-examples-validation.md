@@ -1,5 +1,9 @@
 # New upstream examples: QEMU, Simics and hardware
 
+The [secure-runtime follow-up](runtime-fixes.md) adds verified BL31/EL2 bridge
+loopback and warm reboot, counter/diagnostic fixes, mailbox coverage and queued
+hardware validation. Earlier tables below retain their original campaign scope.
+
 This campaign tests the 26.3 sources merged from upstream `66bdcc3`, on fork
 base `73c996b` with the separately hashed adapter added here. The adapter invokes
 unchanged upstream example handlers, uses a reserved memory window and preserves

@@ -84,3 +84,9 @@ its successful DDR restoration are retained with the validation evidence.
 ELF/binary hashes, source/build metadata, per-case UART and debugger/model logs
 are saved under ignored `runs/`. See the tutorial validation report for captured
 results and the limits of each test.
+
+## Secure firmware follow-up
+
+For bridge/reboot/mailbox services, build the pinned runtime with `bash upstream-lab/build_bl31.sh` and pass `--bl31 build/runtime-atf/agilex5/debug/bl31.bin` to the Simics runner. The adapter then runs at EL2 through resident BL31. Bridge loopback and observed warm reboot pass in this mode. Mailbox remains partial (model rejects GET_IDCODE), and IOSSM rejects actual command-error responses instead of misreporting PASS. See `docs/runtime-fixes.md` for commands and captured evidence; the earlier standalone results above are historical.
+
+The hardware runner accepts `--wait-for-hardware`, recording atomic per-run mutex state while waiting. `--only perf,mailbox,bridge-control --bl31 PATH` selects the secure-runtime hardware checks. `bridge-control` enables/disables only the lightweight bridge; it never writes the upstream example's unverified physical loopback address. A missing HPS TAP selects the matching full volatile DDR recovery image. Create `CANCEL` inside a waiting run folder to cancel before hardware access.

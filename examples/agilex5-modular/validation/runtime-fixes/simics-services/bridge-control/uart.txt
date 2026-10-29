@@ -1,0 +1,130 @@
+Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 04:03:39 Oct 29 2026
+
+Commit: 64eb8a9
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > ddr_selftest
+
+
+
++------------------------------------------------------------+
+
+|                  DDR BIST / INIT COMMAND                   |
+
++------------------------------------------------------------+
+
+Mode  : Agilex5 OCRAM on-demand DDR bring-up
+
+Step 1: Run IOSSM/DDR init flow (ATF-compatible) ... DDR: Reset type is 'Power-On'
+
+IOSSM: Calibration success status check...
+
+IOSSM: All EMIF instances within the IO96 have calibrated successfully!
+
+DDR: Calibration success
+
+DDR: ECC is disabled
+
+DDR: DDR size configured is (2048 MiB)
+
+DDR: Mismatch with hardware size (8192 MiB).
+
+###DDR:init success###
+
+PASS
+
+
+
+Step 2: Run DDR memory validation suite
+
+------------------------------------------------------------
+
+Region: 0x83000000 - 0x83FFFFFF (16 MB)
+
+
+
+Test 1 of 4 : Fixed data-pattern test
+
+------------------------------------------------------------
+
+  Pattern 0x00000000 ....................... PASS
+
+  Pattern 0xFFFFFFFF ....................... PASS
+
+  Pattern 0xAAAAAAAA ....................... PASS
+
+  Pattern 0x55555555 ....................... PASS
+
+
+
+Test 2 of 4 : Walking-bit test
+
+------------------------------------------------------------
+
+  Walk 32 single-bit patterns ............... PASS
+
+
+
+Test 3 of 4 : Address-uniqueness test
+
+------------------------------------------------------------
+
+  Write/verify unique address values ........ PASS
+
+
+
+Test 4 of 4 : March C- test
+
+------------------------------------------------------------
+
+  March C- up/down sweeps ................... PASS
+
+------------------------------------------------------------
+
+
+
+RESULT : 4 of 4 tests passed  -  SELF-TEST PASSED
+
+
+
+SoCFPGA Bare-Metal > NOTICE:  SOCFPGA: Boot Core = 0
+
+NOTICE:  SOCFPGA: CPU ID = 0
+
+INFO:    SOCFPGA: Invalidate Data cache
+
+NOTICE:  SOCFPGA: Setting CLUSTERECTRL_EL1
+
+NOTICE:  BL31: v2.14.1(debug):QPDS26.1.1_REL_GSRD_PR
+
+NOTICE:  BL31: Built : 04:08:25, Oct 29 2026
+
+INFO:    GICv3 without legacy support detected.
+
+INFO:    ARM GICv3 driver initialized in EL3
+
+INFO:    Maximum SPI INTID supported: 991
+
+INFO:    BL31: Initializing runtime services
+
+WARNING: BL31: cortex_a55: CPU workaround for erratum 798953 was missing!
+
+INFO:    BL31: cortex_a55: CPU workaround for erratum 1530923 was applied
+
+INFO:    BL31: Preparing for EL3 exit to normal world
+
+INFO:    Entry point address = 0x82400000
+
+INFO:    SPSR = 0x3c9
+
+UPSTREAM_LAB_BEGIN case=10
+GUEST_EXCEPTION_LEVEL=2
+BRIDGE LL: lwhps2fpga enabled successfully
+BRIDGE LL: lwhps2fpga disabled successfully
+PASS BRIDGE_CONTROL enable=0 disable=0 (no fabric memory access)
+UPSTREAM_LAB_COMPLETE status=0

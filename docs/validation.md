@@ -1,5 +1,9 @@
 # Validation and practical limits
 
+The latest [runtime fixes](runtime-fixes.md) passed 49 regressions, four QEMU
+selections and BL31/EL2 Simics bridge/reboot checks. Hardware follow-up is queued
+on the shared mutex; the earlier hardware evidence below remains distinct.
+
 ## New 26.3 examples across environments
 
 The follow-up campaign runs unchanged upstream example handlers through a small

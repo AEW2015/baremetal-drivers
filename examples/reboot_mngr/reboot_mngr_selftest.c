@@ -48,18 +48,7 @@ void cmd_reboot(const char *args)
 
 	printf("Reboot Manager Demo Start\n");
 
-	/* ---------------- Simple reboot ---------------- */
-	printf("Triggering cold reboot (no callback)...\n");
-
-	// ret = reboot(REBOOT_COLD, NULL, NULL);
-	// if (ret != 0) {
-		// printf("Cold reboot failed (rc=%d)\n", ret);
-	// }
-
-	/* NOTE:
-	 * If reboot succeeds, system will reset here
-	 * Code below is only reached if reboot fails
-	 */
+	/* This exercise requests warm reset only; successful reset never returns. */
 
 	/* ---------------- Advanced reboot ---------------- */
 	printf("Triggering warm reboot (with callback)...\n");
@@ -69,7 +58,7 @@ void cmd_reboot(const char *args)
 		printf("Warm reboot failed (rc=%d)\n", ret);
 	}
 
-	printf("Reboot Manager Example Done\n");
+	printf("[FAIL] Reboot request returned; reset was not completed\n");
 }
 
 /* ---------------- CLI registration ---------------- */

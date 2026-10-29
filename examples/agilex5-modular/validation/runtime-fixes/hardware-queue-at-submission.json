@@ -1,0 +1,23 @@
+{
+  "pid": 3654161,
+  "started_utc": "20261029T041901Z",
+  "command": [
+    "/usr/bin/python3",
+    "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/upstream-lab/hardware.py",
+    "--bench",
+    "/home/lada/altera-agilex/home/baremetal-guide-validation",
+    "--artifacts",
+    "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/queued-hardware-20261029T041901Z",
+    "--mcp-client",
+    "/home/lada/quartus26-mcp-demos/mcp_client.py",
+    "--only",
+    "perf,mailbox,bridge-control",
+    "--bl31",
+    "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/queued-hardware-20261029T041901Z/bl31.bin",
+    "--wait-for-hardware"
+  ],
+  "log": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/queued-runtime-hardware-20261029T041901Z.log",
+  "artifacts": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/queued-hardware-20261029T041901Z",
+  "bl31_sha256": "79a4cdd701a87baff39de85fa45de58b4fae335f54593b2d7778e72f53cdd2f8",
+  "mutex": "/home/lada/altera-agilex/home/baremetal-guide-validation/examples/hardware.lock"
+}

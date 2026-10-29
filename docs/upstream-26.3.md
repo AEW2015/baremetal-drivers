@@ -1,5 +1,9 @@
 # Upstream 26.3 drivers and examples
 
+The [secure-runtime follow-up](runtime-fixes.md) adds verified BL31/EL2 bridge
+loopback and warm reboot, counter/diagnostic fixes, mailbox coverage and queued
+hardware validation. Earlier tables below retain their original campaign scope.
+
 This fork merges Altera's **26.3 Release Update**, commit
 [`66bdcc347564c5698a8997169bce83a31647d618`](https://github.com/altera-fpga/baremetal-drivers/commit/66bdcc347564c5698a8997169bce83a31647d618).
 It is a substantial API/build rewrite, not a version change to the older tests.

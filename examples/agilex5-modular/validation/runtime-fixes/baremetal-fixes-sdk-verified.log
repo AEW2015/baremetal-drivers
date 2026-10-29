@@ -1,0 +1,36 @@
+-- The C compiler identification is GNU 13.3.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/aarch64-linux-gnu-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/aarch64-linux-gnu-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- ====================================
+-- Selected platform: agilex5
+-- Build mode       : DDR
+-- Debug            : 1
+-- ATF direct boot  : 0
+-- ====================================
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ddr
+[0/2] Re-checking globbed directories...
+[1/8] Building ASM object CMakeFiles/baremetal.elf.dir/src/startup.S.obj
+[2/8] Building ASM object CMakeFiles/baremetal.elf.dir/src/vectors.S.obj
+[3/8] Building C object CMakeFiles/baremetal.elf.dir/src/crt0.c.obj
+[4/8] Building C object CMakeFiles/baremetal.elf.dir/src/main.c.obj
+[5/8] Building C object examples/CMakeFiles/bm_examples.dir/mailbox/mailbox_selftest.c.obj
+[6/8] Building C object api/CMakeFiles/bm_api.dir/perf/perf_api.c.obj
+[7/8] Linking C static library api/libbm_api.a
+[8/8] Linking C executable baremetal.elf
+/usr/lib/gcc-cross/aarch64-linux-gnu/13/../../../../aarch64-linux-gnu/bin/ld: warning: .note.gnu.build-id section discarded, --build-id ignored
+   text	   data	    bss	    dec	    hex	filename
+ 223496	   4696	5304664	5532856	 546cb8	/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ddr/baremetal.elf
+-- ------------------------------------------------------------
+--   Section size report: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ddr/baremetal.elf
+-- ------------------------------------------------------------
+--   Section    Used        Budget      Used%   Status
+--   .text      223496 B  1048576 B  21%  PASS
+--   .data+bss  5309296 B  16777216 B  31%  PASS
+-- ------------------------------------------------------------

@@ -1,0 +1,7 @@
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/runs/simics-new-examples-simics-20261029T041724.796796Z
+perf: pass
+bridge: pass
+reboot: pass
+mailbox: partial
+iossm: partial
+bridge-control: pass

@@ -33,15 +33,16 @@ for dir in "$sdk"/api/* "$sdk"/drivers/*; do
  [[ ! -d $dir ]] || includes+=(-I"$dir")
 done
 sources=(upstream-lab/start.S upstream-lab/lab.c "$sdk/examples/example_register.c")
-for module in crc perf combophy noc iossm bridge reset_mngr reboot_mngr; do
+for module in crc perf combophy noc iossm bridge reset_mngr reboot_mngr mailbox; do
  sources+=("$sdk/examples/$module/"*.c)
 done
 libs=("$build/api/libbm_api.a" "$build/drivers/libsocfpga_drivers.a" "$build/middleware/libbm_middleware.a" "$build/src/libbm_app.a" "$build/platform/libplatform.a")
-names=(crc perf combophy noc iossm bridge reset reboot)
+names=(crc perf combophy noc iossm bridge reset reboot mailbox smc-guard bridge-control perf-zero-clock)
 for case in "${!names[@]}"; do
- [[ $target != qemu || $case -lt 2 ]] || continue
+ [[ $target != qemu || $case -lt 2 || $case -eq 9 || $case -eq 11 ]] || continue
  "${prefix}gcc" -Os -g -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0 -ffreestanding -fno-builtin -fno-pie -no-pie -nostdlib \
   -mstrict-align -mgeneral-regs-only -DPLAT_AGILEX5 -DBUILD_MODE_DDR \
+  -DLAB_BRIDGE_ARGS=\""${LAB_BRIDGE_ARGS:-loopback 16}"\" \
   -DLAB_CASE="$case" -DLAB_STACK="$stack" -DLAB_SCRATCH="$scratch" \
   -DLAB_SCRATCH_TEXT=\""$scratch"\" "${defs[@]}" "${includes[@]}" \
   -Wl,-T,"$out/link.ld",-Map,"$out/${names[$case]}.map",--build-id=none \

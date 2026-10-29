@@ -41,7 +41,7 @@ int32_t reboot_cold(void)
 
 ## Before You Start
 
-- TF-A must be running at EL3, which is the case in the `DDR` boot flow from the [top-level README](../../README.md). In an `OCRAM` image there is no EL3 firmware: the call is taken by this image's own exception vectors and ends in an unhandled-exception report instead of a reboot or an error code.
+- TF-A must be running at EL3, which is the case in the `DDR` boot flow from the [top-level README](../../README.md). The caller must run at EL1/EL2 with resident BL31. The shared SMC helper now rejects an EL3 caller before executing SMC; it prints an actionable diagnostic and the reboot API returns `-ENOTSUP`.
 
 ## Public API Summary
 
@@ -85,7 +85,7 @@ Source: [`examples/reboot_mngr/reboot_mngr_selftest.c`](../../examples/reboot_mn
 | Constraint | Application impact |
 |---|---|
 | A successful call never returns | Structure your code so nothing important follows the reboot call; only the failure path continues. |
-| Requires TF-A at EL3 | In a `DDR` image whose firmware lacks the service, the call returns `-ENOTSUP`. In an `OCRAM` image, the call ends in an unhandled exception. |
+| Requires TF-A at EL3 | In a `DDR` image whose firmware lacks the service, the call returns `-ENOTSUP`. At EL3, the shared SMC helper rejects the request before the instruction; no reboot occurs. |
 | State across reset | Do not rely on RAM or peripheral state being preserved. Save required application state before requesting reset. |
 
 ## Troubleshooting
@@ -102,3 +102,5 @@ Source: [`examples/reboot_mngr/reboot_mngr_selftest.c`](../../examples/reboot_mn
 - [`README.md`](../../README.md) - board bring-up, boot modes, UART and the first console session.
 - [`Reset Manager`](../rst_mngr/README.md) - related module.
 - [`SDM Mailbox`](../mailbox/README.md) - related module.
+
+The registered `reboot_mngr_selftest` requests warm reboot only. Successful reset does not return: verification requires a new boot banner/reset observation. A returned request is reported as failure, not completion.

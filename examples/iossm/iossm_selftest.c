@@ -134,6 +134,8 @@ void cmd_iossm_demo(const char *args)
 
     int            rc;
     int32_t        ecc_count;
+    unsigned       observed = 0U, unverified = 2U;
+    int32_t        before;
     iossm_handle_t handle;
 
     printf("\n=== IOSSM Image Load to DDR Demo ===\n\n");
@@ -174,12 +176,15 @@ void cmd_iossm_demo(const char *args)
 
     printf("\n[Step 5] Inject single-bit (correctable) ECC error\n");
     printf("  Target address: 0x%llx\n", (unsigned long long)IOSSM_DEMO_INJ_ADDR);
+    before = iossm_api_get_ecc_status(handle);
     rc = iossm_api_inject_sbe(handle, IOSSM_DEMO_INJ_ADDR);
-    print_result("Inject SBE", rc);
+    print_result("SBE injection request (not event proof)", rc);
     if (rc == 0)
     {
         ecc_count = iossm_api_get_ecc_status(handle);
         printf("  ECC error count after SBE injection: %d\n", ecc_count);
+        if (before >= 0 && ecc_count > before) { observed++; unverified--; printf("  [PASS] New ECC event after SBE request (type/recovery unverified)\n"); }
+        else { printf("  [UNVERIFIED] SBE event not observed; request success is insufficient\n"); }
         (void)iossm_api_ack_interrupt(handle, IOSSM_API_INT_CRCT_EVENT |
                                               IOSSM_API_INT_RD_SIN_BIT |
                                               IOSSM_API_INT_WR_SIN_BIT);
@@ -189,12 +194,15 @@ void cmd_iossm_demo(const char *args)
     printf("\n[Step 6] Inject double-bit (uncorrectable) ECC error\n");
     printf("  Target address: 0x%llx\n",
            (unsigned long long)(IOSSM_DEMO_INJ_ADDR + 8ULL));
+    before = iossm_api_get_ecc_status(handle);
     rc = iossm_api_inject_dbe(handle, IOSSM_DEMO_INJ_ADDR + 8ULL);
-    print_result("Inject DBE", rc);
+    print_result("DBE injection request (not event proof)", rc);
     if (rc == 0)
     {
         ecc_count = iossm_api_get_ecc_status(handle);
         printf("  ECC error count after DBE injection: %d\n", ecc_count);
+        if (before >= 0 && ecc_count > before) { observed++; unverified--; printf("  [PASS] New ECC event after DBE request (type/recovery unverified)\n"); }
+        else { printf("  [UNVERIFIED] DBE event not observed; request success is insufficient\n"); }
         (void)iossm_api_ack_interrupt(handle, IOSSM_API_INT_UNCRCT_EVENT |
                                               IOSSM_API_INT_RD_DBL_BIT  |
                                               IOSSM_API_INT_WR_DBL_BIT);
@@ -211,6 +219,7 @@ demo_cleanup:
     printf("\n[Cleanup] Closing IOSSM instance 0\n");
     rc = iossm_api_close(IOSSM_API_INSTANCE_0);
     print_result("Close instance", rc);
+    printf("IOSSM_ECC_RESULT observed=%u unverified=%u; event type/recovery requires separate verification\n", observed, unverified);
     printf("\n=== IOSSM Demo complete ===\n\n");
 }
 

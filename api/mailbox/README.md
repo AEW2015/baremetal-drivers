@@ -156,3 +156,7 @@ Source: [`examples/mailbox/mailbox_selftest.c`](../../examples/mailbox/mailbox_s
 - [`README.md`](../../README.md) - board bring-up, boot modes, UART and the first console session.
 - [`FCS`](../fcs/README.md) - related module.
 - [`SEU`](../seu/README.md) - related module.
+
+### Standalone EL3 diagnostic precondition
+
+`mailbox_init()` only acquires a client and does not prove firmware availability. The common SMC helper rejects an EL3 caller before issuing the instruction. Use the preloaded BL31/EL2 workflow in the fork's runtime-fixes tutorial to exercise actual services. In the recorded Simics model, NOOP and CONFIG_STATUS pass through BL31, while GET_IDCODE is rejected with SDM status `0x3`; the full mailbox self-test therefore remains partial in that model.

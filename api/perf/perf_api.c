@@ -5,6 +5,7 @@
  */
 
 #include <stdint.h>
+#include "errno.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -170,6 +171,10 @@ void perf_log_dump(void)
         uint32_t idx = (perf_log_head + i) % PERF_LOG_MAX_ENTRIES;
         const perf_log_entry_t *e = &perf_log_entries[idx];
 
+        if (e->status == -ENODATA || (e->type == PERF_LOG_TYPE_THROUGHPUT && e->elapsed_us == 0ULL)) {
+            printf("[PERF][LOG] tag=%s TIMING_UNAVAILABLE status=%d\n", e->tag, e->status);
+            continue;
+        }
         if (e->type == PERF_LOG_TYPE_THROUGHPUT) {
             printf("[PERF][LOG][%02u] seq=%u type=THR tag=%s bytes=%llu time=%llu us rate=%llu KiB/s %llu.%03llu Mbps status=%d\n",
                    i,
@@ -197,6 +202,12 @@ void perf_log_dump(void)
 
 void perf_print_result_status(const char *tag, uint64_t bytes, uint64_t elapsed_us, int status)
 {
+    if (perf_counter_hz() == 0ULL || elapsed_us == 0ULL) {
+        printf("[PERF] %s: TIMING_UNAVAILABLE (counter frequency or elapsed interval is zero)\n", tag);
+        perf_log_add_result(tag, bytes, elapsed_us, status != 0 ? status : -ENODATA);
+        return;
+    }
+
     uint64_t kib_s = perf_kib_per_sec(bytes, elapsed_us);
     uint64_t mbps_x1000 = perf_mbps_x1000(bytes, elapsed_us);
 
@@ -214,6 +225,12 @@ void perf_print_result_status(const char *tag, uint64_t bytes, uint64_t elapsed_
 
 void perf_print_result(const char *tag, uint64_t bytes, uint64_t elapsed_us)
 {
+    if (perf_counter_hz() == 0ULL || elapsed_us == 0ULL) {
+        printf("[PERF] %s: TIMING_UNAVAILABLE (counter frequency or elapsed interval is zero)\n", tag);
+        perf_log_add_result(tag, bytes, elapsed_us, -ENODATA);
+        return;
+    }
+
     uint64_t kib_s = perf_kib_per_sec(bytes, elapsed_us);
     uint64_t mbps_x1000 = perf_mbps_x1000(bytes, elapsed_us);
 
@@ -235,6 +252,12 @@ void perf_print_latency_result(const char *tag,
                                uint64_t max_ticks,
                                int status)
 {
+    if (perf_counter_hz() == 0ULL) {
+        printf("[PERF][LAT] %s: TIMING_UNAVAILABLE (counter frequency is zero)\n", tag);
+        perf_log_add_latency(tag, samples, 0ULL, 0ULL, 0ULL, -ENODATA);
+        return;
+    }
+
     uint64_t avg_ticks;
     uint64_t min_ns;
     uint64_t avg_ns;

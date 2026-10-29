@@ -1,0 +1,24 @@
+UPSTREAM_LAB_BEGIN case=0
+GUEST_EXCEPTION_LEVEL=3
+UPSTREAM_COMMAND crc_selftest 
+
+==== CRC API DEMO ====
+  channel    : 0x0000000000001123
+  image size : 32 bytes
+  golden CRC : 0x1B61EFC6
+======================
+[success] PASS | verdict=OK
+  actual=32 expected=32 calc_crc=0x1B61EFC6 size_valid=yes crc_valid=yes
+[corrupt] CRC_MISMATCH | verdict=OK
+  actual=32 expected=32 calc_crc=0x89824208 size_valid=yes crc_valid=no
+[partial] SIZE_MISMATCH | verdict=OK
+  actual=27 expected=32 calc_crc=0x00000000 size_valid=no crc_valid=no
+[large] IMAGE_TOO_LARGE | verdict=OK
+  actual=65 expected=65 calc_crc=0x00000000 size_valid=no crc_valid=no
+
+==== CRC DEMO SUMMARY ====
+  executed : 4 case(s)
+  passed   : 4 case(s)
+  failed   : 0 case(s)
+==========================
+UPSTREAM_LAB_COMPLETE status=0

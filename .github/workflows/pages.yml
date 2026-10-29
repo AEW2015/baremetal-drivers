@@ -34,8 +34,9 @@ jobs:
           ./simics/build.sh OCRAM
           ./simics/build.sh DDR
           bash upstream-lab/build.sh qemu
-          python3 upstream-lab/run.py qemu
+          python3 upstream-lab/run.py qemu --only crc,perf,smc-guard,perf-zero-clock
           bash upstream-lab/build.sh agilex5
+          bash upstream-lab/build_bl31.sh
           ./fabric/test.sh
           LAB_CPU_BASE=0x20020000 ./fabric/build.sh
   ethernet:

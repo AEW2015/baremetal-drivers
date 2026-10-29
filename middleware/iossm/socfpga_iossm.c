@@ -172,8 +172,9 @@ int32_t iossm_mw_enable_ecc(const iossm_mw_ctx_t *ctx, uint32_t enable)
     iossm_mw_fill_desc(ctx, &desc);
     resp = iossm_ll_send_command(&desc, IOSSM_LL_ECC_EN, enable);
 
-    if ((resp.status & 1U) != 1U)
+    if (!IOSSM_LL_RESPONSE_OK(resp.status))
     {
+        printf("IOSSM_COMMAND_REJECTED status=0x%08x general=%u command=%u\n", resp.status, (resp.status >> 1U) & 15U, (resp.status >> 5U) & 7U);
         return -EIO;
     }
     return 0;
@@ -211,8 +212,9 @@ int32_t iossm_mw_clear_ecc_buffer(const iossm_mw_ctx_t *ctx)
     iossm_mw_fill_desc(ctx, &desc);
     resp = iossm_ll_send_command(&desc, IOSSM_LL_ECC_CLEAR_ERR, IOSSM_LL_NO_PARAM);
 
-    if ((resp.status & 1U) != 1U)
+    if (!IOSSM_LL_RESPONSE_OK(resp.status))
     {
+        printf("IOSSM_COMMAND_REJECTED status=0x%08x general=%u command=%u\n", resp.status, (resp.status >> 1U) & 15U, (resp.status >> 5U) & 7U);
         return -EIO;
     }
     return (int32_t)((resp.status >> 16U) & 0x7U);
@@ -233,8 +235,9 @@ int32_t iossm_mw_mask_interrupt(const iossm_mw_ctx_t *ctx, uint32_t interrupts)
     iossm_mw_fill_desc(ctx, &desc);
     resp = iossm_ll_send_command(&desc, IOSSM_LL_ECC_INT_MASK, interrupts);
 
-    if ((resp.status & 1U) != 1U)
+    if (!IOSSM_LL_RESPONSE_OK(resp.status))
     {
+        printf("IOSSM_COMMAND_REJECTED status=0x%08x general=%u command=%u\n", resp.status, (resp.status >> 1U) & 15U, (resp.status >> 5U) & 7U);
         return -EIO;
     }
     return 0;
@@ -255,8 +258,9 @@ int32_t iossm_mw_ack_interrupt(const iossm_mw_ctx_t *ctx, uint32_t interrupts)
     iossm_mw_fill_desc(ctx, &desc);
     resp = iossm_ll_send_command(&desc, IOSSM_LL_ECC_INT_ACK, interrupts);
 
-    if ((resp.status & 1U) != 1U)
+    if (!IOSSM_LL_RESPONSE_OK(resp.status))
     {
+        printf("IOSSM_COMMAND_REJECTED status=0x%08x general=%u command=%u\n", resp.status, (resp.status >> 1U) & 15U, (resp.status >> 5U) & 7U);
         return -EIO;
     }
     return 0;
@@ -309,8 +313,9 @@ int32_t iossm_mw_inject_sbit_err(const iossm_mw_ctx_t *ctx, uint64_t ddr_addr)
      * subsequent read exercises the ECC correction path.                 */
     cache_force_invalidate((void *)(uintptr_t)ddr_addr, 8);
 
-    if ((resp.status & 1U) != 1U)
+    if (!IOSSM_LL_RESPONSE_OK(resp.status))
     {
+        printf("IOSSM_COMMAND_REJECTED status=0x%08x general=%u command=%u\n", resp.status, (resp.status >> 1U) & 15U, (resp.status >> 5U) & 7U);
         return -EIO;
     }
     return 0;
@@ -333,8 +338,9 @@ int32_t iossm_mw_inject_dbit_err(const iossm_mw_ctx_t *ctx, uint64_t ddr_addr)
 
     cache_force_invalidate((void *)(uintptr_t)ddr_addr, 8);
 
-    if ((resp.status & 1U) != 1U)
+    if (!IOSSM_LL_RESPONSE_OK(resp.status))
     {
+        printf("IOSSM_COMMAND_REJECTED status=0x%08x general=%u command=%u\n", resp.status, (resp.status >> 1U) & 15U, (resp.status >> 5U) & 7U);
         return -EIO;
     }
     return 0;

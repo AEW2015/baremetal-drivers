@@ -1,0 +1,8 @@
+{
+  "ocram_sha256": "f814e3663ebb6259ff19a7a54299dc5980987a27b6342eb7169962d8f8fc5b4d",
+  "bl31_sha256": "79a4cdd701a87baff39de85fa45de58b4fae335f54593b2d7778e72f53cdd2f8",
+  "guests": {
+    "bridge": "7f828d0bef13b123578444e19d6c9040e34fd6a2bedcf7ab4fd2eae44be99d11",
+    "reboot": "228effccbce4407eaca5bcd462affc8d2fe5b14cbc384b8e7056d3f28a0b8e31"
+  }
+}
