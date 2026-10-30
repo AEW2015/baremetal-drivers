@@ -1,6 +1,7 @@
 /* Agilex adapter UI. Upstream renderer remains unmodified in tools/vendor. */
 const ARCH = D.integration;
 let chosenExample = "", chosenPlatform = "all";
+let navigationTrail = [], settledView = null, returningToView = false;
 const platformTitle = {qemu:"QEMU",simics:"Simics",hardware:"Hardware"};
 function examplesAt(path) {
   return ARCH.examples.filter(e => e.blocks.some(b => b === path || b.startsWith(path + "/")));
@@ -23,12 +24,14 @@ function architectureDetails(path) {
   const info=ARCH.blocks[ancestor];
   let examples=examplesAt(ancestor || path);
   if (chosenExample) examples=examples.filter(e=>e.id===chosenExample);
-  const docs = [ancestor.startsWith("/SOM_IO") ? ARCH.sources.som : ancestor.startsWith("/Fabric/Simics_reference") ? ARCH.sources.simics : ARCH.sources.trm];
+  const docs = documentsAt(path);
   if (info && info.address) docs.push(ARCH.sources.address_map);
   let h=`<section class="architecture-detail"><h3>Example explorer</h3>`;
   if(info) h+=`<div class="context"><b>${esc(info.scope)}</b><br>${esc(info.role)}${info.address ? "<br>"+esc(info.address):""}</div>`;
   if(path.startsWith("/Fabric/Lab_proposed")) h+=`<p>Only this core's hierarchy is parsed from repository RTL. Its proposed LWHPS2FPGA deployment has not been fitted or run on the board, and Simics is not running this RTL.</p>`;
-  h+=`<p>${docs.map(d=>safeLink(d.url,d.title+" ↗")).join("<br>")}</p>`;
+  h+=`<h3>Direct reference pages</h3><p class="direct-trm-links">${docs.map(d=>safeLink(d.url,d.title+" ↗")).join("<br>")}</p>`;
+  const parent=path.split('/').filter(Boolean).slice(0,-1).join('/');
+  if(parent)h+=`<div class="block-links"><button type="button" data-open-level="/${esc(parent)}">↑ Open parent diagram</button></div>`;
   h+=`<h3>${examples.length} related example${examples.length===1?"":"s"}</h3>`;
   h+=examples.map(exampleCard).join("") || "<p>No example matches the current selection. Choose All examples to browse this block.</p>";
   h+=`<p class="architecture-credit">Rendered with ${safeLink("https://github.com/al-nafisah/fpga-project-analyzer","FPGA Project Analyzer")} (MIT), layout by ELK (EPL-2.0). ${safeLink("https://aew2015.github.io/baremetal-drivers/assets/architecture/THIRD_PARTY.txt","Licenses and provenance ↗")}</p></section>`;
@@ -36,9 +39,11 @@ function architectureDetails(path) {
 }
 function wireArchitectureButtons(parent) {
   parent.querySelectorAll("[data-arch-block]").forEach(b=>b.onclick=()=>openBlock(b.dataset.archBlock));
+  parent.querySelectorAll("[data-open-block]").forEach(b=>b.onclick=()=>go(b.dataset.openBlock.split('/').filter(Boolean)));
+  parent.querySelectorAll("[data-open-level]").forEach(b=>b.onclick=()=>go(b.dataset.openLevel.split('/').filter(Boolean)));
 }
 async function openBlock(path) {
-  const parts=path.split("/").filter(Boolean);
+  const parts=normalizeArchitecturePath(path.split("/").filter(Boolean));
   if(!defAt(parts)) throw new Error("Unknown block: "+path);
   go(parts.slice(0,-1));
   const expected=parts.slice(0,-1).join("/");
@@ -57,7 +62,7 @@ async function chooseExample(id) {
   const e=ARCH.examples.find(e=>e.id===id);
   if(id && !e) return;
   chosenExample=id;$("example-picker").value=id;
-  const url=new URL(location.href);
+  const url=new URL(location.href);url.searchParams.delete("sel");
   if(id)url.searchParams.set("example",id);else url.searchParams.delete("example");
   history.replaceState(null,"",url);
   if(e) await openBlock(e.blocks[0]);else {panel();decorateArchitecture();}
@@ -73,7 +78,7 @@ function decorateArchitecture() {
     node.classList.toggle("example-hit",!!e && e.blocks.some(b=>b===m.full || b.startsWith(m.full+"/") || m.full.startsWith(b+"/")));
     node.onkeydown=event=>{
       if(event.key==="Enter"){event.preventDefault();event.stopPropagation();select(pick(m,m.inst.name));}
-      if(event.key===" "){event.preventDefault();event.stopPropagation();if(drillable(m.def))go(S.path.concat(m.inst.name));}
+      if(event.key===" "){event.preventDefault();event.stopPropagation();if(drillable(m.def))go(m.full.split('/').filter(Boolean));}
     };
   });
   $("example-count").textContent=(chosenExample ? "Selected: "+chosenExample : ARCH.examples.length+" catalog entries")+" · "+Object.keys(ARCH.blocks).length+" blocks";
@@ -89,5 +94,69 @@ function initializeExplorer() {
   $("example-picker").onchange=event=>chooseExample(event.target.value);
   $("example-search").oninput=event=>fillExamplePicker(event.target.value);
   $("platform-picker").onchange=event=>{chosenPlatform=event.target.value;panel();};
-  $("architecture-overview").onclick=()=>{chosenExample="";$("example-search").value="";fillExamplePicker();chooseExample("");go([]);};
+  $("architecture-overview").onclick=goSystem;
+  $("architecture-up").onclick=()=>{if(S.path.length)go(S.path.slice(0,-1));};
+  $("architecture-back").onclick=goBack;
+  settledView={path:[],example:"",selected:null};
+  new ResizeObserver(()=>{$("main").style.top=$("architecture-bar").getBoundingClientRect().bottom+"px";fit();}).observe($("architecture-bar"));
+  addEventListener('keydown',event=>{
+    if(event.target.closest('input,select,textarea'))return;
+    if(event.altKey && event.key==='ArrowLeft'){event.preventDefault();goBack();}
+    if(event.altKey && event.key==='ArrowUp'){event.preventDefault();if(S.path.length)go(S.path.slice(0,-1));}
+  });
+}
+
+function normalizeArchitecturePath(parts) {
+  let path='/'+parts.join('/');
+  for(const [oldPath,newPath] of Object.entries(ARCH.aliases).sort((a,b)=>b[0].length-a[0].length)){
+    if(path===oldPath || path.startsWith(oldPath+'/')){path=newPath+path.slice(oldPath.length);break;}
+  }
+  return path.split('/').filter(Boolean);
+}
+function documentsAt(path) {
+  let ancestor=path;
+  while(ancestor && !ARCH.blocks[ancestor])ancestor=ancestor.slice(0,ancestor.lastIndexOf('/'));
+  const info=ARCH.blocks[ancestor];
+  if(info && info.documents)return info.documents.map(key=>ARCH.documents[key]);
+  if(path.startsWith('/SOM_IO'))return [ARCH.sources.som];
+  if(path.startsWith('/Fabric/Simics_reference'))return [ARCH.sources.simics];
+  return [ARCH.documents.hps];
+}
+function currentView() {
+  return {path:S.path.slice(),example:chosenExample,selected:S.sel && S.sel.type==='inst' ? S.sel.full : null};
+}
+function rememberNavigation(next) {
+  if(returningToView || !settledView || next.join('/')===S.path.join('/'))return;
+  const snapshot=JSON.parse(JSON.stringify(settledView));
+  if(JSON.stringify(navigationTrail[navigationTrail.length-1])!==JSON.stringify(snapshot))navigationTrail.push(snapshot);
+}
+function updateNavigationControls() {
+  settledView=currentView();
+  $("architecture-back").disabled=returningToView || !navigationTrail.length;
+  $("architecture-up").disabled=returningToView || !S.path.length;
+  $("architecture-up").title=S.path.length ? 'Open /'+S.path.slice(0,-1).join('/') : 'Already at the system overview';
+  const path=S.sel && S.sel.type==='inst' ? S.sel.full : '/'+S.path.join('/');
+  const doc=documentsAt(path)[0];
+  $("trm-context-link").href=doc.url;$("trm-context-link").textContent=(doc.kind==='trm'?'TRM ':'')+doc.title+' ↗';
+  $("trm-context-link").title=doc.title;
+  $("diagram-level").textContent=S.path.length ? '/'+S.path.join('/') : 'TRM system overview';
+  $("flows").disabled=!S.path.length;
+}
+async function goBack() {
+  if(returningToView)return;
+  const previous=navigationTrail.pop();if(!previous)return;
+  returningToView=true;
+  try{
+    chosenExample=previous.example;$("example-search").value="";fillExamplePicker();$("example-picker").value=chosenExample;
+    const url=new URL(location.href);if(chosenExample)url.searchParams.set('example',chosenExample);else url.searchParams.delete('example');history.replaceState(null,'',url);
+    go(previous.path);
+    for(let i=0;i<200 && !window.__fpa_ready;i++)await new Promise(resolve=>setTimeout(resolve,10));
+    if(previous.selected){const m=Object.values(G.meta).find(m=>m.full===previous.selected);if(m)select(pick(m,m.inst.name));}
+    fit();decorateArchitecture();
+  }finally{returningToView=false;updateNavigationControls();}
+}
+function goSystem() {
+  chosenExample="";$("example-search").value="";fillExamplePicker();
+  const url=new URL(location.href);url.searchParams.delete('example');url.searchParams.delete('sel');history.replaceState(null,'',url);
+  go([]);
 }

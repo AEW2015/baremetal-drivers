@@ -15,7 +15,12 @@ repository's recorded platform results.
 - **Click a block** to see its role, related examples, platform results,
   tutorial/expected-output links, source and execution evidence.
 - **Double-click**, or select **Open**, to drill into a subsystem. The breadcrumb
-  returns to the system view. Scroll to zoom and drag to pan.
+  and prominent **← Back**, **↑ Up one level**, and **⌂ System** controls navigate
+  the hierarchy. Back restores the previous level and selection; Up opens the
+  parent. Keyboard shortcuts are **Alt+Left** and **Alt+Up**. Scroll to zoom and drag to pan.
+- The toolbar and **Direct reference pages** panel link to the selected block’s
+  specific TRM section, including a content ID to distinguish repeated headings.
+  The model includes **48 direct TRM section links**.
 - Choose an **Example** to locate it and highlight related blocks. **Find**
   narrows the example list; **Results** emphasizes QEMU, Simics or hardware.
 - Open **Fabric → Lab_proposed → lab_ip** for the register ABI, then open it
@@ -41,8 +46,12 @@ Try direct example links:
 
 ## What the drawing represents
 
-The **61 architecture blocks** are an educational grouping based on the HPS TRM,
-our Modular ES bench profile and SOM schematic. Wires represent functional access
+The **77 architecture blocks** are an educational grouping based on the HPS TRM,
+our Modular ES bench profile and SOM schematic. The system overview follows
+TRM Figure 1: MPU above APS, MPFE to the left, and PSS peripherals and
+interconnect to the right. Colors and grouping follow that reference in an
+independent redraw; the example fabric and SOM additions are clearly separated.
+Wires represent functional access
 paths, not an extracted Quartus netlist. Logical grouping is not a claim about
 physical floorplan, exact internal bus wiring, clock frequency or timing closure.
 The map focuses on blocks relevant to this example collection; it is not a full
@@ -50,9 +59,9 @@ replacement for the TRM.
 
 | Context | Provenance and limits |
 |---|---|
-| HPS | TRM architecture, with separate memory, processor, peripheral, control and bridge views |
+| HPS | TRM MPU, APS, PSS and CoreSight hierarchy, with block-specific chapter links |
 | SDM | Configuration and firmware-service context outside the HPS CPU |
-| DDR / IO96 | Simplified HPS memory path; matching bank-3A handoff required |
+| DDR / IO96 | TRM IOBank 0/1 architecture context; this bench initializes HPS DDR bank 3A only; matching handoff required |
 | SOM devices | Board schematic and established bench profile; no carrier connectivity inferred |
 | Proposed ADD/XOR fabric | Actual repository RTL, parsed structurally; C-driver/RTL co-simulation passed, physical deployment unqualified |
 | Simics reference fabric | Behavioral memory/PIO models; not simulation of our custom RTL |
@@ -66,7 +75,7 @@ this Modular ES bench; production-part assumptions are not interchangeable.
 ## Sources and tool attribution
 
 - [Agilex 5 HPS Technical Reference Manual, 26.1.1](https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs)
-- [Official HPS block diagram and features](https://docs.altera.com/r/docs/762191/current/agilex-5-fpgas-and-socs-device-overview/hard-processor-system-in-agilex-5-socs)
+- [TRM Figure 1: HPS block diagram](https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/hps-block-diagram?contentId=cSfnXaIdQVtkXwpvt5_ikQ)
 - [HPS address map and register definitions, including R0](https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/hps-address-map-and-register-definitions)
 - [Modular SOM schematic](https://docs.altera.com/v/u/docs/836174/agilextm-5-fpga-e-series-065b-modular-fpga-development-kit-board-som-board-schematic)
 - [Simics reference fabric model documentation](https://docs.altera.com/r/docs/786901/25.3/intel-simics-simulator-for-altera-fpgas-agilextm-5-and-agilextm-3-virtual-platform-user-guide/fpga-fabric)
@@ -102,6 +111,7 @@ python3 tools/architecture/test_browser.py
 ```
 
 The browser checks all 81 example selections, result/evidence cards, actual RTL
-drill-down, keyboard selection, SVG export, search, deep links and mobile layout.
+drill-down, Back/Up navigation, direct TRM links, keyboard selection, SVG/PNG
+export, search, legacy deep links and mobile layout.
 It runs with networking disabled and rejects JavaScript errors. Website deployment
 depends on this check. The feature does not program or access the physical board.

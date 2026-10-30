@@ -6,257 +6,99 @@
       "path": "/HPS",
       "title": "Hard Processor System",
       "role": "Hard CPU, memory, peripherals and control",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/MPU",
-      "title": "Arm processor subsystem",
-      "role": "Two A55 and two A76 cores; shared CPU lessons",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/MPU/A55",
-      "title": "Dual Cortex-A55",
-      "role": "Boot core and second A55; MIDR/MPIDR verified",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/MPU/A76",
-      "title": "Dual Cortex-A76",
-      "role": "Two secondary A76 cores; execution verified",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/MPU/MMU_NEON",
-      "title": "CPU MMU / NEON / exceptions",
-      "role": "Architectural CPU functions, not fabric IP",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/MPU/Generic_timer",
-      "title": "Arm generic timer",
-      "role": "Secure physical timer FIQ lesson; ten interrupts",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Memory",
-      "title": "Memory and interconnect",
-      "role": "Simplified functional grouping; not a wiring netlist",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Memory/CCU",
-      "title": "Cache coherency unit",
-      "role": "Register checks do not qualify cache coherency",
       "scope": "TRM architecture",
-      "address": "0x1c000000",
-      "source": "platform/agilex5/include/socfpga_peripheral_reg_plat.h"
-    },
-    {
-      "path": "/HPS/Memory/SMMU",
-      "title": "System memory management unit",
-      "role": "ID checks are separate from DMA translation",
-      "scope": "TRM architecture",
-      "address": "0x16000000",
-      "source": "platform/agilex5/include/socfpga_peripheral_reg_plat.h"
-    },
-    {
-      "path": "/HPS/Memory/NoC",
-      "title": "NoC and firewalls",
-      "role": "Access control, probes and error status",
-      "scope": "TRM architecture",
-      "address": "firewall 0x10d21000; probe 0x10d22000",
-      "source": "platform/agilex5/include/socfpga_peripheral_reg_plat.h"
-    },
-    {
-      "path": "/HPS/Memory/OCRAM",
-      "title": "On-chip RAM",
-      "role": "Local-memory code; no DDR prerequisite",
-      "scope": "TRM architecture",
-      "address": "Boot entry 0x00000000",
-      "source": "examples/agilex5-modular/bootstrap/ocram/uart_local.c"
-    },
-    {
-      "path": "/HPS/Memory/MPFE",
-      "title": "Multi-port front end",
-      "role": "DDR access and security windows; simplified placement",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals",
-      "title": "HPS peripheral subsystem",
-      "role": "Named controllers, not all physical instances",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/UART0",
-      "title": "UART0 / DW16550",
-      "role": "SOM J2 console; preserve handoff baud divisor",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/DMA",
-      "title": "DMA controllers",
-      "role": "Descriptor copy and full destination readback",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/EMAC2",
-      "title": "EMAC2 / XGMAC",
-      "role": "SOM Ethernet path and separate lwIP bandwidth lab",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/SDMMC",
-      "title": "SD/eMMC controller",
-      "role": "SOM removable microSD; media I/O is separate from card detect",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/USB",
-      "title": "USB controllers",
-      "role": "Controller identification is not USB enumeration",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/I2C",
-      "title": "I2C controllers",
-      "role": "Vendor models differ from SOM management-bus wiring",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/I3C1",
-      "title": "I3C1 controller",
-      "role": "Qualified SOM reads use legacy-I2C mode, not native I3C",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/SPI",
-      "title": "SPI controllers",
-      "role": "Internal loopback does not prove an external device",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/GPIO",
-      "title": "GPIO / pad control",
-      "role": "LED pad checks and GPIO open-drain I2C",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/Timers",
-      "title": "Peripheral timers",
-      "role": "Separate from the architectural generic timer",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/Watchdog",
-      "title": "Watchdog timers",
-      "role": "Interrupt-first mode; hardware reset not claimed",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/NAND",
-      "title": "NAND controller",
-      "role": "Architectural block; populated SOM NAND not established",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Peripherals/ComboPHY",
-      "title": "Combo DLL PHY",
-      "role": "Identification only; no PHY datapath qualification",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Control",
-      "title": "System control and interrupts",
-      "role": "Logical grouping of control blocks",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Control/GIC",
-      "title": "GIC-600",
-      "role": "Polled SGI and actual timer exception delivery are different checks",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Control/Clock",
-      "title": "Clock manager",
-      "role": "Clock configuration and register checks",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Control/Reset",
-      "title": "Reset manager",
-      "role": "Peripheral reset and warm reboot use different paths",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Control/Power",
-      "title": "Power manager",
-      "role": "Secondary-core reset/power release",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Control/ECC",
-      "title": "ECC control",
-      "role": "Register/default reads do not prove injected-error recovery",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Control/Debug",
-      "title": "CoreSight / JTAG DAP",
-      "role": "Host debugger loads and verifies RAM; not a fabric bus master",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Mailbox",
-      "title": "HPS SDM mailbox",
-      "role": "Direct register and TF-A SiP paths are separate exercises",
-      "scope": "TRM architecture",
-      "address": "0x10a30000 (direct bench example)",
-      "source": "examples/agilex5-modular/core/mailbox_status.c"
-    },
-    {
-      "path": "/HPS/Bridges",
-      "title": "HPS / fabric interfaces",
-      "role": "Logical access paths; widths and clocks are not inferred",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Bridges/HPS2FPGA",
-      "title": "HPS-to-FPGA",
-      "role": "Simics loopback uses modeled memory; physical endpoint still required",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Bridges/LWHPS2FPGA",
-      "title": "Lightweight HPS-to-FPGA",
-      "role": "Control-only hardware test passed; proposed lab map is 0x20020000",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Bridges/FPGA2HPS",
-      "title": "FPGA-to-HPS",
-      "role": "Fabric initiator access to HPS resources",
-      "scope": "TRM architecture"
-    },
-    {
-      "path": "/HPS/Bridges/FPGA2SDRAM",
-      "title": "FPGA-to-SDRAM",
-      "role": "Fabric memory access through the MPFE path",
-      "scope": "TRM architecture"
+      "documents": [
+        "hps"
+      ]
     },
     {
       "path": "/DDR_IO96",
       "title": "DDR / IO96 context",
       "role": "Conceptual HPS DDR path; IO96 is not soft user RTL",
-      "scope": "TRM architecture"
+      "scope": "TRM architecture",
+      "documents": [
+        "mpfe_diagram"
+      ]
+    },
+    {
+      "path": "/SDM",
+      "title": "Secure Device Manager",
+      "role": "Configuration and firmware services outside the HPS CPU",
+      "scope": "TRM architecture",
+      "documents": [
+        "sdm"
+      ]
+    },
+    {
+      "path": "/Fabric",
+      "title": "FPGA fabric contexts",
+      "role": "Reference, proposed RTL and PR recipe are separate contexts",
+      "scope": "Mixed contexts \u2014 inspect each child",
+      "documents": [
+        "bridges"
+      ]
+    },
+    {
+      "path": "/SOM_IO",
+      "title": "SOM external components",
+      "role": "Simplified board context; no carrier peripherals implied",
+      "scope": "SOM schematic / bench profile"
+    },
+    {
+      "path": "/HPS/MPU",
+      "title": "Micro Processor Unit (MPU)",
+      "role": "Dual A76, dual A55 and DynamIQ Shared Unit \u2014 TRM chapter 3",
+      "scope": "TRM architecture",
+      "documents": [
+        "mpu"
+      ]
+    },
+    {
+      "path": "/HPS/APS",
+      "title": "Application Processor Subsystem (APS)",
+      "role": "CCU, GIC, SMMU, OCRAM and coherent F2H bridge \u2014 TRM section 2.3.3",
+      "scope": "TRM architecture",
+      "documents": [
+        "aps"
+      ]
+    },
+    {
+      "path": "/DDR_IO96/MPFE",
+      "title": "Multi-Port Front End (MPFE)",
+      "role": "MPFE NoC and FPGA-to-SDRAM access; memory-interface context, not soft user logic",
+      "scope": "TRM architecture",
+      "documents": [
+        "mpfe",
+        "mpfe_diagram"
+      ]
+    },
+    {
+      "path": "/HPS/CoreSight",
+      "title": "CoreSight / JTAG DAP",
+      "role": "Host debugger loads and verifies RAM; not a fabric bus master",
+      "scope": "TRM architecture",
+      "documents": [
+        "debug"
+      ]
+    },
+    {
+      "path": "/HPS/PSS",
+      "title": "Peripheral Subsystem (PSS)",
+      "role": "PSS NoC, peripherals, PSI and HPS-to-fabric bridges \u2014 TRM section 2.3.4",
+      "scope": "TRM architecture",
+      "documents": [
+        "pss"
+      ]
     },
     {
       "path": "/DDR_IO96/EMIF",
       "title": "DDR controller / interface",
-      "role": "Matching bank-3A handoff and DDR initialization required",
-      "scope": "Bench profile"
+      "role": "IOBank 0/1 are family architecture; this bench initializes HPS DDR bank 3A only",
+      "scope": "TRM memory-interface context; bench bank 3A only",
+      "documents": [
+        "iobank",
+        "mpfe"
+      ]
     },
     {
       "path": "/DDR_IO96/IOSSM",
@@ -264,51 +106,48 @@
       "role": "Image readback passed in Simics; ECC recovery unqualified",
       "scope": "Bench profile",
       "address": "IOSSM0 0x18400000",
-      "source": "platform/agilex5/include/socfpga_iossm_reg_plat.h"
-    },
-    {
-      "path": "/SDM",
-      "title": "Secure Device Manager",
-      "role": "Configuration and firmware services outside the HPS CPU",
-      "scope": "TRM architecture"
+      "source": "platform/agilex5/include/socfpga_iossm_reg_plat.h",
+      "documents": [
+        "mpfe"
+      ]
     },
     {
       "path": "/SDM/Mailbox_services",
       "title": "SDM mailbox services",
       "role": "NOOP, GET_IDCODE and configuration status",
-      "scope": "Firmware service"
+      "scope": "Firmware service",
+      "documents": [
+        "mailbox",
+        "sdm"
+      ]
     },
     {
       "path": "/SDM/FCS",
       "title": "FCS services",
       "role": "Cryptographic service example; not run",
-      "scope": "Firmware service"
+      "scope": "Firmware service",
+      "documents": [
+        "security",
+        "sdm"
+      ]
     },
     {
       "path": "/SDM/SEU",
       "title": "SEU services",
       "role": "SEU example present; no new fault injection performed",
-      "scope": "Firmware service"
-    },
-    {
-      "path": "/Fabric",
-      "title": "FPGA fabric contexts",
-      "role": "Reference, proposed RTL and PR recipe are separate contexts",
-      "scope": "Mixed contexts \u2014 inspect each child"
+      "scope": "Firmware service",
+      "documents": [
+        "sdm"
+      ]
     },
     {
       "path": "/Fabric/Lab_proposed",
       "title": "Proposed ADD / XOR lab",
       "role": "Not fitted or qualified on the physical kit",
-      "scope": "Proposed fabric integration"
-    },
-    {
-      "path": "/Fabric/Lab_proposed/lab_ip",
-      "title": "lab_ip Avalon-MM core",
-      "role": "Actual repository RTL; drill down to parsed logic",
-      "scope": "RTL parsed; co-simulation passed; hardware unqualified",
-      "address": "Proposed CPU base 0x20020000; span 0x40",
-      "source": "examples/agilex5-modular/fabric/rtl/lab_ip.sv"
+      "scope": "Proposed fabric integration",
+      "documents": [
+        "lw"
+      ]
     },
     {
       "path": "/Fabric/Simics_reference",
@@ -317,28 +156,13 @@
       "scope": "Simics model only"
     },
     {
-      "path": "/Fabric/Simics_reference/RAM",
-      "title": "Modeled on-chip memory",
-      "role": "HPS bridge loopback target; model-configured mapping",
-      "scope": "Simics model only"
-    },
-    {
-      "path": "/Fabric/Simics_reference/PIO",
-      "title": "Modeled PIO peripherals",
-      "role": "Reference button, switch and LED models",
-      "scope": "Simics model only"
-    },
-    {
       "path": "/Fabric/PR_recipe",
       "title": "Partial reconfiguration recipe",
       "role": "Static-shell/persona workflow; no live PR qualification",
-      "scope": "Reference only"
-    },
-    {
-      "path": "/SOM_IO",
-      "title": "SOM external components",
-      "role": "Simplified board context; no carrier peripherals implied",
-      "scope": "SOM schematic / bench profile"
+      "scope": "Reference only",
+      "documents": [
+        "bridges"
+      ]
     },
     {
       "path": "/SOM_IO/DDR3A",
@@ -381,6 +205,487 @@
       "title": "SOM USB connection",
       "role": "Controller ID is not external-device communication",
       "scope": "SOM schematic / bench profile"
+    },
+    {
+      "path": "/HPS/MPU/A55",
+      "title": "Dual Cortex-A55",
+      "role": "Boot core and second A55; MIDR/MPIDR verified",
+      "scope": "TRM architecture",
+      "documents": [
+        "a55"
+      ]
+    },
+    {
+      "path": "/HPS/MPU/A76",
+      "title": "Dual Cortex-A76",
+      "role": "Two secondary A76 cores; execution verified",
+      "scope": "TRM architecture",
+      "documents": [
+        "a76"
+      ]
+    },
+    {
+      "path": "/HPS/MPU/MMU_NEON",
+      "title": "CPU MMU / NEON / exceptions",
+      "role": "Architectural CPU functions, not fabric IP",
+      "scope": "TRM architecture",
+      "documents": [
+        "mmu",
+        "neon"
+      ]
+    },
+    {
+      "path": "/HPS/MPU/Generic_timer",
+      "title": "Arm generic timer",
+      "role": "Secure physical timer FIQ lesson; ten interrupts",
+      "scope": "TRM architecture",
+      "documents": [
+        "generic_timer"
+      ]
+    },
+    {
+      "path": "/HPS/APS/CCU",
+      "title": "Cache coherency unit",
+      "role": "Register checks do not qualify cache coherency",
+      "scope": "TRM architecture",
+      "address": "0x1c000000",
+      "source": "platform/agilex5/include/socfpga_peripheral_reg_plat.h",
+      "documents": [
+        "ccu"
+      ]
+    },
+    {
+      "path": "/HPS/APS/SMMU",
+      "title": "System memory management unit",
+      "role": "ID checks are separate from DMA translation",
+      "scope": "TRM architecture",
+      "address": "0x16000000",
+      "source": "platform/agilex5/include/socfpga_peripheral_reg_plat.h",
+      "documents": [
+        "smmu"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/NoC",
+      "title": "PSS NoC / L3 main interconnect",
+      "role": "Peripheral access, firewalls, probes and error status; throughput unqualified",
+      "scope": "TRM architecture",
+      "address": "firewall 0x10d21000; probe 0x10d22000",
+      "source": "platform/agilex5/include/socfpga_peripheral_reg_plat.h",
+      "documents": [
+        "firewalls"
+      ]
+    },
+    {
+      "path": "/HPS/APS/OCRAM",
+      "title": "On-chip RAM",
+      "role": "Local-memory code; no DDR prerequisite",
+      "scope": "TRM architecture",
+      "address": "Boot entry 0x00000000",
+      "source": "examples/agilex5-modular/bootstrap/ocram/uart_local.c",
+      "documents": [
+        "ocram"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals",
+      "title": "Peripheral controllers",
+      "role": "TRM PSS controllers; exact instances and pin routing depend on the design",
+      "scope": "TRM architecture",
+      "documents": [
+        "pss"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/System_Modules",
+      "title": "System Modules",
+      "role": "Clock, reset, power, serial, secure and system management",
+      "scope": "TRM architecture",
+      "documents": [
+        "system"
+      ]
+    },
+    {
+      "path": "/HPS/APS/GIC",
+      "title": "GIC-600",
+      "role": "Polled SGI and actual timer exception delivery are different checks",
+      "scope": "TRM architecture",
+      "documents": [
+        "gic"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/ECC",
+      "title": "ECC control",
+      "role": "Register/default reads do not prove injected-error recovery",
+      "scope": "TRM architecture",
+      "documents": [
+        "ecc"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Mailbox",
+      "title": "HPS SDM mailbox",
+      "role": "Mailbox access over PSI to the SDM; direct-register and TF-A caller paths",
+      "scope": "TRM architecture",
+      "address": "0x10a30000 (direct bench example)",
+      "source": "examples/agilex5-modular/core/mailbox_status.c",
+      "documents": [
+        "mailbox",
+        "sdm"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/HPS2FPGA",
+      "title": "HPS-to-FPGA",
+      "role": "Simics loopback uses modeled memory; physical endpoint still required",
+      "scope": "TRM architecture",
+      "documents": [
+        "h2f"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/LWHPS2FPGA",
+      "title": "Lightweight HPS-to-FPGA",
+      "role": "Control-only hardware test passed; proposed lab map is 0x20020000",
+      "scope": "TRM architecture",
+      "documents": [
+        "lw"
+      ]
+    },
+    {
+      "path": "/HPS/APS/FPGA2HPS",
+      "title": "FPGA-to-HPS",
+      "role": "I/O-coherent F2H access through APS; software controls do not qualify coherency",
+      "scope": "TRM architecture",
+      "documents": [
+        "f2h",
+        "ccu"
+      ]
+    },
+    {
+      "path": "/DDR_IO96/MPFE/FPGA2SDRAM",
+      "title": "FPGA-to-SDRAM",
+      "role": "Fabric memory access through the MPFE path",
+      "scope": "TRM architecture",
+      "documents": [
+        "f2sdram"
+      ]
+    },
+    {
+      "path": "/Fabric/Lab_proposed/lab_ip",
+      "title": "lab_ip Avalon-MM core",
+      "role": "Actual repository RTL; drill down to parsed logic",
+      "scope": "RTL parsed; co-simulation passed; hardware unqualified",
+      "address": "Proposed CPU base 0x20020000; span 0x40",
+      "source": "examples/agilex5-modular/fabric/rtl/lab_ip.sv",
+      "documents": [
+        "lw"
+      ]
+    },
+    {
+      "path": "/Fabric/Simics_reference/RAM",
+      "title": "Modeled on-chip memory",
+      "role": "HPS bridge loopback target; model-configured mapping",
+      "scope": "Simics model only"
+    },
+    {
+      "path": "/Fabric/Simics_reference/PIO",
+      "title": "Modeled PIO peripherals",
+      "role": "Reference button, switch and LED models",
+      "scope": "Simics model only"
+    },
+    {
+      "path": "/HPS/MPU/DSU",
+      "title": "DynamIQ Shared Unit (DSU)",
+      "role": "Shared L3 and core interfaces; cache-coherency qualification is separate",
+      "scope": "TRM architecture",
+      "documents": [
+        "dsu"
+      ]
+    },
+    {
+      "path": "/HPS/APS/TCU",
+      "title": "SMMU Translation Control Unit (TCU)",
+      "role": "Translation control; not qualified by the SMMU identity-only example",
+      "scope": "TRM architecture",
+      "documents": [
+        "smmu"
+      ]
+    },
+    {
+      "path": "/HPS/APS/F2H_TBU",
+      "title": "F2H Translation Buffer Unit",
+      "role": "Translation-buffer context for the coherent fabric bridge",
+      "scope": "TRM architecture",
+      "documents": [
+        "smmu",
+        "f2h"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/PSI",
+      "title": "PSI link to SDM",
+      "role": "Service path between PSS and the SDM",
+      "scope": "TRM architecture",
+      "documents": [
+        "mailbox"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Pin_mux",
+      "title": "HPS I/O pin multiplexing",
+      "role": "Design-specific routing to HPS I/O or fabric; preserve the matching handoff",
+      "scope": "TRM architecture",
+      "documents": [
+        "pinmux"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/IO_TBU",
+      "title": "I/O Translation Buffer Unit",
+      "role": "SMMU translation context; no translation test claimed",
+      "scope": "TRM architecture",
+      "documents": [
+        "smmu"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/DMA_TBU",
+      "title": "DMA Translation Buffer Unit",
+      "role": "SMMU translation context; DMA copy alone does not test translated DMA",
+      "scope": "TRM architecture",
+      "documents": [
+        "smmu"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/EMAC_TBU",
+      "title": "EMAC Translation Buffer Unit",
+      "role": "SMMU translation context; bandwidth results do not establish translated DMA",
+      "scope": "TRM architecture",
+      "documents": [
+        "smmu"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/SDM_TBU",
+      "title": "SDM Translation Buffer Unit",
+      "role": "SMMU translation context for SDM-related accesses",
+      "scope": "TRM architecture",
+      "documents": [
+        "smmu"
+      ]
+    },
+    {
+      "path": "/DDR_IO96/MPFE/NoC",
+      "title": "MPFE NoC",
+      "role": "Memory-side interconnect; physical memory bandwidth is a separate qualification",
+      "scope": "TRM architecture",
+      "documents": [
+        "mpfe_noc"
+      ]
+    },
+    {
+      "path": "/DDR_IO96/MPFE/F2SDRAM_TBU",
+      "title": "F2SDRAM Translation Buffer Unit",
+      "role": "Fabric-to-memory translation context; not exercised by DDR Hello",
+      "scope": "TRM architecture",
+      "documents": [
+        "f2sdram",
+        "smmu"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/UART0",
+      "title": "UART0 / DW16550",
+      "role": "SOM J2 console; preserve handoff baud divisor",
+      "scope": "TRM architecture",
+      "documents": [
+        "uart"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/DMA",
+      "title": "DMA controllers",
+      "role": "Descriptor copy and full destination readback",
+      "scope": "TRM architecture",
+      "documents": [
+        "dma"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/EMAC2",
+      "title": "EMAC2 / XGMAC",
+      "role": "SOM Ethernet path and separate lwIP bandwidth lab",
+      "scope": "TRM architecture",
+      "documents": [
+        "emac"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/SDMMC",
+      "title": "SD/eMMC controller",
+      "role": "SOM removable microSD; media I/O is separate from card detect",
+      "scope": "TRM architecture",
+      "documents": [
+        "sdmmc"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/USB",
+      "title": "USB controllers",
+      "role": "Controller identification is not USB enumeration",
+      "scope": "TRM architecture",
+      "documents": [
+        "usb31",
+        "usb2"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/I2C",
+      "title": "I2C controllers",
+      "role": "Vendor models differ from SOM management-bus wiring",
+      "scope": "TRM architecture",
+      "documents": [
+        "i2c"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/I3C1",
+      "title": "I3C1 controller",
+      "role": "Qualified SOM reads use legacy-I2C mode, not native I3C",
+      "scope": "TRM architecture",
+      "documents": [
+        "i3c"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/SPI",
+      "title": "SPI controllers",
+      "role": "Internal loopback does not prove an external device",
+      "scope": "TRM architecture",
+      "documents": [
+        "spi"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/GPIO",
+      "title": "GPIO / pad control",
+      "role": "LED pad checks and GPIO open-drain I2C",
+      "scope": "TRM architecture",
+      "documents": [
+        "gpio"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/Timers",
+      "title": "Peripheral timers",
+      "role": "Separate from the architectural generic timer",
+      "scope": "TRM architecture",
+      "documents": [
+        "timers"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/Watchdog",
+      "title": "Watchdog timers",
+      "role": "Interrupt-first mode; hardware reset not claimed",
+      "scope": "TRM architecture",
+      "documents": [
+        "watchdog"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/NAND",
+      "title": "NAND controller",
+      "role": "Architectural block; populated SOM NAND not established",
+      "scope": "TRM architecture",
+      "documents": [
+        "nand"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/ComboPHY",
+      "title": "Combo DLL PHY",
+      "role": "Identification only; no PHY datapath qualification",
+      "scope": "TRM architecture",
+      "documents": [
+        "combophy"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/System_Modules/Clock",
+      "title": "Clock manager",
+      "role": "Clock configuration and register checks",
+      "scope": "TRM architecture",
+      "documents": [
+        "clock"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/System_Modules/Reset",
+      "title": "Reset manager",
+      "role": "Peripheral reset and warm reboot use different paths",
+      "scope": "TRM architecture",
+      "documents": [
+        "reset"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/System_Modules/Power",
+      "title": "Power manager",
+      "role": "Secondary-core reset/power release",
+      "scope": "TRM architecture",
+      "documents": [
+        "power"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/System_Modules/System_Manager",
+      "title": "System Manager",
+      "role": "System configuration and status",
+      "scope": "TRM architecture",
+      "documents": [
+        "system"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/System_Modules/Serial_Controller",
+      "title": "Serial Controller",
+      "role": "System-module context from the HPS diagram; not an additional UART example",
+      "scope": "TRM architecture",
+      "documents": [
+        "system"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/System_Modules/Secure_Manager",
+      "title": "Secure Manager",
+      "role": "Security-management context; not a new FCS hardware qualification",
+      "scope": "TRM architecture",
+      "documents": [
+        "security"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/EMAC_PHY_interface",
+      "title": "EMAC PHY / SERDES interface",
+      "role": "Architectural PHY interface context; controller identification does not qualify external I/O",
+      "scope": "TRM architecture",
+      "documents": [
+        "emac"
+      ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/USB_PHY_interface",
+      "title": "USB PHY channel interface",
+      "role": "Architectural PHY interface context; controller identification does not qualify external I/O",
+      "scope": "TRM architecture",
+      "documents": [
+        "usb31",
+        "usb2"
+      ]
     }
   ],
   "connections": [
@@ -484,66 +789,38 @@
     },
     {
       "level": "/HPS",
-      "name": "CPU_memory_access",
+      "name": "MPU_to_APS",
       "ends": [
         [
           "MPU",
           "memory"
         ],
         [
-          "Memory",
-          "CPU_access"
+          "APS",
+          "MPU_access"
         ]
       ]
     },
     {
       "level": "/HPS",
-      "name": "Peripheral_register_access",
+      "name": "APS_to_PSS",
       "ends": [
         [
-          "Memory",
-          "peripherals"
+          "APS",
+          "peripheral_access"
         ],
         [
-          "Peripherals",
-          "register_access"
+          "PSS",
+          "APS_access"
         ]
       ]
     },
     {
       "level": "/HPS",
-      "name": "Bridge_control_access",
+      "name": "GIC_to_MPU",
       "ends": [
         [
-          "Memory",
-          "bridges"
-        ],
-        [
-          "Bridges",
-          "register_access"
-        ]
-      ]
-    },
-    {
-      "level": "/HPS",
-      "name": "Mailbox_access",
-      "ends": [
-        [
-          "Memory",
-          "mailbox"
-        ],
-        [
-          "Mailbox",
-          "register_access"
-        ]
-      ]
-    },
-    {
-      "level": "/HPS",
-      "name": "Interrupt_delivery",
-      "ends": [
-        [
-          "Control",
+          "APS",
           "interrupts"
         ],
         [
@@ -554,20 +831,20 @@
     },
     {
       "level": "/HPS",
-      "name": "Control_register_access",
+      "name": "Debug_context",
       "ends": [
         [
-          "Memory",
-          "control"
+          "CoreSight",
+          "debug_access"
         ],
         [
-          "Control",
-          "register_access"
+          "MPU",
+          "debug_access"
         ]
       ]
     },
     {
-      "level": "/HPS/Memory",
+      "level": "/HPS/APS",
       "name": "Functional_access_context",
       "ends": [
         [
@@ -583,21 +860,91 @@
           "context"
         ],
         [
-          "NoC",
-          "context"
-        ],
-        [
           "OCRAM",
           "context"
         ],
         [
-          "MPFE",
+          "GIC",
+          "context"
+        ],
+        [
+          "FPGA2HPS",
+          "context"
+        ],
+        [
+          "TCU",
+          "context"
+        ],
+        [
+          "F2H_TBU",
           "context"
         ]
       ]
     },
     {
-      "level": "/HPS/Peripherals",
+      "level": "/HPS/PSS",
+      "name": "Functional_access_context",
+      "ends": [
+        [
+          "",
+          "context"
+        ],
+        [
+          "NoC",
+          "context"
+        ],
+        [
+          "Peripherals",
+          "context"
+        ],
+        [
+          "System_Modules",
+          "context"
+        ],
+        [
+          "ECC",
+          "context"
+        ],
+        [
+          "Mailbox",
+          "context"
+        ],
+        [
+          "HPS2FPGA",
+          "context"
+        ],
+        [
+          "LWHPS2FPGA",
+          "context"
+        ],
+        [
+          "PSI",
+          "context"
+        ],
+        [
+          "Pin_mux",
+          "context"
+        ],
+        [
+          "IO_TBU",
+          "context"
+        ],
+        [
+          "DMA_TBU",
+          "context"
+        ],
+        [
+          "EMAC_TBU",
+          "context"
+        ],
+        [
+          "SDM_TBU",
+          "context"
+        ]
+      ]
+    },
+    {
+      "level": "/HPS/PSS/Peripherals",
       "name": "Functional_access_context",
       "ends": [
         [
@@ -659,15 +1006,11 @@
       ]
     },
     {
-      "level": "/HPS/Control",
+      "level": "/HPS/PSS/System_Modules",
       "name": "Functional_access_context",
       "ends": [
         [
           "",
-          "context"
-        ],
-        [
-          "GIC",
           "context"
         ],
         [
@@ -683,17 +1026,21 @@
           "context"
         ],
         [
-          "ECC",
+          "System_Manager",
           "context"
         ],
         [
-          "Debug",
+          "Serial_Controller",
+          "context"
+        ],
+        [
+          "Secure_Manager",
           "context"
         ]
       ]
     },
     {
-      "level": "/HPS/Bridges",
+      "level": "/DDR_IO96",
       "name": "Functional_access_context",
       "ends": [
         [
@@ -701,19 +1048,37 @@
           "context"
         ],
         [
-          "HPS2FPGA",
+          "MPFE",
           "context"
         ],
         [
-          "LWHPS2FPGA",
+          "EMIF",
           "context"
         ],
         [
-          "FPGA2HPS",
+          "IOSSM",
+          "context"
+        ]
+      ]
+    },
+    {
+      "level": "/DDR_IO96/MPFE",
+      "name": "Functional_access_context",
+      "ends": [
+        [
+          "",
           "context"
         ],
         [
           "FPGA2SDRAM",
+          "context"
+        ],
+        [
+          "NoC",
+          "context"
+        ],
+        [
+          "F2SDRAM_TBU",
           "context"
         ]
       ]
@@ -736,24 +1101,6 @@
         ],
         [
           "SEU",
-          "context"
-        ]
-      ]
-    },
-    {
-      "level": "/DDR_IO96",
-      "name": "Functional_access_context",
-      "ends": [
-        [
-          "",
-          "context"
-        ],
-        [
-          "EMIF",
-          "context"
-        ],
-        [
-          "IOSSM",
           "context"
         ]
       ]
@@ -793,6 +1140,34 @@
         [
           "USB_port",
           "context"
+        ]
+      ]
+    },
+    {
+      "level": "/HPS/MPU",
+      "name": "Core_to_DSU",
+      "ends": [
+        [
+          "A55",
+          "core_access"
+        ],
+        [
+          "DSU",
+          "A55_access"
+        ]
+      ]
+    },
+    {
+      "level": "/HPS/MPU",
+      "name": "A76_to_DSU",
+      "ends": [
+        [
+          "A76",
+          "core_access"
+        ],
+        [
+          "DSU",
+          "A76_access"
         ]
       ]
     },
@@ -869,275 +1244,276 @@
   ],
   "example_blocks": {
     "upstream/bridge": [
-      "/HPS/Bridges"
+      "/HPS/PSS/HPS2FPGA",
+      "/HPS/APS/FPGA2HPS"
     ],
     "upstream/ccu": [
-      "/HPS/Memory/CCU"
+      "/HPS/APS/CCU"
     ],
     "upstream/clk_mngr": [
-      "/HPS/Control/Clock"
+      "/HPS/PSS/System_Modules/Clock"
     ],
     "upstream/combophy": [
-      "/HPS/Peripherals/ComboPHY"
+      "/HPS/PSS/Peripherals/ComboPHY"
     ],
     "upstream/crc": [
       "/HPS/MPU"
     ],
     "upstream/ddr": [
-      "/HPS/Memory/MPFE",
+      "/DDR_IO96/MPFE",
       "/DDR_IO96/EMIF",
       "/SOM_IO/DDR3A"
     ],
     "upstream/dma": [
-      "/HPS/Peripherals/DMA"
+      "/HPS/PSS/Peripherals/DMA"
     ],
     "upstream/ecc": [
-      "/HPS/Control/ECC"
+      "/HPS/PSS/ECC"
     ],
     "upstream/fcs": [
       "/SDM/FCS"
     ],
     "upstream/gic": [
-      "/HPS/Control/GIC"
+      "/HPS/APS/GIC"
     ],
     "upstream/gpio": [
-      "/HPS/Peripherals/GPIO"
+      "/HPS/PSS/Peripherals/GPIO"
     ],
     "upstream/hello": [
       "/HPS/MPU",
-      "/HPS/Peripherals/UART0"
+      "/HPS/PSS/Peripherals/UART0"
     ],
     "upstream/i2c": [
-      "/HPS/Peripherals/I2C"
+      "/HPS/PSS/Peripherals/I2C"
     ],
     "upstream/i3c": [
-      "/HPS/Peripherals/I3C1"
+      "/HPS/PSS/Peripherals/I3C1"
     ],
     "upstream/iossm": [
       "/DDR_IO96/IOSSM"
     ],
     "upstream/mailbox": [
-      "/HPS/Mailbox",
+      "/HPS/PSS/Mailbox",
       "/SDM/Mailbox_services"
     ],
     "upstream/mmu": [
       "/HPS/MPU/MMU_NEON"
     ],
     "upstream/noc": [
-      "/HPS/Memory/NoC"
+      "/HPS/PSS/NoC"
     ],
     "upstream/perf": [
       "/HPS/MPU",
-      "/HPS/Memory/MPFE"
+      "/DDR_IO96/MPFE"
     ],
     "upstream/reboot_mngr": [
-      "/HPS/Control/Reset",
+      "/HPS/PSS/System_Modules/Reset",
       "/SDM/Mailbox_services"
     ],
     "upstream/reset_mngr": [
-      "/HPS/Control/Reset",
-      "/HPS/Peripherals/SDMMC"
+      "/HPS/PSS/System_Modules/Reset",
+      "/HPS/PSS/Peripherals/SDMMC"
     ],
     "upstream/sdmmc": [
-      "/HPS/Peripherals/SDMMC",
+      "/HPS/PSS/Peripherals/SDMMC",
       "/SOM_IO/SD_slot"
     ],
     "upstream/seu": [
       "/SDM/SEU"
     ],
     "upstream/smmu": [
-      "/HPS/Memory/SMMU"
+      "/HPS/APS/SMMU"
     ],
     "upstream/spi": [
-      "/HPS/Peripherals/SPI"
+      "/HPS/PSS/Peripherals/SPI"
     ],
     "upstream/timer": [
-      "/HPS/Peripherals/Timers"
+      "/HPS/PSS/Peripherals/Timers"
     ],
     "board/core": [
       "/HPS/MPU",
-      "/HPS/Memory"
+      "/HPS/APS"
     ],
     "board/dma": [
-      "/HPS/Peripherals/DMA"
+      "/HPS/PSS/Peripherals/DMA"
     ],
     "board/gic": [
-      "/HPS/Control/GIC"
+      "/HPS/APS/GIC"
     ],
     "board/mmu": [
       "/HPS/MPU/MMU_NEON"
     ],
     "board/som": [
-      "/HPS/Peripherals/Timers",
-      "/HPS/Peripherals/Watchdog",
-      "/HPS/Peripherals/SPI",
-      "/HPS/Peripherals/GPIO"
+      "/HPS/PSS/Peripherals/Timers",
+      "/HPS/PSS/Peripherals/Watchdog",
+      "/HPS/PSS/Peripherals/SPI",
+      "/HPS/PSS/Peripherals/GPIO"
     ],
     "board/som-i2c": [
-      "/HPS/Peripherals/GPIO",
+      "/HPS/PSS/Peripherals/GPIO",
       "/SOM_IO/Sensor",
       "/SOM_IO/EEPROM"
     ],
     "board/som-i3c": [
-      "/HPS/Peripherals/I3C1",
+      "/HPS/PSS/Peripherals/I3C1",
       "/SOM_IO/Sensor",
       "/SOM_IO/EEPROM"
     ],
     "board/interfaces": [
-      "/HPS/Peripherals/EMAC2",
-      "/HPS/Peripherals/SDMMC",
-      "/HPS/Peripherals/USB"
+      "/HPS/PSS/Peripherals/EMAC2",
+      "/HPS/PSS/Peripherals/SDMMC",
+      "/HPS/PSS/Peripherals/USB"
     ],
     "board/mailbox": [
-      "/HPS/Mailbox",
+      "/HPS/PSS/Mailbox",
       "/SDM/Mailbox_services"
     ],
     "board/multicore": [
       "/HPS/MPU/A55",
       "/HPS/MPU/A76",
-      "/HPS/Control/Power"
+      "/HPS/PSS/System_Modules/Power"
     ],
     "board/vendor-uart": [
-      "/HPS/Peripherals/UART0"
+      "/HPS/PSS/Peripherals/UART0"
     ],
     "board/vendor-timer": [
-      "/HPS/Peripherals/Timers"
+      "/HPS/PSS/Peripherals/Timers"
     ],
     "board/vendor-watchdog": [
-      "/HPS/Peripherals/Watchdog"
+      "/HPS/PSS/Peripherals/Watchdog"
     ],
     "board/vendor-spi": [
-      "/HPS/Peripherals/SPI"
+      "/HPS/PSS/Peripherals/SPI"
     ],
     "board/vendor-ccu": [
-      "/HPS/Memory/CCU"
+      "/HPS/APS/CCU"
     ],
     "board/vendor-clkmgr": [
-      "/HPS/Control/Clock"
+      "/HPS/PSS/System_Modules/Clock"
     ],
     "board/vendor-smmu": [
-      "/HPS/Memory/SMMU"
+      "/HPS/APS/SMMU"
     ],
     "board/vendor-ecc": [
-      "/HPS/Control/ECC"
+      "/HPS/PSS/ECC"
     ],
     "board/vendor-hps_mailbox": [
-      "/HPS/Mailbox",
+      "/HPS/PSS/Mailbox",
       "/SDM/Mailbox_services"
     ],
     "legacy/hello-world": [
       "/HPS/MPU",
-      "/HPS/Peripherals/UART0"
+      "/HPS/PSS/Peripherals/UART0"
     ],
     "legacy/uart": [
       "/HPS/MPU",
-      "/HPS/Peripherals/UART0"
+      "/HPS/PSS/Peripherals/UART0"
     ],
     "legacy/dma": [
-      "/HPS/Peripherals/DMA"
+      "/HPS/PSS/Peripherals/DMA"
     ],
     "legacy/timer": [
-      "/HPS/Peripherals/Timers"
+      "/HPS/PSS/Peripherals/Timers"
     ],
     "legacy/watchdog": [
-      "/HPS/Peripherals/Watchdog"
+      "/HPS/PSS/Peripherals/Watchdog"
     ],
     "legacy/i2c": [
-      "/HPS/Peripherals/I2C"
+      "/HPS/PSS/Peripherals/I2C"
     ],
     "legacy/i3c": [
-      "/HPS/Peripherals/I3C1"
+      "/HPS/PSS/Peripherals/I3C1"
     ],
     "legacy/spi": [
-      "/HPS/Peripherals/SPI"
+      "/HPS/PSS/Peripherals/SPI"
     ],
     "legacy/sdmmc": [
-      "/HPS/Peripherals/SDMMC",
+      "/HPS/PSS/Peripherals/SDMMC",
       "/SOM_IO/SD_slot"
     ],
     "legacy/xgmac": [
-      "/HPS/Peripherals/EMAC2"
+      "/HPS/PSS/Peripherals/EMAC2"
     ],
     "legacy/mmu_el3": [
       "/HPS/MPU/MMU_NEON"
     ],
     "legacy/smmu": [
-      "/HPS/Memory/SMMU"
+      "/HPS/APS/SMMU"
     ],
     "legacy/ccu": [
-      "/HPS/Memory/CCU"
+      "/HPS/APS/CCU"
     ],
     "legacy/clkmgr": [
-      "/HPS/Control/Clock"
+      "/HPS/PSS/System_Modules/Clock"
     ],
     "legacy/ecc": [
-      "/HPS/Control/ECC"
+      "/HPS/PSS/ECC"
     ],
     "legacy/hps_mailbox": [
-      "/HPS/Mailbox",
+      "/HPS/PSS/Mailbox",
       "/SDM/Mailbox_services"
     ],
     "practice/startup": [
       "/HPS/MPU",
-      "/HPS/Memory"
+      "/HPS/APS"
     ],
     "practice/corruption": [
       "/HPS/MPU",
-      "/HPS/Memory/MPFE"
+      "/DDR_IO96/MPFE"
     ],
     "practice/exception": [
       "/HPS/MPU/MMU_NEON"
     ],
     "practice/timer": [
       "/HPS/MPU/Generic_timer",
-      "/HPS/Control/GIC"
+      "/HPS/APS/GIC"
     ],
     "practice/mmu": [
       "/HPS/MPU/MMU_NEON"
     ],
     "practice/uart": [
-      "/HPS/Peripherals/UART0"
+      "/HPS/PSS/Peripherals/UART0"
     ],
     "practice/multicore": [
       "/HPS/MPU/A55",
       "/HPS/MPU/A76",
-      "/HPS/Control/Power"
+      "/HPS/PSS/System_Modules/Power"
     ],
     "custom/qemu-hello": [
       "/HPS/MPU/MMU_NEON"
     ],
     "diagnostic/smc-guard": [
       "/HPS/MPU",
-      "/HPS/Mailbox"
+      "/HPS/PSS/Mailbox"
     ],
     "diagnostic/perf-zero-clock": [
       "/HPS/MPU/Generic_timer"
     ],
     "custom/bridge-control": [
-      "/HPS/Bridges/LWHPS2FPGA"
+      "/HPS/PSS/LWHPS2FPGA"
     ],
     "custom/ocram-hello": [
-      "/HPS/Memory/OCRAM",
-      "/HPS/Peripherals/UART0"
+      "/HPS/APS/OCRAM",
+      "/HPS/PSS/Peripherals/UART0"
     ],
     "custom/ddr-hello": [
-      "/HPS/Memory/MPFE",
+      "/DDR_IO96/MPFE",
       "/DDR_IO96/EMIF",
       "/SOM_IO/DDR3A"
     ],
     "reference/semihost": [
-      "/HPS/Control/Debug",
-      "/HPS/Memory/OCRAM"
+      "/HPS/CoreSight",
+      "/HPS/APS/OCRAM"
     ],
     "reference/psci": [
       "/HPS/MPU",
-      "/HPS/Control/Power"
+      "/HPS/PSS/System_Modules/Power"
     ],
     "custom/fault-probe": [
       "/HPS/MPU/MMU_NEON"
     ],
     "custom/ethernet": [
-      "/HPS/Peripherals/EMAC2",
+      "/HPS/PSS/Peripherals/EMAC2",
       "/SOM_IO/PHY"
     ],
     "fabric/add": [
@@ -1171,5 +1547,396 @@
       "title": "Simics fabric models \u2014 behavioral, not custom RTL",
       "url": "https://docs.altera.com/r/docs/786901/25.3/intel-simics-simulator-for-altera-fpgas-agilextm-5-and-agilextm-3-virtual-platform-user-guide/fpga-fabric"
     }
-  }
+  },
+  "aliases": {
+    "/HPS/Control/GIC": "/HPS/APS/GIC",
+    "/HPS/Control/ECC": "/HPS/PSS/ECC",
+    "/HPS/Control/Debug": "/HPS/CoreSight",
+    "/HPS/Memory/CCU": "/HPS/APS/CCU",
+    "/HPS/Memory/SMMU": "/HPS/APS/SMMU",
+    "/HPS/Memory/OCRAM": "/HPS/APS/OCRAM",
+    "/HPS/Memory/NoC": "/HPS/PSS/NoC",
+    "/HPS/Memory/MPFE": "/DDR_IO96/MPFE",
+    "/HPS/Bridges/HPS2FPGA": "/HPS/PSS/HPS2FPGA",
+    "/HPS/Bridges/LWHPS2FPGA": "/HPS/PSS/LWHPS2FPGA",
+    "/HPS/Bridges/FPGA2HPS": "/HPS/APS/FPGA2HPS",
+    "/HPS/Bridges/FPGA2SDRAM": "/DDR_IO96/MPFE/FPGA2SDRAM",
+    "/HPS/Memory": "/HPS/APS",
+    "/HPS/Control": "/HPS/PSS/System_Modules",
+    "/HPS/Bridges": "/HPS/PSS",
+    "/HPS/Peripherals": "/HPS/PSS/Peripherals",
+    "/HPS/Mailbox": "/HPS/PSS/Mailbox"
+  },
+  "documents": {
+    "hps": {
+      "title": "2.3.1. HPS Block Diagram",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/hps-block-diagram?contentId=cSfnXaIdQVtkXwpvt5_ikQ",
+      "content_id": "cSfnXaIdQVtkXwpvt5_ikQ",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "mpu": {
+      "title": "3. Micro Processor Unit (MPU)",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/micro-processor-unit-mpu?contentId=UxkDjRBVx_Ux0X8aHV9TCQ",
+      "content_id": "UxkDjRBVx_Ux0X8aHV9TCQ",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "a55": {
+      "title": "3.6. MPU Arm\u00ae Cortex\u00ae -A55 Core",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/mpu-arm-cortex-a55-core?contentId=OeJT~52OokYgPqgJAIHNOw",
+      "content_id": "OeJT~52OokYgPqgJAIHNOw",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "a76": {
+      "title": "3.5. MPU Arm\u00ae Cortex\u00ae -A76 Core",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/mpu-arm-cortex-a76-core?contentId=LwX9JuMFM1ibInPs_YfgFA",
+      "content_id": "LwX9JuMFM1ibInPs_YfgFA",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "dsu": {
+      "title": "3.7. MPU Arm\u00ae DynamIQ Shared Unit",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/mpu-arm-dynamiq-shared-unit?contentId=RiHTTAIy2Oap_hx3lqNP3w",
+      "content_id": "RiHTTAIy2Oap_hx3lqNP3w",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "mmu": {
+      "title": "3.6.3.4. Memory Management Unit",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/memory-management-unit?contentId=0s5mX4~xmKFr8Qj04ZOB9g",
+      "content_id": "0s5mX4~xmKFr8Qj04ZOB9g",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "neon": {
+      "title": "3.5.3.8. Advanced Single Instruction Multiple Data and Floating Point Support",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/advanced-single-instruction-multiple-data-and-floating-point-support?contentId=SIED9ODNWnonx87ZUymWWQ",
+      "content_id": "SIED9ODNWnonx87ZUymWWQ",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "generic_timer": {
+      "title": "3.6.3.9. Generic Timer",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/generic-timer?contentId=ztNtKHiHgfdgQASEOnHg8g",
+      "content_id": "ztNtKHiHgfdgQASEOnHg8g",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "aps": {
+      "title": "2.3.3. Application Processor Subsystem",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/application-processor-subsystem?contentId=TuKMUCITJJ0OKF7WZEBFfA",
+      "content_id": "TuKMUCITJJ0OKF7WZEBFfA",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "ccu": {
+      "title": "4.1. Cache Coherency Unit (CCU)",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/cache-coherency-unit-ccu?contentId=0gM3aJZ0_yIG~2C1SNQPHA",
+      "content_id": "0gM3aJZ0_yIG~2C1SNQPHA",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "gic": {
+      "title": "4.2. Generic Interrupt Controller (GIC)",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/generic-interrupt-controller-gic?contentId=22wpoG6C9uaqc3D0azglSA",
+      "content_id": "22wpoG6C9uaqc3D0azglSA",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "smmu": {
+      "title": "4.3. System Memory Management Unit (SMMU)",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/system-memory-management-unit-smmu?contentId=9tEchp6~IiGk0~~37sKLkg",
+      "content_id": "9tEchp6~IiGk0~~37sKLkg",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "ocram": {
+      "title": "4.4. On-Chip RAM",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/on-chip-ram?contentId=Xk8AfvdAG6HpVIaW3_AV9w",
+      "content_id": "Xk8AfvdAG6HpVIaW3_AV9w",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "pss": {
+      "title": "5. Peripheral Subsystem",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/peripheral-subsystem?contentId=TwOcNi~vjItH4993Xw7k~Q",
+      "content_id": "TwOcNi~vjItH4993Xw7k~Q",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "emac": {
+      "title": "5.1. Ethernet Media Access Controller",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/ethernet-media-access-controller?contentId=Jxp_NM37AJu~tDwnTbXoVw",
+      "content_id": "Jxp_NM37AJu~tDwnTbXoVw",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "dma": {
+      "title": "5.2. DMA Controller",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/dma-controller?contentId=ziu51FkP~04FTFDSLqfyLw",
+      "content_id": "ziu51FkP~04FTFDSLqfyLw",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "nand": {
+      "title": "5.3. NAND Flash Controller",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/nand-flash-controller?contentId=qrRK6xAwBV9sGPgcLPbSxA",
+      "content_id": "qrRK6xAwBV9sGPgcLPbSxA",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "sdmmc": {
+      "title": "5.4. SD/eMMC Host Controller",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/sd/emmc-host-controller?contentId=ioTNoWXWEHSp5UUxi9eRpg",
+      "content_id": "ioTNoWXWEHSp5UUxi9eRpg",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "combophy": {
+      "title": "5.5. Combo DLL PHY",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/combo-dll-phy?contentId=nNDoVTmA4HcR25bhSRq8sg",
+      "content_id": "nNDoVTmA4HcR25bhSRq8sg",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "usb31": {
+      "title": "5.6. USB 3.1 Gen1 Controller",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/usb-3.1-gen1-controller?contentId=BAeTbYs6htwc2Lju~L~K~A",
+      "content_id": "BAeTbYs6htwc2Lju~L~K~A",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "usb2": {
+      "title": "5.7. USB 2.0 OTG Controller",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/usb-2.0-otg-controller?contentId=d~3YEJNVA8h4K9CETouGZQ",
+      "content_id": "d~3YEJNVA8h4K9CETouGZQ",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "i3c": {
+      "title": "5.8. I3C Controller",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/i3c-controller?contentId=HOK62q3_e6FHpOUq6i37xg",
+      "content_id": "HOK62q3_e6FHpOUq6i37xg",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "i2c": {
+      "title": "5.9. I2C Controller",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/i2c-controller?contentId=NzEX4RKCH8W8HIXGmvZ0wg",
+      "content_id": "NzEX4RKCH8W8HIXGmvZ0wg",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "spi": {
+      "title": "5.10. SPI Controller",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/spi-controller?contentId=FN4p4GBe5E0lcaWSRrA~FQ",
+      "content_id": "FN4p4GBe5E0lcaWSRrA~FQ",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "timers": {
+      "title": "5.11. Timers",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/timers?contentId=3vig5_JjdrpUNjTiM_9BIA",
+      "content_id": "3vig5_JjdrpUNjTiM_9BIA",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "watchdog": {
+      "title": "5.12. Watchdog Timers",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/watchdog-timers?contentId=qV2XKq7luJxTA21tEjCkvQ",
+      "content_id": "qV2XKq7luJxTA21tEjCkvQ",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "uart": {
+      "title": "5.13. UART Controller",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/uart-controller?contentId=LIbGJYhOWSbcKMri_EYLww",
+      "content_id": "LIbGJYhOWSbcKMri_EYLww",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "gpio": {
+      "title": "5.14. General-Purpose I/O Interface (GPIO)",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/general-purpose-i/o-interface-gpio?contentId=X9QxyLGhZBeoPLAZEfgofw",
+      "content_id": "X9QxyLGhZBeoPLAZEfgofw",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "pinmux": {
+      "title": "5.15. Hard Processor System I/O Pin Multiplexing",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/hard-processor-system-i/o-pin-multiplexing?contentId=YlzlOdlIPqEKIXeHf~gPrQ",
+      "content_id": "YlzlOdlIPqEKIXeHf~gPrQ",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "system": {
+      "title": "6. System Manager",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/system-manager?contentId=KmNBv3qCZr_PxCLYd3ODSg",
+      "content_id": "KmNBv3qCZr_PxCLYd3ODSg",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "clock": {
+      "title": "7. Clock Manager",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/clock-manager?contentId=zqW~47XgWtGUDGVadblA_A",
+      "content_id": "zqW~47XgWtGUDGVadblA_A",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "reset": {
+      "title": "8. Reset Manager",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/reset-manager?contentId=FOOMNM90tEOdC70~quzvtA",
+      "content_id": "FOOMNM90tEOdC70~quzvtA",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "power": {
+      "title": "9. Power Management",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/power-management?contentId=zNiCsvCkDb7cKLHyZfLR3w",
+      "content_id": "zNiCsvCkDb7cKLHyZfLR3w",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "bridges": {
+      "title": "11. Bridges",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/bridges?contentId=CZ9GtW2XC~295xPQSoAB~g",
+      "content_id": "CZ9GtW2XC~295xPQSoAB~g",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "f2h": {
+      "title": "11.5.1. FPGA-to-HPS Bridge",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/fpga-to-hps-bridge?contentId=nEpK0A3~_dGQ5usbj2K_MQ",
+      "content_id": "nEpK0A3~_dGQ5usbj2K_MQ",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "h2f": {
+      "title": "11.5.2. HPS-to-FPGA Bridge",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/hps-to-fpga-bridge?contentId=Oa7qYxFJE1zquXwKhDbbwA",
+      "content_id": "Oa7qYxFJE1zquXwKhDbbwA",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "lw": {
+      "title": "11.5.3. Lightweight HPS-to-FPGA Bridge",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/lightweight-hps-to-fpga-bridge?contentId=LnkYHWIhZJF1WUdKVQ1l_w",
+      "content_id": "LnkYHWIhZJF1WUdKVQ1l_w",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "f2sdram": {
+      "title": "11.5.4. FPGA-to-SDRAM Bridge",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/fpga-to-sdram-bridge?contentId=9TkPOzEiGuh5ObqPVceaTg",
+      "content_id": "9TkPOzEiGuh5ObqPVceaTg",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "mailbox": {
+      "title": "12.1. HPS Mailbox",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/hps-mailbox?contentId=1GqVWNzdTZ0Dw0PXeKWmtw",
+      "content_id": "1GqVWNzdTZ0Dw0PXeKWmtw",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "mpfe": {
+      "title": "12.2. MPFE and MPFE-lite",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/mpfe-and-mpfe-lite?contentId=L6CtYt59hKae3GXbo8A4GQ",
+      "content_id": "L6CtYt59hKae3GXbo8A4GQ",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "mpfe_diagram": {
+      "title": "12.2.5.1. Block Diagram (High Level)",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/block-diagram-high-level?contentId=qG2gQBA0QYbwdxSL7dUVhw",
+      "content_id": "qG2gQBA0QYbwdxSL7dUVhw",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "mpfe_noc": {
+      "title": "12.2.6.7. MPFE NoC",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/mpfe-noc?contentId=1Od~j23knRP9__ML~HKQSA",
+      "content_id": "1Od~j23knRP9__ML~HKQSA",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "firewalls": {
+      "title": "13. System Interconnect and Firewalls",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/system-interconnect-and-firewalls?contentId=wL0HoVXBz6nykp_KsIJt9Q",
+      "content_id": "wL0HoVXBz6nykp_KsIJt9Q",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "ecc": {
+      "title": "14. Error Checking and Correction Controller",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/error-checking-and-correction-controller?contentId=V3VVWUJHsK3n288ZDbJZUw",
+      "content_id": "V3VVWUJHsK3n288ZDbJZUw",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "debug": {
+      "title": "15. CoreSight\u2122 Debug and Trace",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/coresight-debug-and-trace?contentId=kld2Ti8dciKQVqT2pYSfeQ",
+      "content_id": "kld2Ti8dciKQVqT2pYSfeQ",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "security": {
+      "title": "A.3. Security",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/security?contentId=xub4gDL9SE~RwVpxn6k_OA",
+      "content_id": "xub4gDL9SE~RwVpxn6k_OA",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "sdm": {
+      "title": "A.3.3. Secure Device Manager",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/secure-device-manager?contentId=9xhZFmx0B6e3VH49ayaalw",
+      "content_id": "9xhZFmx0B6e3VH49ayaalw",
+      "kind": "trm",
+      "version": "26.1.1"
+    },
+    "iobank": {
+      "title": "12.2.5.2. IOBank Introduction",
+      "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/iobank-introduction?contentId=o2uP0ah2eHuqsoyF_nApSQ",
+      "content_id": "o2uP0ah2eHuqsoyF_nApSQ",
+      "kind": "trm",
+      "version": "26.1.1"
+    }
+  },
+  "reference_index": {
+    "retrieved": "2026-10-30",
+    "source": "https://docs.altera.com/api/khub/maps/cqujhJ41AOyymrkCvsk1GA/pages",
+    "figure_topic": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/hps-block-diagram?contentId=cSfnXaIdQVtkXwpvt5_ikQ",
+    "figure_number": "1",
+    "note": "Only topic titles/URLs and an independently authored architectural mapping are distributed. Official figure artwork is not bundled."
+  },
+  "flows": [
+    {
+      "name": "CPU \u2192 DDR",
+      "nets": [
+        "|HPS_DDR_access",
+        "|DDR_bank_3A",
+        "/HPS|MPU_to_APS"
+      ]
+    },
+    {
+      "name": "CPU \u2192 fabric",
+      "nets": [
+        "/HPS|MPU_to_APS",
+        "/HPS|APS_to_PSS",
+        "|HPS_fabric_control",
+        "/Fabric|Proposed_lab_control"
+      ]
+    },
+    {
+      "name": "CPU \u2192 SDM services",
+      "nets": [
+        "/HPS|MPU_to_APS",
+        "/HPS|APS_to_PSS",
+        "|SDM_command_services"
+      ]
+    }
+  ]
 }

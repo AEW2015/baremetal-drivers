@@ -3,12 +3,18 @@
     <span>Click for details · double-click to open · scroll to zoom</span>
     <a href="https://aew2015.github.io/baremetal-drivers/architecture/" target="_blank" rel="noopener">Guide and sources ↗</a>
   </div>
+  <nav id="diagram-navigation" aria-label="Diagram navigation">
+    <button id="architecture-back" type="button" title="Return to the previous diagram level" disabled>← Back</button>
+    <button id="architecture-up" type="button" title="Open the parent diagram" disabled>↑ Up one level</button>
+    <button id="architecture-overview" type="button" title="Return to the TRM-style system overview">⌂ System</button>
+    <span id="diagram-level" aria-live="polite">System overview</span>
+    <a id="trm-context-link" href="#" target="_blank" rel="noopener">TRM block diagram ↗</a>
+  </nav>
   <div class="architecture-controls">
     <label>Example <select id="example-picker" aria-label="Choose an example"><option value="">All examples</option></select></label>
     <label>Find <input id="example-search" type="search" placeholder="mailbox, timer, fabric…" aria-label="Search examples"></label>
     <label>Results <select id="platform-picker" aria-label="Emphasize platform results"><option value="all">All platforms</option><option value="qemu">QEMU</option><option value="simics">Simics</option><option value="hardware">Hardware</option></select></label>
-    <button id="architecture-overview" type="button">System overview</button>
     <span id="example-count" role="status"></span>
   </div>
-  <div class="architecture-scope">TRM-based functional map, not an extracted Quartus netlist. Proposed fabric and Simics models are separate. No timing/CDC qualification.</div>
+  <div class="architecture-scope">TRM Figure 1 layout · MPU / APS / PSS / MPFE. Simplified functional paths, not a Quartus netlist. Demo fabric and Simics contexts are labeled separately.</div>
 </section>

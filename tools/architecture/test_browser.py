@@ -2,6 +2,7 @@
 """Exercise the generated diagram offline; requires Playwright + Chromium."""
 import argparse,json
 from pathlib import Path
+from urllib.parse import parse_qs,urlsplit
 from playwright.sync_api import sync_playwright
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -13,6 +14,7 @@ def main():
     a=p.parse_args();a.output.mkdir(parents=True,exist_ok=True)
     catalog=json.loads((ROOT/'examples/agilex5-modular/catalog.json').read_text())
     design=ROOT/'docs/assets/architecture/design.html'
+    model=json.loads((ROOT/'docs/assets/architecture/design.json').read_text())['integration']
     errors=[];requests=[];checks=[]
     with sync_playwright() as w:
         options={'headless':True}
@@ -26,10 +28,20 @@ def main():
             page.wait_for_timeout(200) # Let the viewer's 180 ms opacity transition finish.
             page.screenshot(path=str(a.output/name))
         page.goto(design.as_uri());page.wait_for_function('window.__fpa_ready === true')
-        assert page.locator('.node').count()==5
+        assert page.locator('.trm-node').count()==len(model['trm_layout']['shapes'])
+        assert page.locator('#architecture-up').is_disabled()
+        assert page.locator('#architecture-back').is_disabled()
         assert page.locator('#example-picker option').count()==82
         screenshot('overview.png')
-        checks.append('Offline root view: five contexts, all 81 catalog options')
+        checks.append('Offline TRM Figure 1 layout: MPU / APS / PSS / MPFE, all 81 catalog options')
+        for doc in model['documents'].values():
+            assert parse_qs(urlsplit(doc['url']).query)['contentId']==[doc['content_id']]
+        assert page.locator('#trm-context-link').get_attribute('href')==model['documents']['hps']['url']
+        page.get_by_role('button',name='/HPS/APS/CCU — click for examples; double-click to open').click()
+        assert page.locator('#trm-context-link').get_attribute('href')==model['documents']['ccu']['url']
+        page.get_by_role('button',name='↑ Open parent diagram',exact=True).click()
+        page.wait_for_function('window.__fpa_ready && window.__fpa.state.path.join("/") === "HPS/APS"')
+        checks.append('Direct TRM context links resolve exact topic IDs; overview blocks open their parent hierarchy')
         for row in catalog['examples']:
             page.evaluate('(id)=>window.__fpa.chooseExample(id)',row['id'])
             card=page.locator('[data-example-id="'+row['id']+'"]')
@@ -40,6 +52,19 @@ def main():
             for platform,result in row['platforms'].items():
                 assert result['status'].upper() in card.inner_text(),(row['id'],platform)
         checks.append('All 81 example selections resolve to blocks, status cards, tutorials and source')
+        page.evaluate('()=>window.__fpa.chooseExample("upstream/gic")')
+        assert page.locator('#trm-context-link').get_attribute('href')==model['documents']['gic']['url']
+        page.locator('#architecture-up').click()
+        page.wait_for_function('window.__fpa_ready && window.__fpa.state.path.join("/") === "HPS"')
+        page.locator('#architecture-back').click()
+        page.wait_for_selector('[data-example-id="upstream/gic"]')
+        assert page.evaluate('window.__fpa.state.path.join("/")')=='HPS/APS'
+        assert page.evaluate('window.__fpa.state.sel.full')=='/HPS/APS/GIC'
+        page.keyboard.press('Alt+ArrowUp')
+        page.wait_for_function('window.__fpa_ready && window.__fpa.state.path.join("/") === "HPS"')
+        page.keyboard.press('Alt+ArrowLeft')
+        page.wait_for_selector('[data-example-id="upstream/gic"]')
+        checks.append('Back/Up buttons and Alt+Left/Alt+Up restore diagram level, selected block and example')
         page.evaluate('()=>window.__fpa.chooseExample("upstream/mailbox")')
         page.select_option('#platform-picker','hardware')
         card=page.locator('[data-example-id="upstream/mailbox"]')
@@ -88,6 +113,10 @@ def main():
         assert page.locator('#panel').bounding_box()['width']<=390
         assert page.locator('#architecture-bar').bounding_box()['height']<844
         checks.append('Mobile viewport retains controls and a bounded details panel')
+        page.goto(design.as_uri()+'?sel=/HPS/Memory/CCU')
+        page.wait_for_function('window.__fpa.state.sel?.full === "/HPS/APS/CCU"')
+        assert page.locator('#trm-context-link').get_attribute('href')==model['documents']['ccu']['url']
+        checks.append('Legacy Memory/CCU deep link resolves to the reorganized APS block')
         assert not errors,errors
         assert not any(url.startswith(('http:','https:')) for url in requests),requests
         report={'browser':browser.version,'examples_checked':81,'checks':checks,'javascript_errors':errors,'network_dependency_requests':[],

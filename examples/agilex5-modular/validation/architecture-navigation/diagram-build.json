@@ -1,0 +1,26 @@
+{
+  "analyzer_commit": "954b91dd39fcd24bd53b1038161e04ea030074dc",
+  "nodes": 77,
+  "catalog_entries": 81,
+  "scope": "Educational TRM-based functional grouping, not an extracted Quartus netlist. Board-specific assertions come from the bench profile; proposed fabric and Simics-only contexts are explicit.",
+  "sources_sha256": {
+    "tools/architecture/agilex5.json": "e504cb321c0ca57640db3bd7bc24c166501479eb03984e0c250c480c84411eb0",
+    "tools/architecture/trm-layout.json": "8ac66a330a82a408d17ea27f5ee49056f431af9a8fe555ddcea112b8aee85066",
+    "tools/architecture/trm-overview.js": "fc59c672f4c25409547b86c54926a30d7c0167fa94f7dc0b07259f069c1fff19",
+    "tools/architecture/build_diagram.py": "4e000f5dd3fd8f3dcb8ff9a163426cd4892e11343ed9af20577fa921ff8e7db7",
+    "tools/architecture/explorer.js": "8743209080e9c26dc7caf969c311846f328fdb7aaf64b559557cbf666fd2b962",
+    "tools/architecture/explorer.css": "85d7b88c7f26d3d81f008f378accd9328ec61a167040a5c121f832a735dc9d19",
+    "tools/architecture/explorer-bar.html": "a0f98390a869814d6c2554a753eb92b4a3f3dbcc3f462631689fc4390b536d96",
+    "examples/agilex5-modular/catalog.json": "f1f36435a2d8de9587accd3dc088252c0da37aab8e63dd8a7ed5949923e20e84",
+    "examples/agilex5-modular/fabric/rtl/lab_ip.sv": "3ac67d8a752cb38b9fd55c606a9757144dc7ae3dc99efbf91409b388d1a6d07c",
+    "examples/agilex5-modular/fabric/rtl/lab_persona.sv": "f78b8b773cd784b5b85cf2a0442baaebfe13e2e3a513096b398c248db563edd1",
+    "examples/agilex5-modular/fabric/lab_driver.h": "686fd2f24480929609024cccbe3569668d640298443d8e8b3a4a5c528325d5b1"
+  },
+  "outputs_sha256": {
+    "design.html": "1387ad587f381029eae34d10c7b8e67f7378102116501e736f29abcc2f4ffd20",
+    "design.json": "ba444aa990ac5e015b5f8aae94e74e122f5aab10fffe8607036c29e934ee37cb",
+    "MIT-LICENSE.txt": "981c04eeddb21e12f0853091ebf523e6c5f24ccc34e2436d87eae771bc8584d3",
+    "ELK-LICENSE.txt": "89591d4578fb1ebd91501312a3d25f021bd865a2e436641c1cf7b1bc7e3c1617",
+    "THIRD_PARTY.txt": "02c719164df0e7f2bbbf5a6127aa4a53d5c80840c5b219cbf3dfef7a88cb4a05"
+  }
+}

@@ -1,4 +1,4 @@
-#architecture-bar{position:fixed;top:44px;left:0;right:0;z-index:4;background:var(--panel);border-bottom:1px solid var(--line);padding:10px 16px;height:114px;overflow:auto}
+#architecture-bar{position:fixed;top:44px;left:0;right:0;z-index:4;background:var(--panel);border-bottom:1px solid var(--line);padding:10px 16px;height:auto;overflow:auto}
 .architecture-heading{display:flex;align-items:baseline;gap:16px;margin-bottom:9px;flex-wrap:wrap}
 .architecture-heading strong{font-size:17px;letter-spacing:-.3px}.architecture-heading span{color:var(--muted)}
 .architecture-heading a{margin-left:auto;color:var(--bus);text-decoration:none}
@@ -7,7 +7,7 @@
 .architecture-controls select,.architecture-controls input{height:30px;border:1px solid var(--line);border-radius:5px;background:var(--bg);color:var(--ink);font:inherit;padding:0 7px}
 #example-picker{max-width:345px}#example-search{width:190px}#example-count{color:var(--muted);font-size:12px}
 .architecture-scope{font-size:11px;color:var(--muted);margin-top:8px}
-#main{top:158px}#issues-btn,#b-dom,#b-unc{display:none}
+#main{top:200px}#issues-btn,#b-dom,#b-unc{display:none}
 #panel{width:400px;max-width:calc(100vw - 24px)}
 #panel .sub{overflow-wrap:anywhere}
 .architecture-detail{border-top:1px solid var(--line);margin-top:16px;padding-top:8px}
@@ -24,5 +24,26 @@
 .result-pass{color:var(--ok)!important;border-color:var(--ok)}.result-partial,.result-blocked{color:var(--warn)!important}.result-fail{color:var(--danger)!important}
 .node.example-hit .box{stroke:var(--sel)!important;stroke-width:3!important}.node:focus .box{stroke:var(--sel)!important;stroke-width:3!important}
 .architecture-credit{font-size:10px;color:var(--muted);margin-top:14px}.architecture-credit a{color:inherit}
-@media(max-width:900px){#architecture-bar{height:154px}#main{top:198px}#example-picker{max-width:290px}.architecture-heading span{display:none}.architecture-scope{font-size:10px}}
-@media(max-width:540px){#architecture-bar{height:208px;padding:8px}#main{top:252px}.architecture-heading strong{font-size:15px}.architecture-heading a{margin:0;font-size:11px}.architecture-controls{gap:6px}#example-picker{max-width:285px}#example-search{width:145px}#q{width:100px}#flows{max-width:80px}#b-tidy,#b-theme{display:none}#panel{width:calc(100vw - 24px)}}
+#diagram-navigation{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:0 0 9px}
+#diagram-navigation button{height:34px;padding:0 12px;border:1px solid var(--stroke);background:var(--chip);font-weight:600}
+#diagram-navigation button:disabled{opacity:.4;cursor:default;border-color:var(--line)}
+#diagram-level{font-size:11px;color:var(--muted);max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#trm-context-link{margin-left:auto;color:var(--bus);font-size:12px;max-width:440px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.direct-trm-links a{display:inline-block;padding:4px 0}
+:root{--trm-background:#d5d5d5;--trm-boundary:#fff;--trm-aps:#d5ecef;--trm-peripheral:#d5cf68;--trm-noc:#087ca2;--trm-interface:#f9a23a;--trm-system:#7574a0;--trm-translation:#d7d3e9;--trm-debug:#efd4e8;--trm-wire:#17232a;--trm-bus:#087da4;--trm-label:#15242a;--trm-board:#e0e9d8}
+:root[data-theme="dark"]{--trm-background:#272c32;--trm-boundary:#1b2228;--trm-aps:#244751;--trm-peripheral:#5b5825;--trm-noc:#075a78;--trm-interface:#80501b;--trm-system:#514f78;--trm-translation:#4a445c;--trm-debug:#67465e;--trm-wire:#dbe5ec;--trm-bus:#65c3e8;--trm-label:#edf4f8;--trm-board:#34462e}
+.trm-background{fill:var(--trm-background)}
+.trm-node .box{fill:var(--trm-aps);stroke:var(--trm-wire);stroke-width:1.5}
+.trm-boundary .box,.trm-pss-frame .box{fill:var(--trm-boundary)}
+.trm-peripheral .box{fill:var(--trm-peripheral)}.trm-noc .box{fill:var(--trm-noc)}.trm-interface .box{fill:var(--trm-interface)}
+.trm-system .box{fill:var(--trm-system)}.trm-translation .box{fill:var(--trm-translation)}.trm-debug .box{fill:var(--trm-debug)}
+.trm-pinmux .box{fill:#719fbe}.trm-bypass .box{fill:#697177}.trm-board .box{fill:var(--trm-board)}
+.trm-proposed .box,.trm-model .box{fill:var(--trm-board);stroke-dasharray:7 4}
+.trm-model .box{fill:var(--trm-translation)}
+.trm-label{fill:var(--trm-label);font-weight:500;pointer-events:none;font-family:"Segoe UI",Arial,sans-serif}
+.trm-noc .trm-label,.trm-system .trm-label,.trm-bypass .trm-label{fill:#fff}
+.trm-wire{stroke:var(--trm-wire);stroke-width:2}.trm-wire-bus{stroke:var(--trm-bus);stroke-width:3}
+.trm-wire-label{fill:var(--trm-bus);font-size:16px;font-family:"Segoe UI",Arial,sans-serif}
+.trm-caption{font-size:13px;fill:var(--trm-label)}
+@media(max-width:900px){#example-picker{max-width:290px}.architecture-heading span{display:none}.architecture-scope{font-size:10px}#trm-context-link{margin-left:0;max-width:100%}}
+@media(max-width:540px){#architecture-bar{padding:8px}.architecture-heading strong{font-size:15px}.architecture-heading a{margin:0;font-size:11px}.architecture-controls{gap:6px}#example-picker{max-width:285px}#example-search{width:145px}#q{width:100px}#flows{max-width:80px}#b-tidy,#b-theme{display:none}#panel{width:calc(100vw - 24px)}#diagram-navigation button{padding:0 9px}#diagram-level{display:none}}

@@ -1,0 +1,1103 @@
+{
+  "schema": 1,
+  "width": 1440,
+  "height": 1070,
+  "title": "HPS system diagram \u2014 TRM Figure 1, independently redrawn",
+  "reference": "hps",
+  "shapes": [
+    {
+      "path": "/HPS",
+      "x": 25,
+      "y": 125,
+      "w": 1280,
+      "h": 765,
+      "label": "HPS",
+      "tone": "boundary",
+      "kind": "frame"
+    },
+    {
+      "path": "/HPS/MPU",
+      "x": 350,
+      "y": 150,
+      "w": 265,
+      "h": 210,
+      "label": "MPU",
+      "tone": "aps",
+      "kind": "frame"
+    },
+    {
+      "path": "/HPS/APS",
+      "x": 350,
+      "y": 410,
+      "w": 265,
+      "h": 420,
+      "label": "APS",
+      "tone": "aps",
+      "kind": "frame"
+    },
+    {
+      "path": "/HPS/PSS",
+      "x": 745,
+      "y": 190,
+      "w": 485,
+      "h": 530,
+      "label": "PSS",
+      "tone": "pss-frame",
+      "kind": "frame"
+    },
+    {
+      "path": "/DDR_IO96/MPFE",
+      "x": 55,
+      "y": 410,
+      "w": 245,
+      "h": 420,
+      "label": "MPFE",
+      "tone": "aps",
+      "kind": "frame"
+    },
+    {
+      "path": "/HPS/PSS/System_Modules",
+      "x": 850,
+      "y": 760,
+      "w": 225,
+      "h": 115,
+      "label": "System Modules",
+      "tone": "system",
+      "kind": "frame"
+    },
+    {
+      "path": "/SDM",
+      "x": 1320,
+      "y": 525,
+      "w": 100,
+      "h": 180,
+      "label": "SDM",
+      "tone": "interface",
+      "kind": "frame"
+    },
+    {
+      "path": "/DDR_IO96/EMIF",
+      "x": 65,
+      "y": 40,
+      "w": 110,
+      "h": 55,
+      "label": "IOBank 0",
+      "tone": "interface",
+      "kind": "block"
+    },
+    {
+      "path": "/DDR_IO96/EMIF",
+      "x": 190,
+      "y": 40,
+      "w": 110,
+      "h": 55,
+      "label": "IOBank 1",
+      "tone": "interface",
+      "kind": "block"
+    },
+    {
+      "path": "/Fabric",
+      "x": 805,
+      "y": 40,
+      "w": 160,
+      "h": 55,
+      "label": "FPGA Core\nFabric",
+      "tone": "interface",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Pin_mux",
+      "x": 1020,
+      "y": 40,
+      "w": 150,
+      "h": 55,
+      "label": "48 HPS I/Os",
+      "tone": "interface",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/MPU/A76",
+      "x": 365,
+      "y": 190,
+      "w": 60,
+      "h": 85,
+      "label": "A76\nL1 / L2",
+      "tone": "aps",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/MPU/A55",
+      "x": 425,
+      "y": 190,
+      "w": 60,
+      "h": 85,
+      "label": "A55\nL1 / L2",
+      "tone": "aps",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/MPU/A55",
+      "x": 485,
+      "y": 190,
+      "w": 60,
+      "h": 85,
+      "label": "A55\nL1 / L2",
+      "tone": "aps",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/MPU/A76",
+      "x": 545,
+      "y": 190,
+      "w": 60,
+      "h": 85,
+      "label": "A76\nL1 / L2",
+      "tone": "aps",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/MPU/DSU",
+      "x": 365,
+      "y": 285,
+      "w": 240,
+      "h": 55,
+      "label": "DSU \u00b7 shared L3",
+      "tone": "aps",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/APS/OCRAM",
+      "x": 365,
+      "y": 450,
+      "w": 100,
+      "h": 32,
+      "label": "OCRAM",
+      "tone": "aps",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/APS/GIC",
+      "x": 365,
+      "y": 488,
+      "w": 100,
+      "h": 32,
+      "label": "GIC",
+      "tone": "aps",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/APS/SMMU",
+      "x": 365,
+      "y": 526,
+      "w": 100,
+      "h": 32,
+      "label": "SMMU",
+      "tone": "aps",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/APS/CCU",
+      "x": 365,
+      "y": 585,
+      "w": 235,
+      "h": 105,
+      "label": "CCU",
+      "tone": "noc",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/APS/TCU",
+      "x": 645,
+      "y": 550,
+      "w": 85,
+      "h": 40,
+      "label": "TCU",
+      "tone": "translation",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/APS/F2H_TBU",
+      "x": 405,
+      "y": 728,
+      "w": 155,
+      "h": 30,
+      "label": "F2H TBU",
+      "tone": "translation",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/APS/FPGA2HPS",
+      "x": 405,
+      "y": 758,
+      "w": 155,
+      "h": 58,
+      "label": "F2H Bridge",
+      "tone": "interface",
+      "kind": "block"
+    },
+    {
+      "path": "/DDR_IO96/MPFE/NoC",
+      "x": 85,
+      "y": 585,
+      "w": 185,
+      "h": 105,
+      "label": "MPFE NoC",
+      "tone": "noc",
+      "kind": "block"
+    },
+    {
+      "path": "/DDR_IO96/MPFE/F2SDRAM_TBU",
+      "x": 75,
+      "y": 728,
+      "w": 200,
+      "h": 30,
+      "label": "F2SDRAM TBU",
+      "tone": "translation",
+      "kind": "block"
+    },
+    {
+      "path": "/DDR_IO96/MPFE/FPGA2SDRAM",
+      "x": 75,
+      "y": 758,
+      "w": 200,
+      "h": 58,
+      "label": "F2SDRAM Bridge",
+      "tone": "interface",
+      "kind": "block"
+    },
+    {
+      "path": "/DDR_IO96/MPFE",
+      "x": 55,
+      "y": 845,
+      "w": 560,
+      "h": 35,
+      "label": "MPFE fabric bypass",
+      "tone": "bypass",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Pin_mux",
+      "x": 790,
+      "y": 145,
+      "w": 375,
+      "h": 30,
+      "label": "Pin Mux",
+      "tone": "pinmux",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/UART0",
+      "x": 770,
+      "y": 210,
+      "w": 110,
+      "h": 36,
+      "label": "UART",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/I2C",
+      "x": 770,
+      "y": 254,
+      "w": 110,
+      "h": 36,
+      "label": "I2C",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/I3C1",
+      "x": 770,
+      "y": 298,
+      "w": 110,
+      "h": 36,
+      "label": "I3C",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/SPI",
+      "x": 770,
+      "y": 342,
+      "w": 110,
+      "h": 36,
+      "label": "SPIM",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/SPI",
+      "x": 770,
+      "y": 386,
+      "w": 110,
+      "h": 36,
+      "label": "SPIS",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/Watchdog",
+      "x": 770,
+      "y": 430,
+      "w": 110,
+      "h": 36,
+      "label": "Watchdog",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/NAND",
+      "x": 1080,
+      "y": 210,
+      "w": 120,
+      "h": 36,
+      "label": "NAND",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/SDMMC",
+      "x": 1080,
+      "y": 254,
+      "w": 120,
+      "h": 36,
+      "label": "SDMMC",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/EMAC2",
+      "x": 1080,
+      "y": 298,
+      "w": 120,
+      "h": 36,
+      "label": "EMAC (TSN)",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/USB",
+      "x": 1080,
+      "y": 342,
+      "w": 120,
+      "h": 36,
+      "label": "USB 3.1",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/USB",
+      "x": 1080,
+      "y": 386,
+      "w": 120,
+      "h": 36,
+      "label": "USB 2.0",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/GPIO",
+      "x": 1080,
+      "y": 430,
+      "w": 120,
+      "h": 36,
+      "label": "GPIO",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/ECC",
+      "x": 925,
+      "y": 215,
+      "w": 125,
+      "h": 60,
+      "label": "ECC\nOCRAM / I/O",
+      "tone": "system",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/Timers",
+      "x": 925,
+      "y": 298,
+      "w": 125,
+      "h": 35,
+      "label": "OSC Timer",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/Timers",
+      "x": 925,
+      "y": 343,
+      "w": 125,
+      "h": 35,
+      "label": "SP Timer",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/DMA",
+      "x": 925,
+      "y": 395,
+      "w": 125,
+      "h": 60,
+      "label": "Multichannel\nDMA",
+      "tone": "peripheral",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/ComboPHY",
+      "x": 1240,
+      "y": 210,
+      "w": 60,
+      "h": 105,
+      "label": "Combo\nPHY",
+      "tone": "interface",
+      "kind": "block",
+      "font": 14
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/EMAC_PHY_interface",
+      "x": 1320,
+      "y": 308,
+      "w": 100,
+      "h": 40,
+      "label": "SERDES",
+      "tone": "interface",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/USB_PHY_interface",
+      "x": 1320,
+      "y": 360,
+      "w": 100,
+      "h": 50,
+      "label": "PHY\nchannel",
+      "tone": "interface",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/NoC",
+      "x": 755,
+      "y": 485,
+      "w": 465,
+      "h": 230,
+      "label": "PSS NoC\nL3 main interconnect",
+      "tone": "noc",
+      "kind": "block",
+      "text_box": [
+        765,
+        500,
+        225,
+        100
+      ]
+    },
+    {
+      "path": "/HPS/PSS/IO_TBU",
+      "x": 1005,
+      "y": 525,
+      "w": 195,
+      "h": 34,
+      "label": "I/O TBU",
+      "tone": "translation",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/DMA_TBU",
+      "x": 1005,
+      "y": 569,
+      "w": 195,
+      "h": 34,
+      "label": "DMA TBU",
+      "tone": "translation",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/EMAC_TBU",
+      "x": 1005,
+      "y": 613,
+      "w": 195,
+      "h": 34,
+      "label": "EMAC TBU",
+      "tone": "translation",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/SDM_TBU",
+      "x": 1005,
+      "y": 657,
+      "w": 195,
+      "h": 34,
+      "label": "SDM TBU",
+      "tone": "translation",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/System_Modules/Clock",
+      "x": 860,
+      "y": 795,
+      "w": 100,
+      "h": 22,
+      "label": "Clock Mgr",
+      "tone": "module",
+      "kind": "block",
+      "font": 12
+    },
+    {
+      "path": "/HPS/PSS/System_Modules/Reset",
+      "x": 860,
+      "y": 820,
+      "w": 100,
+      "h": 22,
+      "label": "Reset Mgr",
+      "tone": "module",
+      "kind": "block",
+      "font": 12
+    },
+    {
+      "path": "/HPS/PSS/System_Modules/Power",
+      "x": 860,
+      "y": 845,
+      "w": 100,
+      "h": 22,
+      "label": "Power Mgr",
+      "tone": "module",
+      "kind": "block",
+      "font": 12
+    },
+    {
+      "path": "/HPS/PSS/System_Modules/Serial_Controller",
+      "x": 965,
+      "y": 795,
+      "w": 100,
+      "h": 22,
+      "label": "Serial Ctrl",
+      "tone": "module",
+      "kind": "block",
+      "font": 12
+    },
+    {
+      "path": "/HPS/PSS/System_Modules/Secure_Manager",
+      "x": 965,
+      "y": 820,
+      "w": 100,
+      "h": 22,
+      "label": "Secure Mgr",
+      "tone": "module",
+      "kind": "block",
+      "font": 12
+    },
+    {
+      "path": "/HPS/PSS/System_Modules/System_Manager",
+      "x": 965,
+      "y": 845,
+      "w": 100,
+      "h": 22,
+      "label": "System Mgr",
+      "tone": "module",
+      "kind": "block",
+      "font": 12
+    },
+    {
+      "path": "/HPS/CoreSight",
+      "x": 1105,
+      "y": 760,
+      "w": 125,
+      "h": 115,
+      "label": "CoreSight\nDAP / STM / ETR",
+      "tone": "debug",
+      "kind": "block",
+      "font": 14
+    },
+    {
+      "path": "/SDM/Mailbox_services",
+      "x": 1330,
+      "y": 565,
+      "w": 80,
+      "h": 115,
+      "label": "Mailbox\nservices",
+      "tone": "interface",
+      "kind": "block",
+      "font": 14
+    },
+    {
+      "path": "/Fabric",
+      "x": 100,
+      "y": 925,
+      "w": 350,
+      "h": 55,
+      "label": "User design logic",
+      "tone": "interface",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/LWHPS2FPGA",
+      "x": 765,
+      "y": 925,
+      "w": 140,
+      "h": 55,
+      "label": "LWH2F",
+      "tone": "interface",
+      "kind": "block"
+    },
+    {
+      "path": "/HPS/PSS/HPS2FPGA",
+      "x": 925,
+      "y": 925,
+      "w": 140,
+      "h": 55,
+      "label": "H2F",
+      "tone": "interface",
+      "kind": "block"
+    },
+    {
+      "path": "/SOM_IO",
+      "x": 1100,
+      "y": 925,
+      "w": 230,
+      "h": 55,
+      "label": "Modular SOM devices",
+      "tone": "board",
+      "kind": "block"
+    },
+    {
+      "path": "/Fabric/Lab_proposed",
+      "x": 100,
+      "y": 1000,
+      "w": 280,
+      "h": 38,
+      "label": "ADD / XOR lab \u00b7 proposed",
+      "tone": "proposed",
+      "kind": "block",
+      "font": 15
+    },
+    {
+      "path": "/Fabric/Simics_reference",
+      "x": 400,
+      "y": 1000,
+      "w": 270,
+      "h": 38,
+      "label": "Simics fabric \u00b7 model only",
+      "tone": "model",
+      "kind": "block",
+      "font": 15
+    },
+    {
+      "path": "/Fabric/PR_recipe",
+      "x": 690,
+      "y": 1000,
+      "w": 270,
+      "h": 38,
+      "label": "PR recipe \u00b7 reference only",
+      "tone": "proposed",
+      "kind": "block",
+      "font": 15
+    }
+  ],
+  "wires": [
+    {
+      "points": [
+        [
+          490,
+          360
+        ],
+        [
+          490,
+          410
+        ]
+      ],
+      "tone": "black",
+      "both": false,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          365,
+          637
+        ],
+        [
+          300,
+          637
+        ]
+      ],
+      "tone": "black",
+      "both": false,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          600,
+          637
+        ],
+        [
+          755,
+          637
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          615,
+          325
+        ],
+        [
+          680,
+          325
+        ],
+        [
+          680,
+          510
+        ],
+        [
+          755,
+          510
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          645,
+          570
+        ],
+        [
+          615,
+          570
+        ]
+      ],
+      "tone": "black",
+      "both": false,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          482,
+          758
+        ],
+        [
+          482,
+          690
+        ]
+      ],
+      "tone": "black",
+      "both": false,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          175,
+          758
+        ],
+        [
+          175,
+          690
+        ]
+      ],
+      "tone": "black",
+      "both": false,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          175,
+          925
+        ],
+        [
+          175,
+          816
+        ]
+      ],
+      "tone": "black",
+      "both": false,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          450,
+          925
+        ],
+        [
+          482,
+          925
+        ],
+        [
+          482,
+          816
+        ]
+      ],
+      "tone": "black",
+      "both": false,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          830,
+          715
+        ],
+        [
+          830,
+          925
+        ]
+      ],
+      "tone": "black",
+      "both": false,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          995,
+          715
+        ],
+        [
+          995,
+          925
+        ]
+      ],
+      "tone": "black",
+      "both": false,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          955,
+          715
+        ],
+        [
+          955,
+          760
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          1167,
+          715
+        ],
+        [
+          1167,
+          760
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          1220,
+          625
+        ],
+        [
+          1320,
+          625
+        ]
+      ],
+      "tone": "bus",
+      "both": true,
+      "label": "PSI link",
+      "label_at": [
+        1265,
+        608
+      ]
+    },
+    {
+      "points": [
+        [
+          885,
+          145
+        ],
+        [
+          885,
+          95
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          1090,
+          145
+        ],
+        [
+          1090,
+          95
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          120,
+          410
+        ],
+        [
+          120,
+          95
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          245,
+          410
+        ],
+        [
+          245,
+          95
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          895,
+          485
+        ],
+        [
+          895,
+          175
+        ]
+      ],
+      "tone": "bus",
+      "both": true,
+      "label": "L4",
+      "label_at": [
+        905,
+        340
+      ]
+    },
+    {
+      "points": [
+        [
+          1065,
+          485
+        ],
+        [
+          1065,
+          175
+        ]
+      ],
+      "tone": "bus",
+      "both": true,
+      "label": "L4",
+      "label_at": [
+        1070,
+        340
+      ]
+    },
+    {
+      "points": [
+        [
+          1200,
+          228
+        ],
+        [
+          1240,
+          228
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          1200,
+          272
+        ],
+        [
+          1240,
+          272
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          1200,
+          316
+        ],
+        [
+          1320,
+          328
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          1200,
+          360
+        ],
+        [
+          1320,
+          385
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          1165,
+          160
+        ],
+        [
+          1270,
+          160
+        ],
+        [
+          1270,
+          210
+        ]
+      ],
+      "tone": "black",
+      "both": false,
+      "label": ""
+    }
+  ],
+  "note": "Layout and subsystem placement follow the TRM. Connections are simplified functional paths, not an elaborated netlist. Lower demonstration contexts and SOM devices are additions."
+}

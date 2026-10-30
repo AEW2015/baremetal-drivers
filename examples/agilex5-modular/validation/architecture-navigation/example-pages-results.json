@@ -1,0 +1,28 @@
+{
+  "pages_checked": 28,
+  "catalog_links_checked": 81,
+  "browser_checks": [
+    {
+      "page": "examples/dma.md",
+      "selected_example": "board/dma",
+      "status": "pass"
+    },
+    {
+      "page": "examples/qemu-labs.md",
+      "selected_example": "practice/startup",
+      "status": "pass"
+    },
+    {
+      "page": "runtime-fixes.md",
+      "selected_example": "upstream/crc",
+      "status": "pass"
+    },
+    {
+      "page": "fabric-ip.md",
+      "selected_example": "fabric/add",
+      "status": "pass"
+    }
+  ],
+  "javascript_errors": [],
+  "browser": "156.0.8078.4"
+}

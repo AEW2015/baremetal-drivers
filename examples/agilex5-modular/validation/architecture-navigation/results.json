@@ -1,0 +1,23 @@
+{
+  "browser": "156.0.8078.4",
+  "examples_checked": 81,
+  "checks": [
+    "Offline TRM Figure 1 layout: MPU / APS / PSS / MPFE, all 81 catalog options",
+    "Direct TRM context links resolve exact topic IDs; overview blocks open their parent hierarchy",
+    "All 81 example selections resolve to blocks, status cards, tutorials and source",
+    "Back/Up buttons and Alt+Left/Alt+Up restore diagram level, selected block and example",
+    "Platform emphasis preserves the mailbox hardware PASS and evidence link",
+    "Fabric register ABI, unqualified-deployment notice and parsed persona/register hierarchy",
+    "Keyboard selection of an actual RTL child",
+    "SVG export downloads a standalone drawing",
+    "PNG export downloads a valid raster drawing",
+    "Example search handles matching and empty results",
+    "Shareable example URL restores selection and dark theme",
+    "Overlapping layout requests preserve the latest example selection",
+    "Mobile viewport retains controls and a bounded details panel",
+    "Legacy Memory/CCU deep link resolves to the reorganized APS block"
+  ],
+  "javascript_errors": [],
+  "network_dependency_requests": [],
+  "html_sha256": "1387ad587f381029eae34d10c7b8e67f7378102116501e736f29abcc2f4ffd20"
+}
