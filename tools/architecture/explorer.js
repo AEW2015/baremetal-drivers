@@ -132,7 +132,6 @@ function normalizeArchitecturePath(parts) {
   return path.split('/').filter(Boolean);
 }
 function documentsAt(path) {
-  if(path==='/Fabric/DDR' || path.startsWith('/Fabric/DDR/'))return [ARCH.sources.fabric_ddr,ARCH.sources.som];
   let ancestor=path;
   while(ancestor && !ARCH.blocks[ancestor])ancestor=ancestor.slice(0,ancestor.lastIndexOf('/'));
   const info=ARCH.blocks[ancestor];

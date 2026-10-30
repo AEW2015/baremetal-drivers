@@ -58,6 +58,7 @@ nav:
   - Examples:
       - Overview: examples.md
       - Clickable HPS and fabric map: architecture.md
+      - Missing-example TODO roadmap: example-roadmap.md
       - Complete platform catalog: example-catalog.md
       - Shared labs on QEMU, Simics and hardware: cross-platform.md
       - QEMU CPU, NEON and RAM: examples/qemu.md

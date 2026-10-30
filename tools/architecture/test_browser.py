@@ -46,11 +46,13 @@ def main():
         block_report=check_blocks(page,model)
         checks.append('Every overview target and hierarchy block: pointer click, coverage marker, Open and Up destination')
         page.evaluate('()=>window.__fpa.chooseExample("fabric/add")')
-        page.evaluate('()=>window.__fpa.openBlock("/Fabric/DDR")')
+        page.evaluate('()=>window.__fpa.openBlock("/HPS/PSS/Peripherals/NAND")')
         assert 'No example yet' in page.locator('#panel').inner_text()
-        assert page.get_by_role('button',name='/Fabric/DDR — click for examples; double-click to open',exact=True).get_attribute('data-example-coverage')=='none'
-        screenshot('fabric-ddr.png')
-        checks.append('Fabric DDR is separate from HPS DDR; missing-example markers ignore the selected-example filter')
+        assert page.get_by_role('button',name='/HPS/PSS/Peripherals/NAND — click for examples; double-click to open',exact=True).get_attribute('data-example-coverage')=='none'
+        screenshot('missing-example.png')
+        assert not any(path.startswith('/Fabric/DDR') for path in model['blocks'])
+        assert any(shape['path']=='/SOM_IO/DDR3A' for shape in model['trm_layout']['shapes'])
+        checks.append('HPS DDR bank 3A retained, fabric DDR removed; missing-example markers ignore selected-example filter')
         for row in catalog['examples']:
             page.evaluate('(id)=>window.__fpa.chooseExample(id)',row['id'])
             card=page.locator('[data-example-id="'+row['id']+'"]')

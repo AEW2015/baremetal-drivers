@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "width": 1440,
-  "height": 1210,
+  "height": 1070,
   "title": "HPS system diagram \u2014 TRM Figure 1, independently redrawn",
   "reference": "hps",
   "shapes": [
@@ -696,39 +696,6 @@
       "font": 16
     },
     {
-      "path": "/Fabric/DDR",
-      "x": 100,
-      "y": 1060,
-      "w": 860,
-      "h": 110,
-      "label": "Fabric DDR \u00b7 separate memory path",
-      "tone": "board",
-      "kind": "frame",
-      "font": 19
-    },
-    {
-      "path": "/Fabric/DDR/EMIF",
-      "x": 120,
-      "y": 1105,
-      "w": 305,
-      "h": 45,
-      "label": "Fabric EMIF / controller",
-      "tone": "interface",
-      "kind": "block",
-      "font": 17
-    },
-    {
-      "path": "/Fabric/DDR/Memory",
-      "x": 585,
-      "y": 1105,
-      "w": 350,
-      "h": 45,
-      "label": "External fabric DDR memory",
-      "tone": "board",
-      "kind": "block",
-      "font": 17
-    },
-    {
       "path": "/DDR_IO96",
       "x": 55,
       "y": 300,
@@ -1143,26 +1110,7 @@
       "tone": "black",
       "both": true,
       "label": ""
-    },
-    {
-      "points": [
-        [
-          425,
-          1127
-        ],
-        [
-          585,
-          1127
-        ]
-      ],
-      "tone": "black",
-      "both": true,
-      "label": "DDR interface",
-      "label_at": [
-        505,
-        1115
-      ]
     }
   ],
-  "note": "Layout and subsystem placement follow the TRM. Connections are simplified functional paths, not an elaborated netlist. Lower demonstration contexts and SOM devices are additions. HPS DDR bank 3A and fabric DDR are explicitly separate bench/design contexts; neither fabric DDR wiring nor its CPU address is inferred."
+  "note": "Layout and subsystem placement follow the TRM. Connections are simplified functional paths, not an elaborated netlist. Lower demonstration contexts and SOM devices are additions. DDR examples target HPS DDR bank 3A; separate fabric DDR/EMIF is outside this diagram scope."
 }

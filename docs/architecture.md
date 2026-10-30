@@ -55,7 +55,7 @@ Try direct example links:
 
 ## What the drawing represents
 
-The **80 architecture blocks** are an educational grouping based on the HPS TRM,
+The **77 architecture blocks** are an educational grouping based on the HPS TRM,
 our Modular ES bench profile and SOM schematic. The system overview follows
 TRM Figure 1: MPU above APS, MPFE to the left, and PSS peripherals and
 interconnect to the right. Colors and grouping follow that reference in an
@@ -70,7 +70,6 @@ replacement for the TRM.
 |---|---|
 | HPS | TRM MPU, APS, PSS and CoreSight hierarchy, with block-specific chapter links |
 | SDM | Configuration and firmware-service context outside the HPS CPU |
-| Fabric DDR | Separate fabric EMIF/controller and external DDR context; no mapped bare-metal example or inherited HPS DDR PASS |
 | DDR / IO96 | TRM IOBank 0/1 architecture context; this bench initializes HPS DDR bank 3A only; matching handoff required |
 | SOM devices | Board schematic and established bench profile; no carrier connectivity inferred |
 | Proposed ADD/XOR fabric | Actual repository RTL, parsed structurally; C-driver/RTL co-simulation passed, physical deployment unqualified |
@@ -82,16 +81,18 @@ artifact snapshots. A controller ID PASS is not a data-transfer PASS, and an ECC
 register check is not injected-error recovery. Select the **R0** register map for
 this Modular ES bench; production-part assumptions are not interchangeable.
 
-## HPS DDR versus fabric DDR
+## HPS DDR scope and planned examples
 
-The overview explicitly shows **HPS DDR4, bank 3A** above its HPS memory path
-and a separate **Fabric DDR** group below the FPGA examples. The latter opens
-to a fabric EMIF/controller and external fabric DDR memory. These are distinct
-paths: DDR Hello and its 64 MiB scratch tests qualify the recorded HPS path only.
-The custom FPGA integration contains fabric DDR/diagnostic logic, but this
-collection has no mapped bare-metal fabric-DDR example. Its bank wiring, memory
-size and CPU aperture must come from the matching design; none is inferred here.
-See [the FPGA design provenance](fpga-design.md).
+The overview shows **HPS DDR4, bank 3A** above the HPS memory path. The DDR labs
+use this bank; separate fabric DDR/EMIF is outside this diagram's scope.
+DDR Hello validates a 64 MiB scratch region and payload execution, not the full
+8 GiB bank. Future fabric traffic generators can target HPS DDR through the
+FPGA-to-SDRAM path without adding a separate fabric DDR controller.
+
+The [missing-example roadmap](example-roadmap.md) tracks all 23 marked blocks,
+starting with evidence/mapping review and progressing to new diagnostic,
+translation and peripheral labs. These tasks are planned, not new PASS results.
+See [the FPGA design provenance](fpga-design.md) for the existing bench.
 
 ## Sources and tool attribution
 

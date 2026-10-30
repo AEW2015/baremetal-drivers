@@ -1,0 +1,762 @@
+{
+  "browser": "156.0.8078.4",
+  "examples_checked": 81,
+  "block_navigation": [
+    {
+      "overview_target": 0,
+      "path": "/HPS",
+      "result": "pass"
+    },
+    {
+      "overview_target": 1,
+      "path": "/HPS/MPU",
+      "result": "pass"
+    },
+    {
+      "overview_target": 2,
+      "path": "/HPS/APS",
+      "result": "pass"
+    },
+    {
+      "overview_target": 3,
+      "path": "/HPS/PSS",
+      "result": "pass"
+    },
+    {
+      "overview_target": 4,
+      "path": "/DDR_IO96/MPFE",
+      "result": "pass"
+    },
+    {
+      "overview_target": 5,
+      "path": "/HPS/PSS/System_Modules",
+      "result": "pass"
+    },
+    {
+      "overview_target": 6,
+      "path": "/SDM",
+      "result": "pass"
+    },
+    {
+      "overview_target": 7,
+      "path": "/Fabric",
+      "result": "pass"
+    },
+    {
+      "overview_target": 8,
+      "path": "/HPS/PSS/Pin_mux",
+      "result": "pass"
+    },
+    {
+      "overview_target": 9,
+      "path": "/HPS/MPU/A76",
+      "result": "pass"
+    },
+    {
+      "overview_target": 10,
+      "path": "/HPS/MPU/A55",
+      "result": "pass"
+    },
+    {
+      "overview_target": 11,
+      "path": "/HPS/MPU/A55",
+      "result": "pass"
+    },
+    {
+      "overview_target": 12,
+      "path": "/HPS/MPU/A76",
+      "result": "pass"
+    },
+    {
+      "overview_target": 13,
+      "path": "/HPS/MPU/DSU",
+      "result": "pass"
+    },
+    {
+      "overview_target": 14,
+      "path": "/HPS/APS/OCRAM",
+      "result": "pass"
+    },
+    {
+      "overview_target": 15,
+      "path": "/HPS/APS/GIC",
+      "result": "pass"
+    },
+    {
+      "overview_target": 16,
+      "path": "/HPS/APS/SMMU",
+      "result": "pass"
+    },
+    {
+      "overview_target": 17,
+      "path": "/HPS/APS/CCU",
+      "result": "pass"
+    },
+    {
+      "overview_target": 18,
+      "path": "/HPS/APS/TCU",
+      "result": "pass"
+    },
+    {
+      "overview_target": 19,
+      "path": "/HPS/APS/F2H_TBU",
+      "result": "pass"
+    },
+    {
+      "overview_target": 20,
+      "path": "/HPS/APS/FPGA2HPS",
+      "result": "pass"
+    },
+    {
+      "overview_target": 21,
+      "path": "/DDR_IO96/MPFE/NoC",
+      "result": "pass"
+    },
+    {
+      "overview_target": 22,
+      "path": "/DDR_IO96/MPFE/F2SDRAM_TBU",
+      "result": "pass"
+    },
+    {
+      "overview_target": 23,
+      "path": "/DDR_IO96/MPFE/FPGA2SDRAM",
+      "result": "pass"
+    },
+    {
+      "overview_target": 24,
+      "path": "/DDR_IO96/MPFE",
+      "result": "pass"
+    },
+    {
+      "overview_target": 25,
+      "path": "/HPS/PSS/Pin_mux",
+      "result": "pass"
+    },
+    {
+      "overview_target": 26,
+      "path": "/HPS/PSS/Peripherals/UART0",
+      "result": "pass"
+    },
+    {
+      "overview_target": 27,
+      "path": "/HPS/PSS/Peripherals/I2C",
+      "result": "pass"
+    },
+    {
+      "overview_target": 28,
+      "path": "/HPS/PSS/Peripherals/I3C1",
+      "result": "pass"
+    },
+    {
+      "overview_target": 29,
+      "path": "/HPS/PSS/Peripherals/SPI",
+      "result": "pass"
+    },
+    {
+      "overview_target": 30,
+      "path": "/HPS/PSS/Peripherals/SPI",
+      "result": "pass"
+    },
+    {
+      "overview_target": 31,
+      "path": "/HPS/PSS/Peripherals/Watchdog",
+      "result": "pass"
+    },
+    {
+      "overview_target": 32,
+      "path": "/HPS/PSS/Peripherals/NAND",
+      "result": "pass"
+    },
+    {
+      "overview_target": 33,
+      "path": "/HPS/PSS/Peripherals/SDMMC",
+      "result": "pass"
+    },
+    {
+      "overview_target": 34,
+      "path": "/HPS/PSS/Peripherals/EMAC2",
+      "result": "pass"
+    },
+    {
+      "overview_target": 35,
+      "path": "/HPS/PSS/Peripherals/USB",
+      "result": "pass"
+    },
+    {
+      "overview_target": 36,
+      "path": "/HPS/PSS/Peripherals/USB",
+      "result": "pass"
+    },
+    {
+      "overview_target": 37,
+      "path": "/HPS/PSS/Peripherals/GPIO",
+      "result": "pass"
+    },
+    {
+      "overview_target": 38,
+      "path": "/HPS/PSS/ECC",
+      "result": "pass"
+    },
+    {
+      "overview_target": 39,
+      "path": "/HPS/PSS/Peripherals/Timers",
+      "result": "pass"
+    },
+    {
+      "overview_target": 40,
+      "path": "/HPS/PSS/Peripherals/Timers",
+      "result": "pass"
+    },
+    {
+      "overview_target": 41,
+      "path": "/HPS/PSS/Peripherals/DMA",
+      "result": "pass"
+    },
+    {
+      "overview_target": 42,
+      "path": "/HPS/PSS/Peripherals/ComboPHY",
+      "result": "pass"
+    },
+    {
+      "overview_target": 43,
+      "path": "/HPS/PSS/Peripherals/EMAC_PHY_interface",
+      "result": "pass"
+    },
+    {
+      "overview_target": 44,
+      "path": "/HPS/PSS/Peripherals/USB_PHY_interface",
+      "result": "pass"
+    },
+    {
+      "overview_target": 45,
+      "path": "/HPS/PSS/NoC",
+      "result": "pass"
+    },
+    {
+      "overview_target": 46,
+      "path": "/HPS/PSS/IO_TBU",
+      "result": "pass"
+    },
+    {
+      "overview_target": 47,
+      "path": "/HPS/PSS/DMA_TBU",
+      "result": "pass"
+    },
+    {
+      "overview_target": 48,
+      "path": "/HPS/PSS/EMAC_TBU",
+      "result": "pass"
+    },
+    {
+      "overview_target": 49,
+      "path": "/HPS/PSS/SDM_TBU",
+      "result": "pass"
+    },
+    {
+      "overview_target": 50,
+      "path": "/HPS/PSS/System_Modules/Clock",
+      "result": "pass"
+    },
+    {
+      "overview_target": 51,
+      "path": "/HPS/PSS/System_Modules/Reset",
+      "result": "pass"
+    },
+    {
+      "overview_target": 52,
+      "path": "/HPS/PSS/System_Modules/Power",
+      "result": "pass"
+    },
+    {
+      "overview_target": 53,
+      "path": "/HPS/PSS/System_Modules/Serial_Controller",
+      "result": "pass"
+    },
+    {
+      "overview_target": 54,
+      "path": "/HPS/PSS/System_Modules/Secure_Manager",
+      "result": "pass"
+    },
+    {
+      "overview_target": 55,
+      "path": "/HPS/PSS/System_Modules/System_Manager",
+      "result": "pass"
+    },
+    {
+      "overview_target": 56,
+      "path": "/HPS/CoreSight",
+      "result": "pass"
+    },
+    {
+      "overview_target": 57,
+      "path": "/SDM/Mailbox_services",
+      "result": "pass"
+    },
+    {
+      "overview_target": 58,
+      "path": "/Fabric",
+      "result": "pass"
+    },
+    {
+      "overview_target": 59,
+      "path": "/HPS/PSS/LWHPS2FPGA",
+      "result": "pass"
+    },
+    {
+      "overview_target": 60,
+      "path": "/HPS/PSS/HPS2FPGA",
+      "result": "pass"
+    },
+    {
+      "overview_target": 61,
+      "path": "/SOM_IO",
+      "result": "pass"
+    },
+    {
+      "overview_target": 62,
+      "path": "/Fabric/Lab_proposed",
+      "result": "pass"
+    },
+    {
+      "overview_target": 63,
+      "path": "/Fabric/Simics_reference",
+      "result": "pass"
+    },
+    {
+      "overview_target": 64,
+      "path": "/Fabric/PR_recipe",
+      "result": "pass"
+    },
+    {
+      "overview_target": 65,
+      "path": "/SOM_IO/DDR3A",
+      "result": "pass"
+    },
+    {
+      "overview_target": 66,
+      "path": "/DDR_IO96/EMIF",
+      "result": "pass"
+    },
+    {
+      "overview_target": 67,
+      "path": "/DDR_IO96",
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/DDR_IO96",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/DDR_IO96/EMIF",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/DDR_IO96/IOSSM",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/DDR_IO96/MPFE",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/DDR_IO96/MPFE/F2SDRAM_TBU",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/DDR_IO96/MPFE/FPGA2SDRAM",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/DDR_IO96/MPFE/NoC",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/Fabric",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/Fabric/Lab_proposed",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/Fabric/Lab_proposed/lab_ip",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/Fabric/Lab_proposed/lab_ip/a_reg",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/Fabric/Lab_proposed/lab_ip/u_persona",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/Fabric/PR_recipe",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/Fabric/Simics_reference",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/Fabric/Simics_reference/PIO",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/Fabric/Simics_reference/RAM",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/APS",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/APS/CCU",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/APS/F2H_TBU",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/APS/FPGA2HPS",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/APS/GIC",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/APS/OCRAM",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/APS/SMMU",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/APS/TCU",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/CoreSight",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/MPU",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/MPU/A55",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/MPU/A76",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/MPU/DSU",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/MPU/Generic_timer",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/MPU/MMU_NEON",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/DMA_TBU",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/ECC",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/EMAC_TBU",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/HPS2FPGA",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/IO_TBU",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/LWHPS2FPGA",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Mailbox",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/NoC",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/PSI",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/ComboPHY",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/DMA",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/EMAC2",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/EMAC_PHY_interface",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/GPIO",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/I2C",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/I3C1",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/NAND",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/SDMMC",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/SPI",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/Timers",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/UART0",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/USB",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/USB_PHY_interface",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Peripherals/Watchdog",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/Pin_mux",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/SDM_TBU",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/System_Modules",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/System_Modules/Clock",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/System_Modules/Power",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/System_Modules/Reset",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/System_Modules/Secure_Manager",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/System_Modules/Serial_Controller",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/HPS/PSS/System_Modules/System_Manager",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/SDM",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/SDM/FCS",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/SDM/Mailbox_services",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/SDM/SEU",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/SOM_IO",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/SOM_IO/DDR3A",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/SOM_IO/EEPROM",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/SOM_IO/PHY",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/SOM_IO/SD_slot",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/SOM_IO/Sensor",
+      "associated_examples": true,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/SOM_IO/UART_USB",
+      "associated_examples": false,
+      "result": "pass"
+    },
+    {
+      "hierarchy_block": "/SOM_IO/USB_port",
+      "associated_examples": false,
+      "result": "pass"
+    }
+  ],
+  "checks": [
+    "Offline TRM Figure 1 layout: MPU / APS / PSS / MPFE, all 81 catalog options",
+    "Direct TRM context links resolve exact topic IDs; overview blocks open their parent hierarchy",
+    "Every overview target and hierarchy block: pointer click, coverage marker, Open and Up destination",
+    "HPS DDR bank 3A retained, fabric DDR removed; missing-example markers ignore selected-example filter",
+    "All 81 example selections resolve to blocks, status cards, tutorials and source",
+    "Back/Up buttons and Alt+Left/Alt+Up restore diagram level, selected block and example",
+    "Platform emphasis preserves the mailbox hardware PASS and evidence link",
+    "Fabric register ABI, unqualified-deployment notice and parsed persona/register hierarchy",
+    "Keyboard selection of an actual RTL child",
+    "SVG export downloads a standalone drawing",
+    "PNG export downloads a valid raster drawing",
+    "Example search handles matching and empty results",
+    "Shareable example URL restores selection and dark theme",
+    "Overlapping layout requests preserve the latest example selection",
+    "Mobile viewport retains controls and a bounded details panel",
+    "Legacy Memory/CCU deep link resolves to the reorganized APS block"
+  ],
+  "javascript_errors": [],
+  "network_dependency_requests": [],
+  "html_sha256": "3c1883038efcf2a6c29e1cef2dc546206117ee569a881f9662f87f6b4355c13b"
+}

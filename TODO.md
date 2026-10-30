@@ -18,3 +18,7 @@ Verilator tests run separately; a combined adapter is not implemented.
 
 Preparation: [fabric lab](docs/fabric-ip.md), [Simics lab](docs/simics.md), and
 [harness source](examples/agilex5-modular/fabric/tests/test_lab.cpp).
+
+- [ ] Complete the [HPS DDR and missing-example roadmap](docs/example-roadmap.md).
+  Track evidence/mapping fixes separately from new examples and physical-board
+  qualification. Separate fabric DDR/EMIF is excluded from this work.
