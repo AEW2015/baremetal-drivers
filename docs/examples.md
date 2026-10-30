@@ -2,6 +2,9 @@
 
 Choose an example in the **Examples** navigation. Each page has **What it does**, **Build and run**, **Expected results**, and **Limits** subtabs, with source links and captured output.
 
+Use the [clickable HPS and fabric map](architecture.md) to locate all 81 catalog
+entries by block, then open their source, expected results and platform evidence.
+
 ## Start here
 
 | Example | Runs on | Expected result |

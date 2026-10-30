@@ -9,6 +9,7 @@ the HPS controllers and the devices actually populated on the SOM.
 
 [Install the tools](setup.md){ .md-button .md-button--primary }
 [Browse the examples](examples.md){ .md-button }
+[Explore the clickable HPS / fabric map](architecture.md){ .md-button }
 
 ## What you will build
 

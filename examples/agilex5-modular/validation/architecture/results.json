@@ -1,0 +1,20 @@
+{
+  "browser": "156.0.8078.4",
+  "examples_checked": 81,
+  "checks": [
+    "Offline root view: five contexts, all 81 catalog options",
+    "All 81 example selections resolve to blocks, status cards, tutorials and source",
+    "Platform emphasis preserves the mailbox hardware PASS and evidence link",
+    "Fabric register ABI, unqualified-deployment notice and parsed persona/register hierarchy",
+    "Keyboard selection of an actual RTL child",
+    "SVG export downloads a standalone drawing",
+    "PNG export downloads a valid raster drawing",
+    "Example search handles matching and empty results",
+    "Shareable example URL restores selection and dark theme",
+    "Overlapping layout requests preserve the latest example selection",
+    "Mobile viewport retains controls and a bounded details panel"
+  ],
+  "javascript_errors": [],
+  "network_dependency_requests": [],
+  "html_sha256": "5eea338deced5ba04132c0a765751dc1189ca18d788da9d48c9a0e73e7047101"
+}

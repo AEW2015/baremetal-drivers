@@ -57,6 +57,7 @@ nav:
       - 6. Swap IP with partial reconfiguration: partial-reconfiguration.md
   - Examples:
       - Overview: examples.md
+      - Clickable HPS and fabric map: architecture.md
       - Complete platform catalog: example-catalog.md
       - Shared labs on QEMU, Simics and hardware: cross-platform.md
       - QEMU CPU, NEON and RAM: examples/qemu.md

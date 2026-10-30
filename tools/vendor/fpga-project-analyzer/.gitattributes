@@ -1,0 +1,2 @@
+# Keep the pinned upstream package byte-for-byte, including whitespace.
+** -whitespace

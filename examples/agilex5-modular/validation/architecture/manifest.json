@@ -1,0 +1,34 @@
+{
+  "README.md": {
+    "bytes": 1751,
+    "sha256": "d30af608df4ae0492f52f5da35766583d35ea1cecfb67823e94232672be74bf6"
+  },
+  "diagram-build.json": {
+    "bytes": 1831,
+    "sha256": "d60ea84f48ea8546a6e2a6b6528943b4cf5f64f2dc9c1b239d76e2602f718539"
+  },
+  "mailbox.png": {
+    "bytes": 182704,
+    "sha256": "7720574df31ba9d01534bb57a7c47acb57d407f5fa554b3211bf1c1e6c8b1e62"
+  },
+  "mobile.png": {
+    "bytes": 78698,
+    "sha256": "f805fd17d6d36a60ee6bc91f117494133a2e11f0126b44afc7712582e8c1ac98"
+  },
+  "overview.png": {
+    "bytes": 124284,
+    "sha256": "63f36ea2f57b80fbfe5f0bf50e8c48fecafd443d027dc6fab57e7707e5394052"
+  },
+  "overview.svg": {
+    "bytes": 46822,
+    "sha256": "f9fd8afaf5b0791341405aae78698fbae48f7daccdd45426748b9f91eb244507"
+  },
+  "results.json": {
+    "bytes": 961,
+    "sha256": "7539f40e05f7e82c612398a6e6fbbf12edbe56abe4f8fdd257f8d09dc63bfbd0"
+  },
+  "rtl.png": {
+    "bytes": 109201,
+    "sha256": "e62abdd023b1985a78f7bdcc48230601dcbc68414a20b4ca0ddc32b52547b412"
+  }
+}

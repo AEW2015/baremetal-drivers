@@ -1,5 +1,10 @@
 
 # atf_base_dir build artifact
+.fpa/
+# Rebuilt by tools/architecture/build_diagram.py before the website build.
+docs/assets/architecture/
+__pycache__/
+*.py[cod]
 atf_env.simics
 
 # .img files produced by generate_atf_sdimage

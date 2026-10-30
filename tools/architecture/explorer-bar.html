@@ -1,0 +1,14 @@
+<section id="architecture-bar" aria-label="Agilex example explorer">
+  <div class="architecture-heading"><strong>Agilex 5 · examples to hardware</strong>
+    <span>Click for details · double-click to open · scroll to zoom</span>
+    <a href="https://aew2015.github.io/baremetal-drivers/architecture/" target="_blank" rel="noopener">Guide and sources ↗</a>
+  </div>
+  <div class="architecture-controls">
+    <label>Example <select id="example-picker" aria-label="Choose an example"><option value="">All examples</option></select></label>
+    <label>Find <input id="example-search" type="search" placeholder="mailbox, timer, fabric…" aria-label="Search examples"></label>
+    <label>Results <select id="platform-picker" aria-label="Emphasize platform results"><option value="all">All platforms</option><option value="qemu">QEMU</option><option value="simics">Simics</option><option value="hardware">Hardware</option></select></label>
+    <button id="architecture-overview" type="button">System overview</button>
+    <span id="example-count" role="status"></span>
+  </div>
+  <div class="architecture-scope">TRM-based functional map, not an extracted Quartus netlist. Proposed fabric and Simics models are separate. No timing/CDC qualification.</div>
+</section>
