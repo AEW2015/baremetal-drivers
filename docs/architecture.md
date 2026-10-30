@@ -17,10 +17,19 @@ repository's recorded platform results.
 - **Double-click**, or select **Open**, to drill into a subsystem. The breadcrumb
   and prominent **← Back**, **↑ Up one level**, and **⌂ System** controls navigate
   the hierarchy. Back restores the previous level and selection; Up opens the
-  parent. Keyboard shortcuts are **Alt+Left** and **Alt+Up**. Scroll to zoom and drag to pan.
+  parent and keeps the subsystem you left selected. The button names its
+  destination; **Viewing** identifies the current diagram level. A single click
+  on the overview only selects a block, so Up correctly reads **top** there.
+  Use **Show in hierarchy** to locate the selection in its parent diagram.
+  Keyboard shortcuts are **Alt+Left** and **Alt+Up**. Scroll to zoom and drag to pan.
 - The toolbar and **Direct reference pages** panel link to the selected block’s
   specific TRM section, including a content ID to distinguish repeated headings.
   The model includes **48 direct TRM section links**.
+- **◇ and a dashed border** mark blocks with **no example yet** in the block
+  or its children. This marker uses the full catalog, independently of filters.
+  A subsystem with examples in its children is associated; this does not mean
+  every function in that subsystem has been exercised. Parsed RTL inherits its
+  containing lab’s association.
 - Choose an **Example** to locate it and highlight related blocks. **Find**
   narrows the example list; **Results** emphasizes QEMU, Simics or hardware.
 - Open **Fabric → Lab_proposed → lab_ip** for the register ABI, then open it
@@ -46,7 +55,7 @@ Try direct example links:
 
 ## What the drawing represents
 
-The **77 architecture blocks** are an educational grouping based on the HPS TRM,
+The **80 architecture blocks** are an educational grouping based on the HPS TRM,
 our Modular ES bench profile and SOM schematic. The system overview follows
 TRM Figure 1: MPU above APS, MPFE to the left, and PSS peripherals and
 interconnect to the right. Colors and grouping follow that reference in an
@@ -61,6 +70,7 @@ replacement for the TRM.
 |---|---|
 | HPS | TRM MPU, APS, PSS and CoreSight hierarchy, with block-specific chapter links |
 | SDM | Configuration and firmware-service context outside the HPS CPU |
+| Fabric DDR | Separate fabric EMIF/controller and external DDR context; no mapped bare-metal example or inherited HPS DDR PASS |
 | DDR / IO96 | TRM IOBank 0/1 architecture context; this bench initializes HPS DDR bank 3A only; matching handoff required |
 | SOM devices | Board schematic and established bench profile; no carrier connectivity inferred |
 | Proposed ADD/XOR fabric | Actual repository RTL, parsed structurally; C-driver/RTL co-simulation passed, physical deployment unqualified |
@@ -71,6 +81,17 @@ Results come from the [example catalog](example-catalog.md), including historica
 artifact snapshots. A controller ID PASS is not a data-transfer PASS, and an ECC
 register check is not injected-error recovery. Select the **R0** register map for
 this Modular ES bench; production-part assumptions are not interchangeable.
+
+## HPS DDR versus fabric DDR
+
+The overview explicitly shows **HPS DDR4, bank 3A** above its HPS memory path
+and a separate **Fabric DDR** group below the FPGA examples. The latter opens
+to a fabric EMIF/controller and external fabric DDR memory. These are distinct
+paths: DDR Hello and its 64 MiB scratch tests qualify the recorded HPS path only.
+The custom FPGA integration contains fabric DDR/diagnostic logic, but this
+collection has no mapped bare-metal fabric-DDR example. Its bank wiring, memory
+size and CPU aperture must come from the matching design; none is inferred here.
+See [the FPGA design provenance](fpga-design.md).
 
 ## Sources and tool attribution
 
@@ -113,5 +134,7 @@ python3 tools/architecture/test_browser.py
 The browser checks all 81 example selections, result/evidence cards, actual RTL
 drill-down, Back/Up navigation, direct TRM links, keyboard selection, SVG/PNG
 export, search, legacy deep links and mobile layout.
-It runs with networking disabled and rejects JavaScript errors. Website deployment
+It also pointer-clicks every overview target and every architecture block,
+checks example markers, enters available subsystems, and verifies Up returns
+to the correct parent with the subsystem selected. It runs with networking disabled and rejects JavaScript errors. Website deployment
 depends on this check. The feature does not program or access the physical board.

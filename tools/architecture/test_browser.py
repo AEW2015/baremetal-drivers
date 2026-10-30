@@ -39,9 +39,18 @@ def main():
         assert page.locator('#trm-context-link').get_attribute('href')==model['documents']['hps']['url']
         page.get_by_role('button',name='/HPS/APS/CCU — click for examples; double-click to open').click()
         assert page.locator('#trm-context-link').get_attribute('href')==model['documents']['ccu']['url']
-        page.get_by_role('button',name='↑ Open parent diagram',exact=True).click()
+        page.get_by_role('button',name='Show in hierarchy',exact=True).click()
         page.wait_for_function('window.__fpa_ready && window.__fpa.state.path.join("/") === "HPS/APS"')
         checks.append('Direct TRM context links resolve exact topic IDs; overview blocks open their parent hierarchy')
+        from test_block_navigation import check_blocks
+        block_report=check_blocks(page,model)
+        checks.append('Every overview target and hierarchy block: pointer click, coverage marker, Open and Up destination')
+        page.evaluate('()=>window.__fpa.chooseExample("fabric/add")')
+        page.evaluate('()=>window.__fpa.openBlock("/Fabric/DDR")')
+        assert 'No example yet' in page.locator('#panel').inner_text()
+        assert page.get_by_role('button',name='/Fabric/DDR — click for examples; double-click to open',exact=True).get_attribute('data-example-coverage')=='none'
+        screenshot('fabric-ddr.png')
+        checks.append('Fabric DDR is separate from HPS DDR; missing-example markers ignore the selected-example filter')
         for row in catalog['examples']:
             page.evaluate('(id)=>window.__fpa.chooseExample(id)',row['id'])
             card=page.locator('[data-example-id="'+row['id']+'"]')
@@ -119,7 +128,7 @@ def main():
         checks.append('Legacy Memory/CCU deep link resolves to the reorganized APS block')
         assert not errors,errors
         assert not any(url.startswith(('http:','https:')) for url in requests),requests
-        report={'browser':browser.version,'examples_checked':81,'checks':checks,'javascript_errors':errors,'network_dependency_requests':[],
+        report={'browser':browser.version,'examples_checked':81,'block_navigation':block_report,'checks':checks,'javascript_errors':errors,'network_dependency_requests':[],
                 'html_sha256':__import__('hashlib').sha256(design.read_bytes()).hexdigest()}
         browser.close()
     (a.output/'results.json').write_text(json.dumps(report,indent=2)+'\n')

@@ -1,0 +1,32 @@
+{
+  "count": 26,
+  "rule": "No catalog mapping to the block or its descendants; no association inherited from architecture parents",
+  "paths": [
+    "/Fabric/Simics_reference",
+    "/SOM_IO/UART_USB",
+    "/SOM_IO/USB_port",
+    "/DDR_IO96/MPFE/FPGA2SDRAM",
+    "/Fabric/Simics_reference/RAM",
+    "/Fabric/Simics_reference/PIO",
+    "/HPS/MPU/DSU",
+    "/HPS/APS/TCU",
+    "/HPS/APS/F2H_TBU",
+    "/HPS/PSS/PSI",
+    "/HPS/PSS/Pin_mux",
+    "/HPS/PSS/IO_TBU",
+    "/HPS/PSS/DMA_TBU",
+    "/HPS/PSS/EMAC_TBU",
+    "/HPS/PSS/SDM_TBU",
+    "/DDR_IO96/MPFE/NoC",
+    "/DDR_IO96/MPFE/F2SDRAM_TBU",
+    "/HPS/PSS/Peripherals/NAND",
+    "/HPS/PSS/System_Modules/System_Manager",
+    "/HPS/PSS/System_Modules/Serial_Controller",
+    "/HPS/PSS/System_Modules/Secure_Manager",
+    "/HPS/PSS/Peripherals/EMAC_PHY_interface",
+    "/HPS/PSS/Peripherals/USB_PHY_interface",
+    "/Fabric/DDR",
+    "/Fabric/DDR/EMIF",
+    "/Fabric/DDR/Memory"
+  ]
+}

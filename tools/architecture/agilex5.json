@@ -686,6 +686,24 @@
         "usb31",
         "usb2"
       ]
+    },
+    {
+      "path": "/Fabric/DDR",
+      "title": "Fabric DDR (separate from HPS DDR)",
+      "role": "External DDR accessed through a fabric-side EMIF/controller. The recorded custom FPGA integration contains fabric DDR/diagnostic logic, but this bare-metal example collection has no mapped fabric-DDR example. HPS DDR bank-3A tests do not qualify this path.",
+      "scope": "FPGA design context; no bare-metal example yet"
+    },
+    {
+      "path": "/Fabric/DDR/EMIF",
+      "title": "Fabric DDR EMIF / controller",
+      "role": "Fabric AXI/Avalon memory traffic enters the configured EMIF/controller. Requires its own clocks, reset, calibration and exported address map; no CPU address is assumed here.",
+      "scope": "FPGA design context; no bare-metal example yet"
+    },
+    {
+      "path": "/Fabric/DDR/Memory",
+      "title": "External fabric DDR memory",
+      "role": "External memory associated with the fabric DDR controller; distinct from the HPS bank-3A memory used by DDR Hello. Bank wiring and capacity must be taken from the matching FPGA design and SOM revision.",
+      "scope": "Board/design context; no bare-metal example yet"
     }
   ],
   "connections": [
@@ -1240,6 +1258,20 @@
           "access"
         ]
       ]
+    },
+    {
+      "level": "/Fabric/DDR",
+      "name": "Fabric_DDR_memory_path",
+      "ends": [
+        [
+          "EMIF",
+          "memory"
+        ],
+        [
+          "Memory",
+          "ddr"
+        ]
+      ]
     }
   ],
   "example_blocks": {
@@ -1546,6 +1578,10 @@
     "simics": {
       "title": "Simics fabric models \u2014 behavioral, not custom RTL",
       "url": "https://docs.altera.com/r/docs/786901/25.3/intel-simics-simulator-for-altera-fpgas-agilextm-5-and-agilextm-3-virtual-platform-user-guide/fpga-fabric"
+    },
+    "fabric_ddr": {
+      "title": "Fabric DDR design context and qualification limits",
+      "url": "https://aew2015.github.io/baremetal-drivers/fpga-design/"
     }
   },
   "aliases": {

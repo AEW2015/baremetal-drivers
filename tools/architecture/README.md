@@ -57,3 +57,9 @@ The model stores 48 exact TRM topic URLs with content IDs from the official
 26.1.1 topic index; each HPS block requires a direct reference. Old architecture
 paths are retained as aliases. Back restores the prior level and selection;
 Up opens the parent. No vendor illustration is bundled.
+
+`test_block_navigation.py` is called by the browser suite. It uses real pointer
+clicks on every overview shape and every architecture block (plus parsed RTL
+children), checks coverage markers and panel text, enters each available
+subsystem, and checks the Up destination and retained selection. Uncovered
+architecture blocks never inherit a parent’s example mappings.

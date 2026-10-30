@@ -50,6 +50,9 @@ def build():
         url=urlsplit(ref['url'])
         if ref['kind']=='trm' and (url.netloc!='docs.altera.com' or '/814346/26.1.1/' not in url.path or parse_qs(url.query).get('contentId')!=[ref['content_id']]):
             raise ValueError('Invalid direct TRM topic: '+ref['title'])
+    roots={path for path in info if path.count('/')==1}
+    if not roots <= {shape['path'] for shape in trm_layout['shapes']}:
+        raise ValueError('Every root subsystem needs a visible overview target for Up navigation')
     for shape in trm_layout['shapes']:
         if shape['path'] not in info:raise ValueError('Unknown TRM diagram target: '+shape['path'])
     for node in spec['nodes']:

@@ -6,6 +6,12 @@ const platformTitle = {qemu:"QEMU",simics:"Simics",hardware:"Hardware"};
 function examplesAt(path) {
   return ARCH.examples.filter(e => e.blocks.some(b => b === path || b.startsWith(path + "/")));
 }
+function coverageAt(path) {
+  // Parsed RTL inherits its containing lab's association. Architecture blocks
+  // never inherit a parent's associations: HPS DDR cannot qualify fabric DDR.
+  while(path && !ARCH.blocks[path])path=path.slice(0,path.lastIndexOf('/'));
+  return examplesAt(path);
+}
 function safeLink(url, label, cls="") {
   if (!/^https:\/\//.test(url || "")) return esc(label);
   return `<a class="${esc(cls)}" target="_blank" rel="noopener" href="${esc(url)}">${esc(label)}</a>`;
@@ -22,18 +28,20 @@ function architectureDetails(path) {
   let ancestor=path;
   while (ancestor && !ARCH.blocks[ancestor]) ancestor=ancestor.slice(0,ancestor.lastIndexOf("/"));
   const info=ARCH.blocks[ancestor];
-  let examples=examplesAt(ancestor || path);
+  const associated=coverageAt(path);
+  let examples=associated;
   if (chosenExample) examples=examples.filter(e=>e.id===chosenExample);
   const docs = documentsAt(path);
   if (info && info.address) docs.push(ARCH.sources.address_map);
   let h=`<section class="architecture-detail"><h3>Example explorer</h3>`;
+  h+=associated.length ? `<p class="coverage-summary">${associated.length} associated example${associated.length===1?'':'s'} in this block or its children</p>` : `<p class="coverage-empty"><b>◇ No example yet</b><br>No catalog example is mapped to this block or its children.</p>`;
   if(info) h+=`<div class="context"><b>${esc(info.scope)}</b><br>${esc(info.role)}${info.address ? "<br>"+esc(info.address):""}</div>`;
   if(path.startsWith("/Fabric/Lab_proposed")) h+=`<p>Only this core's hierarchy is parsed from repository RTL. Its proposed LWHPS2FPGA deployment has not been fitted or run on the board, and Simics is not running this RTL.</p>`;
   h+=`<h3>Direct reference pages</h3><p class="direct-trm-links">${docs.map(d=>safeLink(d.url,d.title+" ↗")).join("<br>")}</p>`;
-  const parent=path.split('/').filter(Boolean).slice(0,-1).join('/');
-  if(parent)h+=`<div class="block-links"><button type="button" data-open-level="/${esc(parent)}">↑ Open parent diagram</button></div>`;
+  h+=`<div class="block-links"><button type="button" data-show-hierarchy="${esc(path)}">Show in hierarchy</button></div>`;
+  h+=`<p class="navigation-explanation">Click selects a block. Open enters a subsystem. Up leaves the diagram level shown in the toolbar.</p>`;
   h+=`<h3>${examples.length} related example${examples.length===1?"":"s"}</h3>`;
-  h+=examples.map(exampleCard).join("") || "<p>No example matches the current selection. Choose All examples to browse this block.</p>";
+  h+=examples.map(exampleCard).join("") || (associated.length ? "<p>No example matches the current filter. Choose All examples to browse this block.</p>" : "<p>This block remains available for architecture and reference browsing.</p>");
   h+=`<p class="architecture-credit">Rendered with ${safeLink("https://github.com/al-nafisah/fpga-project-analyzer","FPGA Project Analyzer")} (MIT), layout by ELK (EPL-2.0). ${safeLink("https://aew2015.github.io/baremetal-drivers/assets/architecture/THIRD_PARTY.txt","Licenses and provenance ↗")}</p></section>`;
   return h;
 }
@@ -41,6 +49,7 @@ function wireArchitectureButtons(parent) {
   parent.querySelectorAll("[data-arch-block]").forEach(b=>b.onclick=()=>openBlock(b.dataset.archBlock));
   parent.querySelectorAll("[data-open-block]").forEach(b=>b.onclick=()=>go(b.dataset.openBlock.split('/').filter(Boolean)));
   parent.querySelectorAll("[data-open-level]").forEach(b=>b.onclick=()=>go(b.dataset.openLevel.split('/').filter(Boolean)));
+  parent.querySelectorAll("[data-show-hierarchy]").forEach(b=>b.onclick=()=>openBlock(b.dataset.showHierarchy));
 }
 async function openBlock(path) {
   const parts=normalizeArchitecturePath(path.split("/").filter(Boolean));
@@ -51,7 +60,7 @@ async function openBlock(path) {
     await new Promise(resolve=>setTimeout(resolve,10));
     if(S.path.join("/")!==expected)return; // A later user navigation won.
     if(window.__fpa_ready && S.path.join("/")===expected) {
-      const m=metaFor(parts[parts.length-1]);
+      const m=Object.values(G.meta).find(m=>m.type==='inst' && m.full==='/'+parts.join('/')) || metaFor(parts[parts.length-1]);
       if(m) {select(pick(m,parts[parts.length-1]));fit();decorateArchitecture();}
       return;
     }
@@ -75,6 +84,15 @@ function decorateArchitecture() {
     if(!node)return;
     node.setAttribute("role","button");node.setAttribute("tabindex","0");
     node.setAttribute("aria-label",m.full+" — click for examples; double-click to open");
+    const covered=coverageAt(m.full).length>0;
+    node.classList.toggle('no-example',!covered);
+    node.dataset.exampleCoverage=covered?'associated':'none';
+    if(!covered && !node.querySelector('.no-example-marker')){
+      const box=node.querySelector('.box').getBBox();
+      const marker=el('text',{x:box.x+box.width-4,y:box.y+12,'text-anchor':'end',class:'no-example-marker','aria-hidden':'true'},node);
+      marker.textContent='◇';
+      el('title',{},marker).textContent='No example yet';
+    }
     node.classList.toggle("example-hit",!!e && e.blocks.some(b=>b===m.full || b.startsWith(m.full+"/") || m.full.startsWith(b+"/")));
     node.onkeydown=event=>{
       if(event.key==="Enter"){event.preventDefault();event.stopPropagation();select(pick(m,m.inst.name));}
@@ -95,14 +113,14 @@ function initializeExplorer() {
   $("example-search").oninput=event=>fillExamplePicker(event.target.value);
   $("platform-picker").onchange=event=>{chosenPlatform=event.target.value;panel();};
   $("architecture-overview").onclick=goSystem;
-  $("architecture-up").onclick=()=>{if(S.path.length)go(S.path.slice(0,-1));};
+  $("architecture-up").onclick=goUp;
   $("architecture-back").onclick=goBack;
   settledView={path:[],example:"",selected:null};
   new ResizeObserver(()=>{$("main").style.top=$("architecture-bar").getBoundingClientRect().bottom+"px";fit();}).observe($("architecture-bar"));
   addEventListener('keydown',event=>{
     if(event.target.closest('input,select,textarea'))return;
     if(event.altKey && event.key==='ArrowLeft'){event.preventDefault();goBack();}
-    if(event.altKey && event.key==='ArrowUp'){event.preventDefault();if(S.path.length)go(S.path.slice(0,-1));}
+    if(event.altKey && event.key==='ArrowUp'){event.preventDefault();goUp();}
   });
 }
 
@@ -114,6 +132,7 @@ function normalizeArchitecturePath(parts) {
   return path.split('/').filter(Boolean);
 }
 function documentsAt(path) {
+  if(path==='/Fabric/DDR' || path.startsWith('/Fabric/DDR/'))return [ARCH.sources.fabric_ddr,ARCH.sources.som];
   let ancestor=path;
   while(ancestor && !ARCH.blocks[ancestor])ancestor=ancestor.slice(0,ancestor.lastIndexOf('/'));
   const info=ARCH.blocks[ancestor];
@@ -135,12 +154,18 @@ function updateNavigationControls() {
   $("architecture-back").disabled=returningToView || !navigationTrail.length;
   $("architecture-up").disabled=returningToView || !S.path.length;
   $("architecture-up").title=S.path.length ? 'Open /'+S.path.slice(0,-1).join('/') : 'Already at the system overview';
+  $("architecture-up").textContent=S.path.length ? '↑ Up one level → '+(S.path.length>1?S.path[S.path.length-2]:'System') : '↑ Up one level (top)';
   const path=S.sel && S.sel.type==='inst' ? S.sel.full : '/'+S.path.join('/');
   const doc=documentsAt(path)[0];
   $("trm-context-link").href=doc.url;$("trm-context-link").textContent=(doc.kind==='trm'?'TRM ':'')+doc.title+' ↗';
   $("trm-context-link").title=doc.title;
-  $("diagram-level").textContent=S.path.length ? '/'+S.path.join('/') : 'TRM system overview';
+  $("diagram-level").textContent='Viewing: '+(S.path.length ? '/'+S.path.join('/') : 'System overview (top level)');
   $("flows").disabled=!S.path.length;
+}
+async function goUp() {
+  if(!S.path.length)return;
+  // Keep the subsystem we just left selected in its parent diagram.
+  await openBlock('/'+S.path.join('/'));
 }
 async function goBack() {
   if(returningToView)return;
