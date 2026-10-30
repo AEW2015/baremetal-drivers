@@ -7,6 +7,18 @@ hardware validation. Earlier tables below retain their original campaign scope.
 For additional DDR-loaded example handlers, physical-board comparisons and
 captured output, see the [new upstream example campaign](upstream-examples-validation.md).
 
+<!-- example-architecture:start -->
+[Open the HPS / fabric example diagram](assets/architecture/design.html?example=upstream%2Fhello){ .md-button }
+[Full architecture guide](architecture.md)
+
+<details class="example-architecture">
+<summary>Show the clickable HPS / fabric diagram here</summary>
+<p>Click blocks for related examples, platform results, source and evidence. This is a TRM-based functional map; proposed fabric and Simics models are labeled separately.</p>
+<p class="example-diagram-links"><a href="../assets/architecture/design.html?example=upstream%2Fhello" data-example-id="upstream/hello">upstream/hello</a> · <a href="../assets/architecture/design.html?example=upstream%2Ftimer" data-example-id="upstream/timer">upstream/timer</a> · <a href="../assets/architecture/design.html?example=upstream%2Fgic" data-example-id="upstream/gic">upstream/gic</a> · <a href="../assets/architecture/design.html?example=upstream%2Fddr" data-example-id="upstream/ddr">upstream/ddr</a> · <a href="../assets/architecture/design.html?example=legacy%2Fhello-world" data-example-id="legacy/hello-world">legacy/hello-world</a> · <a href="../assets/architecture/design.html?example=legacy%2Fuart" data-example-id="legacy/uart">legacy/uart</a> · <a href="../assets/architecture/design.html?example=legacy%2Fdma" data-example-id="legacy/dma">legacy/dma</a> · <a href="../assets/architecture/design.html?example=legacy%2Ftimer" data-example-id="legacy/timer">legacy/timer</a> · <a href="../assets/architecture/design.html?example=legacy%2Fwatchdog" data-example-id="legacy/watchdog">legacy/watchdog</a> · <a href="../assets/architecture/design.html?example=legacy%2Fi2c" data-example-id="legacy/i2c">legacy/i2c</a> · <a href="../assets/architecture/design.html?example=legacy%2Fi3c" data-example-id="legacy/i3c">legacy/i3c</a> · <a href="../assets/architecture/design.html?example=legacy%2Fspi" data-example-id="legacy/spi">legacy/spi</a> · <a href="../assets/architecture/design.html?example=legacy%2Fsdmmc" data-example-id="legacy/sdmmc">legacy/sdmmc</a> · <a href="../assets/architecture/design.html?example=legacy%2Fxgmac" data-example-id="legacy/xgmac">legacy/xgmac</a> · <a href="../assets/architecture/design.html?example=legacy%2Fmmu_el3" data-example-id="legacy/mmu_el3">legacy/mmu_el3</a> · <a href="../assets/architecture/design.html?example=legacy%2Fsmmu" data-example-id="legacy/smmu">legacy/smmu</a> · <a href="../assets/architecture/design.html?example=legacy%2Fccu" data-example-id="legacy/ccu">legacy/ccu</a> · <a href="../assets/architecture/design.html?example=legacy%2Fclkmgr" data-example-id="legacy/clkmgr">legacy/clkmgr</a> · <a href="../assets/architecture/design.html?example=legacy%2Fecc" data-example-id="legacy/ecc">legacy/ecc</a> · <a href="../assets/architecture/design.html?example=legacy%2Fhps_mailbox" data-example-id="legacy/hps_mailbox">legacy/hps_mailbox</a></p>
+<iframe class="example-diagram" src="../assets/architecture/design.html?example=upstream%2Fhello" title="HPS and fabric diagram for simics.md" width="100%" height="680" style="border:1px solid #b8c6d7;border-radius:8px" loading="lazy"></iframe>
+</details>
+<!-- example-architecture:end -->
+
 === "Choose a track"
 
     | Track | Source and target | What the result establishes |

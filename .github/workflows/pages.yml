@@ -74,7 +74,9 @@ jobs:
         run: |
           python tools/architecture/build_diagram.py
           python tools/architecture/build_diagram.py --check
+          python tools/architecture/link_example_pages.py --check
       - run: mkdocs build --strict
+      - run: python tools/architecture/test_example_pages.py
       - name: Configure Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
@@ -96,12 +98,16 @@ jobs:
       - name: Install the browser test tools
         run: |
           python -m pip install -r tools/architecture/requirements-test.txt
+          python -m pip install -r docs/requirements.txt
           python -m playwright install --with-deps chromium
       - name: Check all diagram examples and interactions offline
         run: |
           python tools/architecture/build_diagram.py
           python tools/architecture/build_diagram.py --check
+          python tools/architecture/link_example_pages.py --check
           python tools/architecture/test_browser.py
+          mkdocs build --strict
+          python tools/architecture/test_example_pages.py --browser-checks
   deploy:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: [build, qemu, ethernet, diagram]

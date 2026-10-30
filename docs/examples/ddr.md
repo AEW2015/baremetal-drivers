@@ -4,6 +4,18 @@ Hardware prerequisite used before every DDR suite entry; this is not a `--only` 
 
 [Source](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/bootstrap/ddr/local_ddr_probe.inc.in)
 
+<!-- example-architecture:start -->
+[Open this example in the HPS / fabric diagram](../assets/architecture/design.html?example=custom%2Fddr-hello){ .md-button }
+[Full architecture guide](../architecture.md)
+
+<details class="example-architecture">
+<summary>Show the clickable HPS / fabric diagram here</summary>
+<p>Click blocks for related examples, platform results, source and evidence. This is a TRM-based functional map; proposed fabric and Simics models are labeled separately.</p>
+<p class="example-diagram-links"><a href="../../assets/architecture/design.html?example=custom%2Fddr-hello" data-example-id="custom/ddr-hello">custom/ddr-hello</a></p>
+<iframe class="example-diagram" src="../../assets/architecture/design.html?example=custom%2Fddr-hello" title="HPS and fabric diagram for examples/ddr.md" width="100%" height="680" style="border:1px solid #b8c6d7;border-radius:8px" loading="lazy"></iframe>
+</details>
+<!-- example-architecture:end -->
+
 === "What it does"
 
     Build the pinned ATF initializer with a local hook immediately after DDR initialization and before storage boot. The hook fills/checks a 64 MiB region using four address-dependent patterns, copies the UART payload into DDR, verifies its bytes, invalidates the instruction cache and jumps to it.

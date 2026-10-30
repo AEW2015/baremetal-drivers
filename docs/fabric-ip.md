@@ -16,6 +16,18 @@ entry point. Two compile-time personas use the same ABI: **ADD1** and **XOR1**.
 [Captured check manifest and logs](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/fabric-ip)
 keep these results separate from physical-board validation.
 
+<!-- example-architecture:start -->
+[Open the HPS / fabric example diagram](assets/architecture/design.html?example=fabric%2Fadd){ .md-button }
+[Full architecture guide](architecture.md)
+
+<details class="example-architecture">
+<summary>Show the clickable HPS / fabric diagram here</summary>
+<p>Click blocks for related examples, platform results, source and evidence. This is a TRM-based functional map; proposed fabric and Simics models are labeled separately.</p>
+<p class="example-diagram-links"><a href="../assets/architecture/design.html?example=fabric%2Fadd" data-example-id="fabric/add">fabric/add</a> · <a href="../assets/architecture/design.html?example=fabric%2Fxor" data-example-id="fabric/xor">fabric/xor</a></p>
+<iframe class="example-diagram" src="../assets/architecture/design.html?example=fabric%2Fadd" title="HPS and fabric diagram for fabric-ip.md" width="100%" height="680" style="border:1px solid #b8c6d7;border-radius:8px" loading="lazy"></iframe>
+</details>
+<!-- example-architecture:end -->
+
 ## Follow the transaction
 
 ```text

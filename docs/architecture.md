@@ -24,6 +24,10 @@ repository's recorded platform results.
   embeds its data and layout engine; viewing the diagram needs no server or CDN.
   Documentation, source and evidence links open their online destinations.
 
+Individual example pages also have a preselected diagram button and an
+expandable inline viewer. The viewer loads lazily when needed. The complete
+catalog links each example name to its own selection in this map.
+
 Try direct example links:
 
 | Example | What to inspect |

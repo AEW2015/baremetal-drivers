@@ -41,6 +41,18 @@ The existing QEMU Hello/NEON/copy check, all six practice labs, six deliberate
 failure controls and two GDB exercises also passed. All **45** regression checks
 passed, including the real QEMU subprocess test.
 
+<!-- example-architecture:start -->
+[Open the HPS / fabric example diagram](assets/architecture/design.html?example=upstream%2Fcrc){ .md-button }
+[Full architecture guide](architecture.md)
+
+<details class="example-architecture">
+<summary>Show the clickable HPS / fabric diagram here</summary>
+<p>Click blocks for related examples, platform results, source and evidence. This is a TRM-based functional map; proposed fabric and Simics models are labeled separately.</p>
+<p class="example-diagram-links"><a href="../assets/architecture/design.html?example=upstream%2Fcrc" data-example-id="upstream/crc">upstream/crc</a> · <a href="../assets/architecture/design.html?example=upstream%2Fperf" data-example-id="upstream/perf">upstream/perf</a> · <a href="../assets/architecture/design.html?example=upstream%2Fcombophy" data-example-id="upstream/combophy">upstream/combophy</a> · <a href="../assets/architecture/design.html?example=upstream%2Fnoc" data-example-id="upstream/noc">upstream/noc</a> · <a href="../assets/architecture/design.html?example=upstream%2Fiossm" data-example-id="upstream/iossm">upstream/iossm</a> · <a href="../assets/architecture/design.html?example=upstream%2Fbridge" data-example-id="upstream/bridge">upstream/bridge</a> · <a href="../assets/architecture/design.html?example=upstream%2Freset_mngr" data-example-id="upstream/reset_mngr">upstream/reset_mngr</a> · <a href="../assets/architecture/design.html?example=upstream%2Freboot_mngr" data-example-id="upstream/reboot_mngr">upstream/reboot_mngr</a></p>
+<iframe class="example-diagram" src="../assets/architecture/design.html?example=upstream%2Fcrc" title="HPS and fabric diagram for upstream-examples-validation.md" width="100%" height="680" style="border:1px solid #b8c6d7;border-radius:8px" loading="lazy"></iframe>
+</details>
+<!-- example-architecture:end -->
+
 ## Captured terminal output
 
 These blocks are copied from actual UART/model logs. For each case, the caption

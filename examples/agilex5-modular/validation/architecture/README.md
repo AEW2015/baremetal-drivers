@@ -32,3 +32,12 @@ and evidence links remain online destinations. No FPGA was programmed or accesse
 for these checks. See [the guide](../../../../docs/architecture.md) for provenance
 and the distinction between architectural context, proposed fabric integration,
 Simics behavioral models and real parsed RTL.
+
+## Embedded example-page follow-up
+
+`example-pages-results.json` records checks of all 28 contextual page embeds and
+all 81 catalog diagram links. Chromium also expanded the inline viewer on the
+DMA, QEMU-practice, runtime and fabric pages and verified their selected example
+cards. All four browser checks passed without JavaScript exceptions. Run
+`python3 tools/architecture/test_example_pages.py --browser-checks` after building
+MkDocs to repeat this integration check.

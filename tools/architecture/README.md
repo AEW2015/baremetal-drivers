@@ -11,6 +11,7 @@ Run from the repository root:
 ```sh
 python3 tools/architecture/build_diagram.py
 python3 tools/architecture/build_diagram.py --check
+python3 tools/architecture/link_example_pages.py --check
 ```
 
 `agilex5.json` is a manually curated educational model, not a Quartus netlist.
@@ -42,3 +43,10 @@ exported SVG and the JSON result go under ignored `examples/agilex5-modular/runs
 The tests exercise all 81 example selections and reject external network
 dependencies and JavaScript exceptions. They also test keyboard navigation,
 actual RTL drill-down, platform emphasis, search, SVG export and mobile layout.
+
+The existing example pages include managed contextual links and expandable,
+lazy-loaded diagrams. Update those sections with
+`python3 tools/architecture/link_example_pages.py`; `--check` detects stale or
+missing sections. After building MkDocs, run
+`python3 tools/architecture/test_example_pages.py --browser-checks` to validate
+all page URLs and catalog links and open representative embedded viewers.

@@ -4,6 +4,18 @@ This lab adds actual packet TX/RX to the earlier [PHY identification](interfaces
 example. It targets the **SOM HPS Ethernet jack**, EMAC2 and Marvell 88E1512 on
 the established Modular ES bench, connected directly to a Linux PC.
 
+<!-- example-architecture:start -->
+[Open this example in the HPS / fabric diagram](../assets/architecture/design.html?example=custom%2Fethernet){ .md-button }
+[Full architecture guide](../architecture.md)
+
+<details class="example-architecture">
+<summary>Show the clickable HPS / fabric diagram here</summary>
+<p>Click blocks for related examples, platform results, source and evidence. This is a TRM-based functional map; proposed fabric and Simics models are labeled separately.</p>
+<p class="example-diagram-links"><a href="../../assets/architecture/design.html?example=custom%2Fethernet" data-example-id="custom/ethernet">custom/ethernet</a></p>
+<iframe class="example-diagram" src="../../assets/architecture/design.html?example=custom%2Fethernet" title="HPS and fabric diagram for examples/ethernet.md" width="100%" height="680" style="border:1px solid #b8c6d7;border-radius:8px" loading="lazy"></iframe>
+</details>
+<!-- example-architecture:end -->
+
 === "Purpose"
 
     Run a freestanding lwIP stack on A55.0, validate payloads, and measure

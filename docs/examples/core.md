@@ -6,6 +6,18 @@
 
 All hardware commands assume the matching Modular ES profile and host/container environment from the tutorial. Register snapshots below distinguish fixed checks from values that can vary.
 
+<!-- example-architecture:start -->
+[Open this example in the HPS / fabric diagram](../assets/architecture/design.html?example=board%2Fcore){ .md-button }
+[Full architecture guide](../architecture.md)
+
+<details class="example-architecture">
+<summary>Show the clickable HPS / fabric diagram here</summary>
+<p>Click blocks for related examples, platform results, source and evidence. This is a TRM-based functional map; proposed fabric and Simics models are labeled separately.</p>
+<p class="example-diagram-links"><a href="../../assets/architecture/design.html?example=board%2Fcore" data-example-id="board/core">board/core</a></p>
+<iframe class="example-diagram" src="../../assets/architecture/design.html?example=board%2Fcore" title="HPS and fabric diagram for examples/core.md" width="100%" height="680" style="border:1px solid #b8c6d7;border-radius:8px" loading="lazy"></iframe>
+</details>
+<!-- example-architecture:end -->
+
 === "What it does"
 
     A first hardware smoke test for A55.0. It reads CPU/exception-level and cache registers, adds two four-lane vectors, copies 64 KiB in DDR using the CPU, reads GPIO0 inputs and checks that the physical counter advances. It also reads the GIC identification registers.

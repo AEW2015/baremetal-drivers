@@ -5,6 +5,18 @@ freestanding C program with shared AArch64 startup and exception vectors.
 You need no board: use QEMU `virt`, secure EL3, Cortex-A53, one core, GICv3,
 128 MiB RAM and TCG. These addresses and peripherals belong to QEMU, not Agilex.
 
+<!-- example-architecture:start -->
+[Open the HPS / fabric example diagram](../assets/architecture/design.html?example=practice%2Fstartup){ .md-button }
+[Full architecture guide](../architecture.md)
+
+<details class="example-architecture">
+<summary>Show the clickable HPS / fabric diagram here</summary>
+<p>Click blocks for related examples, platform results, source and evidence. This is a TRM-based functional map; proposed fabric and Simics models are labeled separately.</p>
+<p class="example-diagram-links"><a href="../../assets/architecture/design.html?example=practice%2Fstartup" data-example-id="practice/startup">practice/startup</a> · <a href="../../assets/architecture/design.html?example=practice%2Fcorruption" data-example-id="practice/corruption">practice/corruption</a> · <a href="../../assets/architecture/design.html?example=practice%2Fexception" data-example-id="practice/exception">practice/exception</a> · <a href="../../assets/architecture/design.html?example=practice%2Ftimer" data-example-id="practice/timer">practice/timer</a> · <a href="../../assets/architecture/design.html?example=practice%2Fmmu" data-example-id="practice/mmu">practice/mmu</a> · <a href="../../assets/architecture/design.html?example=practice%2Fuart" data-example-id="practice/uart">practice/uart</a> · <a href="../../assets/architecture/design.html?example=practice%2Fmulticore" data-example-id="practice/multicore">practice/multicore</a></p>
+<iframe class="example-diagram" src="../../assets/architecture/design.html?example=practice%2Fstartup" title="HPS and fabric diagram for examples/qemu-labs.md" width="100%" height="680" style="border:1px solid #b8c6d7;border-radius:8px" loading="lazy"></iframe>
+</details>
+<!-- example-architecture:end -->
+
 ## Build and run
 
 Use the [installed tools](../setup.md), then from `examples/agilex5-modular`:

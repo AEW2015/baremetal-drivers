@@ -4,6 +4,18 @@ A board-free exercise for generic QEMU `virt`; separate from the hardware suite.
 
 [Source](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/qemu/hello.c)
 
+<!-- example-architecture:start -->
+[Open this example in the HPS / fabric diagram](../assets/architecture/design.html?example=custom%2Fqemu-hello){ .md-button }
+[Full architecture guide](../architecture.md)
+
+<details class="example-architecture">
+<summary>Show the clickable HPS / fabric diagram here</summary>
+<p>Click blocks for related examples, platform results, source and evidence. This is a TRM-based functional map; proposed fabric and Simics models are labeled separately.</p>
+<p class="example-diagram-links"><a href="../../assets/architecture/design.html?example=custom%2Fqemu-hello" data-example-id="custom/qemu-hello">custom/qemu-hello</a></p>
+<iframe class="example-diagram" src="../../assets/architecture/design.html?example=custom%2Fqemu-hello" title="HPS and fabric diagram for examples/qemu.md" width="100%" height="680" style="border:1px solid #b8c6d7;border-radius:8px" loading="lazy"></iframe>
+</details>
+<!-- example-architecture:end -->
+
 === "What it does"
 
     Start at EL3 on a Cortex-A53 model, initialize a stack and BSS, output through the virtual PL011 UART, perform a four-lane NEON addition and compare a 4096-byte CPU memory copy. The program reports its exit status through AArch64 semihosting.

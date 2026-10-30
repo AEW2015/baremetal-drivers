@@ -3,6 +3,18 @@
 For an Agilex HPS peripheral model, use the separate [Simics lab](simics.md).
 QEMU remains the board-free CPU/debugging track.
 
+<!-- example-architecture:start -->
+[Open this example in the HPS / fabric diagram](assets/architecture/design.html?example=custom%2Fqemu-hello){ .md-button }
+[Full architecture guide](architecture.md)
+
+<details class="example-architecture">
+<summary>Show the clickable HPS / fabric diagram here</summary>
+<p>Click blocks for related examples, platform results, source and evidence. This is a TRM-based functional map; proposed fabric and Simics models are labeled separately.</p>
+<p class="example-diagram-links"><a href="../assets/architecture/design.html?example=custom%2Fqemu-hello" data-example-id="custom/qemu-hello">custom/qemu-hello</a></p>
+<iframe class="example-diagram" src="../assets/architecture/design.html?example=custom%2Fqemu-hello" title="HPS and fabric diagram for qemu.md" width="100%" height="680" style="border:1px solid #b8c6d7;border-radius:8px" loading="lazy"></iframe>
+</details>
+<!-- example-architecture:end -->
+
 ## Run the exercise
 
 From the example directory, in the compiler environment:

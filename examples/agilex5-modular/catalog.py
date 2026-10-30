@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Validate the example inventory and generate the tutorial's platform matrix."""
 import argparse,collections,json
+from urllib.parse import quote
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 REPO=ROOT.parents[1]
@@ -54,7 +55,8 @@ def render(catalog):
                 result=row['platforms'][platform];label=result['status'].upper()
                 if result.get('evidence'):label=f"[{label}](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/{result['evidence']})"
                 values.append(label)
-            text.append('| '+row['title']+' | '+' | '.join(values)+' | '+row['scope'].replace('|','/')+' |')
+            title='['+row['title']+'](assets/architecture/design.html?example='+quote(row['id'],safe='')+')'
+            text.append('| '+title+' | '+' | '.join(values)+' | '+row['scope'].replace('|','/')+' |')
         text.append('')
     return '\n'.join(text).rstrip()+'\n'
 

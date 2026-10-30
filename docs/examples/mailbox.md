@@ -6,6 +6,18 @@
 
 All hardware commands assume the matching Modular ES profile and host/container environment from the tutorial. Register snapshots below distinguish fixed checks from values that can vary.
 
+<!-- example-architecture:start -->
+[Open this example in the HPS / fabric diagram](../assets/architecture/design.html?example=board%2Fmailbox){ .md-button }
+[Full architecture guide](../architecture.md)
+
+<details class="example-architecture">
+<summary>Show the clickable HPS / fabric diagram here</summary>
+<p>Click blocks for related examples, platform results, source and evidence. This is a TRM-based functional map; proposed fabric and Simics models are labeled separately.</p>
+<p class="example-diagram-links"><a href="../../assets/architecture/design.html?example=board%2Fmailbox" data-example-id="board/mailbox">board/mailbox</a></p>
+<iframe class="example-diagram" src="../../assets/architecture/design.html?example=board%2Fmailbox" title="HPS and fabric diagram for examples/mailbox.md" width="100%" height="680" style="border:1px solid #b8c6d7;border-radius:8px" loading="lazy"></iframe>
+</details>
+<!-- example-architecture:end -->
+
 === "What it does"
 
     Send an SDM GET_IDCODE command using the current mailbox ring pointers and validate the returned response header and FPGA device ID.

@@ -1,11 +1,15 @@
 {
   "README.md": {
-    "bytes": 1751,
-    "sha256": "d30af608df4ae0492f52f5da35766583d35ea1cecfb67823e94232672be74bf6"
+    "bytes": 2225,
+    "sha256": "dfb9966a7e3873dd2f8b419d72d4c9a32f5c230319ca1e7b05f29c5561115bef"
   },
   "diagram-build.json": {
     "bytes": 1831,
     "sha256": "d60ea84f48ea8546a6e2a6b6528943b4cf5f64f2dc9c1b239d76e2602f718539"
+  },
+  "example-pages-results.json": {
+    "bytes": 586,
+    "sha256": "91e0a058bfaf070b116b7faaab81b93b98975e817c1388a941743970946c7de1"
   },
   "mailbox.png": {
     "bytes": 182704,

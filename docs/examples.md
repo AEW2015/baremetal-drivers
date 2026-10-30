@@ -5,6 +5,18 @@ Choose an example in the **Examples** navigation. Each page has **What it does**
 Use the [clickable HPS and fabric map](architecture.md) to locate all 81 catalog
 entries by block, then open their source, expected results and platform evidence.
 
+<!-- example-architecture:start -->
+[Open the HPS / fabric example diagram](assets/architecture/design.html){ .md-button }
+[Full architecture guide](architecture.md)
+
+<details class="example-architecture">
+<summary>Show the clickable HPS / fabric diagram here</summary>
+<p>Click blocks for related examples, platform results, source and evidence. This is a TRM-based functional map; proposed fabric and Simics models are labeled separately.</p>
+<p>Select an example in the diagram to locate its hardware blocks.</p>
+<iframe class="example-diagram" src="../assets/architecture/design.html" title="HPS and fabric diagram for examples.md" width="100%" height="680" style="border:1px solid #b8c6d7;border-radius:8px" loading="lazy"></iframe>
+</details>
+<!-- example-architecture:end -->
+
 ## Start here
 
 | Example | Runs on | Expected result |
