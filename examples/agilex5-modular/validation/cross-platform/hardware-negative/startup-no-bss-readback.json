@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "bytes": 6228,
+  "segments": [
+    {
+      "file": "upstream26-startup-no-bss.segment0.bin",
+      "bytes": 5856,
+      "sha256": "82b1200ec4ae2f97db0abf7e14819c50e205650cbc9f6f8e166aedd57b2e33a1"
+    },
+    {
+      "file": "upstream26-startup-no-bss.segment1.bin",
+      "bytes": 364,
+      "sha256": "18b984fcd47535e5a77f2915d25fa2028e4285325b60ea5b1708fe55a9fd23c5"
+    },
+    {
+      "file": "upstream26-startup-no-bss.segment2.bin",
+      "bytes": 8,
+      "sha256": "54d0f38d95f8d3402c0171bbeac9c182e0908b4e17130986474268e763738fc5"
+    }
+  ]
+}

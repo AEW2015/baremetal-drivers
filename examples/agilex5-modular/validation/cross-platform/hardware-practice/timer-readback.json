@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 6677,
+  "segments": [
+    {
+      "file": "upstream26-timer.segment0.bin",
+      "bytes": 6312,
+      "sha256": "a4420a8cc4ff34e10a9bb64c0207828d4e739695add330eee4279f9d12a100db"
+    },
+    {
+      "file": "upstream26-timer.segment1.bin",
+      "bytes": 365,
+      "sha256": "374c9278841de99ff59318eb0f1679c2eca49d3e202a1cb8a36834d854c81acd"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "date_utc": "2026-10-30",
+  "base_commit": "85e2e89b4056fd41f5b9f951a57821f5abcf1a45",
+  "qemu": {
+    "normal_pass": 7,
+    "expected_failure_pass": 6,
+    "gdb_pass": 2
+  },
+  "simics": {
+    "normal_pass": 7,
+    "expected_failure_pass": 6
+  },
+  "hardware": {
+    "normal_pass": 7,
+    "expected_failure_pass": 6,
+    "runtime_pass": [
+      "perf",
+      "mailbox",
+      "bridge-control"
+    ],
+    "all_campaign_restorations": "pass"
+  },
+  "regressions": {
+    "passed": 53,
+    "real_qemu": true
+  },
+  "catalog_recorded_passes": {
+    "qemu": 12,
+    "simics": 32,
+    "hardware": 32
+  },
+  "scope": "Named exercise implementations; historical catalog snapshots are separate from this campaign. Negative variants excluded from catalog totals."
+}

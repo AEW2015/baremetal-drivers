@@ -1,4 +1,4 @@
-/* All labs start at secure EL3 on one QEMU Cortex-A53. No C runtime. */
+/* Shared secure EL3 startup. Primary initializes C state; secondaries bypass it. */
 .section .text.start,"ax"
 .global _start
 _start:
@@ -6,6 +6,26 @@ _start:
  msr spsel,#1
  ldr x0,=__stack_top
  mov sp,x0
+#ifdef LAB_MULTICORE
+ mrs x0,mpidr_el1
+#ifdef LAB_AGILEX5
+ ubfx x0,x0,#8,#8
+#else
+ and x0,x0,#255
+#endif
+ cbnz x0,secondary_start
+#endif
+#ifdef LAB_AGILEX5
+ /* The established diagnostic enters EL3 with translations/cache off. */
+ mrs x0,sctlr_el3
+ bic x0,x0,#2
+ msr sctlr_el3,x0
+ mrs x0,cntfrq_el0
+ cbnz x0,9f
+ ldr x0,=400000000 /* pinned TF-A platform frequency; not a rate claim */
+ msr cntfrq_el0,x0
+9: isb
+#endif
  /* Relocate initial .data bytes from their ELF load address to runtime RAM. */
  ldr x0,=__data_load
  ldr x1,=__data_start
@@ -110,6 +130,31 @@ entry sync_entry,0
 entry irq_entry,1
 entry fiq_entry,2
 entry other_entry,3
+
+#ifdef LAB_MULTICORE
+.global secondary_start
+secondary_start:
+ /* Each secondary has its own stack and waits for primary C initialization. */
+ msr daifset,#15
+ msr spsel,#1
+ mrs x0,mpidr_el1
+#ifdef LAB_AGILEX5
+ ubfx x0,x0,#8,#8
+ mrs x1,sctlr_el3
+ bic x1,x1,#1
+ bic x1,x1,#4
+ msr sctlr_el3,x1
+ isb
+#else
+ and x0,x0,#255
+#endif
+ ldr x1,=__stack_top
+ sub x1,x1,x0,lsl #14
+ mov sp,x1
+ bl secondary_main
+1: wfi
+ b 1b
+#endif
 
 /* Fault and recovery labels let handlers skip only a known lab instruction. */
 .global trigger_break,break_instruction,break_resume

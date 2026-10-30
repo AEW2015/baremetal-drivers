@@ -1,0 +1,47 @@
+000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+NOTICE:  SOCFPGA: Boot Core = 0
+NOTICE:  SOCFPGA: CPU ID = 0
+INFO:    SOCFPGA: Invalidate Data cache
+NOTICE:  SOCFPGA: Setting CLUSTERECTRL_EL1
+NOTICE:  BL31: v2.14.1(debug):QPDS26.1.1_REL_GSRD_PR
+NOTICE:  BL31: Built : 04:08:25, Oct 29 2026
+INFO:    GICv3 without legacy support detected.
+INFO:    ARM GICv3 driver initialized in EL3
+INFO:    Maximum SPI INTID supported: 575
+INFO:    BL31: Initializing runtime services
+INFO:    BL31: cortex_a55: CPU workaround for erratum 1530923 was applied
+INFO:    BL31: Preparing for EL3 exit to normal world
+INFO:    Entry point address = 0x82400000
+INFO:    SPSR = 0x3c9
+UPSTREAM_LAB_BEGIN case=8
+GUEST_EXCEPTION_LEVEL=2
+UPSTREAM_COMMAND mailbox_selftest 
+MBOX client #2 opened, handle=0x000000008243A3D8
+[MBOX] init OK
+[MBOX][PASS] NOOP: ret=0
+[MBOX][PASS] GET_IDCODE: ret=0 idcode=0x0364F0DD
+[MBOX][PASS] CONFIG_STATUS: ret=0 state=0x00000000 pin=0xC000008F softfunc=0x00000001
+[MBOX] done
+UPSTREAM_LAB_COMPLETE status=0

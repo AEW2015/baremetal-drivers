@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 6122,
+  "segments": [
+    {
+      "file": "upstream26-exception.segment0.bin",
+      "bytes": 5808,
+      "sha256": "4e9479d68a38d372244155ef696bb85777c904b2dd5fcbec24c2300e3af881a6"
+    },
+    {
+      "file": "upstream26-exception.segment1.bin",
+      "bytes": 314,
+      "sha256": "100fb6a0ae20406ec9c766e67bb715d74d6a295b49c970a8ce0e3940f63e941f"
+    }
+  ]
+}

@@ -22,6 +22,7 @@ LABS = {
     'mmu': ['MMU_AND_DCACHE_INITIALLY_OFF', 'MMU_RW_READBACK', 'MMU_RO_READBACK',
             'MMU_WRITE_PERMISSION_FAULT', 'MMU_RO_UNCHANGED', 'MMU_DISABLED_AFTER_TEST'],
     'uart': ['UART_MEMCHECK', 'UART_SESSION'],
+    'multicore': ['SECONDARY_IDENTITY', 'THREE_SECONDARIES_EXECUTED'],
 }
 NEGATIVES = {
     'startup-no-bss': ('startup', 'BSS_ZERO'),
@@ -31,6 +32,19 @@ NEGATIVES = {
     'timer-wrong-ppi': ('timer', 'timer interrupt identity'),
     'mmu-writable-ro': ('mmu', 'MMU_WRITE_PERMISSION_FAULT'),
 }
+UART_CASES = [
+    ('help', b'help\r\n', b'COMMANDS help status memcheck exit\n'),
+    ('backspace', b'statuX\x08s\r', b'STATUS EL3 READY\n'),
+    ('delete', b'statuX\x7fs\n', b'STATUS EL3 READY\n'),
+    ('memory', b'memcheck\r', b'PASS UART_MEMCHECK\n'),
+    ('unknown', b'no-such-command\r', b'ERROR unknown command\n'),
+    ('empty', b'\r', b'lab> '),
+    ('length-31', b'x'*31+b'\r', b'ERROR unknown command\n'),
+    ('length-32', b'x'*32+b'\r', b'ERROR line too long\n'),
+    ('length-80', b'x'*80+b'\r', b'ERROR line too long\n'),
+    ('overflow-recovery', b'status\r', b'STATUS EL3 READY\n'),
+    ('exit', b'exit\r', b'LAB COMPLETE\n'),
+]
 
 
 def qemu_command(name, port=None):
@@ -45,6 +59,11 @@ def qemu_command(name, port=None):
            '-device', f'loader,file={elf},cpu-num=0']
     if port is not None:
         cmd += ['-S', '-gdb', f'tcp:127.0.0.1:{port}']
+    if name=='multicore':
+        cmd[cmd.index('-smp')+1]='4'
+        # Loader starts each vCPU at the same ELF entry; startup selects its
+        # dedicated secondary path. This tests execution, not PSCI CPU_ON.
+        for cpu in range(1,4):cmd+=['-device',f'loader,addr=0x40200000,cpu-num={cpu}']
     return cmd
 
 
@@ -54,7 +73,8 @@ def accepts(name, output, returncode):
     return (returncode == 0 and f'LAB BEGIN {name}' in lines and
             'LAB COMPLETE' in lines and 'LAB FAILED' not in lines and
             not any(line.startswith('FAIL ') for line in lines) and
-            all('PASS ' + marker in lines for marker in LABS[name]))
+            all('PASS ' + marker in lines for marker in LABS[name]) and
+            (name!='multicore' or lines.count('PASS SECONDARY_IDENTITY')==3))
 
 
 def stop(proc):
@@ -91,19 +111,7 @@ def run_uart():
         return bytes(transcript[start:])
 
     # Both accepted length 31 and rejected length 32 are tested, plus recovery.
-    cases = [
-        ('help', b'help\r\n', b'COMMANDS help status memcheck exit\n'),
-        ('backspace', b'statuX\x08s\r', b'STATUS EL3 READY\n'),
-        ('delete', b'statuX\x7fs\n', b'STATUS EL3 READY\n'),
-        ('memory', b'memcheck\r', b'PASS UART_MEMCHECK\n'),
-        ('unknown', b'no-such-command\r', b'ERROR unknown command\n'),
-        ('empty', b'\r', b'lab> '),
-        ('length-31', b'x'*31+b'\r', b'ERROR unknown command\n'),
-        ('length-32', b'x'*32+b'\r', b'ERROR line too long\n'),
-        ('length-80', b'x'*80+b'\r', b'ERROR line too long\n'),
-        ('overflow-recovery', b'status\r', b'STATUS EL3 READY\n'),
-        ('exit', b'exit\r', b'LAB COMPLETE\n'),
-    ]
+    cases = UART_CASES
     try:
         read_until(b'lab> ', 0)
         for label, payload, expected in cases:

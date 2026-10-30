@@ -22,6 +22,8 @@ class RuntimeFixes(unittest.TestCase):
     def test_mailbox_completion_does_not_hide_rejected_command(self):
         body='UPSTREAM_LAB_BEGIN case=8\n[MBOX][FAIL] GET_IDCODE\n[MBOX] done\nUPSTREAM_LAB_COMPLETE status=0'
         self.assertEqual(lab.assess('mailbox',body,0),'fail')
+        incomplete='UPSTREAM_LAB_BEGIN case=8\n[MBOX] done\nUPSTREAM_LAB_COMPLETE status=0'
+        self.assertEqual(lab.assess('mailbox',incomplete,0),'fail')
 
     def test_queued_mutex_cancels_without_accessing_hardware(self):
         with tempfile.TemporaryDirectory() as temp:

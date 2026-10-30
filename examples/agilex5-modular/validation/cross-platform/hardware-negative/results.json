@@ -1,0 +1,120 @@
+{
+  "environment": "physical Modular ES",
+  "suite": "practice",
+  "requested_tests": [
+    "startup-no-bss",
+    "startup-no-data",
+    "corruption-no-injection",
+    "exception-wrong-brk",
+    "timer-wrong-ppi",
+    "mmu-writable-ro"
+  ],
+  "runner_sha256": "cb3ce5feaca476eda4b2174cbe43da62d7953394319f4162a34343c905a5a4d6",
+  "tests": [
+    {
+      "name": "startup-no-bss",
+      "status": "pass",
+      "debug_exit": 0,
+      "elf_sha256": "25a8e0766304b6a1760eda0f2107fcd20fd21d4c840f634da55c46e696714eb4",
+      "timing_valid": false,
+      "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+      "entry": "0x82400000"
+    },
+    {
+      "name": "startup-no-data",
+      "status": "pass",
+      "debug_exit": 0,
+      "elf_sha256": "47673268146fdd5956117b7b97399e33d5a4fe4e7416d0e3c83261ee9ee96175",
+      "timing_valid": false,
+      "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+      "entry": "0x82400000"
+    },
+    {
+      "name": "corruption-no-injection",
+      "status": "pass",
+      "debug_exit": 0,
+      "elf_sha256": "6c6b01414da0c326ab1593ced97072fdb48fdf05e033121bc5e9165264716b40",
+      "timing_valid": false,
+      "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+      "entry": "0x82400000"
+    },
+    {
+      "name": "exception-wrong-brk",
+      "status": "pass",
+      "debug_exit": 0,
+      "elf_sha256": "ae75e87e8d991e05ec4ecdbb7cd552f1d01b6bbba4a39d7c0eb38442602f39bc",
+      "timing_valid": false,
+      "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+      "entry": "0x82400000"
+    },
+    {
+      "name": "timer-wrong-ppi",
+      "status": "pass",
+      "debug_exit": 0,
+      "elf_sha256": "2a8fb20f62ac99164d7c645153d86675f3049556d39f23d70b99595e456aa247",
+      "timing_valid": false,
+      "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+      "entry": "0x82400000"
+    },
+    {
+      "name": "mmu-writable-ro",
+      "status": "pass",
+      "debug_exit": 0,
+      "elf_sha256": "59a7eebca658871423541ccf5b204cc15846504d85efd1a4cf7727546f142b9d",
+      "timing_valid": false,
+      "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+      "entry": "0x82400000"
+    }
+  ],
+  "build": {
+    "target": "agilex5",
+    "source_revision": "85e2e89b4056fd41f5b9f951a57821f5abcf1a45",
+    "source_sha256": {
+      "qemu/labs/README.md": "49d0a21028d1d6911adfd53f2223b6a0b669acbf06f55dc25f4681112bb460f0",
+      "qemu/labs/build.sh": "35db19dcd35462b42f895986383cd984419f19ae3ad5f906bf86e46d3d7bda92",
+      "qemu/labs/corruption.c": "a81e23b8ae0a1b4b2303d916b2a5772419180ee36fb89d9d1ff8d2b734489387",
+      "qemu/labs/exception.c": "058e50b1e8a3e6dd5fa03db05b510f15e270939c18b84343ec1cc5e262418689",
+      "qemu/labs/lab.h": "b97dd13ada04b42c0ecea1db353485df8ed90f7bf9a00d92b90f9fd421da5540",
+      "qemu/labs/link.ld": "aa24579e892b7eaf5dd6b98bd12714328c2bd684b50855686f6fb20e92d2b81d",
+      "qemu/labs/mmu.c": "be775e8f4c4af994d101881c60bba91e4ee26c4414c01bdfa8776f0c75b9574f",
+      "qemu/labs/multicore.c": "ff1eedeaaa008d642df9025363d5fb7559161605e9a1e27ba2ba5b96510a83b1",
+      "qemu/labs/run.py": "f63a8bfa423d0ec8da644ed30cf3c99331ae9dbdc09b3a966efb2fadf933648f",
+      "qemu/labs/runtime.c": "86fe3dbb0b7d171d9e602e6bc3536b9ebb0baf329b9097e4c2553a884c6caaaf",
+      "qemu/labs/start.S": "1c6f7800e7327cddf5577f0b9ec0806bb6d9778abc72c0e6e5ad28333c39580a",
+      "qemu/labs/startup.c": "450186bfc8d7ac9170fd5593b7fcf28616ebe98607d8a43af396aee7113635d7",
+      "qemu/labs/timer.c": "f079332610408954e8b9320d1271f7a1ba3d03d0a5730cd392544244c805c184",
+      "qemu/labs/uart.c": "d59bfd97d08c931997f5da9916e9462ce415b6ec331ab5b773c81e79be8bf0de"
+    },
+    "artifacts": {
+      "corruption-no-injection.bin": "50215b79992aee0f37c8574e64815acb6a401e8a2dc10540fd4b3354b1adf8ec",
+      "corruption-no-injection.elf": "6c6b01414da0c326ab1593ced97072fdb48fdf05e033121bc5e9165264716b40",
+      "corruption.bin": "16aed217303d66d7a0d0d94ced4fb37979963193e3d1fca988333fda28709c74",
+      "corruption.elf": "9338b7fa8927dcf7608cd79c62643f9308b740f66609ce3a0d0daa9fc7a56c27",
+      "exception-wrong-brk.bin": "e8c8b3ac0e4cf60940ceb2594b9b3ebf3f79d4e31a2b58b0f032db9ec96837bb",
+      "exception-wrong-brk.elf": "ae75e87e8d991e05ec4ecdbb7cd552f1d01b6bbba4a39d7c0eb38442602f39bc",
+      "exception.bin": "66c280371ebdd2bb275bb640f9a4387f331eec841fc47a9801368350cb3448cb",
+      "exception.elf": "d3083501fb1aa1bc4fa5f4dfa65cdecb1aa017f2b4c22aa577827cfd35fc60ac",
+      "mmu-writable-ro.bin": "ba880fb7667cf8c7fe16430d44cb3745194e36f5c9f885f1d2ea7d00df693124",
+      "mmu-writable-ro.elf": "59a7eebca658871423541ccf5b204cc15846504d85efd1a4cf7727546f142b9d",
+      "mmu.bin": "e9ff0a5f5a39fdc296d534776ed140c739b49c16914527fbfb5cb4346b001613",
+      "mmu.elf": "d6c4a1797375d2292dd2c5add7a9337aaf2a04d775cfd1601a054d58eb0b8ba1",
+      "multicore.bin": "bebeeec612990afd7923932dcb5d023de2a567a2ab9fa4805ed34b868dd3ae91",
+      "multicore.elf": "9adcf6a403caa0c5ee2f99ab1f7e41edfe9831ca7edc4106eee6f5eed2a095c6",
+      "startup-no-bss.bin": "374fc3bd5a9cac37adb25ee8baf2b92e9bace19513770f0f9d346af2ccf23541",
+      "startup-no-bss.elf": "25a8e0766304b6a1760eda0f2107fcd20fd21d4c840f634da55c46e696714eb4",
+      "startup-no-data.bin": "88266f054ecbceeb69bc2dd5826f48da555dcdfdf04f0392f3120e97553ab963",
+      "startup-no-data.elf": "47673268146fdd5956117b7b97399e33d5a4fe4e7416d0e3c83261ee9ee96175",
+      "startup.bin": "f5d9564da43b10c7e484ff3de5943af93ebe5a5dcac1b9ef12bdd970a10a57f6",
+      "startup.elf": "5fc1aca1ea59f008c5f5d880a6bd1ce85004be91427ec46766b851baf02e4780",
+      "timer-wrong-ppi.bin": "590e2377a7a218aa1f5768cab1a2290636cb3c376ab9bbb116b7c0aa2f6db1a9",
+      "timer-wrong-ppi.elf": "2a8fb20f62ac99164d7c645153d86675f3049556d39f23d70b99595e456aa247",
+      "timer.bin": "be4550460364145fc4b707c8fe83a54acda33b4d532f23f67c01caddc638d5c0",
+      "timer.elf": "64201939a82f2d604a37128a3989c340b4c60f06df7186e821121ac84293bebf",
+      "uart.bin": "0d2536ffd37877249126230cfb7a6ac3d7d417f8696c5dad4c2d70d17ca10436",
+      "uart.elf": "cdc46f0cf69d89d31ca77281c44b0a614d55a0e0ab6a8e794630e585b602433b"
+    }
+  },
+  "restoration": "pass",
+  "bl31_sha256": null,
+  "bootstrap_image_sha256": "5f1d0b42f6f28014cdfabbcfea7582628ff268c974d6284c1edf724db75022e9"
+}

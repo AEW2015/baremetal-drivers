@@ -1,0 +1,44 @@
+S DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+HeLAB BEGIN timer
+PASS TIMER_FREQUENCY
+PASS GIC_POWER_TRANSITION
+PASS TIMER_10_INTERRUPTS
+PASS WFI_IDLE_LOOP
+TICKS=0x000000000000000a
+WFI_ENTRIES=0x000000000000000a
+LAB COMPLETE

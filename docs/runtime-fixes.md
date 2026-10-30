@@ -1,5 +1,11 @@
 # Runtime fixes, simulator results and queued hardware tests
 
+**2026-10-30 hardware follow-up:** the secure-debug loader correction now passes
+BL31 readback and EL2 entry on the Modular kit. Performance (including host
+counter calibration), TF-A mailbox and lightweight bridge control all passed;
+DDR Hello restoration passed. See the [loading explanation and actual output](cross-platform.md).
+The queue submission notes below retain the earlier campaign history.
+
 This follow-up fixes the standalone EL3/firmware mismatch and misleading
 performance/ECC diagnostics found in the [earlier campaign](upstream-examples-validation.md).
 It uses pinned TF-A `2ea5afda7f34774ddcc677fb3a728fa57f780a1e` with
@@ -11,16 +17,16 @@ qualification of a complete Boot ROM/BL2/FIP/BL33 storage boot.
 | Exercise | QEMU | Simics through BL31/EL2 | New physical validation |
 |---|---|---|---|
 | CRC validation | PASS | PASS | Previous version passed |
-| Memory performance/readback | PASS | PASS; 400 MHz counter | Queued; independent host interval check required |
+| Memory performance/readback | PASS | PASS; 400 MHz counter | PASS; host interval 1.008 s |
 | Missing counter frequency | PASS: reports unavailable | Counter initialized by BL31 | Previous bootstrap frequency was zero |
-| EL3 SMC precondition | PASS: rejected without exception | Services called from EL2 | Queued with BL31 |
+| EL3 SMC precondition | PASS: rejected without exception | Services called from EL2 | EL2 service path passed; standalone guard not rerun |
 | Combo PHY identification | Not modeled | PASS | Previous version passed |
 | NoC / firewalls | Not modeled | PASS | Previous version passed |
 | SD/MMC peripheral reset/status | Not modeled | PASS | Previous version passed |
 | HPS2FPGA 16-word loopback | Not modeled | PASS | Matching physical fabric endpoint still required |
-| LWHPS2FPGA enable/disable | Not modeled | PASS | Queued; no fabric-memory writes |
+| LWHPS2FPGA enable/disable | Not modeled | PASS | PASS; no fabric-memory writes |
 | Warm reboot | Not modeled | PASS: new boot banner and prompt | Not run |
-| SDM mailbox | Not modeled | PARTIAL: NOOP/configuration status pass; GET_IDCODE rejected | Queued |
+| SDM mailbox | Not modeled | PARTIAL: NOOP/configuration status pass; GET_IDCODE rejected | PASS: NOOP, GET_IDCODE and configuration status |
 | IOSSM image/ECC | Not modeled | PARTIAL: image readback passes; ECC unsupported/unqualified | No physical injection |
 
 All **49 regression checks** passed, including queued-mutex cancellation without

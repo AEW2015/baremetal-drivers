@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 6292,
+  "segments": [
+    {
+      "file": "upstream26-corruption-no-injection.segment0.bin",
+      "bytes": 5988,
+      "sha256": "2e2fc6135cf6f2b271f4b435454b591a6c18637a9df53abc1a64c525eea0c0ec"
+    },
+    {
+      "file": "upstream26-corruption-no-injection.segment1.bin",
+      "bytes": 304,
+      "sha256": "c5e9169c7a0ea63f464f8dad6c3710b532e8c896eb0e62d2ca3482237867e1a2"
+    }
+  ]
+}

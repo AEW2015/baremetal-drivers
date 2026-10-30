@@ -1,6 +1,13 @@
 #include "lab.h"
+#ifdef LAB_AGILEX5
+#define RAM_BASE 0x80000000UL
+#define RO 0x85000000UL
+#define RW 0x85200000UL
+#else
+#define RAM_BASE 0x40000000UL
 #define RO 0x44000000UL
 #define RW 0x44200000UL
+#endif
 static uint64_t l1[512] __attribute__((aligned(4096)));
 static uint64_t l2[512] __attribute__((aligned(4096)));
 volatile unsigned permission_faults;
@@ -22,11 +29,11 @@ int main(void) {
  *(volatile uint64_t *)RO=0x1122334455667788ULL;
  /* L1 device block for low MMIO; L2 normal noncacheable RAM blocks. */
  l1[0]=1|(1U<<10)|(1ULL<<54);
- l1[1]=(uintptr_t)l2|3;
- /* QEMU has 128 MiB RAM: leave entries beyond its 64 blocks invalid. */
- for (unsigned i=0;i<64;i++) l2[i]=(0x40000000ULL+((uint64_t)i<<21))|1|(1U<<10)|4;
+ l1[RAM_BASE>>30]=(uintptr_t)l2|3;
+ /* Only map the 128 MiB window owned by these isolated diagnostics. */
+ for (unsigned i=0;i<64;i++) l2[i]=(RAM_BASE+((uint64_t)i<<21))|1|(1U<<10)|4;
 #ifndef WRITABLE_RO
- l2[(RO-0x40000000UL)>>21]|=1U<<7; /* EL3 AP[2]: read-only */
+ l2[(RO-RAM_BASE)>>21]|=1U<<7; /* EL3 AP[2]: read-only */
 #endif
  exception_handler=handle_abort;
  barrier(); MSR(mair_el3,0x4404); MSR(ttbr0_el3,(uintptr_t)l1);

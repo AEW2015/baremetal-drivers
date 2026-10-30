@@ -1,0 +1,68 @@
+DR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+NOTICE:  SOCFPGA: Boot Core = 0
+NOTICE:  SOCFPGA: CPU ID = 0
+INFO:    SOCFPGA: Invalidate Data cache
+NOTICE:  SOCFPGA: Setting CLUSTERECTRL_EL1
+NOTICE:  BL31: v2.14.1(debug):QPDS26.1.1_REL_GSRD_PR
+NOTICE:  BL31: Built : 04:08:25, Oct 29 2026
+INFO:    GICv3 without legacy support detected.
+INFO:    ARM GICv3 driver initialized in EL3
+INFO:    Maximum SPI INTID supported: 575
+INFO:    BL31: Initializing runtime services
+INFO:    BL31: cortex_a55: CPU workaround for erratum 1530923 was applied
+INFO:    BL31: Preparing for EL3 exit to normal world
+INFO:    Entry point address = 0x82400000
+INFO:    SPSR = 0x3c9
+UPSTREAM_LAB_BEGIN case=1
+GUEST_EXCEPTION_LEVEL=2
+COUNTER_HZ=400000000
+COUNTER_INTERVAL_START
+COUNTER_INTERVAL_END ticks=400000022
+UPSTREAM_COMMAND perf_selftest timer
+
+[PERF][TIMER] ARM generic counter frequency: 400000000 Hz
+[PERF][TIMER] timestamp overhead: min=0 us avg=0 us max=1 us
+UPSTREAM_COMMAND perf_selftest mem 0x85000000 65536 2
+
+[PERF][MEM] destructive DDR test
+[PERF][MEM] src=0x0000000085000000 dst=0x0000000085010000 size=65536 loops=2
+[PERF] mem-write: bytes=131072 time=3641 us rate=35155 KiB/s 287.991 Mbps
+[PERF] mem-read: bytes=131072 time=10651 us rate=12017 KiB/s 98.448 Mbps
+[PERF][MEM] read sink=0x00000000
+[PERF] mem-copy: bytes=131072 time=16617 us rate=7702 KiB/s 63.102 Mbps
+PASS PERF_MEMORY_READBACK words=16384 mismatches=0
+UPSTREAM_COMMAND perf_selftest latency timer 100
+
+[PERF][LAT][TIMER] measuring perf_counter_ticks() overhead loops=100
+[PERF][LAT] timer-overhead: samples=100 min=1040 ns avg=1255 ns max=1650 ns status=0
+UPSTREAM_COMMAND perf_selftest log dump
+
+[PERF][LOG] entries=4 max=64
+[PERF][LOG][00] seq=1 type=THR tag=mem-write bytes=131072 time=3641 us rate=35155 KiB/s 287.991 Mbps status=0
+[PERF][LOG][01] seq=2 type=THR tag=mem-read bytes=131072 time=10651 us rate=12017 KiB/s 98.448 Mbps status=0
+[PERF][LOG][02] seq=3 type=THR tag=mem-copy bytes=131072 time=16617 us rate=7702 KiB/s 63.102 Mbps status=0
+[PERF][LOG][03] seq=4 type=LAT tag=timer-overhead samples=100 min=1040 ns avg=1255 ns max=1650 ns status=0
+UPSTREAM_LAB_COMPLETE status=0

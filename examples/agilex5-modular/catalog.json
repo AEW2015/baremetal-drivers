@@ -1,0 +1,1619 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-30",
+  "counting": "Named implementations; exclude subchecks, negative variants, help and debugger sessions. Referenced artifact snapshots, not current-build guarantees.",
+  "examples": [
+    {
+      "id": "upstream/bridge",
+      "title": "bridge",
+      "family": "Current upstream",
+      "source": "examples/bridge",
+      "scope": "Simics 16-word loopback; physical fabric endpoint still required.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/runtime-fixes/simics-services/results.json",
+          "case": "bridge"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/ccu",
+      "title": "ccu",
+      "family": "Current upstream",
+      "source": "examples/ccu",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/clk_mngr",
+      "title": "clk_mngr",
+      "family": "Current upstream",
+      "source": "examples/clk_mngr",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/combophy",
+      "title": "combophy",
+      "family": "Current upstream",
+      "source": "examples/combophy",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/runtime-fixes/simics-other/results.json",
+          "case": "combophy"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/upstream26-examples"
+        }
+      }
+    },
+    {
+      "id": "upstream/crc",
+      "title": "crc",
+      "family": "Current upstream",
+      "source": "examples/crc",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/runtime-fixes/qemu/results.json",
+          "case": "crc"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/runtime-fixes/simics-other/results.json",
+          "case": "crc"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/upstream26-examples"
+        }
+      }
+    },
+    {
+      "id": "upstream/ddr",
+      "title": "ddr",
+      "family": "Current upstream",
+      "source": "examples/ddr",
+      "scope": "Current OCRAM console DDR validation; separate physical bootstrap listed below.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/upstream26-clean-checkout/results.json",
+          "case": "ddr"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/dma",
+      "title": "dma",
+      "family": "Current upstream",
+      "source": "examples/dma",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/ecc",
+      "title": "ecc",
+      "family": "Current upstream",
+      "source": "examples/ecc",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/fcs",
+      "title": "fcs",
+      "family": "Current upstream",
+      "source": "examples/fcs",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/gic",
+      "title": "gic",
+      "family": "Current upstream",
+      "source": "examples/gic",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/upstream26-clean-checkout/results.json",
+          "case": "gic"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/gpio",
+      "title": "gpio",
+      "family": "Current upstream",
+      "source": "examples/gpio",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/hello",
+      "title": "hello",
+      "family": "Current upstream",
+      "source": "examples/hello",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/upstream26-clean-checkout/results.json",
+          "case": "hello"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/i2c",
+      "title": "i2c",
+      "family": "Current upstream",
+      "source": "examples/i2c",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/i3c",
+      "title": "i3c",
+      "family": "Current upstream",
+      "source": "examples/i3c",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/iossm",
+      "title": "iossm",
+      "family": "Current upstream",
+      "source": "examples/iossm",
+      "scope": "Simics image readback passes; ECC injection/clear rejected and recovery unqualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "partial",
+          "evidence": "validation/runtime-fixes/simics-services/results.json",
+          "case": "iossm"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/mailbox",
+      "title": "mailbox",
+      "family": "Current upstream",
+      "source": "examples/mailbox",
+      "scope": "Simics NOOP/config pass, GET_IDCODE rejected; physical TF-A path passes all three.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "partial",
+          "evidence": "validation/runtime-fixes/simics-services/results.json",
+          "case": "mailbox"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/hardware-runtime/results.json",
+          "case": "mailbox"
+        }
+      }
+    },
+    {
+      "id": "upstream/mmu",
+      "title": "mmu",
+      "family": "Current upstream",
+      "source": "examples/mmu",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/noc",
+      "title": "noc",
+      "family": "Current upstream",
+      "source": "examples/noc",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/runtime-fixes/simics-other/results.json",
+          "case": "noc"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/upstream26-examples"
+        }
+      }
+    },
+    {
+      "id": "upstream/perf",
+      "title": "perf",
+      "family": "Current upstream",
+      "source": "examples/perf",
+      "scope": "CPU memory correctness; physical 400 MHz counter checked against host time. Diagnostic rates, not optimized DDR bandwidth.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/runtime-fixes/qemu/results.json",
+          "case": "perf"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/runtime-fixes/simics-services/results.json",
+          "case": "perf"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/hardware-runtime/results.json",
+          "case": "perf"
+        }
+      }
+    },
+    {
+      "id": "upstream/reboot_mngr",
+      "title": "reboot_mngr",
+      "family": "Current upstream",
+      "source": "examples/reboot_mngr",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/runtime-fixes/simics-services/results.json",
+          "case": "reboot"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/reset_mngr",
+      "title": "reset_mngr",
+      "family": "Current upstream",
+      "source": "examples/reset_mngr",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/runtime-fixes/simics-other/results.json",
+          "case": "reset"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/upstream26-examples"
+        }
+      }
+    },
+    {
+      "id": "upstream/sdmmc",
+      "title": "sdmmc",
+      "family": "Current upstream",
+      "source": "examples/sdmmc",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/seu",
+      "title": "seu",
+      "family": "Current upstream",
+      "source": "examples/seu",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/smmu",
+      "title": "smmu",
+      "family": "Current upstream",
+      "source": "examples/smmu",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/spi",
+      "title": "spi",
+      "family": "Current upstream",
+      "source": "examples/spi",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "upstream/timer",
+      "title": "timer",
+      "family": "Current upstream",
+      "source": "examples/timer",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/upstream26-clean-checkout/results.json",
+          "case": "timer"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "board/core",
+      "title": "core",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/core_examples.c",
+      "scope": "CPU/NEON, cache discovery, DDR copy, GPIO/counter/GIC reads; no coherency proof.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "core"
+        }
+      }
+    },
+    {
+      "id": "board/dma",
+      "title": "dma",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/dma_copy.c",
+      "scope": "4096-byte linked-descriptor DMA copy; complete data readback.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "dma"
+        }
+      }
+    },
+    {
+      "id": "board/gic",
+      "title": "gic",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/gic_sgi.c",
+      "scope": "Polled secure SGI acknowledgement; not exception delivery.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "gic"
+        }
+      }
+    },
+    {
+      "id": "board/interfaces",
+      "title": "interfaces",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/som_interfaces.c",
+      "scope": "Ethernet PHY, SD/card-detect and USB controller identification only.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "interfaces"
+        }
+      }
+    },
+    {
+      "id": "board/mailbox",
+      "title": "mailbox",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/mailbox_status.c",
+      "scope": "Direct SDM GET_IDCODE, separate from TF-A mailbox API.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "mailbox"
+        }
+      }
+    },
+    {
+      "id": "board/mmu",
+      "title": "mmu",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/mmu_translation.c",
+      "scope": "EL3 identity translation and DDR access.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "mmu"
+        }
+      }
+    },
+    {
+      "id": "board/multicore",
+      "title": "multicore",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/multicore.c",
+      "scope": "Direct reset/power release; three secondary identity records; not PSCI.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "multicore"
+        }
+      }
+    },
+    {
+      "id": "board/som",
+      "title": "som",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/som_peripherals.c",
+      "scope": "Peripheral timer, watchdog interrupt-first mode, SPI loopback, LED pad, I2C IDs.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "som"
+        }
+      }
+    },
+    {
+      "id": "board/som-i2c",
+      "title": "som-i2c",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/som_i2c.c",
+      "scope": "GPIO I2C sensor ID and EEPROM reads; no EEPROM array writes.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "som-i2c"
+        }
+      }
+    },
+    {
+      "id": "board/som-i3c",
+      "title": "som-i3c",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/som_i3c.c",
+      "scope": "I3C controller legacy-I2C sensor/EEPROM reads; no native I3C qualification.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "som-i3c"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-ccu",
+      "title": "vendor-ccu",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/vendor_wrapper.c",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "vendor-ccu"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-clkmgr",
+      "title": "vendor-clkmgr",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/vendor_wrapper.c",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "vendor-clkmgr"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-ecc",
+      "title": "vendor-ecc",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/vendor_wrapper.c",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "vendor-ecc"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-smmu",
+      "title": "vendor-smmu",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/vendor_wrapper.c",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "vendor-smmu"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-uart",
+      "title": "vendor-uart",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/vendor_wrapper.c",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/results.json",
+          "case": "vendor-uart"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-timer",
+      "title": "vendor-timer",
+      "family": "Additional vendor board adapters",
+      "source": "examples/agilex5-modular/build_board_vendor.py",
+      "scope": "Compiled adapter; not one of the 15 qualified board-suite entries.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "compile-only"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-watchdog",
+      "title": "vendor-watchdog",
+      "family": "Additional vendor board adapters",
+      "source": "examples/agilex5-modular/build_board_vendor.py",
+      "scope": "Compiled adapter; not one of the 15 qualified board-suite entries.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "compile-only"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-spi",
+      "title": "vendor-spi",
+      "family": "Additional vendor board adapters",
+      "source": "examples/agilex5-modular/build_board_vendor.py",
+      "scope": "Compiled adapter; not one of the 15 qualified board-suite entries.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "compile-only"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-hps_mailbox",
+      "title": "vendor-hps_mailbox",
+      "family": "Additional vendor board adapters",
+      "source": "examples/agilex5-modular/build_board_vendor.py",
+      "scope": "Compiled adapter; not one of the 15 qualified board-suite entries.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "compile-only"
+        }
+      }
+    },
+    {
+      "id": "legacy/hello-world",
+      "title": "hello-world",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "hello-world"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/uart",
+      "title": "uart",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "uart"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/dma",
+      "title": "dma",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "dma"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/timer",
+      "title": "timer",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "fail",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "timer"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/watchdog",
+      "title": "watchdog",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "watchdog"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/i2c",
+      "title": "i2c",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "i2c"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/i3c",
+      "title": "i3c",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "i3c"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/spi",
+      "title": "spi",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "spi"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/sdmmc",
+      "title": "sdmmc",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "sdmmc"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/xgmac",
+      "title": "xgmac",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "fail",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "xgmac"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/mmu_el3",
+      "title": "mmu_el3",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "mmu_el3"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/smmu",
+      "title": "smmu",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "smmu"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/ccu",
+      "title": "ccu",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "ccu"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/clkmgr",
+      "title": "clkmgr",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "clkmgr"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/ecc",
+      "title": "ecc",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "ecc"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "legacy/hps_mailbox",
+      "title": "hps_mailbox",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "fail",
+          "evidence": "validation/simics26/legacy25-compatibility/results.json",
+          "case": "hps_mailbox"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "custom/qemu-hello",
+      "title": "Hello / NEON / memory copy",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/hello.c",
+      "scope": "Original QEMU smoke exercise.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/tutorial/results.json"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "practice/startup",
+      "title": "startup",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/startup.c",
+      "scope": "Shared checks with platform-specific startup/UART/memory map.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/qemu-practice/results.json",
+          "case": "startup"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/simics-practice/results.json",
+          "case": "startup"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/hardware-practice/results.json",
+          "case": "startup"
+        }
+      }
+    },
+    {
+      "id": "practice/corruption",
+      "title": "corruption",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/corruption.c",
+      "scope": "Shared checks with platform-specific startup/UART/memory map.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/qemu-practice/results.json",
+          "case": "corruption"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/simics-practice/results.json",
+          "case": "corruption"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/hardware-practice/results.json",
+          "case": "corruption"
+        }
+      }
+    },
+    {
+      "id": "practice/exception",
+      "title": "exception",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/exception.c",
+      "scope": "Shared checks with platform-specific startup/UART/memory map.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/qemu-practice/results.json",
+          "case": "exception"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/simics-practice/results.json",
+          "case": "exception"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/hardware-practice/results.json",
+          "case": "exception"
+        }
+      }
+    },
+    {
+      "id": "practice/timer",
+      "title": "timer",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/timer.c",
+      "scope": "Ten actual secure timer FIQs through GIC; not a calibrated speed benchmark.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/qemu-practice/results.json",
+          "case": "timer"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/simics-practice/results.json",
+          "case": "timer"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/hardware-practice/results.json",
+          "case": "timer"
+        }
+      }
+    },
+    {
+      "id": "practice/mmu",
+      "title": "mmu",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/mmu.c",
+      "scope": "Shared checks with platform-specific startup/UART/memory map.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/qemu-practice/results.json",
+          "case": "mmu"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/simics-practice/results.json",
+          "case": "mmu"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/hardware-practice/results.json",
+          "case": "mmu"
+        }
+      }
+    },
+    {
+      "id": "practice/uart",
+      "title": "uart",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/uart.c",
+      "scope": "Eleven command, editing, boundary and recovery input cases.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/qemu-practice/results.json",
+          "case": "uart"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/simics-practice/results.json",
+          "case": "uart"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/hardware-practice/results.json",
+          "case": "uart"
+        }
+      }
+    },
+    {
+      "id": "practice/multicore",
+      "title": "multicore",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/multicore.c",
+      "scope": "Three secondary execution/identity records; platform-specific release; not PSCI CPU_ON.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/qemu-practice/results.json",
+          "case": "multicore"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/simics-practice/results.json",
+          "case": "multicore"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/hardware-practice/results.json",
+          "case": "multicore"
+        }
+      }
+    },
+    {
+      "id": "diagnostic/smc-guard",
+      "title": "smc-guard",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/upstream-lab/lab.c",
+      "scope": "Precondition/failure-detection control; counted once, not each assertion.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/runtime-fixes/qemu/results.json",
+          "case": "smc-guard"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "diagnostic/perf-zero-clock",
+      "title": "perf-zero-clock",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/upstream-lab/lab.c",
+      "scope": "Precondition/failure-detection control; counted once, not each assertion.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/runtime-fixes/qemu/results.json",
+          "case": "perf-zero-clock"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "custom/bridge-control",
+      "title": "Lightweight bridge control",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/upstream-lab/lab.c",
+      "scope": "Enable/disable only; no fabric-memory access.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/runtime-fixes/simics-services/results.json",
+          "case": "bridge-control"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/hardware-runtime/results.json",
+          "case": "bridge-control"
+        }
+      }
+    },
+    {
+      "id": "custom/ocram-hello",
+      "title": "OCRAM UART Hello",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/bootstrap/ocram/uart_local.c",
+      "scope": "Standalone physical-board UART, no DDR prerequisite. Historical execution documented; raw OCRAM UART trace not packaged.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "../../docs/examples/ocram.md"
+        }
+      }
+    },
+    {
+      "id": "custom/ddr-hello",
+      "title": "DDR bootstrap and Hello",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/bootstrap/ddr",
+      "scope": "Matching physical handoff; 64 MiB patterns and DDR execution. Not full 8 GiB qualification.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/cross-platform/hardware-runtime/restore-bootstrap.log"
+        }
+      }
+    },
+    {
+      "id": "reference/semihost",
+      "title": "OCRAM semihosting Hello",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/bootstrap/ocram/hello_semihost.S",
+      "scope": "Source reference, not qualified execution.",
+      "platforms": {
+        "qemu": {
+          "status": "not-run"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "reference"
+        }
+      }
+    },
+    {
+      "id": "reference/psci",
+      "title": "PSCI CPU_ON wrapper",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/core/secondary_core.c",
+      "scope": "Requires a resident PSCI firmware and nonsecure caller.",
+      "platforms": {
+        "qemu": {
+          "status": "not-run"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "compile-only"
+        }
+      }
+    },
+    {
+      "id": "custom/fault-probe",
+      "title": "Fault probe",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/core/fault_probe.c",
+      "scope": "Built diagnostic; separate execution qualification not established.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "compile-only"
+        }
+      }
+    },
+    {
+      "id": "custom/ethernet",
+      "title": "UDP / TCP bandwidth",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/ethernet",
+      "scope": "Custom lwIP/XGMAC2 adapter; actual physical link, distinct from legacy XGMAC sample.",
+      "platforms": {
+        "qemu": {
+          "status": "not-run"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/ethernet/README.md"
+        }
+      }
+    },
+    {
+      "id": "fabric/add",
+      "title": "ADD fabric IP / C driver",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/fabric",
+      "scope": "Verilator C-driver/RTL co-simulation passed; physical deployment and simulator MMIO models unqualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-run"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "fabric/xor",
+      "title": "XOR fabric IP / C driver",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/fabric",
+      "scope": "Verilator C-driver/RTL co-simulation passed; physical deployment and simulator MMIO models unqualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-run"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "reference/pr",
+      "title": "Partial reconfiguration persona swap",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/fabric",
+      "scope": "Reference integration workflow; no live PR qualification.",
+      "platforms": {
+        "qemu": {
+          "status": "reference"
+        },
+        "simics": {
+          "status": "reference"
+        },
+        "hardware": {
+          "status": "reference"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "environment": "physical Modular ES",
+  "suite": "practice",
+  "requested_tests": [
+    "startup",
+    "corruption",
+    "exception",
+    "timer",
+    "mmu",
+    "uart"
+  ],
+  "runner_sha256": "fd2b3b814d61aca0df4611e269e8f2837e5d595cb28f3cc429937219712eab7c",
+  "tests": [],
+  "build": {
+    "target": "agilex5",
+    "source_revision": "85e2e89b4056fd41f5b9f951a57821f5abcf1a45",
+    "source_sha256": {
+      "qemu/labs/README.md": "49d0a21028d1d6911adfd53f2223b6a0b669acbf06f55dc25f4681112bb460f0",
+      "qemu/labs/build.sh": "71ce9896fb4408dbd556b366a07eecebaee4ec2a35ecb9cf020909b843c4a54f",
+      "qemu/labs/corruption.c": "a81e23b8ae0a1b4b2303d916b2a5772419180ee36fb89d9d1ff8d2b734489387",
+      "qemu/labs/exception.c": "058e50b1e8a3e6dd5fa03db05b510f15e270939c18b84343ec1cc5e262418689",
+      "qemu/labs/lab.h": "b97dd13ada04b42c0ecea1db353485df8ed90f7bf9a00d92b90f9fd421da5540",
+      "qemu/labs/link.ld": "aa24579e892b7eaf5dd6b98bd12714328c2bd684b50855686f6fb20e92d2b81d",
+      "qemu/labs/mmu.c": "be775e8f4c4af994d101881c60bba91e4ee26c4414c01bdfa8776f0c75b9574f",
+      "qemu/labs/run.py": "81d0cae98802072e809dff27895b34c1a4b3ff1444d31610fccf3c54bb1ef06a",
+      "qemu/labs/runtime.c": "86fe3dbb0b7d171d9e602e6bc3536b9ebb0baf329b9097e4c2553a884c6caaaf",
+      "qemu/labs/start.S": "b61a57b0a650592eac8b163f19b2fc0ceaa548575c0502a4edfa7f9c58792977",
+      "qemu/labs/startup.c": "450186bfc8d7ac9170fd5593b7fcf28616ebe98607d8a43af396aee7113635d7",
+      "qemu/labs/timer.c": "f079332610408954e8b9320d1271f7a1ba3d03d0a5730cd392544244c805c184",
+      "qemu/labs/uart.c": "d59bfd97d08c931997f5da9916e9462ce415b6ec331ab5b773c81e79be8bf0de"
+    },
+    "artifacts": {
+      "corruption-no-injection.bin": "50215b79992aee0f37c8574e64815acb6a401e8a2dc10540fd4b3354b1adf8ec",
+      "corruption-no-injection.elf": "51ed3899970e2d6997cbb69f1e34dd061663f6f489e830ffe543beda24082df9",
+      "corruption.bin": "16aed217303d66d7a0d0d94ced4fb37979963193e3d1fca988333fda28709c74",
+      "corruption.elf": "fa31b3f0e7f8969bce7605b29e6f23d27031a2ad871d08c0be5383f8206c798c",
+      "exception-wrong-brk.bin": "e8c8b3ac0e4cf60940ceb2594b9b3ebf3f79d4e31a2b58b0f032db9ec96837bb",
+      "exception-wrong-brk.elf": "daa0286ce7187af2fdc29dd5760f277847e61f51a1997f40549af45a4bc947ab",
+      "exception.bin": "66c280371ebdd2bb275bb640f9a4387f331eec841fc47a9801368350cb3448cb",
+      "exception.elf": "bb284d430a5d705a7a1d426a78aa3155b308008bc14a04bd06c229444f587993",
+      "mmu-writable-ro.bin": "ba880fb7667cf8c7fe16430d44cb3745194e36f5c9f885f1d2ea7d00df693124",
+      "mmu-writable-ro.elf": "a53fdfa8c934392e2e007f28c3b566f024156df614a683122a383ea7000b7e97",
+      "mmu.bin": "e9ff0a5f5a39fdc296d534776ed140c739b49c16914527fbfb5cb4346b001613",
+      "mmu.elf": "35a1c7bf67e93dd03736829c11af969d5c1586997dff73790865fd00ce467636",
+      "startup-no-bss.bin": "374fc3bd5a9cac37adb25ee8baf2b92e9bace19513770f0f9d346af2ccf23541",
+      "startup-no-bss.elf": "b42a88501988a19b3bd684dabc474b274a53cc1628a03eae3c1c760cff8e1b35",
+      "startup-no-data.bin": "88266f054ecbceeb69bc2dd5826f48da555dcdfdf04f0392f3120e97553ab963",
+      "startup-no-data.elf": "33137efa48b4221f596577c8edc0bc5ffe5ed0586648c7c48495b28425c9e809",
+      "startup.bin": "f5d9564da43b10c7e484ff3de5943af93ebe5a5dcac1b9ef12bdd970a10a57f6",
+      "startup.elf": "602e66a990586e51f74716c3ac1ec10602973d14206933d234360b4c4ca53d04",
+      "timer-wrong-ppi.bin": "590e2377a7a218aa1f5768cab1a2290636cb3c376ab9bbb116b7c0aa2f6db1a9",
+      "timer-wrong-ppi.elf": "f7cac57694a4845732ffc17a577a9472a0895e90e031010e645735bc89e2d04b",
+      "timer.bin": "be4550460364145fc4b707c8fe83a54acda33b4d532f23f67c01caddc638d5c0",
+      "timer.elf": "4566ab27c6b13f5f40f2b0ac57d194a0e9abaa883f6920eb1cc1820fd61e0d49",
+      "uart.bin": "0d2536ffd37877249126230cfb7a6ac3d7d417f8696c5dad4c2d70d17ca10436",
+      "uart.elf": "27e6649c427c930da0921daf8de67bf5e03bdb1d879ac3806e7b6b8581a90dc4"
+    }
+  },
+  "restoration": "pass",
+  "bl31_sha256": null,
+  "bootstrap_image_sha256": "5f1d0b42f6f28014cdfabbcfea7582628ff268c974d6284c1edf724db75022e9",
+  "error": "RuntimeError('Payload load/readback failed; CPU was not resumed')"
+}

@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 6568,
+  "segments": [
+    {
+      "file": "upstream26-uart.segment0.bin",
+      "bytes": 6148,
+      "sha256": "e053089c517de53ad6ee99baf5675062421ba11717fd9ae2102f8caf4720db4b"
+    },
+    {
+      "file": "upstream26-uart.segment1.bin",
+      "bytes": 420,
+      "sha256": "ae2d84d86834e5db7a7e27895c76e6c2bab7bf7b0501a136b069c6edf9708e5c"
+    }
+  ]
+}

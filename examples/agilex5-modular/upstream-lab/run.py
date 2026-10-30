@@ -33,6 +33,7 @@ def assess(name,body,code):
       'smc-guard':r'PASS SMC_EL3_REJECTED_AND_IOSSM_STATUS_VALIDATED',
     }
     if name=='reboot':return 'fail' # A reset request returning to main is not reset proof.
+    if name=='mailbox' and not all('[MBOX][PASS] '+command+':' in body for command in ('NOOP','GET_IDCODE','CONFIG_STATUS')):return 'fail'
     if name=='iossm' and ('ECC error count after SBE injection: 0' in body or 'ECC error count after DBE injection: 0' in body):return 'partial'
     return 'pass' if re.search(checks[name],body) else 'fail'
 

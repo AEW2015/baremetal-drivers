@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 6596,
+  "segments": [
+    {
+      "file": "upstream26-mmu.segment0.bin",
+      "bytes": 6220,
+      "sha256": "0881527c8a955886ae719ade43c31171aa4feab1e549d869cf35e3b9e587c8ba"
+    },
+    {
+      "file": "upstream26-mmu.segment1.bin",
+      "bytes": 376,
+      "sha256": "575f61d91e8416dae2635b7319d9285e679659fc92214c2ad6448133ad3e366f"
+    }
+  ]
+}

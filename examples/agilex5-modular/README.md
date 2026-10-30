@@ -191,6 +191,11 @@ from the historical HPS suite results. Start with `./fabric/test.sh`.
 
 ## Six QEMU practice labs
 
+The [shared platform extension](../../docs/cross-platform.md) ports these six
+labs to Agilex Simics and the Modular kit and adds a seventh, multicore exercise.
+See the [complete example catalog](../../docs/example-catalog.md) for recorded
+results across legacy, current and custom implementations.
+
 Build and test startup relocation, a corrupted copy, synchronous exceptions,
 timer interrupts, MMU permissions and a UART command parser with
 [the practice lab instructions](../../docs/examples/qemu-labs.md).

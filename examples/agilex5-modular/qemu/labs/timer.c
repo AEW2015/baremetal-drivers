@@ -1,6 +1,11 @@
 #include "lab.h"
+#ifdef LAB_AGILEX5
+#define GICD 0x1d000000UL
+#define GICR 0x1d060000UL
+#else
 #define GICD 0x08000000UL
 #define GICR 0x080a0000UL
+#endif
 #define SGI (GICR+0x10000)
 #define TIMER_PPI 29U /* Secure physical timer: Group 0 delivers FIQ at EL3. */
 #ifndef EXPECT_TIMER_PPI
@@ -28,6 +33,14 @@ int main(void) {
  check(interval>0,"TIMER_FREQUENCY");
  MMIO32(GICD)=0; wait_clear(GICD,1U<<31);
  MMIO32(GICD)=1U<<4; wait_clear(GICD,1U<<31);
+#ifdef LAB_AGILEX5
+ /* GIC-600 has a separate redistributor power handshake. */
+ unsigned timeout=1000000;
+ while ((((MMIO32(GICR+0x24)>>2)^(MMIO32(GICR+0x24)>>3))&1) && --timeout) {}
+ check(timeout!=0,"GIC_POWER_TRANSITION");
+ MMIO32(GICR+0x24)=0;
+ wait_clear(GICR+0x24,1);
+#endif
  MMIO32(GICR+0x14)&=~2U; wait_clear(GICR+0x14,4);
  MMIO32(SGI+0x180)=1U<<TIMER_PPI;
  MMIO32(SGI+0x80)&=~(1U<<TIMER_PPI);

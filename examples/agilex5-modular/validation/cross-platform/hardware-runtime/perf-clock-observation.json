@@ -1,0 +1,8 @@
+{
+  "interval_seconds": 1.0079955672845244,
+  "expected_seconds": 1.0,
+  "acceptance": [
+    0.9,
+    1.1
+  ]
+}

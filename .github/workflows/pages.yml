@@ -30,6 +30,8 @@ jobs:
           python3 qemu/experiment.py
           bash qemu/labs/build.sh
           python3 qemu/labs/run.py --negative --gdb
+          bash qemu/labs/build.sh agilex5
+          python3 catalog.py --check
           AGILEX_TEST_REAL_QEMU=1 python3 -m unittest discover -s tests -v
           ./simics/build.sh OCRAM
           ./simics/build.sh DDR

@@ -1,5 +1,11 @@
 # QEMU practice labs
 
+The original six lessons now also build for Agilex Simics and hardware, and a
+seventh multicore lesson shares secondary execution/identity checks across all
+three targets. See [the shared platform guide](../../../../docs/cross-platform.md).
+Build the Agilex images with `bash qemu/labs/build.sh agilex5` from the Modular
+example directory. The default build and runner continue to target QEMU.
+
 These six independent freestanding AArch64 programs run at secure EL3 on
 QEMU `virt`, Cortex-A53, one core, GICv3 and 128 MiB RAM.
 

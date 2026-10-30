@@ -1,0 +1,47 @@
+{
+  "observed_utc": "2026-10-29T14:50:10.921930+00:00",
+  "board": "Agilex 5 Modular ES",
+  "fpga_id": "0x0364f0dd",
+  "tf_a_pin": "2ea5afda7f34774ddcc677fb3a728fa57f780a1e",
+  "ap": "0x4000",
+  "ap_idr": "0x34770017",
+  "ap_type": "AXI5",
+  "default_csw_pattern": "0xa2000000",
+  "default_actual_csw": "0x22800052",
+  "secure_privileged_csw_pattern": "0x92000000",
+  "secure_actual_csw": "0x12800052",
+  "nonsecure_bit": 29,
+  "privileged_bit": 28,
+  "secure_ddr_read_address": "0x80000000",
+  "secure_ddr_read_word": "0x0",
+  "ddr_dmi0_enable": "0x101",
+  "mpu_nonsecure_window": [
+    "0x80100000",
+    "0x0",
+    "0x7fffffff",
+    "0x2"
+  ],
+  "nonmpu_nonsecure_window": [
+    "0x80100000",
+    "0x0",
+    "0x7fffffff",
+    "0x2"
+  ],
+  "memory_operations": "read-only",
+  "firewall_policy_modified": false,
+  "bl31_download_or_execution_attempted": false,
+  "conclusion": "Non-secure AXI5 debug accesses conflict with the secure BL31 destination; secure privileged reads succeed. Corrected download/execution remains to be validated.",
+  "sources": [
+    "https://raw.githubusercontent.com/altera-fpga/arm-trusted-firmware/2ea5afda7f34774ddcc677fb3a728fa57f780a1e/plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+    "https://raw.githubusercontent.com/openocd-org/openocd/master/src/target/arm_adi_v5.h",
+    "https://openocd.org/doc/html/TAP-Declaration.html",
+    "https://altera-fpga.github.io/rel-25.1/baremetal-embedded/agilex-5/e-series/premium/ug-baremetal-agx5e-premium/"
+  ],
+  "log_sha256": {
+    "read-only-ap-csw.log": "832000e4e37bb2221cd9f138243fd3d2d857a3dfc85e1cc794ec85e6ba8c0c3c",
+    "read-only-ap-identity.log": "278fe649536a34142f00f85fe9c1a892bf4719b8f16f5a9f3b556149585ef012",
+    "read-only-debug-firewall.log": "2cd17b20652e5d4424dff00f7446e5b37d4449a22df569130e06c7a84e7a9491",
+    "secure-read-comparison.log": "3c27804b3e26c27cc8dad17b5134370a3734a103762efb007522043825b6e609",
+    "secure-read-values.log": "cf892c6b77b7c95079cf73109b7822d8850876c26a8cded491068dbab648bf07"
+  }
+}

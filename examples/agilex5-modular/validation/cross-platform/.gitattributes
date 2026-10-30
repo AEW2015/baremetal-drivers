@@ -1,0 +1,2 @@
+# Preserve raw terminal/UART line endings and prompt whitespace as evidence.
+** -whitespace
