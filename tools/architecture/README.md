@@ -40,7 +40,7 @@ python3 tools/architecture/test_browser.py
 
 Pass `--browser /path/to/chromium` to use an existing browser. Screenshots,
 exported SVG and the JSON result go under ignored `examples/agilex5-modular/runs/`.
-The tests exercise all 81 example selections and reject external network
+The tests exercise all catalog example selections and reject external network
 dependencies and JavaScript exceptions. They also test keyboard navigation,
 actual RTL drill-down, platform emphasis, search, SVG export and mobile layout.
 

@@ -1,0 +1,30 @@
+{
+  "scope": "Host transport failure injection; separate from real Simics/RTL execution",
+  "tests": [
+    {
+      "name": "disconnect",
+      "status": "pass",
+      "child_reaped": true
+    },
+    {
+      "name": "timeout",
+      "status": "pass",
+      "child_reaped": true
+    },
+    {
+      "name": "bad-reply",
+      "status": "pass",
+      "child_reaped": true
+    },
+    {
+      "name": "invalid-offset-3",
+      "status": "pass",
+      "child_reaped": true
+    },
+    {
+      "name": "invalid-offset-64",
+      "status": "pass",
+      "child_reaped": true
+    }
+  ]
+}

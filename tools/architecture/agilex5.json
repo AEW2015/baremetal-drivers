@@ -386,13 +386,13 @@
     {
       "path": "/Fabric/Simics_reference/RAM",
       "title": "Modeled on-chip memory",
-      "role": "HPS bridge loopback target; model-configured mapping",
+      "role": "Identified 1 MiB behavioral 32-bit register-array memory behind the Simics HPS2FPGA loopback target; not physical HPS DDR or FPGA RTL",
       "scope": "Simics model only"
     },
     {
       "path": "/Fabric/Simics_reference/PIO",
       "title": "Modeled PIO peripherals",
-      "role": "Reference button, switch and LED models",
+      "role": "Modeled bit-0 button/switch input snapshots and 32-bit LED-data readback/restoration passed; no physical I/O or external transitions qualified",
       "scope": "Simics model only"
     },
     {
@@ -686,6 +686,22 @@
         "usb31",
         "usb2"
       ]
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/EMAC_RGMII_interface",
+      "title": "EMAC2 RGMII / MDIO to SOM PHY",
+      "role": "Recorded board Ethernet uses EMAC2 RGMII and MDIO2 to the SOM Marvell 88E1512. Packet and PHY-ID evidence applies to this route, not the separate architectural SERDES option.",
+      "scope": "SOM wiring and recorded physical Ethernet evidence",
+      "documents": [
+        "emac"
+      ]
+    },
+    {
+      "path": "/Fabric/Simics_RTL",
+      "title": "Simics + Verilator RTL connection",
+      "role": "AArch64 guest MMIO is forwarded through an independent synchronous Python adapter and bounded pipe to actual lab_ip/lab_persona RTL. Transaction-stepped simulation; no physical HPS bridge, clock-crossing or timing qualification.",
+      "scope": "Actual Simics guest / Verilator RTL execution",
+      "source": "examples/agilex5-modular/simics-rtl/README.md"
     }
   ],
   "connections": [
@@ -1245,7 +1261,8 @@
   "example_blocks": {
     "upstream/bridge": [
       "/HPS/PSS/HPS2FPGA",
-      "/HPS/APS/FPGA2HPS"
+      "/HPS/APS/FPGA2HPS",
+      "/Fabric/Simics_reference/RAM"
     ],
     "upstream/ccu": [
       "/HPS/APS/CCU"
@@ -1294,7 +1311,8 @@
     ],
     "upstream/mailbox": [
       "/HPS/PSS/Mailbox",
-      "/SDM/Mailbox_services"
+      "/SDM/Mailbox_services",
+      "/HPS/PSS/PSI"
     ],
     "upstream/mmu": [
       "/HPS/MPU/MMU_NEON"
@@ -1362,11 +1380,13 @@
     "board/interfaces": [
       "/HPS/PSS/Peripherals/EMAC2",
       "/HPS/PSS/Peripherals/SDMMC",
-      "/HPS/PSS/Peripherals/USB"
+      "/HPS/PSS/Peripherals/USB",
+      "/HPS/PSS/Peripherals/EMAC_RGMII_interface"
     ],
     "board/mailbox": [
       "/HPS/PSS/Mailbox",
-      "/SDM/Mailbox_services"
+      "/SDM/Mailbox_services",
+      "/HPS/PSS/PSI"
     ],
     "board/multicore": [
       "/HPS/MPU/A55",
@@ -1374,7 +1394,8 @@
       "/HPS/PSS/System_Modules/Power"
     ],
     "board/vendor-uart": [
-      "/HPS/PSS/Peripherals/UART0"
+      "/HPS/PSS/Peripherals/UART0",
+      "/SOM_IO/UART_USB"
     ],
     "board/vendor-timer": [
       "/HPS/PSS/Peripherals/Timers"
@@ -1514,7 +1535,8 @@
     ],
     "custom/ethernet": [
       "/HPS/PSS/Peripherals/EMAC2",
-      "/SOM_IO/PHY"
+      "/SOM_IO/PHY",
+      "/HPS/PSS/Peripherals/EMAC_RGMII_interface"
     ],
     "fabric/add": [
       "/Fabric/Lab_proposed/lab_ip"
@@ -1524,6 +1546,23 @@
     ],
     "reference/pr": [
       "/Fabric/PR_recipe"
+    ],
+    "config/sysmgr": [
+      "/HPS/PSS/System_Modules/System_Manager"
+    ],
+    "config/pinmux": [
+      "/HPS/PSS/Pin_mux"
+    ],
+    "integration/simics-rtl-add": [
+      "/Fabric/Simics_RTL",
+      "/Fabric/Lab_proposed/lab_ip"
+    ],
+    "integration/simics-rtl-xor": [
+      "/Fabric/Simics_RTL",
+      "/Fabric/Lab_proposed/lab_ip"
+    ],
+    "model/pio": [
+      "/Fabric/Simics_reference/PIO"
     ]
   },
   "sources": {
@@ -1546,6 +1585,10 @@
     "simics": {
       "title": "Simics fabric models \u2014 behavioral, not custom RTL",
       "url": "https://docs.altera.com/r/docs/786901/25.3/intel-simics-simulator-for-altera-fpgas-agilextm-5-and-agilextm-3-virtual-platform-user-guide/fpga-fabric"
+    },
+    "simics_rtl": {
+      "title": "Simics-to-Verilator RTL tutorial and captured results",
+      "url": "https://aew2015.github.io/baremetal-drivers/simics-rtl/"
     }
   },
   "aliases": {

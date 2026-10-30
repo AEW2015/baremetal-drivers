@@ -9,10 +9,10 @@ PASS records execution of the referenced artifacts, not a promise about every fu
 | Platform | Recorded PASS | Partial | Failed |
 |---|---:|---:|---:|
 | qemu | 12 | 0 | 0 |
-| simics | 32 | 2 | 3 |
-| hardware | 32 | 0 | 0 |
+| simics | 37 | 2 | 3 |
+| hardware | 34 | 0 | 0 |
 
-Inventory: **81 rows**. Results include historical versions; see each row’s scope and evidence.
+Inventory: **86 rows**. Results include historical versions; see each row’s scope and evidence.
 
 ## Current upstream
 
@@ -124,3 +124,23 @@ Inventory: **81 rows**. Results include historical versions; see each row’s sc
 | [ADD fabric IP / C driver](assets/architecture/design.html?example=fabric%2Fadd) | NOT-RUN | NOT-RUN | NOT-RUN | Verilator C-driver/RTL co-simulation passed; physical deployment and simulator MMIO models unqualified. |
 | [XOR fabric IP / C driver](assets/architecture/design.html?example=fabric%2Fxor) | NOT-RUN | NOT-RUN | NOT-RUN | Verilator C-driver/RTL co-simulation passed; physical deployment and simulator MMIO models unqualified. |
 | [Partial reconfiguration persona swap](assets/architecture/design.html?example=reference%2Fpr) | REFERENCE | REFERENCE | REFERENCE | Reference integration workflow; no live PR qualification. |
+
+## HPS configuration diagnostics
+
+| Example | QEMU | Simics | Hardware | Scope |
+|---|---|---|---|---|
+| [System Manager read-only snapshot](assets/architecture/design.html?example=config%2Fsysmgr) | NOT-SUPPORTED | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/config-audit/simics/results.json) | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/config-audit/hardware/results.json) | Three stable read-only register snapshots; pinmux UART-route comparison matches the recorded handoff. Not full subsystem qualification. |
+| [Pin-mux UART route snapshot and handoff comparison](assets/architecture/design.html?example=config%2Fpinmux) | NOT-SUPPORTED | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/config-audit/simics/results.json) | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/config-audit/hardware/results.json) | Three stable read-only register snapshots; pinmux UART-route comparison matches the recorded handoff. Not full subsystem qualification. |
+
+## Simics / RTL integration
+
+| Example | QEMU | Simics | Hardware | Scope |
+|---|---|---|---|---|
+| [Simics Arm guest to Verilator ADD RTL](assets/architecture/design.html?example=integration%2Fsimics-rtl-add) | NOT-SUPPORTED | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/simics-rtl/validation/results.json) | NOT-SUPPORTED | Actual AArch64 guest MMIO through a synchronous adapter to actual Verilator RTL; distinct from host-only driver tests. HPS bridge RTL, CDC and physical timing are unqualified. |
+| [Simics Arm guest to Verilator XOR RTL](assets/architecture/design.html?example=integration%2Fsimics-rtl-xor) | NOT-SUPPORTED | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/simics-rtl/validation/results.json) | NOT-SUPPORTED | Actual AArch64 guest MMIO through a synchronous adapter to actual Verilator RTL; distinct from host-only driver tests. HPS bridge RTL, CDC and physical timing are unqualified. |
+
+## Simics native fabric models
+
+| Example | QEMU | Simics | Hardware | Scope |
+|---|---|---|---|---|
+| [Simics native PIO input snapshots and LED readback](assets/architecture/design.html?example=model%2Fpio) | NOT-SUPPORTED | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/model-audit/validation/results.json) | NOT-SUPPORTED | Modeled bit-0 input snapshots and 32-bit LED data-pattern readback/restoration; includes bad-mask negative control. No physical I/O or external transitions qualified. |

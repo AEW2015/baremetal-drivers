@@ -137,6 +137,11 @@ It also injects a missing DONE response to test bounded polling. This is a local
 register-bus simulation; it does not model HPS bridge enable, CDC, FPGA timing or
 bitstream delivery. Generic QEMU `virt` does not contain this custom IP.
 
+For a complete Arm guest running against this RTL, use the
+[Simics-to-Verilator lesson](simics-rtl.md). It forwards actual guest MMIO to
+the Verilator model through a separate adapter; physical bridge and FPGA
+timing qualification remain separate.
+
 ## 2. Integrate the component into your Modular project
 
 Work in an isolated copy/revision of your known matching Modular FPGA project.

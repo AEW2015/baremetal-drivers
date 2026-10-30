@@ -24,6 +24,9 @@ def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def guide(row):
     id=row['id'];name=id.split('/',1)[1]
     if id.startswith('board/') and name in ('core','dma','gic','mmu','som','som-i2c','som-i3c','interfaces','mailbox','multicore','vendor-uart','vendor-ccu','vendor-clkmgr','vendor-smmu','vendor-ecc'):return SITE+'examples/'+name+'/'
+    if id.startswith('config/'):return SITE+'config-audit/'
+    if id.startswith('integration/simics-rtl-'):return SITE+'simics-rtl/'
+    if id.startswith('model/'):return SITE+'model-audit/'
     if id.startswith('practice/'):return SITE+'cross-platform/'
     if id.startswith('legacy/'):return SITE+'simics/'
     if id.startswith('fabric/'):return SITE+'fabric-ip/'

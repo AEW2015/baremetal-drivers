@@ -132,6 +132,7 @@ function normalizeArchitecturePath(parts) {
   return path.split('/').filter(Boolean);
 }
 function documentsAt(path) {
+  if(path==='/Fabric/Simics_RTL')return [ARCH.sources.simics_rtl];
   let ancestor=path;
   while(ancestor && !ARCH.blocks[ancestor])ancestor=ancestor.slice(0,ancestor.lastIndexOf('/'));
   const info=ARCH.blocks[ancestor];

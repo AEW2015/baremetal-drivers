@@ -1,0 +1,44 @@
+[system.board.fpga.soc_inst.periph_subsys.button_pio.bank.regs.DATA]
+
+        Bits  :  32  
+      Offset  :  0   
+       Value  :  0   
+  ----------         
+  Bit Fields         
+Data @ [0:0]  :  0   
+
+[system.board.fpga.soc_inst.periph_subsys.button_pio.bank.regs.EDGECAPTURE]
+
+               Bits  :  32  
+             Offset  :  12  
+              Value  :  0   
+         ----------         
+         Bit Fields         
+EdgeCapture @ [0:0]  :  0   
+
+[system.board.fpga.soc_inst.periph_subsys.button_pio.bank.regs.INTERRUPTMASK]
+
+                 Bits  :  32  
+               Offset  :  8   
+                Value  :  0   
+           ----------         
+           Bit Fields         
+InterruptMask @ [0:0]  :  0   
+
+[system.board.fpga.soc_inst.periph_subsys.dipsw_pio.bank.regs.DATA]
+
+        Bits  :  32  
+      Offset  :  0   
+       Value  :  0   
+  ----------         
+  Bit Fields         
+Data @ [0:0]  :  0   
+
+[system.board.fpga.soc_inst.periph_subsys.led_pio.bank.regs.DATA]
+
+         Bits  :  32                                
+       Offset  :  0                                 
+        Value  :  0                                 
+   ----------                                       
+   Bit Fields                                       
+Data @ [31:0]  :  00000000000000000000000000000000  

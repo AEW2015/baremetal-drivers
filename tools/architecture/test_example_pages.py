@@ -53,7 +53,7 @@ def main():
                 context=browser.new_context(viewport={'width':1440,'height':1000})
                 context.route('**/*',lambda route:route.continue_() if route.request.url.startswith(base+'/') else route.abort())
                 page=context.new_page();errors=[];page.on('pageerror',lambda error:errors.append(error.stack))
-                for name in ('examples/dma.md','examples/qemu-labs.md','runtime-fixes.md','fabric-ip.md'):
+                for name in ('examples/dma.md','examples/qemu-labs.md','runtime-fixes.md','fabric-ip.md','config-audit.md','simics-rtl.md','model-audit.md'):
                     page.goto(base+'/'+str(Path(name).with_suffix(''))+'/')
                     assert page.locator('details.example-architecture').get_attribute('open') is None
                     page.locator('details.example-architecture > summary').click()

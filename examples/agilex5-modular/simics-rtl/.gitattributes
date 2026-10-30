@@ -1,0 +1,3 @@
+# Preserve actual simulator transcripts, including vendor whitespace.
+validation/**/*.log -whitespace
+validation/**/*.txt -whitespace

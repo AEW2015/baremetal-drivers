@@ -14,7 +14,8 @@
     define address mapping, clock/time coordination, reset and error handling.
 
 Paths above are relative to `examples/agilex5-modular/`. The current Simics and
-Verilator tests run separately; a combined adapter is not implemented.
+Verilator standalone tests remain separate. A tested combined adapter is now
+available in [the Simics-to-Verilator lesson](docs/simics-rtl.md).
 
 Preparation: [fabric lab](docs/fabric-ip.md), [Simics lab](docs/simics.md), and
 [harness source](examples/agilex5-modular/fabric/tests/test_lab.cpp).
@@ -22,3 +23,8 @@ Preparation: [fabric lab](docs/fabric-ip.md), [Simics lab](docs/simics.md), and
 - [ ] Complete the [HPS DDR and missing-example roadmap](docs/example-roadmap.md).
   Track evidence/mapping fixes separately from new examples and physical-board
   qualification. Separate fabric DDR/EMIF is excluded from this work.
+
+- [x] Add and execute an Arm guest → Simics MMIO → actual Verilator RTL example,
+  including ADD/XOR, missing-DONE, and bounded transport-failure tests.
+- [x] Add read-only System Manager/pin-mux snapshots and compare the observed
+  UART route with the matching handoff; run Simics and physical-board checks.

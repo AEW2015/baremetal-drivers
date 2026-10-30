@@ -1,10 +1,13 @@
 # Missing-example TODO roadmap
 
 Use **HPS DDR bank 3A** for memory-backed labs. Separate fabric DDR/EMIF is
-excluded. This checklist tracks the **23 architecture blocks** currently marked
+excluded. This checklist tracks the **23 architecture blocks** originally marked
 without an associated example in the [clickable diagram](architecture.md).
 Some are parent groups or parts of one subsystem, so they do not require 23
-independent applications. All tasks below remain pending.
+independent applications. Seven coverage items are now supported by recorded
+evidence, leaving **16 of the original 23 tasks** open. Coverage associations
+are scoped below; a model or snapshot result does not establish full block
+qualification.
 
 ## 1. Review existing evidence and associations
 
@@ -12,27 +15,48 @@ Estimated effort: a few days including the basic diagnostics in phase 2.
 An association update must identify the exact existing binary, result and path
 exercised; it must not introduce a new hardware PASS.
 
-- [ ] **SOM UART connection** (`/SOM_IO/UART_USB`): review the captured J2 UART
-  runs and associate the appropriate UART/Hello examples if justified.
+- [x] **SOM UART connection** (`/SOM_IO/UART_USB`): associate the existing SOM
+  J2 HPS UART transmit/Hello evidence with the UART side of this combined
+  UART/USB node. This supports console transmission at J2; it does not cover
+  USB or UART receive. See the [mapping review](example-mapping-audit.md).
 - [ ] **Ethernet PHY interface** (`/HPS/PSS/Peripherals/EMAC_PHY_interface`):
-  determine which interface the SOM PHY actually uses in the tested design;
-  associate evidence only with that path, not every architectural PHY option.
-- [ ] **PSI** (`/HPS/PSS/PSI`): document the existing mailbox/SDM service path
-  and its evidence; distinguish service completion from dedicated PSI testing.
-- [ ] **Simics modeled RAM** (`/Fabric/Simics_reference/RAM`): establish the
-  exact bridge-loopback target, address and configured model before associating
-  an existing example or adding a dedicated memory test.
-- [ ] **Simics fabric parent** (`/Fabric/Simics_reference`): review its coverage
-  after the RAM/PIO children have justified mappings. This is a parent group,
-  not an additional standalone peripheral test.
+  the recorded board Ethernet route is EMAC2 RGMII/MDIO to the SOM Marvell
+  88E1512, represented by the distinct
+  `/HPS/PSS/Peripherals/EMAC_RGMII_interface` diagram node and backed by the
+  physical Ethernet example. The architectural SERDES/PHY option remains uncovered;
+  do not transfer RGMII evidence to it. This review remains open for the
+  separate PHY/SERDES node.
+- [x] **PSI** (`/HPS/PSS/PSI`): associate the existing mailbox/SDM service path
+  with PSI. The result proves that those mailbox requests completed over the
+  service path; it is not a dedicated PSI protocol or link test. See the
+  [mapping review](example-mapping-audit.md).
+- [x] **Simics modeled RAM** (`/Fabric/Simics_reference/RAM`): identify the
+  configured behavioral target as `example_design.design_memory`, a 1 MiB
+  array of 32-bit read/write registers connected behind the Simics HPS2FPGA
+  loopback at `0xC0000000` within a 256 MiB bridge window. The captured test
+  writes and verifies 16 64-bit words (128 bytes) at the route base; it
+  qualifies only those transactions, not the entire memory or physical fabric.
+  See the [mapping review](example-mapping-audit.md) and
+  [captured bridge transcript](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/runtime-fixes/simics-services/bridge/uart.txt).
+- [x] **Simics fabric parent** (`/Fabric/Simics_reference`): associate only
+  the supported RAM and PIO child-model coverage. This is a derived parent
+  mapping, not an additional standalone test or blanket coverage of the fabric.
 
 ## 2. Add basic configuration and memory labs
 
-- [ ] **Pin mux** (`/HPS/PSS/Pin_mux`): add a read-only routing report compared
-  with the matching handoff and SOM wiring. Do not change live clock/pin routes
-  merely to produce a demonstration.
-- [ ] **System Manager** (`/HPS/PSS/System_Modules/System_Manager`): select
-  documented readable configuration/status fields and report meaningful values.
+- [x] **Pin mux** (`/HPS/PSS/Pin_mux`): recorded read-only snapshots pass in
+  Simics and on the physical Modular ES. `PIN2SEL`, `PIN3SEL`, and
+  `UART0_USEFPGA` match the supplied matching big-endian handoff. This checks
+  three UART-route fields, not every pin/clock route. The negative control also
+  confirms unstable reads are rejected. See the
+  [configuration audit](config-audit.md) and its
+  [separate evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/config-audit).
+- [x] **System Manager** (`/HPS/PSS/System_Modules/System_Manager`): recorded
+  Simics and physical read-only snapshots show three selected fields are
+  readable and stable, with `SILICONID1=0x30000`, `SILICONID2=0`, and
+  `MPU_STATUS=0`. This is a snapshot report, not full System Manager
+  qualification. See the [configuration audit](config-audit.md) and its
+  [separate evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/config-audit).
 - [ ] **DSU / shared L3** (`/HPS/MPU/DSU`): build a multicore shared-memory lab
   with explicit cache/MMU attributes, synchronization and data-integrity checks.
   Identification alone does not qualify cache coherency.
@@ -40,9 +64,12 @@ exercised; it must not introduce a new hardware PASS.
   latency measurements with stated working-set sizes, cache state and timing
   method. Describe effective software throughput rather than claiming peak
   physical DDR bandwidth.
-- [ ] **Simics PIO** (`/Fabric/Simics_reference/PIO`): exercise documented
-  switch/button/LED model registers and record input/output readback. Physical
-  PIO execution needs a matching FPGA design and separate evidence.
+- [x] **Simics PIO** (`/Fabric/Simics_reference/PIO`): the recorded Simics
+  guest reads modeled button/switch inputs (static zero values), checks two
+  LED patterns by readback, and restores the initial LED state. A negative
+  case rejects an intentionally incorrect expected mask. This establishes
+  model register access only; no physical buttons, switches, or LEDs were
+  qualified. See the [model audit source and validation](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/model-audit/validation).
 
 Allow roughly another week for meaningful memory/model labs once their setup
 is established. These are planning estimates, not completion dates.
@@ -119,6 +146,12 @@ handoff, and use the shared hardware mutex for physical execution.
 - [ ] Restore the established hardware state after physical tests and retain
   the restoration result with the run evidence.
 
-The [Simics/Verilator walkthrough TODO](https://github.com/AEW2015/baremetal-drivers/blob/main/TODO.md) remains a separate guided
-session. Simics and the current host-compiled driver/Verilator harness are not
-connected to one another.
+## Separate Simics and Verilator example
+
+The [Simics-to-Verilator tutorial](simics-rtl.md) and working example now run
+the unchanged AArch64 fabric driver against the actual ADD/XOR RTL. The Simics
+I/O-memory callback sends synchronous MMIO transactions to a Verilator child;
+the recorded positive and fault-injection cases pass. It does not provide
+continuous-cycle HPS/RTL simulation, physical bridge validation, or a Questa
+backend. A separate guided-user walkthrough remains a documentation task; the
+example and its validation are available now.

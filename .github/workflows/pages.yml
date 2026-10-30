@@ -40,6 +40,13 @@ jobs:
           bash upstream-lab/build.sh agilex5
           bash upstream-lab/build_bl31.sh
           ./fabric/test.sh
+          bash model-audit/build.sh
+          python3 -m unittest discover -s model-audit -p 'test_*.py' -v
+          bash config-audit/build.sh
+          python3 -m unittest discover -s config-audit -p 'test_*.py' -v
+          bash simics-rtl/build.sh
+          python3 simics-rtl/test_protocol.py
+          python3 simics-rtl/test_transport.py
           LAB_CPU_BASE=0x20020000 ./fabric/build.sh
   ethernet:
     runs-on: ubuntu-24.04

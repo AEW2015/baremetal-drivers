@@ -52,6 +52,7 @@ nav:
       - 2. Set up VS Code: vscode.md
       - 3. Run and debug QEMU: qemu.md
       - Simics 26.3 virtual HPS: simics.md
+      - Simics connected to Verilator RTL: simics-rtl.md
       - 4. Run on the Modular kit: hardware.md
       - 5. Fabric IP, map and driver: fabric-ip.md
       - 6. Swap IP with partial reconfiguration: partial-reconfiguration.md
@@ -59,6 +60,9 @@ nav:
       - Overview: examples.md
       - Clickable HPS and fabric map: architecture.md
       - Missing-example TODO roadmap: example-roadmap.md
+      - Existing evidence and mappings: example-mapping-audit.md
+      - System Manager and pin-mux snapshots: config-audit.md
+      - Simics native PIO models: model-audit.md
       - Complete platform catalog: example-catalog.md
       - Shared labs on QEMU, Simics and hardware: cross-platform.md
       - QEMU CPU, NEON and RAM: examples/qemu.md

@@ -705,6 +705,28 @@
       "tone": "aps",
       "kind": "block",
       "font": 17
+    },
+    {
+      "path": "/HPS/PSS/Peripherals/EMAC_RGMII_interface",
+      "x": 1320,
+      "y": 185,
+      "w": 100,
+      "h": 65,
+      "label": "RGMII / MDIO\nSOM PHY",
+      "tone": "board",
+      "kind": "block",
+      "font": 14
+    },
+    {
+      "path": "/Fabric/Simics_RTL",
+      "x": 980,
+      "y": 1000,
+      "w": 360,
+      "h": 38,
+      "label": "Simics + Verilator \u00b7 actual RTL",
+      "tone": "model",
+      "kind": "block",
+      "font": 16
     }
   ],
   "wires": [
@@ -1105,6 +1127,29 @@
         [
           185,
           410
+        ]
+      ],
+      "tone": "black",
+      "both": true,
+      "label": ""
+    },
+    {
+      "points": [
+        [
+          1200,
+          316
+        ],
+        [
+          1308,
+          316
+        ],
+        [
+          1308,
+          218
+        ],
+        [
+          1320,
+          218
         ]
       ],
       "tone": "black",

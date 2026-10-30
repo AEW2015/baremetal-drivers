@@ -1,0 +1,21 @@
+{
+  "status": "match",
+  "handoff_sha256": "9f1a8035d71c5735f88be7763e4f68c9d11c7b4b4263e2632c69ee5da0945640",
+  "checks": {
+    "PIN2SEL": {
+      "expected": 5,
+      "actual": 5,
+      "status": "match"
+    },
+    "PIN3SEL": {
+      "expected": 5,
+      "actual": 5,
+      "status": "match"
+    },
+    "UART0_USEFPGA": {
+      "expected": 0,
+      "actual": 0,
+      "status": "match"
+    }
+  }
+}

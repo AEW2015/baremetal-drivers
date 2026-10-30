@@ -1,0 +1,71 @@
+{
+  "scope": "Simics model PIO readback; no physical board or external button/switch transition qualification",
+  "project": "/workspace/baremetal-sync-simics-20261028/examples/agilex5-modular/build/simics26",
+  "bootstrap_sha256": "025972a740c9c99a490d2551003f2f56dcc6b7d60aafd81408347a11234bbadd",
+  "runner_sha256": "d20b9b3b9baaf7fce44ffe012ab8a59ab62039d436a9253da78e59ac532051b0",
+  "build": {
+    "compiler": "aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "source_revision": "001649d04aac8a5cb17d18e6736b9aeee7e78ccc",
+    "source_sha256": {
+      "model-audit/build.sh": "95dbee77dff2c3c8fb3ea70bca3a0882d17b6087b91fbba9eb466bbb7d6eeb2f",
+      "model-audit/pio.c": "1322ad9b0109e08199de9d403bb0fd4be5cfd7d566574d15f7567e26ae45465a",
+      "core/start.S": "10849a4ae54643556bad1556f94241154233b3d2f9d7ba18d5edee9b358fd9eb",
+      "core/common.h": "379491cc3318b18b74691c512137d9ae31a27bf32c08eeb404649be2beab3689",
+      "core/fault.c": "be53d1703a3aa3ce52bebb1570d1b74435f15ec169c9c110c7d6a9611367d748",
+      "core/link.ld": "1b92bcf78c732dd436759fea55a3ad4e90f1375990446eb43fbd2e4aacaeb10e"
+    },
+    "load_address": "0x82100000",
+    "entry_el": 3,
+    "scope": "Simics modeled LWHPS2FPGA PIO only; no physical I/O qualification",
+    "artifacts": {
+      "mask-negative.bin": "5d3583957c70bd6347770e70d16d827d026ce40179c9d7c6b7c85e20d7b098c4",
+      "mask-negative.elf": "5f93e7d6cfd50ac648e2cc667643f01ba0dfc268d41f9b9135d44a28cf10c512",
+      "pio.bin": "07c9086f3623e98d1d4f34d17025e98c5276025796112242469e888bab08cd20",
+      "pio.elf": "9b957663af66cbaffec19aae5fcd07b75600babf17cc056827b590a966389102"
+    }
+  },
+  "model_register_info_sha256": "dd6c4d780e997169b81b31e85fa51873cbcfadfe04d361c20d2639cf30298fbe",
+  "register_map": {
+    "lwhps2fpga_base": "0x20000000",
+    "sysid": {
+      "address": "0x20010000",
+      "size": "0x8",
+      "access": "read"
+    },
+    "button_data": {
+      "address": "0x20010060",
+      "width_bits": 32,
+      "input_mask": "0x00000001"
+    },
+    "dipsw_data": {
+      "address": "0x20010070",
+      "width_bits": 32,
+      "input_mask": "0x00000001"
+    },
+    "led_data": {
+      "address": "0x20010080",
+      "width_bits": 32,
+      "output_mask": "0xffffffff"
+    }
+  },
+  "tests": [
+    {
+      "name": "pio",
+      "status": "pass",
+      "simulator_exit": 0,
+      "seconds": 12.293,
+      "binary_sha256": "07c9086f3623e98d1d4f34d17025e98c5276025796112242469e888bab08cd20",
+      "script_sha256": "25b37793e741b07acb9f411b95711bda103c70bcb89b020216a6f84ce12b007e",
+      "uart_sha256": "71a766b87f5309d9bfaeaa56d7bd9d496e2c35fb2791e6a8c7e14d18b5a015fe"
+    },
+    {
+      "name": "mask-negative",
+      "status": "pass",
+      "simulator_exit": 0,
+      "seconds": 15.7,
+      "binary_sha256": "5d3583957c70bd6347770e70d16d827d026ce40179c9d7c6b7c85e20d7b098c4",
+      "script_sha256": "4a689300d4cac8f6218ee6d5ed0e2ae49fa134f3461f108c8e1da82bbbdee6e9",
+      "uart_sha256": "7deb02c4796c826fa3e896811a06eaac2f6941178fab28e61d3f2c177a149586"
+    }
+  ]
+}

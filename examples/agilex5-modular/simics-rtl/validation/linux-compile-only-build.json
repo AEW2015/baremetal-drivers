@@ -1,0 +1,25 @@
+{
+  "scope": "Arm guest via Simics MMIO adapter to actual transaction-stepped Verilator RTL; no physical board/timing qualification",
+  "guest_compiler": "aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "verilator": "Verilator 5.020 2024-01-01 rev (Debian 5.020-1)",
+  "sha256": {
+    "simics-rtl/transactor.cpp": "7c6fafa98edd7586a15d9424c9c51ad555515d23ccdc964d8550533b017650a5",
+    "simics-rtl/guest.c": "6f655f343100cb04fdc69464299ddada4318fd63d82e15a78bd405344f4c0a83",
+    "simics-rtl/build.sh": "94a133eb02f1101864af95bc035f292841bb3e98fc2dbea73ec7a6a0991c3a09",
+    "fabric/lab_driver.c": "98850c2e6abd00426e62538483123c15e9743c690594c636087fc2a0e859730f",
+    "fabric/lab_mmio.c": "587018d3b9af7b115bac789ab44a97ffe6200547f918b3873392bdd364253615",
+    "fabric/lab_driver.h": "686fd2f24480929609024cccbe3569668d640298443d8e8b3a4a5c528325d5b1",
+    "fabric/rtl/lab_ip.sv": "3ac67d8a752cb38b9fd55c606a9757144dc7ae3dc99efbf91409b388d1a6d07c",
+    "fabric/rtl/lab_persona.sv": "f78b8b773cd784b5b85cf2a0442baaebfe13e2e3a513096b398c248db563edd1",
+    "core/start.S": "10849a4ae54643556bad1556f94241154233b3d2f9d7ba18d5edee9b358fd9eb",
+    "core/link.ld": "1b92bcf78c732dd436759fea55a3ad4e90f1375990446eb43fbd2e4aacaeb10e",
+    "core/fault.c": "be53d1703a3aa3ce52bebb1570d1b74435f15ec169c9c110c7d6a9611367d748",
+    "core/common.h": "379491cc3318b18b74691c512137d9ae31a27bf32c08eeb404649be2beab3689",
+    "build/simics-rtl-linux/guest0.bin": "fc7df87f92f92b58b993944643d1979e1053b586216d71f1ef62b06c04edad56",
+    "build/simics-rtl-linux/guest1.elf": "15ef04093bb2c3069ff95f673c02200a0c3a42c777b822eb70ecbb62f61f5ebe",
+    "build/simics-rtl-linux/guest0.elf": "9daa6636ae438d2c2ef1590ba03a4f2f74a6c5e275e81c7f6051eb232887cd0c",
+    "build/simics-rtl-linux/guest1.bin": "2f6fa74838a15ea6840f7e1a3fc61c835f81d76ae1f376a8bece1dc5f826a423",
+    "build/simics-rtl-linux/mode1/Vlab_ip": "198597a7dc5727904ed83968392abea8faa854eb25ae4f1d4e5755620e224266",
+    "build/simics-rtl-linux/mode2/Vlab_ip": "2de3ec6049ae5586acbf97c586aa3c67612d96c2eb156b200aa65386c2204850"
+  }
+}

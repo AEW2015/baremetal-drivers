@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 5088,
+  "segments": [
+    {
+      "file": "upstream26-pinmux.bin",
+      "bytes": 5088,
+      "sha256": "4a11a5a28daaac5e94283f90fa9355e03102de5e57e7a1911b1817408fd5681a"
+    }
+  ]
+}

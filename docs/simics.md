@@ -19,6 +19,10 @@ captured output, see the [new upstream example campaign](upstream-examples-valid
 </details>
 <!-- example-architecture:end -->
 
+The [Simics-to-Verilator RTL lesson](simics-rtl.md) adds a working Arm guest
+connected to the repository’s ADD/XOR RTL through a synchronous MMIO adapter.
+The [configuration audit](config-audit.md) also adds read-only HPS snapshots.
+
 === "Choose a track"
 
     | Track | Source and target | What the result establishes |

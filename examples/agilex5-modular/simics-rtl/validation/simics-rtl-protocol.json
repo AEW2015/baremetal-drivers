@@ -1,0 +1,55 @@
+{
+  "scope": "Host-only Verilator transactor protocol; independent of actual Simics guest execution",
+  "tests": [
+    {
+      "mode": 1,
+      "check": "real RTL arithmetic and exact cycle sequence",
+      "status": "pass"
+    },
+    {
+      "mode": 1,
+      "check": "unaligned rejected",
+      "status": "pass"
+    },
+    {
+      "mode": 1,
+      "check": "out-of-range rejected",
+      "status": "pass"
+    },
+    {
+      "mode": 1,
+      "check": "missing-value rejected",
+      "status": "pass"
+    },
+    {
+      "mode": 1,
+      "check": "overlong rejected",
+      "status": "pass"
+    },
+    {
+      "mode": 2,
+      "check": "real RTL arithmetic and exact cycle sequence",
+      "status": "pass"
+    },
+    {
+      "mode": 2,
+      "check": "unaligned rejected",
+      "status": "pass"
+    },
+    {
+      "mode": 2,
+      "check": "out-of-range rejected",
+      "status": "pass"
+    },
+    {
+      "mode": 2,
+      "check": "missing-value rejected",
+      "status": "pass"
+    },
+    {
+      "mode": 2,
+      "check": "overlong rejected",
+      "status": "pass"
+    }
+  ]
+}

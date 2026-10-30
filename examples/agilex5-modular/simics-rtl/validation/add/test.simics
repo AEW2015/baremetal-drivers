@@ -1,0 +1,33 @@
+$fsbl_image_filename = "/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ocram/baremetal.bin"
+$hps_reset_vector = 0
+run-script (sim->project + "/targets/agilex5e-universal/agilex5e-universal.simics")
+@import sys
+@sys.path.insert(0, "/workspace/baremetal-fixes-20261029/examples/agilex5-modular/simics-rtl")
+@import adapter
+@rtl_bridge = adapter.install("/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/simics-rtl/mode1/Vlab_ip", "/workspace/baremetal-fixes-20261029/examples/agilex5-modular/runs/simics-rtl-verilator-20261030T230747.641124Z/add/transactions.jsonl", False)
+$con = $system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con
+$ready = (bp.console_string.break $con "SoCFPGA Bare-Metal > ")
+$done = (bp.console_string.break $con -regexp "SIMICS_RTL_COMPLETE status=[01]")
+$con.record-start
+script-branch {
+ run
+ bp.wait-for-breakpoint $ready
+ stop
+ $con.input "ddr_selftest\n"
+ run
+ bp.wait-for-breakpoint $ready
+ stop
+ echo "SIMICS_RTL_DDR_BOOTSTRAP_COMPLETE"
+ hps.phys_mem.load-file "/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/simics-rtl/guest0.bin" 0x82100000
+ pselect "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]"
+ set-pc 0x82100000
+ run
+ bp.wait-for-breakpoint $done
+ stop
+ @rtl_bridge.close()
+ $transcript = ($con.record-stop)
+ echo "UART_RECORD_BEGIN"
+ echo $transcript
+ echo "UART_RECORD_END"
+ exit 0
+}

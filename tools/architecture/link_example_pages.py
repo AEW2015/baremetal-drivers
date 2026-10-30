@@ -21,6 +21,9 @@ def pages():
         mapped[str(path.relative_to(DOCS))]=PRACTICE if path.stem=='qemu-labs' else [custom.get(path.stem,'board/'+path.stem)]
     mapped.update({
         'examples.md':[],
+        'model-audit.md':['model/pio'],
+        'config-audit.md':['config/sysmgr','config/pinmux'],
+        'simics-rtl.md':['integration/simics-rtl-add','integration/simics-rtl-xor'],
         'qemu.md':['custom/qemu-hello'],
         'cross-platform.md':PRACTICE,
         'fabric-ip.md':['fabric/add','fabric/xor'],

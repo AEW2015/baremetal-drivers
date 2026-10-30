@@ -220,6 +220,69 @@
           "Setup Simics Agilex 5 model"
         ],
         "dependsOrder": "sequence"
+      },
+      {
+        "label": "Build configuration snapshots",
+        "type": "shell",
+        "command": "bash config-audit/build.sh",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Run Simics configuration snapshots",
+        "type": "shell",
+        "command": "python3 config-audit/run.py",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "dependsOn": [
+          "Build configuration snapshots"
+        ],
+        "problemMatcher": []
+      },
+      {
+        "label": "Build Simics-Verilator RTL connection",
+        "type": "shell",
+        "command": "bash simics-rtl/build.sh",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Run Simics-Verilator RTL examples",
+        "type": "shell",
+        "command": "python3 simics-rtl/run.py",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "dependsOn": [
+          "Build Simics-Verilator RTL connection"
+        ],
+        "problemMatcher": []
+      },
+      {
+        "label": "Build Simics native PIO lesson",
+        "type": "shell",
+        "command": "bash model-audit/build.sh",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Run Simics native PIO lesson",
+        "type": "shell",
+        "command": "python3 model-audit/run.py",
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "dependsOn": [
+          "Build Simics native PIO lesson"
+        ],
+        "problemMatcher": []
       }
     ]
   },

@@ -1614,6 +1614,110 @@
           "status": "reference"
         }
       }
+    },
+    {
+      "id": "config/sysmgr",
+      "title": "System Manager read-only snapshot",
+      "family": "HPS configuration diagnostics",
+      "source": "examples/agilex5-modular/config-audit",
+      "scope": "Three stable read-only register snapshots; pinmux UART-route comparison matches the recorded handoff. Not full subsystem qualification.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/config-audit/simics/results.json",
+          "case": "sysmgr"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/config-audit/hardware/results.json",
+          "case": "sysmgr"
+        }
+      }
+    },
+    {
+      "id": "config/pinmux",
+      "title": "Pin-mux UART route snapshot and handoff comparison",
+      "family": "HPS configuration diagnostics",
+      "source": "examples/agilex5-modular/config-audit",
+      "scope": "Three stable read-only register snapshots; pinmux UART-route comparison matches the recorded handoff. Not full subsystem qualification.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/config-audit/simics/results.json",
+          "case": "pinmux"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/config-audit/hardware/results.json",
+          "case": "pinmux"
+        }
+      }
+    },
+    {
+      "id": "integration/simics-rtl-add",
+      "title": "Simics Arm guest to Verilator ADD RTL",
+      "family": "Simics / RTL integration",
+      "source": "examples/agilex5-modular/simics-rtl",
+      "scope": "Actual AArch64 guest MMIO through a synchronous adapter to actual Verilator RTL; distinct from host-only driver tests. HPS bridge RTL, CDC and physical timing are unqualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "simics-rtl/validation/results.json",
+          "case": "add"
+        },
+        "hardware": {
+          "status": "not-supported"
+        }
+      }
+    },
+    {
+      "id": "integration/simics-rtl-xor",
+      "title": "Simics Arm guest to Verilator XOR RTL",
+      "family": "Simics / RTL integration",
+      "source": "examples/agilex5-modular/simics-rtl",
+      "scope": "Actual AArch64 guest MMIO through a synchronous adapter to actual Verilator RTL; distinct from host-only driver tests. HPS bridge RTL, CDC and physical timing are unqualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "simics-rtl/validation/results.json",
+          "case": "xor"
+        },
+        "hardware": {
+          "status": "not-supported"
+        }
+      }
+    },
+    {
+      "id": "model/pio",
+      "title": "Simics native PIO input snapshots and LED readback",
+      "family": "Simics native fabric models",
+      "source": "examples/agilex5-modular/model-audit",
+      "scope": "Modeled bit-0 input snapshots and 32-bit LED data-pattern readback/restoration; includes bad-mask negative control. No physical I/O or external transitions qualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "model-audit/validation/results.json",
+          "case": "pio"
+        },
+        "hardware": {
+          "status": "not-supported"
+        }
+      }
     }
   ]
 }

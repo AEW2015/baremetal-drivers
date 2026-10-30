@@ -15,6 +15,7 @@ def main():
     catalog=json.loads((ROOT/'examples/agilex5-modular/catalog.json').read_text())
     design=ROOT/'docs/assets/architecture/design.html'
     model=json.loads((ROOT/'docs/assets/architecture/design.json').read_text())['integration']
+    count=len(catalog['examples'])
     errors=[];requests=[];checks=[]
     with sync_playwright() as w:
         options={'headless':True}
@@ -31,9 +32,9 @@ def main():
         assert page.locator('.trm-node').count()==len(model['trm_layout']['shapes'])
         assert page.locator('#architecture-up').is_disabled()
         assert page.locator('#architecture-back').is_disabled()
-        assert page.locator('#example-picker option').count()==82
+        assert page.locator('#example-picker option').count()==count+1
         screenshot('overview.png')
-        checks.append('Offline TRM Figure 1 layout: MPU / APS / PSS / MPFE, all 81 catalog options')
+        checks.append('Offline TRM Figure 1 layout: MPU / APS / PSS / MPFE, all catalog options')
         for doc in model['documents'].values():
             assert parse_qs(urlsplit(doc['url']).query)['contentId']==[doc['content_id']]
         assert page.locator('#trm-context-link').get_attribute('href')==model['documents']['hps']['url']
@@ -62,7 +63,7 @@ def main():
             assert card.get_by_text('Source ↗',exact=True).get_attribute('href').startswith('https://github.com/AEW2015/baremetal-drivers/')
             for platform,result in row['platforms'].items():
                 assert result['status'].upper() in card.inner_text(),(row['id'],platform)
-        checks.append('All 81 example selections resolve to blocks, status cards, tutorials and source')
+        checks.append('All catalog example selections resolve to blocks, status cards, tutorials and source')
         page.evaluate('()=>window.__fpa.chooseExample("upstream/gic")')
         assert page.locator('#trm-context-link').get_attribute('href')==model['documents']['gic']['url']
         page.locator('#architecture-up').click()
@@ -107,7 +108,7 @@ def main():
         assert (a.output/'export.png').read_bytes().startswith(b'\x89PNG\r\n\x1a\n')
         checks.append('PNG export downloads a valid raster drawing')
         page.locator('#example-search').fill('mailbox')
-        assert 1<page.locator('#example-picker option').count()<82
+        assert 1<page.locator('#example-picker option').count()<count+1
         page.locator('#example-search').fill('no-example-with-this-name')
         assert page.locator('#example-picker option').count()==1
         checks.append('Example search handles matching and empty results')
@@ -130,10 +131,10 @@ def main():
         checks.append('Legacy Memory/CCU deep link resolves to the reorganized APS block')
         assert not errors,errors
         assert not any(url.startswith(('http:','https:')) for url in requests),requests
-        report={'browser':browser.version,'examples_checked':81,'block_navigation':block_report,'checks':checks,'javascript_errors':errors,'network_dependency_requests':[],
+        report={'browser':browser.version,'examples_checked':count,'block_navigation':block_report,'checks':checks,'javascript_errors':errors,'network_dependency_requests':[],
                 'html_sha256':__import__('hashlib').sha256(design.read_bytes()).hexdigest()}
         browser.close()
     (a.output/'results.json').write_text(json.dumps(report,indent=2)+'\n')
-    print('PASS: '+str(len(checks))+' browser checks; all 81 example selections; offline; no JavaScript errors')
+    print('PASS: '+str(len(checks))+' browser checks; all '+str(count)+' example selections; offline; no JavaScript errors')
 
 if __name__=='__main__':main()

@@ -35,7 +35,7 @@ def main():
     p.add_argument('--port',default='/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0')
     p.add_argument('--wait-for-hardware',action='store_true',help='Queue on the shared bench mutex instead of failing busy')
     p.add_argument('--bl31',type=Path,help='Verified pinned RESET_TO_BL31 image')
-    p.add_argument('--suite',choices=['upstream','practice'],default='upstream')
+    p.add_argument('--suite',choices=['upstream','practice','config'],default='upstream')
     p.add_argument('--only')
     a=p.parse_args()
     checker=lab
@@ -47,6 +47,12 @@ def main():
         allowed=checker.NAMES+list(checker.oracle.NEGATIVES)
         default=','.join(checker.NAMES)
         if a.bl31:p.error('Practice labs require the standalone EL3 bootstrap; omit --bl31')
+    if a.suite=='config':
+        spec=importlib.util.spec_from_file_location('config_audit',ROOT/'config-audit/run.py')
+        checker=importlib.util.module_from_spec(spec);spec.loader.exec_module(checker)
+        allowed=checker.NAMES
+        default=','.join(allowed)
+        if a.bl31:p.error('Configuration snapshots require the standalone EL3 bootstrap; omit --bl31')
     names=(a.only or default).split(',')
     if any(n not in allowed for n in names):p.error('Choose '+','.join(allowed))
     sys.path.insert(0,str(a.mcp_client.parent));from mcp_client import MCP
@@ -157,7 +163,8 @@ def main():
                                 if marker in body and marker.decode() not in observations:observations[marker.decode()]=time.monotonic()
 
                         if proc.poll() is not None and proc.returncode:break
-                        complete=(b'LAB COMPLETE' in body or b'LAB FAILED' in body) if a.suite=='practice' else b'UPSTREAM_LAB_COMPLETE' in body
+                        if a.suite=='config':complete=b'CONFIG_AUDIT_COMPLETE' in body
+                        else:complete=(b'LAB COMPLETE' in body or b'LAB FAILED' in body) if a.suite=='practice' else b'UPSTREAM_LAB_COMPLETE' in body
                         if complete and proc.poll() is not None:
                             if done_at is None:done_at=time.monotonic()
                             if time.monotonic()-done_at>.5:break
@@ -165,6 +172,8 @@ def main():
                 uart=body.decode(errors='replace').replace('\r','')
                 (out/(name+'-uart.txt')).write_text(uart)
                 status=checker.assess(name,uart,proc.returncode)
+                if a.suite=='config' and status=='pass':
+                    (out/(name+'-snapshot.json')).write_text(json.dumps(checker.snapshot(name,uart),indent=2)+'\n')
                 if name=='perf':
                     interval=observations.get('COUNTER_INTERVAL_END',0)-observations.get('COUNTER_INTERVAL_START',0)
                     (out/'perf-clock-observation.json').write_text(json.dumps({'interval_seconds':interval,'expected_seconds':1.0,'acceptance':[0.9,1.1]},indent=2)+'\n')

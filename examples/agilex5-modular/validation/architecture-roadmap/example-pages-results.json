@@ -1,0 +1,43 @@
+{
+  "pages_checked": 31,
+  "catalog_links_checked": 86,
+  "browser_checks": [
+    {
+      "page": "examples/dma.md",
+      "selected_example": "board/dma",
+      "status": "pass"
+    },
+    {
+      "page": "examples/qemu-labs.md",
+      "selected_example": "practice/startup",
+      "status": "pass"
+    },
+    {
+      "page": "runtime-fixes.md",
+      "selected_example": "upstream/crc",
+      "status": "pass"
+    },
+    {
+      "page": "fabric-ip.md",
+      "selected_example": "fabric/add",
+      "status": "pass"
+    },
+    {
+      "page": "config-audit.md",
+      "selected_example": "config/sysmgr",
+      "status": "pass"
+    },
+    {
+      "page": "simics-rtl.md",
+      "selected_example": "integration/simics-rtl-add",
+      "status": "pass"
+    },
+    {
+      "page": "model-audit.md",
+      "selected_example": "model/pio",
+      "status": "pass"
+    }
+  ],
+  "javascript_errors": [],
+  "browser": "156.0.8078.4"
+}
