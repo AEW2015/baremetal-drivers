@@ -155,7 +155,10 @@ def main():
                 if lab.digest(path)!=record['build']['artifacts'][path.name]:raise RuntimeError('Artifact hash mismatch')
             bootstrap(name)
             destination=a.bench/'examples/build'/('upstream26-'+image.name)
-            destination.write_bytes(image.read_bytes())
+            image_bytes=image.read_bytes()
+            if hashlib.sha256(image_bytes).hexdigest()!=record['build']['artifacts'][image.name]:
+                raise RuntimeError('Payload changed during bootstrap; CPU was not resumed')
+            destination.write_bytes(image_bytes)
             container_image='/home/dev/baremetal-guide-validation/examples/build/'+destination.name
             cfg='/home/dev/baremetal-guide-validation/ocram/agilex5.cfg'
             fd=os.open(a.port,os.O_RDWR|os.O_NOCTTY|os.O_NONBLOCK)
@@ -243,7 +246,7 @@ def main():
                     (out/(name+'-clock-observation.json')).write_text(json.dumps({'interval_seconds':interval,'expected_seconds':1.0,'acceptance':[0.9,1.1],'scope':'Coarse independent host wall-clock rate check; UART/scheduling uncertainty, not precision calibration'},indent=2)+'\n')
                     if not .9<=interval<=1.1:status='fail'
 
-                item={'name':name,'status':status,'debug_exit':proc.returncode,'elf_sha256':lab.digest(elf),'timing_valid':calibrated and status=='pass' and 'TIMING_UNAVAILABLE' not in uart,'uart_path':a.port,'entry':'0x82400000'}
+                item={'name':name,'status':status,'debug_exit':proc.returncode,'elf_sha256':record['build']['artifacts'][elf.name],'timing_valid':calibrated and status=='pass' and 'TIMING_UNAVAILABLE' not in uart,'uart_path':a.port,'entry':'0x82400000'}
                 record['tests'].append(item);save();print(name+': '+status+'\n'+uart[-2600:],flush=True)
                 if proc.returncode:raise RuntimeError('Debugger failed; stop before the next payload')
             finally:os.close(fd)

@@ -8,7 +8,11 @@ import struct
 import subprocess
 import tempfile
 import unittest
-from unittest.mock import Mock
+import contextlib
+import io
+import shutil
+import types
+from unittest.mock import Mock,patch
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('memory_loader',ROOT/'upstream-lab/hardware.py')
 hardware=importlib.util.module_from_spec(spec);spec.loader.exec_module(hardware)
@@ -80,6 +84,40 @@ class LoaderSafety(unittest.TestCase):
             self.assertIn('ELF entry is not backed by executable',process.stderr)
             self.assertNotIn('No module named',process.stderr)
             self.assertFalse((folder/'missing-bench').exists())
+
+    def test_payload_changed_during_bootstrap_never_reaches_uart_or_debugger(self):
+        with tempfile.TemporaryDirectory() as directory:
+            folder=Path(directory);artifacts=folder/'artifacts';artifacts.mkdir()
+            metadata={'target':'agilex5','artifacts':{}}
+            for suffix,data in [('.elf',image()),('.bin',b'code')]:
+                p=artifacts/('ddr-path'+suffix);p.write_bytes(data)
+                metadata['artifacts'][p.name]=hashlib.sha256(data).hexdigest()
+            (artifacts/'build.json').write_text(json.dumps(metadata))
+            fake_root=folder/'lab';(fake_root/'memory-labs').mkdir(parents=True)
+            shutil.copy2(ROOT/'memory-labs/hardware_oracle.py',fake_root/'memory-labs/hardware_oracle.py')
+            bench=folder/'bench';(bench/'examples').mkdir(parents=True)
+            (bench/'ddr-bringup').mkdir();(bench/'ddr-bringup/ddr_probe.hps.rbf').write_bytes(b'bootstrap-fixture')
+            client=Mock();client.call.return_value={'ids':['0364f0dd','4ba06477']}
+            module=types.ModuleType('mcp_client');module.MCP=Mock(return_value=client)
+            calls=[]
+            def bootstrap_only(command,**kwargs):
+                self.assertEqual(Path(command[1]).name,'run_ddr.py')
+                calls.append(command)
+                (artifacts/'ddr-path.bin').write_bytes(b'changed while DDR initialized')
+                return subprocess.CompletedProcess(command,0,b'fixture bootstrap',b'')
+            argv=['hardware.py','--suite','memory-ddr','--bench',str(bench),
+                  '--artifacts',str(artifacts),'--mcp-client',str(folder/'mcp_client.py'),
+                  '--port',str(folder/'never-a-real-uart')]
+            with patch.object(hardware,'ROOT',fake_root),patch.object(sys,'argv',argv),\
+                 patch.object(sys,'path',list(sys.path)),patch.dict(sys.modules,{'mcp_client':module}),\
+                 patch.object(hardware.subprocess,'run',side_effect=bootstrap_only),\
+                 contextlib.redirect_stdout(io.StringIO()):
+                with self.assertRaisesRegex(RuntimeError,'Payload changed during bootstrap'):
+                    hardware.main()
+            self.assertEqual(len(calls),2) # Initial fixture + restoration fixture.
+            self.assertFalse((bench/'examples/build/upstream26-ddr-path.bin').exists())
+            records=list((fake_root/'runs').glob('*/results.json'))
+            self.assertEqual(json.loads(records[0].read_text())['tests'],[])
 
     def test_cleanup_waits_for_remote_timeout_without_killing_completed_remote(self):
         child=Mock();child.poll.return_value=None;child.wait.return_value=124
