@@ -27,6 +27,7 @@ def guide(row):
     if id.startswith('config/'):return SITE+'config-audit/'
     if id.startswith('integration/simics-rtl-'):return SITE+'simics-rtl/'
     if id.startswith('model/'):return SITE+'model-audit/'
+    if id.startswith('memory/') or id=='custom/usb-host':return SITE+'memory-fabric-labs/'
     if id.startswith('practice/'):return SITE+'cross-platform/'
     if id.startswith('legacy/'):return SITE+'simics/'
     if id.startswith('fabric/'):return SITE+'fabric-ip/'
@@ -102,6 +103,18 @@ def build():
     # Register ABI is authored from lab_driver.h and the case decode in lab_ip.sv.
     registers=[('0x00','ID','RO','LAB1 identification'),('0x04','ABI','RO','ABI version 1.0'),('0x08','PERSONA','RO','ADD1 / XOR1; zero while quiesced'),('0x0c','CONTROL','RW','START bit 0; QUIESCE bit 1'),('0x10','STATUS','RW1C / RO','DONE bit 0; QUIESCE bit 1; REJECTED bit 2'),('0x14','A','RW','Operand A, byte enables supported'),('0x18','B','RW','Operand B, byte enables supported'),('0x1c','RESULT','RO','Captured result'),('0x20','SEQUENCE','RO','Accepted-operation count')]
     get(lab_path)['regs']=[{'off':o,'name':n,'acc':a,'desc':text,'size':4} for o,n,a,text in registers]
+    memory_regs=[('0x00','ID','RO','DDR1 identification'),('0x04','ABI','RO','ABI 1.0'),
+      ('0x08','CONTROL','WO','START bit 0; clear idle status bit 1'),
+      ('0x0c','STATUS','RO','BUSY / DONE / FAULT / REJECTED / TIMEOUT'),
+      ('0x10','BASE_LO','RW','Master-view address low'),('0x14','BASE_HI','RW','Master-view address high'),
+      ('0x18','WORDS','RW','64-bit word count'),('0x1c','SEED','RW','Pattern seed'),
+      ('0x20','VERIFIED','RO','Compared words'),('0x24','FAIL_ADDRESS','RO','First failure address; high half at 0x28'),
+      ('0x2c','EXPECTED','RO','Expected data; high half at 0x30'),('0x34','OBSERVED','RO','Observed data; high half at 0x38'),
+      ('0x3c','CYCLES','RO','Busy clock cycles; high half at 0x40'),
+      ('0x44','ALLOWED_BASE','RO','Synthesis-time guard; high half at 0x48'),
+      ('0x4c','ALLOWED_END','RO','Exclusive upper guard; high half at 0x50'),
+      ('0x54','WATCHDOG','RO','Channel stall budget'),('0x58','ERROR','RO','Range / data / AXI / timeout code')]
+    get('/Fabric/HPS_DDR_probe')['regs']=[{'off':o,'name':n,'acc':a,'desc':text,'size':4} for o,n,a,text in memory_regs]
     examples=[]
     for row in catalog['examples']:
         item=copy.deepcopy(row);item['blocks']=spec['example_blocks'][row['id']]
@@ -171,6 +184,7 @@ def outputs():
         'MIT-LICENSE.txt':(VENDOR/'LICENSE').read_text(),'ELK-LICENSE.txt':(VENDOR/'fpalib/assets/vendor/ELK-LICENSE.md').read_text(),
         'THIRD_PARTY.txt':'Agilex architecture explorer\n\nRenderer and RTL parser: FPGA Project Analyzer, MIT, copyright 2026 Abdullah AlNafisah.\nhttps://github.com/al-nafisah/fpga-project-analyzer\nPinned commit: '+d['integration']['tool']+'\n\nLayout: elkjs 0.10.0 (Eclipse Layout Kernel), EPL-2.0.\nhttps://github.com/kieler/elkjs\n\nSee MIT-LICENSE.txt and ELK-LICENSE.txt. Full license texts are also embedded in design.html.\n\nThe renderer is reused through its public Python model API. HPS architecture and example associations are manually curated from the Altera TRM and repository sources; they are not a Quartus netlist extraction. Only the ADD/XOR RTL hierarchy is parsed. No Vivado constraints or DRC findings are asserted for this Quartus component.\n'}
     sources=[HERE/'agilex5.json',HERE/'trm-layout.json',HERE/'trm-overview.js',HERE/'build_diagram.py',HERE/'explorer.js',HERE/'explorer.css',HERE/'explorer-bar.html',LAB/'catalog.json',LAB/'fabric/rtl/lab_ip.sv',LAB/'fabric/rtl/lab_persona.sv',LAB/'fabric/lab_driver.h']
+    sources += [LAB/'memory-labs/fabric-ddr/rtl/ddr_probe.sv',LAB/'memory-labs/fabric-ddr/driver.h',LAB/'memory-labs/fabric-ddr/ddr_probe_hw.tcl']
     metadata={'analyzer_commit':d['integration']['tool'],'nodes':len(d['integration']['blocks']),'catalog_entries':len(d['integration']['examples']),
         'scope':d['integration']['scope'],'sources_sha256':{str(p.relative_to(ROOT)):digest(p) for p in sources},
         'outputs_sha256':{name:hashlib.sha256(text.encode()).hexdigest() for name,text in result.items()}}

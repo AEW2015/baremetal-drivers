@@ -1,0 +1,6 @@
+version
+U-Boot 2026.04-ge09d6fcc95f3-dirty (Oct 30 2026 - 23:45:05 +0000)socfpga_agilex5
+
+aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+GNU ld (GNU Binutils for Ubuntu) 2.42
+SOCFPGA_AGILEX5 # 

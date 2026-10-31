@@ -31,6 +31,13 @@ jobs:
           bash qemu/labs/build.sh
           python3 qemu/labs/run.py --negative --gdb
           bash qemu/labs/build.sh agilex5
+          bash memory-labs/build_all.sh
+          python3 memory-labs/dsu/run.py
+          python3 memory-labs/ddr/run.py
+          python3 memory-labs/smmu/run.py
+          bash memory-labs/fabric-ddr/test.sh
+          python3 -m unittest discover -s usb-bringup -p 'test*.py'
+          python3 -m unittest discover -s usb-host/tests -p 'test*.py'
           python3 catalog.py --check
           AGILEX_TEST_REAL_QEMU=1 python3 -m unittest discover -s tests -v
           ./simics/build.sh OCRAM

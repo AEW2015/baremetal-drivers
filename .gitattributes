@@ -18,3 +18,7 @@ examples/agilex5-modular/simics-rtl/validation/**/*.txt -text -whitespace
 examples/agilex5-modular/model-audit/validation/**/*.log -text -whitespace
 examples/agilex5-modular/model-audit/validation/**/*.txt -text -whitespace
 examples/agilex5-modular/model-audit/model-register-info.txt -text -whitespace
+examples/agilex5-modular/validation/usb-baremetal/**/*.log -text -whitespace
+examples/agilex5-modular/validation/usb-baremetal/**/*.txt -text -whitespace
+examples/agilex5-modular/memory-labs/**/validation/**/*.log -text -whitespace
+examples/agilex5-modular/memory-labs/**/validation/**/*.txt -text -whitespace

@@ -22,6 +22,7 @@ def pages():
     mapped.update({
         'examples.md':[],
         'model-audit.md':['model/pio'],
+        'memory-fabric-labs.md':['memory/dsu','memory/l3-partition','memory/ddr-sweep','memory/smmu-qemu','memory/native-tbu','memory/dma-tbu','memory/fabric-ddr','custom/usb-host'],
         'config-audit.md':['config/sysmgr','config/pinmux'],
         'simics-rtl.md':['integration/simics-rtl-add','integration/simics-rtl-xor'],
         'qemu.md':['custom/qemu-hello'],

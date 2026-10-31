@@ -33,7 +33,7 @@
       "path": "/Fabric",
       "title": "FPGA fabric contexts",
       "role": "Reference, proposed RTL and PR recipe are separate contexts",
-      "scope": "Mixed contexts \u2014 inspect each child",
+      "scope": "Mixed contexts — inspect each child",
       "documents": [
         "bridges"
       ]
@@ -47,7 +47,7 @@
     {
       "path": "/HPS/MPU",
       "title": "Micro Processor Unit (MPU)",
-      "role": "Dual A76, dual A55 and DynamIQ Shared Unit \u2014 TRM chapter 3",
+      "role": "Dual A76, dual A55 and DynamIQ Shared Unit — TRM chapter 3",
       "scope": "TRM architecture",
       "documents": [
         "mpu"
@@ -56,7 +56,7 @@
     {
       "path": "/HPS/APS",
       "title": "Application Processor Subsystem (APS)",
-      "role": "CCU, GIC, SMMU, OCRAM and coherent F2H bridge \u2014 TRM section 2.3.3",
+      "role": "CCU, GIC, SMMU, OCRAM and coherent F2H bridge — TRM section 2.3.3",
       "scope": "TRM architecture",
       "documents": [
         "aps"
@@ -84,7 +84,7 @@
     {
       "path": "/HPS/PSS",
       "title": "Peripheral Subsystem (PSS)",
-      "role": "PSS NoC, peripherals, PSI and HPS-to-fabric bridges \u2014 TRM section 2.3.4",
+      "role": "PSS NoC, peripherals, PSI and HPS-to-fabric bridges — TRM section 2.3.4",
       "scope": "TRM architecture",
       "documents": [
         "pss"
@@ -702,6 +702,19 @@
       "role": "AArch64 guest MMIO is forwarded through an independent synchronous Python adapter and bounded pipe to actual lab_ip/lab_persona RTL. Transaction-stepped simulation; no physical HPS bridge, clock-crossing or timing qualification.",
       "scope": "Actual Simics guest / Verilator RTL execution",
       "source": "examples/agilex5-modular/simics-rtl/README.md"
+    },
+    {
+      "path": "/Fabric/HPS_DDR_probe",
+      "title": "AXI initiator → HPS DDR",
+      "role": "Guarded fabric memory traffic generator with C driver and native Simics TBU tests",
+      "scope": "Actual Verilator RTL and Arm guest tests pass against modeled HPS DDR/F2H/F2SDRAM. Physical FPGA fit and bridge qualification pending. This is an initiator, not a fabric DDR controller.",
+      "source": "examples/agilex5-modular/memory-labs/fabric-ddr/rtl/ddr_probe.sv",
+      "address": "Simics CSR overlay 0x20030000; board CSR/master addresses must come from the fitted map.",
+      "documents": [
+        "f2sdram",
+        "f2h",
+        "smmu"
+      ]
     }
   ],
   "connections": [
@@ -1256,6 +1269,80 @@
           "access"
         ]
       ]
+    },
+    {
+      "level": "/Fabric",
+      "name": "DDR_probe_control",
+      "ends": [
+        [
+          "",
+          "HPS_access"
+        ],
+        [
+          "HPS_DDR_probe",
+          "control"
+        ]
+      ]
+    },
+    {
+      "level": "/Fabric",
+      "name": "Selected_DDR_probe_route",
+      "ends": [
+        [
+          "HPS_DDR_probe",
+          "memory"
+        ],
+        [
+          "",
+          "fabric_to_HPS"
+        ],
+        [
+          "",
+          "hps_ddr_access"
+        ]
+      ]
+    },
+    {
+      "level": "/",
+      "name": "Optional_fabric_to_HPS_DDR",
+      "ends": [
+        [
+          "Fabric",
+          "hps_ddr_access"
+        ],
+        [
+          "DDR_IO96",
+          "fabric_access"
+        ]
+      ]
+    },
+    {
+      "level": "/DDR_IO96",
+      "name": "Fabric_MPFE_ingress",
+      "ends": [
+        [
+          "",
+          "fabric_access"
+        ],
+        [
+          "MPFE",
+          "fabric_access"
+        ]
+      ]
+    },
+    {
+      "level": "/DDR_IO96/MPFE",
+      "name": "Fabric_SDRAM_bridge_context",
+      "ends": [
+        [
+          "",
+          "fabric_access"
+        ],
+        [
+          "FPGA2SDRAM",
+          "fabric_requests"
+        ]
+      ]
     }
   ],
   "example_blocks": {
@@ -1563,15 +1650,52 @@
     ],
     "model/pio": [
       "/Fabric/Simics_reference/PIO"
+    ],
+    "memory/dsu": [
+      "/HPS/MPU/DSU"
+    ],
+    "memory/l3-partition": [
+      "/HPS/MPU/DSU"
+    ],
+    "memory/ddr-sweep": [
+      "/DDR_IO96/MPFE/NoC",
+      "/SOM_IO/DDR3A"
+    ],
+    "memory/smmu-qemu": [
+      "/HPS/APS/TCU"
+    ],
+    "memory/native-tbu": [
+      "/HPS/APS/TCU",
+      "/HPS/PSS/DMA_TBU",
+      "/HPS/APS/F2H_TBU",
+      "/DDR_IO96/MPFE/F2SDRAM_TBU"
+    ],
+    "memory/dma-tbu": [
+      "/HPS/PSS/Peripherals/DMA",
+      "/HPS/PSS/DMA_TBU",
+      "/HPS/APS/TCU"
+    ],
+    "memory/fabric-ddr": [
+      "/Fabric/HPS_DDR_probe",
+      "/Fabric/Simics_RTL",
+      "/HPS/APS/FPGA2HPS",
+      "/HPS/APS/F2H_TBU",
+      "/DDR_IO96/MPFE/FPGA2SDRAM",
+      "/DDR_IO96/MPFE/F2SDRAM_TBU"
+    ],
+    "custom/usb-host": [
+      "/HPS/PSS/Peripherals/USB",
+      "/HPS/PSS/Peripherals/USB_PHY_interface",
+      "/SOM_IO/USB_port"
     ]
   },
   "sources": {
     "trm": {
-      "title": "Agilex 5 HPS TRM \u2014 26.1.1",
+      "title": "Agilex 5 HPS TRM — 26.1.1",
       "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs"
     },
     "address_map": {
-      "title": "HPS address maps \u2014 select R0 for this ES bench",
+      "title": "HPS address maps — select R0 for this ES bench",
       "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/hps-address-map-and-register-definitions"
     },
     "overview": {
@@ -1583,12 +1707,16 @@
       "url": "https://docs.altera.com/v/u/docs/836174/agilextm-5-fpga-e-series-065b-modular-fpga-development-kit-board-som-board-schematic"
     },
     "simics": {
-      "title": "Simics fabric models \u2014 behavioral, not custom RTL",
+      "title": "Simics fabric models — behavioral, not custom RTL",
       "url": "https://docs.altera.com/r/docs/786901/25.3/intel-simics-simulator-for-altera-fpgas-agilextm-5-and-agilextm-3-virtual-platform-user-guide/fpga-fabric"
     },
     "simics_rtl": {
       "title": "Simics-to-Verilator RTL tutorial and captured results",
       "url": "https://aew2015.github.io/baremetal-drivers/simics-rtl/"
+    },
+    "memory_labs": {
+      "title": "Memory, translation and fabric labs — model results and physical gates",
+      "url": "https://aew2015.github.io/baremetal-drivers/memory-fabric-labs/"
     }
   },
   "aliases": {
@@ -1626,21 +1754,21 @@
       "version": "26.1.1"
     },
     "a55": {
-      "title": "3.6. MPU Arm\u00ae Cortex\u00ae -A55 Core",
+      "title": "3.6. MPU Arm® Cortex® -A55 Core",
       "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/mpu-arm-cortex-a55-core?contentId=OeJT~52OokYgPqgJAIHNOw",
       "content_id": "OeJT~52OokYgPqgJAIHNOw",
       "kind": "trm",
       "version": "26.1.1"
     },
     "a76": {
-      "title": "3.5. MPU Arm\u00ae Cortex\u00ae -A76 Core",
+      "title": "3.5. MPU Arm® Cortex® -A76 Core",
       "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/mpu-arm-cortex-a76-core?contentId=LwX9JuMFM1ibInPs_YfgFA",
       "content_id": "LwX9JuMFM1ibInPs_YfgFA",
       "kind": "trm",
       "version": "26.1.1"
     },
     "dsu": {
-      "title": "3.7. MPU Arm\u00ae DynamIQ Shared Unit",
+      "title": "3.7. MPU Arm® DynamIQ Shared Unit",
       "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/mpu-arm-dynamiq-shared-unit?contentId=RiHTTAIy2Oap_hx3lqNP3w",
       "content_id": "RiHTTAIy2Oap_hx3lqNP3w",
       "kind": "trm",
@@ -1920,7 +2048,7 @@
       "version": "26.1.1"
     },
     "debug": {
-      "title": "15. CoreSight\u2122 Debug and Trace",
+      "title": "15. CoreSight™ Debug and Trace",
       "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/coresight-debug-and-trace?contentId=kld2Ti8dciKQVqT2pYSfeQ",
       "content_id": "kld2Ti8dciKQVqT2pYSfeQ",
       "kind": "trm",
@@ -1957,7 +2085,7 @@
   },
   "flows": [
     {
-      "name": "CPU \u2192 DDR",
+      "name": "CPU → DDR",
       "nets": [
         "|HPS_DDR_access",
         "|DDR_bank_3A",
@@ -1965,7 +2093,7 @@
       ]
     },
     {
-      "name": "CPU \u2192 fabric",
+      "name": "CPU → fabric",
       "nets": [
         "/HPS|MPU_to_APS",
         "/HPS|APS_to_PSS",
@@ -1974,7 +2102,7 @@
       ]
     },
     {
-      "name": "CPU \u2192 SDM services",
+      "name": "CPU → SDM services",
       "nets": [
         "/HPS|MPU_to_APS",
         "/HPS|APS_to_PSS",

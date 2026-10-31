@@ -1,0 +1,1075 @@
+Intel® Simics® Simulator 7 (build 7163 linux64) © 2026 Intel Corporation
+
+Search directories:
+The current Simics search path is:
+   /workspace/baremetal-fixes-20261029/examples/agilex5-modular
+CRITICAL WARNING: No SD image supplied
+[system.board.fpga.soc_inst.hps_subsys.sdm info] Handoff data file is /home/dev/altera_pro/intel-fpga-ext_26.3/simics/simics-7.89.0/../simics-intelfpga-ext-7.1.0/extrafiles/sm/config_data/hps_bootloader_handoff.bin
+NAPT enabled with gateway 10.10.0.1/24 on link ethernet_switch0.link.
+NAPT enabled with gateway fe80::2220:20ff:fe20:2000/64 on link ethernet_switch0.link.
+
+Object Tree:
+┐
+├ bp (bp-manager) ┐
+│                 ├ bank (bp-manager.bank) 
+│                 ├ console_string (bp-manager.con-string) 
+│                 ├ control_register (bp-manager.cr) 
+│                 ├ cycle (bp-manager.cycle) 
+│                 ├ cycle_event (bp-manager.cycle_event) 
+│                 ├ exception (bp-manager.exc) 
+│                 ├ gfx (bp-manager.con-gfx) 
+│                 ├ hap (bp-manager.hap) 
+│                 ├ log (bp-manager.log) 
+│                 ├ magic (bp-manager.magic) 
+│                 ├ memory (bp-manager.memory) 
+│                 ├ msr (bp-manager.msr) 
+│                 ├ network (bp-manager.eth_link) 
+│                 ├ notifier (bp-manager.notify) 
+│                 ├ os_awareness (bp-manager.os_awareness) 
+│                 ├ source_line (bp-manager.src-line) 
+│                 ├ source_location (bp-manager.src-location) 
+│                 ├ step (bp-manager.step) 
+│                 ├ step_event (bp-manager.step_event) 
+│                 └ time (bp-manager.time) 
+├ default_sync_domain (sync_domain) 
+├ ethernet_switch0 (ethernet_switch) ┐
+│                                    ├ device0 (dynamic_link_connector) 
+│                                    ├ device1 (dynamic_link_connector) 
+│                                    ├ device2 (dynamic_link_connector) 
+│                                    ├ ep2ccf218cd4ec5a3f (eth-switch-link-endpoint) 
+│                                    ├ ep52a4375175ce4152 (eth-switch-link-endpoint) 
+│                                    ├ epefd68dabb5097a71 (eth-switch-link-endpoint) 
+│                                    └ link (eth-switch-link) 
+├ params (script-params) 
+├ prefs (preferences) 
+├ service_node_cmp0 (service_node_comp) ┐
+│                                       ├ connector_link0 (connector) 
+│                                       ├ ftp (ftp-service) 
+│                                       ├ ftp_c (ftp-control) 
+│                                       ├ ftp_d (ftp-data) 
+│                                       ├ sn (service-node) 
+│                                       ├ sn_port_forward_in (port-forward-incoming-server) 
+│                                       ├ sn_port_forward_out (port-forward-outgoing-server) 
+│                                       └ snd[0] (service-node-device) 
+├ sim (sim) ┐
+│           ├ benchmark (benchmark_monitor) 
+│           ├ cli (cli) 
+│           └ transactions (transaction-ckpt) 
+└ system (sm_universal_system_comp) ┐
+                                    ├ board (sm_universal_board_comp) ┐
+                                    │                                 ├ eeprom_16b_0 (AT24Cxx_comp) ┐
+                                    │                                 │                             ├ eeprom (AT24Cxx) 
+                                    │                                 │                             └ i2c_slot0 (connector) 
+                                    │                                 ├ eeprom_16b_1 (AT24Cxx_comp) ┐
+                                    │                                 │                             ├ eeprom (AT24Cxx) 
+                                    │                                 │                             └ i2c_slot0 (connector) 
+                                    │                                 ├ eeprom_16b_2 (AT24Cxx_comp) ┐
+                                    │                                 │                             ├ eeprom (AT24Cxx) 
+                                    │                                 │                             └ i2c_slot0 (connector) 
+                                    │                                 ├ eeprom_16b_3 (AT24Cxx_comp) ┐
+                                    │                                 │                             ├ eeprom (AT24Cxx) 
+                                    │                                 │                             └ i2c_slot0 (connector) 
+                                    │                                 ├ eeprom_16b_4 (AT24Cxx_comp) ┐
+                                    │                                 │                             ├ eeprom (AT24Cxx) 
+                                    │                                 │                             └ i2c_slot0 (connector) 
+                                    │                                 ├ eeprom_16b_i3c1 (AT24Cxx_comp) ┐
+                                    │                                 │                                ├ eeprom (AT24Cxx) 
+                                    │                                 │                                └ i2c_slot0 (connector) 
+                                    │                                 ├ eeprom_8b_0 (AT24Cxx_comp) ┐
+                                    │                                 │                            ├ eeprom (AT24Cxx) 
+                                    │                                 │                            └ i2c_slot0 (connector) 
+                                    │                                 ├ eeprom_8b_1 (AT24Cxx_comp) ┐
+                                    │                                 │                            ├ eeprom (AT24Cxx) 
+                                    │                                 │                            └ i2c_slot0 (connector) 
+                                    │                                 ├ eeprom_8b_2 (AT24Cxx_comp) ┐
+                                    │                                 │                            ├ eeprom (AT24Cxx) 
+                                    │                                 │                            └ i2c_slot0 (connector) 
+                                    │                                 ├ eeprom_8b_3 (AT24Cxx_comp) ┐
+                                    │                                 │                            ├ eeprom (AT24Cxx) 
+                                    │                                 │                            └ i2c_slot0 (connector) 
+                                    │                                 ├ eeprom_8b_4 (AT24Cxx_comp) ┐
+                                    │                                 │                            ├ eeprom (AT24Cxx) 
+                                    │                                 │                            └ i2c_slot0 (connector) 
+                                    │                                 ├ eeprom_8b_i3c0 (AT24Cxx_comp) ┐
+                                    │                                 │                               ├ eeprom (AT24Cxx) 
+                                    │                                 │                               └ i2c_slot0 (connector) 
+                                    │                                 ├ eth0 (connector) 
+                                    │                                 ├ eth1 (connector) 
+                                    │                                 ├ eth2 (connector) 
+                                    │                                 ├ fpga (sm_universal_fpga_comp) ┐
+                                    │                                 │                               ├ gpio_in0[0..23] (connector) 
+                                    │                                 │                               ├ gpio_in1[0..23] (connector) 
+                                    │                                 │                               ├ gpio_out0[0..23] (connector) 
+                                    │                                 │                               ├ gpio_out1[0..23] (connector) 
+                                    │                                 │                               ├ i2c_slot0 (connector) 
+                                    │                                 │                               ├ i2c_slot1 (connector) 
+                                    │                                 │                               ├ i2c_slot2 (connector) 
+                                    │                                 │                               ├ i2c_slot3 (connector) 
+                                    │                                 │                               ├ i2c_slot4 (connector) 
+                                    │                                 │                               ├ i3c0_slot (connector) 
+                                    │                                 │                               ├ i3c1_slot (connector) 
+                                    │                                 │                               ├ nand_slot (connector) 
+                                    │                                 │                               ├ qspi_slot[0..3] (connector) 
+                                    │                                 │                               ├ sd_slot (connector) 
+                                    │                                 │                               ├ soc_inst (sm_ghrd_qsys_top_comp) ┐
+                                    │                                 │                               │                                  ├ example_design (sm_fabric_example_design_comp) ┐
+                                    │                                 │                               │                                  │                                                ├ design_mem (memory-space) 
+                                    │                                 │                               │                                  │                                                ├ design_mem_conn (connector) 
+                                    │                                 │                               │                                  │                                                ├ design_memory (sm_fabric_example_design) 
+                                    │                                 │                               │                                  │                                                └ reset (connector) 
+                                    │                                 │                               │                                  ├ f2sdram_mem_space (memory-space) 
+                                    │                                 │                               │                                  ├ fpga2hps_mem_space (memory-space) 
+                                    │                                 │                               │                                  ├ gpio_in0[0..23] (connector) 
+                                    │                                 │                               │                                  ├ gpio_in1[0..23] (connector) 
+                                    │                                 │                               │                                  ├ gpio_out0[0..23] (connector) 
+                                    │                                 │                               │                                  ├ gpio_out1[0..23] (connector) 
+                                    │                                 │                               │                                  ├ hps_subsys (sm_ghrd_subsys_hps_comp) ┐
+                                    │                                 │                               │                                  │                                      ├ agilex_hps (vp_intel_agilex_5_soc) ┐
+                                    │                                 │                               │                                  │                                      │                                    ├ access_marker (sm_hps_smmu_marker) 
+                                    │                                 │                               │                                  │                                      │                                    ├ boot_clk (frequency_bus) 
+                                    │                                 │                               │                                  │                                      │                                    ├ broadcast_bus (cpu-group) 
+                                    │                                 │                               │                                  │                                      │                                    ├ bt (bitmask-translator) 
+                                    │                                 │                               │                                  │                                      │                                    ├ ccu (sm_hps_ccu) 
+                                    │                                 │                               │                                  │                                      │                                    ├ clkmgr (sm_hps_clkmgr) 
+                                    │                                 │                               │                                  │                                      │                                    ├ combophy (sm_hps_combophy) 
+                                    │                                 │                               │                                  │                                      │                                    ├ console0 (txt_console_comp) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                             ├ con (textcon) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                             │               ├ frontend (text-frontend-winsome) 
+                                    │                                 │                               │                                  │                                      │                                    │                             │               ├ tcp (tcp-server) 
+                                    │                                 │                               │                                  │                                      │                                    │                             │               └ unix_socket (unix-socket-server) 
+                                    │                                 │                               │                                  │                                      │                                    │                             └ serial (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ core[0..3] (arm-cortex-a55) 
+                                    │                                 │                               │                                  │                                      │                                    ├ cpu_mem[0..3] (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ dap (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ dap_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ dma_rst_bus (signal-bus) 
+                                    │                                 │                               │                                  │                                      │                                    ├ dmac_access_marker_0 (sm_hps_smmu_marker) 
+                                    │                                 │                               │                                  │                                      │                                    ├ dmac_access_marker_1 (sm_hps_smmu_marker) 
+                                    │                                 │                               │                                  │                                      │                                    ├ dmac_axi0 (sm_hps_dmac0) 
+                                    │                                 │                               │                                  │                                      │                                    ├ dmac_axi1 (sm_hps_dmac1) 
+                                    │                                 │                               │                                  │                                      │                                    ├ dmac_smmu_mem_space_0 (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ dmac_smmu_mem_space_1 (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ dsu (arm_dsu_legacy) 
+                                    │                                 │                               │                                  │                                      │                                    ├ ecc (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ ecc_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ eosc1 (frequency_bus) 
+                                    │                                 │                               │                                  │                                      │                                    ├ f2s_clk (frequency_bus) 
+                                    │                                 │                               │                                  │                                      │                                    ├ f2s_fpga_irq[0..63] (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ f2sdram (sm_hps_f2sdram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ f2sdram_access_marker_2 (sm_hps_smmu_marker) 
+                                    │                                 │                               │                                  │                                      │                                    ├ f2sdram_down (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ f2sdram_smmu_mem_space (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ f2soc_access_marker (sm_hps_smmu_marker) 
+                                    │                                 │                               │                                  │                                      │                                    ├ f2soc_smmu_mem_space (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ fpga2hps (sm_hps_fpga2hps) 
+                                    │                                 │                               │                                  │                                      │                                    ├ fpga2hps_down (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gen_ts (css600_tsgen) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gic (gic_600_distributor) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gic_mem (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gic_phys_mem (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gic_rsvd (set-memory) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gicp (set-memory) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gicr[0..3] (gic_600_redistributor) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gict (set-memory) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gpio0 (sm_hps_gpio0) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                      └ clock_enable (sm_hps_gpio0.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gpio1 (sm_hps_gpio1) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                      └ clock_enable (sm_hps_gpio1.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gpio_in0[0..23] (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gpio_in1[0..23] (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gpio_out0[0..23] (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ gpio_out1[0..23] (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ hps2fpga (sm_hps_hps2fpga) 
+                                    │                                 │                               │                                  │                                      │                                    ├ hps2fpga_0_down (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ hps2fpga_1_down (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ hps2fpga_2_down (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ hps_conn (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ hps_spi_ext (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ hps_spi_ext_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ hreset_bus (signal-bus) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i2c0 (sm_hps_i2c_0) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                     └ clock_enable (sm_hps_i2c_0.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i2c1 (sm_hps_i2c_1) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                     └ clock_enable (sm_hps_i2c_1.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i2c2 (sm_hps_i2c_emac_0) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                          └ clock_enable (sm_hps_i2c_emac_0.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i2c3 (sm_hps_i2c_emac_1) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                          └ clock_enable (sm_hps_i2c_emac_1.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i2c4 (sm_hps_i2c_emac_2) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                          └ clock_enable (sm_hps_i2c_emac_2.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i2c_slot0 (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i2c_slot1 (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i2c_slot2 (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i2c_slot3 (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i2c_slot4 (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i3c0 (sm_hps_i3c0) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i3c0_slot (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i3c1 (sm_hps_i3c1) 
+                                    │                                 │                               │                                  │                                      │                                    ├ i3c1_slot (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ icc[0..3] (gic_600_cpu_interface) 
+                                    │                                 │                               │                                  │                                      │                                    ├ intosc (frequency_bus) 
+                                    │                                 │                               │                                  │                                      │                                    ├ its (gic_600_its) 
+                                    │                                 │                               │                                  │                                      │                                    ├ l2reset_bus (signal-bus) 
+                                    │                                 │                               │                                  │                                      │                                    ├ l4_sp_clk (frequency_bus) 
+                                    │                                 │                               │                                  │                                      │                                    ├ l4_sys_free_clk (frequency_bus) 
+                                    │                                 │                               │                                  │                                      │                                    ├ lpi_properties (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ lwhps2fpga (sm_hps_lwhps2fpga) 
+                                    │                                 │                               │                                  │                                      │                                    ├ lwhps2fpga_down (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ mpfe (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ mpfe_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ nand (sm_hps_nand) 
+                                    │                                 │                               │                                  │                                      │                                    ├ nand_access_marker (sm_hps_smmu_marker) 
+                                    │                                 │                               │                                  │                                      │                                    ├ nand_slot (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ nand_smmu_mem_space (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ noc (sm_hps_noc) 
+                                    │                                 │                               │                                  │                                      │                                    ├ ocram (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ ocram_ecc (sm_hps_ecc) 
+                                    │                                 │                               │                                  │                                      │                                    ├ ocram_fw (sm_hps_ocram_firewall) 
+                                    │                                 │                               │                                  │                                      │                                    ├ ocram_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ phys_mem (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pinmux (sm_hps_pinmux) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pmu_tbu_0 (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pmu_tbu_0_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pmu_tbu_1 (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pmu_tbu_1_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pmu_tbu_2 (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pmu_tbu_2_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pmu_tbu_3 (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pmu_tbu_3_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pmu_tbu_4 (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pmu_tbu_4_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pmu_tbu_5 (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pmu_tbu_5_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ por_reset_bus (signal-bus) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_ecchub (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_ecchub_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_nandcsr (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_nandcsr_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_nandind (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_nandind_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_qspicsr (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_qspicsr_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_qspixpi (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_qspixpi_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_sdmmc (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_sdmmc_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_sphub (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ psi_sdm_sphub_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ pwrmgr (sm_hps_pwrmgr) 
+                                    │                                 │                               │                                  │                                      │                                    ├ rstmgr (sm_hps_rstmgr) 
+                                    │                                 │                               │                                  │                                      │                                    ├ scr (sm_hps_scr) 
+                                    │                                 │                               │                                  │                                      │                                    ├ sd_slot (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ sdm_smmu_mem_space (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ sdmmc (sm_hps_sdmmc) 
+                                    │                                 │                               │                                  │                                      │                                    ├ sdmmc_access_marker (sm_hps_smmu_marker) 
+                                    │                                 │                               │                                  │                                      │                                    ├ sdmmc_smmu_mem_space (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ serial0 (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ serial1 (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ smmu (sm_hps_smmu_600) 
+                                    │                                 │                               │                                  │                                      │                                    ├ smtg0 (sm_hps_smtg) 
+                                    │                                 │                               │                                  │                                      │                                    ├ smtg1 (sm_hps_smtg) 
+                                    │                                 │                               │                                  │                                      │                                    ├ smtg2 (sm_hps_smtg) 
+                                    │                                 │                               │                                  │                                      │                                    ├ sp_timer0 (sm_hps_sptimer0) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                             └ clock_enable (sm_hps_sptimer0.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ sp_timer1 (sm_hps_sptimer1) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                             └ clock_enable (sm_hps_sptimer1.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ spim0 (sm_hps_spim0) 
+                                    │                                 │                               │                                  │                                      │                                    ├ spim0_slot[0..3] (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ spim1 (sm_hps_spim1) 
+                                    │                                 │                               │                                  │                                      │                                    ├ spim1_slot[0..3] (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ spis0 (sm_hps_spis0) 
+                                    │                                 │                               │                                  │                                      │                                    ├ spis1 (sm_hps_spis1) 
+                                    │                                 │                               │                                  │                                      │                                    ├ stm (ram) 
+                                    │                                 │                               │                                  │                                      │                                    ├ stm_image (image) 
+                                    │                                 │                               │                                  │                                      │                                    ├ sys_config_reset_bus (signal-bus) 
+                                    │                                 │                               │                                  │                                      │                                    ├ sys_timer0 (sm_hps_systimer0) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                               └ clock_enable (sm_hps_systimer0.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ sys_timer1 (sm_hps_systimer1) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                               └ clock_enable (sm_hps_systimer1.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ sysmgr (sm_hps_sysmgr) 
+                                    │                                 │                               │                                  │                                      │                                    ├ timer[0..3] (armv8_generic_timer) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn0 (sm_hps_tsn) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn0_generic (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn0_slot (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn0_smmu_mem_space (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn1 (sm_hps_tsn) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn1_generic (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn1_slot (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn1_smmu_mem_space (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn2 (sm_hps_tsn) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn2_generic (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn2_slot (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn2_smmu_mem_space (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn_access_marker_0 (sm_hps_smmu_marker) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn_access_marker_1 (sm_hps_smmu_marker) 
+                                    │                                 │                               │                                  │                                      │                                    ├ tsn_access_marker_2 (sm_hps_smmu_marker) 
+                                    │                                 │                               │                                  │                                      │                                    ├ uart0 (sm_hps_uart0) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                      └ clock_enable (sm_hps_uart0.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ uart1 (sm_hps_uart1) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                      └ clock_enable (sm_hps_uart1.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ usb0_otg_slot (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ usb1_typec_slot (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ usb31 (sm_hps_usb31_comp) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                           ├ device (sm_hps_usb31_device) 
+                                    │                                 │                               │                                  │                                      │                                    │                           ├ host (sm_hps_usb31) 
+                                    │                                 │                               │                                  │                                      │                                    │                           ├ usb1_typec_slot (connector) 
+                                    │                                 │                               │                                  │                                      │                                    │                           ├ usb31_hps_slot (connector) 
+                                    │                                 │                               │                                  │                                      │                                    │                           └ usb_id (signal-bus) 
+                                    │                                 │                               │                                  │                                      │                                    ├ usb31_access_marker (sm_hps_smmu_marker) 
+                                    │                                 │                               │                                  │                                      │                                    ├ usb31_slot (connector) 
+                                    │                                 │                               │                                  │                                      │                                    ├ usb31_smmu_mem_space (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ usb_otg0 (sm_hps_usbotg0) 
+                                    │                                 │                               │                                  │                                      │                                    ├ usb_otg0_access_marker (sm_hps_smmu_marker) 
+                                    │                                 │                               │                                  │                                      │                                    ├ usb_otg0_smmu_mem_space (memory-space) 
+                                    │                                 │                               │                                  │                                      │                                    ├ wdt0 (sm_hps_wdt0) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                    └ clock_enable (sm_hps_wdt0.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ wdt1 (sm_hps_wdt1) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                    └ clock_enable (sm_hps_wdt1.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ wdt2 (sm_hps_wdt2) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                    └ clock_enable (sm_hps_wdt2.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ wdt3 (sm_hps_wdt3) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                    └ clock_enable (sm_hps_wdt3.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    ├ wdt4 (sm_hps_wdt4) ┐
+                                    │                                 │                               │                                  │                                      │                                    │                    └ clock_enable (sm_hps_wdt4.clock_enable) 
+                                    │                                 │                               │                                  │                                      │                                    └ wfe_signal_bus[0..3] (signal-bus) 
+                                    │                                 │                               │                                  │                                      ├ emif (sm_emif_hps_comp) ┐
+                                    │                                 │                               │                                  │                                      │                         ├ emif_conn (connector) 
+                                    │                                 │                               │                                  │                                      │                         ├ io96b_0_dbe_irq_out (connector) 
+                                    │                                 │                               │                                  │                                      │                         ├ io96b_0_sbe_irq_out (connector) 
+                                    │                                 │                               │                                  │                                      │                         ├ io96b_1_dbe_irq_out (connector) 
+                                    │                                 │                               │                                  │                                      │                         ├ io96b_1_sbe_irq_out (connector) 
+                                    │                                 │                               │                                  │                                      │                         ├ iossm0 (sm_soc_iossm) 
+                                    │                                 │                               │                                  │                                      │                         ├ iossm1 (sm_soc_iossm) 
+                                    │                                 │                               │                                  │                                      │                         ├ ram (ram) 
+                                    │                                 │                               │                                  │                                      │                         ├ ram_image (image) 
+                                    │                                 │                               │                                  │                                      │                         └ sdram_mem (memory-space) 
+                                    │                                 │                               │                                  │                                      ├ gpio_in0[0..23] (connector) 
+                                    │                                 │                               │                                  │                                      ├ gpio_in1[0..23] (connector) 
+                                    │                                 │                               │                                  │                                      ├ gpio_out0[0..23] (connector) 
+                                    │                                 │                               │                                  │                                      ├ gpio_out1[0..23] (connector) 
+                                    │                                 │                               │                                  │                                      ├ h2f_rst_bus (signal-bus) 
+                                    │                                 │                               │                                  │                                      ├ h2f_rstbus_slot0 (connector) 
+                                    │                                 │                               │                                  │                                      ├ h2f_rstbus_slot1 (connector) 
+                                    │                                 │                               │                                  │                                      ├ h2f_rstbus_slot2 (connector) 
+                                    │                                 │                               │                                  │                                      ├ h2f_rstbus_slot3 (connector) 
+                                    │                                 │                               │                                  │                                      ├ i2c_slot0 (connector) 
+                                    │                                 │                               │                                  │                                      ├ i2c_slot1 (connector) 
+                                    │                                 │                               │                                  │                                      ├ i2c_slot2 (connector) 
+                                    │                                 │                               │                                  │                                      ├ i2c_slot3 (connector) 
+                                    │                                 │                               │                                  │                                      ├ i2c_slot4 (connector) 
+                                    │                                 │                               │                                  │                                      ├ i3c0_slot (connector) 
+                                    │                                 │                               │                                  │                                      ├ i3c1_slot (connector) 
+                                    │                                 │                               │                                  │                                      ├ nand_slot (connector) 
+                                    │                                 │                               │                                  │                                      ├ qspi_slot[0..3] (connector) 
+                                    │                                 │                               │                                  │                                      ├ sd_slot (connector) 
+                                    │                                 │                               │                                  │                                      ├ sdm (sm_sdm_bb_comp) ┐
+                                    │                                 │                               │                                  │                                      │                      ├ aes_engine (crypto_engine_aes) 
+                                    │                                 │                               │                                  │                                      │                      ├ ecdsa_engine (crypto_engine_ecdsa) 
+                                    │                                 │                               │                                  │                                      │                      ├ io96b_0_dbe_irq_in (connector) 
+                                    │                                 │                               │                                  │                                      │                      ├ io96b_0_sbe_irq_in (connector) 
+                                    │                                 │                               │                                  │                                      │                      ├ io96b_1_dbe_irq_in (connector) 
+                                    │                                 │                               │                                  │                                      │                      ├ io96b_1_sbe_irq_in (connector) 
+                                    │                                 │                               │                                  │                                      │                      ├ qspi (sm_hps_qspi) 
+                                    │                                 │                               │                                  │                                      │                      ├ qspi_slot[0..3] (connector) 
+                                    │                                 │                               │                                  │                                      │                      ├ sdm_mailbox (sm_hps_mailbox2) ┐
+                                    │                                 │                               │                                  │                                      │                      │                               └ seu_err_info (sm_hps_mailbox2.seu_err_info) 
+                                    │                                 │                               │                                  │                                      │                      ├ sdm_mailbox_command (connector) 
+                                    │                                 │                               │                                  │                                      │                      ├ sdm_mailbox_response (connector) 
+                                    │                                 │                               │                                  │                                      │                      ├ sha256_engine (crypto_engine_sha256) 
+                                    │                                 │                               │                                  │                                      │                      ├ sha384_engine (crypto_engine_sha384) 
+                                    │                                 │                               │                                  │                                      │                      └ sha512_engine (crypto_engine_sha512) 
+                                    │                                 │                               │                                  │                                      ├ spim0_slot[0..3] (connector) 
+                                    │                                 │                               │                                  │                                      ├ spim1_slot[0..3] (connector) 
+                                    │                                 │                               │                                  │                                      ├ tsn0_slot (connector) 
+                                    │                                 │                               │                                  │                                      ├ tsn1_slot (connector) 
+                                    │                                 │                               │                                  │                                      ├ tsn2_slot (connector) 
+                                    │                                 │                               │                                  │                                      ├ usb0_otg_slot (connector) 
+                                    │                                 │                               │                                  │                                      └ usb1_typec_slot (connector) 
+                                    │                                 │                               │                                  ├ i2c_slot0 (connector) 
+                                    │                                 │                               │                                  ├ i2c_slot1 (connector) 
+                                    │                                 │                               │                                  ├ i2c_slot2 (connector) 
+                                    │                                 │                               │                                  ├ i2c_slot3 (connector) 
+                                    │                                 │                               │                                  ├ i2c_slot4 (connector) 
+                                    │                                 │                               │                                  ├ i3c0_slot (connector) 
+                                    │                                 │                               │                                  ├ i3c1_slot (connector) 
+                                    │                                 │                               │                                  ├ nand_slot (connector) 
+                                    │                                 │                               │                                  ├ periph_subsys (sm_ghrd_subsys_periph_comp) ┐
+                                    │                                 │                               │                                  │                                            ├ button_pio (sm_ghrd_button_pio) 
+                                    │                                 │                               │                                  │                                            ├ button_pio_reset (connector) 
+                                    │                                 │                               │                                  │                                            ├ dipsw_pio (sm_ghrd_dipsw_pio) 
+                                    │                                 │                               │                                  │                                            ├ dipsw_pio_reset (connector) 
+                                    │                                 │                               │                                  │                                            ├ led_pio (sm_ghrd_led_pio) 
+                                    │                                 │                               │                                  │                                            ├ led_pio_reset (connector) 
+                                    │                                 │                               │                                  │                                            ├ periph_button_irq (connector) 
+                                    │                                 │                               │                                  │                                            ├ periph_mem (memory-space) 
+                                    │                                 │                               │                                  │                                            ├ periph_mem_conn (connector) 
+                                    │                                 │                               │                                  │                                            ├ sysid (ram) 
+                                    │                                 │                               │                                  │                                            └ sysid_image (image) 
+                                    │                                 │                               │                                  ├ qspi_slot[0..3] (connector) 
+                                    │                                 │                               │                                  ├ sd_slot (connector) 
+                                    │                                 │                               │                                  ├ spim0_slot[0..3] (connector) 
+                                    │                                 │                               │                                  ├ spim1_slot[0..3] (connector) 
+                                    │                                 │                               │                                  ├ tsn0_slot (connector) 
+                                    │                                 │                               │                                  ├ tsn1_slot (connector) 
+                                    │                                 │                               │                                  ├ tsn2_slot (connector) 
+                                    │                                 │                               │                                  ├ usb0_otg_slot (connector) 
+                                    │                                 │                               │                                  └ usb1_typec_slot (connector) 
+                                    │                                 │                               ├ spim0_slot[0..3] (connector) 
+                                    │                                 │                               ├ spim1_slot[0..3] (connector) 
+                                    │                                 │                               ├ tsn0_slot (connector) 
+                                    │                                 │                               ├ tsn1_slot (connector) 
+                                    │                                 │                               ├ tsn2_slot (connector) 
+                                    │                                 │                               ├ usb0_otg_slot (connector) 
+                                    │                                 │                               └ usb1_typec_slot (connector) 
+                                    │                                 ├ gpio_loopback (sm_gpio_loopback_comp) ┐
+                                    │                                 │                                       ├ gpio_lb[0..23] (sm_gpio_loopback_dev) 
+                                    │                                 │                                       ├ gpio_lb_in0 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in1 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in10 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in11 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in12 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in13 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in14 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in15 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in16 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in17 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in18 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in19 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in2 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in20 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in21 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in22 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in23 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in3 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in4 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in5 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in6 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in7 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in8 (connector) 
+                                    │                                 │                                       ├ gpio_lb_in9 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out0 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out1 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out10 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out11 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out12 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out13 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out14 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out15 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out16 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out17 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out18 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out19 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out2 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out20 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out21 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out22 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out23 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out3 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out4 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out5 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out6 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out7 (connector) 
+                                    │                                 │                                       ├ gpio_lb_out8 (connector) 
+                                    │                                 │                                       └ gpio_lb_out9 (connector) 
+                                    │                                 ├ i2c_bus_0 (i2c_link_v2) ┐
+                                    │                                 │                         ├ device0 (dynamic_link_connector) 
+                                    │                                 │                         ├ device1 (dynamic_link_connector) 
+                                    │                                 │                         ├ device2 (dynamic_link_connector) 
+                                    │                                 │                         ├ device3 (dynamic_link_connector) 
+                                    │                                 │                         ├ ep2b65f483f228a25f (i2c-link-endpoint) 
+                                    │                                 │                         ├ ep7980f769147a4cfe (i2c-link-endpoint) 
+                                    │                                 │                         ├ epa38c2e51a6940844 (i2c-link-endpoint) 
+                                    │                                 │                         ├ epf93267a11481d832 (i2c-link-endpoint) 
+                                    │                                 │                         └ link (i2c-link-impl) 
+                                    │                                 ├ i2c_bus_1 (i2c_link_v2) ┐
+                                    │                                 │                         ├ device0 (dynamic_link_connector) 
+                                    │                                 │                         ├ device1 (dynamic_link_connector) 
+                                    │                                 │                         ├ device2 (dynamic_link_connector) 
+                                    │                                 │                         ├ device3 (dynamic_link_connector) 
+                                    │                                 │                         ├ ep3a1ed96bb0443b17 (i2c-link-endpoint) 
+                                    │                                 │                         ├ ep718ed0b4780ef8b (i2c-link-endpoint) 
+                                    │                                 │                         ├ epbb7d742b6c0a802c (i2c-link-endpoint) 
+                                    │                                 │                         ├ epdf94778e0d45a294 (i2c-link-endpoint) 
+                                    │                                 │                         └ link (i2c-link-impl) 
+                                    │                                 ├ i2c_bus_2 (i2c_link_v2) ┐
+                                    │                                 │                         ├ device0 (dynamic_link_connector) 
+                                    │                                 │                         ├ device1 (dynamic_link_connector) 
+                                    │                                 │                         ├ device2 (dynamic_link_connector) 
+                                    │                                 │                         ├ device3 (dynamic_link_connector) 
+                                    │                                 │                         ├ ep11a5dd82e60ef7a (i2c-link-endpoint) 
+                                    │                                 │                         ├ epce2a7800cf28fbef (i2c-link-endpoint) 
+                                    │                                 │                         ├ epd563ae5709debeae (i2c-link-endpoint) 
+                                    │                                 │                         ├ epf65c78951f27df31 (i2c-link-endpoint) 
+                                    │                                 │                         └ link (i2c-link-impl) 
+                                    │                                 ├ i2c_bus_3 (i2c_link_v2) ┐
+                                    │                                 │                         ├ device0 (dynamic_link_connector) 
+                                    │                                 │                         ├ device1 (dynamic_link_connector) 
+                                    │                                 │                         ├ device2 (dynamic_link_connector) 
+                                    │                                 │                         ├ device3 (dynamic_link_connector) 
+                                    │                                 │                         ├ ep354aa950990aa9db (i2c-link-endpoint) 
+                                    │                                 │                         ├ ep3a3385aca6e8a01f (i2c-link-endpoint) 
+                                    │                                 │                         ├ ep908dc66c49242f54 (i2c-link-endpoint) 
+                                    │                                 │                         ├ ep927a1762014201fc (i2c-link-endpoint) 
+                                    │                                 │                         └ link (i2c-link-impl) 
+                                    │                                 ├ i2c_bus_4 (i2c_link_v2) ┐
+                                    │                                 │                         ├ device0 (dynamic_link_connector) 
+                                    │                                 │                         ├ device1 (dynamic_link_connector) 
+                                    │                                 │                         ├ device2 (dynamic_link_connector) 
+                                    │                                 │                         ├ device3 (dynamic_link_connector) 
+                                    │                                 │                         ├ ep1bafed37bd12586d (i2c-link-endpoint) 
+                                    │                                 │                         ├ ep48a8842716be097c (i2c-link-endpoint) 
+                                    │                                 │                         ├ epc706ea8452d58c30 (i2c-link-endpoint) 
+                                    │                                 │                         ├ epd40456d6c76165cb (i2c-link-endpoint) 
+                                    │                                 │                         └ link (i2c-link-impl) 
+                                    │                                 ├ i3c0_device1 (i3c_device_comp) ┐
+                                    │                                 │                                ├ bus_slot (connector) 
+                                    │                                 │                                └ target (i3c_device) ┐
+                                    │                                 │                                                      └ data_fifo (i3c_device.data_fifo) 
+                                    │                                 ├ i3c0_device2 (i3c_device_comp) ┐
+                                    │                                 │                                ├ bus_slot (connector) 
+                                    │                                 │                                └ target (i3c_device) ┐
+                                    │                                 │                                                      └ data_fifo (i3c_device.data_fifo) 
+                                    │                                 ├ i3c0_device3 (i3c_device_comp) ┐
+                                    │                                 │                                ├ bus_slot (connector) 
+                                    │                                 │                                └ target (i3c_device) ┐
+                                    │                                 │                                                      └ data_fifo (i3c_device.data_fifo) 
+                                    │                                 ├ i3c1_device1 (i3c_device_comp) ┐
+                                    │                                 │                                ├ bus_slot (connector) 
+                                    │                                 │                                └ target (i3c_device) ┐
+                                    │                                 │                                                      └ data_fifo (i3c_device.data_fifo) 
+                                    │                                 ├ i3c_bus[0] (i3c_bus_comp) ┐
+                                    │                                 │                           ├ bus (i3c_bus) 
+                                    │                                 │                           ├ dev_slot[0..14] (connector) 
+                                    │                                 │                           ├ i2c_adapter[0] (i2c_to_i3c_adapter) 
+                                    │                                 │                           └ i2c_dev_slot[0] (connector) 
+                                    │                                 ├ i3c_bus[1] (i3c_bus_comp) ┐
+                                    │                                 │                           ├ bus (i3c_bus) 
+                                    │                                 │                           ├ dev_slot[0..14] (connector) 
+                                    │                                 │                           ├ i2c_adapter[0] (i2c_to_i3c_adapter) 
+                                    │                                 │                           └ i2c_dev_slot[0] (connector) 
+                                    │                                 ├ nand (nand_flash_comp) ┐
+                                    │                                 │                        ├ nand_controller (connector) 
+                                    │                                 │                        ├ nand_data_image (image) 
+                                    │                                 │                        ├ nand_image (nand_flash) 
+                                    │                                 │                        └ nand_spare_image (image) 
+                                    │                                 ├ phy0 (marvell_phy) 
+                                    │                                 ├ phy0_slot (connector) 
+                                    │                                 ├ phy1 (marvell_phy) 
+                                    │                                 ├ phy1_slot (connector) 
+                                    │                                 ├ phy2 (marvell_phy) 
+                                    │                                 ├ phy2_slot (connector) 
+                                    │                                 ├ qspi (spi_flash_comp) ┐
+                                    │                                 │                       ├ spi_image (image) 
+                                    │                                 │                       ├ spi_master_slot (connector) 
+                                    │                                 │                       └ spi_slave (qspi_flash) 
+                                    │                                 ├ sd_card (sd_card_comp) ┐
+                                    │                                 │                        ├ card (sd_card) 
+                                    │                                 │                        ├ emmc_controller (connector) 
+                                    │                                 │                        └ image (image) 
+                                    │                                 ├ spi_flash (spi_flash_comp) ┐
+                                    │                                 │                            ├ spi_image (image) 
+                                    │                                 │                            ├ spi_master_slot (connector) 
+                                    │                                 │                            └ spi_slave (qspi_flash) 
+                                    │                                 ├ usb3_disk (usb3_disk_comp) ┐
+                                    │                                 │                            ├ connector_usb_host (connector) 
+                                    │                                 │                            ├ scsi_disk (simple-scsi-disk) 
+                                    │                                 │                            ├ scsi_disk_image (image) 
+                                    │                                 │                            └ usb_device (usb3_disk) 
+                                    │                                 ├ usb3_hs_disk (usb3_disk_hs_comp) ┐
+                                    │                                 │                                  ├ connector_usb_host (connector) 
+                                    │                                 │                                  ├ scsi_disk (simple-scsi-disk) 
+                                    │                                 │                                  ├ scsi_disk_image (image) 
+                                    │                                 │                                  └ usb_device (usb3_disk) 
+                                    │                                 └ usbotg_disk (usb3_disk_hs_comp) ┐
+                                    │                                                                   ├ connector_usb_host (connector) 
+                                    │                                                                   ├ scsi_disk (simple-scsi-disk) 
+                                    │                                                                   ├ scsi_disk_image (image) 
+                                    │                                                                   └ usb_device (usb3_disk) 
+                                    ├ cell (cell) ┐
+                                    │             └ ps (ps-clock) 
+                                    ├ cell_context (context) 
+                                    └ cell_rec0 (recorder) 
+
+
+Memory Map:
+┌────────────┬─────────────────────────────────────────────────────────────────────────────────┬──┬───────────┬────────────┬──────┬────┬─────┬────┐
+│        Base│Object                                                                           │Fn│     Offset│      Length│Target│Prio│Align│Swap│
+├────────────┼─────────────────────────────────────────────────────────────────────────────────┼──┼───────────┼────────────┼──────┼────┼─────┼────┤
+│         0x0│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ocram                           │  │        0x0│     0x80000│      │   0│     │    │
+│  0x10808000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.sdmmc.bank.sdmmc_bank           │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10810000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.tsn0.bank.csr                   │  │        0x0│      0x4000│      │   0│     │    │
+│  0x10820000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.tsn1.bank.csr                   │  │        0x0│      0x4000│      │   0│     │    │
+│  0x10830000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.tsn2.bank.csr                   │  │        0x0│      0x4000│      │   0│     │    │
+│  0x10840000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.nand.bank.sdma_regs             │  │        0x0│      0x1000│      │   0│     │    │
+│  0x108c0000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ecc                             │  │        0x0│      0x5000│      │   0│     │    │
+│  0x108cc000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ocram_ecc.bank.regs             │  │        0x0│       0x400│      │   0│     │    │
+│  0x108cc400│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ocram_fw.bank.regs              │  │        0x0│       0x200│      │   0│     │    │
+│  0x108d0000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.psi_sdm_sphub                   │  │        0x0│       0x400│      │   0│     │    │
+│  0x108d1000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.psi_sdm_sdmmc                   │  │        0x0│      0x1000│      │   0│     │    │
+│  0x108d2000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.psi_sdm_qspicsr                 │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10900000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.psi_sdm_qspixpi                 │  │        0x0│    0x100000│      │   0│     │    │
+│  0x10a00000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.psi_sdm_nandind                 │  │        0x0│     0x10000│      │   0│     │    │
+│  0x10a10000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.psi_sdm_nandcsr                 │  │        0x0│     0x10000│      │   0│     │    │
+│  0x10a20000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.psi_sdm_ecchub                  │  │        0x0│      0x2800│      │   0│     │    │
+│  0x10a30000│system.board.fpga.soc_inst.hps_subsys.sdm.sdm_mailbox.bank.regs                  │  │        0x0│       0x500│      │   0│     │    │
+│  0x10a50000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.hps_spi_ext                     │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10b00000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.usb_otg0.bank.regs              │  │        0x0│     0x40000│      │   0│     │    │
+│  0x10b80000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.nand.bank.regs                  │  │        0x0│      0x2000│      │   0│     │    │
+│  0x10b82000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.nand.bank.phy_regs_passthrough  │  │        0x0│      0xe000│      │   0│     │    │
+│  0x10b92000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.bank.combophy_bank     │  │        0x0│     0x10000│      │   0│     │    │
+│  0x10c02000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.uart0.bank.regs                 │  │        0x0│       0x100│      │   0│     │    │
+│  0x10c02100│system.board.fpga.soc_inst.hps_subsys.agilex_hps.uart1.bank.regs                 │  │        0x0│       0x100│      │   0│     │    │
+│  0x10c02800│system.board.fpga.soc_inst.hps_subsys.agilex_hps.i2c0.bank.regs                  │  │        0x0│       0x100│      │   0│     │    │
+│  0x10c02900│system.board.fpga.soc_inst.hps_subsys.agilex_hps.i2c1.bank.regs                  │  │        0x0│       0x100│      │   0│     │    │
+│  0x10c02a00│system.board.fpga.soc_inst.hps_subsys.agilex_hps.i2c2.bank.regs                  │  │        0x0│       0x100│      │   0│     │    │
+│  0x10c02b00│system.board.fpga.soc_inst.hps_subsys.agilex_hps.i2c3.bank.regs                  │  │        0x0│       0x100│      │   0│     │    │
+│  0x10c02c00│system.board.fpga.soc_inst.hps_subsys.agilex_hps.i2c4.bank.regs                  │  │        0x0│       0x100│      │   0│     │    │
+│  0x10c03000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.sp_timer0.bank.regs             │  │        0x0│       0x100│      │   0│     │    │
+│  0x10c03100│system.board.fpga.soc_inst.hps_subsys.agilex_hps.sp_timer1.bank.regs             │  │        0x0│       0x100│      │   0│     │    │
+│  0x10c03200│system.board.fpga.soc_inst.hps_subsys.agilex_hps.gpio0.bank.regs                 │  │        0x0│       0x100│      │   0│     │    │
+│  0x10c03300│system.board.fpga.soc_inst.hps_subsys.agilex_hps.gpio1.bank.regs                 │  │        0x0│       0x100│      │   0│     │    │
+│  0x10d00000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.sys_timer0.bank.regs            │  │        0x0│       0x100│      │   0│     │    │
+│  0x10d00100│system.board.fpga.soc_inst.hps_subsys.agilex_hps.sys_timer1.bank.regs            │  │        0x0│       0x100│      │   0│     │    │
+│  0x10d00200│system.board.fpga.soc_inst.hps_subsys.agilex_hps.wdt0.bank.regs                  │  │        0x0│       0x100│      │   0│     │    │
+│  0x10d00300│system.board.fpga.soc_inst.hps_subsys.agilex_hps.wdt1.bank.regs                  │  │        0x0│       0x100│      │   0│     │    │
+│  0x10d00400│system.board.fpga.soc_inst.hps_subsys.agilex_hps.wdt2.bank.regs                  │  │        0x0│       0x100│      │   0│     │    │
+│  0x10d00500│system.board.fpga.soc_inst.hps_subsys.agilex_hps.wdt3.bank.regs                  │  │        0x0│       0x100│      │   0│     │    │
+│  0x10d00600│system.board.fpga.soc_inst.hps_subsys.agilex_hps.wdt4.bank.regs                  │  │        0x0│       0x100│      │   0│     │    │
+│  0x10d01000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.gen_ts.bank.control             │  │        0x0│      0x1000│      │   0│    8│    │
+│  0x10d02000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.gen_ts.bank.ro                  │  │        0x0│      0x1000│      │   0│    8│    │
+│  0x10d10000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.clkmgr.bank.clkmgr              │  │        0x0│       0x114│      │   1│     │    │
+│  0x10d10024│system.board.fpga.soc_inst.hps_subsys.agilex_hps.clkmgr.bank.mainpllgrp          │  │        0x0│        0x58│      │   0│     │    │
+│  0x10d1007c│system.board.fpga.soc_inst.hps_subsys.agilex_hps.clkmgr.bank.perpllgrp           │  │        0x0│        0x54│      │   0│     │    │
+│  0x10d11000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.rstmgr.bank.regs                │  │        0x0│      0x1000│      │   0│    8│    │
+│  0x10d12000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.sysmgr.bank.core                │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10d13000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.pinmux.bank.csr                 │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10d14000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.pwrmgr.bank.regs                │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10d21000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.scr.bank.regs                   │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10d22000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.noc.bank.regs                   │  │        0x0│      0x4000│      │   0│     │    │
+│  0x10da0000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.i3c0.bank.regs                  │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10da1000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.i3c1.bank.regs                  │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10da2000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.spis0.bank.regs                 │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10da3000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.spis1.bank.regs                 │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10da4000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.spim0.bank.regs                 │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10da5000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.spim1.bank.regs                 │  │        0x0│      0x1000│      │   0│     │    │
+│  0x10db0000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.dmac_axi0.bank.regs             │  │        0x0│     0x10000│      │   0│     │    │
+│  0x10dc0000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.dmac_axi1.bank.regs             │  │        0x0│     0x10000│      │   0│     │    │
+│  0x11000000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.usb31.host.bank.xhci_regs       │  │        0x0│     0x10000│      │   0│     │    │
+│  0x15800000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.dap                             │  │        0x0│    0x800000│      │   0│     │    │
+│  0x16000000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.smmu.bank.tcu                   │  │        0x0│     0x40000│      │   0│     │    │
+│  0x16042000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.pmu_tbu_0                       │  │        0x0│      0x1000│      │   0│     │    │
+│  0x16062000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.pmu_tbu_1                       │  │        0x0│      0x1000│      │   0│     │    │
+│  0x16082000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.pmu_tbu_2                       │  │        0x0│      0x1000│      │   0│     │    │
+│  0x160a2000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.pmu_tbu_3                       │  │        0x0│      0x1000│      │   0│     │    │
+│  0x160c2000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.pmu_tbu_4                       │  │        0x0│      0x1000│      │   0│     │    │
+│  0x160e2000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.pmu_tbu_5                       │  │        0x0│      0x1000│      │   0│     │    │
+│  0x17000000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.stm                             │  │        0x0│   0x1000000│      │   0│     │    │
+│  0x18000000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.mpfe                            │  │        0x0│    0x400000│      │   0│     │    │
+│  0x18400000│system.board.fpga.soc_inst.hps_subsys.emif.iossm0:regs                           │  │        0x0│    0x400000│      │   0│     │    │
+│  0x18800000│system.board.fpga.soc_inst.hps_subsys.emif.iossm1:regs                           │  │        0x0│    0x400000│      │   0│     │    │
+│  0x1c000000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.caiu0                  │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c001000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.ncaiu0                 │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c002000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.ncaiu1                 │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c003000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.ncaiu2                 │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c004000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.ncaiu3                 │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c005000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.dce0                   │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c006000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.dce1                   │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c007000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.dmi0                   │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c008000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.dmi1                   │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c009000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.dii0                   │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c00a000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.dii1                   │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c00b000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.dii2                   │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c00c000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.dii3                   │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c00d000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.sys_dii                │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c00e000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.dve0                   │  │        0x0│      0x1000│      │   0│     │    │
+│  0x1c0ff000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.ccu.bank.sys_global_register_blk│  │        0x0│      0x1000│      │   0│     │    │
+│  0x1d000000│system.board.fpga.soc_inst.hps_subsys.agilex_hps.gic_mem                         │  │        0x0│    0x100000│      │   0│     │    │
+│  0x80000000│system.board.fpga.soc_inst.hps_subsys.emif.sdram_mem                             │  │        0x0│  0x80000000│      │   0│     │    │
+│ 0x880000000│system.board.fpga.soc_inst.hps_subsys.emif.sdram_mem                             │  │ 0x80000000│ 0x780000000│      │   0│     │    │
+│0x8800000000│system.board.fpga.soc_inst.hps_subsys.emif.sdram_mem                             │  │0x800000000│0x7800000000│      │   0│     │    │
+└────────────┴─────────────────────────────────────────────────────────────────────────────────┴──┴───────────┴────────────┴──────┴────┴─────┴────┘
+
+Processors:
+┌────────────────────────────────────────────────────────┬─┬──────────────┬──────────┐
+│                        CPU Name                        │ │  CPU Class   │   Freq   │
+├────────────────────────────────────────────────────────┼─┼──────────────┼──────────┤
+│system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]│*│arm-cortex-a55│400.00 MHz│
+│system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[1]│ │arm-cortex-a55│400.00 MHz│
+│system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[2]│ │arm-cortex-a76│400.00 MHz│
+│system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[3]│ │arm-cortex-a76│400.00 MHz│
+└────────────────────────────────────────────────────────┴─┴──────────────┴──────────┘
+* = selected CPU
+
+
+System Status:
+Status of system [class sm_universal_system_comp]
+=================================================
+
+Setup:
+                 Top component : system
+                  Instantiated : True
+                   System Info : Intel Agilex 5 E-Series Virtual Platform
+                                 Universal
+
+Attributes:
+       create_hps_eth0_network : True
+                create_hps_mmc : False
+            create_hps_sd_card : True
+    create_hps_serial0_console : True
+    create_hps_serial1_console : False
+                    fsbl_image : /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ocram/baremetal.bin
+                 hps_boot_core : 0
+          hps_core0_1_power_on : True
+            hps_core2_power_on : True
+            hps_core3_power_on : True
+              hps_cpu_freq_mhz : 400
+              hps_reset_vector : 0
+                      stepping : A0
+
+Connections:
+
+Board Status:
+Status of system.board [class sm_universal_board_comp]
+======================================================
+
+Setup:
+                 Top component : system
+                  Instantiated : True
+
+Attributes:
+                create_hps_mmc : False
+            create_hps_sd_card : True
+    create_hps_serial0_console : True
+    create_hps_serial1_console : False
+                    fsbl_image : /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ocram/baremetal.bin
+                 hps_boot_core : 0
+          hps_core0_1_power_on : True
+            hps_core2_power_on : True
+            hps_core3_power_on : True
+              hps_cpu_freq_mhz : 400
+              hps_reset_vector : 0
+                      stepping : A0
+
+Connections:
+                          eth2 : ethernet_switch0:device1
+                     phy0_slot : system.board.fpga:tsn0_slot
+                     phy1_slot : system.board.fpga:tsn1_slot
+                     phy2_slot : system.board.fpga:tsn2_slot
+
+FPGA Status:
+Status of system.board.fpga [class sm_universal_fpga_comp]
+==========================================================
+
+Setup:
+                 Top component : system
+                  Instantiated : True
+
+Attributes:
+    create_hps_serial0_console : True
+    create_hps_serial1_console : False
+                    fsbl_image : /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ocram/baremetal.bin
+                 hps_boot_core : 0
+          hps_core0_1_power_on : True
+            hps_core2_power_on : True
+            hps_core3_power_on : True
+              hps_cpu_freq_mhz : 400
+              hps_reset_vector : 0
+                      stepping : A0
+
+Connections:
+                   gpio_in0[0] : system.board.gpio_loopback:gpio_lb_out1
+                  gpio_in0[18] : system.board.gpio_loopback:gpio_lb_out5
+                  gpio_in0[19] : system.board.gpio_loopback:gpio_lb_out4
+                   gpio_in0[1] : system.board.gpio_loopback:gpio_lb_out0
+                  gpio_in0[20] : system.board.gpio_loopback:gpio_lb_out7
+                  gpio_in0[21] : system.board.gpio_loopback:gpio_lb_out6
+                   gpio_in0[5] : system.board.gpio_loopback:gpio_lb_out3
+                   gpio_in0[6] : system.board.gpio_loopback:gpio_lb_out2
+                   gpio_in1[0] : system.board.gpio_loopback:gpio_lb_out9
+                  gpio_in1[18] : system.board.gpio_loopback:gpio_lb_out13
+                  gpio_in1[19] : system.board.gpio_loopback:gpio_lb_out12
+                   gpio_in1[1] : system.board.gpio_loopback:gpio_lb_out8
+                  gpio_in1[20] : system.board.gpio_loopback:gpio_lb_out15
+                  gpio_in1[21] : system.board.gpio_loopback:gpio_lb_out14
+                   gpio_in1[5] : system.board.gpio_loopback:gpio_lb_out11
+                   gpio_in1[6] : system.board.gpio_loopback:gpio_lb_out10
+                  gpio_out0[0] : system.board.gpio_loopback:gpio_lb_in0
+                 gpio_out0[18] : system.board.gpio_loopback:gpio_lb_in4
+                 gpio_out0[19] : system.board.gpio_loopback:gpio_lb_in5
+                  gpio_out0[1] : system.board.gpio_loopback:gpio_lb_in1
+                 gpio_out0[20] : system.board.gpio_loopback:gpio_lb_in6
+                 gpio_out0[21] : system.board.gpio_loopback:gpio_lb_in7
+                  gpio_out0[5] : system.board.gpio_loopback:gpio_lb_in2
+                  gpio_out0[6] : system.board.gpio_loopback:gpio_lb_in3
+                  gpio_out1[0] : system.board.gpio_loopback:gpio_lb_in8
+                 gpio_out1[18] : system.board.gpio_loopback:gpio_lb_in12
+                 gpio_out1[19] : system.board.gpio_loopback:gpio_lb_in13
+                  gpio_out1[1] : system.board.gpio_loopback:gpio_lb_in9
+                 gpio_out1[20] : system.board.gpio_loopback:gpio_lb_in14
+                 gpio_out1[21] : system.board.gpio_loopback:gpio_lb_in15
+                  gpio_out1[5] : system.board.gpio_loopback:gpio_lb_in10
+                  gpio_out1[6] : system.board.gpio_loopback:gpio_lb_in11
+                     i2c_slot0 : system.board.i2c_bus_0:device0
+                     i2c_slot1 : system.board.i2c_bus_1:device0
+                     i2c_slot2 : system.board.i2c_bus_2:device0
+                     i2c_slot3 : system.board.i2c_bus_3:device0
+                     i2c_slot4 : system.board.i2c_bus_4:device0
+                     i3c0_slot : system.board.i3c_bus[0]:dev_slot[0]
+                     i3c1_slot : system.board.i3c_bus[1]:dev_slot[0]
+                     nand_slot : system.board.nand:nand_controller
+                  qspi_slot[0] : system.board.qspi:spi_master_slot
+                       sd_slot : system.board.sd_card:emmc_controller
+                 spim0_slot[0] : system.board.spi_flash:spi_master_slot
+                     tsn0_slot : system.board:phy0_slot
+                     tsn1_slot : system.board:phy1_slot
+                     tsn2_slot : system.board:phy2_slot
+
+HPS Status:
+Status of system.board.fpga.soc_inst.hps_subsys.agilex_hps [class vp_intel_agilex_5_soc]
+========================================================================================
+
+Setup:
+                   Top component : system
+                    Instantiated : True
+
+Attributes:
+                       boot_core : 0
+    combophy_iface_select_enable : False
+                core0_1_power_on : True
+                  core2_power_on : True
+                  core3_power_on : True
+      create_hps_serial0_console : True
+      create_hps_serial1_console : False
+                      fsbl_image : /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ocram/baremetal.bin
+                hps_cpu_freq_mhz : 400
+                    reset_vector : 0
+                        stepping : A0
+
+Connections:
+                 f2s_fpga_irq[0] : system.board.fpga.soc_inst.periph_subsys:periph_button_irq
+                 hps2fpga_0_down : system.board.fpga.soc_inst.example_design:design_mem_conn
+                        hps_conn : system.board.fpga.soc_inst.hps_subsys.emif:emif_conn
+                 lwhps2fpga_down : system.board.fpga.soc_inst.periph_subsys:periph_mem_conn
+                         serial0 : system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0:serial
+                      usb31_slot : system.board.fpga.soc_inst.hps_subsys.agilex_hps.usb31:usb31_hps_slot
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.gicr[0] info] Calling hard reset default
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.gicr[0] info] pendr clear
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.gicr[1] info] Calling hard reset default
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.gicr[1] info] pendr clear
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.gicr[2] info] Calling hard reset default
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.gicr[2] info] pendr clear
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.gicr[3] info] Calling hard reset default
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.gicr[3] info] pendr clear
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.nand info] Unsupported device id: ffffffff
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.nand info] Can't fetch slave config
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.nand info] Try to get NAND flash value from the DD interface
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy error] Device is in reset state!
+[system.board.fpga.soc_inst.hps_subsys.agilex_hps.combophy.port.dfi_nand_intf_in error] NAND flash interface is disabled
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Welcome to SoCFPGA Baremetal World for Agilex5 Platform\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Built: 23:07:33 Oct 30 2026\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Commit: 001649d\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Running on Core 0\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Type 'help' for commands.\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>SoCFPGA Bare-Metal > ddr_selftest\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>+------------------------------------------------------------+\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>|                  DDR BIST / INIT COMMAND                   |\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>+------------------------------------------------------------+\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Mode  : Agilex5 OCRAM on-demand DDR bring-up\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Step 1: Run IOSSM/DDR init flow (ATF-compatible) ... DDR: Reset type is 'Power-On'\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>IOSSM: Calibration success status check...\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>IOSSM: All EMIF instances within the IO96 have calibrated successfully!\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DDR: Calibration success\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DDR: ECC is disabled\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DDR: DDR size configured is (2048 MiB)\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DDR: Mismatch with hardware size (8192 MiB).\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>###DDR:init success###\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Step 2: Run DDR memory validation suite\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>------------------------------------------------------------\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Region: 0x83000000 - 0x83FFFFFF (16 MB)\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Test 1 of 4 : Fixed data-pattern test\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>------------------------------------------------------------\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>  Pattern 0x00000000 ....................... PASS\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>  Pattern 0xFFFFFFFF ....................... PASS\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>  Pattern 0xAAAAAAAA ....................... PASS\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>  Pattern 0x55555555 ....................... PASS\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Test 2 of 4 : Walking-bit test\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>------------------------------------------------------------\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>  Walk 32 single-bit patterns ............... PASS\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Test 3 of 4 : Address-uniqueness test\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>------------------------------------------------------------\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>  Write/verify unique address values ........ PASS\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>Test 4 of 4 : March C- test\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>------------------------------------------------------------\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>  March C- up/down sweeps ................... PASS\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>------------------------------------------------------------\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>RESULT : 4 of 4 tests passed  -  SELF-TEST PASSED\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>\r\r\n
+SIMICS_DDR_BOOTSTRAP_COMPLETE
+PASS NATIVE_DMAC_THREE_NONIDENTITY_MAPS_CONFIGURED
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>SoCFPGA Bare-Metal > LAB BEGIN dmac-smmu\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_CPU_MMU_DCACHE_OFF\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS NATIVE_DMA0_SID8_ROUTE\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS NATIVE_SMMU_TRANSLATION_EVENT_ENABLED\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_CTL_NONSECURE_AR_AW\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_SAR_IOVA=0x0000000085000000\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_DAR_IOVA=0x0000000085200000\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_LLP_IOVA=0x0000000085600000\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_CTL=0xc000001240001b00\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_CHANNEL_STATUS=0x000000000000001b\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_CHANNEL_ENABLE=0x0000000000000000\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_POLL_REMAINING=0x00000000000f4240\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_TRANSLATED_TRANSFER_DONE\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_RAW_IOVA_ALIASES_UNCHANGED\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_VALID_TRANSFER_NO_SMMU_EVENT\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_SMMU_COPY_4096_NATIVE_ENGINE\r\r\n
+PASS NATIVE_DMAC_PHASE1_PA_AND_ALIAS_READBACK bytes=4096
+NATIVE_DMAC_DEST_UNMAPPED {"additional_mappings": [{"iova": "0x85200000", "physical": "0x86200000"}, {"iova": "0x85600000", "physical": "0x86400000"}], "cr0": "0x5", "cr0ack": "0x0", "invalidation_scope": "fresh table walk only; no command queue/TLBI claim", "iova": "0x85000000", "memory_space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.dmac_smmu_mem_space_0", "model_reset_pulse": true, "physical": "0x86000000", "route": "dma0", "sid": 8, "sid_origin": "DMA0 System Manager read/write stream-ID registers programmed to 8", "table_base": "0x85400000", "tbu_index": 0, "tlb_cache_enable": false, "unmapped_pte": "0x85402148"}
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_SMMU_PHASE1_COMPLETE\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_HOST_UNMAP_HANDSHAKE\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_CTL_NONSECURE_AR_AW\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_SAR_IOVA=0x0000000085000000\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_DAR_IOVA=0x0000000085200000\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_LLP_IOVA=0x0000000085600000\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_CTL=0xc000001240001b00\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_CHANNEL_STATUS=0x0000000080000148\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_CHANNEL_ENABLE=0x0000000000000000\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_POLL_REMAINING=0x00000000000f4240\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_UNMAPPED_NO_FALSE_DONE\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_FAULT_CHANNEL_QUIESCENT\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_FAULT_IOVA_GUARDS_UNCHANGED\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_SMMU_EVENT0=0x0000000800008010\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_SMMU_EVENT1=0x0000018000000000\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_SMMU_FAULT_IOVA=0x0000000085200000\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_NATIVE_S2_TRANSLATION_FAULT_SID8\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>DMAC_FINAL_CHEN=0x0000000000000000\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_REGISTERS_CLEANED_UP\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>PASS DMAC_SMMU_FAULT_GUARD_4096_NATIVE_ENGINE\r\r\n
+<system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con>INFO NATIVE_SIMICS_FIXTURE_CACHE_DISABLED_NO_HARDWARE_OR_TLBI_CLAIM\r\r\n
+PASS NATIVE_DMAC_ENGINE_TRANSLATION_AND_FAULT
+UART_RECORD_BEGIN
+Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+Built: 23:07:33 Oct 30 2026
+Commit: 001649d
+Running on Core 0
+Type 'help' for commands.
+SoCFPGA Bare-Metal > ddr_selftest
+
++------------------------------------------------------------+
+|                  DDR BIST / INIT COMMAND                   |
++------------------------------------------------------------+
+Mode  : Agilex5 OCRAM on-demand DDR bring-up
+Step 1: Run IOSSM/DDR init flow (ATF-compatible) ... DDR: Reset type is 'Power-On'
+IOSSM: Calibration success status check...
+IOSSM: All EMIF instances within the IO96 have calibrated successfully!
+DDR: Calibration success
+DDR: ECC is disabled
+DDR: DDR size configured is (2048 MiB)
+DDR: Mismatch with hardware size (8192 MiB).
+###DDR:init success###
+PASS
+
+Step 2: Run DDR memory validation suite
+------------------------------------------------------------
+Region: 0x83000000 - 0x83FFFFFF (16 MB)
+
+Test 1 of 4 : Fixed data-pattern test
+------------------------------------------------------------
+  Pattern 0x00000000 ....................... PASS
+  Pattern 0xFFFFFFFF ....................... PASS
+  Pattern 0xAAAAAAAA ....................... PASS
+  Pattern 0x55555555 ....................... PASS
+
+Test 2 of 4 : Walking-bit test
+------------------------------------------------------------
+  Walk 32 single-bit patterns ............... PASS
+
+Test 3 of 4 : Address-uniqueness test
+------------------------------------------------------------
+  Write/verify unique address values ........ PASS
+
+Test 4 of 4 : March C- test
+------------------------------------------------------------
+  March C- up/down sweeps ................... PASS
+------------------------------------------------------------
+
+RESULT : 4 of 4 tests passed  -  SELF-TEST PASSED
+
+SoCFPGA Bare-Metal > LAB BEGIN dmac-smmu
+PASS DMAC_CPU_MMU_DCACHE_OFF
+PASS NATIVE_DMA0_SID8_ROUTE
+PASS NATIVE_SMMU_TRANSLATION_EVENT_ENABLED
+PASS DMAC_CTL_NONSECURE_AR_AW
+DMAC_SAR_IOVA=0x0000000085000000
+DMAC_DAR_IOVA=0x0000000085200000
+DMAC_LLP_IOVA=0x0000000085600000
+DMAC_CTL=0xc000001240001b00
+DMAC_CHANNEL_STATUS=0x000000000000001b
+DMAC_CHANNEL_ENABLE=0x0000000000000000
+DMAC_POLL_REMAINING=0x00000000000f4240
+PASS DMAC_TRANSLATED_TRANSFER_DONE
+PASS DMAC_RAW_IOVA_ALIASES_UNCHANGED
+PASS DMAC_VALID_TRANSFER_NO_SMMU_EVENT
+PASS DMAC_SMMU_COPY_4096_NATIVE_ENGINE
+DMAC_SMMU_PHASE1_COMPLETE
+PASS DMAC_HOST_UNMAP_HANDSHAKE
+PASS DMAC_CTL_NONSECURE_AR_AW
+DMAC_SAR_IOVA=0x0000000085000000
+DMAC_DAR_IOVA=0x0000000085200000
+DMAC_LLP_IOVA=0x0000000085600000
+DMAC_CTL=0xc000001240001b00
+DMAC_CHANNEL_STATUS=0x0000000080000148
+DMAC_CHANNEL_ENABLE=0x0000000000000000
+DMAC_POLL_REMAINING=0x00000000000f4240
+PASS DMAC_UNMAPPED_NO_FALSE_DONE
+PASS DMAC_FAULT_CHANNEL_QUIESCENT
+PASS DMAC_FAULT_IOVA_GUARDS_UNCHANGED
+DMAC_SMMU_EVENT0=0x0000000800008010
+DMAC_SMMU_EVENT1=0x0000018000000000
+DMAC_SMMU_FAULT_IOVA=0x0000000085200000
+PASS DMAC_NATIVE_S2_TRANSLATION_FAULT_SID8
+DMAC_FINAL_CHEN=0x0000000000000000
+PASS DMAC_REGISTERS_CLEANED_UP
+PASS DMAC_SMMU_FAULT_GUARD_4096_NATIVE_ENGINE
+INFO NATIVE_SIMICS_FIXTURE_CACHE_DISABLED_NO_HARDWARE_OR_TLBI_CLAIM
+LAB COMPLETE
+UART_RECORD_END

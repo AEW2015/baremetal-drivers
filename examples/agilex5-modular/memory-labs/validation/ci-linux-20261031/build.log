@@ -1,0 +1,3 @@
+PASS DSU_BUILD qemu build/dsu-qemu
+PASS DSU_BUILD agilex5 build/dsu-agilex5
+PASS MEMORY_LAB_BUILDS: DSU/DDR QEMU + Agilex5, SMMU QEMU; execution is separate

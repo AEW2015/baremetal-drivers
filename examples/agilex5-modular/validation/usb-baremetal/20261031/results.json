@@ -1,0 +1,15 @@
+{
+  "scope": "Recorded physical U-Boot USB initialization failed before enumeration; firmware entry passed; no USB class traffic qualification",
+  "source_evidence": "validation/usb-baremetal/20261031/usb-uboot-20261031T020612.343236Z/results.json",
+  "source_sha256": "0b3d980a087388cec375a3a9faa5271a78b50304cd34c03a3ca62752645adb1e",
+  "tests": [
+    {
+      "name": "usb-host-init",
+      "status": "fail",
+      "uboot_prompt": true,
+      "xhci_started": false,
+      "phy_id_pass": false,
+      "restoration": "pass"
+    }
+  ]
+}

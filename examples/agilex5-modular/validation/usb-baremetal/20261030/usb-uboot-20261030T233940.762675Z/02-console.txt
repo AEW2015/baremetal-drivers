@@ -1,0 +1,7 @@
+usb start
+starting USB...
+Bus usb@10b00000: Port not available.
+Bus usb31@11000000: probe failed, error -110
+No USB controllers found
+       scanning usb for storage devices... 0 Storage Device(s) found
+SOCFPGA_AGILEX5 # 

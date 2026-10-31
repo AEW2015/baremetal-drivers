@@ -1,0 +1,2 @@
+setenv autostart no
+SOCFPGA_AGILEX5 # 

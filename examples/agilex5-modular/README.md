@@ -10,6 +10,10 @@ The original bench campaign passed all 15 suite entries. See
 Rebuilt binaries do not inherit those historical results. No FPGA programming
 images, schematic PDFs, compiler binaries or proprietary tools are included.
 
+The [memory and fabric labs](memory-labs/README.md) add cached multicore handoff,
+DDR sweeps, SMMU translation/fault tests and an AXI traffic generator with
+Simics/Verilator integration. Model and physical-board outcomes are separate.
+
 ## Examples
 
 | Suite entry | Behavior checked |
@@ -33,6 +37,198 @@ images, schematic PDFs, compiler binaries or proprietary tools are included.
 Sources are in [core/](core/). The separate PSCI example is compile-only: this
 EL3 bootstrap does not provide resident BL31 for a nonsecure PSCI caller.
 OCRAM UART and semihosting sources are in [bootstrap/ocram/](bootstrap/ocram/).
+
+<!-- example-platform-checklist:start -->
+## Example platform checklist
+
+**✅ = recorded execution passed.** ⬜ = not tested, not a promise of support. ⚠️ = partial, ❌ = failed, ➖ = unsupported, 🔨 = build only, 📖 = reference, 🚧 = blocked.
+
+Checkmarks apply to the linked evidence and the stated scope, including historical versions. Controller IDs, simulator models and physical transfers have different coverage.
+
+| QEMU | SIMICS | Agilex 5 Modular hardware |
+|:---:|:---:|:---:|
+| **15 / 94 ✅** | **42 / 94 ✅** | **34 / 94 ✅** |
+
+Expand a group for every example. [Detailed scope and results](../../docs/example-catalog.md).
+
+<details>
+<summary><strong>Current upstream</strong> · 26 examples</summary>
+
+| Example / source | QEMU | SIMICS | Hardware |
+|---|:---:|:---:|:---:|
+| [`upstream/bridge`](../bridge) | ➖ Unsupported | [✅ Passed](validation/runtime-fixes/simics-services/results.json) | ⬜ Not tested |
+| [`upstream/ccu`](../ccu) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/clk_mngr`](../clk_mngr) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/combophy`](../combophy) | ➖ Unsupported | [✅ Passed](validation/runtime-fixes/simics-other/results.json) | [✅ Passed](validation/upstream26-examples) |
+| [`upstream/crc`](../crc) | [✅ Passed](validation/runtime-fixes/qemu/results.json) | [✅ Passed](validation/runtime-fixes/simics-other/results.json) | [✅ Passed](validation/upstream26-examples) |
+| [`upstream/ddr`](../ddr) | ➖ Unsupported | [✅ Passed](validation/simics26/upstream26-clean-checkout/results.json) | ⬜ Not tested |
+| [`upstream/dma`](../dma) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/ecc`](../ecc) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/fcs`](../fcs) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/gic`](../gic) | ➖ Unsupported | [✅ Passed](validation/simics26/upstream26-clean-checkout/results.json) | ⬜ Not tested |
+| [`upstream/gpio`](../gpio) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/hello`](../hello) | ➖ Unsupported | [✅ Passed](validation/simics26/upstream26-clean-checkout/results.json) | ⬜ Not tested |
+| [`upstream/i2c`](../i2c) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/i3c`](../i3c) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/iossm`](../iossm) | ➖ Unsupported | [⚠️ Partial](validation/runtime-fixes/simics-services/results.json) | ⬜ Not tested |
+| [`upstream/mailbox`](../mailbox) | ➖ Unsupported | [⚠️ Partial](validation/runtime-fixes/simics-services/results.json) | [✅ Passed](validation/cross-platform/hardware-runtime/results.json) |
+| [`upstream/mmu`](../mmu) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/noc`](../noc) | ➖ Unsupported | [✅ Passed](validation/runtime-fixes/simics-other/results.json) | [✅ Passed](validation/upstream26-examples) |
+| [`upstream/perf`](../perf) | [✅ Passed](validation/runtime-fixes/qemu/results.json) | [✅ Passed](validation/runtime-fixes/simics-services/results.json) | [✅ Passed](validation/cross-platform/hardware-runtime/results.json) |
+| [`upstream/reboot_mngr`](../reboot_mngr) | ➖ Unsupported | [✅ Passed](validation/runtime-fixes/simics-services/results.json) | ⬜ Not tested |
+| [`upstream/reset_mngr`](../reset_mngr) | ➖ Unsupported | [✅ Passed](validation/runtime-fixes/simics-other/results.json) | [✅ Passed](validation/upstream26-examples) |
+| [`upstream/sdmmc`](../sdmmc) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/seu`](../seu) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/smmu`](../smmu) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/spi`](../spi) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
+| [`upstream/timer`](../timer) | ➖ Unsupported | [✅ Passed](validation/simics26/upstream26-clean-checkout/results.json) | ⬜ Not tested |
+
+</details>
+
+<details>
+<summary><strong>Original Modular suite</strong> · 15 examples</summary>
+
+| Example / source | QEMU | SIMICS | Hardware |
+|---|:---:|:---:|:---:|
+| [`board/core`](core/core_examples.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/dma`](core/dma_copy.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/gic`](core/gic_sgi.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/interfaces`](core/som_interfaces.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/mailbox`](core/mailbox_status.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/mmu`](core/mmu_translation.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/multicore`](core/multicore.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/som`](core/som_peripherals.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/som-i2c`](core/som_i2c.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/som-i3c`](core/som_i3c.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/vendor-ccu`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/vendor-clkmgr`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/vendor-ecc`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/vendor-smmu`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/vendor-uart`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+
+</details>
+
+<details>
+<summary><strong>Additional vendor board adapters</strong> · 4 examples</summary>
+
+| Example / source | QEMU | SIMICS | Hardware |
+|---|:---:|:---:|:---:|
+| [`board/vendor-timer`](build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
+| [`board/vendor-watchdog`](build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
+| [`board/vendor-spi`](build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
+| [`board/vendor-hps_mailbox`](build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
+
+</details>
+
+<details>
+<summary><strong>Legacy 25.1 Simics</strong> · 16 examples</summary>
+
+| Example / source | QEMU | SIMICS | Hardware |
+|---|:---:|:---:|:---:|
+| [`legacy/hello-world`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/uart`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/dma`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/timer`](simics/legacy.py) | ➖ Unsupported | [❌ Failed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/watchdog`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/i2c`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/i3c`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/spi`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/sdmmc`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/xgmac`](simics/legacy.py) | ➖ Unsupported | [❌ Failed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/mmu_el3`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/smmu`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/ccu`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/clkmgr`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/ecc`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/hps_mailbox`](simics/legacy.py) | ➖ Unsupported | [❌ Failed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+
+</details>
+
+<details>
+<summary><strong>Shared CPU and practice labs</strong> · 8 examples</summary>
+
+| Example / source | QEMU | SIMICS | Hardware |
+|---|:---:|:---:|:---:|
+| [`custom/qemu-hello`](qemu/hello.c) | [✅ Passed](validation/tutorial/results.json) | ⬜ Not tested | ⬜ Not tested |
+| [`practice/startup`](qemu/labs/startup.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
+| [`practice/corruption`](qemu/labs/corruption.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
+| [`practice/exception`](qemu/labs/exception.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
+| [`practice/timer`](qemu/labs/timer.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
+| [`practice/mmu`](qemu/labs/mmu.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
+| [`practice/uart`](qemu/labs/uart.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
+| [`practice/multicore`](qemu/labs/multicore.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
+
+</details>
+
+<details>
+<summary><strong>Additional diagnostics and integration</strong> · 12 examples</summary>
+
+| Example / source | QEMU | SIMICS | Hardware |
+|---|:---:|:---:|:---:|
+| [`diagnostic/smc-guard`](upstream-lab/lab.c) | [✅ Passed](validation/runtime-fixes/qemu/results.json) | ⬜ Not tested | ⬜ Not tested |
+| [`diagnostic/perf-zero-clock`](upstream-lab/lab.c) | [✅ Passed](validation/runtime-fixes/qemu/results.json) | ⬜ Not tested | ⬜ Not tested |
+| [`custom/bridge-control`](upstream-lab/lab.c) | ➖ Unsupported | [✅ Passed](validation/runtime-fixes/simics-services/results.json) | [✅ Passed](validation/cross-platform/hardware-runtime/results.json) |
+| [`custom/ocram-hello`](bootstrap/ocram/uart_local.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](../../docs/examples/ocram.md) |
+| [`custom/ddr-hello`](bootstrap/ddr) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/cross-platform/hardware-runtime/restore-bootstrap.log) |
+| [`reference/semihost`](bootstrap/ocram/hello_semihost.S) | ⬜ Not tested | ⬜ Not tested | 📖 Reference |
+| [`reference/psci`](core/secondary_core.c) | ⬜ Not tested | ⬜ Not tested | 🔨 Build only |
+| [`custom/fault-probe`](core/fault_probe.c) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
+| [`custom/ethernet`](ethernet) | ⬜ Not tested | ⬜ Not tested | [✅ Passed](validation/ethernet/README.md) |
+| [`fabric/add`](fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
+| [`fabric/xor`](fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
+| [`reference/pr`](fabric) | 📖 Reference | 📖 Reference | 📖 Reference |
+
+</details>
+
+<details>
+<summary><strong>HPS configuration diagnostics</strong> · 2 examples</summary>
+
+| Example / source | QEMU | SIMICS | Hardware |
+|---|:---:|:---:|:---:|
+| [`config/sysmgr`](config-audit) | ➖ Unsupported | [✅ Passed](validation/config-audit/simics/results.json) | [✅ Passed](validation/config-audit/hardware/results.json) |
+| [`config/pinmux`](config-audit) | ➖ Unsupported | [✅ Passed](validation/config-audit/simics/results.json) | [✅ Passed](validation/config-audit/hardware/results.json) |
+
+</details>
+
+<details>
+<summary><strong>Simics / RTL integration</strong> · 2 examples</summary>
+
+| Example / source | QEMU | SIMICS | Hardware |
+|---|:---:|:---:|:---:|
+| [`integration/simics-rtl-add`](simics-rtl) | ➖ Unsupported | [✅ Passed](simics-rtl/validation/results.json) | ➖ Unsupported |
+| [`integration/simics-rtl-xor`](simics-rtl) | ➖ Unsupported | [✅ Passed](simics-rtl/validation/results.json) | ➖ Unsupported |
+
+</details>
+
+<details>
+<summary><strong>Simics native fabric models</strong> · 1 examples</summary>
+
+| Example / source | QEMU | SIMICS | Hardware |
+|---|:---:|:---:|:---:|
+| [`model/pio`](model-audit) | ➖ Unsupported | [✅ Passed](model-audit/validation/results.json) | ➖ Unsupported |
+
+</details>
+
+<details>
+<summary><strong>Memory and fabric labs</strong> · 8 examples</summary>
+
+| Example / source | QEMU | SIMICS | Hardware |
+|---|:---:|:---:|:---:|
+| [`memory/dsu`](memory-labs/dsu) | [✅ Passed](memory-labs/dsu/validation/results.json) | [✅ Passed](memory-labs/dsu/validation/simics-results.json) | [🔨 Build only](memory-labs/dsu/validation/build-agilex5.json) |
+| [`memory/l3-partition`](memory-labs/dsu) | ➖ Unsupported | ➖ Unsupported | [🔨 Build only](memory-labs/dsu/validation/build-agilex5.json) |
+| [`memory/ddr-sweep`](memory-labs/ddr) | [✅ Passed](memory-labs/ddr/validation/qemu-final/results.json) | [✅ Passed](memory-labs/ddr/validation/simics-results.json) | [🔨 Build only](memory-labs/ddr/validation/build-agilex5-calibrated.json) |
+| [`memory/smmu-qemu`](memory-labs/smmu) | [✅ Passed](memory-labs/smmu/validation/qemu-20261031T022532.436895Z/results.json) | ➖ Unsupported | ➖ Unsupported |
+| [`memory/native-tbu`](memory-labs/smmu/native_fixture.py) | ➖ Unsupported | [✅ Passed](memory-labs/smmu/validation/simics-native-20261031T024350.917717Z/results.json) | ➖ Unsupported |
+| [`memory/dma-tbu`](memory-labs/smmu/dmac) | ➖ Unsupported | [✅ Passed](memory-labs/smmu/dmac/validation/simics-final/results.json) | ⬜ Not tested |
+| [`memory/fabric-ddr`](memory-labs/fabric-ddr) | ➖ Unsupported | [✅ Passed](memory-labs/fabric-ddr/simics/validation/results.json) | 🚧 Blocked |
+| [`custom/usb-host`](usb-bringup) | ➖ Unsupported | ⬜ Not tested | [❌ Failed](validation/usb-baremetal/20261031/results.json) |
+
+</details>
+
+**USB work in progress:** the [bare-metal USB lab](usb-bringup/README.md) boots U-Boot on hardware, but USB controller readiness still fails. Hub enumeration, mouse input, flash reads and USB-Ethernet traffic are pending.
+
+Maintainers: regenerate these checklists with `python3 examples/agilex5-modular/catalog.py`; CI checks for drift.
+<!-- example-platform-checklist:end -->
 
 ## Build
 

@@ -1,0 +1,4 @@
+net list
+eth0 : ethernet@10810000 e6:af:85:05:0b:32 active
+eth2 : ethernet@10830000 b6:97:ec:76:88:35 
+SOCFPGA_AGILEX5 # 

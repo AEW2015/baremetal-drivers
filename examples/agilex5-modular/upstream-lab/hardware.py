@@ -1,31 +1,68 @@
 #!/usr/bin/env python3
 """Host-only Modular ES bench runner with fresh DDR per image."""
 import argparse,datetime,fcntl,hashlib,importlib.util,json,os,select,struct,subprocess,sys,termios,time
+from types import SimpleNamespace
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('new_examples',Path(__file__).with_name('run.py'))
 lab=importlib.util.module_from_spec(spec);spec.loader.exec_module(lab)
 
 def practice_segments(elf):
-    """File-backed ELF64 load segments at physical (LMA) addresses.
-
-    The relocation lesson has a 1 MiB gap in its flat binary. Loading that gap
-    wastes JTAG time and validates bytes the program never consumes.
-    """
+    """Validate the owned ELF runtime/load regions; return sparse file bytes."""
     data=elf.read_bytes()
-    if data[:6]!=b'\x7fELF\x02\x01' or struct.unpack_from('<H',data,18)[0]!=183:
-        raise RuntimeError('Expected little-endian ELF64 AArch64')
+    if len(data)<64 or data[:7]!=b'\x7fELF\x02\x01\x01':
+        raise RuntimeError('Expected little-endian ELF64 AArch64 executable')
+    kind,machine,version=struct.unpack_from('<HHI',data,16)
     entry,offset=struct.unpack_from('<QQ',data,24)
-    size,count=struct.unpack_from('<HH',data,54)
-    if entry!=0x82400000 or size!=56:raise RuntimeError('Unexpected practice ELF layout')
-    segments=[]
+    header,size,count=struct.unpack_from('<HHH',data,52)
+    if (kind,machine,version)!=(2,183,1) or header!=64 or size!=56 or not count or offset<64 or offset+size*count>len(data):
+        raise RuntimeError('Invalid AArch64 executable/program-header layout')
+    if entry!=0x82400000:raise RuntimeError('Unexpected practice ELF entry')
+    segments=[];runtime=[];physical=[];entry_covered=False
+    def owned(address,length):return 0x82400000<=address<address+length<=0x82700000
+    def append_range(ranges,address,length):
+        if any(address<end and begin<address+length for begin,end in ranges):
+            raise RuntimeError('Overlapping ELF load segments')
+        ranges.append((address,address+length))
     for i in range(count):
-        kind,flags,start,vma,lma,length,memory,align=struct.unpack_from('<IIQQQQQQ',data,offset+i*size)
-        if kind!=1 or not length:continue
-        if not 0x82400000<=lma<lma+length<=0x82700000 or start+length>len(data):raise RuntimeError('Practice load segment outside owned RAM/file')
-        segments.append((lma,data[start:start+length]))
-    if not segments:raise RuntimeError('No loadable practice segments')
+        segment,flags,start,vma,lma,length,memory,align=struct.unpack_from('<IIQQQQQQ',data,offset+i*size)
+        if segment!=1:continue
+        if length>memory or start+length>len(data):raise RuntimeError('Invalid ELF segment file/memory sizes')
+        if not memory:continue
+        if not owned(vma,memory) or not owned(lma,memory):raise RuntimeError('Practice load segment outside owned RAM/file')
+        if align not in (0,1) and (align&(align-1) or (vma-start)%align):raise RuntimeError('Invalid ELF segment alignment')
+        append_range(runtime,vma,memory);append_range(physical,lma,memory)
+        if flags&1 and vma<=entry<vma+length and lma+(entry-vma)==entry:entry_covered=True
+        if length:segments.append((lma,data[start:start+length]))
+    if not segments or not entry_covered:raise RuntimeError('ELF entry is not backed by executable load bytes')
     return segments
+
+def preflight_payloads(artifacts,names,metadata):
+    """Reject every requested image before opening the bench or MCP connection."""
+    result={}
+    for name in names:
+        for suffix in ('.bin','.elf'):
+            path=artifacts/(name+suffix)
+            if lab.digest(path)!=metadata['artifacts'].get(path.name):raise RuntimeError('Artifact hash mismatch: '+path.name)
+        result[name]=practice_segments(artifacts/(name+'.elf'))
+    return result
+
+def reap_debugger(proc):
+    """Wait out our remote timeout before reaping only the local docker child.
+
+    Killing docker exec alone can leave OpenOCD running inside the container.
+    Its remote timeout is 30s + 5s kill grace; allow it to expire first.
+    """
+    if proc.poll() is not None:return True
+    try:proc.wait(timeout=40);return True
+    except subprocess.TimeoutExpired:pass
+    proc.terminate()
+    try:proc.wait(timeout=5);return False
+    except subprocess.TimeoutExpired:pass
+    proc.kill()
+    proc.wait(timeout=5)
+    # Reaping a forcibly stopped docker client does not confirm remote exit.
+    return False
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
@@ -35,7 +72,8 @@ def main():
     p.add_argument('--port',default='/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0')
     p.add_argument('--wait-for-hardware',action='store_true',help='Queue on the shared bench mutex instead of failing busy')
     p.add_argument('--bl31',type=Path,help='Verified pinned RESET_TO_BL31 image')
-    p.add_argument('--suite',choices=['upstream','practice','config'],default='upstream')
+    p.add_argument('--suite',choices=['upstream','practice','config','memory-ddr','memory-dsu'],default='upstream')
+    p.add_argument('--capture-seconds',type=int,help='UART deadline, 5..300; default 180 for memory labs, 35 otherwise')
     p.add_argument('--only')
     a=p.parse_args()
     checker=lab
@@ -53,8 +91,26 @@ def main():
         allowed=checker.NAMES
         default=','.join(allowed)
         if a.bl31:p.error('Configuration snapshots require the standalone EL3 bootstrap; omit --bl31')
+    if a.suite.startswith('memory-'):
+        kind=a.suite.split('-',1)[1]
+        spec=importlib.util.spec_from_file_location('memory_oracle',ROOT/'memory-labs/hardware_oracle.py')
+        memory=importlib.util.module_from_spec(spec);spec.loader.exec_module(memory)
+        checker=SimpleNamespace(assess=lambda name,body,code:memory.assess(kind,name,body,code))
+        allowed=memory.DDR_NAMES if kind=='ddr' else memory.DSU_NAMES
+        default='ddr-path' if kind=='ddr' else 'normal'
+        if a.bl31:p.error('Memory labs require standalone EL3; omit --bl31')
+    capture_seconds=a.capture_seconds if a.capture_seconds is not None else (180 if a.suite.startswith('memory-') else 35)
+    if not 5<=capture_seconds<=300:p.error('capture-seconds must be 5..300')
     names=(a.only or default).split(',')
     if any(n not in allowed for n in names):p.error('Choose '+','.join(allowed))
+    build_metadata=None;validated_segments={}
+    if a.suite.startswith('memory-'):
+        build_metadata=json.loads((a.artifacts/'build.json').read_text())
+        if build_metadata.get('target')!='agilex5':
+            p.error('Memory hardware runs require an Agilex5 build; never load QEMU-addressed artifacts')
+    if a.suite=='practice' or a.suite.startswith('memory-'):
+        if build_metadata is None:build_metadata=json.loads((a.artifacts/'build.json').read_text())
+        validated_segments=preflight_payloads(a.artifacts,names,build_metadata)
     sys.path.insert(0,str(a.mcp_client.parent));from mcp_client import MCP
     out=ROOT/'runs'/('upstream26-hardware-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ'));out.mkdir(parents=True)
     def write_mutex(data):
@@ -77,11 +133,11 @@ def main():
         write_mutex({'state':'cancelled','pid':os.getpid()})
         lock.close();print('Cancelled before hardware access',flush=True);return 2
     write_mutex({'state':'acquired','pid':os.getpid(),'wait_seconds':round(time.monotonic()-queued)})
-    record={'environment':'physical Modular ES','suite':a.suite,'requested_tests':names,'runner_sha256':lab.digest(Path(__file__)),'tests':[],'build':json.loads((a.artifacts/'build.json').read_text()),'restoration':'pending',
+    record={'environment':'physical Modular ES','suite':a.suite,'requested_tests':names,'capture_seconds':capture_seconds,'runner_sha256':lab.digest(Path(__file__)),'tests':[],'build':build_metadata if build_metadata is not None else json.loads((a.artifacts/'build.json').read_text()),'restoration':'pending',
             'bl31_sha256':lab.digest(a.bl31) if a.bl31 else None,'bootstrap_image_sha256':lab.digest(a.bench/'ddr-bringup/ddr_probe.hps.rbf')}
     def save():(out/'results.json').write_text(json.dumps(record,indent=2)+'\n')
     print('Evidence: '+str(out),flush=True);save()
-    mcp=MCP('programmer');bootstrap_failed=False
+    mcp=MCP('programmer');bootstrap_failed=False;debugger_cleanup_failed=False
     def bootstrap(label):
         nonlocal bootstrap_failed
         chain=mcp.call('read_jtag_config',{});(out/(label+'-chain.json')).write_text(json.dumps(chain,indent=2))
@@ -113,10 +169,10 @@ def main():
                 prefix='hps.a55.0 configure -event halted {}; hps.a55.0 configure -event resumed {}; gdb port disabled; tcl port disabled; telnet port disabled; init; halt; '
                 command=prefix+f'targets hps.sys_bus; load_image {container_image} 0x82400000 bin; dump_image {readback} 0x82400000 {image.stat().st_size}; shutdown'
                 transfers=[(destination,image.read_bytes())]
-                if a.suite=='practice':
+                if a.suite=='practice' or a.suite.startswith('memory-'):
                     command=prefix+'targets hps.sys_bus; '
                     transfers=[]
-                    for index,(address,data) in enumerate(practice_segments(elf)):
+                    for index,(address,data) in enumerate(validated_segments[name]):
                         segment=destination.with_suffix(f'.segment{index}.bin');segment.write_bytes(data)
                         Path(str(segment)+'.readback').unlink(missing_ok=True)
                         remote_segment='/home/dev/baremetal-guide-validation/examples/build/'+segment.name
@@ -150,36 +206,44 @@ def main():
                 # OpenOCD is bounded; the existing bootstrap leaves secondaries parked.
                 with (out/(name+'-debug.log')).open('wb') as log:
                     proc=subprocess.Popen(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','30s','openocd','-f',cfg,'-c',command],stdout=log,stderr=subprocess.STDOUT)
-                    deadline=time.monotonic()+35;done_at=None;input_index=0
-                    while time.monotonic()<deadline:
-                        if select.select([fd],[],[],.1)[0]:
-                            try:chunk=os.read(fd,65536)
-                            except BlockingIOError:continue
-                            if not chunk:raise RuntimeError('UART disconnected')
-                            body+=chunk
-                            if a.suite=='practice' and name=='uart' and body.count(b'lab> ')>input_index and input_index<len(checker.UART_CASES):
-                                os.write(fd,checker.UART_CASES[input_index][1]);input_index+=1
-                            for marker in (b'COUNTER_INTERVAL_START',b'COUNTER_INTERVAL_END'):
-                                if marker in body and marker.decode() not in observations:observations[marker.decode()]=time.monotonic()
+                    try:
+                        deadline=time.monotonic()+capture_seconds;done_at=None;input_index=0
+                        while time.monotonic()<deadline:
+                            if select.select([fd],[],[],.1)[0]:
+                                try:chunk=os.read(fd,65536)
+                                except BlockingIOError:continue
+                                if not chunk:raise RuntimeError('UART disconnected')
+                                body+=chunk
+                                if a.suite=='practice' and name=='uart' and body.count(b'lab> ')>input_index and input_index<len(checker.UART_CASES):
+                                    os.write(fd,checker.UART_CASES[input_index][1]);input_index+=1
+                                for marker in (b'COUNTER_INTERVAL_START',b'COUNTER_INTERVAL_END'):
+                                    if marker in body and marker.decode() not in observations:observations[marker.decode()]=time.monotonic()
 
-                        if proc.poll() is not None and proc.returncode:break
-                        if a.suite=='config':complete=b'CONFIG_AUDIT_COMPLETE' in body
-                        else:complete=(b'LAB COMPLETE' in body or b'LAB FAILED' in body) if a.suite=='practice' else b'UPSTREAM_LAB_COMPLETE' in body
-                        if complete and proc.poll() is not None:
-                            if done_at is None:done_at=time.monotonic()
-                            if time.monotonic()-done_at>.5:break
-                    if proc.poll() is None:proc.terminate();proc.wait(timeout=5)
+                            if proc.poll() is not None and proc.returncode:break
+                            if a.suite=='config':complete=b'CONFIG_AUDIT_COMPLETE' in body
+                            else:complete=(b'LAB COMPLETE' in body or b'LAB FAILED' in body) if a.suite=='practice' or a.suite.startswith('memory-') else b'UPSTREAM_LAB_COMPLETE' in body
+                            if complete and proc.poll() is not None:
+                                if done_at is None:done_at=time.monotonic()
+                                if time.monotonic()-done_at>.5:break
+                    finally:
+                        try:
+                            if not reap_debugger(proc):debugger_cleanup_failed=True
+                        except BaseException:
+                            debugger_cleanup_failed=True
+                            raise
+                if debugger_cleanup_failed:raise RuntimeError('Remote debugger exit could not be confirmed; restoration and further programming disabled')
                 uart=body.decode(errors='replace').replace('\r','')
                 (out/(name+'-uart.txt')).write_text(uart)
                 status=checker.assess(name,uart,proc.returncode)
                 if a.suite=='config' and status=='pass':
                     (out/(name+'-snapshot.json')).write_text(json.dumps(checker.snapshot(name,uart),indent=2)+'\n')
-                if name=='perf':
+                calibrated=name=='perf' or (a.suite=='memory-ddr' and name=='ddr-calibrated')
+                if calibrated:
                     interval=observations.get('COUNTER_INTERVAL_END',0)-observations.get('COUNTER_INTERVAL_START',0)
-                    (out/'perf-clock-observation.json').write_text(json.dumps({'interval_seconds':interval,'expected_seconds':1.0,'acceptance':[0.9,1.1]},indent=2)+'\n')
+                    (out/(name+'-clock-observation.json')).write_text(json.dumps({'interval_seconds':interval,'expected_seconds':1.0,'acceptance':[0.9,1.1],'scope':'Coarse independent host wall-clock rate check; UART/scheduling uncertainty, not precision calibration'},indent=2)+'\n')
                     if not .9<=interval<=1.1:status='fail'
 
-                item={'name':name,'status':status,'debug_exit':proc.returncode,'elf_sha256':lab.digest(elf),'timing_valid':name=='perf' and status=='pass' and 'TIMING_UNAVAILABLE' not in uart,'uart_path':a.port,'entry':'0x82400000'}
+                item={'name':name,'status':status,'debug_exit':proc.returncode,'elf_sha256':lab.digest(elf),'timing_valid':calibrated and status=='pass' and 'TIMING_UNAVAILABLE' not in uart,'uart_path':a.port,'entry':'0x82400000'}
                 record['tests'].append(item);save();print(name+': '+status+'\n'+uart[-2600:],flush=True)
                 if proc.returncode:raise RuntimeError('Debugger failed; stop before the next payload')
             finally:os.close(fd)
@@ -187,7 +251,8 @@ def main():
         record['error']=repr(exc);save();raise
     finally:
         try:
-            if bootstrap_failed:record['restoration']='not attempted after bootstrap failure'
+            if debugger_cleanup_failed:record['restoration']='not attempted after debugger cleanup failure'
+            elif bootstrap_failed:record['restoration']='not attempted after bootstrap failure'
             else:bootstrap('restore');record['restoration']='pass'
         except Exception as exc:record['restoration']='fail';record['restore_error']=repr(exc)
         save();mcp.close();lock.close();write_mutex({'state':'released','pid':os.getpid(),'restoration':record['restoration']});print('DDR Hello restoration: '+record['restoration'],flush=True)

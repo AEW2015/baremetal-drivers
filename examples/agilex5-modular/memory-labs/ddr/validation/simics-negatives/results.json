@@ -1,0 +1,75 @@
+{
+  "environment": "Agilex5 Simics model",
+  "scope": "Model functional execution only; counter-derived results do not qualify physical DDR/MPFE timing",
+  "runner_sha256": "a59f916ef89a7933addd8f4733bae182884f7d48d6d6cf6cafeb331dbc483115",
+  "oracle_sha256": "1b0777d271cb1dcdcda35e3ef1e532d10e95dfb1d06930b5205d9b40d2df82ec",
+  "bootstrap_sha256": "025972a740c9c99a490d2551003f2f56dcc6b7d60aafd81408347a11234bbadd",
+  "simics_launcher_sha256": "f8927571c024f086fc7547fdf28ecdc9bfe159fe7d211868affe2f59a6ada0bc",
+  "build": {
+    "scope": "Compile only; hardware timing not qualified",
+    "target": "agilex5",
+    "source_revision": "af81d9e81572a5d630ba7d405db715a5dfbe7ec8",
+    "source_sha256": {
+      "memory-labs/ddr/ddr.c": "9bf6009803dd6cb1a8073906f6a19189d164feb6d6c69057c75ef1cdfbb1b146",
+      "memory-labs/ddr/build.sh": "ab658cdcfb1e919494b7db2591ecd1e6936d6be2c8bd7333087b6ebc83846bab",
+      "qemu/labs/start.S": "dd94c3884c078c186e582b3bcb79b7cfc517b48009320bca69647c7e830b7b4d",
+      "qemu/labs/runtime.c": "86fe3dbb0b7d171d9e602e6bc3536b9ebb0baf329b9097e4c2553a884c6caaaf",
+      "qemu/labs/link.ld": "aa24579e892b7eaf5dd6b98bd12714328c2bd684b50855686f6fb20e92d2b81d",
+      "qemu/labs/lab.h": "b97dd13ada04b42c0ecea1db353485df8ed90f7bf9a00d92b90f9fd421da5540"
+    },
+    "artifacts": {
+      "ddr-copy-fault.bin": "2e924add656da2605c1258c7ebe31266d4ee3fe9d5a813c4eb9585ed30f30b51",
+      "ddr-clock-fault.elf": "2aa947cd1262391b5174394cc9bf9e7fb35e11ebf8f58ff12ea65de918a015ad",
+      "ddr-copy-fault.elf": "cd2cac0efe2569839ffb044012194029deaeeb8aa26f1c1dfbb282830fb1727f",
+      "ddr-path.bin": "103e0ee586eb2aa482c4456ebbf740d37e5ca1ff7a458507803ae7481e2df0ae",
+      "ddr-path.elf": "4675f1c9b796738348e083aeeab20b2d8acabaad6c715f6fedf6dee36969a2e5",
+      "ddr-clock-fault.bin": "4299004c87486eba14fd84f0329e715aedde1b1403a795d753d0d1037df15354"
+    }
+  },
+  "tests": [
+    {
+      "name": "ddr-copy-fault",
+      "status": "pass",
+      "negative_control": true,
+      "expected_failure": "DDR_COPY_READBACK",
+      "process_exit": 0,
+      "seconds": 15.053217750042677,
+      "elf_sha256": "cd2cac0efe2569839ffb044012194029deaeeb8aa26f1c1dfbb282830fb1727f",
+      "script_sha256": "f15bf6c99bcc6a09a07d8e86a495cd0355e22c82aad898662915db053f541f54",
+      "samples": [
+        {
+          "op": "read",
+          "working_set_bytes": 65536,
+          "ticks": 131628,
+          "payload_bytes": 131072,
+          "accesses": 16384,
+          "checksum": 671632206730108928,
+          "emulated_declared_seconds": 0.00032907,
+          "emulated_payload_bytes_per_second": 398310389.88665026
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 65536,
+          "ticks": 148013,
+          "payload_bytes": 131072,
+          "accesses": 16384,
+          "checksum": 335816103365054464,
+          "emulated_declared_seconds": 0.0003700325,
+          "emulated_payload_bytes_per_second": 354217534.94625473
+        }
+      ]
+    },
+    {
+      "name": "ddr-clock-fault",
+      "status": "pass",
+      "negative_control": true,
+      "expected_failure": "DDR_DECLARED_TIMER_FREQUENCY_RANGE",
+      "process_exit": 0,
+      "seconds": 14.209341829642653,
+      "elf_sha256": "2aa947cd1262391b5174394cc9bf9e7fb35e11ebf8f58ff12ea65de918a015ad",
+      "script_sha256": "29d8a33866b33cb3d26fb6f5cde3e3653f91965ce86c281929494c680d6fd5dc",
+      "samples": []
+    }
+  ],
+  "passed": true
+}

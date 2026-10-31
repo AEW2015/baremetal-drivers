@@ -1,0 +1,121 @@
+{
+  "scope": "QEMU virt SMMUv3 stage-2 + PCI EDU only; not Agilex DMA/TBU qualification",
+  "qemu_version": "QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)",
+  "build": {
+    "scope": "QEMU virt SMMUv3 stage-2 + PCI EDU only; not Agilex DMA/TBU qualification",
+    "source_revision": "af81d9e81572a5d630ba7d405db715a5dfbe7ec8",
+    "compiler": "aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "sources_sha256": {
+      "memory-labs/smmu/main.c": "b354c2d2d06bcec84204e75fbd737cf7d8d7e58fe89dc5b402f9224ad360fcef",
+      "memory-labs/smmu/build.sh": "306064609e4c1c5eaefc2b935eada8b35831abe44352c99e1a20be8ddc1a9812",
+      "qemu/labs/start.S": "dd94c3884c078c186e582b3bcb79b7cfc517b48009320bca69647c7e830b7b4d",
+      "qemu/labs/runtime.c": "86fe3dbb0b7d171d9e602e6bc3536b9ebb0baf329b9097e4c2553a884c6caaaf",
+      "qemu/labs/lab.h": "b97dd13ada04b42c0ecea1db353485df8ed90f7bf9a00d92b90f9fd421da5540",
+      "qemu/labs/link.ld": "aa24579e892b7eaf5dd6b98bd12714328c2bd684b50855686f6fb20e92d2b81d"
+    },
+    "artifacts_sha256": {
+      "bypass.elf": "ece6327c70a0639667475351dd460bc56d1d28ec2b5fcadfc4a90f5b1c4fbc32",
+      "keep-mapping.elf": "db1cf6422bb221f86b4acbec5eacebb999f496620dc831478e7968944f94f7a0",
+      "normal.elf": "02dd2574490e1827febe5ed2ef4c18677dbaf993c5c384b93ef2e6da7cbe0e40"
+    }
+  },
+  "runner_sha256": "d6486435e2071f51b731bf77a61f20e9264037c46d19fb46a3061b9a888ba164",
+  "tests": [
+    {
+      "name": "normal",
+      "status": "pass",
+      "expected_negative": false,
+      "guest_exit_status": 0,
+      "command": [
+        "qemu-system-aarch64",
+        "-machine",
+        "virt,iommu=smmuv3,secure=on,virtualization=on,highmem=off",
+        "-cpu",
+        "cortex-a57",
+        "-m",
+        "256M",
+        "-net",
+        "none",
+        "-device",
+        "edu,addr=1.0,dma_mask=4294967295",
+        "-global",
+        "arm-smmuv3.stage=2",
+        "-display",
+        "none",
+        "-serial",
+        "stdio",
+        "-monitor",
+        "none",
+        "-semihosting-config",
+        "enable=on,target=native",
+        "-device",
+        "loader,file=/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/memory-smmu/normal.elf,cpu-num=0"
+      ],
+      "elf_sha256": "02dd2574490e1827febe5ed2ef4c18677dbaf993c5c384b93ef2e6da7cbe0e40"
+    },
+    {
+      "name": "bypass",
+      "status": "pass",
+      "expected_negative": true,
+      "guest_exit_status": 1,
+      "command": [
+        "qemu-system-aarch64",
+        "-machine",
+        "virt,iommu=smmuv3,secure=on,virtualization=on,highmem=off",
+        "-cpu",
+        "cortex-a57",
+        "-m",
+        "256M",
+        "-net",
+        "none",
+        "-device",
+        "edu,addr=1.0,dma_mask=4294967295",
+        "-global",
+        "arm-smmuv3.stage=2",
+        "-display",
+        "none",
+        "-serial",
+        "stdio",
+        "-monitor",
+        "none",
+        "-semihosting-config",
+        "enable=on,target=native",
+        "-device",
+        "loader,file=/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/memory-smmu/bypass.elf,cpu-num=0"
+      ],
+      "elf_sha256": "ece6327c70a0639667475351dd460bc56d1d28ec2b5fcadfc4a90f5b1c4fbc32"
+    },
+    {
+      "name": "keep-mapping",
+      "status": "pass",
+      "expected_negative": true,
+      "guest_exit_status": 1,
+      "command": [
+        "qemu-system-aarch64",
+        "-machine",
+        "virt,iommu=smmuv3,secure=on,virtualization=on,highmem=off",
+        "-cpu",
+        "cortex-a57",
+        "-m",
+        "256M",
+        "-net",
+        "none",
+        "-device",
+        "edu,addr=1.0,dma_mask=4294967295",
+        "-global",
+        "arm-smmuv3.stage=2",
+        "-display",
+        "none",
+        "-serial",
+        "stdio",
+        "-monitor",
+        "none",
+        "-semihosting-config",
+        "enable=on,target=native",
+        "-device",
+        "loader,file=/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/memory-smmu/keep-mapping.elf,cpu-num=0"
+      ],
+      "elf_sha256": "db1cf6422bb221f86b4acbec5eacebb999f496620dc831478e7968944f94f7a0"
+    }
+  ]
+}

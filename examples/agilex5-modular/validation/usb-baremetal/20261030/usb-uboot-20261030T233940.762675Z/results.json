@@ -1,0 +1,41 @@
+{
+  "scope": "Volatile U-Boot USB enumeration; no flash/environment/filesystem writes",
+  "uboot_sha256": "84027195731fef7c0c67f3f757c59320e6767449c6893b7548a5553e66ec1b48",
+  "monitor_sha256": "32afd93728b0490bde66cbc327dfc2663c3f619c3467c2a9c03a59ac04514453",
+  "runner_sha256": "a4b2d9450b9b591682f42cbbfa26c7dc01f3cca5a5f41542c1a287573e42fa86",
+  "commands": [
+    {
+      "command": "version",
+      "prompt_returned": true
+    },
+    {
+      "command": "bdinfo",
+      "prompt_returned": true
+    },
+    {
+      "command": "usb start",
+      "prompt_returned": true
+    },
+    {
+      "command": "usb tree",
+      "prompt_returned": true
+    },
+    {
+      "command": "usb info",
+      "prompt_returned": true
+    },
+    {
+      "command": "usb storage",
+      "prompt_returned": true
+    },
+    {
+      "command": "net list",
+      "prompt_returned": true
+    }
+  ],
+  "restoration": "pass",
+  "uboot_readback": "pass",
+  "monitor_readback": "pass",
+  "uboot_prompt": true,
+  "session_complete": true
+}

@@ -1,0 +1,27 @@
+{
+  "scope": "Memory AP register reads only; no CPU halt/resume, peripheral writes or PHY transactions",
+  "invocation": [
+    "docker",
+    "exec",
+    "agilex-xrdp",
+    "timeout",
+    "--kill-after=5s",
+    "30s",
+    "openocd",
+    "-f",
+    "/home/dev/baremetal-guide-validation/examples/recovery/sysbus.cfg",
+    "-f",
+    "/home/dev/baremetal-guide-validation/examples/build/usb-reset-20261031T021157.846665Z-read-registers.cfg"
+  ],
+  "returncode": 0,
+  "complete": true,
+  "registers": {
+    "0x10d13028": "0x8",
+    "0x10c03200": "0x0",
+    "0x10c03204": "0x0",
+    "0x10c03250": "0x8d0f4c"
+  },
+  "pin10sel_gpio": true,
+  "gpio0_bit10_output": false,
+  "gpio0_bit10_input_high": true
+}

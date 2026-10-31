@@ -1,0 +1,19 @@
+{
+  "scope": "Memory AP register reads only; no CPU halt/resume, peripheral writes or PHY transactions",
+  "invocation": [
+    "docker",
+    "exec",
+    "agilex-xrdp",
+    "timeout",
+    "--kill-after=5s",
+    "30s",
+    "openocd",
+    "-f",
+    "/home/dev/baremetal-guide-validation/examples/recovery/sysbus.cfg",
+    "-c",
+    "init; foreach a {0x10d13028 0x10c03200 0x10c03204 0x10c03250} {echo [format \"USB_RESET_REG %08x %08x\" $a [lindex [read_memory $a 32 1] 0]]}; shutdown"
+  ],
+  "returncode": 1,
+  "complete": false,
+  "registers": {}
+}

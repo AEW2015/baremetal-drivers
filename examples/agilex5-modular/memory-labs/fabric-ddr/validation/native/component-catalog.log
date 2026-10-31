@@ -1,0 +1,30 @@
+***************************************************************
+Quartus is a registered trademark of Altera Corporation in the
+US and other countries.  Portions of the Quartus Prime software
+code, and other portions of the code included in this download
+or on this DVD, are licensed to Altera Corporation and are the
+copyrighted property of third parties. For license details,
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+***************************************************************
+
+2026.10.31.02:32:46 Info: Doing: qsys-script --quartus-project=check --script=check.tcl --search-path=/workspace/baremetal-fixes-20261029/examples/agilex5-modular/memory-labs/fabric-ddr,$
+2026.10.31.02:32:52 Info: create_system ddr_probe_component
+2026.10.31.02:32:52 Info: set_project_property DEVICE_FAMILY Agilex 5
+2026.10.31.02:32:52 Info: set_project_property DEVICE A5ED065BB32AE6SR0
+2026.10.31.02:32:52 Info: add_instance dut ddr_probe 1.0
+2026.10.31.02:32:53 Info: set_instance_parameter_value dut ALLOWED_BASE 268435456
+2026.10.31.02:32:53 Info: set_instance_parameter_value dut ALLOWED_END 268468224
+2026.10.31.02:32:53 Info: add_interface clock clock sink
+2026.10.31.02:32:53 Info: set_interface_property clock EXPORT_OF dut.clock
+2026.10.31.02:32:53 Info: add_interface reset reset sink
+2026.10.31.02:32:53 Info: set_interface_property reset EXPORT_OF dut.reset
+2026.10.31.02:32:53 Info: add_interface csr avalon slave
+2026.10.31.02:32:53 Info: set_interface_property csr EXPORT_OF dut.csr
+2026.10.31.02:32:54 Info: add_interface memory axi4 master
+2026.10.31.02:32:54 Info: set_interface_property memory EXPORT_OF dut.memory
+2026.10.31.02:32:54 Info: add_interface interrupt interrupt sender
+2026.10.31.02:32:54 Info: set_interface_property interrupt EXPORT_OF dut.interrupt
+2026.10.31.02:32:54 Info: save_system ddr_probe_component.qsys
+2026.10.31.02:32:54 Info: Replacing ddr_probe_component.dut with generic component
+2026.10.31.02:32:56 Info: Info: All modules have been converted to Generic Components.

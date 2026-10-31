@@ -9,12 +9,13 @@ hardware=importlib.util.module_from_spec(spec);spec.loader.exec_module(hardware)
 
 class Practice(unittest.TestCase):
     def test_sparse_elf_uses_physical_load_address_and_file_bytes_only(self):
-        image=bytearray(256);image[:6]=b'\x7fELF\x02\x01'
-        struct.pack_into('<H',image,18,183)
+        image=bytearray(256);image[:7]=b'\x7fELF\x02\x01\x01'
+        struct.pack_into('<HHI',image,16,2,183,1)
+        struct.pack_into('<H',image,52,64)
         struct.pack_into('<QQ',image,24,0x82400000,64)
         struct.pack_into('<HH',image,54,56,2)
-        struct.pack_into('<IIQQQQQQ',image,64,1,5,240,0x82400000,0x82400000,4,4,4096)
-        struct.pack_into('<IIQQQQQQ',image,120,1,6,244,0x82600000,0x82500000,8,4096,4096)
+        struct.pack_into('<IIQQQQQQ',image,64,1,5,240,0x82400000,0x82400000,4,4,1)
+        struct.pack_into('<IIQQQQQQ',image,120,1,6,244,0x82600000,0x82500000,8,4096,1)
         image[240:252]=b'codeDATA1234'
         with tempfile.TemporaryDirectory() as temp:
             path=Path(temp)/'sparse.elf';path.write_bytes(image)

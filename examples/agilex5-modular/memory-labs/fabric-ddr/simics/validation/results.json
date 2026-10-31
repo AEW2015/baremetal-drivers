@@ -1,0 +1,268 @@
+{
+  "scope": "Actual Arm C driver -> actual Verilator RTL -> native Simics DDR, plus native F2H/F2SDRAM stage-2 valid/fault cases. Functional model results only; no physical bridge/timing, command queue, ACK completion or TLBI qualification. Explicit injected errors are separate from native faults.",
+  "tests": [
+    {
+      "name": "physical",
+      "status": "pass",
+      "evidence": "protocol2-physical/results.json",
+      "result_sha256": "e8012a47ed5673bda7af23f65766739ea8f581ca529e7bb252aa78ada3b077ae",
+      "rtl_backend": {
+        "axi_faults": 0,
+        "axi_reads": 64,
+        "axi_writes": 64,
+        "csrs": 190,
+        "rtl_cycles": 383
+      },
+      "explicit_injection": "none",
+      "memory_transactions_checked": true
+    },
+    {
+      "name": "axi-error",
+      "status": "pass",
+      "evidence": "protocol2-axi-error/results.json",
+      "result_sha256": "6bff61ee921bb9b8ccf99c87eedc0564ad691e0415587c2544251edab0cf446d",
+      "rtl_backend": {
+        "axi_faults": 1,
+        "axi_reads": 0,
+        "axi_writes": 1,
+        "csrs": 24,
+        "rtl_cycles": 51
+      },
+      "explicit_injection": "axi-response",
+      "memory_transactions_checked": true
+    },
+    {
+      "name": "read-error",
+      "status": "pass",
+      "evidence": "protocol2-read-error/results.json",
+      "result_sha256": "13d18ef881067f2e54f2b98f2c49da9a5d1157077d50403d807316fab2c51cbd",
+      "rtl_backend": {
+        "axi_faults": 0,
+        "axi_reads": 64,
+        "axi_writes": 64,
+        "csrs": 183,
+        "rtl_cycles": 369
+      },
+      "explicit_injection": "read-data",
+      "memory_transactions_checked": true
+    },
+    {
+      "name": "timeout-drain",
+      "status": "pass",
+      "evidence": "protocol2-timeout-drain/results.json",
+      "result_sha256": "e735a8f80aa78503296d10f892ac3633a749f59a91b3ee93131fcd1544d94327",
+      "rtl_backend": {
+        "axi_faults": 0,
+        "axi_reads": 0,
+        "axi_writes": 1,
+        "csrs": 804,
+        "rtl_cycles": 1611
+      },
+      "explicit_injection": "aw-stall",
+      "memory_transactions_checked": true
+    },
+    {
+      "name": "f2h-valid",
+      "status": "pass",
+      "evidence": "native-f2soc-valid/results.json",
+      "result_sha256": "bcb4cc42f78f1df8db0a67f1da8fde323b5ab42510fbad8b2ccb67a6ef326b75",
+      "rtl_backend": {
+        "axi_faults": 0,
+        "axi_reads": 64,
+        "axi_writes": 64,
+        "csrs": 190,
+        "rtl_cycles": 383
+      },
+      "explicit_injection": "none",
+      "memory_transactions_checked": true,
+      "native_smmu": {
+        "configuration": {
+          "cr0": "0x5",
+          "cr0ack": "0x0",
+          "invalidation_scope": "fresh table walk only; no command queue/TLBI claim",
+          "iova": "0x85000000",
+          "memory_space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.f2soc_smmu_mem_space",
+          "model_reset_pulse": true,
+          "physical": "0x86000000",
+          "route": "f2h",
+          "sid": 0,
+          "sid_origin": "Native ingress default SID 0; no arm_smmu_attributes atom supplied; physical AXUSER-to-SID mapping not qualified",
+          "table_base": "0x85400000",
+          "tbu_index": 4,
+          "tlb_cache_enable": false
+        },
+        "cr0_after_cleanup": 0,
+        "event": {
+          "consumer": 0,
+          "global_error": 0,
+          "producer": 0,
+          "words": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "event_ok": true,
+        "passed": true,
+        "physical_iova_guard_unchanged": true,
+        "target_ok": true,
+        "target_words_checked": 64,
+        "unmapped": false
+      }
+    },
+    {
+      "name": "f2h-fault",
+      "status": "pass",
+      "evidence": "native-f2soc-fault/results.json",
+      "result_sha256": "998aa36c717b5581868b8ba15b049e9d3110c9e22aeabfc2ce8ac681e50b0fb7",
+      "rtl_backend": {
+        "axi_faults": 1,
+        "axi_reads": 0,
+        "axi_writes": 1,
+        "csrs": 24,
+        "rtl_cycles": 51
+      },
+      "explicit_injection": "none",
+      "memory_transactions_checked": true,
+      "native_smmu": {
+        "configuration": {
+          "cr0": "0x5",
+          "cr0ack": "0x0",
+          "invalidation_scope": "fresh table walk only; no command queue/TLBI claim",
+          "iova": "0x85000000",
+          "memory_space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.f2soc_smmu_mem_space",
+          "model_reset_pulse": true,
+          "physical": "0x86000000",
+          "route": "f2h",
+          "sid": 0,
+          "sid_origin": "Native ingress default SID 0; no arm_smmu_attributes atom supplied; physical AXUSER-to-SID mapping not qualified",
+          "table_base": "0x85400000",
+          "tbu_index": 4,
+          "tlb_cache_enable": false,
+          "unmapped_pte": "0x85402140"
+        },
+        "cr0_after_cleanup": 0,
+        "event": {
+          "consumer": 0,
+          "global_error": 0,
+          "producer": 1,
+          "words": [
+            16,
+            1649267441664,
+            2231377920,
+            2235572544
+          ]
+        },
+        "event_ok": true,
+        "passed": true,
+        "physical_iova_guard_unchanged": true,
+        "target_ok": true,
+        "target_words_checked": 64,
+        "unmapped": true
+      }
+    },
+    {
+      "name": "f2sdram-valid",
+      "status": "pass",
+      "evidence": "native-f2sdram-valid/results.json",
+      "result_sha256": "8548733d2d9063972d50f23da3eee05a26b567382334cef47b241708221a5257",
+      "rtl_backend": {
+        "axi_faults": 0,
+        "axi_reads": 64,
+        "axi_writes": 64,
+        "csrs": 190,
+        "rtl_cycles": 383
+      },
+      "explicit_injection": "none",
+      "memory_transactions_checked": true,
+      "native_smmu": {
+        "configuration": {
+          "cr0": "0x5",
+          "cr0ack": "0x0",
+          "invalidation_scope": "fresh table walk only; no command queue/TLBI claim",
+          "iova": "0x85000000",
+          "memory_space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.f2sdram_smmu_mem_space",
+          "model_reset_pulse": true,
+          "physical": "0x86000000",
+          "route": "f2sdram",
+          "sid": 0,
+          "sid_origin": "Native ingress default SID 0; no arm_smmu_attributes atom supplied; physical AXUSER-to-SID mapping not qualified",
+          "table_base": "0x85400000",
+          "tbu_index": 5,
+          "tlb_cache_enable": false
+        },
+        "cr0_after_cleanup": 0,
+        "event": {
+          "consumer": 0,
+          "global_error": 0,
+          "producer": 0,
+          "words": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "event_ok": true,
+        "passed": true,
+        "physical_iova_guard_unchanged": true,
+        "target_ok": true,
+        "target_words_checked": 64,
+        "unmapped": false
+      }
+    },
+    {
+      "name": "f2sdram-fault",
+      "status": "pass",
+      "evidence": "native-f2sdram-fault/results.json",
+      "result_sha256": "4d80486f8f7afaea6e7e1d3754a66f164112164dc9aea6ea9f4111c218dd10f6",
+      "rtl_backend": {
+        "axi_faults": 1,
+        "axi_reads": 0,
+        "axi_writes": 1,
+        "csrs": 24,
+        "rtl_cycles": 51
+      },
+      "explicit_injection": "none",
+      "memory_transactions_checked": true,
+      "native_smmu": {
+        "configuration": {
+          "cr0": "0x5",
+          "cr0ack": "0x0",
+          "invalidation_scope": "fresh table walk only; no command queue/TLBI claim",
+          "iova": "0x85000000",
+          "memory_space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.f2sdram_smmu_mem_space",
+          "model_reset_pulse": true,
+          "physical": "0x86000000",
+          "route": "f2sdram",
+          "sid": 0,
+          "sid_origin": "Native ingress default SID 0; no arm_smmu_attributes atom supplied; physical AXUSER-to-SID mapping not qualified",
+          "table_base": "0x85400000",
+          "tbu_index": 5,
+          "tlb_cache_enable": false,
+          "unmapped_pte": "0x85402140"
+        },
+        "cr0_after_cleanup": 0,
+        "event": {
+          "consumer": 0,
+          "global_error": 0,
+          "producer": 1,
+          "words": [
+            16,
+            1649267441664,
+            2231377920,
+            2235572544
+          ]
+        },
+        "event_ok": true,
+        "passed": true,
+        "physical_iova_guard_unchanged": true,
+        "target_ok": true,
+        "target_words_checked": 64,
+        "unmapped": true
+      }
+    }
+  ],
+  "passed": true
+}

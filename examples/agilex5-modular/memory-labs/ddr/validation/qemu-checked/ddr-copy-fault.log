@@ -1,0 +1,17 @@
+LAB BEGIN ddr-path
+PASS DDR_MMU_AND_DCACHE_INITIALLY_OFF
+PASS DDR_DECLARED_TIMER_FREQUENCY_RANGE
+TIMER_SOURCE QEMU-architectural-declared-frequency; not-hardware-timing
+DDR_TIMER frequency_hz=62500000
+PASS DDR_TIMER_ADVANCES
+DDR_STATE mmu=on memory=normal-noncacheable shareability=inner data_cache=off
+DDR_SCOPE scalar-CPU-effective-path; copy-bytes-are-payload; no-peak-MPFE-claim
+DDR_SOURCE=0x0000000045000000
+DDR_DESTINATION=0x0000000046000000
+PASS DDR_READ_CHECKSUM
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=read working_set_bytes=65536 ticks=7004 payload_bytes=131072 accesses=16384 checksum=671632206730108928
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=write working_set_bytes=65536 ticks=44274 payload_bytes=131072 accesses=16384 checksum=335816103365054464
+FAIL DDR_COPY_READBACK
+LAB FAILED

@@ -1,0 +1,19 @@
+{
+  "scope": "Memory AP register reads only; no CPU halt/resume, peripheral writes or PHY transactions",
+  "invocation": [
+    "docker",
+    "exec",
+    "agilex-xrdp",
+    "timeout",
+    "--kill-after=5s",
+    "30s",
+    "openocd",
+    "-f",
+    "/home/dev/baremetal-guide-validation/examples/recovery/sysbus.cfg",
+    "-c",
+    "init; mdw 0x10d13028 1; mdw 0x10c03200 2; mdw 0x10c03250 1; shutdown"
+  ],
+  "returncode": 0,
+  "complete": false,
+  "registers": {}
+}

@@ -8,11 +8,11 @@ PASS records execution of the referenced artifacts, not a promise about every fu
 
 | Platform | Recorded PASS | Partial | Failed |
 |---|---:|---:|---:|
-| qemu | 12 | 0 | 0 |
-| simics | 37 | 2 | 3 |
-| hardware | 34 | 0 | 0 |
+| qemu | 15 | 0 | 0 |
+| simics | 42 | 2 | 3 |
+| hardware | 34 | 0 | 1 |
 
-Inventory: **86 rows**. Results include historical versions; see each row’s scope and evidence.
+Inventory: **94 rows**. Results include historical versions; see each row’s scope and evidence.
 
 ## Current upstream
 
@@ -144,3 +144,16 @@ Inventory: **86 rows**. Results include historical versions; see each row’s sc
 | Example | QEMU | Simics | Hardware | Scope |
 |---|---|---|---|---|
 | [Simics native PIO input snapshots and LED readback](assets/architecture/design.html?example=model%2Fpio) | NOT-SUPPORTED | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/model-audit/validation/results.json) | NOT-SUPPORTED | Modeled bit-0 input snapshots and 32-bit LED data-pattern readback/restoration; includes bad-mask negative control. No physical I/O or external transitions qualified. |
+
+## Memory and fabric labs
+
+| Example | QEMU | Simics | Hardware | Scope |
+|---|---|---|---|---|
+| [Cached multicore handoff and contention](assets/architecture/design.html?example=memory%2Fdsu) | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/dsu/validation/results.json) | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/dsu/validation/simics-results.json) | [COMPILE-ONLY](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/dsu/validation/build-agilex5.json) | Three cached consumers, full integrity, per-core translation attributes and quiescence. Model execution does not measure physical L3 behavior. |
+| [L3 partition versus shared contention](assets/architecture/design.html?example=memory%2Fl3-partition) | NOT-SUPPORTED | NOT-SUPPORTED | [COMPILE-ONLY](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/dsu/validation/build-agilex5.json) | Hardware-only opt-in policy with saved/restored DSU registers; identical contention workload. No physical policy/performance result. |
+| [HPS DDR working-set sweeps](assets/architecture/design.html?example=memory%2Fddr-sweep) | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/ddr/validation/qemu-final/results.json) | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/ddr/validation/simics-results.json) | [COMPILE-ONLY](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/ddr/validation/build-agilex5-calibrated.json) | 64 KiB–16 MiB read/write/copy and dependent loads, NC memory, raw ticks and integrity. Calibrated hardware variant compiles; no physical bandwidth result. |
+| [SMMUv3 translated PCI EDU DMA](assets/architecture/design.html?example=memory%2Fsmmu-qemu) | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/smmu/validation/qemu-20261031T022532.436895Z/results.json) | NOT-SUPPORTED | NOT-SUPPORTED | QEMU virt stage-2 nonidentity 4096-byte DMA, unmap/TLBI fault and guards; PCI EDU does not exist on Agilex. |
+| [Native Simics TBU diagnostic (host-issued)](assets/architecture/design.html?example=memory%2Fnative-tbu) | NOT-SUPPORTED | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/smmu/validation/simics-native-20261031T024350.917717Z/results.json) | NOT-SUPPORTED | Host-issued native DMA0/F2H/F2SDRAM TBU reads/writes and unmapped faults. Cache-disabled fresh walks; not a guest DMA engine or TLBI test. |
+| [Arm-controlled DMAC0 through the TBU](assets/architecture/design.html?example=memory%2Fdma-tbu) | NOT-SUPPORTED | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/smmu/dmac/validation/simics-final/results.json) | NOT-RUN | Guest drives actual DMAC0 model: 4096-byte nonidentity copy, destination fault, guards and cleanup. Host configures model tables; hardware port pending. |
+| [Arm driver and AXI RTL through DDR/TBU paths](assets/architecture/design.html?example=memory%2Ffabric-ddr) | NOT-SUPPORTED | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/fabric-ddr/simics/validation/results.json) | BLOCKED | Actual C driver and Verilator AXI initiator through native Simics DDR/F2H/F2SDRAM, translated faults and guards. Component generates; full-board fit/deployment pending. |
+| [Bare-metal USB host bring-up](assets/architecture/design.html?example=custom%2Fusb-host) | NOT-SUPPORTED | NOT-RUN | [FAIL](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/usb-baremetal/20261031/results.json) | U-Boot boots in HPS DDR; physical CNR and PHY-ID timeouts prevent hub enumeration and USB mouse/storage/Ethernet traffic. |

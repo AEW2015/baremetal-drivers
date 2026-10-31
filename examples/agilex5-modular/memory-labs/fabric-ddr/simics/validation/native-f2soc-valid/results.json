@@ -1,0 +1,90 @@
+{
+  "scope": "Actual Arm driver CSR -> actual Verilator AXI initiator -> native Simics physical DDR; no physical bridge, native TBU translation or cycle-accurate platform timing claim",
+  "status": "pass",
+  "route": "f2soc",
+  "case": "native-valid",
+  "explicit_injection": "none",
+  "process_exit": 0,
+  "seconds": 14.960374898277223,
+  "backend": {
+    "axi_faults": 0,
+    "axi_reads": 64,
+    "axi_writes": 64,
+    "csrs": 190,
+    "rtl_cycles": 383
+  },
+  "native_smmu": {
+    "configuration": {
+      "cr0": "0x5",
+      "cr0ack": "0x0",
+      "invalidation_scope": "fresh table walk only; no command queue/TLBI claim",
+      "iova": "0x85000000",
+      "memory_space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.f2soc_smmu_mem_space",
+      "model_reset_pulse": true,
+      "physical": "0x86000000",
+      "route": "f2h",
+      "sid": 0,
+      "sid_origin": "Native ingress default SID 0; no arm_smmu_attributes atom supplied; physical AXUSER-to-SID mapping not qualified",
+      "table_base": "0x85400000",
+      "tbu_index": 4,
+      "tlb_cache_enable": false
+    },
+    "cr0_after_cleanup": 0,
+    "event": {
+      "consumer": 0,
+      "global_error": 0,
+      "producer": 0,
+      "words": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "event_ok": true,
+    "passed": true,
+    "physical_iova_guard_unchanged": true,
+    "target_ok": true,
+    "target_words_checked": 64,
+    "unmapped": false
+  },
+  "native_fixture_sha256": "342b65ef3df1d88d3e0e721abb1575cef38501ddf8eeacff80ab147f1cba1067",
+  "memory_transactions_checked": true,
+  "build": {
+    "scope": "Compiled actual RTL backend and bare-metal Arm guests; no execution claimed",
+    "compiler": "aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009",
+    "verilator": "Verilator 5.020 2024-01-01 rev (Debian 5.020-1)",
+    "sources": {
+      "memory-labs/fabric-ddr/rtl/ddr_probe.sv": "98ea27d178969e1dda1479a7d5a617a025839c80db19ae0998664670e7f313db",
+      "memory-labs/fabric-ddr/driver.c": "24e40f5977614213cddf6ad2e27daa6142b576b76ca4028adec9cab6717d219b",
+      "memory-labs/fabric-ddr/driver.h": "475ff70f41e825cbeac53552e50dda3bd3c021e4af2a339779458a078db95754",
+      "memory-labs/fabric-ddr/mmio.c": "7bc1e6185971db8253c5f70e1808e54505cbaec42eef436038d3aff3d526ca73",
+      "qemu/labs/start.S": "dd94c3884c078c186e582b3bcb79b7cfc517b48009320bca69647c7e830b7b4d",
+      "qemu/labs/runtime.c": "86fe3dbb0b7d171d9e602e6bc3536b9ebb0baf329b9097e4c2553a884c6caaaf",
+      "qemu/labs/lab.h": "b97dd13ada04b42c0ecea1db353485df8ed90f7bf9a00d92b90f9fd421da5540",
+      "qemu/labs/link.ld": "aa24579e892b7eaf5dd6b98bd12714328c2bd684b50855686f6fb20e92d2b81d",
+      "memory-labs/fabric-ddr/simics/transactor.cpp": "258b3f655f52d85b4adc9860fb55a5b6c802ad7344c80018c8792eb5a6e2fad6",
+      "memory-labs/fabric-ddr/simics/guest.c": "5eafd981a7f963b281859a2dfa02e48f847e8efccac1e50c81c03197990a4430",
+      "memory-labs/fabric-ddr/simics/build.sh": "814becba6d73dd720cd220cd40c2231c93cdd368809ff24cb8f9f88e07a46123"
+    },
+    "artifacts": {
+      "fault.elf": "76671403a553a97cbe584ec6d238574b235fa7e520b80a28199b82dd6b97c64a",
+      "timeout.elf": "fdb3ef2ee0aedb845dfc478f48fe7b9db19b826e390718ed6c5e2703ad6154ff",
+      "physical.elf": "747e378854d18151bd98eb65c5568f3b1d2fcd91f3eb61da95a6fcd5b88789c0",
+      "translated.elf": "842a2cead678d022b8cf6c71a8cf28c318d77dbb20432b72e4748b9ff36864d7",
+      "read-fault.elf": "d4f66c2b6b358bbd2ef68af664f3ea4bdb9a90a1b2c0238a0e62eae7eeac08ff",
+      "timeout.bin": "fa9b9e61ab71e5fb1ff8058fb510a0815fc6ebb98cb207a355cebc60e60e7861",
+      "translated.bin": "49c46267f3f9f1c6d47d1a47ed0a062746f6d1ddf52e3b031a6befd0ca6b2880",
+      "read-fault.bin": "a77b4f02d28d5022982c77349a081e2bea6f3790a0a80e32b2082c882f9557bc",
+      "fault.bin": "ccf86484eba12b6dc2b7dae2cd5bf0eff999201b30175335e153fa24e4f18760",
+      "physical.bin": "2a6d1622b74aa3226486478d8ffc0cad1918c221da20a8927d2ba729f83a70bd",
+      "rtl/Vddr_probe": "6e293e1c7e432307473e916a0ce48ef24a6942b810439e91a7b90e029532c529",
+      "rtl-ns/Vddr_probe": "ef057cfdea33891bca9e9341ca0b9ef84f237f7eec2138777e4f8c7d56d393f6"
+    }
+  },
+  "bootstrap_sha256": "025972a740c9c99a490d2551003f2f56dcc6b7d60aafd81408347a11234bbadd",
+  "runner_sha256": "1c6391facb4290387651c86995087ba92281b3107a40116be512bbe047a42b51",
+  "adapter_sha256": "d9faac4179768bcb3bc2e4cf2e60f21e1187fb863708704b672020b1416a85c4",
+  "transport_sha256": "f9e9b17c1b0af82398a28c9616d6d1ad060fcaa8b9e4f38bf52b1312c7020c1c",
+  "script_sha256": "b3c79afe59840ba2163fa1c5d9aa459f7c4ad6d9bf6a631f924c326b4d97288d"
+}

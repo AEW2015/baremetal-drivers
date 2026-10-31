@@ -1718,6 +1718,210 @@
           "status": "not-supported"
         }
       }
+    },
+    {
+      "id": "memory/dsu",
+      "title": "Cached multicore handoff and contention",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/dsu",
+      "scope": "Three cached consumers, full integrity, per-core translation attributes and quiescence. Model execution does not measure physical L3 behavior.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "memory-labs/dsu/validation/results.json",
+          "cases": [
+            "normal",
+            "corrupt",
+            "stalled",
+            "contention"
+          ]
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "memory-labs/dsu/validation/simics-results.json",
+          "cases": [
+            "normal",
+            "corrupt",
+            "stalled",
+            "contention"
+          ]
+        },
+        "hardware": {
+          "status": "compile-only",
+          "evidence": "memory-labs/dsu/validation/build-agilex5.json"
+        }
+      }
+    },
+    {
+      "id": "memory/l3-partition",
+      "title": "L3 partition versus shared contention",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/dsu",
+      "scope": "Hardware-only opt-in policy with saved/restored DSU registers; identical contention workload. No physical policy/performance result.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-supported"
+        },
+        "hardware": {
+          "status": "compile-only",
+          "evidence": "memory-labs/dsu/validation/build-agilex5.json"
+        }
+      }
+    },
+    {
+      "id": "memory/ddr-sweep",
+      "title": "HPS DDR working-set sweeps",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/ddr",
+      "scope": "64 KiB\u201316 MiB read/write/copy and dependent loads, NC memory, raw ticks and integrity. Calibrated hardware variant compiles; no physical bandwidth result.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "memory-labs/ddr/validation/qemu-final/results.json",
+          "cases": [
+            "ddr-path",
+            "ddr-copy-fault",
+            "ddr-clock-fault"
+          ]
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "memory-labs/ddr/validation/simics-results.json",
+          "cases": [
+            "ddr-path",
+            "ddr-copy-fault",
+            "ddr-clock-fault"
+          ]
+        },
+        "hardware": {
+          "status": "compile-only",
+          "evidence": "memory-labs/ddr/validation/build-agilex5-calibrated.json"
+        }
+      }
+    },
+    {
+      "id": "memory/smmu-qemu",
+      "title": "SMMUv3 translated PCI EDU DMA",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/smmu",
+      "scope": "QEMU virt stage-2 nonidentity 4096-byte DMA, unmap/TLBI fault and guards; PCI EDU does not exist on Agilex.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "memory-labs/smmu/validation/qemu-20261031T022532.436895Z/results.json",
+          "cases": [
+            "normal",
+            "bypass",
+            "keep-mapping"
+          ]
+        },
+        "simics": {
+          "status": "not-supported"
+        },
+        "hardware": {
+          "status": "not-supported"
+        }
+      }
+    },
+    {
+      "id": "memory/native-tbu",
+      "title": "Native Simics TBU diagnostic (host-issued)",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/smmu/native_fixture.py",
+      "scope": "Host-issued native DMA0/F2H/F2SDRAM TBU reads/writes and unmapped faults. Cache-disabled fresh walks; not a guest DMA engine or TLBI test.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "memory-labs/smmu/validation/simics-native-20261031T024350.917717Z/results.json",
+          "cases": [
+            "dma0",
+            "f2h",
+            "f2sdram"
+          ]
+        },
+        "hardware": {
+          "status": "not-supported"
+        }
+      }
+    },
+    {
+      "id": "memory/dma-tbu",
+      "title": "Arm-controlled DMAC0 through the TBU",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/smmu/dmac",
+      "scope": "Guest drives actual DMAC0 model: 4096-byte nonidentity copy, destination fault, guards and cleanup. Host configures model tables; hardware port pending.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "memory-labs/smmu/dmac/validation/simics-final/results.json",
+          "cases": [
+            "native-dmac-smmu"
+          ]
+        },
+        "hardware": {
+          "status": "not-run"
+        }
+      }
+    },
+    {
+      "id": "memory/fabric-ddr",
+      "title": "Arm driver and AXI RTL through DDR/TBU paths",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/fabric-ddr",
+      "scope": "Actual C driver and Verilator AXI initiator through native Simics DDR/F2H/F2SDRAM, translated faults and guards. Component generates; full-board fit/deployment pending.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "memory-labs/fabric-ddr/simics/validation/results.json",
+          "cases": [
+            "physical",
+            "axi-error",
+            "read-error",
+            "timeout-drain",
+            "f2h-valid",
+            "f2h-fault",
+            "f2sdram-valid",
+            "f2sdram-fault"
+          ]
+        },
+        "hardware": {
+          "status": "blocked"
+        }
+      }
+    },
+    {
+      "id": "custom/usb-host",
+      "title": "Bare-metal USB host bring-up",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/usb-bringup",
+      "scope": "U-Boot boots in HPS DDR; physical CNR and PHY-ID timeouts prevent hub enumeration and USB mouse/storage/Ethernet traffic.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported"
+        },
+        "simics": {
+          "status": "not-run"
+        },
+        "hardware": {
+          "status": "fail",
+          "evidence": "validation/usb-baremetal/20261031/results.json",
+          "cases": [
+            "usb-host-init"
+          ]
+        }
+      }
     }
   ]
 }

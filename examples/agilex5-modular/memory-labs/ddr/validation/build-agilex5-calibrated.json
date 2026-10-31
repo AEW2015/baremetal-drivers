@@ -1,0 +1,50 @@
+{
+  "scope": "Compile only; hardware timing not qualified",
+  "target": "agilex5",
+  "source_revision": "af81d9e81572a5d630ba7d405db715a5dfbe7ec8",
+  "source_sha256": {
+    "memory-labs/ddr/ddr.c": "9bf6009803dd6cb1a8073906f6a19189d164feb6d6c69057c75ef1cdfbb1b146",
+    "memory-labs/ddr/build.sh": "09479b5b9fc38afcfb3dd89e01da091ff6d9b7ddf1908c045f8b1e69a4ac9ccf",
+    "qemu/labs/start.S": "dd94c3884c078c186e582b3bcb79b7cfc517b48009320bca69647c7e830b7b4d",
+    "qemu/labs/runtime.c": "86fe3dbb0b7d171d9e602e6bc3536b9ebb0baf329b9097e4c2553a884c6caaaf",
+    "qemu/labs/link.ld": "aa24579e892b7eaf5dd6b98bd12714328c2bd684b50855686f6fb20e92d2b81d",
+    "qemu/labs/lab.h": "b97dd13ada04b42c0ecea1db353485df8ed90f7bf9a00d92b90f9fd421da5540",
+    "memory-labs/ddr/calibrated.c": "46e10ba1dd7fdab7a8a4038d4130997def8d078c2ca4d51dbc512d6ded03fd8e"
+  },
+  "artifacts": {
+    "ddr-copy-fault.bin": "2e924add656da2605c1258c7ebe31266d4ee3fe9d5a813c4eb9585ed30f30b51",
+    "ddr-calibrated.bin": "dc94e502b2170f75b43c09ea389e056a5d1d6b1cce1ba8d34cbb2ba890afac1a",
+    "ddr-clock-fault.elf": "2aa947cd1262391b5174394cc9bf9e7fb35e11ebf8f58ff12ea65de918a015ad",
+    "ddr-copy-fault.elf": "cd2cac0efe2569839ffb044012194029deaeeb8aa26f1c1dfbb282830fb1727f",
+    "ddr-path.bin": "103e0ee586eb2aa482c4456ebbf740d37e5ca1ff7a458507803ae7481e2df0ae",
+    "ddr-calibrated.elf": "5e143d9327616469876ba7ea3da48d73c1cd13c60c6fa37691df3b0eb962c3db",
+    "ddr-path.elf": "4675f1c9b796738348e083aeeab20b2d8acabaad6c715f6fedf6dee36969a2e5",
+    "ddr-clock-fault.bin": "4299004c87486eba14fd84f0329e715aedde1b1403a795d753d0d1037df15354"
+  },
+  "calibration": {
+    "variant": "ddr-calibrated",
+    "declared_frequency_hz": 400000000,
+    "nominal_interval_ticks": 400000000,
+    "host_interval_grade_seconds": [
+      0.9,
+      1.1
+    ],
+    "scope": "Compile only; independent host coarse interval required; not fine timing accuracy"
+  },
+  "frozen_original_source_and_images_unchanged": true,
+  "frozen_original_sha256": {
+    "examples/agilex5-modular/memory-labs/ddr/ddr.c": "9bf6009803dd6cb1a8073906f6a19189d164feb6d6c69057c75ef1cdfbb1b146",
+    "examples/agilex5-modular/build/memory-ddr-qemu/ddr-copy-fault.bin": "c17e8fed2730931ade01278ce253069b9581273a44bb7c8e71c60bdc07fb58ef",
+    "examples/agilex5-modular/build/memory-ddr-qemu/ddr-clock-fault.elf": "c5a00335dfd1108c85b0ab22440bf84a2374d372a81191c091d304a9b1872a3a",
+    "examples/agilex5-modular/build/memory-ddr-qemu/ddr-copy-fault.elf": "2d370b6a0ee4b9e861af31be5226a0db085ec46608e7e932d3478e9f5f525329",
+    "examples/agilex5-modular/build/memory-ddr-qemu/ddr-path.bin": "9feaef28c0f088be6bd4dc25f4c7db7544aff9495436d018f73b51f173203a06",
+    "examples/agilex5-modular/build/memory-ddr-qemu/ddr-path.elf": "3da5d50496417760410a6c9ed3da0006657f80cca372d274a584cdb36efd17ea",
+    "examples/agilex5-modular/build/memory-ddr-qemu/ddr-clock-fault.bin": "944b677e76031f815eab9c4c97a36ed73d9860f582a21e3597aedf5a627dbfb6",
+    "examples/agilex5-modular/build/memory-ddr-agilex5/ddr-copy-fault.bin": "2e924add656da2605c1258c7ebe31266d4ee3fe9d5a813c4eb9585ed30f30b51",
+    "examples/agilex5-modular/build/memory-ddr-agilex5/ddr-clock-fault.elf": "2aa947cd1262391b5174394cc9bf9e7fb35e11ebf8f58ff12ea65de918a015ad",
+    "examples/agilex5-modular/build/memory-ddr-agilex5/ddr-copy-fault.elf": "cd2cac0efe2569839ffb044012194029deaeeb8aa26f1c1dfbb282830fb1727f",
+    "examples/agilex5-modular/build/memory-ddr-agilex5/ddr-path.bin": "103e0ee586eb2aa482c4456ebbf740d37e5ca1ff7a458507803ae7481e2df0ae",
+    "examples/agilex5-modular/build/memory-ddr-agilex5/ddr-path.elf": "4675f1c9b796738348e083aeeab20b2d8acabaad6c715f6fedf6dee36969a2e5",
+    "examples/agilex5-modular/build/memory-ddr-agilex5/ddr-clock-fault.bin": "4299004c87486eba14fd84f0329e715aedde1b1403a795d753d0d1037df15354"
+  }
+}

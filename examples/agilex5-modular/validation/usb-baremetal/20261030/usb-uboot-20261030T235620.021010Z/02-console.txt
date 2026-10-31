@@ -1,0 +1,34 @@
+bdinfo
+boot_params = 0x0000000080000100
+DRAM bank   = 0x0000000000000000
+-> start    = 0x0000000080000000
+-> size     = 0x0000000008000000
+flashstart  = 0x0000000000000000
+flashsize   = 0x0000000000000000
+flashoffset = 0x0000000000000000
+baudrate    = 115200 bps
+relocaddr   = 0x0000000087f02000
+reloc off   = 0x0000000007d02000
+Build       = 64-bit
+current eth = ethernet@10810000
+ethaddr     = 72:c0:c9:3b:90:02
+IP addr     = <NULL>
+fdt_blob    = 0x0000000087afa4d0
+lmb_dump_all:
+ memory.count = 0x1
+ memory[0]	[0x80000000-0x87ffffff], 0x8000000 bytes, flags: none
+ reserved.count = 0x2
+ reserved[0]	[0x80000000-0x800fffff], 0x100000 bytes, flags: no-map
+ reserved[1]	[0x86afa4c0-0x87ffffff], 0x1505b40 bytes, flags: no-overwrite
+devicetree  = separate
+serial addr = 0x0000000010c02000
+ width      = 0x0000000000000004
+ shift      = 0x0000000000000002
+ offset     = 0x0000000000000000
+ clock      = 0x0000000005f5e100
+arch_number = 0x0000000000000000
+TLB addr    = 0x0000000087fe0000
+irq_sp      = 0x0000000087afa4c0
+sp start    = 0x0000000087afa4c0
+Early malloc usage: 1ec0 / 2000
+SOCFPGA_AGILEX5 # 

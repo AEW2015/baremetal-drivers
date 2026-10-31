@@ -4,10 +4,11 @@ Use **HPS DDR bank 3A** for memory-backed labs. Separate fabric DDR/EMIF is
 excluded. This checklist tracks the **23 architecture blocks** originally marked
 without an associated example in the [clickable diagram](architecture.md).
 Some are parent groups or parts of one subsystem, so they do not require 23
-independent applications. Seven coverage items are now supported by recorded
-evidence, leaving **16 of the original 23 tasks** open. Coverage associations
-are scoped below; a model or snapshot result does not establish full block
-qualification.
+independent applications. The checkboxes below track example implementation and
+its stated model/bench evidence, not blanket physical-block qualification.
+The new [memory and fabric labs](memory-fabric-labs.md) have source, captured
+outputs and separate platform results. Physical acceptance remains a separate
+checklist below; source association in the diagram does not imply hardware PASS.
 
 ## 1. Review existing evidence and associations
 
@@ -57,13 +58,16 @@ exercised; it must not introduce a new hardware PASS.
   `MPU_STATUS=0`. This is a snapshot report, not full System Manager
   qualification. See the [configuration audit](config-audit.md) and its
   [separate evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/config-audit).
-- [ ] **DSU / shared L3** (`/HPS/MPU/DSU`): build a multicore shared-memory lab
-  with explicit cache/MMU attributes, synchronization and data-integrity checks.
-  Identification alone does not qualify cache coherency.
-- [ ] **MPFE NoC** (`/DDR_IO96/MPFE/NoC`): add controlled HPS-DDR throughput and
-  latency measurements with stated working-set sizes, cache state and timing
-  method. Describe effective software throughput rather than claiming peak
-  physical DDR bandwidth.
+- [x] **DSU / shared L3 prototype** (`/HPS/MPU/DSU`): cached producer/consumer,
+  full payload verification, per-core MMU/cache attributes, corruption/timeout
+  controls and contention pass in QEMU and Agilex Simics. The hardware-only L3
+  policy variant compiles with register restoration and secondary quiescence;
+  physical coherency and partition-performance qualification remain pending.
+- [x] **MPFE NoC benchmark software** (`/DDR_IO96/MPFE/NoC`): 64 KiB–16 MiB
+  read/write/copy and dependent-load sweeps pass all 20 samples and both failure
+  controls in QEMU and Simics. Cache state and raw ticks are explicit. The
+  hardware variant requiring an independent counter-rate check compiles; no physical bandwidth
+  or peak MPFE performance result is claimed.
 - [x] **Simics PIO** (`/Fabric/Simics_reference/PIO`): the recorded Simics
   guest reads modeled button/switch inputs (static zero values), checks two
   LED patterns by readback, and restores the initial LED state. A negative
@@ -71,20 +75,36 @@ exercised; it must not introduce a new hardware PASS.
   model register access only; no physical buttons, switches, or LEDs were
   qualified. See the [model audit source and validation](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/model-audit/validation).
 
-Allow roughly another week for meaningful memory/model labs once their setup
-is established. These are planning estimates, not completion dates.
+See the [memory/fabric results](memory-fabric-labs.md) for commands and evidence.
 
 ## 3. Add real USB communication
 
 - [ ] **SOM USB connection** (`/SOM_IO/USB_port`): identify the connector, role,
   cable, power requirements and known test device/host; add enumeration and
-  checked data transfers.
+  checked data transfers. A source-built U-Boot bare-metal image has booted on
+  the board using a bounded 128 MiB DDR window; its xHCI controller-not-ready
+  timeout currently prevents external USB enumeration. No Linux OS was booted.
+  The maintained U-Boot USB stack has intended hub, HID, storage, and candidate
+  USB-Ethernet support, but enumeration and class traffic remain unproven. In
+  the latest controlled retry, normal vendor USB3 PIPE-power bit 14 was restored
+  (`USB3_MISC0` `0x07c00c11` → `0x07c04c11`, `PER0MODRST=0`); xHCI still timed
+  out waiting for CNR with `USBSTS=0x00000801` and error `-110`. The change did
+  not resolve the issue or identify its cause. PHY, PIPE-clock, and board-control
+  behavior remain under investigation. This item remains pending. The standalone
+  SDK currently has only a USB controller-ID result.
+  See the [USB bring-up record](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/usb-bringup/README.md).
 - [ ] **USB PHY interface** (`/HPS/PSS/Peripherals/USB_PHY_interface`): establish
   the actual PHY path used by that setup and associate its physical evidence.
   Controller identification is not PHY or external-device communication.
+  The current xHCI CNR timeout blocks external enumeration, so this PHY
+  association is also pending; the PIPE-power retry above did not identify the
+  root cause. See the
+  [USB bring-up record](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/usb-bringup/README.md).
 
-This work requires a suitable external USB setup. Simulator coverage must state
-which device behavior is actually modeled.
+This work requires a suitable external USB setup. Enumeration, checked HID
+reports, USB-Ethernet traffic, and read-only storage access each need separate
+evidence. Simulator coverage must state which device behavior is actually
+modeled.
 
 ## 4. Exercise translation and fabric access to HPS DDR
 
@@ -92,24 +112,32 @@ Estimated effort: several weeks, depending on FPGA integration and board
 availability. One shared translation harness may cover several entries, but
 each transaction source/path needs its own evidence.
 
-- [ ] **TCU** (`/HPS/APS/TCU`): configure a controlled translation context and
-  prove a valid mapping plus an intentional translation/permission fault.
+- [x] **TCU model lab** (`/HPS/APS/TCU`): nonidentity stage-2 translation and
+  unmapped faults pass with real QEMU SMMUv3/EDU DMA and native Agilex Simics
+  TBU paths. Simics tests use cache-disabled fresh walks; architectural queue
+  acknowledgement/TLBI and physical TCU qualification remain separate gates.
 - [ ] **I/O TBU** (`/HPS/PSS/IO_TBU`): identify a supported transaction source
   and prove it uses the intended translation path.
-- [ ] **DMA TBU** (`/HPS/PSS/DMA_TBU`): compare valid translated DMA with a
-  deliberately invalid mapping and check fault/completion results.
+- [x] **DMA TBU model lab** (`/HPS/PSS/DMA_TBU`): an Arm guest programs the real
+  Simics DMAC0 model for a nonidentity 4096-byte copy and destination fault.
+  Native fault SID/address, full guards, no false completion and controller
+  cleanup pass. The host configures model tables; this is not a physical driver
+  port or a Python-issued DMA substitute.
 - [ ] **EMAC TBU** (`/HPS/PSS/EMAC_TBU`): extend Ethernet tests to cover the
   intended translated DMA path and checked descriptor/buffer access.
 - [ ] **SDM TBU** (`/HPS/PSS/SDM_TBU`): first establish supported software control
   and a usable transaction source; document limitations if independent testing
   is unavailable.
-- [ ] **F2H TBU** (`/HPS/APS/F2H_TBU`): integrate a controlled fabric traffic
-  source for the corresponding fabric-to-HPS path and verify translated access.
-- [ ] **F2SDRAM TBU** (`/DDR_IO96/MPFE/F2SDRAM_TBU`): establish the applicable
-  translation configuration and test valid/faulting transactions from fabric.
-- [ ] **FPGA-to-SDRAM bridge** (`/DDR_IO96/MPFE/FPGA2SDRAM`): build a small
-  fabric traffic generator that writes/reads an explicitly reserved region of
-  HPS DDR bank 3A and checks payload integrity and completion.
+- [x] **F2H TBU model lab** (`/HPS/APS/F2H_TBU`): actual Verilator AXI traffic
+  driven by an Arm C driver passes nonidentity translation and unmapped faults
+  through the native Simics ingress, with destination and alias guards checked.
+- [x] **F2SDRAM TBU model lab** (`/DDR_IO96/MPFE/F2SDRAM_TBU`): the same actual
+  RTL/driver passes the separate native ingress's valid and fault cases. The
+  observed model default SID is not proof of physical AXUSER-to-SID wiring.
+- [x] **FPGA-to-SDRAM initiator prototype** (`/DDR_IO96/MPFE/FPGA2SDRAM`): the
+  guarded AXI master, C driver, CSR map, Platform Designer component and
+  Simics/Verilator memory tests are implemented. Matching full-board fit,
+  physical bridge integration and hardware readback remain pending.
 
 The fabric memory path for these labs is:
 
@@ -133,6 +161,20 @@ handoff, and use the shared hardware mutex for physical execution.
 - [ ] **NAND** (`/HPS/PSS/Peripherals/NAND`): verify whether usable NAND is
   connected on this SOM/design. If absent, document that dependency and assess
   simulator coverage; do not claim a physical NAND example from an ID read.
+
+## Physical acceptance still pending
+
+- [ ] Run cached multicore integrity and shared-versus-partitioned contention
+  on the Modular ES hardware, with policy restoration and secondary cleanup.
+- [ ] Run the HPS DDR sweep with the independent host counter-rate check before
+  qualifying physical timing; report software-path throughput and latency.
+- [ ] Port SMMU setup to the supported hardware initialization/queue sequence
+  and verify real DMAC0 translation/fault routing and stream assignment.
+- [ ] Fit and deploy the fabric initiator after the reserved OpenTPU build
+  window, using a verified CSR/master map and the matching HPS handoff.
+- [ ] Verify both physical fabric TBU paths, faults and guards on HPS DDR bank 3A.
+- [ ] Resolve USB controller/PHY startup and obtain actual hub/class traffic;
+  the clean-power-start retry is awaiting the requested board power cycle.
 
 ## Completion evidence for each lab
 

@@ -60,6 +60,7 @@ nav:
       - Overview: examples.md
       - Clickable HPS and fabric map: architecture.md
       - Missing-example TODO roadmap: example-roadmap.md
+      - Memory, translation and fabric labs: memory-fabric-labs.md
       - Existing evidence and mappings: example-mapping-audit.md
       - System Manager and pin-mux snapshots: config-audit.md
       - Simics native PIO models: model-audit.md

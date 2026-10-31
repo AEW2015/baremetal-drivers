@@ -1,0 +1,19 @@
+LAB BEGIN smmu-translated-dma
+PASS counter frequency available
+PASS CPU MMU and data cache off for DMA buffers and tables
+SMMU_IDR0=0x000000000d441019
+SMMU_IDR1=0x0000000002730010
+PASS model advertises stage-2 translation
+PASS PCI EDU identity at BDF 00:01.0
+PASS EDU BAR mapped
+PASS EDU register liveness
+PASS command queue has no error
+PASS command queue has no error
+PASS command queue has no error
+source IOVA=0x0000000060000000
+source PA=0x0000000048000000
+destination IOVA=0x0000000060200000
+destination PA=0x0000000048200000
+PASS IOVA differs from CPU physical address
+FAIL translated EDU DMA round trip verifies all 4096 bytes
+LAB FAILED

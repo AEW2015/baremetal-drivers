@@ -1,0 +1,56 @@
+{
+  "scope": "CI Linux cross-compiler regression; actual QEMU functional execution only",
+  "tests": [
+    {
+      "lab": "dsu",
+      "name": "normal",
+      "status": "pass"
+    },
+    {
+      "lab": "dsu",
+      "name": "corrupt",
+      "status": "pass"
+    },
+    {
+      "lab": "dsu",
+      "name": "stalled",
+      "status": "pass"
+    },
+    {
+      "lab": "dsu",
+      "name": "contention",
+      "status": "pass"
+    },
+    {
+      "lab": "ddr",
+      "name": "ddr-path",
+      "status": "pass"
+    },
+    {
+      "lab": "ddr",
+      "name": "ddr-copy-fault",
+      "status": "pass"
+    },
+    {
+      "lab": "ddr",
+      "name": "ddr-clock-fault",
+      "status": "pass"
+    },
+    {
+      "lab": "smmu",
+      "name": "normal",
+      "status": "pass"
+    },
+    {
+      "lab": "smmu",
+      "name": "bypass",
+      "status": "pass"
+    },
+    {
+      "lab": "smmu",
+      "name": "keep-mapping",
+      "status": "pass"
+    }
+  ],
+  "passed": true
+}
