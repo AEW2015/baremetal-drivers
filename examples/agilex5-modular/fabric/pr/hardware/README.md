@@ -4,7 +4,7 @@ Implemented: synthesizable static shell, ADD/XOR partition entities, Platform
 Designer component/overlay, isolated baseline importer, revision generator and
 bare-metal guest build. The Modular ES base, ADD and XOR implementations have passed synthesis, fitting,
 timing analysis and assembly in Quartus 26.3. Physical ADD→XOR→ADD swaps passed with one HPS invocation.
-[Captured evidence and real UART](../validation/20261031-hardware/README.md). The user assigned PR the next shared build slot.
+[Captured evidence and real UART](../validation/20261031-hardware/README.md).
 The matching Modular ES source/handoff must be retained; a production-kit
 reference cannot replace it.
 

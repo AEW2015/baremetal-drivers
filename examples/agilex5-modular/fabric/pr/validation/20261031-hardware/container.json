@@ -2,5 +2,8 @@
   "image": "agilex-learning:pr-hardware-reference",
   "id": "sha256:97c6286a606010d2e5cf88f3f561d41d8e114784c8ccec89d81577e056c40d8f",
   "source_commit": "b7393de",
-  "result": "full learning-check passed from clean clone; proprietary Quartus/Simics separately installed"
+  "result": "full learning-check passed from clean clone; proprietary Quartus/Simics separately installed",
+  "final_source_commit": "253af02",
+  "final_result": "PASS BOARD_FREE_LEARNING_CHECK from fresh shared clone, source mounted read-only; QEMU/negative/GDB/memory/fabric/PR RTL and all six guard tests",
+  "final_log": "final-clean-clone-learning-check.log"
 }

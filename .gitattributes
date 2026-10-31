@@ -28,3 +28,7 @@ examples/agilex5-modular/service-candidates/validation/**/*.log -text -whitespac
 examples/agilex5-modular/service-candidates/validation/**/*.txt -text -whitespace
 examples/agilex5-modular/fabric/pr/validation/**/*.log -text -whitespace
 examples/agilex5-modular/fabric/pr/validation/**/*.txt -text -whitespace
+
+# Preserve unmodified compiler reports alongside PR execution evidence.
+examples/agilex5-modular/fabric/pr/validation/**/*.rpt -text -whitespace
+examples/agilex5-modular/fabric/pr/validation/**/*.summary -text -whitespace

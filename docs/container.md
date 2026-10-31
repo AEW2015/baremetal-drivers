@@ -15,6 +15,11 @@ hardware variant selects a public Quartus distribution image; Simics is a
 separate, user-installed licensed product. Supply installations and licenses
 through your own environment, never by baking credentials into this image.
 
+The [physical partial-reconfiguration lab](partial-reconfiguration.md) was built
+and tested with **Quartus 26.3 Build 114**. Use that matching tool release for its
+FPGA images; the 26.1.1 hardware-image recipe supports the earlier bench workflow.
+The public learning image runs the PR C-driver/RTL checks without Quartus.
+
 ## Clone on the x86-64 Linux host
 
 Prerequisites are working Docker, network access and disk space. The complete

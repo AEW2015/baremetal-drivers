@@ -67,8 +67,8 @@ simulation-loader register.
   wrong persona all passed. [Platform assessment](simics/assessment.json) stays
   **partial** because the loader is simulated; no SDM/RBF parser is modeled.
 - [Fresh learning-container check](learning-container.log) at commit `b7393de`,
-  plus [final model build](final-model-build.log). A later clean-source check
-  validates the final host fixes separately. Proprietary tools are installed
+  plus [final model build](final-model-build.log). [Final clean-clone check](final-clean-clone-learning-check.log) at `253af02`
+  also passed, including all six host/evidence guard tests. Proprietary tools are installed
   outside the public learning image.
 
 | Revision | Setup ns | Hold ns | Recovery ns | Removal ns |
