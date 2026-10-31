@@ -1,0 +1,16 @@
+{
+  "scope": "Actual Arm guest and external RTL transition test; simulated loader has no SDM protocol or RBF parser",
+  "tests": [
+    {
+      "name": "pr-transition",
+      "status": "partial",
+      "observed_cases": {
+        "swap": "pass",
+        "load-error": "pass",
+        "wrong-persona": "pass"
+      },
+      "source": "results.json",
+      "limitation": "SDM bitstream loading is not simulated"
+    }
+  ]
+}

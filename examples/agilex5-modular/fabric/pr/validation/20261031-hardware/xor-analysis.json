@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"jobId\": \"d1f794f6-7a6d-4d18-aad5-7cece723b5d5\",\n  \"status\": \"completed\",\n  \"kind\": \"analyze_bitstream\",\n  \"flow\": \"analyze_bitstream\",\n  \"mode\": \"in-process\",\n  \"projectDir\": \"/workspace\",\n  \"projectName\": \"\",\n  \"startedAt\": \"2026-10-31T22:22:57.331Z\",\n  \"pollAfterSeconds\": 15,\n  \"endedAt\": \"2026-10-31T22:22:59.063Z\",\n  \"exitCode\": 0,\n  \"stdoutTail\": \"\",\n  \"stderrTail\": \"\",\n  \"result\": {\n    \"success\": true,\n    \"exitCode\": 0,\n    \"durationMs\": 1732,\n    \"timedOut\": false,\n    \"stdout\": \"Analysis: **pr_xor.rbf**\\n\\n| Field | Value |\\n|---|---|\\n| Device | A5ED065BB32AE6SR0 |\\n| Encrypted | FALSE |\\n| Signed | FALSE |\\n| Disable JTAG | OFF |\\n\\n=== VERIFIED FACTS (extracted deterministically \u2014 do not contradict) ===\\nBitstream Encrypted: FALSE\\nBitstream Signed: FALSE\\nDisable Jtag: OFF\\nOwnership Transfer Mode: FALSE\\n=== END VERIFIED FACTS ===\",\n    \"stderr\": \"\",\n    \"command\": \"analyze_bitstream\",\n    \"args\": []\n  },\n  \"success\": true,\n  \"durationMs\": 1732,\n  \"timedOut\": false\n}"
+    }
+  ]
+}

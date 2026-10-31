@@ -5,13 +5,20 @@ replacing an **ADD1** accelerator with **XOR1**, then swapping back. Both expose
 the [same register ABI](fabric-ip.md#register-abi-10), so the application probes
 the current persona and reuses its driver.
 
-!!! info "Runtime transition simulation implemented; physical fit pending"
-    The new static shell and C driver have passed ADD→XOR→ADD transitions in
-    Simics with actual external Verilator RTL. Loader-error and wrong-persona
-    controls remain isolated; four-state tests verify unknown-output isolation
-    and reset recovery. The loader is simulated, so these results do not qualify
-    SDM bitstream loading or physical PR. Modular ES platform generation passed;
-    fitted base/persona images and physical deployment remain pending.
+!!! success "Physical ADD → XOR → ADD passed on Modular ES"
+    Quartus 26.3 built the static base and both personas for
+    `A5ED065BB32AE6SR0`. Two real JTAG PR loads completed while one HPS
+    application kept running. ADD/XOR arithmetic, static scratch/heartbeat,
+    reset/identity and a 256-word HPS DDR guard passed. The final guest printed
+    `PR_LAB_COMPLETE status=0`. This uses the SOM's HPS DDR bank.
+
+    Simics also runs the Arm guest against external Verilator RTL, including
+    loader-error and wrong-persona controls. Its loader is simulated; it does
+    not parse partial RBFs or model SDM programming. QEMU does not run this
+    Agilex fabric/PR integration.
+
+[Hardware build, real terminal output and failed-attempt diagnostics](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric/pr/validation/20261031-hardware) ·
+[Reproduce the physical deployment](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/fabric/pr/hardware/README.md)
 
 ## Run the transition example
 
@@ -65,9 +72,9 @@ and the implementation flow in its
 | Method | What changes | What remains running | Status here |
 |---|---|---|---|
 | Compile-time MODE | Logic selected during synthesis | Not a runtime swap | ADD/XOR RTL + C driver simulated |
-| Full SOF replacement | Whole volatile fabric; HPS bring-up repeated | No application-continuity claim | Guarded deployment recipe supplied; new fabric not board-qualified |
+| Full SOF replacement | Whole volatile fabric; HPS bring-up repeated | No application-continuity claim | FPGA-first base boot and DDR checks passed |
 | Runtime RTL-model swap | Selected model persona | One guest, static scratch/heartbeat and DDR guard | Simics/Verilator passed; simulated loader |
-| Partial persona RBF | One planned PR region | Static shell/HPS/DDR by design | Integration lab; hardware demonstration pending |
+| Partial persona RBF | One planned PR region | One HPS guest, static shell and HPS DDR | Two real JTAG PR swaps passed |
 
 The normal DDR runner programs a boot image and restarts the application.
 It cannot demonstrate live PR continuity. Do not feed a persona RBF into
@@ -199,8 +206,7 @@ hashes or a loader that claims compatibility without a compiled base.
 
 ## 4. Run the live ADD → XOR → ADD experiment
 
-These are the acceptance steps for the **completed PR project**, not commands
-the current HPS-only suite can execute. Use one bench owner and retain the
+These acceptance steps are implemented by the [guarded hardware coordinator](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/fabric/pr/hardware/run.py). Use one bench owner and retain the
 hardware lock for the complete experiment. Do not rerun DDR initialization or
 load the HPS ELF between persona swaps; those would restart the experiment.
 
@@ -225,17 +231,32 @@ load the HPS ELF between persona swaps; those would restart the experiment.
    controller events, hashes and result transitions before restoring the
    known-good complete design through the ordinary recovery path.
 
-Expected acceptance record, **not a captured bench result**:
+Actual hardware UART ([full evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric/pr/validation/20261031-hardware)):
 
 ```text
-BASE loaded once; application boot count = 1
-ADD1: 7 + 5 = 12
-freeze acknowledged → XOR RBF complete → region ready
-XOR1: 7 ^ 5 = 2
-freeze acknowledged → ADD RBF complete → region ready
-ADD1: 7 + 5 = 12
-static sentinel preserved; DDR sentinel preserved; heartbeat advanced
-application boot count = 1
+PR_LAB_BEGIN jtag_loader=1
+PASS INITIAL_ADD_ID
+PASS INITIAL_ADD_VECTORS
+PASS ISOLATED_READ_RESPONSE
+PR_TIMER_HZ=0x0000000000000000
+PR_HOST_LOAD_REQUEST=0x00000000584f5231
+PR_PERSONA=0x00000000584f5231
+PASS SWAP_RESET_AND_ID
+PASS XOR_VECTORS
+PASS STATIC_SCRATCH_CONTINUITY
+PASS STATIC_HEARTBEAT_PROGRESS
+PASS DDR_GUARD_256_WORDS
+PASS ISOLATED_READ_RESPONSE
+PR_TIMER_HZ=0x0000000000000000
+PR_HOST_LOAD_REQUEST=0x0000000041444431
+PR_PERSONA=0x0000000041444431
+PASS SWAP_RESET_AND_ID
+PASS RETURN_ADD_VECTORS
+PASS STATIC_SCRATCH_CONTINUITY
+PASS STATIC_HEARTBEAT_PROGRESS
+PASS DDR_GUARD_256_WORDS
+PASS TWO_RUNTIME_SWAPS
+PR_LAB_COMPLETE status=0
 ```
 
 Altera's [PR process sequence](https://docs.altera.com/r/docs/683834/25.1/quartus-prime-pro-edition-user-guide-partial-reconfiguration/partial-reconfiguration-process-sequence)
@@ -254,6 +275,6 @@ controller's handshake rather than assuming one fixed delay is sufficient.
 | Sentinel disappears or boot count increases | Full configuration/reboot occurred, or scratch ranges overlapped? | Do not call this live PR; fix the experiment's isolation and memory ownership |
 | PR fails midstream | Region may contain incomplete logic | Keep it isolated; use documented controller recovery or reinstall the matching full base |
 
-The hardware milestone is a repeated ADD/XOR/ADD transition with continuity
-checks. Passing two separate Verilator builds is useful preparation, and is
-recorded as simulation rather than as that milestone.
+The physical ADD/XOR/ADD milestone and continuity checks passed on this kit.
+See the [bring-up diagnostics](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/fabric/pr/hardware/README.md#bring-up-diagnostics)
+for the observed boot-order, configuration-status, JTAG-metadata and timer failures.

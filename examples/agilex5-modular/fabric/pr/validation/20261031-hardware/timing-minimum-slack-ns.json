@@ -1,0 +1,23 @@
+{
+  "baseline_a55": {
+    "Setup": 2.221,
+    "Hold": 0.0,
+    "Recovery": 4.31,
+    "Removal": 0.164,
+    "Minimum Pulse Width": 0.0
+  },
+  "pr_add": {
+    "Setup": 2.221,
+    "Hold": 0.0,
+    "Recovery": 4.373,
+    "Removal": 0.164,
+    "Minimum Pulse Width": 0.0
+  },
+  "pr_xor": {
+    "Setup": 2.221,
+    "Hold": 0.0,
+    "Recovery": 4.02,
+    "Removal": 0.164,
+    "Minimum Pulse Width": 0.0
+  }
+}

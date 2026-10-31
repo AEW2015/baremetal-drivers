@@ -7,7 +7,7 @@ def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def validate_manifest(path):
  d=json.loads(path.read_text())
  if d.get('device_id')!='0364F0DD':raise ValueError('Wrong physical device profile')
- for key in ('full_sof','bridge_rbf','guest_bin','guest_elf','add','xor'):
+ for key in ('full_sof','guest_bin','guest_elf','add','xor'):
   obj=d[key];p=Path(obj['path'])
   if not p.is_file() or sha(p)!=obj['sha256']:raise ValueError('Missing/changed artifact: '+key)
  for key in ('add','xor'):
@@ -15,6 +15,14 @@ def validate_manifest(path):
   if proof.get('status')!='pass' or proof['parent_sha256']!=d['full_sof']['sha256'] or proof['child_sha256']!=d[key]['sha256']:raise ValueError('No matching PR compatibility evidence: '+key)
   if sha(proof['path'])!=proof['sha256']:raise ValueError('Changed compatibility evidence')
  return d
+
+def require_fabric_user_mode(config_text):
+ # STATE=IDLE is the configuration engine state even after entry to user mode.
+ # Qualify the decoded device state together with the actual completion bits.
+ if ('Device has entered user mode' not in config_text or
+     not re.search(r'CONF_DONE\s*=\s*1',config_text) or
+     not re.search(r'INIT_DONE\s*=\s*1',config_text)):
+  raise RuntimeError('Fabric has not entered user mode; no MMIO access permitted')
 
 def main():
  p=argparse.ArgumentParser(description=__doc__)
@@ -24,7 +32,7 @@ def main():
  a=p.parse_args();manifest=validate_manifest(a.manifest)
  workspace=a.mcp_client.resolve().parent
  def remote(path):return '/workspace/'+str(Path(path).resolve().relative_to(workspace))
- for key in ('full_sof','bridge_rbf','add','xor'):remote(manifest[key]['path'])
+ for key in ('full_sof','add','xor'):remote(manifest[key]['path'])
  if not a.run:print('PASS PR_ARTIFACT_PREFLIGHT; no hardware access');return 0
  sys.path.insert(0,str(workspace));from mcp_client import MCP
  out=ROOT/'runs'/('pr-hardware-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ'));out.mkdir(parents=True)
@@ -71,6 +79,10 @@ def main():
    if state.get('status') in ('completed','failed','cancelled'):
     uncertain=False
     if state['status']!='completed' or state.get('success') is False or state.get('exitCode',0):raise RuntimeError('Programming failed: '+label)
+    config=m.call('read_config_status',{'cable':cable,'device_index':index})
+    (out/(label+'-config-status.json')).write_text(json.dumps(config,indent=2)+'\n')
+    config_text=config.get('text','')
+    require_fabric_user_mode(config_text)
     return
    time.sleep(1)
   raise RuntimeError('Programming completion uncertain; automatic recovery disabled')
@@ -80,7 +92,7 @@ def main():
   while time.monotonic()<deadline:
    body+=drain();(out/(label+'-uart.txt')).write_bytes(body)
    if b'###DDR:init success###' in body and all(('pattern %d PASS'%i).encode() in body for i in range(4)) and b'payload readback PASS' in body and body.split(b'payload readback PASS')[-1].count(hello)>=3:
-    if key=='bridge_rbf' and b'LOCAL FABRIC: LWH2F enabled' not in body:raise RuntimeError('Bridge enable was not observed')
+    if b'LOCAL FABRIC: LWH2F enabled' not in body:raise RuntimeError('Bridge enable was not observed')
     return
    if b'ERROR:' in body or b'FAIL' in body:raise RuntimeError('DDR bootstrap failed')
   raise RuntimeError('DDR bootstrap timeout')
@@ -92,14 +104,15 @@ def main():
   if r.returncode or re.search(r'(?m)^Error(?: \(|:)',body):raise RuntimeError('Command failed: '+label+'\n'+body[-2000:])
   return body
  def control(stage,expected,label):
-  script=out/(label+'.tcl');script.write_text(f'set pr_stage {stage}\nset pr_expected {expected:#x}\n'+Path(__file__).with_name('host_control.tcl').read_text())
+  _,cable,index=chain(label+'-control')
+  script=out/(label+'.tcl');script.write_text(f'set pr_stage {stage}\nset pr_expected {expected:#x}\nset pr_sof {{{remote(manifest["full_sof"]["path"])}}}\nset pr_cable {{{cable}}}\nset pr_index {index}\n'+Path(__file__).with_name('host_control.tcl').read_text())
   body=command(['docker','exec','agilex26-mcp-demos','timeout','--kill-after=5s','35s','system-console','--script='+remote(script)],label)
   marker='PR_HOST_STAGE_RESULT stage='+stage+' PASS'
   if len(re.findall('^'+re.escape(marker)+'$',body,re.M))!=1 or 'PR_HOST_STAGE_ERROR' in body:raise RuntimeError('No trustworthy System Console completion: '+label)
  try:
   fd=os.open(a.port,os.O_RDONLY|os.O_NOCTTY|os.O_NONBLOCK)
   v=termios.tcgetattr(fd);v[0]=v[1]=v[3]=0;v[2]=termios.CS8|termios.CREAD|termios.CLOCAL;v[4]=v[5]=termios.B115200;v[6][termios.VMIN]=v[6][termios.VTIME]=0;termios.tcsetattr(fd,termios.TCSANOW,v)
-  boot('full_sof','base');boot('bridge_rbf','bridge')
+  boot('full_sof','base')
   chain('guest-load');termios.tcflush(fd,termios.TCIFLUSH)
   image=Path(manifest['guest_bin']['path']);copy=a.bench/'examples/build'/(out.name+'-guest.bin');copy.write_bytes(image.read_bytes());readback=Path(str(copy)+'.readback');readback.unlink(missing_ok=True)
   rp='/home/dev/baremetal-guide-validation/examples/build/'+copy.name
@@ -152,6 +165,11 @@ shutdown
    if hardware_touched and not uncertain:
     idx,_,_=chain('restore')
     if idx!='1':raise RuntimeError('Bench recovery requires verified carrier as cable 1')
+    # Stop the previous boot's UART before the legacy recovery capture starts.
+    # Otherwise a boot still printing its DDR patterns can satisfy that runner
+    # before the replacement boot has reached DDR (observed PC 0x2760).
+    halt='hps.a55.0 configure -event halted {}; hps.a55.0 configure -event resumed {}; gdb port disabled; tcl port disabled; telnet port disabled; init; halt; shutdown'
+    command(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','30s','openocd','-f','/home/dev/baremetal-guide-validation/ocram/agilex5.cfg','-c',halt],'restore-prehalt',45)
     r=subprocess.run([sys.executable,str(a.bench/'ddr-bringup/run_ddr.py'),'--port',a.port,'--full-recovery'],capture_output=True,timeout=240)
     (out/'restore.log').write_bytes(r.stdout+r.stderr);record['restoration']='pass' if r.returncode==0 else 'fail'
    else:record['restoration']='not attempted: uncertain owned process' if uncertain else 'not needed'

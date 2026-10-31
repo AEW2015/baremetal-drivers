@@ -1,0 +1,6 @@
+{
+  "image": "agilex-learning:pr-hardware-reference",
+  "id": "sha256:97c6286a606010d2e5cf88f3f561d41d8e114784c8ccec89d81577e056c40d8f",
+  "source_commit": "b7393de",
+  "result": "full learning-check passed from clean clone; proprietary Quartus/Simics separately installed"
+}

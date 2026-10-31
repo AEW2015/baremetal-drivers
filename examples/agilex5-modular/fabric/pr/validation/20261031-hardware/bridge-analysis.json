@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"jobId\": \"7f736d9c-418b-4de1-a56f-2fd4a0a6cfde\",\n  \"status\": \"completed\",\n  \"kind\": \"analyze_bitstream\",\n  \"flow\": \"analyze_bitstream\",\n  \"mode\": \"in-process\",\n  \"projectDir\": \"/workspace\",\n  \"projectName\": \"\",\n  \"startedAt\": \"2026-10-31T22:18:05.549Z\",\n  \"pollAfterSeconds\": 15,\n  \"endedAt\": \"2026-10-31T22:18:07.056Z\",\n  \"exitCode\": 0,\n  \"stdoutTail\": \"\",\n  \"stderrTail\": \"\",\n  \"result\": {\n    \"success\": true,\n    \"exitCode\": 0,\n    \"durationMs\": 1507,\n    \"timedOut\": false,\n    \"stdout\": \"Analysis: **bridge.hps.rbf**\\n\\n| Field | Value |\\n|---|---|\\n| Device | A5ED065BB32AE6SR0 |\\n| JTAG ID | 0x0364F0DD |\\n| Config Scheme | Active Serial x4 |\\n| Clock Source | 100 MHz Clock Frequency |\\n| JTAG User Code | 0xFFFFFFFF |\\n| Encrypted | FALSE |\\n| Signed | FALSE |\\n| Disable JTAG | OFF |\\n| Anti-Tamper | DISABLE |\\n| HPS Present | TRUE |\\n| CvP | OFF |\\n| RSU Max Retry | 1 |\\n\\n=== VERIFIED FACTS (extracted deterministically \u2014 do not contradict) ===\\nBitstream Encrypted: FALSE\\nBitstream Signed: FALSE\\nDisable Jtag: OFF\\nOwnership Transfer Mode: FALSE\\nAnti Tamper Response: DISABLE\\nFips Mode: NON_FIPS\\n=== END VERIFIED FACTS ===\",\n    \"stderr\": \"\",\n    \"command\": \"analyze_bitstream\",\n    \"args\": []\n  },\n  \"success\": true,\n  \"durationMs\": 1507,\n  \"timedOut\": false\n}"
+    }
+  ]
+}

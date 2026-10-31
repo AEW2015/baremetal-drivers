@@ -39,6 +39,8 @@ clock_source.write_text(clock_text)
 s=(out/'baseline_a55.qsf').read_text()
 s=re.sub(r'^set_global_assignment -name FLOW_DISABLE_ASSEMBLER .*$', 'set_global_assignment -name FLOW_DISABLE_ASSEMBLER OFF',s,flags=re.M)
 s=re.sub(r'^set_global_assignment -name IP_FILE ip/niosv_subsys/(?:niosv_m|niosv_onchip_memory)\.ip\n', '', s, flags=re.M)
+# This JTAG-only lab loads the whole fabric before HPS, not a later HPS-loaded core.
+s=re.sub(r'^set_global_assignment -name HPS_INITIALIZATION .*$', 'set_global_assignment -name HPS_INITIALIZATION \"AFTER INIT_DONE\"', s, flags=re.M)
 s+='\nset_global_assignment -name IP_SEARCH_PATHS "custom_ip/**/*"\n'
 (out/'baseline_a55.qsf').write_text(s)
 (out/'baseline_a55.qpf').write_text('PROJECT_REVISION = \"baseline_a55\"\n')

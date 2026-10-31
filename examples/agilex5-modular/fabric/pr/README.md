@@ -50,15 +50,24 @@ identity remain isolated; a new load can recover them. This custom isolation
 contract applies only to this fixed-latency, nonbursting, single-clock agent;
 it is not a general AXI/Avalon freeze bridge.
 
-## Physical build preparation
+## Physical hardware result
 
 [Hardware preparation](hardware/README.md) stages source from the matching ES
 HPS baseline, adds the static shell and independent JTAG manager, generates the
 platform and creates PR revisions for a reviewed partition/floorplan. Generated
-IP has been checked for the exact ES part; full PR fitting and hardware swapping
-are still pending. Preserve the matching HPS DDR handoff and bootstrap.
+The base and ADD/XOR implementation revisions passed Quartus 26.3 synthesis,
+fitting, timing analysis and assembly for the exact ES part. Both partial images
+passed compatibility checking against the FPGA-first bootloader-embedded base.
+Preserve the matching HPS DDR handoff and bootstrap. Physical ADD→XOR→ADD passed with one HPS application and two real
+JTAG partial loads. Arithmetic, reset/identity, static continuity and the DDR
+guard passed; see [captured UART and build evidence](validation/20261031-hardware/README.md).
 
-The physical guest prints `PR_HOST_LOAD_REQUEST` and waits up to 120 seconds.
+The physical guest prints `PR_HOST_LOAD_REQUEST` and remains isolated while the
+host loads the requested persona. The coordinator enforces a 300-second wall-clock
+bound for both swaps. This minimal bootstrap leaves `CNTFRQ_EL0=0`; the guest
+prints that value and delegates timeout enforcement to the host in that case.
+When a nonzero counter frequency is supplied, it also applies a 600-second guest
+limit.
 It never writes the model's load register. The host must check compatibility,
 freeze acknowledgement and actual `quartus_pgm --pr` completion before writing
 host-done. The ordinary board runner reloads its bootstrap between programs and

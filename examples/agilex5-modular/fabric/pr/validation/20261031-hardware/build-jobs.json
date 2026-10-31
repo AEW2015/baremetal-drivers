@@ -1,0 +1,15 @@
+{
+  "base_synthesis": "fe6b7720-ac81-4ea5-b9c0-b97a1d3c7a76",
+  "base_fitter": "69689f50-3944-45d8-b1bb-a889d9c370d8",
+  "base_timing": "16f8bcd5-d4f8-4708-99dd-72003a97eece",
+  "base_assembler": "e2e50ca4-c3a3-4ab6-9582-39eae7786b9f",
+  "add_synthesis": "3407846e-87b9-462d-a965-aa47816f145a",
+  "add_fitter": "2492a5ce-7fcf-4c29-8ee8-a3819e981c8b",
+  "add_timing": "b12555c9-142b-430c-9d72-2b5544265467",
+  "add_assembler": "734ec881-56d6-4284-9b3d-bbd04115237d",
+  "xor_synthesis": "7e49ac55-3d51-4181-88fb-93f7d43cf566",
+  "xor_fitter": "e22dd269-1d82-41ff-b640-adc2ca3b407c",
+  "xor_timing": "66bfdb3d-8515-40bd-8d7f-ba62799c44a9",
+  "xor_assembler": "d5c5eb7d-93a8-433d-b697-b5b66a8c9320",
+  "fpga_first_add_assembler": "b88acaab-5475-4a09-9a86-1f81c3693908"
+}

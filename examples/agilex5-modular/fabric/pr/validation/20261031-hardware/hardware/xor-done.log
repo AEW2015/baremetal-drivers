@@ -1,0 +1,41 @@
+--------------------------------------------------------------------------------
+ Version 26.3 114
+ Copyright (C) 2026 Intel Corporation. All rights reserved.
+ Your use of Intel Corporation's design tools, logic functions
+ and other software and tools, and its AMPP partner logic
+ functions, and any output files from any of the foregoing
+ (including device programming or simulation files), and any
+ associated documentation or information is expressly subject
+ to the terms and conditions of the Intel Program License
+ Subscription Agreement, the Intel Quartus Prime License Agreement,
+ the Intel MegaCore Function License Agreement, or other
+ applicable license agreement, including, without limitation,
+ that your use is for the sole purpose of programming logic
+ devices manufactured by Intel and sold by Intel or its
+ authorized distributors.  Please refer to the applicable
+ agreement for further details. For license details, refer to the
+ End User License Agreement at http://fpgasoftware.intel.com/eula.
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+ Welcome to Intel's FPGA System Console
+
+ This Tcl console provides access to the hardware modules instantiated in your
+ FPGA. You can use System Console for all of the following purposes:
+
+    * To read or write Avalon Memory-Mapped (Avalon-MM) slaves using special
+      masters
+    * To sample the Platform Designer system clock and system reset signal
+    * To run JTAG loopback tests to analyze board noise problems
+    * To shift arbitrary instruction register and data register values to
+      instantiated system level debug (SLD) nodes
+    * To source and probe signals connected to In-System Sources and Probes
+      (ISSP) nodes
+
+--------------------------------------------------------------------------------
+PR_HOST_DISCOVERY /devices/A5E(C065BB32AR0|D065BB32AR0)@2#1-4.2.1#Agilex_5E MDK Carrier/(link)/JTAG/alt_sld_fab_0_alt_sld_fab_0_sldfabric.node_0/phy_0/u_pr_jtag.master hierarchy=/devices/A5E(C065BB32AR0|D065BB32AR0)@2#1-4.2.1#Agilex_5E MDK Carrier/(link)/JTAG/alt_sld_fab_0_alt_sld_fab_0_sldfabric.node_0/phy_0/u_pr_jtag.master
+PR_HOST_DISCOVERY /devices/A5E(C065BB32AR0|D065BB32AR0)@2#1-4.2.1#Agilex_5E MDK Carrier/(link)/JTAG/alt_sld_fab_0_alt_sld_fab_0_sldfabric.node_1/phy_1/u_jtag_avalon_master.master hierarchy=/devices/A5E(C065BB32AR0|D065BB32AR0)@2#1-4.2.1#Agilex_5E MDK Carrier/(link)/JTAG/alt_sld_fab_0_alt_sld_fab_0_sldfabric.node_1/phy_1/u_jtag_avalon_master.master
+PR_HOST_DISCOVERY /devices/VTAP10@3#1-4.2.1#Agilex_5E MDK Carrier/(link)/JTAG/(110:132 v1 #0)/phy_0/master hierarchy=/devices/VTAP10@3#1-4.2.1#Agilex_5E MDK Carrier/(link)/JTAG/(110:132 v1 #0)/phy_0/master
+PR_HOST_DISCOVERY /devices/VTAP10@3#1-4.2.1#Agilex_5E MDK Carrier/(link)/JTAG/(70:34 v3 #0)/nios2_0 hierarchy=/devices/VTAP10@3#1-4.2.1#Agilex_5E MDK Carrier/(link)/JTAG/(70:34 v3 #0)/nios2_0
+PR_HOST_MASTER /devices/A5E(C065BB32AR0|D065BB32AR0)@2#1-4.2.1#Agilex_5E MDK Carrier/(link)/JTAG/alt_sld_fab_0_alt_sld_fab_0_sldfabric.node_0/phy_0/u_pr_jtag.master
+PR_HOST_READ signature=0x50525331 status=0x00000209 scratch=0xcafe1234 expected=0x584f5231 heartbeat=0xe608914c
+PR_HOST_STAGE_RESULT stage=done PASS

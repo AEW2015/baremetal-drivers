@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "pc": [
+    "0x0000000082000024"
+  ],
+  "fresh_ddr_hello_count": 3,
+  "scope": "Post-program recovery confirmation; no second program operation"
+}

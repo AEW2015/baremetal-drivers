@@ -1678,18 +1678,20 @@
       "title": "Partial reconfiguration persona swap",
       "family": "Additional diagnostics and integration",
       "source": "examples/agilex5-modular/fabric/pr",
-      "scope": "Actual Simics Arm guest + Verilator static shell passed ADD-XOR-ADD, DDR guard/static continuity and load-error/wrong-persona controls. Simulated loader only; physical PR floorplan/fit/images pending.",
+      "scope": "Physical Modular ES ADD-XOR-ADD via JTAG PR passed with one HPS invocation, static scratch/heartbeat and 256-word HPS DDR guard. Simics transition/negative controls passed with a simulated loader; no modeled SDM RBF loading.",
       "platforms": {
         "qemu": {
           "status": "reference"
         },
         "simics": {
           "status": "partial",
-          "evidence": "fabric/pr/validation/20261031/results.json",
+          "evidence": "fabric/pr/validation/20261031-hardware/simics/assessment.json",
           "case": "pr-transition"
         },
         "hardware": {
-          "status": "blocked"
+          "status": "pass",
+          "evidence": "fabric/pr/validation/20261031-hardware/hardware/results.json",
+          "case": "pr-swap"
         }
       }
     },

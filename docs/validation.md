@@ -120,9 +120,11 @@ power-cycle retry, but failed controller readiness before enumeration.
 The new [fabric lesson](fabric-ip.md) includes ADD/XOR RTL, its register ABI,
 actual C-driver/RTL co-simulation, an AArch64 build and a bridge-enabled ATF
 packaging path. Evidence distinguishes these software/component checks from
-a fitted whole-board project. The new fabric design has not been board-qualified;
-[partial reconfiguration](partial-reconfiguration.md) remains an advanced
-integration lab requiring a compiled static base, isolation and tested transport.
+a fitted whole-board project. The [partial-reconfiguration lab](partial-reconfiguration.md) now has a fitted
+Modular ES base and both personas, compatible partial bitstreams, and a physical
+ADD→XOR→ADD pass with one HPS invocation. Static scratch/heartbeat and a 256-word
+HPS DDR guard passed. This qualifies that fixed-latency lab IP and JTAG PR path;
+it does not qualify arbitrary fabric initiators, SDM loading in Simics, or full DDR.
 
 ## Onboarding feedback follow-up
 

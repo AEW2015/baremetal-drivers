@@ -1,0 +1,524 @@
+Assembler report for pr_add
+Sat Oct 31 22:29:00 2026
+Quartus Prime Version 26.3.0 Build 114 10/14/2026 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Assembler Summary
+  3. Assembler Settings
+  4. Assembler Messages
+  5. HPS Handoff Summary
+  6. Pinmux Configuration - Pin Select
+  7. Pinmux Configuration - I/O Control
+  8. Pinmux Configuration - Use FPGA Switch
+  9. Pinmux Configuration - I/O Delay Switch
+ 10. Clock Configuration
+ 11. Peripheral Configuration
+ 12. DDR Configuration
+ 13. Assembler Encrypted IP Cores Summary
+ 14. Assembler Generated Files
+ 15. Assembler Device Options: pr_add.sof
+ 16. Assembler Device Options: pr_add.lab_pr_partition.pmsf
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2026  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++---------------------------------------------------------------+
+; Assembler Summary                                             ;
++-----------------------+---------------------------------------+
+; Assembler Status      ; Successful - Sat Oct 31 22:29:00 2026 ;
+; Revision Name         ; pr_add                                ;
+; Top-level Entity Name ; baseline_a55                          ;
+; Family                ; Agilex 5                              ;
+; Device                ; A5ED065BB32AE6SR0                     ;
+; Timing Models         ; Preliminary                           ;
+; Power Models          ; Preliminary                           ;
+; Device Status         ; Preliminary                           ;
++-----------------------+---------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Assembler Settings                                                                                         ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Maximum processors allowed for parallel compilation              ; 4                  ;                    ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Enable Design Assistant in the compilation flow                  ; On                 ; On                 ;
+; Design Assistant include IP blocks                               ; Off                ; Off                ;
+; High fanout net threshold for RAM inference                      ; 15                 ; 15                 ;
+; Design Assistant limit on reported violations per rule           ; 5000               ; 5000               ;
+; Auto user code                                                   ; Off                ; On                 ;
+; Voltage output format                                            ; Linear format      ; Auto discovery     ;
+; Linear format N                                                  ; -12                ; 0                  ;
+; HPS debug access port (DAP)                                      ; SDM Pins           ; Disabled           ;
+; Allow HPS debug without certificate                              ; on                 ; Off                ;
+; Configuration device                                             ; Auto               ; Auto               ;
+; Voltage stable delay                                             ; 10                 ; 10                 ;
+; FPGA release delay                                               ; 10                 ; 10                 ;
+; Initial delay                                                    ; 0                  ; 0                  ;
+; Bus speed mode                                                   ; 100 KHz            ; 100 KHz            ;
+; Slave device type                                                ; LTC3882-1          ; LTC3882-1          ;
+; Device address in PMBus Slave mode                               ; 00                 ; 00                 ;
+; PMBus device 0 slave address                                     ; 00                 ; 00                 ;
+; PMBus device 1 slave address                                     ; 00                 ; 00                 ;
+; PMBus device 2 slave address                                     ; 00                 ; 00                 ;
+; PMBus device 3 slave address                                     ; 00                 ; 00                 ;
+; PMBus device 4 slave address                                     ; 00                 ; 00                 ;
+; PMBus device 5 slave address                                     ; 00                 ; 00                 ;
+; PMBus device 6 slave address                                     ; 00                 ; 00                 ;
+; PMBus device 7 slave address                                     ; 00                 ; 00                 ;
+; Direct format coefficient m                                      ; 0                  ; 0                  ;
+; Direct format coefficient b                                      ; 0                  ; 0                  ;
+; Direct format coefficient R                                      ; 0                  ; 0                  ;
+; Translated voltage value unit                                    ; Volts              ; Volts              ;
+; VID format base voltage in mv                                    ; 0                  ; 0                  ;
+; VID format step size in mv                                       ; 0                  ; 0                  ;
+; obsolete - Data setup time in nanoseconds                        ; 0                  ; 0                  ;
+; obsolete - Data hold time in nanoseconds                         ; 0                  ; 0                  ;
+; obsolete - Clock/data fall time in nanoseconds                   ; 0                  ; 0                  ;
+; obsolete - Clock/data rise time in nanoseconds                   ; 0                  ; 0                  ;
+; Enable PAGE command                                              ; Off                ; Off                ;
+; VOUT reading error margin index                                  ; 8                  ; 8                  ;
+; Configuration device auto user code                              ; Off                ; Off                ;
+; Generate Partial Reconfiguration Raw Binary File (.rbf)          ; On                 ; On                 ;
+; HPS/FPGA configuration order                                     ; After INIT_DONE    ; After INIT_DONE    ;
+; Enable configuration bitstream encryption                        ; Off                ; Off                ;
+; Encryption key storage location                                  ; Battery Backup RAM ; Battery Backup RAM ;
+; Remote system update max retry count                             ; 1                  ; 1                  ;
+; Disable JTAG                                                     ; Off                ; Off                ;
+; Force SDM clock to internal oscillator                           ; Off                ; Off                ;
+; Disable virtual eFuses                                           ; Off                ; Off                ;
+; Lock security eFuses                                             ; Off                ; Off                ;
+; Disable HPS debug                                                ; Off                ; Off                ;
+; Disable encryption key in eFuses                                 ; Off                ; Off                ;
+; Disable encryption key in BBRAM                                  ; Off                ; Off                ;
+; Disable Intrinsic ID PUF-wrapped encryption key in Quad SPI      ; Off                ; Off                ;
+; Enable frequency tamper detection                                ; Off                ; Off                ;
+; Enable temperature tamper detection                              ; Off                ; Off                ;
+; Enable voltage tamper detection                                  ; Off                ; Off                ;
+; Anti-tamper response                                             ; Disabled           ; Disabled           ;
+; Frequency tamper detection range                                 ; 35                 ; 35                 ;
+; Temperature tamper upper bound                                   ; 110                ; 110                ;
+; Temperature tamper lower bound                                   ; -40                ; -40                ;
+; Enable VCCL voltage tamper detection                             ; Off                ; Off                ;
+; Enable VCCL SDM voltage tamper detection                         ; Off                ; Off                ;
+; Enable VCCL HPS voltage tamper detection                         ; Off                ; Off                ;
+; Voltage tamper detection trigger                                 ; 15                 ; 15                 ;
+; VCCL voltage difference in percentage                            ; 0                  ; 0                  ;
+; VCCL_SDM voltage difference in percentage                        ; 0                  ; 0                  ;
+; Run configuration CPU from internal oscillator                   ; Off                ; Off                ;
+; Generate compressed sof                                          ; On                 ; On                 ;
+; PAGE command payload                                             ; 255                ; 255                ;
+; Enable partial reconfiguration bitstream encryption              ; Off                ; Off                ;
+; Enable AliasL1 certificate                                       ; Off                ; Off                ;
+; Enable multi-authority                                           ; Off                ; Off                ;
+; Enable device self-kill                                          ; Off                ; Off                ;
+; Enable device self-kill                                          ; Off                ; Off                ;
+; Enable device self-kill                                          ; Off                ; Off                ;
+; Enable device self-kill                                          ; Off                ; Off                ;
+; Enable external voltage reference                                ; Off                ; Off                ;
+; Generate programming files                                       ; Off                ; Off                ;
+; Temperature threshold value                                      ; 120                ; 120                ;
+; Enable external scrubbing                                        ; Off                ; Off                ;
+; Enable status_byte for polling                                   ; On                 ; On                 ;
+; Disable VID for debug purpose only                               ; Off                ; Off                ;
+; Diagnostic Boot                                                  ; Off                ; Off                ;
+; seu_error_out signal behavior                                    ; Only uncorrectable ; Only uncorrectable ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++--------------------+
+; Assembler Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Assembler
+    Info: Version 26.3.0 Build 114 10/14/2026 SC Pro Edition
+    Info: Copyright (C) 2026  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Sat Oct 31 22:27:41 2026
+    Info: System process ID: 1414352
+Info: Command: quartus_asm baseline_a55 -c pr_add
+Info (16677): Loading final database.
+Info (16734): Loading "final" snapshot for partition "root_partition".
+Info (16734): Loading "final" snapshot for partition "auto_fab_0".
+Info (16734): Loading "final" snapshot for partition "lab_pr_partition".
+Info (16678): Successfully loaded final database: elapsed time is 00:00:05.
+Info (18936): Using revision output_files/baseline_a55.lab_pr_partition.pmsf as a baseline for pr_add.lab_pr_partition mask verification
+Info (18938): Using revision output_files/baseline_a55.static.msf as a baseline for static mask verification
+Info (18937): Using revision output_files/baseline_a55.sof as a baseline for root region logic preservation verification
+Info (20553): Using PR Region: pr_add.lab_pr_partition Hash 39C6DDD955AE72518FA9E3C901D2BDB416C929621EF1C5AA6E56A942A591DBD9A24278AD58AB5D9B940175754CB8D0CC
+Info (20553): Using CVP Hash 12005d92ab3353761a966ee11c8fe113e5d953b8da4deb5f724267f115ce272b
+Info (20553): Using HPS IO Hash 5843C71C0E9DDA756B74F63B07232D75066B9073D4597E08A4B426FD231961B8
+Info (19848): Design hash is A63C5F90C14F21656517D4B2B457C83E237A7C3669507B8B322E53EB94E24970
+Info (19848): Keyed hash is 0FD6BCDFAD7997BD32A0181AFB3FF4E2C42D66EC6DA810011D890BCCAF245463
+Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 6128 megabytes
+    Info: Processing ended: Sat Oct 31 22:29:00 2026
+    Info: Elapsed time: 00:01:19
+    Info: System process ID: 1414352
+
+
++---------------------------------------------+
+; HPS Handoff Summary                         ;
++------------------------------+--------------+
+; Setting                      ; Value        ;
++------------------------------+--------------+
+; Watchdog Expiration Behavior ; COLD RESET   ;
+; Powered Core                 ; Core 0 1 2 3 ;
+; Boot Core                    ; Core 0       ;
+; L3 Cache                     ; 2MB          ;
+; Number of IO Sector for DDR  ; 1            ;
+; EMIF Memory Size             ; 64 Gbits     ;
++------------------------------+--------------+
+
+
++-----------------------------------------------+
+; Pinmux Configuration - Pin Select             ;
++---------------+-----------------+-------------+
+; Name          ; Register Offset ; Value       ;
++---------------+-----------------+-------------+
+; Pin Select 0  ; 0x0000_0000     ; 0x0000_0008 ;
+; Pin Select 1  ; 0x0000_0004     ; 0x0000_0008 ;
+; Pin Select 2  ; 0x0000_0008     ; 0x0000_0005 ;
+; Pin Select 3  ; 0x0000_000c     ; 0x0000_0005 ;
+; Pin Select 4  ; 0x0000_0010     ; 0x0000_0000 ;
+; Pin Select 5  ; 0x0000_0014     ; 0x0000_0000 ;
+; Pin Select 6  ; 0x0000_0018     ; 0x0000_0006 ;
+; Pin Select 7  ; 0x0000_001c     ; 0x0000_0006 ;
+; Pin Select 8  ; 0x0000_0020     ; 0x0000_0004 ;
+; Pin Select 9  ; 0x0000_0024     ; 0x0000_0004 ;
+; Pin Select 10 ; 0x0000_0028     ; 0x0000_0008 ;
+; Pin Select 11 ; 0x0000_002c     ; 0x0000_0009 ;
+; Pin Select 12 ; 0x0000_0030     ; 0x0000_0001 ;
+; Pin Select 13 ; 0x0000_0034     ; 0x0000_0001 ;
+; Pin Select 14 ; 0x0000_0038     ; 0x0000_0001 ;
+; Pin Select 15 ; 0x0000_003c     ; 0x0000_0001 ;
+; Pin Select 16 ; 0x0000_0040     ; 0x0000_0001 ;
+; Pin Select 17 ; 0x0000_0044     ; 0x0000_0001 ;
+; Pin Select 18 ; 0x0000_0048     ; 0x0000_0001 ;
+; Pin Select 19 ; 0x0000_004c     ; 0x0000_0001 ;
+; Pin Select 20 ; 0x0000_0050     ; 0x0000_0001 ;
+; Pin Select 21 ; 0x0000_0054     ; 0x0000_0001 ;
+; Pin Select 22 ; 0x0000_0058     ; 0x0000_0001 ;
+; Pin Select 23 ; 0x0000_005c     ; 0x0000_0001 ;
+; Pin Select 24 ; 0x0000_0060     ; 0x0000_0003 ;
+; Pin Select 25 ; 0x0000_0064     ; 0x0000_0003 ;
+; Pin Select 26 ; 0x0000_0068     ; 0x0000_0003 ;
+; Pin Select 27 ; 0x0000_006c     ; 0x0000_0008 ;
+; Pin Select 28 ; 0x0000_0070     ; 0x0000_0008 ;
+; Pin Select 29 ; 0x0000_0074     ; 0x0000_0003 ;
+; Pin Select 30 ; 0x0000_0078     ; 0x0000_0003 ;
+; Pin Select 31 ; 0x0000_007c     ; 0x0000_0003 ;
+; Pin Select 32 ; 0x0000_0080     ; 0x0000_0007 ;
+; Pin Select 33 ; 0x0000_0084     ; 0x0000_0007 ;
+; Pin Select 34 ; 0x0000_0088     ; 0x0000_0007 ;
+; Pin Select 35 ; 0x0000_008c     ; 0x0000_0007 ;
+; Pin Select 36 ; 0x0000_0090     ; 0x0000_0000 ;
+; Pin Select 37 ; 0x0000_0094     ; 0x0000_0000 ;
+; Pin Select 38 ; 0x0000_0098     ; 0x0000_0000 ;
+; Pin Select 39 ; 0x0000_009c     ; 0x0000_0000 ;
+; Pin Select 40 ; 0x0000_0100     ; 0x0000_0000 ;
+; Pin Select 41 ; 0x0000_0104     ; 0x0000_0000 ;
+; Pin Select 42 ; 0x0000_0108     ; 0x0000_0000 ;
+; Pin Select 43 ; 0x0000_010c     ; 0x0000_0000 ;
+; Pin Select 44 ; 0x0000_0110     ; 0x0000_0000 ;
+; Pin Select 45 ; 0x0000_0114     ; 0x0000_0000 ;
+; Pin Select 46 ; 0x0000_0118     ; 0x0000_0000 ;
+; Pin Select 47 ; 0x0000_011c     ; 0x0000_0000 ;
++---------------+-----------------+-------------+
+
+
++------------------------------------------------+
+; Pinmux Configuration - I/O Control             ;
++----------------+-----------------+-------------+
+; Name           ; Register Offset ; Value       ;
++----------------+-----------------+-------------+
+; I/O Control 0  ; 0x0000_0000     ; 0x0000_0035 ;
+; I/O Control 1  ; 0x0000_0004     ; 0x0000_0034 ;
+; I/O Control 2  ; 0x0000_0008     ; 0x0000_0036 ;
+; I/O Control 3  ; 0x0000_000c     ; 0x0000_0034 ;
+; I/O Control 4  ; 0x0000_0010     ; 0x0000_0034 ;
+; I/O Control 5  ; 0x0000_0014     ; 0x0000_0034 ;
+; I/O Control 6  ; 0x0000_0018     ; 0x0000_0036 ;
+; I/O Control 7  ; 0x0000_001c     ; 0x0000_0036 ;
+; I/O Control 8  ; 0x0000_0020     ; 0x0000_0036 ;
+; I/O Control 9  ; 0x0000_0024     ; 0x0000_0036 ;
+; I/O Control 10 ; 0x0000_0028     ; 0x0000_0035 ;
+; I/O Control 11 ; 0x0000_002c     ; 0x0000_0034 ;
+; I/O Control 12 ; 0x0000_0030     ; 0x0000_0034 ;
+; I/O Control 13 ; 0x0000_0034     ; 0x0000_0034 ;
+; I/O Control 14 ; 0x0000_0038     ; 0x0000_0034 ;
+; I/O Control 15 ; 0x0000_003c     ; 0x0000_0034 ;
+; I/O Control 16 ; 0x0000_0040     ; 0x0000_0034 ;
+; I/O Control 17 ; 0x0000_0044     ; 0x0000_0034 ;
+; I/O Control 18 ; 0x0000_0048     ; 0x0000_0034 ;
+; I/O Control 19 ; 0x0000_004c     ; 0x0000_0034 ;
+; I/O Control 20 ; 0x0000_0050     ; 0x0000_0034 ;
+; I/O Control 21 ; 0x0000_0054     ; 0x0000_0034 ;
+; I/O Control 22 ; 0x0000_0058     ; 0x0000_0034 ;
+; I/O Control 23 ; 0x0000_005c     ; 0x0000_0034 ;
+; I/O Control 24 ; 0x0000_0060     ; 0x0000_0034 ;
+; I/O Control 25 ; 0x0000_0064     ; 0x0000_0034 ;
+; I/O Control 26 ; 0x0000_0068     ; 0x0000_0034 ;
+; I/O Control 27 ; 0x0000_006c     ; 0x0000_0035 ;
+; I/O Control 28 ; 0x0000_00d0     ; 0x0000_0035 ;
+; I/O Control 29 ; 0x0000_00d4     ; 0x0000_0034 ;
+; I/O Control 30 ; 0x0000_00d8     ; 0x0000_0034 ;
+; I/O Control 31 ; 0x0000_00dc     ; 0x0000_0034 ;
+; I/O Control 32 ; 0x0000_00e0     ; 0x0000_0034 ;
+; I/O Control 33 ; 0x0000_00e4     ; 0x0000_0034 ;
+; I/O Control 34 ; 0x0000_00e8     ; 0x0000_0036 ;
+; I/O Control 35 ; 0x0000_00ec     ; 0x0000_0034 ;
+; I/O Control 36 ; 0x0000_00f0     ; 0x0000_0036 ;
+; I/O Control 37 ; 0x0000_00f4     ; 0x0000_0034 ;
+; I/O Control 38 ; 0x0000_00f8     ; 0x0000_0034 ;
+; I/O Control 39 ; 0x0000_00fc     ; 0x0000_0034 ;
+; I/O Control 40 ; 0x0000_0100     ; 0x0000_0034 ;
+; I/O Control 41 ; 0x0000_0104     ; 0x0000_0034 ;
+; I/O Control 42 ; 0x0000_0108     ; 0x0000_0034 ;
+; I/O Control 43 ; 0x0000_010c     ; 0x0000_0034 ;
+; I/O Control 44 ; 0x0000_0110     ; 0x0000_0034 ;
+; I/O Control 45 ; 0x0000_0114     ; 0x0000_0034 ;
+; I/O Control 46 ; 0x0000_0118     ; 0x0000_0034 ;
+; I/O Control 47 ; 0x0000_011c     ; 0x0000_0034 ;
++----------------+-----------------+-------------+
+
+
++-------------------------------------------+
+; Pinmux Configuration - Use FPGA Switch    ;
++-----------+-----------------+-------------+
+; Name      ; Register Offset ; Value       ;
++-----------+-----------------+-------------+
+; emac0     ; 0x0000_0000     ; 0x0000_0000 ;
+; emac1     ; 0x0000_0004     ; 0x0000_0000 ;
+; emac2     ; 0x0000_0008     ; 0x0000_0000 ;
+; i2c0      ; 0x0000_000c     ; 0x0000_0000 ;
+; i2c1      ; 0x0000_0010     ; 0x0000_0000 ;
+; i2c_emac0 ; 0x0000_0014     ; 0x0000_0000 ;
+; i2c_emac1 ; 0x0000_0018     ; 0x0000_0000 ;
+; i2c_emac2 ; 0x0000_001c     ; 0x0000_0000 ;
+; spim0     ; 0x0000_0028     ; 0x0000_0000 ;
+; spim1     ; 0x0000_002c     ; 0x0000_0000 ;
+; spis0     ; 0x0000_0030     ; 0x0000_0000 ;
+; spis1     ; 0x0000_0034     ; 0x0000_0000 ;
+; uart0     ; 0x0000_0038     ; 0x0000_0000 ;
+; uart1     ; 0x0000_003c     ; 0x0000_0000 ;
+; mdio0     ; 0x0000_0040     ; 0x0000_0000 ;
+; mdio1     ; 0x0000_0044     ; 0x0000_0000 ;
+; mdio2     ; 0x0000_0048     ; 0x0000_0000 ;
+; jtag      ; 0x0000_0050     ; 0x0000_0000 ;
+; i3c0      ; 0x0000_01c0     ; 0x0000_0000 ;
+; i3c1      ; 0x0000_01c4     ; 0x0000_0000 ;
++-----------+-----------------+-------------+
+
+
++-----------------------------------------------------+
+; Pinmux Configuration - I/O Delay Switch             ;
++---------------------+-----------------+-------------+
+; Name                ; Register Offset ; Value       ;
++---------------------+-----------------+-------------+
+; I/O Delay Switch 0  ; 0x0000_0000     ; 0x0000_0000 ;
+; I/O Delay Switch 1  ; 0x0000_0004     ; 0x0000_0000 ;
+; I/O Delay Switch 2  ; 0x0000_0008     ; 0x0000_0000 ;
+; I/O Delay Switch 3  ; 0x0000_000c     ; 0x0000_0000 ;
+; I/O Delay Switch 4  ; 0x0000_0010     ; 0x0000_0000 ;
+; I/O Delay Switch 5  ; 0x0000_0014     ; 0x0000_0000 ;
+; I/O Delay Switch 6  ; 0x0000_0018     ; 0x0000_0000 ;
+; I/O Delay Switch 7  ; 0x0000_001c     ; 0x0000_0000 ;
+; I/O Delay Switch 8  ; 0x0000_0020     ; 0x0000_0000 ;
+; I/O Delay Switch 9  ; 0x0000_0024     ; 0x0000_0000 ;
+; I/O Delay Switch 10 ; 0x0000_0028     ; 0x0000_0000 ;
+; I/O Delay Switch 11 ; 0x0000_002c     ; 0x0000_0000 ;
+; I/O Delay Switch 12 ; 0x0000_0030     ; 0x0000_0000 ;
+; I/O Delay Switch 13 ; 0x0000_0034     ; 0x0000_0000 ;
+; I/O Delay Switch 14 ; 0x0000_0038     ; 0x0000_0000 ;
+; I/O Delay Switch 15 ; 0x0000_003c     ; 0x0000_0000 ;
+; I/O Delay Switch 16 ; 0x0000_0040     ; 0x0000_0000 ;
+; I/O Delay Switch 17 ; 0x0000_0044     ; 0x0000_0000 ;
+; I/O Delay Switch 18 ; 0x0000_0048     ; 0x0000_0000 ;
+; I/O Delay Switch 19 ; 0x0000_004c     ; 0x0000_0000 ;
+; I/O Delay Switch 20 ; 0x0000_0050     ; 0x0000_0000 ;
+; I/O Delay Switch 21 ; 0x0000_0054     ; 0x0000_0000 ;
+; I/O Delay Switch 22 ; 0x0000_0058     ; 0x0000_0000 ;
+; I/O Delay Switch 23 ; 0x0000_005c     ; 0x0000_0000 ;
+; I/O Delay Switch 24 ; 0x0000_0060     ; 0x0000_0000 ;
+; I/O Delay Switch 25 ; 0x0000_0064     ; 0x0000_0000 ;
+; I/O Delay Switch 26 ; 0x0000_0068     ; 0x0000_0000 ;
+; I/O Delay Switch 27 ; 0x0000_006c     ; 0x0000_0000 ;
+; I/O Delay Switch 28 ; 0x0000_0070     ; 0x0000_0000 ;
+; I/O Delay Switch 29 ; 0x0000_0074     ; 0x0000_0000 ;
+; I/O Delay Switch 30 ; 0x0000_0078     ; 0x0000_0000 ;
+; I/O Delay Switch 31 ; 0x0000_007c     ; 0x0000_0000 ;
+; I/O Delay Switch 32 ; 0x0000_0080     ; 0x0000_0000 ;
+; I/O Delay Switch 33 ; 0x0000_0084     ; 0x0000_0000 ;
+; I/O Delay Switch 34 ; 0x0000_0088     ; 0x0000_0000 ;
+; I/O Delay Switch 35 ; 0x0000_008c     ; 0x0000_0000 ;
+; I/O Delay Switch 36 ; 0x0000_0090     ; 0x0000_2f00 ;
+; I/O Delay Switch 37 ; 0x0000_0094     ; 0x0000_0000 ;
+; I/O Delay Switch 38 ; 0x0000_0098     ; 0x0000_002f ;
+; I/O Delay Switch 39 ; 0x0000_009c     ; 0x0000_0000 ;
+; I/O Delay Switch 40 ; 0x0000_00a0     ; 0x0000_0000 ;
+; I/O Delay Switch 41 ; 0x0000_00a4     ; 0x0000_0000 ;
+; I/O Delay Switch 42 ; 0x0000_00a8     ; 0x0000_0000 ;
+; I/O Delay Switch 43 ; 0x0000_00ac     ; 0x0000_0000 ;
+; I/O Delay Switch 44 ; 0x0000_00b0     ; 0x0000_0000 ;
+; I/O Delay Switch 45 ; 0x0000_00b4     ; 0x0000_0000 ;
+; I/O Delay Switch 46 ; 0x0000_00b8     ; 0x0000_0000 ;
+; I/O Delay Switch 47 ; 0x0000_00bc     ; 0x0000_0000 ;
++---------------------+-----------------+-------------+
+
+
++---------------------------------+
+; Clock Configuration             ;
++------------------+--------------+
+; Name             ; Value        ;
++------------------+--------------+
+; main_pll_nocclk  ; 0x0000_0000  ;
+; main_pll_nocdiv  ; 0x2824_0098  ;
+; main_pll_pllglob ; 0x1600_0101  ;
+; main_pll_fdbck   ; 0x0000_0000  ;
+; main_pll_pllc0   ; 0x0800_0004  ;
+; main_pll_pllc1   ; 0x0800_0004  ;
+; main_pll_pllc2   ; 0x0800_0006  ;
+; main_pll_pllc3   ; 0x0800_0008  ;
+; main_pll_pllm    ; 0x0000_0080  ;
+; per_pll_emacctl  ; 0x0000_0000  ;
+; per_pll_gpiodiv  ; 0x0000_0001  ;
+; per_pll_pllglob  ; 0x1500_0101  ;
+; per_pll_fdbck    ; 0x0000_0000  ;
+; per_pll_pllc0    ; 0x0800_0005  ;
+; per_pll_pllc1    ; 0x0800_0005  ;
+; per_pll_pllc2    ; 0x0800_007d  ;
+; per_pll_pllc3    ; 0x0800_0006  ;
+; per_pll_pllm     ; 0x0000_0078  ;
+; emacactr         ; 0x0001_0001  ;
+; emacbctr         ; 0x0001_0009  ;
+; emacptpctr       ; 0x0000_0000  ;
+; gpiodbctr        ; 0x0000_0001  ;
+; s2fuser0ctr      ; 0x0001_0000  ;
+; s2fuser1ctr      ; 0x0001_0000  ;
+; psirefctr        ; 0x0001_0000  ;
+; usb31ctr         ; 0x0000_0013  ;
+; dsuctr           ; 0x0000_0000  ;
+; core01ctr        ; 0x0000_0000  ;
+; core23ctr        ; 0x0000_0000  ;
+; core2ctr         ; 0x0000_0000  ;
+; core3ctr         ; 0x0000_0000  ;
+; hps_osc_clk_hz   ; 25000000 Hz  ;
+; fpga_clk_hz      ; 125000000 Hz ;
+; Spare / unused   ; 0x0000_0000  ;
+; Spare / unused   ; 0x0000_0000  ;
+; Spare / unused   ; 0x0000_0000  ;
++------------------+--------------+
+
+
++--------------------------------+
+; Peripheral Configuration       ;
++-----------+--------------------+
+; Name      ; Value              ;
++-----------+--------------------+
+; USB2.0    ; Power Gate Enable  ;
+; USB3.1    ; Power Gate Disable ;
+; TSN/EMAC0 ; Power Gate Enable  ;
+; TSN/EMAC1 ; Power Gate Enable  ;
+; TSN/EMAC2 ; Power Gate Disable ;
+; NAND      ; Power Gate Enable  ;
+; SD/EMMC   ; Power Gate Disable ;
+; CoreSight ; Power Gate Disable ;
++-----------+--------------------+
+
+
++-----------------------------------------+
+; DDR Configuration                       ;
++----------------+------------------------+
+; Name           ; Value                  ;
++----------------+------------------------+
+; Dual Port      ; Use IO96B_P0 port only ;
+; Dual EMIF      ; IO96B_0 only           ;
+; IO96B_0  PLL A ; Used                   ;
+; IO96B_0  PLL B ; Not Used               ;
+; IO96B_1  PLL A ; Not Used               ;
+; IO96B_1  PLL B ; Not Used               ;
++----------------+------------------------+
+
+
++------------------------------------------------+
+; Assembler Encrypted IP Cores Summary           ;
++--------+------------------------+--------------+
+; Vendor ; IP Core Name           ; License Type ;
++--------+------------------------+--------------+
+; Altera ; Signal Tap (6AF7 BCE1) ; Licensed     ;
+; Altera ; Signal Tap (6AF7 BCEC) ; Licensed     ;
+; Altera ; Unknown (6AF7 FFFF)    ; Licensed     ;
++--------+------------------------+--------------+
+
+
++---------------------------------------------------------------------------------+
+; Assembler Generated Files                                                       ;
++---------------------------------------------------------------------------------+
+; File Name                                                                       ;
++---------------------------------------------------------------------------------+
+; /workspace/agilex5-pr-20261031/stage5/output_files/pr_add.sof                   ;
+; /workspace/agilex5-pr-20261031/stage5/output_files/pr_add.lab_pr_partition.pmsf ;
++---------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Assembler Device Options: pr_add.sof                                               ;
++----------------+-------------------------------------------------------------------+
+; Option         ; Setting                                                           ;
++----------------+-------------------------------------------------------------------+
+; JTAG usercode  ; 0xFFFFFFFF                                                        ;
+; Checksum       ; 0x1CFA8B0A                                                        ;
+; Design hash    ; 10B5F734335B7E1BFDD803D86427FC83C1E4C09C346AB4B6F2AC1379E967043A  ;
+; HPS IO hash    ; 5843C71C0E9DDA756B74F63B07232D75066B9073D4597E08A4B426FD231961B8  ;
+; CVP hash       ; 12005D92AB3353761A966EE11C8FE113E5D953B8DA4DEB5F724267F115CE272B  ;
++----------------+-------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------+
+; Assembler Device Options: pr_add.lab_pr_partition.pmsf                                         ;
++------------------+-----------------------------------------------------------------------------+
+; Option           ; Setting                                                                     ;
++------------------+-----------------------------------------------------------------------------+
+; PR bitstream ID  ; 0x01000000:431D3CEF15CF912AB302914E7DD5639818623AAD654B27FFB8EAB522006C447F ;
+; Design hash      ; A63C5F90C14F21656517D4B2B457C83E237A7C3669507B8B322E53EB94E24970            ;
++------------------+-----------------------------------------------------------------------------+
+
+

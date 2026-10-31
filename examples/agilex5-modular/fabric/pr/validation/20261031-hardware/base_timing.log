@@ -1,0 +1,212 @@
+Info (20032): Parallel compilation is enabled and will use up to 4 processors
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 26.3.0 Build 114 10/14/2026 SC Pro Edition
+    Info: Copyright (C) 2026  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Sat Oct 31 21:55:27 2026
+    Info: System process ID: 1404453
+Info: Command: quartus_sta baseline_a55
+Info: qsta_default_script.tcl version: #1
+Info (16677): Loading final database.
+Info (16734): Loading "final" snapshot for partition "root_partition".
+Info (16734): Loading "final" snapshot for partition "auto_fab_0".
+Info (16734): Loading "final" snapshot for partition "lab_pr_partition".
+Info (16678): Successfully loaded final database: elapsed time is 00:00:04.
+Info (21076): High junction temperature operating condition is not set. Assuming a default value of '100'.
+Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '0'.
+Info (332164): Evaluating HDL-embedded SDC commands
+    Info (332165): Entity altera_std_synchronizer
+        Info (332166): set_false_path -to [get_keepers {*altera_std_synchronizer:*|din_s1}]
+Info (19539): Reading the HDL-embedded SDC files elapsed 00:00:00.
+Info (18794): Reading SDC File: 'baseline_top/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_pr_jtag|u_pr_jtag|rst_controller'
+Info (18794): Reading SDC File: 'baseline_top/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_niosv_subsys|u_jtag_avalon_master|jtag_avalon_master|rst_controller'
+Info (18794): Reading SDC File: 'baseline_top/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_niosv_subsys|rst_controller'
+Info (18794): Reading SDC File: 'baseline_top/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|rst_controller'
+Info (18794): Reading SDC File: 'baseline_top/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|rst_controller_001'
+Info (18794): Reading SDC File: 'baseline_top/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|rst_controller'
+Info (18794): Reading SDC File: 'fabric_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_pr_jtag|u_pr_jtag|rst_controller'
+Info (18794): Reading SDC File: 'fabric_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_niosv_subsys|u_jtag_avalon_master|jtag_avalon_master|rst_controller'
+Info (18794): Reading SDC File: 'fabric_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_niosv_subsys|rst_controller'
+Info (18794): Reading SDC File: 'fabric_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|rst_controller'
+Info (18794): Reading SDC File: 'fabric_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|rst_controller_001'
+Info (18794): Reading SDC File: 'fabric_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|rst_controller'
+Info (18794): Reading SDC File: 'niosv_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_pr_jtag|u_pr_jtag|rst_controller'
+Info (18794): Reading SDC File: 'niosv_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_niosv_subsys|u_jtag_avalon_master|jtag_avalon_master|rst_controller'
+Info (18794): Reading SDC File: 'niosv_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_niosv_subsys|rst_controller'
+Info (18794): Reading SDC File: 'niosv_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|rst_controller'
+Info (18794): Reading SDC File: 'niosv_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|rst_controller_001'
+Info (18794): Reading SDC File: 'niosv_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|rst_controller'
+Info (332104): Reading SDC File: 'ip/fabric_subsys/fabric_subsys_u_pr_jtag/altera_jtag_dc_streaming_191/synth/altera_avalon_st_jtag_interface.sdc'
+Info (18794): Reading SDC File: 'ip/fabric_subsys/fabric_subsys_u_pr_jtag/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_pr_jtag|u_pr_jtag|rst_controller'
+Info (18794): Reading SDC File: 'ip/fabric_subsys/fabric_subsys_u_pr_jtag/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_niosv_subsys|u_jtag_avalon_master|jtag_avalon_master|rst_controller'
+Info (18794): Reading SDC File: 'ip/fabric_subsys/fabric_subsys_u_pr_jtag/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_niosv_subsys|rst_controller'
+Info (18794): Reading SDC File: 'ip/fabric_subsys/fabric_subsys_u_pr_jtag/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|rst_controller'
+Info (18794): Reading SDC File: 'ip/fabric_subsys/fabric_subsys_u_pr_jtag/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|rst_controller_001'
+Info (18794): Reading SDC File: 'ip/fabric_subsys/fabric_subsys_u_pr_jtag/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|rst_controller'
+Info (18794): Reading SDC File: 'ip/hps_subsys/agilex_hps/intel_sundancemesa_hps_100/synth/agilex_hps_intel_sundancemesa_hps_100_j5yll7i.sdc' for instance: 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_agilex_hps|intel_agilex_5_soc_inst|sm_hps'
+Info (332104): Reading SDC File: 'ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/altera_jtag_dc_streaming_191/synth/altera_avalon_st_jtag_interface.sdc'
+Info (18794): Reading SDC File: 'ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_pr_jtag|u_pr_jtag|rst_controller'
+Info (18794): Reading SDC File: 'ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_niosv_subsys|u_jtag_avalon_master|jtag_avalon_master|rst_controller'
+Info (18794): Reading SDC File: 'ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_niosv_subsys|rst_controller'
+Info (18794): Reading SDC File: 'ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|rst_controller'
+Info (18794): Reading SDC File: 'ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|rst_controller_001'
+Info (18794): Reading SDC File: 'ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|rst_controller'
+Info (332104): Reading SDC File: 'ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/emif_io96b_ddr4comp_431/synth/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp_emif_io96b_ddr4comp_431_rfkok7a.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info: Initializing DDR database for CORE emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp_emif_io96b_ddr4comp_431_rfkok7a
+Info: Finding port-to-pin mapping for CORE: emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp_emif_io96b_ddr4comp_431_rfkok7a INSTANCE: u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp BANK:0
+Info (332104): Reading SDC File: 'ip/niosv_subsys/jtag_avalon_master/altera_jtag_dc_streaming_191/synth/altera_avalon_st_jtag_interface.sdc'
+Info (18794): Reading SDC File: 'ip/niosv_subsys/jtag_avalon_master/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_pr_jtag|u_pr_jtag|rst_controller'
+Info (18794): Reading SDC File: 'ip/niosv_subsys/jtag_avalon_master/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_niosv_subsys|u_jtag_avalon_master|jtag_avalon_master|rst_controller'
+Info (18794): Reading SDC File: 'ip/niosv_subsys/jtag_avalon_master/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|u_niosv_subsys|rst_controller'
+Info (18794): Reading SDC File: 'ip/niosv_subsys/jtag_avalon_master/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|rst_controller'
+Info (18794): Reading SDC File: 'ip/niosv_subsys/jtag_avalon_master/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|u_fabric_subsys|rst_controller_001'
+Info (18794): Reading SDC File: 'ip/niosv_subsys/jtag_avalon_master/altera_reset_controller_1925/synth/altera_reset_controller.sdc' for instance: 'u_baseline_top|rst_controller'
+Info (18794): Reading SDC File: 'ip/shell_subsys/gts_reset_sequencer/intel_srcss_gts_600/synth/gts_reset_sequencer_intel_srcss_gts_600_rqlhukq.sdc' for instance: 'u_baseline_top|u_shell_subsys|u_gts_reset_sequencer|gts_reset_sequencer'
+Info: IP SDC: u_baseline_top|u_shell_subsys|u_gts_reset_sequencer|gts_reset_sequencer
+Info (332104): Reading SDC File: 'ip/shell_subsys/sys_pll/altera_iopll_2110/synth/sys_pll_altera_iopll_2110_atrnnpi.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info: Initializing PLL database for CORE sys_pll_altera_iopll_2110_atrnnpi
+Info: Finding port-to-pin mapping for CORE: sys_pll_altera_iopll_2110_atrnnpi INSTANCE: u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0
+Info (332104): Reading SDC File: 'ip/shell_subsys/user_rst_clkgate/altera_s10_user_rst_clkgate_1949/synth/altera_s10_user_rst_clkgate_fm.sdc'
+Info (332104): Reading SDC File: 'baseline_a55.sdc'
+Info (332104): Reading SDC File: 'jtag.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info (332104): Reading SDC File: '/workspace/agilex5-pr-20261031/stage5/qdb/_compiler/baseline_a55/_flat/26.3.0/source/1/.temp/cpt_proxy/altera_internal_oscillator_atom.sdc'
+Info (332104): Reading SDC File: '/workspace/agilex5-pr-20261031/stage5/qdb/_compiler/baseline_a55/_flat/26.3.0/source/1/.temp/cpt_proxy/default_jtag.sdc'
+Info (19449): Reading SDC files elapsed 00:00:01.
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp|emif_arch_top|arch_emif_0.arch0_1ch_per_io.arch_0|wrapper_bufs_mem|g_MEM_DQS_T_0_out[0].obuf  from: i  to: o
+    Info (332098): Cell: u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp|emif_arch_top|arch_emif_0.arch0_1ch_per_io.arch_0|wrapper_bufs_mem|g_MEM_DQS_T_0_out[1].obuf  from: i  to: o
+    Info (332098): Cell: u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp|emif_arch_top|arch_emif_0.arch0_1ch_per_io.arch_0|wrapper_bufs_mem|g_MEM_DQS_T_0_out[2].obuf  from: i  to: o
+    Info (332098): Cell: u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp|emif_arch_top|arch_emif_0.arch0_1ch_per_io.arch_0|wrapper_bufs_mem|g_MEM_DQS_T_0_out[3].obuf  from: i  to: o
+    Info (332098): Cell: u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp|emif_arch_top|arch_emif_0.arch0_1ch_per_io.arch_0|wrapper_bufs_mem|g_MEM_DQS_T_0_out[4].obuf  from: i  to: o
+Warning (332158): Clock uncertainty characteristics of the A5ED065BB32AE6SR0 device are preliminary
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332152): Existing clock uncertainty assignments were detected. They will take precedence over the derive_clock_uncertainty command
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info (332146): Worst-case setup slack is 2.221
+    Info (332119):     Slack       End Point TNS Failing End Points      Clock Worst-Case Operating Conditions 
+    Info (332119): ========= =================== ========= ========== ===================== 
+    Info (332119):     2.221               0.000         0 u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0_outclk0    Slow fix6 0C Model 
+    Info (332119):     4.486               0.000         0 hps_internal_osc   Slow fix6a 0C Model 
+    Info (332119):     8.408               0.000         0 MAIN_CLOCK_virt   Slow fix6a 0C Model 
+    Info (332119):    12.122               0.000         0 altera_reserved_tck  Slow fix6 100C Model 
+Info (332146): Worst-case hold slack is 0.000
+    Info (332119):     Slack       End Point TNS Failing End Points      Clock Worst-Case Operating Conditions 
+    Info (332119): ========= =================== ========= ========== ===================== 
+    Info (332119):     0.000               0.000         0 u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0_outclk0    Fast fix6 0C Model 
+    Info (332119):     0.104               0.000         0 altera_reserved_tck    Fast fix6 0C Model 
+    Info (332119):     0.340               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_phy_clk_0    Fast fix6 0C Model 
+    Info (332119):     2.099               0.000         0 hps_internal_osc    Fast fix6 0C Model 
+    Info (332119):     9.143               0.000         0 MAIN_CLOCK_virt    Fast fix6 0C Model 
+Info (332146): Worst-case recovery slack is 4.310
+    Info (332119):     Slack       End Point TNS Failing End Points      Clock Worst-Case Operating Conditions 
+    Info (332119): ========= =================== ========= ========== ===================== 
+    Info (332119):     4.310               0.000         0 u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0_outclk0    Slow fix6 0C Model 
+    Info (332119):    59.926               0.000         0 altera_reserved_tck    Slow fix6 0C Model 
+Info (332146): Worst-case removal slack is 0.164
+    Info (332119):     Slack       End Point TNS Failing End Points      Clock Worst-Case Operating Conditions 
+    Info (332119): ========= =================== ========= ========== ===================== 
+    Info (332119):     0.164               0.000         0 altera_reserved_tck    Fast fix6 0C Model 
+    Info (332119):     0.165               0.000         0 u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0_outclk0    Fast fix6 0C Model 
+Info (332140): No Setup paths to report
+Info (332140): No Recovery paths to report
+Info (332146): Worst-case minimum pulse width slack is 0.000
+    Info (332119):     Slack       End Point TNS Failing End Points      Clock Worst-Case Operating Conditions 
+    Info (332119): ========= =================== ========= ========== ===================== 
+    Info (332119):     0.000               0.000         0 altera_int_osc_clk  Slow fix6 100C Model 
+    Info (332119):     0.458               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_vco_clk_periph_0  Slow fix6 100C Model 
+    Info (332119):     0.505               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_vco_base_0    Slow fix6 0C Model 
+    Info (332119):     0.935               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_phy_clk_0    Slow fix6 0C Model 
+    Info (332119):     2.000               0.000         0 u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0_outclk0  Slow fix6 100C Model 
+    Info (332119):     2.118               0.000         0 hps_internal_osc    Slow fix6 0C Model 
+    Info (332119):     2.877               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_ref_clock   Slow fix6a 0C Model 
+    Info (332119):     3.498               0.000         0 u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0|tennm_ph2_iopll|ref_clk0  Slow fix6 100C Model 
+    Info (332119):     4.274               0.000         0 u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0_refclk    Fast fix6 0C Model 
+    Info (332119):     4.887               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_0_rxclk_gated  Slow fix6 100C Model 
+    Info (332119):     4.887               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_1_rxclk_gated  Slow fix6 100C Model 
+    Info (332119):     4.887               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_2_rxclk_gated  Slow fix6 100C Model 
+    Info (332119):     4.887               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_3_rxclk_gated  Slow fix6 100C Model 
+    Info (332119):     4.887               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_4_rxclk_gated  Slow fix6 100C Model 
+    Info (332119):     4.887               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_5_rxclk_gated  Slow fix6 100C Model 
+    Info (332119):     4.887               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_6_rxclk_gated  Slow fix6 100C Model 
+    Info (332119):     4.887               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_7_rxclk_gated  Slow fix6 100C Model 
+    Info (332119):     9.597               0.000         0 u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_pll_ncntr    Slow fix6 0C Model 
+    Info (332119):    28.558               0.000         0 altera_reserved_tck   Slow fix6a 0C Model 
+Info (332114): Report Metastability (Slow fix6 100C Model): Found 21 synchronizer chains.
+    Info (332114): Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+    Info (332114): MTBF(design) = 1 / SUM(1 / MTBF(synchronizer chain))
+
+    Info (332114): Number of Synchronizer Chains Found: 21
+    Info (332114): Shortest Synchronizer Chain: 3 Registers
+    Info (332114): Number of Chains For Which MTBFs Could Not be Calculated Due to Timing Violations: 0, or 0.0%.
+    Info (332114): Number of Chains Excluded from MTBF Analysis: 4, or 19.0%
+    Info (332114): Worst Case Available Settling Time: 18.844 ns
+
+    Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+    Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 74.7
+Info (332114): Report Metastability (Slow fix6 0C Model): Found 21 synchronizer chains.
+    Info (332114): Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+    Info (332114): MTBF(design) = 1 / SUM(1 / MTBF(synchronizer chain))
+
+    Info (332114): Number of Synchronizer Chains Found: 21
+    Info (332114): Shortest Synchronizer Chain: 3 Registers
+    Info (332114): Number of Chains For Which MTBFs Could Not be Calculated Due to Timing Violations: 0, or 0.0%.
+    Info (332114): Number of Chains Excluded from MTBF Analysis: 4, or 19.0%
+    Info (332114): Worst Case Available Settling Time: 18.625 ns
+
+    Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+    Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 4.7
+Info (332114): Report Metastability (Slow fix6a 0C Model): Found 21 synchronizer chains.
+    Info (332114): Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+    Info (332114): MTBF(design) = 1 / SUM(1 / MTBF(synchronizer chain))
+
+    Info (332114): Number of Synchronizer Chains Found: 21
+    Info (332114): Shortest Synchronizer Chain: 3 Registers
+    Info (332114): Number of Chains For Which MTBFs Could Not be Calculated Due to Timing Violations: 0, or 0.0%.
+    Info (332114): Number of Chains Excluded from MTBF Analysis: 4, or 19.0%
+    Info (332114): Worst Case Available Settling Time: 18.628 ns
+
+    Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+    Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 4.7
+Info (332114): Report Metastability (Fast fix6 0C Model): Found 21 synchronizer chains.
+    Info (332114): Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+    Info (332114): MTBF(design) = 1 / SUM(1 / MTBF(synchronizer chain))
+
+    Info (332114): Number of Synchronizer Chains Found: 21
+    Info (332114): Shortest Synchronizer Chain: 3 Registers
+    Info (332114): Number of Chains For Which MTBFs Could Not be Calculated Due to Timing Violations: 0, or 0.0%.
+    Info (332114): Number of Chains Excluded from MTBF Analysis: 4, or 19.0%
+    Info (332114): Worst Case Available Settling Time: 19.437 ns
+
+    Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+    Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 380.6
+Info (332101): Design is fully constrained for setup requirements
+Info (332101): Design is fully constrained for hold requirements
+Info (21615): Running Design Assistant Rules for snapshot 'final'
+Info: No waiver waived any violations
+Info (22360): Design Assistant Results: 88 of 88 enabled rules passed, and 10 rules was disabled, in snapshot 'final'
+Info (21661): Design Assistant Results: 0 of 34 High severity rules issued violations in snapshot 'final'
+Info (21621): Design Assistant Results: 0 of 39 Medium severity rules issued violations in snapshot 'final'
+Info (21622): Design Assistant Results: 0 of 15 Low severity rules issued violations in snapshot 'final'
+Info (24095): Timing requirements were met
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 3230 megabytes
+    Info: Processing ended: Sat Oct 31 21:55:39 2026
+    Info: Elapsed time: 00:00:12
+    Info: System process ID: 1404453
+Info (19538): Reading SDC files took 00:00:01 cumulatively in this process.

@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 SCRIPT=ROOT/'hardware/host_control.tcl'
 class HostControl(unittest.TestCase):
- def run_case(self,stage='begin',paths='{carrier/u_pr_jtag/master}',signature='0x50525331',status='0x201',scratch='0xcafe1234'):
+ def run_case(self,stage='begin',paths='{carrier/u_pr_jtag/master}',signature='0x50525331',status='0x201',scratch='0xcafe1234',bind=False):
   stub=f'''set pr_stage {stage}
 set pr_expected 0x584f5231
 set writes 0
@@ -31,7 +31,22 @@ proc master_write_32 {{path address values}} {{
 source {{{SCRIPT}}}
 puts "STUB_WRITES=$writes HOST=$host"
 '''
+  if bind:
+   prefix="""set pr_sof /fixture/base.sof
+set pr_cable {Agilex_5E MDK Carrier [1-4.2.1]}
+set pr_index 2
+proc design_load {path} {return /design/fixture}
+proc design_link {design device} {puts "BOUND $device"}
+proc get_service_paths {type} {
+ if {$type eq {device}} {return {{/devices/A5E(C065BB32AR0|D065BB32AR0)@2#1-4.2.1#Agilex_5E MDK Carrier} {/devices/VTAP10@3#1-4.2.1#Agilex_5E MDK Carrier}}}
+ return {{/devices/A5E(C065BB32AR0|D065BB32AR0)@2#1-4.2.1#Agilex_5E MDK Carrier/(link)/JTAG/(110:132 v1 #1)/phy_1/u_pr_jtag.master}}
+}
+proc marker_node_info {path} {return {}}
+"""
+   stub=stub.replace('source {',prefix+'source {',1)
   return subprocess.run(['tclsh'],input=stub,text=True,capture_output=True,timeout=5)
+ def test_binds_real_cable_path_then_selects_master_by_hierarchy(self):
+  r=self.run_case(bind=True);self.assertIn('PR_HOST_STAGE_RESULT stage=begin PASS',r.stdout,r.stdout+r.stderr);self.assertIn('BOUND /devices/A5E',r.stdout);self.assertNotIn('BOUND /devices/VTAP',r.stdout)
  def test_begin_and_done_require_true_readback_and_busy_phase(self):
   for stage,status,command in [('begin','0x201',1),('done','0x209',2)]:
    r=self.run_case(stage=stage,status=status);self.assertIn('PR_HOST_STAGE_RESULT stage='+stage+' PASS',r.stdout,r.stdout+r.stderr);self.assertIn('STUB_WRITES=1 HOST='+str(command),r.stdout)

@@ -1,0 +1,16 @@
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/pr/guest0.elf has a LOAD segment with RWX permissions
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/pr/guest1.elf has a LOAD segment with RWX permissions
+PASS PR_FOUR_STATE checks=24 ADD_XOR_ADD isolation failure recovery reset continuity
+fabric/pr/tests/pr_tb.sv:36: $finish called at 2080000 (1ps)
+PASS PHYSICAL_SHELL_RTL host_handshake simulation_register_absent wrong_persona_isolated; NO_HARDWARE_EXECUTION
+fabric/pr/tests/physical_shell_tb.sv:18: $finish called at 770000 (1ps)
+test_changed_artifact_or_mismatched_compatibility_fails_before_hardware (test_hardware_manifest.ArtifactGuards.test_changed_artifact_or_mismatched_compatibility_fails_before_hardware) ... ok
+test_real_configuration_status_distinguishes_phase1_from_user_mode (test_hardware_manifest.ArtifactGuards.test_real_configuration_status_distinguishes_phase1_from_user_mode) ... ok
+test_begin_and_done_require_true_readback_and_busy_phase (test_host_control.HostControl.test_begin_and_done_require_true_readback_and_busy_phase) ... ok
+test_invalid_service_identity_or_state_cannot_write_or_report_success (test_host_control.HostControl.test_invalid_service_identity_or_state_cannot_write_or_report_success) ... ok
+test_requires_real_load_sequence_continuity_and_one_completion (test_oracle.Evidence.test_requires_real_load_sequence_continuity_and_one_completion) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.185s
+
+OK

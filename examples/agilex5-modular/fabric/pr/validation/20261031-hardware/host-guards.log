@@ -1,0 +1,9 @@
+test_changed_artifact_or_mismatched_compatibility_fails_before_hardware (test_hardware_manifest.ArtifactGuards.test_changed_artifact_or_mismatched_compatibility_fails_before_hardware) ... ok
+test_begin_and_done_require_true_readback_and_busy_phase (test_host_control.HostControl.test_begin_and_done_require_true_readback_and_busy_phase) ... ok
+test_invalid_service_identity_or_state_cannot_write_or_report_success (test_host_control.HostControl.test_invalid_service_identity_or_state_cannot_write_or_report_success) ... ok
+test_requires_real_load_sequence_continuity_and_one_completion (test_oracle.Evidence.test_requires_real_load_sequence_continuity_and_one_completion) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.036s
+
+OK

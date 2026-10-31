@@ -1,0 +1,50 @@
+{
+  "scope": "Physical Modular ES, one HPS guest with JTAG ADD-XOR-ADD PR; no flash/media/fuse writes",
+  "manifest": {
+    "device_id": "0364F0DD",
+    "boot_order": "After INIT_DONE",
+    "full_sof": {
+      "path": "/home/lada/quartus26-mcp-demos/agilex5-pr-20261031/images/base-fpga-first.sof",
+      "sha256": "9b5a3200909076c71e784370695c9c86fc52bae69cc3ae7c5eace41af31116cf",
+      "bytes": 2592491
+    },
+    "guest_bin": {
+      "path": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/pr/guest-hardware.bin",
+      "sha256": "8438bc921c753d4bb06a3fb75f7ccf2ee1617c6c5889754727799623d8e1e0a6",
+      "bytes": 9350
+    },
+    "guest_elf": {
+      "path": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/pr/guest-hardware.elf",
+      "sha256": "dd66b5e14212e8919bbb06c72c4d2c0cd4347ec0e393728d2948373c9255dd59",
+      "bytes": 93696
+    },
+    "add": {
+      "path": "/home/lada/quartus26-mcp-demos/agilex5-pr-20261031/images/pr_add-fpga-first.rbf",
+      "sha256": "6eb0602fde39586aefe7d5be327d5725246c13a5032ada82e2a58a945158cfe5",
+      "bytes": 483328,
+      "compatibility": {
+        "status": "pass",
+        "parent_sha256": "9b5a3200909076c71e784370695c9c86fc52bae69cc3ae7c5eace41af31116cf",
+        "child_sha256": "6eb0602fde39586aefe7d5be327d5725246c13a5032ada82e2a58a945158cfe5",
+        "path": "/home/lada/quartus26-mcp-demos/agilex5-pr-20261031/image-evidence/add-fpga-first-compatibility.json",
+        "sha256": "cfc5a706dd57546ca0f0f987496b1991be9b4dfbbd23f830e45d74f1b49cea94"
+      }
+    },
+    "xor": {
+      "path": "/home/lada/quartus26-mcp-demos/agilex5-pr-20261031/images/pr_xor.rbf",
+      "sha256": "25601e1e893374950c9a4306d6ce9d02852a74abb03a26db98bfc983d92cc166",
+      "bytes": 483328,
+      "compatibility": {
+        "status": "pass",
+        "parent_sha256": "9b5a3200909076c71e784370695c9c86fc52bae69cc3ae7c5eace41af31116cf",
+        "child_sha256": "25601e1e893374950c9a4306d6ce9d02852a74abb03a26db98bfc983d92cc166",
+        "path": "/home/lada/quartus26-mcp-demos/agilex5-pr-20261031/image-evidence/xor-fpga-first-compatibility.json",
+        "sha256": "c5a8cf0b553b15a07e6f67e2ae1d99ed0a8cd7a8c55834cf95e8e14b98119733"
+      }
+    }
+  },
+  "runner_sha256": "4f2c7bbad9efb2fab1401b29e85797a3451d8cb2d9035b7553c943386775c8ef",
+  "tests": [],
+  "restoration": "pass",
+  "error": "RuntimeError('No trustworthy System Console completion: xor-begin')"
+}

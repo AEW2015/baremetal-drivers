@@ -1,0 +1,22 @@
+{
+  "target": "A5ED065BB32AE6SR0",
+  "synthesis_job": "fe6b7720-ac81-4ea5-b9c0-b97a1d3c7a76",
+  "fitter_job": "69689f50-3944-45d8-b1bb-a889d9c370d8",
+  "timing_job": "16f8bcd5-d4f8-4708-99dd-72003a97eece",
+  "status": "base-fit-and-timing-pass; persona builds/hardware pending",
+  "setup_slack_ns": 2.221,
+  "hold_slack_ns": 0.0,
+  "recovery_slack_ns": 4.31,
+  "removal_slack_ns": 0.164,
+  "design_assistant": "88/88 enabled final rules passed, 10 disabled, no waiver",
+  "unmatched_constraint_warnings": 0,
+  "static_qdb_sha256": "cfd07905d8cec654e490788691a8dd6489ba653523e2a82ac49d09772f2174cf",
+  "partition": "lab_pr_partition",
+  "region": {
+    "place": "X62 Y61 X81 Y80",
+    "route": "X61 Y60 X82 Y81",
+    "alm_final_placement": 137,
+    "capacity_alms": 3800
+  },
+  "warnings": "ES timing/clock uncertainty preliminary. Fitter emitted intermediate region-node warning; final Logic Lock/PR partition reports confirm this exact region and resource allocation. Vendor-generated HPS Hyper Register/synchronizer assignments also ignored; retained in raw reports."
+}

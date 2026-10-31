@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"jobId\": \"56df5201-876a-462a-9cff-2f59dadc265e\",\n  \"status\": \"completed\",\n  \"kind\": \"analyze_bitstream\",\n  \"flow\": \"analyze_bitstream\",\n  \"mode\": \"in-process\",\n  \"projectDir\": \"/workspace\",\n  \"projectName\": \"\",\n  \"startedAt\": \"2026-10-31T22:29:50.670Z\",\n  \"pollAfterSeconds\": 15,\n  \"endedAt\": \"2026-10-31T22:29:54.518Z\",\n  \"exitCode\": 0,\n  \"stdoutTail\": \"\",\n  \"stderrTail\": \"\",\n  \"result\": {\n    \"success\": true,\n    \"exitCode\": 0,\n    \"durationMs\": 3846,\n    \"timedOut\": false,\n    \"stdout\": \"Analysis: **base-fpga-first.sof**\\n\\n| Field | Value |\\n|---|---|\\n| Device | A5ED065BB32AE6SR0 |\\n| Config Scheme | Active Serial x4 |\\n| Clock Source | 100 MHz Clock Frequency |\\n| JTAG User Code | 0xFFFFFFFF |\\n| Disable JTAG | OFF |\\n| Anti-Tamper | DISABLE |\\n| Error Detection CRC | TRUE |\\n| HPS Present | TRUE |\\n| CvP | OFF |\\n| RSU Max Retry | 1 |\\n\\n=== VERIFIED FACTS (extracted deterministically \u2014 do not contradict) ===\\nDisable Jtag: OFF\\nOwnership Transfer Mode: FALSE\\nAnti Tamper Response: DISABLE\\nFips Mode: NON_FIPS\\n=== END VERIFIED FACTS ===\",\n    \"stderr\": \"\",\n    \"command\": \"analyze_bitstream\",\n    \"args\": []\n  },\n  \"success\": true,\n  \"durationMs\": 3846,\n  \"timedOut\": false\n}"
+    }
+  ]
+}

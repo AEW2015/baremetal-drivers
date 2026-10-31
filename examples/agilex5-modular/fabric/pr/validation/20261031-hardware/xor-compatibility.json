@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"jobId\": \"b050c363-e5a7-484e-97f5-1627bd6c9681\",\n  \"status\": \"completed\",\n  \"kind\": \"check_pr_compatibility\",\n  \"flow\": \"check_pr_compatibility\",\n  \"mode\": \"in-process\",\n  \"projectDir\": \"/workspace\",\n  \"projectName\": \"\",\n  \"startedAt\": \"2026-10-31T22:22:57.317Z\",\n  \"pollAfterSeconds\": 15,\n  \"endedAt\": \"2026-10-31T22:23:02.678Z\",\n  \"exitCode\": 0,\n  \"stdoutTail\": \"\",\n  \"stderrTail\": \"\",\n  \"result\": {\n    \"success\": true,\n    \"exitCode\": 0,\n    \"durationMs\": 5361,\n    \"timedOut\": false,\n    \"stdout\": \"PR programming file 'pr_xor.rbf' is COMPATIBLE with base design 'base-boot.sof'.\",\n    \"stderr\": \"\",\n    \"command\": \"check_pr_compatibility\",\n    \"args\": []\n  },\n  \"success\": true,\n  \"durationMs\": 5361,\n  \"timedOut\": false\n}"
+    }
+  ]
+}

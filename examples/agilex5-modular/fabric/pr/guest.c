@@ -28,15 +28,19 @@ void example_main(void){
   // The physical loader must replace this explicit simulation-only operation.
   int rc;
 #ifdef PR_PHYSICAL
+  uint64_t timer_hz=SYS(cntfrq_el0);
+  value("PR_TIMER_HZ=",timer_hz);
   value("PR_HOST_LOAD_REQUEST=",persona);
-  uint64_t deadline=SYS(cntpct_el0)+120*SYS(cntfrq_el0);
-  do {rc=pr_finish(&d,persona,1000);}while(rc==-7 && SYS(cntpct_el0)<deadline);
+  // The diagnostic boot may leave CNTFRQ_EL0 zero. The host coordinator
+  // enforces the wall-clock bound; keep the isolated guest waiting in that case.
+  uint64_t deadline=SYS(cntpct_el0)+600*timer_hz;
+  do {rc=pr_finish(&d,persona,1000);}while(rc==-7 && (!timer_hz || SYS(cntpct_el0)<deadline));
 #else
   d.write(d.context,PR_SIM_LOAD,swap?1:2);
   rc=pr_finish(&d,persona,1000);
 #endif
   if(EXPECT_FAILURE){check(rc<0,"NEGATIVE_LOAD_REJECTED");check(d.read(d.context,PR_CONTROL)&1,"NEGATIVE_REMAINS_ISOLATED");break;}
-  value("PR_PERSONA=",persona);check(rc==0,"SWAP_RESET_AND_ID");if(rc)break;
+  value("PR_PERSONA=",persona);if(rc)value("PR_DRIVER_ERROR=",(uint64_t)(int64_t)rc);check(rc==0,"SWAP_RESET_AND_ID");if(rc)break;
   check(vectors(&d,persona),swap?"RETURN_ADD_VECTORS":"XOR_VECTORS");
   check(d.read(d.context,PR_SCRATCH)==0xcafe1234,"STATIC_SCRATCH_CONTINUITY");
   uint32_t next_heartbeat=d.read(d.context,PR_HEARTBEAT);

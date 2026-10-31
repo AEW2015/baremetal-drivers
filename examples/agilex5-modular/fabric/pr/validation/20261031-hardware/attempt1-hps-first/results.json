@@ -1,0 +1,54 @@
+{
+  "scope": "Physical Modular ES, one HPS guest with JTAG ADD-XOR-ADD PR; no flash/media/fuse writes",
+  "manifest": {
+    "device_id": "0364F0DD",
+    "full_sof": {
+      "path": "/home/lada/quartus26-mcp-demos/agilex5-pr-20261031/images/base-boot.sof",
+      "sha256": "63351f71fa97ea1d5086e528b7fe1cd1d88d982294d20f57990ca6e021ad5f88",
+      "bytes": 2591220
+    },
+    "bridge_rbf": {
+      "path": "/home/lada/quartus26-mcp-demos/agilex5-pr-20261031/images/bridge.hps.rbf",
+      "sha256": "3c494a79e7262914b34b4b1f73e7c1c36c2bf94b3a095e75ad02e16510533d20",
+      "bytes": 782336
+    },
+    "guest_bin": {
+      "path": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/pr/guest-hardware.bin",
+      "sha256": "8438bc921c753d4bb06a3fb75f7ccf2ee1617c6c5889754727799623d8e1e0a6",
+      "bytes": 9350
+    },
+    "guest_elf": {
+      "path": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/pr/guest-hardware.elf",
+      "sha256": "dd66b5e14212e8919bbb06c72c4d2c0cd4347ec0e393728d2948373c9255dd59",
+      "bytes": 93696
+    },
+    "add": {
+      "path": "/home/lada/quartus26-mcp-demos/agilex5-pr-20261031/images/pr_add.rbf",
+      "sha256": "6eb0602fde39586aefe7d5be327d5725246c13a5032ada82e2a58a945158cfe5",
+      "bytes": 483328,
+      "compatibility": {
+        "status": "pass",
+        "parent_sha256": "63351f71fa97ea1d5086e528b7fe1cd1d88d982294d20f57990ca6e021ad5f88",
+        "child_sha256": "6eb0602fde39586aefe7d5be327d5725246c13a5032ada82e2a58a945158cfe5",
+        "path": "/home/lada/quartus26-mcp-demos/agilex5-pr-20261031/image-evidence/add-compatibility.json",
+        "sha256": "6426872a9cfd2f81da8dfaa5e506a604eee369c5dbb0636d3ff2ff06bbfae3fd"
+      }
+    },
+    "xor": {
+      "path": "/home/lada/quartus26-mcp-demos/agilex5-pr-20261031/images/pr_xor.rbf",
+      "sha256": "25601e1e893374950c9a4306d6ce9d02852a74abb03a26db98bfc983d92cc166",
+      "bytes": 483328,
+      "compatibility": {
+        "status": "pass",
+        "parent_sha256": "63351f71fa97ea1d5086e528b7fe1cd1d88d982294d20f57990ca6e021ad5f88",
+        "child_sha256": "25601e1e893374950c9a4306d6ce9d02852a74abb03a26db98bfc983d92cc166",
+        "path": "/home/lada/quartus26-mcp-demos/agilex5-pr-20261031/image-evidence/xor-compatibility.json",
+        "sha256": "5ff59ccbb8d64c75efc87d42fd2fae9b9d3d8506513a8dd2c1fb9b5e8c0a3fdb"
+      }
+    }
+  },
+  "runner_sha256": "71eba8aa61342a70bac57f5748e95f013850991f17d4db151ce9d48550153c11",
+  "tests": [],
+  "restoration": "pass",
+  "error": "KeyboardInterrupt()"
+}

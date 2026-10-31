@@ -1,0 +1,4 @@
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/runs/simics-pr-runtime-20261031T223512.879164Z
+PASS swap
+PASS load-error
+PASS wrong-persona

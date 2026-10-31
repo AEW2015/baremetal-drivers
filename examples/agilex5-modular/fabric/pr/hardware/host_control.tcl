@@ -1,12 +1,29 @@
 # Variables supplied by the bounded host coordinator: pr_stage, pr_expected.
 # A success sentinel, not System Console's exit code, qualifies each operation.
 proc pr_host_control {} {
-    global pr_stage pr_expected
+    global pr_stage pr_expected pr_sof pr_cable pr_index
     if {$pr_stage ni {begin done error}} {error "invalid host stage"}
     if {$pr_expected ni {0x41444431 0x584f5231}} {error "invalid persona"}
+    if {[info exists pr_sof]} {
+        set design [design_load $pr_sof]
+        set devices {}
+        if {![regexp {^(.*) \[([^]]+)\]$} $pr_cable unused cable_name cable_location]} {error "unrecognized verified cable name"}
+        foreach device [get_service_paths device] {
+            if {[regexp {^/devices/A5E[^/]*@([0-9]+)#} $device unused index] && $index==$pr_index && [string first $cable_name $device]>=0 && [string first "#$cable_location#" $device]>=0} {lappend devices $device}
+        }
+        if {[llength $devices]!=1} {error "cannot bind matching PR design to verified Modular device; discovered: [get_service_paths device]"}
+        design_link $design [lindex $devices 0]
+    }
     set matches {}
     foreach path [get_service_paths master] {
-        if {[string first {u_pr_jtag} $path]>=0} {lappend matches $path}
+        set hpath $path
+        if {[llength [info commands marker_node_info]]} {
+            array unset node
+            array set node [marker_node_info $path]
+            if {[info exists node(full_hpath)]} {set hpath $node(full_hpath)}
+        }
+        puts "PR_HOST_DISCOVERY $path hierarchy=$hpath"
+        if {[regexp {(^|[|/])u_pr_jtag([|/.]|$)} $hpath]} {lappend matches $path}
     }
     if {[llength $matches]!=1} {error "need exactly one u_pr_jtag master; discovered: [get_service_paths master]"}
     set master [lindex $matches 0]
