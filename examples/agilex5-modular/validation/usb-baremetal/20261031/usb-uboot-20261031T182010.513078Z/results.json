@@ -1,0 +1,12 @@
+{
+  "scope": "Volatile U-Boot USB session; no persistent environment or media writes",
+  "uboot_sha256": "0ae7c21e6785d1316366e5bde0c4f544f1c5f78259ddb76353909649a323631e",
+  "monitor_sha256": "8a0204b7ca4c0d50eca94500d155ac18627823f1336ed8acbaa71afe7aa75d65",
+  "runner_sha256": "e71d864618691924a23912ac099d8419d0ae12fe3a02835da38bffeb95f44db2",
+  "spl_image_sha256": "ec9dbbf66644fe1c8194a9c01444fff5738e7d9b140060da9762b15598f7b128",
+  "ram_fit_sha256": "66e3ba8e963eaedec39182bcf09136ef54f51362049a68bfe45e51e21a48315a",
+  "boot_path": "cold-entry vendor SPL -> RAM FIT -> normal-entry BL31 -> guarded U-Boot",
+  "commands": [],
+  "restoration": "pass",
+  "error": "RuntimeError('SPL did not reach RAM FIT wait')"
+}

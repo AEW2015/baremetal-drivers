@@ -1,0 +1,217 @@
+INFO:    USB_LAB_MONITOR PER0MODRST before=00000000
+INFO:    USB_LAB_MONITOR USB3_MISC0 before=07c00c11 after=07c04c11 mask=00004000
+INFO:    USB_LAB_MONITOR PER0MODRST after=00000000
+INFO:    USB_LAB_MONITOR CLKMGR_STAT=02030300 USB31CTR=00000013 EXTCNTRST=00000000
+NOTICE:  SOCFPGA: Boot Core = 0
+NOTICE:  SOCFPGA: CPU ID = 0
+INFO:    SOCFPGA: Invalidate Data cache
+NOTICE:  SOCFPGA: Setting CLUSTERECTRL_EL1
+NOTICE:  BL31: v2.14.1(debug):2ea5afd-dirty
+NOTICE:  BL31: Built : 23:55:53, Oct 30 2026
+INFO:    GICv3 without legacy support detected.
+INFO:    ARM GICv3 driver initialized in EL3
+INFO:    Maximum SPI INTID supported: 575
+INFO:    BL31: Initializing runtime services
+INFO:    BL31: cortex_a55: CPU workaround for erratum 1530923 was applied
+INFO:    BL31: Preparing for EL3 exit to normal world
+INFO:    Entry point address = 0x80200000
+INFO:    SPSR = 0x3c9
+
+
+U-Boot 2026.04-ge09d6fcc95f3-dirty (Oct 31 2026 - 02:03:48 +0000)socfpga_agilex5
+
+CPU: Altera FPGA SoCFPGA Platform (ARMv8 64bit Cortex-A55/A76)
+Model: SoCFPGA Agilex5 SoCDK A0 Modular
+DRAM:  128 MiB
+Core:  52 devices, 24 uclasses, devicetree: separate
+WDT:   Started watchdog@10d00200 with servicing every 1000ms (30s timeout)
+WDT:   Not starting watchdog@10d00300
+WDT:   Not starting watchdog@10d00400
+WDT:   Not starting watchdog@10d00500
+WDT:   Not starting watchdog@10d00600
+MMC:   mmc0@10808000: 0
+Loading Environment from <NULL>... OK
+In:    serial0@10c02000
+Out:   serial0@10c02000
+Err:   serial0@10c02000
+Starting HPS SMMU test for SDM.
+sdm_tbu_stream_ctrl_reg_1_sdm : 0x3
+smmuSetBaseAddr()
+smmu1_S_IDR1.secure : 0x0
+smmuInitStreamTable()
+main(): Installing Event Queue
+main(): Installing Command Queue
+Issue commands to invalidate TLBs
+main(): Enabling SMMU (Non-secure only)
+smmuEnableCommandProcessing
+smmuEnableEventQueue
+smmuEnableTranslation()
+main(): Intializing a context descriptor
+smmuInitBasicCD:: Created CD: 
+  0x0001e20a c0a00018
+  0x00000000 00075002
+  0x00000000 00000002
+  0x00000000 00ff4400
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+main(): Initializing Stream Table entry as S1, referencing the context descriptor.
+smmuInitBasicSTE:: Created STE: 
+  0x00000000 00074a09
+  0x0001b1c0 980000cc
+  0x00283500 000f0000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+smmuInitBasicSTE:: Created STE: 
+  0x00000000 00074a09
+  0x0001b1c0 980000cc
+  0x00283500 000f0000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+smmuInitBasicSTE:: Created STE: 
+  0x00000000 00074a09
+  0x0001b1c0 980000cc
+  0x00283500 000f0000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+smmuInitBasicSTE:: Created STE: 
+  0x00000000 00074a09
+  0x0001b1c0 980000cc
+  0x00283500 000f0000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+smmuInitBasicSTE:: Created STE: 
+  0x00000000 00074a09
+  0x0001b1c0 980000cc
+  0x00283500 000f0000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+smmuInitBasicSTE:: Created STE: 
+  0x00000000 00074a09
+  0x0001b1c0 980000cc
+  0x00283500 000f0000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+smmuInitBasicSTE:: Created STE: 
+  0x00000000 00074a09
+  0x0001b1c0 980000cc
+  0x00283500 000f0000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+smmuInitBasicSTE:: Created STE: 
+  0x00000000 00074a09
+  0x0001b1c0 980000cc
+  0x00283500 000f0000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+smmuInitBasicSTE:: Created STE: 
+  0x00000000 00074a09
+  0x0001b1c0 980000cc
+  0x00283500 000f0000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+smmuInitBasicSTE:: Created STE: 
+  0x00000000 00074a09
+  0x0001b1c0 980000cc
+  0x00283500 000f0000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+smmuInitBasicSTE:: Created STE: 
+  0x00000000 00074a09
+  0x0001b1c0 980000cc
+  0x00283500 000f0000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+smmuInitBasicSTE:: Created STE: 
+  0x00000000 00074a0b
+  0x0001b1c0 980000cc
+  0x00283500 000f0000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+  0x00000000 00000000
+main(): Finish Streme table setup
+smmuAddCommand:: Command is:
+ 0x00000003 
+ 0x0000000a 
+ 0x00000000 
+ 0x00000000
+smmuAddCommand:: START: PROD = 0x0  COND = 0x0
+after smmuQueueFull
+after entry
+after for_command
+smmuAddCommand:: Command is:
+ 0x00000003 
+ 0x0000000a 
+ 0x00000000 
+ 0x00000000
+after flushing 0x74800 - 0x74810
+smmu1_S_IDR1.secure : 0x0
+after increase queue counter
+after waiting command to process
+smmuAddCommand:: END: PROD = 0x1  COND = 0x1
+main(): Finish invalidate STE
+smmuAddCommand:: Command is:
+ 0x00000046 
+ 0x00000000 
+ 0x00000000 
+ 0x00000000
+smmuAddCommand:: START: PROD = 0x1  COND = 0x1
+after smmuQueueFull
+after entry
+after for_command
+smmuAddCommand:: Command is:
+ 0x00000046 
+ 0x00000000 
+ 0x00000000 
+ 0x00000000
+after flushing 0x74810 - 0x74820
+smmu1_S_IDR1.secure : 0x0
+after increase queue counter
+after waiting command to process
+smmuAddCommand:: END: PROD = 0x2  COND = 0x2
+main(): Finish SMMU setup
+start to set up translation table
+Successfully set up translation table
+This is HPS test.
+Net:   
+Warning: ethernet@10810000 (eth0) using random MAC address - 6e:10:ed:7c:bb:34
+eth0: ethernet@10810000
+Warning: ethernet@10830000 (eth2) using random MAC address - 6a:66:a3:16:32:ce
+, eth2: ethernet@10830000
+SOCFPGA_AGILEX5 #   

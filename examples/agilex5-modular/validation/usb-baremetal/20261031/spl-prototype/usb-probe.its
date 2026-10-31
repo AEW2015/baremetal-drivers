@@ -1,0 +1,10 @@
+/dts-v1/;
+/ {
+ description = "Modular ES USB lab: SPL -> BL31 -> guarded U-Boot; no FPGA payload";
+ #address-cells = <1>;
+ images {
+  atf { description = "TF-A BL31 normal SPL entry"; data = /incbin/("/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/usb-spl-atf/agilex5/debug/bl31.bin"); type = "firmware"; arch = "arm64"; os = "arm-trusted-firmware"; compression = "none"; load = <0x80000000>; entry = <0x80000000>; hash { algo = "sha256"; }; };
+  uboot { description = "Guarded U-Boot USB lab"; data = /incbin/("/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/usb-uboot-source/u-boot-usb-standalone.bin"); type = "standalone"; arch = "arm64"; os = "u-boot"; compression = "none"; load = <0x80200000>; entry = <0x80200000>; hash { algo = "sha256"; }; };
+ };
+ configurations { default = "lab"; lab { description = "RAM-only lab"; firmware = "atf"; loadables = "uboot"; }; };
+};

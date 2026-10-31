@@ -1,0 +1,17 @@
+{
+  "status": "experimental SPL boot failed before console; second-stage loader never exercised",
+  "u_boot_commit": "e09d6fcc95f33b8a60377103f6e37e635660a3ee",
+  "atf_commit": "2ea5afda7f34774ddcc677fb3a728fa57f780a1e",
+  "hardware_diagnostic": {
+    "pc": "0xd1b0",
+    "symbol": "hang",
+    "caller_return": "0x1290",
+    "caller": "board_init_f, spl_early_init failure branch"
+  },
+  "artifacts": {
+    "build/usb-spl-probe/spl/u-boot-spl.bin": "2830dd5676250644adde5731eb38713784f664e67fccae3cfffc37e4c2ad4ac8",
+    "build/usb-spl-probe/u-boot-spl.hex": "cb3b84f62428420d407d2478a94c96a1c2bc5c7164bdd818f9d5aed0eef16651",
+    "build/usb-spl-atf/agilex5/debug/bl31.bin": "8a0204b7ca4c0d50eca94500d155ac18627823f1336ed8acbaa71afe7aa75d65",
+    "build/usb-spl-probe/usb-probe.itb": "66e3ba8e963eaedec39182bcf09136ef54f51362049a68bfe45e51e21a48315a"
+  }
+}

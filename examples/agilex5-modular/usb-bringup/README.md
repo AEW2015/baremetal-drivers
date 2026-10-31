@@ -457,3 +457,21 @@ external devices. No shared GPIO reset pulse was issued. The runner returned
 nonzero for the failed USB checks and successfully restored DDR Hello with a
 fresh DDR bootstrap. Raw console, JTAG and bootstrap logs plus artifact hashes
 are in [the archived run](../validation/usb-baremetal/20261031/usb-uboot-20261031T132750.283585Z/results.json).
+
+
+### Flash-drive retry and complete-SPL-path investigation
+
+The flash-drive retry `usb-uboot-20261031T133540.151557Z` reached the guarded
+U-Boot prompt, then `usb start` again timed out with `USBSTS=00000801` and
+`rc=-110`. `usb tree` was empty and `usb storage` found no devices. No block
+reads or media writes were issued; DDR Hello restoration passed.
+
+A separate experiment built the pinned Modular U-Boot SPL so initialization
+could be compared with the DDR-initializer/direct-BL31 entry. Both HPS-only and
+full matching volatile SOF attempts failed to reach the SPL ready marker.
+The full-image diagnostic located the CPU in `hang()` after `spl_early_init()`
+failed, before pinmux/clock/DDR/USB initialization. The root cause remains
+unknown; neither attempt reached U-Boot proper or tested USB detection.
+Both restored DDR Hello. Archived experimental sources and limitations are in
+[the SPL investigation](../validation/usb-baremetal/20261031/spl-prototype/README.md).
+This is not a completed test of normal SPL-to-U-Boot USB behavior.

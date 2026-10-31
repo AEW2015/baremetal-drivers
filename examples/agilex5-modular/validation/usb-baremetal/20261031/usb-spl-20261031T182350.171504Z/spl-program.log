@@ -1,0 +1,43 @@
+Info (19848): HPS IO hash is 8A81B8E7615E9E781B7DDAAADB31E5F2182F6D2583A0FF1910815B6CF3DD1B7D
+Info (19848): Keyed hash is ECA833FE31002A206A73A45CA703D06F2D64CFCD65A9233A02A39E477D3A39F0
+Info (19848): HPS IO hash is 8A81B8E7615E9E781B7DDAAADB31E5F2182F6D2583A0FF1910815B6CF3DD1B7D
+Info (19848): Keyed hash is F1A249226EF4CD78906208CC69A0DFCE2B495AB9655AF18E5FA460A81953C090
+Info (19848): Regular SEU info => 9 sector(s), 9 thread(s), 10000000 interval time in microsecond(s)
+Info (19848): IO hash is 4004581A35FC96FF3BCF459C807EA345EFB8BB8B0BC172D401201D6C339CD341
+Info (19848): HPS IO hash is 8A81B8E7615E9E781B7DDAAADB31E5F2182F6D2583A0FF1910815B6CF3DD1B7D
+Info (19848): Keyed hash is F2315932926C07F83179AEBBDAA0BAE33E23084560473ABC4B12EEA6517FB791
+Info (19848): Design hash is 465762CCDF2B9D71EFE3DB796DD3BBE9B9847B5BB6D396AFC3C51051F199D5F7
+Info (19848): IO hash is 4004581A35FC96FF3BCF459C807EA345EFB8BB8B0BC172D401201D6C339CD341
+Info (19848): Keyed hash is 1166DB14D02BC8BEFE0E17BB83EDDC521B3C08D669C9A51488CF4E989EDEF3C3
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 26.1.1 Build 130 08/06/2026 SC Pro Edition
+    Info: Copyright (C) 2026  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Sat Oct 31 18:24:19 2026
+    Info: System process ID: 3958395
+Info: Command: quartus_pgm -c "Agilex_5E MDK Carrier [1-4.2.1]" -m jtag -o p;/home/dev/baremetal-guide-validation/examples/build/spl-cold-usb-spl-20261031T182350.171504Z.sof@2
+Info (213045): Using programming cable "Agilex_5E MDK Carrier [1-4.2.1]"
+Info (213011): Using programming file /home/dev/baremetal-guide-validation/examples/build/spl-cold-usb-spl-20261031T182350.171504Z.sof with checksum 0x213346AA for device a5ed065bb32ae6sr0@2
+Info (209060): Started Programmer operation at Sat Oct 31 18:24:34 2026
+Info (18942): Configuring device index 2
+Info (18943): Configuration succeeded at device index 2
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Sat Oct 31 18:24:38 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 2323 megabytes
+    Info: Processing ended: Sat Oct 31 18:24:38 2026
+    Info: Elapsed time: 00:00:19
+    Info: System process ID: 3958395

@@ -1,0 +1,30 @@
+FIT description: Modular ES USB lab: SPL -> BL31 -> guarded U-Boot; no FPGA payload
+Created:         Sat Oct 31 18:19:39 2026
+ Image 0 (atf)
+  Description:  TF-A BL31 normal SPL entry
+  Created:      Sat Oct 31 18:19:39 2026
+  Type:         Firmware
+  Compression:  uncompressed
+  Data Size:    73816 Bytes = 72.09 KiB = 0.07 MiB
+  Architecture: AArch64
+  OS:           ARM Trusted Firmware
+  Load Address: 0x80000000
+  Hash algo:    sha256
+  Hash value:   8a0204b7ca4c0d50eca94500d155ac18627823f1336ed8acbaa71afe7aa75d65
+ Image 1 (uboot)
+  Description:  Guarded U-Boot USB lab
+  Created:      Sat Oct 31 18:19:39 2026
+  Type:         Standalone Program
+  Compression:  uncompressed
+  Data Size:    935545 Bytes = 913.62 KiB = 0.89 MiB
+  Architecture: AArch64
+  Load Address: 0x80200000
+  Entry Point:  0x80200000
+  Hash algo:    sha256
+  Hash value:   0ae7c21e6785d1316366e5bde0c4f544f1c5f78259ddb76353909649a323631e
+ Default Configuration: 'lab'
+ Configuration 0 (lab)
+  Description:  RAM-only lab
+  Kernel:       unavailable
+  Firmware:     atf
+  Loadables:    uboot
