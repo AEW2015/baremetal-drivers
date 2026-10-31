@@ -28,8 +28,17 @@ root=Path(__file__).resolve().parents[1]
 shutil.copytree(root,out/'custom_ip/baremetal/fabric/pr',ignore=shutil.ignore_patterns('__pycache__','validation','hardware'))
 shutil.copytree(root.parent/'rtl',out/'custom_ip/baremetal/fabric/rtl')
 shutil.copy2(Path(__file__).with_name('overlay.tcl'),out/'overlay.tcl')
+# The bench's integrated wrapper owned Reset Release. This standalone top must own it.
+clock_source=out/'src/clocks_and_resets.sv'
+clock_text=clock_source.read_text()
+old="wire ninit_done = 1'b0; // Reset release comes from the existing Nios system via fpga_reset_n."
+if old in clock_text:
+ clock_text=clock_text.replace(old,'wire ninit_done;\n    user_rst_clkgate u_reset_release (.ninit_done(ninit_done));')
+assert re.search(r'\buser_rst_clkgate\s+\w+\s*\(',clock_text),'No reviewed standalone Reset Release instance'
+clock_source.write_text(clock_text)
 s=(out/'baseline_a55.qsf').read_text()
 s=re.sub(r'^set_global_assignment -name FLOW_DISABLE_ASSEMBLER .*$', 'set_global_assignment -name FLOW_DISABLE_ASSEMBLER OFF',s,flags=re.M)
+s=re.sub(r'^set_global_assignment -name IP_FILE ip/niosv_subsys/(?:niosv_m|niosv_onchip_memory)\.ip\n', '', s, flags=re.M)
 s+='\nset_global_assignment -name IP_SEARCH_PATHS "custom_ip/**/*"\n'
 (out/'baseline_a55.qsf').write_text(s)
 (out/'baseline_a55.qpf').write_text('PROJECT_REVISION = \"baseline_a55\"\n')

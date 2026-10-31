@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc-aarch64-linux-gnu libc6-dev-arm64-cross \
     python3 python3-dev python3-venv python3-setuptools python3-pyelftools \
     device-tree-compiler libncurses-dev libssl-dev zlib1g-dev \
-    qemu-system-arm gdb-multiarch verilator iverilog libusb-1.0-0 libudev1 usbutils \
+    qemu-system-arm gdb-multiarch verilator iverilog tcl libusb-1.0-0 libudev1 usbutils \
     iproute2 procps util-linux \
     && rm -rf /var/lib/apt/lists/*
 COPY install-arm.sh /tmp/install-arm.sh

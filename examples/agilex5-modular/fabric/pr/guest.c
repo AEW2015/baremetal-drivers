@@ -39,7 +39,8 @@ void example_main(void){
   value("PR_PERSONA=",persona);check(rc==0,"SWAP_RESET_AND_ID");if(rc)break;
   check(vectors(&d,persona),swap?"RETURN_ADD_VECTORS":"XOR_VECTORS");
   check(d.read(d.context,PR_SCRATCH)==0xcafe1234,"STATIC_SCRATCH_CONTINUITY");
-  check(d.read(d.context,PR_HEARTBEAT)>heartbeat,"STATIC_HEARTBEAT_PROGRESS");
+  uint32_t next_heartbeat=d.read(d.context,PR_HEARTBEAT);
+  check((uint32_t)(next_heartbeat-heartbeat)!=0,"STATIC_HEARTBEAT_PROGRESS");heartbeat=next_heartbeat;
   unsigned mismatches=0;for(unsigned i=0;i<256;i++)if(guard[i]!=(0xa5a50000^i))mismatches++;
   check(!mismatches,"DDR_GUARD_256_WORDS");
  }
