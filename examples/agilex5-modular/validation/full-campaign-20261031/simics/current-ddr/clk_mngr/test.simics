@@ -1,0 +1,33 @@
+$fsbl_image_filename = "/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ocram/baremetal.bin"
+$hps_reset_vector = 0
+run-script (sim->project + "/targets/agilex5e-universal/agilex5e-universal.simics")
+$con = $system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con
+$ready = (bp.console_string.break $con "SoCFPGA Bare-Metal > ")
+$con.record-start
+script-branch {
+ run
+ bp.wait-for-breakpoint $ready
+ stop
+ $con.input "ddr_selftest\n"
+ run
+ bp.wait-for-breakpoint $ready
+ stop
+ echo "PREPARED_DDR"
+ hps.phys_mem.load-file "/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/campaign-simics-ddr/baremetal.bin" 0x80200000
+ pselect "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]"
+ set-pc 0x80200000
+ run
+ bp.wait-for-breakpoint $ready
+ stop
+ echo "DDR_CONSOLE_READY"
+ $con.input "clk_mngr_selftest\n"
+ run
+ bp.wait-for-breakpoint $ready
+ stop
+ echo "DDR_COMMAND_RETURNED"
+ $transcript = ($con.record-stop)
+ echo "UART_RECORD_BEGIN"
+ echo $transcript
+ echo "UART_RECORD_END"
+ exit 0
+}

@@ -1,8 +1,21 @@
 # Validation and practical limits
 
-The latest [runtime fixes](runtime-fixes.md) passed 49 regressions, four QEMU
-selections and BL31/EL2 Simics bridge/reboot checks. Hardware follow-up is queued
-on the shared mutex; the earlier hardware evidence below remains distinct.
+The [2026-10-31 full campaign](full-validation-2026-10-31.md) separates fresh
+QEMU, native Simics and physical results by example and artifact. All 15 rebuilt
+board-suite entries passed again. Cached DSU cases, the target-specific L3
+partition policy and four HPS DDR variants passed on hardware with restoration.
+The [memory/fabric guide](memory-fabric-labs.md) explains their narrower scopes.
+
+Separate [physical reference checks](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/references/results.json)
+passed OCRAM semihost output, binary readback and stopped-PC verification, plus a
+read-only DDR exception-register snapshot. Native Simics also passed the new
+resident-BL31 PSCI CPU_ON/CPU_OFF harness; its physical and native Simics runs passed.
+Source-built U-Boot reaches a hardware prompt, but USB CNR still times out before
+any device enumeration. Successful firmware entry is not a USB flash-drive pass.
+
+The earlier [runtime-fix campaign](runtime-fixes.md) and historical results below
+retain their own revisions and coverage; they are not substituted for fresh
+execution evidence.
 
 ## New 26.3 examples across environments
 
@@ -85,9 +98,11 @@ results. The historical 15-example hardware results remain separate.
 ## What these results do not establish
 
 The 64 MiB scratch check does not qualify the entire 8 GiB bank. The configured
-2 GiB/detected 8 GiB diagnostic warning remains applicable. Cache discovery,
-secondary core execution and CCU register reads do not prove cache coherency.
-Polled GIC acknowledgement does not prove exception-vector delivery.
+2 GiB/detected 8 GiB diagnostic warning remains applicable. In the 15-entry board suite, cache discovery, secondary core execution and
+CCU register reads do not prove cache coherency. The separate cached DSU lab now
+checks producer/consumer coherency on the physical kit; its partition result is
+not a general cache-performance or occupancy measurement. Polled GIC
+acknowledgement alone does not prove exception-vector delivery.
 
 SMMU identification does not test address translation. ECC register checks do not
 inject errors or prove recovery. SPI loopback is internal. Watchdog testing stops
@@ -96,8 +111,9 @@ DAA/CCC/IBI targets.
 
 Ethernet PHY IDs, USB controller IDs and SD card detect do not establish packet
 traffic, enumeration or media read/write. No populated NAND/eMMC was established
-on this SOM. EEPROM contents were read, not programmed. External-peer and
-U-Boot/Linux recipes are separate setup references.
+on this SOM. EEPROM contents were read, not programmed. External-peer and Linux boot/media recipes remain separate setup references.
+The source-built U-Boot USB diagnostic has run on hardware, including a clean
+power-cycle retry, but failed controller readiness before enumeration.
 
 ## Fabric IP extension
 

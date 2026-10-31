@@ -1,0 +1,75 @@
+{
+  "environment": "Native Agilex5 Simics model",
+  "scope": "Cached guest/control-flow execution only; no physical coherency, L3 partition, cache timing or bandwidth qualification",
+  "runner_sha256": "29ce00f742ef40d620104556a60bccb5ae457f2c298f5c71ccbdeb53b021d6c3",
+  "oracle_sha256": "edba2d2e4249fd57c4eaf60ba5e2f65eef100d74c68c9e5c9d0d007de724cc92",
+  "bootstrap_sha256": "025972a740c9c99a490d2551003f2f56dcc6b7d60aafd81408347a11234bbadd",
+  "simics_launcher_sha256": "f8927571c024f086fc7547fdf28ecdc9bfe159fe7d211868affe2f59a6ada0bc",
+  "build": {
+    "target": "agilex5",
+    "scope": "Compile only; execution must be recorded separately",
+    "compiler": "aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009",
+    "source_revision": "af81d9e81572a5d630ba7d405db715a5dfbe7ec8",
+    "sources": {
+      "qemu/labs/start.S": "dd94c3884c078c186e582b3bcb79b7cfc517b48009320bca69647c7e830b7b4d",
+      "qemu/labs/runtime.c": "86fe3dbb0b7d171d9e602e6bc3536b9ebb0baf329b9097e4c2553a884c6caaaf",
+      "qemu/labs/lab.h": "b97dd13ada04b42c0ecea1db353485df8ed90f7bf9a00d92b90f9fd421da5540",
+      "qemu/labs/link.ld": "aa24579e892b7eaf5dd6b98bd12714328c2bd684b50855686f6fb20e92d2b81d",
+      "memory-labs/dsu/dsu.c": "dd128f496a42900b230ca9116be69448c259573b6ee13139cda868f250169b62",
+      "memory-labs/dsu/partition.h": "629b7b8f18193d44480914f28b239f1b7a876295358d2ae07d5be1fe0542c666",
+      "memory-labs/dsu/contention.h": "8bf249228ec786019b4df6704069fbea8837539c84046f28ebf1cad893600391",
+      "memory-labs/dsu/build.sh": "b2018b3b81ca5e04fcd2748eeb0fa4e04ce5b53acf8508796596e2e5bf0453cf"
+    },
+    "artifacts": {
+      "contention.bin": "497442abceea244d9244878812473bddba442763ef9a895aa9206dbb6d07d4c8",
+      "stalled.elf": "5cd0b6b88c25451502472a4aeef87b8ea7ff9ce033fbb085f0239bcc9aea709d",
+      "contention.elf": "19c38c7603b72221513949d9f6da232f790ea945e771953ddaf257702710a9b3",
+      "partitioned.bin": "8d90fdb11b9f089907212396fa4a4090b7b5973d44b39daf9316f32b339b5bbd",
+      "corrupt.elf": "6b329639e5c44fec925ce67fc1db5d3ada5a846fd39f4d01238e3f2d62d6a5e7",
+      "normal.elf": "0f0c6be06e5f1f6f8109b7f3efe8174a2afe830596d40659a326ed62f35262b2",
+      "partitioned.elf": "122344c51e60f33e0c5cfbb63cee17267d687ded57767b35d6d9609ba4758c12",
+      "corrupt.bin": "df4b1dc319172cc4385ea09abfff3d0c67eeba6745811af596aadcf335743b9a",
+      "normal.bin": "f94690c574c07ffc75767fd62295df6d5b61a16a292ca8c7438db76fda20477e",
+      "stalled.bin": "725541f2f829faa6b7ea3c6837203222a19bd23e75313a9f57cc3e6fcb10e5b5"
+    }
+  },
+  "tests": [
+    {
+      "name": "normal",
+      "status": "pass",
+      "negative_control": false,
+      "process_exit": 0,
+      "seconds": 9.332969774957746,
+      "elf_sha256": "0f0c6be06e5f1f6f8109b7f3efe8174a2afe830596d40659a326ed62f35262b2",
+      "script_sha256": "40b01fc39c029bb8c026ebb369a687ae9c2084fc5a5bfcb7c1f93c22fad7bc4c"
+    },
+    {
+      "name": "corrupt",
+      "status": "pass",
+      "negative_control": true,
+      "process_exit": 0,
+      "seconds": 8.833734643645585,
+      "elf_sha256": "6b329639e5c44fec925ce67fc1db5d3ada5a846fd39f4d01238e3f2d62d6a5e7",
+      "script_sha256": "1ed2c4add96fd030f211cffffb8eb13ed77f33f8fa30e7d99ef6576eb31a2ee4"
+    },
+    {
+      "name": "stalled",
+      "status": "pass",
+      "negative_control": true,
+      "process_exit": 0,
+      "seconds": 27.174438535701483,
+      "elf_sha256": "5cd0b6b88c25451502472a4aeef87b8ea7ff9ce033fbb085f0239bcc9aea709d",
+      "script_sha256": "169708e394ddb568cca95344638bdcebd0a6bdc87dc98af02e05cd31df536a2c"
+    },
+    {
+      "name": "contention",
+      "status": "pass",
+      "negative_control": false,
+      "process_exit": 0,
+      "seconds": 9.685796536970884,
+      "elf_sha256": "19c38c7603b72221513949d9f6da232f790ea945e771953ddaf257702710a9b3",
+      "script_sha256": "80c4e7b05e04ce6cd7639f6658eb8d75db261363dc247ffd1e54a93510deb97f"
+    }
+  ],
+  "passed": true
+}

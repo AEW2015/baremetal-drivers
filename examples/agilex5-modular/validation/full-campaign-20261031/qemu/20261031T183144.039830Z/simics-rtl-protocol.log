@@ -1,0 +1,1 @@
+PASS SIMICS_RTL_PROTOCOL: 10 checks; actual ADD/XOR RTL and malformed requests

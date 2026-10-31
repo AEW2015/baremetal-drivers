@@ -1,0 +1,13 @@
+{
+  "scope": "Supplemental controlled FCS response-lifetime fix run; baseline 63-row results retained unchanged",
+  "final_evidence": "fcs-fixed-20261031T193009Z/results.json",
+  "tests": [
+    {
+      "name": "fcs-fixed",
+      "status": "fail",
+      "control_flow_regression": "pass",
+      "evidence": "fcs-fixed-20261031T193009Z/results.json",
+      "limitation": "Native SDM rejects CHIP_ID, GET_IDCODE and OPEN_SESSION with status0x3; full FCS capability remains failed. The patched HAL now consumes each response while its local buffer is alive and completes with controlled API errors instead of stack-PC corruption."
+    }
+  ]
+}

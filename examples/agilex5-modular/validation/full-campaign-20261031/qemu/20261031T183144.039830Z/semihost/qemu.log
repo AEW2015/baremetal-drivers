@@ -1,0 +1,2 @@
+Hello, World! Agilex 5 HPS executing from OCRAM.
+qemu-system-aarch64: terminating on signal 15 from pid 1382618 (python3)

@@ -1,0 +1,41 @@
+
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+LAB BEGIN multicore
+PASS A55_BOOT_CONFIGURATION
+SECONDARY_CPU=0x0000000000000001
+MPIDR=0x0000000081000100
+MIDR=0x00000000412fd050
+EL=0x0000000000000003
+PASS SECONDARY_IDENTITY
+SECONDARY_CPU=0x0000000000000002
+MPIDR=0x0000000081000200
+MIDR=0x00000000414fd0b1
+EL=0x0000000000000003
+PASS SECONDARY_IDENTITY
+SECONDARY_CPU=0x0000000000000003
+MPIDR=0x0000000081000300
+MIDR=0x00000000414fd0b1
+EL=0x0000000000000003
+PASS SECONDARY_IDENTITY
+PASS THREE_SECONDARIES_EXECUTED
+LAB COMPLETE

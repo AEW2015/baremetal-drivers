@@ -5,9 +5,13 @@ SOM-first bare-metal examples for the Agilex 5 E-Series Modular ES kit (FPGA ID
 the repository's Simics reference tests with physical-board startup and checks.
 They are independent of the Premium kit pinout.
 
-The original bench campaign passed all 15 suite entries. See
-[validation scope and evidence](VALIDATION.md) and [SOM/carrier mapping](HARDWARE.md).
-Rebuilt binaries do not inherit those historical results. No FPGA programming
+The [2026-10-31 validation campaign](../../docs/full-validation-2026-10-31.md)
+rebuilt and reran all 15 board-suite entries successfully. Its
+[board-suite record](validation/full-campaign-20261031/hardware/board-suite/results.json)
+is separate from the original campaign. The cached
+DSU/L3 and HPS DDR labs also have physical execution evidence. See
+[original validation scope](VALIDATION.md) and [SOM/carrier mapping](HARDWARE.md).
+Each pass applies to its recorded artifacts; future rebuilds need new evidence. No FPGA programming
 images, schematic PDFs, compiler binaries or proprietary tools are included.
 
 The [memory and fabric labs](memory-labs/README.md) add cached multicore handoff,
@@ -34,9 +38,13 @@ Simics/Verilator integration. Model and physical-board outcomes are separate.
 | `vendor-smmu` | Vendor ID example plus exact revision-2 SOM IIDR check |
 | `vendor-ecc` | Vendor ECC register/default checks |
 
-Sources are in [core/](core/). The separate PSCI example is compile-only: this
-EL3 bootstrap does not provide resident BL31 for a nonsecure PSCI caller.
-OCRAM UART and semihosting sources are in [bootstrap/ocram/](bootstrap/ocram/).
+Sources are in [core/](core/). The separate [PSCI harness](reference/psci/README.md)
+exercises the callable helper under resident BL31 from nonsecure EL2; native
+Simics and physical CPU_ON/CPU_OFF passed with checked identity, context and OFF affinity. The 15-entry
+EL3 suite does not supply that resident firmware. OCRAM UART and semihosting
+sources are in [bootstrap/ocram/](bootstrap/ocram/); the separate automated
+[physical semihost and register-probe results](validation/full-campaign-20261031/hardware/references/results.json)
+passed with DDR Hello restoration.
 
 <!-- example-platform-checklist:start -->
 ## Example platform checklist
@@ -47,7 +55,7 @@ Checkmarks apply to the linked evidence and the stated scope, including historic
 
 | QEMU | SIMICS | Agilex 5 Modular hardware |
 |:---:|:---:|:---:|
-| **15 / 94 ✅** | **42 / 94 ✅** | **34 / 94 ✅** |
+| **16 / 94 ✅** | **49 / 94 ✅** | **49 / 94 ✅** |
 
 Expand a group for every example. [Detailed scope and results](../../docs/example-catalog.md).
 
@@ -56,32 +64,32 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`upstream/bridge`](../bridge) | ➖ Unsupported | [✅ Passed](validation/runtime-fixes/simics-services/results.json) | ⬜ Not tested |
-| [`upstream/ccu`](../ccu) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/clk_mngr`](../clk_mngr) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/combophy`](../combophy) | ➖ Unsupported | [✅ Passed](validation/runtime-fixes/simics-other/results.json) | [✅ Passed](validation/upstream26-examples) |
-| [`upstream/crc`](../crc) | [✅ Passed](validation/runtime-fixes/qemu/results.json) | [✅ Passed](validation/runtime-fixes/simics-other/results.json) | [✅ Passed](validation/upstream26-examples) |
-| [`upstream/ddr`](../ddr) | ➖ Unsupported | [✅ Passed](validation/simics26/upstream26-clean-checkout/results.json) | ⬜ Not tested |
-| [`upstream/dma`](../dma) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/ecc`](../ecc) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/fcs`](../fcs) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/gic`](../gic) | ➖ Unsupported | [✅ Passed](validation/simics26/upstream26-clean-checkout/results.json) | ⬜ Not tested |
-| [`upstream/gpio`](../gpio) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/hello`](../hello) | ➖ Unsupported | [✅ Passed](validation/simics26/upstream26-clean-checkout/results.json) | ⬜ Not tested |
-| [`upstream/i2c`](../i2c) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/i3c`](../i3c) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/iossm`](../iossm) | ➖ Unsupported | [⚠️ Partial](validation/runtime-fixes/simics-services/results.json) | ⬜ Not tested |
-| [`upstream/mailbox`](../mailbox) | ➖ Unsupported | [⚠️ Partial](validation/runtime-fixes/simics-services/results.json) | [✅ Passed](validation/cross-platform/hardware-runtime/results.json) |
-| [`upstream/mmu`](../mmu) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/noc`](../noc) | ➖ Unsupported | [✅ Passed](validation/runtime-fixes/simics-other/results.json) | [✅ Passed](validation/upstream26-examples) |
-| [`upstream/perf`](../perf) | [✅ Passed](validation/runtime-fixes/qemu/results.json) | [✅ Passed](validation/runtime-fixes/simics-services/results.json) | [✅ Passed](validation/cross-platform/hardware-runtime/results.json) |
-| [`upstream/reboot_mngr`](../reboot_mngr) | ➖ Unsupported | [✅ Passed](validation/runtime-fixes/simics-services/results.json) | ⬜ Not tested |
-| [`upstream/reset_mngr`](../reset_mngr) | ➖ Unsupported | [✅ Passed](validation/runtime-fixes/simics-other/results.json) | [✅ Passed](validation/upstream26-examples) |
-| [`upstream/sdmmc`](../sdmmc) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/seu`](../seu) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/smmu`](../smmu) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/spi`](../spi) | ➖ Unsupported | ⬜ Not tested | ⬜ Not tested |
-| [`upstream/timer`](../timer) | ➖ Unsupported | [✅ Passed](validation/simics26/upstream26-clean-checkout/results.json) | ⬜ Not tested |
+| [`upstream/bridge`](../bridge) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`upstream/ccu`](../ccu) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [⚠️ Partial](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/clk_mngr`](../clk_mngr) | ➖ Unsupported | [⚠️ Partial](validation/full-campaign-20261031/simics/results.json) | [⚠️ Partial](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/combophy`](../combophy) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/crc`](../crc) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/ddr`](../ddr) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`upstream/dma`](../dma) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/ecc`](../ecc) | ➖ Unsupported | [❌ Failed](validation/full-campaign-20261031/simics/results.json) | [⚠️ Partial](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/fcs`](../fcs) | ➖ Unsupported | [❌ Failed](validation/full-campaign-20261031/simics/fcs-fixed-results.json) | [⚠️ Partial](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/gic`](../gic) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/gpio`](../gpio) | ➖ Unsupported | [⚠️ Partial](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`upstream/hello`](../hello) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/i2c`](../i2c) | ➖ Unsupported | [⚠️ Partial](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`upstream/i3c`](../i3c) | ➖ Unsupported | [❌ Failed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`upstream/iossm`](../iossm) | ➖ Unsupported | [⚠️ Partial](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`upstream/mailbox`](../mailbox) | ➖ Unsupported | [⚠️ Partial](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/mmu`](../mmu) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/noc`](../noc) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/perf`](../perf) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/reboot_mngr`](../reboot_mngr) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`upstream/reset_mngr`](../reset_mngr) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/sdmmc`](../sdmmc) | ➖ Unsupported | [❌ Failed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`upstream/seu`](../seu) | ➖ Unsupported | [❌ Failed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`upstream/smmu`](../smmu) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/spi`](../spi) | ➖ Unsupported | [⚠️ Partial](validation/full-campaign-20261031/simics/results.json) | [⚠️ Partial](validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/timer`](../timer) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
 
 </details>
 
@@ -90,21 +98,21 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`board/core`](core/core_examples.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/dma`](core/dma_copy.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/gic`](core/gic_sgi.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/interfaces`](core/som_interfaces.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/mailbox`](core/mailbox_status.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/mmu`](core/mmu_translation.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/multicore`](core/multicore.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/som`](core/som_peripherals.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/som-i2c`](core/som_i2c.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/som-i3c`](core/som_i3c.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/vendor-ccu`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/vendor-clkmgr`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/vendor-ecc`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/vendor-smmu`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
-| [`board/vendor-uart`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/results.json) |
+| [`board/core`](core/core_examples.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/dma`](core/dma_copy.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/gic`](core/gic_sgi.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/interfaces`](core/som_interfaces.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/mailbox`](core/mailbox_status.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/mmu`](core/mmu_translation.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/multicore`](core/multicore.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/som`](core/som_peripherals.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/som-i2c`](core/som_i2c.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/som-i3c`](core/som_i3c.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/vendor-ccu`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/vendor-clkmgr`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/vendor-ecc`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/vendor-smmu`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`board/vendor-uart`](core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
 
 </details>
 
@@ -113,7 +121,7 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`board/vendor-timer`](build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
+| [`board/vendor-timer`](build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
 | [`board/vendor-watchdog`](build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
 | [`board/vendor-spi`](build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
 | [`board/vendor-hps_mailbox`](build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
@@ -125,22 +133,22 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`legacy/hello-world`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/uart`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/dma`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/timer`](simics/legacy.py) | ➖ Unsupported | [❌ Failed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/watchdog`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/i2c`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/i3c`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/spi`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/sdmmc`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/xgmac`](simics/legacy.py) | ➖ Unsupported | [❌ Failed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/mmu_el3`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/smmu`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/ccu`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/clkmgr`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/ecc`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
-| [`legacy/hps_mailbox`](simics/legacy.py) | ➖ Unsupported | [❌ Failed](validation/simics26/legacy25-compatibility/results.json) | ⬜ Not tested |
+| [`legacy/hello-world`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/uart`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/dma`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/timer`](simics/legacy.py) | ➖ Unsupported | [❌ Failed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/watchdog`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/i2c`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/i3c`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/spi`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/sdmmc`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/xgmac`](simics/legacy.py) | ➖ Unsupported | [❌ Failed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/mmu_el3`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/smmu`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/ccu`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/clkmgr`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/ecc`](simics/legacy.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/hps_mailbox`](simics/legacy.py) | ➖ Unsupported | [❌ Failed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
 
 </details>
 
@@ -149,14 +157,14 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`custom/qemu-hello`](qemu/hello.c) | [✅ Passed](validation/tutorial/results.json) | ⬜ Not tested | ⬜ Not tested |
-| [`practice/startup`](qemu/labs/startup.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
-| [`practice/corruption`](qemu/labs/corruption.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
-| [`practice/exception`](qemu/labs/exception.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
-| [`practice/timer`](qemu/labs/timer.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
-| [`practice/mmu`](qemu/labs/mmu.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
-| [`practice/uart`](qemu/labs/uart.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
-| [`practice/multicore`](qemu/labs/multicore.c) | [✅ Passed](validation/cross-platform/qemu-practice/results.json) | [✅ Passed](validation/cross-platform/simics-practice/results.json) | [✅ Passed](validation/cross-platform/hardware-practice/results.json) |
+| [`custom/qemu-hello`](qemu/hello.c) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | ⬜ Not tested | ⬜ Not tested |
+| [`practice/startup`](qemu/labs/startup.c) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`practice/corruption`](qemu/labs/corruption.c) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`practice/exception`](qemu/labs/exception.c) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`practice/timer`](qemu/labs/timer.c) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`practice/mmu`](qemu/labs/mmu.c) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`practice/uart`](qemu/labs/uart.c) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`practice/multicore`](qemu/labs/multicore.c) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
 
 </details>
 
@@ -165,15 +173,15 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`diagnostic/smc-guard`](upstream-lab/lab.c) | [✅ Passed](validation/runtime-fixes/qemu/results.json) | ⬜ Not tested | ⬜ Not tested |
-| [`diagnostic/perf-zero-clock`](upstream-lab/lab.c) | [✅ Passed](validation/runtime-fixes/qemu/results.json) | ⬜ Not tested | ⬜ Not tested |
-| [`custom/bridge-control`](upstream-lab/lab.c) | ➖ Unsupported | [✅ Passed](validation/runtime-fixes/simics-services/results.json) | [✅ Passed](validation/cross-platform/hardware-runtime/results.json) |
-| [`custom/ocram-hello`](bootstrap/ocram/uart_local.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](../../docs/examples/ocram.md) |
-| [`custom/ddr-hello`](bootstrap/ddr) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/cross-platform/hardware-runtime/restore-bootstrap.log) |
-| [`reference/semihost`](bootstrap/ocram/hello_semihost.S) | ⬜ Not tested | ⬜ Not tested | 📖 Reference |
-| [`reference/psci`](core/secondary_core.c) | ⬜ Not tested | ⬜ Not tested | 🔨 Build only |
-| [`custom/fault-probe`](core/fault_probe.c) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
-| [`custom/ethernet`](ethernet) | ⬜ Not tested | ⬜ Not tested | [✅ Passed](validation/ethernet/README.md) |
+| [`diagnostic/smc-guard`](upstream-lab/lab.c) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`diagnostic/perf-zero-clock`](upstream-lab/lab.c) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`custom/bridge-control`](upstream-lab/lab.c) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`custom/ocram-hello`](bootstrap/ocram/uart_local.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`custom/ddr-hello`](bootstrap/ddr) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`reference/semihost`](bootstrap/ocram/hello_semihost.S) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`reference/psci`](core/secondary_core.c) | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`custom/fault-probe`](core/fault_probe.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`custom/ethernet`](ethernet) | ⬜ Not tested | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
 | [`fabric/add`](fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
 | [`fabric/xor`](fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
 | [`reference/pr`](fabric) | 📖 Reference | 📖 Reference | 📖 Reference |
@@ -185,8 +193,8 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`config/sysmgr`](config-audit) | ➖ Unsupported | [✅ Passed](validation/config-audit/simics/results.json) | [✅ Passed](validation/config-audit/hardware/results.json) |
-| [`config/pinmux`](config-audit) | ➖ Unsupported | [✅ Passed](validation/config-audit/simics/results.json) | [✅ Passed](validation/config-audit/hardware/results.json) |
+| [`config/sysmgr`](config-audit) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`config/pinmux`](config-audit) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
 
 </details>
 
@@ -195,8 +203,8 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`integration/simics-rtl-add`](simics-rtl) | ➖ Unsupported | [✅ Passed](simics-rtl/validation/results.json) | ➖ Unsupported |
-| [`integration/simics-rtl-xor`](simics-rtl) | ➖ Unsupported | [✅ Passed](simics-rtl/validation/results.json) | ➖ Unsupported |
+| [`integration/simics-rtl-add`](simics-rtl) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ➖ Unsupported |
+| [`integration/simics-rtl-xor`](simics-rtl) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ➖ Unsupported |
 
 </details>
 
@@ -205,7 +213,7 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`model/pio`](model-audit) | ➖ Unsupported | [✅ Passed](model-audit/validation/results.json) | ➖ Unsupported |
+| [`model/pio`](model-audit) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ➖ Unsupported |
 
 </details>
 
@@ -214,14 +222,14 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`memory/dsu`](memory-labs/dsu) | [✅ Passed](memory-labs/dsu/validation/results.json) | [✅ Passed](memory-labs/dsu/validation/simics-results.json) | [🔨 Build only](memory-labs/dsu/validation/build-agilex5.json) |
-| [`memory/l3-partition`](memory-labs/dsu) | ➖ Unsupported | ➖ Unsupported | [🔨 Build only](memory-labs/dsu/validation/build-agilex5.json) |
-| [`memory/ddr-sweep`](memory-labs/ddr) | [✅ Passed](memory-labs/ddr/validation/qemu-final/results.json) | [✅ Passed](memory-labs/ddr/validation/simics-results.json) | [🔨 Build only](memory-labs/ddr/validation/build-agilex5-calibrated.json) |
-| [`memory/smmu-qemu`](memory-labs/smmu) | [✅ Passed](memory-labs/smmu/validation/qemu-20261031T022532.436895Z/results.json) | ➖ Unsupported | ➖ Unsupported |
-| [`memory/native-tbu`](memory-labs/smmu/native_fixture.py) | ➖ Unsupported | [✅ Passed](memory-labs/smmu/validation/simics-native-20261031T024350.917717Z/results.json) | ➖ Unsupported |
-| [`memory/dma-tbu`](memory-labs/smmu/dmac) | ➖ Unsupported | [✅ Passed](memory-labs/smmu/dmac/validation/simics-final/results.json) | ⬜ Not tested |
-| [`memory/fabric-ddr`](memory-labs/fabric-ddr) | ➖ Unsupported | [✅ Passed](memory-labs/fabric-ddr/simics/validation/results.json) | 🚧 Blocked |
-| [`custom/usb-host`](usb-bringup) | ➖ Unsupported | ⬜ Not tested | [❌ Failed](validation/usb-baremetal/20261031/results.json) |
+| [`memory/dsu`](memory-labs/dsu) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`memory/l3-partition`](memory-labs/dsu) | ➖ Unsupported | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`memory/ddr-sweep`](memory-labs/ddr) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
+| [`memory/smmu-qemu`](memory-labs/smmu) | [✅ Passed](validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | ➖ Unsupported | ➖ Unsupported |
+| [`memory/native-tbu`](memory-labs/smmu/native_fixture.py) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ➖ Unsupported |
+| [`memory/dma-tbu`](memory-labs/smmu/dmac) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`memory/fabric-ddr`](memory-labs/fabric-ddr) | ➖ Unsupported | [✅ Passed](validation/full-campaign-20261031/simics/results.json) | 🚧 Blocked |
+| [`custom/usb-host`](usb-bringup) | ➖ Unsupported | ⬜ Not tested | [❌ Failed](validation/full-campaign-20261031/hardware/results.json) |
 
 </details>
 
@@ -265,8 +273,10 @@ SKIP_VENDOR=1 ./build_board.sh
 `bootstrap/ocram/build_uart.sh` separately builds OCRAM UART ELF/bin/hex. If
 `AGILEX_SOF` is supplied it also packages a volatile HPS programming image. The
 OCRAM code uses this bench's handoff layout and 54 UART divisor; verify the handoff
-and input clock on a different design. `hello_semihost.S` is provided as a source
-reference; it is not part of the automated DDR suite.
+and input clock on a different design. `reference/build.sh` and the host
+`reference/run_hardware.py` automate the separate OCRAM semihost and DDR
+exception-register snapshot tests. Both passed on the physical kit; they remain
+separate from the 15-entry DDR suite.
 
 ## DDR initialization prerequisite
 
@@ -333,11 +343,16 @@ Local program entry addresses are 0x82100000, 0x82200000, 0x82300000 and
 adapters use text 0x80200000/data 0x80400000. Reserve 0x82000000 for DDR Hello,
 0x82010000 for parked secondary cores, 0x84000000–0x87ffffff for bootstrap tests,
 and scratch buffers 0x85000000–0x85300080 (reused after the bootstrap test).
-These are isolated EL3 diagnostics, with data cache disabled, not concurrent OS
-applications. The MMU example and vendor adapters enable translation separately.
+The 15-entry suite uses isolated EL3 diagnostics with data cache disabled.
+The MMU example and vendor adapters enable translation separately. The separate
+DSU lab deliberately enables cached shared memory; none of these programs runs
+concurrently with an OS.
 
-Polled SGI acknowledgement does not test exception delivery. Cache discovery,
-secondary execution and CCU reads do not establish cache coherency. The SMMU test
+Within the 15-entry suite, polled SGI acknowledgement does not test exception
+delivery, and cache discovery, secondary execution and CCU reads do not establish
+cache coherency. The separate cached [DSU producer/consumer](validation/full-campaign-20261031/hardware/memory-dsu/results.json)
+and [partition-policy checks](validation/full-campaign-20261031/hardware/l3-partition/results.json)
+have their own physical results. The SMMU test
 checks identity, not DMA translation. ECC register checks do not inject errors.
 Watchdog testing stops before a system reset. Counter advancement does not prove
 a calibrated frequency (CNTFRQ was zero). I3C legacy-I2C does not establish native
@@ -345,9 +360,12 @@ I3C DAA/CCC/IBI behavior. EEPROM reads use address-pointer writes only; no array
 write-test is claimed. PHY/controller IDs and SD card detect do not establish
 Ethernet traffic, USB enumeration or SD media access.
 
-The U-Boot/Linux commands in [recipes/](recipes/) are for a separately configured
-board environment and external peers, not for the host container. They were not
-run in this campaign. NAND/eMMC population is not established on this SOM.
+The U-Boot/Linux commands in [recipes/](recipes/) target a separately configured
+board and external peers, not the host container. The [USB lab](usb-bringup/README.md)
+has booted source-built U-Boot on the kit, but controller readiness still fails
+before hub, mouse, flash-drive or USB-Ethernet enumeration. Linux boot/media
+recipes remain separate setup references. NAND/eMMC population is not established
+on this SOM.
 
 For manual debugging, initialize DDR first, then run `debug-server.sh` inside the
 container and use [recipes/debug.gdb](recipes/debug.gdb) from this directory with

@@ -1,0 +1,446 @@
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 0, "rtl_cycles": 5, "value": 1145328177, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 4, "rtl_cycles": 7, "value": 65536, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 9, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 68, "rtl_cycles": 11, "value": 2231369728, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 72, "rtl_cycles": 13, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 76, "rtl_cycles": 15, "value": 2231435264, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 80, "rtl_cycles": 17, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 16, "rtl_cycles": 19, "value": 2231369728, "write": true}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 20, "rtl_cycles": 21, "value": 0, "write": true}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 24, "rtl_cycles": 23, "value": 64, "write": true}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 28, "rtl_cycles": 25, "value": 305419896, "write": true}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 8, "rtl_cycles": 27, "value": 1, "write": true}
+{"address": 2231369728, "axprot": 0, "axuser": 0, "data": 1311768465173141112, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369728, "axprot": 0, "axuser": 0, "data": 1311768465173141112, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 29, "value": 1, "write": false}
+{"address": 2231369736, "axprot": 0, "axuser": 0, "data": 1311768469468108409, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369736, "axprot": 0, "axuser": 0, "data": 1311768469468108409, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 31, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 33, "value": 1, "write": false}
+{"address": 2231369744, "axprot": 0, "axuser": 0, "data": 1311768473763075706, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369744, "axprot": 0, "axuser": 0, "data": 1311768473763075706, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 35, "value": 1, "write": false}
+{"address": 2231369752, "axprot": 0, "axuser": 0, "data": 1311768478058043003, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369752, "axprot": 0, "axuser": 0, "data": 1311768478058043003, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 37, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 39, "value": 1, "write": false}
+{"address": 2231369760, "axprot": 0, "axuser": 0, "data": 1311768482353010300, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369760, "axprot": 0, "axuser": 0, "data": 1311768482353010300, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 41, "value": 1, "write": false}
+{"address": 2231369768, "axprot": 0, "axuser": 0, "data": 1311768486647977597, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369768, "axprot": 0, "axuser": 0, "data": 1311768486647977597, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 43, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 45, "value": 1, "write": false}
+{"address": 2231369776, "axprot": 0, "axuser": 0, "data": 1311768490942944894, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369776, "axprot": 0, "axuser": 0, "data": 1311768490942944894, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 47, "value": 1, "write": false}
+{"address": 2231369784, "axprot": 0, "axuser": 0, "data": 1311768495237912191, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369784, "axprot": 0, "axuser": 0, "data": 1311768495237912191, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 49, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 51, "value": 1, "write": false}
+{"address": 2231369792, "axprot": 0, "axuser": 0, "data": 1311768430813402752, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369792, "axprot": 0, "axuser": 0, "data": 1311768430813402752, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 53, "value": 1, "write": false}
+{"address": 2231369800, "axprot": 0, "axuser": 0, "data": 1311768435108370049, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369800, "axprot": 0, "axuser": 0, "data": 1311768435108370049, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 55, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 57, "value": 1, "write": false}
+{"address": 2231369808, "axprot": 0, "axuser": 0, "data": 1311768439403337346, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369808, "axprot": 0, "axuser": 0, "data": 1311768439403337346, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 59, "value": 1, "write": false}
+{"address": 2231369816, "axprot": 0, "axuser": 0, "data": 1311768443698304643, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369816, "axprot": 0, "axuser": 0, "data": 1311768443698304643, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 61, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 63, "value": 1, "write": false}
+{"address": 2231369824, "axprot": 0, "axuser": 0, "data": 1311768447993271940, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369824, "axprot": 0, "axuser": 0, "data": 1311768447993271940, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 65, "value": 1, "write": false}
+{"address": 2231369832, "axprot": 0, "axuser": 0, "data": 1311768452288239237, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369832, "axprot": 0, "axuser": 0, "data": 1311768452288239237, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 67, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 69, "value": 1, "write": false}
+{"address": 2231369840, "axprot": 0, "axuser": 0, "data": 1311768456583206534, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369840, "axprot": 0, "axuser": 0, "data": 1311768456583206534, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 71, "value": 1, "write": false}
+{"address": 2231369848, "axprot": 0, "axuser": 0, "data": 1311768460878173831, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369848, "axprot": 0, "axuser": 0, "data": 1311768460878173831, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 73, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 75, "value": 1, "write": false}
+{"address": 2231369856, "axprot": 0, "axuser": 0, "data": 1311768396453664392, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369856, "axprot": 0, "axuser": 0, "data": 1311768396453664392, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 77, "value": 1, "write": false}
+{"address": 2231369864, "axprot": 0, "axuser": 0, "data": 1311768400748631689, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369864, "axprot": 0, "axuser": 0, "data": 1311768400748631689, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 79, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 81, "value": 1, "write": false}
+{"address": 2231369872, "axprot": 0, "axuser": 0, "data": 1311768405043598986, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369872, "axprot": 0, "axuser": 0, "data": 1311768405043598986, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 83, "value": 1, "write": false}
+{"address": 2231369880, "axprot": 0, "axuser": 0, "data": 1311768409338566283, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369880, "axprot": 0, "axuser": 0, "data": 1311768409338566283, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 85, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 87, "value": 1, "write": false}
+{"address": 2231369888, "axprot": 0, "axuser": 0, "data": 1311768413633533580, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369888, "axprot": 0, "axuser": 0, "data": 1311768413633533580, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 89, "value": 1, "write": false}
+{"address": 2231369896, "axprot": 0, "axuser": 0, "data": 1311768417928500877, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369896, "axprot": 0, "axuser": 0, "data": 1311768417928500877, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 91, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 93, "value": 1, "write": false}
+{"address": 2231369904, "axprot": 0, "axuser": 0, "data": 1311768422223468174, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369904, "axprot": 0, "axuser": 0, "data": 1311768422223468174, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 95, "value": 1, "write": false}
+{"address": 2231369912, "axprot": 0, "axuser": 0, "data": 1311768426518435471, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369912, "axprot": 0, "axuser": 0, "data": 1311768426518435471, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 97, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 99, "value": 1, "write": false}
+{"address": 2231369920, "axprot": 0, "axuser": 0, "data": 1311768362093926032, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369920, "axprot": 0, "axuser": 0, "data": 1311768362093926032, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 101, "value": 1, "write": false}
+{"address": 2231369928, "axprot": 0, "axuser": 0, "data": 1311768366388893329, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369928, "axprot": 0, "axuser": 0, "data": 1311768366388893329, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 103, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 105, "value": 1, "write": false}
+{"address": 2231369936, "axprot": 0, "axuser": 0, "data": 1311768370683860626, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369936, "axprot": 0, "axuser": 0, "data": 1311768370683860626, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 107, "value": 1, "write": false}
+{"address": 2231369944, "axprot": 0, "axuser": 0, "data": 1311768374978827923, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369944, "axprot": 0, "axuser": 0, "data": 1311768374978827923, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 109, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 111, "value": 1, "write": false}
+{"address": 2231369952, "axprot": 0, "axuser": 0, "data": 1311768379273795220, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369952, "axprot": 0, "axuser": 0, "data": 1311768379273795220, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 113, "value": 1, "write": false}
+{"address": 2231369960, "axprot": 0, "axuser": 0, "data": 1311768383568762517, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369960, "axprot": 0, "axuser": 0, "data": 1311768383568762517, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 115, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 117, "value": 1, "write": false}
+{"address": 2231369968, "axprot": 0, "axuser": 0, "data": 1311768387863729814, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369968, "axprot": 0, "axuser": 0, "data": 1311768387863729814, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 119, "value": 1, "write": false}
+{"address": 2231369976, "axprot": 0, "axuser": 0, "data": 1311768392158697111, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369976, "axprot": 0, "axuser": 0, "data": 1311768392158697111, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 121, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 123, "value": 1, "write": false}
+{"address": 2231369984, "axprot": 0, "axuser": 0, "data": 1311768327734187672, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369984, "axprot": 0, "axuser": 0, "data": 1311768327734187672, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 125, "value": 1, "write": false}
+{"address": 2231369992, "axprot": 0, "axuser": 0, "data": 1311768332029154969, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231369992, "axprot": 0, "axuser": 0, "data": 1311768332029154969, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 127, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 129, "value": 1, "write": false}
+{"address": 2231370000, "axprot": 0, "axuser": 0, "data": 1311768336324122266, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370000, "axprot": 0, "axuser": 0, "data": 1311768336324122266, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 131, "value": 1, "write": false}
+{"address": 2231370008, "axprot": 0, "axuser": 0, "data": 1311768340619089563, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370008, "axprot": 0, "axuser": 0, "data": 1311768340619089563, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 133, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 135, "value": 1, "write": false}
+{"address": 2231370016, "axprot": 0, "axuser": 0, "data": 1311768344914056860, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370016, "axprot": 0, "axuser": 0, "data": 1311768344914056860, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 137, "value": 1, "write": false}
+{"address": 2231370024, "axprot": 0, "axuser": 0, "data": 1311768349209024157, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370024, "axprot": 0, "axuser": 0, "data": 1311768349209024157, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 139, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 141, "value": 1, "write": false}
+{"address": 2231370032, "axprot": 0, "axuser": 0, "data": 1311768353503991454, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370032, "axprot": 0, "axuser": 0, "data": 1311768353503991454, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 143, "value": 1, "write": false}
+{"address": 2231370040, "axprot": 0, "axuser": 0, "data": 1311768357798958751, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370040, "axprot": 0, "axuser": 0, "data": 1311768357798958751, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 145, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 147, "value": 1, "write": false}
+{"address": 2231370048, "axprot": 0, "axuser": 0, "data": 1311768293374449312, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370048, "axprot": 0, "axuser": 0, "data": 1311768293374449312, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 149, "value": 1, "write": false}
+{"address": 2231370056, "axprot": 0, "axuser": 0, "data": 1311768297669416609, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370056, "axprot": 0, "axuser": 0, "data": 1311768297669416609, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 151, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 153, "value": 1, "write": false}
+{"address": 2231370064, "axprot": 0, "axuser": 0, "data": 1311768301964383906, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370064, "axprot": 0, "axuser": 0, "data": 1311768301964383906, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 155, "value": 1, "write": false}
+{"address": 2231370072, "axprot": 0, "axuser": 0, "data": 1311768306259351203, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370072, "axprot": 0, "axuser": 0, "data": 1311768306259351203, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 157, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 159, "value": 1, "write": false}
+{"address": 2231370080, "axprot": 0, "axuser": 0, "data": 1311768310554318500, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370080, "axprot": 0, "axuser": 0, "data": 1311768310554318500, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 161, "value": 1, "write": false}
+{"address": 2231370088, "axprot": 0, "axuser": 0, "data": 1311768314849285797, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370088, "axprot": 0, "axuser": 0, "data": 1311768314849285797, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 163, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 165, "value": 1, "write": false}
+{"address": 2231370096, "axprot": 0, "axuser": 0, "data": 1311768319144253094, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370096, "axprot": 0, "axuser": 0, "data": 1311768319144253094, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 167, "value": 1, "write": false}
+{"address": 2231370104, "axprot": 0, "axuser": 0, "data": 1311768323439220391, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370104, "axprot": 0, "axuser": 0, "data": 1311768323439220391, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 169, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 171, "value": 1, "write": false}
+{"address": 2231370112, "axprot": 0, "axuser": 0, "data": 1311768259014710952, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370112, "axprot": 0, "axuser": 0, "data": 1311768259014710952, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 173, "value": 1, "write": false}
+{"address": 2231370120, "axprot": 0, "axuser": 0, "data": 1311768263309678249, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370120, "axprot": 0, "axuser": 0, "data": 1311768263309678249, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 175, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 177, "value": 1, "write": false}
+{"address": 2231370128, "axprot": 0, "axuser": 0, "data": 1311768267604645546, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370128, "axprot": 0, "axuser": 0, "data": 1311768267604645546, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 179, "value": 1, "write": false}
+{"address": 2231370136, "axprot": 0, "axuser": 0, "data": 1311768271899612843, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370136, "axprot": 0, "axuser": 0, "data": 1311768271899612843, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 181, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 183, "value": 1, "write": false}
+{"address": 2231370144, "axprot": 0, "axuser": 0, "data": 1311768276194580140, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370144, "axprot": 0, "axuser": 0, "data": 1311768276194580140, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 185, "value": 1, "write": false}
+{"address": 2231370152, "axprot": 0, "axuser": 0, "data": 1311768280489547437, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370152, "axprot": 0, "axuser": 0, "data": 1311768280489547437, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 187, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 189, "value": 1, "write": false}
+{"address": 2231370160, "axprot": 0, "axuser": 0, "data": 1311768284784514734, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370160, "axprot": 0, "axuser": 0, "data": 1311768284784514734, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 191, "value": 1, "write": false}
+{"address": 2231370168, "axprot": 0, "axuser": 0, "data": 1311768289079482031, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370168, "axprot": 0, "axuser": 0, "data": 1311768289079482031, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 193, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 195, "value": 1, "write": false}
+{"address": 2231370176, "axprot": 0, "axuser": 0, "data": 1311768224654972592, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370176, "axprot": 0, "axuser": 0, "data": 1311768224654972592, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 197, "value": 1, "write": false}
+{"address": 2231370184, "axprot": 0, "axuser": 0, "data": 1311768228949939889, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370184, "axprot": 0, "axuser": 0, "data": 1311768228949939889, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 199, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 201, "value": 1, "write": false}
+{"address": 2231370192, "axprot": 0, "axuser": 0, "data": 1311768233244907186, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370192, "axprot": 0, "axuser": 0, "data": 1311768233244907186, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 203, "value": 1, "write": false}
+{"address": 2231370200, "axprot": 0, "axuser": 0, "data": 1311768237539874483, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370200, "axprot": 0, "axuser": 0, "data": 1311768237539874483, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 205, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 207, "value": 1, "write": false}
+{"address": 2231370208, "axprot": 0, "axuser": 0, "data": 1311768241834841780, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370208, "axprot": 0, "axuser": 0, "data": 1311768241834841780, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 209, "value": 1, "write": false}
+{"address": 2231370216, "axprot": 0, "axuser": 0, "data": 1311768246129809077, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370216, "axprot": 0, "axuser": 0, "data": 1311768246129809077, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 211, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 213, "value": 1, "write": false}
+{"address": 2231370224, "axprot": 0, "axuser": 0, "data": 1311768250424776374, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370224, "axprot": 0, "axuser": 0, "data": 1311768250424776374, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 215, "value": 1, "write": false}
+{"address": 2231370232, "axprot": 0, "axuser": 0, "data": 1311768254719743671, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231370232, "axprot": 0, "axuser": 0, "data": 1311768254719743671, "kind": "axi", "op": "MEM_W", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 217, "value": 1, "write": false}
+{"address": 2231369728, "axprot": 0, "axuser": 0, "data": 1311768465173141112, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369728, "axprot": 0, "axuser": 0, "data": 1311768465173141112, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 219, "value": 1, "write": false}
+{"address": 2231369736, "axprot": 0, "axuser": 0, "data": 1311768469468108409, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369736, "axprot": 0, "axuser": 0, "data": 1311768469468108409, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 221, "value": 1, "write": false}
+{"address": 2231369744, "axprot": 0, "axuser": 0, "data": 1311768473763075706, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369744, "axprot": 0, "axuser": 0, "data": 1311768473763075706, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 223, "value": 1, "write": false}
+{"address": 2231369752, "axprot": 0, "axuser": 0, "data": 1311768478058043003, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369752, "axprot": 0, "axuser": 0, "data": 1311768478058043003, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 225, "value": 1, "write": false}
+{"address": 2231369760, "axprot": 0, "axuser": 0, "data": 1311768482353010300, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369760, "axprot": 0, "axuser": 0, "data": 1311768482353010300, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 227, "value": 1, "write": false}
+{"address": 2231369768, "axprot": 0, "axuser": 0, "data": 1311768486647977597, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369768, "axprot": 0, "axuser": 0, "data": 1311768486647977597, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 229, "value": 1, "write": false}
+{"address": 2231369776, "axprot": 0, "axuser": 0, "data": 1311768490942944894, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369776, "axprot": 0, "axuser": 0, "data": 1311768490942944894, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 231, "value": 1, "write": false}
+{"address": 2231369784, "axprot": 0, "axuser": 0, "data": 1311768495237912191, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369784, "axprot": 0, "axuser": 0, "data": 1311768495237912191, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 233, "value": 1, "write": false}
+{"address": 2231369792, "axprot": 0, "axuser": 0, "data": 1311768430813402752, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369792, "axprot": 0, "axuser": 0, "data": 1311768430813402752, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 235, "value": 1, "write": false}
+{"address": 2231369800, "axprot": 0, "axuser": 0, "data": 1311768435108370049, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369800, "axprot": 0, "axuser": 0, "data": 1311768435108370049, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 237, "value": 1, "write": false}
+{"address": 2231369808, "axprot": 0, "axuser": 0, "data": 1311768439403337346, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369808, "axprot": 0, "axuser": 0, "data": 1311768439403337346, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 239, "value": 1, "write": false}
+{"address": 2231369816, "axprot": 0, "axuser": 0, "data": 1311768443698304643, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369816, "axprot": 0, "axuser": 0, "data": 1311768443698304643, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 241, "value": 1, "write": false}
+{"address": 2231369824, "axprot": 0, "axuser": 0, "data": 1311768447993271940, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369824, "axprot": 0, "axuser": 0, "data": 1311768447993271940, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 243, "value": 1, "write": false}
+{"address": 2231369832, "axprot": 0, "axuser": 0, "data": 1311768452288239237, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369832, "axprot": 0, "axuser": 0, "data": 1311768452288239237, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 245, "value": 1, "write": false}
+{"address": 2231369840, "axprot": 0, "axuser": 0, "data": 1311768456583206534, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369840, "axprot": 0, "axuser": 0, "data": 1311768456583206534, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 247, "value": 1, "write": false}
+{"address": 2231369848, "axprot": 0, "axuser": 0, "data": 1311768460878173831, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369848, "axprot": 0, "axuser": 0, "data": 1311768460878173831, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 249, "value": 1, "write": false}
+{"address": 2231369856, "axprot": 0, "axuser": 0, "data": 1311768396453664392, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369856, "axprot": 0, "axuser": 0, "data": 1311768396453664392, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 251, "value": 1, "write": false}
+{"address": 2231369864, "axprot": 0, "axuser": 0, "data": 1311768400748631689, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369864, "axprot": 0, "axuser": 0, "data": 1311768400748631689, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 253, "value": 1, "write": false}
+{"address": 2231369872, "axprot": 0, "axuser": 0, "data": 1311768405043598986, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369872, "axprot": 0, "axuser": 0, "data": 1311768405043598986, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 255, "value": 1, "write": false}
+{"address": 2231369880, "axprot": 0, "axuser": 0, "data": 1311768409338566283, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369880, "axprot": 0, "axuser": 0, "data": 1311768409338566283, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 257, "value": 1, "write": false}
+{"address": 2231369888, "axprot": 0, "axuser": 0, "data": 1311768413633533580, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369888, "axprot": 0, "axuser": 0, "data": 1311768413633533580, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 259, "value": 1, "write": false}
+{"address": 2231369896, "axprot": 0, "axuser": 0, "data": 1311768417928500877, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369896, "axprot": 0, "axuser": 0, "data": 1311768417928500877, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 261, "value": 1, "write": false}
+{"address": 2231369904, "axprot": 0, "axuser": 0, "data": 1311768422223468174, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369904, "axprot": 0, "axuser": 0, "data": 1311768422223468174, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 263, "value": 1, "write": false}
+{"address": 2231369912, "axprot": 0, "axuser": 0, "data": 1311768426518435471, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369912, "axprot": 0, "axuser": 0, "data": 1311768426518435471, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 265, "value": 1, "write": false}
+{"address": 2231369920, "axprot": 0, "axuser": 0, "data": 1311768362093926032, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369920, "axprot": 0, "axuser": 0, "data": 1311768362093926032, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 267, "value": 1, "write": false}
+{"address": 2231369928, "axprot": 0, "axuser": 0, "data": 1311768366388893329, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369928, "axprot": 0, "axuser": 0, "data": 1311768366388893329, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 269, "value": 1, "write": false}
+{"address": 2231369936, "axprot": 0, "axuser": 0, "data": 1311768370683860626, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369936, "axprot": 0, "axuser": 0, "data": 1311768370683860626, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 271, "value": 1, "write": false}
+{"address": 2231369944, "axprot": 0, "axuser": 0, "data": 1311768374978827923, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369944, "axprot": 0, "axuser": 0, "data": 1311768374978827923, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 273, "value": 1, "write": false}
+{"address": 2231369952, "axprot": 0, "axuser": 0, "data": 1311768379273795220, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369952, "axprot": 0, "axuser": 0, "data": 1311768379273795220, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 275, "value": 1, "write": false}
+{"address": 2231369960, "axprot": 0, "axuser": 0, "data": 1311768383568762517, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369960, "axprot": 0, "axuser": 0, "data": 1311768383568762517, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 277, "value": 1, "write": false}
+{"address": 2231369968, "axprot": 0, "axuser": 0, "data": 1311768387863729814, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369968, "axprot": 0, "axuser": 0, "data": 1311768387863729814, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 279, "value": 1, "write": false}
+{"address": 2231369976, "axprot": 0, "axuser": 0, "data": 1311768392158697111, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369976, "axprot": 0, "axuser": 0, "data": 1311768392158697111, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 281, "value": 1, "write": false}
+{"address": 2231369984, "axprot": 0, "axuser": 0, "data": 1311768327734187672, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369984, "axprot": 0, "axuser": 0, "data": 1311768327734187672, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 283, "value": 1, "write": false}
+{"address": 2231369992, "axprot": 0, "axuser": 0, "data": 1311768332029154969, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231369992, "axprot": 0, "axuser": 0, "data": 1311768332029154969, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 285, "value": 1, "write": false}
+{"address": 2231370000, "axprot": 0, "axuser": 0, "data": 1311768336324122266, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370000, "axprot": 0, "axuser": 0, "data": 1311768336324122266, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 287, "value": 1, "write": false}
+{"address": 2231370008, "axprot": 0, "axuser": 0, "data": 1311768340619089563, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370008, "axprot": 0, "axuser": 0, "data": 1311768340619089563, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 289, "value": 1, "write": false}
+{"address": 2231370016, "axprot": 0, "axuser": 0, "data": 1311768344914056860, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370016, "axprot": 0, "axuser": 0, "data": 1311768344914056860, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 291, "value": 1, "write": false}
+{"address": 2231370024, "axprot": 0, "axuser": 0, "data": 1311768349209024157, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370024, "axprot": 0, "axuser": 0, "data": 1311768349209024157, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 293, "value": 1, "write": false}
+{"address": 2231370032, "axprot": 0, "axuser": 0, "data": 1311768353503991454, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370032, "axprot": 0, "axuser": 0, "data": 1311768353503991454, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 295, "value": 1, "write": false}
+{"address": 2231370040, "axprot": 0, "axuser": 0, "data": 1311768357798958751, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370040, "axprot": 0, "axuser": 0, "data": 1311768357798958751, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 297, "value": 1, "write": false}
+{"address": 2231370048, "axprot": 0, "axuser": 0, "data": 1311768293374449312, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370048, "axprot": 0, "axuser": 0, "data": 1311768293374449312, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 299, "value": 1, "write": false}
+{"address": 2231370056, "axprot": 0, "axuser": 0, "data": 1311768297669416609, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370056, "axprot": 0, "axuser": 0, "data": 1311768297669416609, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 301, "value": 1, "write": false}
+{"address": 2231370064, "axprot": 0, "axuser": 0, "data": 1311768301964383906, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370064, "axprot": 0, "axuser": 0, "data": 1311768301964383906, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 303, "value": 1, "write": false}
+{"address": 2231370072, "axprot": 0, "axuser": 0, "data": 1311768306259351203, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370072, "axprot": 0, "axuser": 0, "data": 1311768306259351203, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 305, "value": 1, "write": false}
+{"address": 2231370080, "axprot": 0, "axuser": 0, "data": 1311768310554318500, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370080, "axprot": 0, "axuser": 0, "data": 1311768310554318500, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 307, "value": 1, "write": false}
+{"address": 2231370088, "axprot": 0, "axuser": 0, "data": 1311768314849285797, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370088, "axprot": 0, "axuser": 0, "data": 1311768314849285797, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 309, "value": 1, "write": false}
+{"address": 2231370096, "axprot": 0, "axuser": 0, "data": 1311768319144253094, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370096, "axprot": 0, "axuser": 0, "data": 1311768319144253094, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 311, "value": 1, "write": false}
+{"address": 2231370104, "axprot": 0, "axuser": 0, "data": 1311768323439220391, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370104, "axprot": 0, "axuser": 0, "data": 1311768323439220391, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 313, "value": 1, "write": false}
+{"address": 2231370112, "axprot": 0, "axuser": 0, "data": 1311768259014710952, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370112, "axprot": 0, "axuser": 0, "data": 1311768259014710952, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 315, "value": 1, "write": false}
+{"address": 2231370120, "axprot": 0, "axuser": 0, "data": 1311768263309678249, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370120, "axprot": 0, "axuser": 0, "data": 1311768263309678249, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 317, "value": 1, "write": false}
+{"address": 2231370128, "axprot": 0, "axuser": 0, "data": 1311768267604645546, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370128, "axprot": 0, "axuser": 0, "data": 1311768267604645546, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 319, "value": 1, "write": false}
+{"address": 2231370136, "axprot": 0, "axuser": 0, "data": 1311768271899612843, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370136, "axprot": 0, "axuser": 0, "data": 1311768271899612843, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 321, "value": 1, "write": false}
+{"address": 2231370144, "axprot": 0, "axuser": 0, "data": 1311768276194580140, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370144, "axprot": 0, "axuser": 0, "data": 1311768276194580140, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 323, "value": 1, "write": false}
+{"address": 2231370152, "axprot": 0, "axuser": 0, "data": 1311768280489547437, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370152, "axprot": 0, "axuser": 0, "data": 1311768280489547437, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 325, "value": 1, "write": false}
+{"address": 2231370160, "axprot": 0, "axuser": 0, "data": 1311768284784514734, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370160, "axprot": 0, "axuser": 0, "data": 1311768284784514734, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 327, "value": 1, "write": false}
+{"address": 2231370168, "axprot": 0, "axuser": 0, "data": 1311768289079482031, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370168, "axprot": 0, "axuser": 0, "data": 1311768289079482031, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 329, "value": 1, "write": false}
+{"address": 2231370176, "axprot": 0, "axuser": 0, "data": 1311768224654972592, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370176, "axprot": 0, "axuser": 0, "data": 1311768224654972592, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 331, "value": 1, "write": false}
+{"address": 2231370184, "axprot": 0, "axuser": 0, "data": 1311768228949939889, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370184, "axprot": 0, "axuser": 0, "data": 1311768228949939889, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 333, "value": 1, "write": false}
+{"address": 2231370192, "axprot": 0, "axuser": 0, "data": 1311768233244907186, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370192, "axprot": 0, "axuser": 0, "data": 1311768233244907186, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 335, "value": 1, "write": false}
+{"address": 2231370200, "axprot": 0, "axuser": 0, "data": 1311768237539874483, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370200, "axprot": 0, "axuser": 0, "data": 1311768237539874483, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 337, "value": 1, "write": false}
+{"address": 2231370208, "axprot": 0, "axuser": 0, "data": 1311768241834841780, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370208, "axprot": 0, "axuser": 0, "data": 1311768241834841780, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 339, "value": 1, "write": false}
+{"address": 2231370216, "axprot": 0, "axuser": 0, "data": 1311768246129809077, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370216, "axprot": 0, "axuser": 0, "data": 1311768246129809077, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 341, "value": 1, "write": false}
+{"address": 2231370224, "axprot": 0, "axuser": 0, "data": 1311768250424776374, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370224, "axprot": 0, "axuser": 0, "data": 1311768250424776374, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 343, "value": 1, "write": false}
+{"address": 2231370232, "axprot": 0, "axuser": 0, "data": 1311768254719743671, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": false}
+{"address": 2231370232, "axprot": 0, "axuser": 0, "data": 1311768254719743671, "kind": "axi", "op": "MEM_R", "response": 0}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 345, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 347, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 349, "value": 2, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 88, "rtl_cycles": 351, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 32, "rtl_cycles": 353, "value": 64, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 36, "rtl_cycles": 355, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 40, "rtl_cycles": 357, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 44, "rtl_cycles": 359, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 48, "rtl_cycles": 361, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 52, "rtl_cycles": 363, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 56, "rtl_cycles": 365, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 60, "rtl_cycles": 367, "value": 320, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 64, "rtl_cycles": 369, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 0, "rtl_cycles": 371, "value": 1145328177, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 4, "rtl_cycles": 373, "value": 65536, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 375, "value": 2, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 68, "rtl_cycles": 377, "value": 2231369728, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 72, "rtl_cycles": 379, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 76, "rtl_cycles": 381, "value": 2231435264, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 80, "rtl_cycles": 383, "value": 0, "write": false}

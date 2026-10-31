@@ -6,8 +6,10 @@ FROM ${BASE_IMAGE}
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential cmake ninja-build git curl ca-certificates xz-utils gcc-aarch64-linux-gnu libc6-dev-arm64-cross \
-    python3 python3-venv device-tree-compiler libssl-dev zlib1g-dev \
+    build-essential bc bison flex cmake ninja-build git curl ca-certificates xz-utils \
+    gcc-aarch64-linux-gnu libc6-dev-arm64-cross \
+    python3 python3-dev python3-venv python3-setuptools python3-pyelftools \
+    device-tree-compiler libncurses-dev libssl-dev zlib1g-dev \
     qemu-system-arm gdb-multiarch verilator libusb-1.0-0 libudev1 usbutils \
     iproute2 procps util-linux \
     && rm -rf /var/lib/apt/lists/*
@@ -24,7 +26,10 @@ RUN if getent passwd "$USER_UID" >/dev/null; then \
 ENV ARM_BAREMETAL_ROOT=/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf \
     CROSS_COMPILE=aarch64-none-elf- \
     QUARTUS_ROOTDIR=/opt/altera/quartus \
-    PATH=/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin:/opt/altera/quartus/bin:/opt/altera/qsys/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    LANG=C.UTF-8 \
+    LC_CTYPE=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    PATH=/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin:/opt/altera/quartus/bin:/opt/altera/niosv/bin:/opt/altera/qsys/bin:/opt/altera/syscon/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 USER dev
 WORKDIR /home/dev
 ENTRYPOINT []

@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 98928,
+  "segments": [
+    {
+      "file": "upstream26-bridge-control.bin",
+      "bytes": 98928,
+      "sha256": "8c448daea6c8ab60078f24358f682a4a58400b61b573e7c046181bb3fcd3730b"
+    }
+  ]
+}

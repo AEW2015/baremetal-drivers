@@ -1,6 +1,6 @@
 # OCRAM UART Hello World
 
-A local-memory hardware example that does not initialize DDR. Build support is included; manual programming is separate from the automated DDR suite.
+A local-memory hardware example that does not initialize DDR. UART programming is separate from the 15-entry DDR suite. A separate automated semihosting check now has physical load/readback and stopped-PC evidence.
 
 [Source](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/bootstrap/ocram/uart_local.c)
 
@@ -43,7 +43,7 @@ A local-memory hardware example that does not initialize DDR. Build support is i
 
     The quoted placeholders must be replaced; they are not literal executable values. Use the **host UART monitor** described in the [hardware tutorial](../hardware.md) to observe the output. The DDR `run_suite.py` commands and F5 core configuration do not run this OCRAM image.
 
-    Stop the UART reader afterward and use the matching DDR bootstrap to return to DDR examples. This manual programming recipe was not rerun during the tutorial’s follow-up checks.
+    Stop the UART reader afterward and use the matching DDR bootstrap to return to DDR examples. This manual programming path remains distinct from the automated semihosting test below.
 
 === "Expected results"
 
@@ -60,8 +60,18 @@ A local-memory hardware example that does not initialize DDR. Build support is i
     | DDR | Not initialized by this application |
     | Persistent writes | None from this example |
 
-    Fresh repeated UART messages are the useful observation; programming success alone is insufficient. OCRAM UART execution passed on the original bench, and the packaged source was separately compiled. The later tutorial debugger smoke check targeted the DDR core example, not this manual load path.
+    Fresh repeated UART messages are the useful observation; programming success alone is insufficient. OCRAM UART execution passed on the original bench. The [latest campaign](../full-validation-2026-10-31.md) distinguishes that UART path from the new automated physical semihosting test.
+
+    The separate semihosting run captured these actual debugger lines:
+
+    ```text
+    Hello, World! Agilex 5 HPS executing from OCRAM.
+    pc 0x0000000000020010
+    REFERENCE_SEMIHOST_STOP_COMPLETE
+    ```
+
+    That test loads the reference at `0x20000`, enters at `0x20004`, verifies all binary bytes, and stops at the completion breakpoint `0x20010`. [Recorded results and artifact hashes](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/references/results.json) also show the separate DDR exception-register snapshot and successful DDR Hello restoration. Neither result is a UART receive or fault-recovery test.
 
 === "Limits"
 
-    The handoff layout and UART divisor must match the hardware image and input clock. This is UART transmit only, without receive/flow-control testing. The separate `hello_semihost.S` is a reference source, not an additional automated test. OCRAM build support alone does not establish that an arbitrary supplied SOF can boot this program.
+    The handoff layout and UART divisor must match the hardware image and input clock. This is UART transmit only, without receive/flow-control testing. The separate `hello_semihost.S` is now exercised by `reference/build.sh` and the host `reference/run_hardware.py`; it uses debugger semihosting rather than SOM UART. Its automated pass does not qualify an arbitrary SOF or replace the UART transmit check. The ELF executes from OCRAM, while the host recovery workflow can initialize DDR before and after the test.

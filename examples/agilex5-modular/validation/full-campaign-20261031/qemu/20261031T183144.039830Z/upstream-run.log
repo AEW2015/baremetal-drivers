@@ -1,0 +1,5 @@
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/runs/simics-new-examples-qemu-20261031T183159.971190Z
+crc: pass
+perf: pass
+smc-guard: pass
+perf-zero-clock: pass

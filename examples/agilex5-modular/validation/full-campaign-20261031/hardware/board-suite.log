@@ -1,0 +1,275 @@
+[preflight] Checking host/container mapping, tools and artifact hashes...
+Evidence: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z
+[core] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/core-bootstrap.log for live stages.
+[core] Loading core_examples.elf and collecting fresh UART results...
+core: pass
+HPS CORE EXAMPLES BEGIN (DDR 0x82100000)
+MIDR_EL1 = 0x00000000412fd050
+MPIDR_EL1 = 0x0000000081000000
+CurrentEL = 0x000000000000000c
+PASS CPU_NEON: four vector additions
+CTR_EL0 = 0x0000000084448004
+CLIDR_EL1 = 0x00000000c3000123
+SCTLR_EL3 = 0x0000000030c5183a
+PASS CACHE_INFO: configuration read; cache coherency is a separate test
+PASS DDR_BUFFERS: CPU copied and verified 64 KiB
+GPIO0 direction = 0x0000000000000000
+GPIO0 external inputs = 0x000000000044d748
+PASS GPIO_READ: no output pin direction changed
+CNTFRQ_EL0 = 0x0000000000000000
+Counter delta = 0x00000000027ac54b
+PASS COUNTER: generic timer increments
+GICD_TYPER = 0x00000000007b0411
+GICD_IIDR = 0x000000000201743b
+PASS GIC_INFO: identification only; interrupt delivery is a separate example
+HPS CORE EXAMPLES COMPLETE
+
+[dma] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/dma-bootstrap.log for live stages.
+[dma] Loading dma_copy.elf and collecting fresh UART results...
+dma: pass
+HPS DMA EXAMPLE BEGIN
+DMAC0 ID = 0x00000000000746a1
+DMAC0 version = 0x000000003230302a
+DMA channel status = 0x0000000000000002
+PASS DMA_COPY: 4096 bytes transferred by DMAC0 and verified
+
+[gic] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/gic-bootstrap.log for live stages.
+[gic] Loading gic_sgi.elf and collecting fresh UART results...
+gic: pass
+HPS GIC SGI EXAMPLE BEGIN
+PASS GIC_SGI: core 0 received and acknowledged SGI 0
+
+[mmu] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/mmu-bootstrap.log for live stages.
+[mmu] Loading mmu_translation.elf and collecting fresh UART results...
+mmu: pass
+HPS MMU EXAMPLE BEGIN
+PAR_EL1 = 0x4400000085200900
+PASS MMU_TRANSLATION: EL3 translation and DDR readback
+
+[som] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/som-bootstrap.log for live stages.
+[som] Loading som_peripherals.elf and collecting fresh UART results...
+som: pass
+HPS SOM PERIPHERALS BEGIN
+PASS HPS_TIMER: periodic timer expiry and clear
+PASS WATCHDOG_IRQ: watchdog 1 expiry observed, peripheral reset
+SPI version = 0x000000003430302a
+PASS SPI_LOOPBACK: four bytes through internal loopback
+PASS GPIO_LED_PAD: SOM heartbeat output high/low readback
+I2C0 component type = 0x0000000044570140
+I2C1 component type = 0x0000000044570140
+PASS I2C_IDENT: two controller IDs; no bus transfer
+I3C0 version = 0x000000003130302a
+I3C1 version = 0x000000003130302a
+I3C1 pin 8 selection = 0x0000000000000004
+I3C1 pin 9 selection = 0x0000000000000004
+HPS SOM PERIPHERALS COMPLETE
+
+[som-i2c] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/som-i2c-bootstrap.log for live stages.
+[som-i2c] Loading som_i2c.elf and collecting fresh UART results...
+som-i2c: pass
+HPS SOM I2C EXAMPLE BEGIN
+Original SDA/SCL pin selection = 0x0000000400000004
+TMP464 manufacturer = 0x0000000000005449
+PASS SOM_TEMP_ID: TMP464 manufacturer read
+TMP464 local temperature raw = 0x0000000000001458
+PASS SOM_EEPROM_READ: 16 bytes received; no data written
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+HPS SOM I2C EXAMPLE COMPLETE
+
+[multicore] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/multicore-bootstrap.log for live stages.
+[multicore] Loading multicore.elf and collecting fresh UART results...
+multicore: pass
+HPS MULTICORE EXAMPLE BEGIN
+MPIDR = 0x0000000081000000
+Boot config = 0x000000000070031e
+CPU in reset = 0x000000000000000f
+PCH control = 0x0000000000000003
+Secondary record = 0x000000000000cafe
+Secondary MPIDR = 0x0000000081000100
+Secondary MIDR = 0x00000000412fd050
+Secondary record = 0x000000000000cafe
+Secondary MPIDR = 0x0000000081000200
+Secondary MIDR = 0x00000000414fd0b1
+Secondary record = 0x000000000000cafe
+Secondary MPIDR = 0x0000000081000300
+Secondary MIDR = 0x00000000414fd0b1
+PASS MULTICORE: three secondary cores executed and published records
+
+[som-i3c] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/som-i3c-bootstrap.log for live stages.
+[som-i3c] Loading som_i3c.elf and collecting fresh UART results...
+som-i3c: pass
+HPS NATIVE I3C EXAMPLE BEGIN
+I3C1 pin selection = 0x0000000400000004
+I3C1 version = 0x000000003130302a
+I3C1 DAT pointer = 0x00000000000b0280
+I3C response = 0x0000000000000000
+I3C response = 0x0000000001000002
+TMP464 manufacturer = 0x0000000000005449
+PASS NATIVE_I3C_TEMP: legacy I2C read via I3C1
+I3C response = 0x0000000000000000
+I3C response = 0x0000000001000010
+PASS NATIVE_I3C_EEPROM: 16-byte read, no data writes
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+HPS NATIVE I3C EXAMPLE COMPLETE
+
+[mailbox] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/mailbox-bootstrap.log for live stages.
+[mailbox] Loading mailbox_status.elf and collecting fresh UART results...
+mailbox: pass
+HPS MAILBOX EXAMPLE BEGIN
+SDM response header = 0x000000001e001000
+SDM device IDCODE = 0x000000000364f0dd
+PASS MAILBOX_IDCODE: SDM returned matching Agilex 5 device ID
+
+[interfaces] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/interfaces-bootstrap.log for live stages.
+[interfaces] Loading som_interfaces.elf and collecting fresh UART results...
+interfaces: pass
+HPS SOM INTERFACES BEGIN
+EMAC2 MDIO pin selection = 0x0000000600000006
+PHY address = 0x0000000000000000
+PHY ID1 = 0x0000000000000141
+PHY ID2 = 0x0000000000000dd1
+PASS SOM_PHY_ID: EMAC2 MDIO reached Marvell 88E1512
+SDMMC HRS29 = 0x0000000000006061
+SD present state = 0x0000000001f700f0
+PASS SDMMC_IDENT: controller revision matches
+INFO SD_CARD: card-detect reports inserted; media not read
+USB1 GSNPSID = 0x0000000033313130
+PASS USB_IDENT: DWC_usb31 controller ID; enumeration not tested
+HPS SOM INTERFACES COMPLETE
+
+[vendor-uart] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/vendor-uart-bootstrap.log for live stages.
+[vendor-uart] Loading vendor_uart.elf and collecting fresh UART results...
+vendor-uart: pass
+HPS_SUITE_BEGIN uartHello, World!HPS_SUITE_PASS uart rc=0x00000000
+
+[vendor-ccu] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/vendor-ccu-bootstrap.log for live stages.
+[vendor-ccu] Loading vendor_ccu.elf and collecting fresh UART results...
+vendor-ccu: pass
+HPS_SUITE_BEGIN ccu
+CCU open
+Read DSU CAIUIDR default value SUCCESSFUL!
+Read DSU CAIUTCR SUCCESSFUL!
+Warning: DSU CAIUUEVIR expected: 0x80020348, observerd: 0x80020323!
+Warning: NCAIU XAIUINFOR expected: 0x80011348, observerd: 0x80021323!
+Warning: NCAIU XAIUINFOR expected: 0x80011348, observerd: 0x80011323!
+Warning: NCAIU XAIUINFOR expected: 0x80011348, observerd: 0x80011323!
+Warning: NCAIU XAIUINFOR expected: 0x80011348, observerd: 0x80021323!
+Warning: DCE DCEUINFOR expected: 0x80008348, observerd: 0x80008323!
+Warning: DCE DCEUINFOR expected: 0x80008348, observerd: 0x80008323!
+Warning: DMI DMIUINFOR expected: 0x80309348, observerd: 0x80309323!
+Warning: DMI DMIUINFOR expected: 0x80309348, observerd: 0x80309323!
+Warning: DII DIIUINFOR expected: 0x8000a348, observerd: 0x8000a323!
+Warning: DII DIIUINFOR expected: 0x8000a348, observerd: 0x8000a323!
+Warning: DII DIIUINFOR expected: 0x8000a348, observerd: 0x8000a323!
+Warning: DII DIIUINFOR expected: 0x8000a348, observerd: 0x8000a323!
+Warning: DII DIIUINFOR expected: 0x8000a348, observerd: 0x8000a323!
+Warning: DVE DVEUINFOR expected: 0x8000b348, observerd: 0x8000b323!
+Warning: SYS GBL GRBUNSIDR expected: 0x1348, observerd: 0x1323!
+CCU close
+HPS_SUITE_PASS ccu rc=0x00000000
+
+[vendor-clkmgr] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/vendor-clkmgr-bootstrap.log for live stages.
+[vendor-clkmgr] Loading vendor_clkmgr.elf and collecting fresh UART results...
+vendor-clkmgr: pass
+READ at offset 0x44: expected: 0x8, actual: 0x28000008. bit diff location: 27, 29, 
+[Warning] IOCTL_CLKMGR_MAINPLL_REGS_READ at offset 0x54: expected: 0x0, actual: 0x1. bit diff location: 0, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x0: expected: 0x3fffffff, actual: 0xfffffff. bit diff location: 28, 29, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0xc: expected: 0xff, actual: 0x0. bit diff location: 0, 1, 2, 3, 4, 5, 6, 7, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x10: expected: 0xff, actual: 0x0. bit diff location: 0, 1, 2, 3, 4, 5, 6, 7, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x14: expected: 0xff, actual: 0x0. bit diff location: 0, 1, 2, 3, 4, 5, 6, 7, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x20: expected: 0x15000101, actual: 0x35000103. bit diff location: 1, 29, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x28: expected: 0x0, actual: 0x2ca4007. bit diff location: 0, 1, 2, 14, 17, 19, 22, 23, 25, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x2c: expected: 0x0, actual: 0xca. bit diff location: 1, 3, 6, 7, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x30: expected: 0x10874, actual: 0x10074. bit diff location: 11, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x34: expected: 0x5, actual: 0x28000005. bit diff location: 27, 29, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x38: expected: 0x5, actual: 0x28000005. bit diff location: 27, 29, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x3c: expected: 0x7d, actual: 0x2800007d. bit diff location: 27, 29, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x40: expected: 0x6, actual: 0x28000006. bit diff location: 27, 29, 
+[Warning] IOCTL_CLKMGR_PERPLL_REGS_READ at offset 0x50: expected: 0x0, actual: 0x1. bit diff location: 0, 
+[Warning] IOCTL_CLKMGR_CTLGRP_REGS_READ at offset 0x8: expected: 0x10009, actual: 0x9. bit diff location: 16, 
+[Warning] IOCTL_CLKMGR_CTLGRP_REGS_READ at offset 0x24: expected: 0x3ce4, actual: 0x0. bit diff location: 2, 5, 6, 7, 10, 11, 12, 13, 
+[Warning] IOCTL_CLKMGR_CTLGRP_REGS_READ at offset 0x30: expected: 0x10000, actual: 0x0. bit diff location: 16, 
+HPS_SUITE_PASS clkmgr rc=0x00000000
+
+[vendor-smmu] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/vendor-smmu-bootstrap.log for live stages.
+[vendor-smmu] Loading vendor_smmu.elf and collecting fresh UART results...
+vendor-smmu: pass
+HPS_SUITE_BEGIN smmu
+Starting Basic SMMU Test
+Verify if IIDR value equals 0x4832143b
+SMMU IIDR value is accurate 
+SMMU exact IIDR = 0x4832243b
+HPS_SUITE_PASS smmu rc=0x00000000
+
+[vendor-ecc] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T184047.317635Z/vendor-ecc-bootstrap.log for live stages.
+[vendor-ecc] Loading vendor_ecc.elf and collecting fresh UART results...
+vendor-ecc: pass
+HPS_SUITE_BEGIN ecc
+Started Logging
+ECC Test Starts
+ECC successfully open
+REV_ID =0
+REV_ID_2=1500b
+INSTAT=0
+ERRINTEN=0
+ERRINTENS=0
+ERRINTENR=0
+INTMODE=0
+INSTAT=0
+INTEST=0
+MODSTAT=0
+DERRADDRA=0
+SERRADDRA=0
+DERRADDRB=0
+SERRADDRB=0
+SERRCNTREG=0
+ECC_ADDRBUS=0
+ECC_RDATA0BUS=0
+ECC_RDATA1BUS=0
+ECC_RDATA2BUS=0
+ECC_RDATA3BUS=0
+ECC_RDATAECC0BUS=0
+ECC_RDATAECC1BUS=0
+ECC_DBYTECTRL=0
+ECC_ACCCTRL=0
+ECC_STARTACC=0
+ECC_WDCTRL=0
+ECC_DECODERSTAT=0
+SERRLKUPA0=0
+SERRLKUPB0=0
+ECC close: OK
+ECC Tests successful!!!
+HPS_SUITE_PASS ecc rc=0x00000000
+
+[restore] Restoring DDR Hello; inspect restore.log for live stages.
+DDR Hello restoration: pass

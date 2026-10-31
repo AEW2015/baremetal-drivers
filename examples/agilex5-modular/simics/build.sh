@@ -4,18 +4,19 @@ cd "$(dirname "$0")/.."
 mode=${1:-OCRAM}
 [[ $mode == OCRAM || $mode == DDR ]] || { echo 'Choose OCRAM or DDR' >&2; exit 1; }
 prefix=${UPSTREAM_CROSS_COMPILE:-aarch64-linux-gnu-}
+out=${UPSTREAM_BUILD_DIR:-build/upstream26-${mode,,}}
 if ! printf '#include <stdio.h>\n#include <inttypes.h>\n#ifndef PRIu64\n#error Missing_64bit_format_macros\n#endif\n' | "${prefix}gcc" -ffreestanding -fsyntax-only -x c -; then
  echo 'Current upstream needs matching AArch64 C headers and inttypes macros. On Ubuntu install gcc-aarch64-linux-gnu libc6-dev-arm64-cross, or set UPSTREAM_CROSS_COMPILE to a complete supported toolchain.' >&2
  exit 1
 fi
-cmake --fresh -S ../.. -B "build/upstream26-${mode,,}" -G Ninja \
+cmake --fresh -S ../.. -B "$out" -G Ninja \
  -DCMAKE_TOOLCHAIN_FILE="$PWD/simics/toolchain.cmake" \
  -DPLAT=agilex5 -DBUILD_MODE="$mode" -DDEBUG=1 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-cmake --build "build/upstream26-${mode,,}" -j4
-python3 - "$mode" <<'PY'
+cmake --build "$out" -j4
+python3 - "$mode" "$out" <<'PY'
 from pathlib import Path
 import hashlib,json,subprocess,sys
-mode=sys.argv[1];root=Path('../..').resolve();out=Path('build')/('upstream26-'+mode.lower())
+mode=sys.argv[1];root=Path('../..').resolve();out=Path(sys.argv[2])
 revision=subprocess.run(['git','-C',str(root),'rev-parse','HEAD'],capture_output=True,text=True)
 prefix=__import__('os').environ.get('UPSTREAM_CROSS_COMPILE','aarch64-linux-gnu-')
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()

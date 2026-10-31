@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 98976,
+  "segments": [
+    {
+      "file": "upstream26-combophy.bin",
+      "bytes": 98976,
+      "sha256": "a52844efa5a1640c0712cb924d517d16fe6d898353bc0bb336c32b6b33dde690"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 23:07:33 Oct 30 2026
+
+Commit: 001649d
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > ddr_selftest
+
+
+
++------------------------------------------------------------+
+
+|                  DDR BIST / INIT COMMAND                   |
+
++------------------------------------------------------------+
+
+Mode  : Agilex5 OCRAM on-demand DDR bring-up
+
+Step 1: Run IOSSM/DDR init flow (ATF-compatible) ... DDR: Reset type is 'Power-On'
+
+IOSSM: Calibration success status check...
+
+IOSSM: All EMIF instances within the IO96 have calibrated successfully!
+
+DDR: Calibration success
+
+DDR: ECC is disabled
+
+DDR: DDR size configured is (2048 MiB)
+
+DDR: Mismatch with hardware size (8192 MiB).
+
+###DDR:init success###
+
+PASS
+
+
+
+Step 2: Run DDR memory validation suite
+
+------------------------------------------------------------
+
+Region: 0x83000000 - 0x83FFFFFF (16 MB)
+
+
+
+Test 1 of 4 : Fixed data-pattern test
+
+------------------------------------------------------------
+
+  Pattern 0x00000000 ....................... PASS
+
+  Pattern 0xFFFFFFFF ....................... PASS
+
+  Pattern 0xAAAAAAAA ....................... PASS
+
+  Pattern 0x55555555 ....................... PASS
+
+
+
+Test 2 of 4 : Walking-bit test
+
+------------------------------------------------------------
+
+  Walk 32 single-bit patterns ............... PASS
+
+
+
+Test 3 of 4 : Address-uniqueness test
+
+------------------------------------------------------------
+
+  Write/verify unique address values ........ PASS
+
+
+
+Test 4 of 4 : March C- test
+
+------------------------------------------------------------
+
+  March C- up/down sweeps ................... PASS
+
+------------------------------------------------------------
+
+
+
+RESULT : 4 of 4 tests passed  -  SELF-TEST PASSED
+
+
+
+SoCFPGA Bare-Metal > Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 18:33:41 Oct 31 2026
+
+Commit: 14f7982
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > i2c_selftest
+
+
+
++------------------------------------------------------------+
+
+|                  I2C SELF-TEST                             |
+
++------------------------------------------------------------+
+
+
+
+Test 1 of 9 : I2C CONTROLLER
+
+------------------------------------------------------------
+
+[I2C_CTRL] instance=0 component_version=0x3230302A status=0x00000006
+
+[I2C_CTRL] input_clock=100000000 Hz requested=100000 Hz speed_mode=1
+
+[I2C_CTRL] scl_hcnt=432 scl_lcnt=464 tx_fifo=64 rx_fifo=64
+
+[I2C_CTRL][PASS] controller present and configured
+
+PASS
+
+
+
+Test 2 of 9 : I2C SCL TIMING
+
+------------------------------------------------------------
+
+[I2C_TIMING] 100000 Hz: hcnt=432 lcnt=464 period=900 cycles (want 1000, 10% off) high=4650 ns
+
+[I2C_TIMING] 400000 Hz: hcnt=57 lcnt=159 period=220 cycles (want 250, 12% off) high=900 ns
+
+[I2C_TIMING][PASS] SCL counts track the requested bus frequency
+
+PASS
+
+
+
+Test 3 of 9 : I2C BUS SCAN
+
+------------------------------------------------------------
+
+[I2C_SCAN] probing 0x08..0x77 on instance 0
+
+[I2C_SCAN] target at 0x50
+
+[I2C_SCAN] target at 0x54
+
+[I2C_SCAN] target at 0x55
+
+[I2C_SCAN] target at 0x56
+
+[I2C_SCAN] target at 0x57
+
+[I2C_SCAN][PASS] bus reachable, 5 target(s) responding
+
+PASS
+
+
+
+Test 4 of 9 : I2C REGISTER READ
+
+------------------------------------------------------------
+
+[I2C_XFER] instance=0 addr=0x50 reg=0x00 len=4
+
+[I2C_XFER] data: 00 00 00 00
+
+[I2C_XFER][PASS] combined write-then-read completed
+
+PASS
+
+
+
+Test 5 of 9 : I2C WRITE NACK
+
+------------------------------------------------------------
+
+[I2C_WNACK] write to unused 0x08 rc=-6 abort=address NACK (0x00800001, 1 of 2 byte(s) flushed)
+
+[I2C_WNACK][PASS] write aborted on address NACK and reported it
+
+PASS
+
+
+
+Test 6 of 9 : I2C WRITE READBACK
+
+------------------------------------------------------------
+
+[I2C_RW][SKIP] no address given; a write is only issued to a target the caller names
+
+SKIP
+
+
+
+Test 7 of 9 : I2C ASYNC TRANSFER
+
+------------------------------------------------------------
+
+[I2C_ASYNC] sync: 00 00 00 00
+
+[I2C_ASYNC] async: 00 00 00 00
+
+[I2C_ASYNC][PASS] combined transfer matches the synchronous path
+
+PASS
+
+
+
+Test 8 of 9 : I2C BUS RECOVERY
+
+------------------------------------------------------------
+
+[I2C_RECOVER] status after recovery: 0x00000006
+
+[I2C_RECOVER][PASS] controller returned to idle
+
+PASS
+
+
+
+Test 9 of 9 : I2C P3T SENSOR
+
+------------------------------------------------------------
+
+[I2C_P3T][SKIP] no P3T-compatible sensor at 0x4C or 0x48 on instances 0..4; this board has no NXP I2C daughter-board
+
+SKIP
+
+
+
+RESULT : 7 of 9 tests passed, 2 skipped  -  SELF-TEST PASSED
+
+
+
+SoCFPGA Bare-Metal > 

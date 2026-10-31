@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 10000,
+  "segments": [
+    {
+      "file": "upstream26-ddr-path.segment0.bin",
+      "bytes": 8912,
+      "sha256": "bef0e5003ea77463d09c09d05bfc21d321b3b851ed248791c6cd5f7826201c68"
+    },
+    {
+      "file": "upstream26-ddr-path.segment1.bin",
+      "bytes": 1088,
+      "sha256": "e929c890cf9f58bb89a8fdd5dca68e686ef21bb1c27141e8f0bf28e3c9ed7e49"
+    }
+  ]
+}

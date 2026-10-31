@@ -1,0 +1,56 @@
+{
+  "environment": "simics",
+  "scope": "Read-only snapshots and negative control; no physical-board qualification",
+  "build": {
+    "compiler": "aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "source_revision": "001649d04aac8a5cb17d18e6736b9aeee7e78ccc",
+    "source_sha256": {
+      "config-audit/build.sh": "d1d2218f6540d88d5a07364bdbd81200450a4c5ee76e6145e5b579e81501108d",
+      "config-audit/run.py": "9398cc1141c4c3e1b9320ec604ee9ddf5be17c4d3c44dbec4830c9466b829459",
+      "config-audit/start.S": "a6b715f35893cd8ed3bd22cb14c332fa92845a6d8d9fd824e329ea2a242d9ded",
+      "config-audit/audit.c": "c265cc489aa8ca26eb83370e40235e611cdcc23a5fba872bace86d857a97f31b",
+      "core/common.h": "379491cc3318b18b74691c512137d9ae31a27bf32c08eeb404649be2beab3689",
+      "core/fault.c": "be53d1703a3aa3ce52bebb1570d1b74435f15ec169c9c110c7d6a9611367d748",
+      "../../platform/agilex5/include/socfpga_sys_mngr_reg_plat.h": "52f39a65509d26b416a9fcf5ae8d219bc0b11d3f3b484991823dd18e6de27f4d"
+    },
+    "load_address": "0x82400000",
+    "entry_el": 3,
+    "configuration_writes": false,
+    "artifacts": {
+      "pinmux.bin": "4a11a5a28daaac5e94283f90fa9355e03102de5e57e7a1911b1817408fd5681a",
+      "pinmux.elf": "4c7da1bc73be4dcf573863abe0298a71ad543f90ff56b8a10f601a028ba60af9",
+      "sysmgr.bin": "42d7f514b4c13c899a71afdaa85068f49b7cf0bfab2c1ecfde89496cba9480d1",
+      "sysmgr.elf": "44116fe5f89ee9ce9eda3f0d8500ccf36ffbc582076c6995cbeda6cdc6726420",
+      "unstable.bin": "1c3121ac86e158753feb9173b66a2c1fde557d58428aaa8751d75ccffb1cd323",
+      "unstable.elf": "742c5ed0955cc15e9e9fbd44cc2a9e48f0597c953cd50fa1923e0045988a08f9"
+    }
+  },
+  "bootstrap_sha256": "025972a740c9c99a490d2551003f2f56dcc6b7d60aafd81408347a11234bbadd",
+  "runner_sha256": "d0d707605d612e8a2431e03d8bcee9ce008a03b46080cb52570005cc7790df1e",
+  "tests": [
+    {
+      "name": "sysmgr",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.430039254017174,
+      "elf_sha256": "44116fe5f89ee9ce9eda3f0d8500ccf36ffbc582076c6995cbeda6cdc6726420",
+      "negative_control": false
+    },
+    {
+      "name": "pinmux",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.17964183492586,
+      "elf_sha256": "4c7da1bc73be4dcf573863abe0298a71ad543f90ff56b8a10f601a028ba60af9",
+      "negative_control": false
+    },
+    {
+      "name": "unstable",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.181085113901645,
+      "elf_sha256": "742c5ed0955cc15e9e9fbd44cc2a9e48f0597c953cd50fa1923e0045988a08f9",
+      "negative_control": true
+    }
+  ]
+}

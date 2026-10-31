@@ -1,0 +1,7 @@
+{
+  "registers": {
+    "PIN2SEL": 5,
+    "PIN3SEL": 5,
+    "UART0_USEFPGA": 0
+  }
+}

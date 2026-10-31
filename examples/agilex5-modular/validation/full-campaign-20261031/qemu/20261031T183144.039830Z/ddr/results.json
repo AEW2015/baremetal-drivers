@@ -1,0 +1,358 @@
+{
+  "scope": "QEMU TCG functional execution only; no hardware DDR latency/bandwidth claim",
+  "runner_sha256": "1b0777d271cb1dcdcda35e3ef1e532d10e95dfb1d06930b5205d9b40d2df82ec",
+  "qemu_version": "QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)",
+  "build": {
+    "scope": "Compile only; hardware timing not qualified",
+    "target": "qemu",
+    "source_revision": "14f7982c9b73e690d234bedb379f032c832f8416",
+    "source_sha256": {
+      "memory-labs/ddr/ddr.c": "9bf6009803dd6cb1a8073906f6a19189d164feb6d6c69057c75ef1cdfbb1b146",
+      "memory-labs/ddr/build.sh": "09479b5b9fc38afcfb3dd89e01da091ff6d9b7ddf1908c045f8b1e69a4ac9ccf",
+      "qemu/labs/start.S": "dd94c3884c078c186e582b3bcb79b7cfc517b48009320bca69647c7e830b7b4d",
+      "qemu/labs/runtime.c": "86fe3dbb0b7d171d9e602e6bc3536b9ebb0baf329b9097e4c2553a884c6caaaf",
+      "qemu/labs/link.ld": "aa24579e892b7eaf5dd6b98bd12714328c2bd684b50855686f6fb20e92d2b81d",
+      "qemu/labs/lab.h": "b97dd13ada04b42c0ecea1db353485df8ed90f7bf9a00d92b90f9fd421da5540"
+    },
+    "artifacts": {
+      "ddr-copy-fault.bin": "c17e8fed2730931ade01278ce253069b9581273a44bb7c8e71c60bdc07fb58ef",
+      "ddr-clock-fault.elf": "7c435f3a496a714fb458e7f44d6901b376a6e0429abba8cdfdda6862616571e5",
+      "ddr-copy-fault.elf": "b5669f09b4eda51eb0b3d058d87e06f5acb654305079b60e99944416f6877511",
+      "ddr-path.bin": "9feaef28c0f088be6bd4dc25f4c7db7544aff9495436d018f73b51f173203a06",
+      "ddr-path.elf": "aa005ac2925124307bca55dbf5854f8c13956b62f98ecdd382c7974edfdc5a18",
+      "ddr-clock-fault.bin": "944b677e76031f815eab9c4c97a36ed73d9860f582a21e3597aedf5a627dbfb6"
+    }
+  },
+  "tests": [
+    {
+      "name": "ddr-path",
+      "status": "pass",
+      "negative_control": false,
+      "expected_failure": null,
+      "returncode": 0,
+      "command": [
+        "qemu-system-aarch64",
+        "-machine",
+        "virt,secure=on,virtualization=on,gic-version=3",
+        "-cpu",
+        "cortex-a53",
+        "-accel",
+        "tcg",
+        "-smp",
+        "1",
+        "-nic",
+        "none",
+        "-m",
+        "128M",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-serial",
+        "stdio",
+        "-semihosting-config",
+        "enable=on,target=native",
+        "-device",
+        "loader,file=/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/memory-ddr-qemu/ddr-path.elf,cpu-num=0"
+      ],
+      "elf_sha256": "aa005ac2925124307bca55dbf5854f8c13956b62f98ecdd382c7974edfdc5a18",
+      "samples": [
+        {
+          "op": "read",
+          "working_set_bytes": 65536,
+          "ticks": 4724,
+          "payload_bytes": 131072,
+          "accesses": 16384,
+          "checksum": 671632206730108928,
+          "emulated_declared_seconds": 7.5584e-05,
+          "emulated_payload_bytes_per_second": 1734123624.0474174
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 65536,
+          "ticks": 8854,
+          "payload_bytes": 131072,
+          "accesses": 16384,
+          "checksum": 335816103365054464,
+          "emulated_declared_seconds": 0.000141664,
+          "emulated_payload_bytes_per_second": 925231533.7700474
+        },
+        {
+          "op": "copy",
+          "working_set_bytes": 65536,
+          "ticks": 32618,
+          "payload_bytes": 131072,
+          "accesses": 16384,
+          "checksum": 335816103365054464,
+          "emulated_declared_seconds": 0.000521888,
+          "emulated_payload_bytes_per_second": 251149671.96026734
+        },
+        {
+          "op": "dependent-load",
+          "working_set_bytes": 65536,
+          "ticks": 2739,
+          "payload_bytes": 16384,
+          "accesses": 2048,
+          "checksum": 1047552,
+          "emulated_declared_seconds": 4.3824e-05,
+          "emulated_payload_bytes_per_second": 373859072.65425336,
+          "emulated_ns_per_load": 21.3984375
+        },
+        {
+          "op": "read",
+          "working_set_bytes": 262144,
+          "ticks": 10483,
+          "payload_bytes": 524288,
+          "accesses": 65536,
+          "checksum": 1987290771547389952,
+          "emulated_declared_seconds": 0.000167728,
+          "emulated_payload_bytes_per_second": 3125822760.660116
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 262144,
+          "ticks": 12500,
+          "payload_bytes": 524288,
+          "accesses": 65536,
+          "checksum": 993645385773694976,
+          "emulated_declared_seconds": 0.0002,
+          "emulated_payload_bytes_per_second": 2621440000.0
+        },
+        {
+          "op": "copy",
+          "working_set_bytes": 262144,
+          "ticks": 120798,
+          "payload_bytes": 524288,
+          "accesses": 65536,
+          "checksum": 993645385773694976,
+          "emulated_declared_seconds": 0.001932768,
+          "emulated_payload_bytes_per_second": 271262769.25114655
+        },
+        {
+          "op": "dependent-load",
+          "working_set_bytes": 262144,
+          "ticks": 1838,
+          "payload_bytes": 65536,
+          "accesses": 8192,
+          "checksum": 16773120,
+          "emulated_declared_seconds": 2.9408e-05,
+          "emulated_payload_bytes_per_second": 2228509249.1838956,
+          "emulated_ns_per_load": 3.58984375
+        },
+        {
+          "op": "read",
+          "working_set_bytes": 1048576,
+          "ticks": 41444,
+          "payload_bytes": 2097152,
+          "accesses": 262144,
+          "checksum": 15772865267322978304,
+          "emulated_declared_seconds": 0.000663104,
+          "emulated_payload_bytes_per_second": 3162629089.8561916
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 1048576,
+          "ticks": 50076,
+          "payload_bytes": 2097152,
+          "accesses": 262144,
+          "checksum": 17109804670516264960,
+          "emulated_declared_seconds": 0.000801216,
+          "emulated_payload_bytes_per_second": 2617461458.582954
+        },
+        {
+          "op": "copy",
+          "working_set_bytes": 1048576,
+          "ticks": 490139,
+          "payload_bytes": 2097152,
+          "accesses": 262144,
+          "checksum": 17109804670516264960,
+          "emulated_declared_seconds": 0.007842224,
+          "emulated_payload_bytes_per_second": 267418018.15403387
+        },
+        {
+          "op": "dependent-load",
+          "working_set_bytes": 1048576,
+          "ticks": 7283,
+          "payload_bytes": 262144,
+          "accesses": 32768,
+          "checksum": 268419072,
+          "emulated_declared_seconds": 0.000116528,
+          "emulated_payload_bytes_per_second": 2249622408.348208,
+          "emulated_ns_per_load": 3.55615234375
+        },
+        {
+          "op": "read",
+          "working_set_bytes": 4194304,
+          "ticks": 170336,
+          "payload_bytes": 8388608,
+          "accesses": 1048576,
+          "checksum": 2049781457998053376,
+          "emulated_declared_seconds": 0.002725376,
+          "emulated_payload_bytes_per_second": 3077963554.386624
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 4194304,
+          "ticks": 214709,
+          "payload_bytes": 8388608,
+          "accesses": 1048576,
+          "checksum": 10248262765853802496,
+          "emulated_declared_seconds": 0.003435344,
+          "emulated_payload_bytes_per_second": 2441853858.0124726
+        },
+        {
+          "op": "copy",
+          "working_set_bytes": 4194304,
+          "ticks": 2086825,
+          "payload_bytes": 8388608,
+          "accesses": 1048576,
+          "checksum": 10248262765853802496,
+          "emulated_declared_seconds": 0.0333892,
+          "emulated_payload_bytes_per_second": 251237166.50893104
+        },
+        {
+          "op": "dependent-load",
+          "working_set_bytes": 4194304,
+          "ticks": 45991,
+          "payload_bytes": 1048576,
+          "accesses": 131072,
+          "checksum": 4294901760,
+          "emulated_declared_seconds": 0.000735856,
+          "emulated_payload_bytes_per_second": 1424974451.523124,
+          "emulated_ns_per_load": 5.6141357421875
+        },
+        {
+          "op": "read",
+          "working_set_bytes": 16777216,
+          "ticks": 695300,
+          "payload_bytes": 33554432,
+          "accesses": 4194304,
+          "checksum": 3599992259633741824,
+          "emulated_declared_seconds": 0.0111248,
+          "emulated_payload_bytes_per_second": 3016182942.614699
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 16777216,
+          "ticks": 868593,
+          "payload_bytes": 33554432,
+          "accesses": 4194304,
+          "checksum": 1799996129816870912,
+          "emulated_declared_seconds": 0.013897488,
+          "emulated_payload_bytes_per_second": 2414424247.0293913
+        },
+        {
+          "op": "copy",
+          "working_set_bytes": 16777216,
+          "ticks": 8017882,
+          "payload_bytes": 33554432,
+          "accesses": 4194304,
+          "checksum": 1799996129816870912,
+          "emulated_declared_seconds": 0.128286112,
+          "emulated_payload_bytes_per_second": 261559349.46411034
+        },
+        {
+          "op": "dependent-load",
+          "working_set_bytes": 16777216,
+          "ticks": 3936611,
+          "payload_bytes": 4194304,
+          "accesses": 524288,
+          "checksum": 68719214592,
+          "emulated_declared_seconds": 0.062985776,
+          "emulated_payload_bytes_per_second": 66591288.80145892,
+          "emulated_ns_per_load": 120.13583374023438
+        }
+      ]
+    },
+    {
+      "name": "ddr-copy-fault",
+      "status": "pass",
+      "negative_control": true,
+      "expected_failure": "DDR_COPY_READBACK",
+      "returncode": 1,
+      "command": [
+        "qemu-system-aarch64",
+        "-machine",
+        "virt,secure=on,virtualization=on,gic-version=3",
+        "-cpu",
+        "cortex-a53",
+        "-accel",
+        "tcg",
+        "-smp",
+        "1",
+        "-nic",
+        "none",
+        "-m",
+        "128M",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-serial",
+        "stdio",
+        "-semihosting-config",
+        "enable=on,target=native",
+        "-device",
+        "loader,file=/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/memory-ddr-qemu/ddr-copy-fault.elf,cpu-num=0"
+      ],
+      "elf_sha256": "b5669f09b4eda51eb0b3d058d87e06f5acb654305079b60e99944416f6877511",
+      "samples": [
+        {
+          "op": "read",
+          "working_set_bytes": 65536,
+          "ticks": 5000,
+          "payload_bytes": 131072,
+          "accesses": 16384,
+          "checksum": 671632206730108928,
+          "emulated_declared_seconds": 8e-05,
+          "emulated_payload_bytes_per_second": 1638400000.0
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 65536,
+          "ticks": 8877,
+          "payload_bytes": 131072,
+          "accesses": 16384,
+          "checksum": 335816103365054464,
+          "emulated_declared_seconds": 0.000142032,
+          "emulated_payload_bytes_per_second": 922834290.8640306
+        }
+      ]
+    },
+    {
+      "name": "ddr-clock-fault",
+      "status": "pass",
+      "negative_control": true,
+      "expected_failure": "DDR_DECLARED_TIMER_FREQUENCY_RANGE",
+      "returncode": 1,
+      "command": [
+        "qemu-system-aarch64",
+        "-machine",
+        "virt,secure=on,virtualization=on,gic-version=3",
+        "-cpu",
+        "cortex-a53",
+        "-accel",
+        "tcg",
+        "-smp",
+        "1",
+        "-nic",
+        "none",
+        "-m",
+        "128M",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-serial",
+        "stdio",
+        "-semihosting-config",
+        "enable=on,target=native",
+        "-device",
+        "loader,file=/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/memory-ddr-qemu/ddr-clock-fault.elf,cpu-num=0"
+      ],
+      "elf_sha256": "7c435f3a496a714fb458e7f44d6901b376a6e0429abba8cdfdda6862616571e5",
+      "samples": []
+    }
+  ],
+  "passed": true
+}

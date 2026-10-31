@@ -1,0 +1,4 @@
+Evidence: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/reference-hardware-20261031T183919.447168Z
+semihost: pass
+fault-probe: pass
+DDR Hello restoration: pass

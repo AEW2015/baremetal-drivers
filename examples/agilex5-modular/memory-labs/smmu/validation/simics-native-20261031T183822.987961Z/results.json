@@ -1,0 +1,109 @@
+{
+  "scope": "Host-issued transactions through native Agilex SMMU/TBU models; not physical DMA/fabric qualification; fresh walks with model TLB cache disabled; no command-queue invalidation claim",
+  "simics_version": "Simics Base            1000    7.89.0    (                7163) 2026-06-09\nCrypto Engine          1030    7.18.0    (                7150) 2026-04-10\nSimics GDB             1031    7.11.0    (                7155) 2026-04-29\nSimics Python          1033    7.15.0    (                7150) 2026-04-10\nIntel FPGA External    9000    7.1.0     (intel.fpga:263000013)           \nPython version: 3.10.19\nVMP kernel module is not loaded\n",
+  "returncode": 0,
+  "seconds": 7.9809836451895535,
+  "boot_sha256": "025972a740c9c99a490d2551003f2f56dcc6b7d60aafd81408347a11234bbadd",
+  "source_sha256": {
+    "native_fixture.py": "342b65ef3df1d88d3e0e721abb1575cef38501ddf8eeacff80ab147f1cba1067",
+    "native_cases.py": "0dc9cd8f17c583f11ac558940e9253f04caeff5002c954eb4b348def56a277c8",
+    "native_run.py": "23d72b00f9c5381f02968fcbca738939b217fdc5830f7b5dda73e8800edfda92"
+  },
+  "script_sha256": "f084faadb8104603b37b8f6834dc12539d12609cf5f9f15918e7157bae682ff9",
+  "tests": [
+    {
+      "name": "dma0",
+      "status": "pass",
+      "configuration": {
+        "route": "dma0",
+        "memory_space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.dmac_smmu_mem_space_0",
+        "tbu_index": 0,
+        "sid": 8,
+        "sid_origin": "DMA0 System Manager read/write stream-ID registers programmed to 8",
+        "iova": "0x85000000",
+        "physical": "0x86000000",
+        "table_base": "0x85400000",
+        "model_reset_pulse": true,
+        "tlb_cache_enable": false,
+        "invalidation_scope": "fresh table walk only; no command queue/TLBI claim",
+        "cr0": "0x5",
+        "cr0ack": "0x0",
+        "unmapped_pte": "0x85402140"
+      },
+      "fault": {
+        "producer": 1,
+        "consumer": 0,
+        "words": [
+          34359771152,
+          1649267441664,
+          2231369728,
+          2235572544
+        ],
+        "global_error": 0
+      }
+    },
+    {
+      "name": "f2h",
+      "status": "pass",
+      "configuration": {
+        "route": "f2h",
+        "memory_space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.f2soc_smmu_mem_space",
+        "tbu_index": 4,
+        "sid": 0,
+        "sid_origin": "Native ingress default SID 0; no arm_smmu_attributes atom supplied; physical AXUSER-to-SID mapping not qualified",
+        "iova": "0x85000000",
+        "physical": "0x86000000",
+        "table_base": "0x85400000",
+        "model_reset_pulse": true,
+        "tlb_cache_enable": false,
+        "invalidation_scope": "fresh table walk only; no command queue/TLBI claim",
+        "cr0": "0x5",
+        "cr0ack": "0x0",
+        "unmapped_pte": "0x85402140"
+      },
+      "fault": {
+        "producer": 1,
+        "consumer": 0,
+        "words": [
+          16,
+          1649267441664,
+          2231369728,
+          2235572544
+        ],
+        "global_error": 0
+      }
+    },
+    {
+      "name": "f2sdram",
+      "status": "pass",
+      "configuration": {
+        "route": "f2sdram",
+        "memory_space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.f2sdram_smmu_mem_space",
+        "tbu_index": 5,
+        "sid": 0,
+        "sid_origin": "Native ingress default SID 0; no arm_smmu_attributes atom supplied; physical AXUSER-to-SID mapping not qualified",
+        "iova": "0x85000000",
+        "physical": "0x86000000",
+        "table_base": "0x85400000",
+        "model_reset_pulse": true,
+        "tlb_cache_enable": false,
+        "invalidation_scope": "fresh table walk only; no command queue/TLBI claim",
+        "cr0": "0x5",
+        "cr0ack": "0x0",
+        "unmapped_pte": "0x85402140"
+      },
+      "fault": {
+        "producer": 1,
+        "consumer": 0,
+        "words": [
+          16,
+          1649267441664,
+          2231369728,
+          2235572544
+        ],
+        "global_error": 0
+      }
+    }
+  ],
+  "passed": true
+}

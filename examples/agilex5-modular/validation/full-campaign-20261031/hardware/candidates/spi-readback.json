@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 34640,
+  "segments": [
+    {
+      "file": "upstream26-spi.segment0.bin",
+      "bytes": 34640,
+      "sha256": "57880d72f42fd1a554c32eaa31b1c6a8ebf2121e17f57cf384d6478dc65dbef5"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/runs/simics-config-audit-20261031T183551.020563Z
+sysmgr: pass
+pinmux: pass
+unstable: pass

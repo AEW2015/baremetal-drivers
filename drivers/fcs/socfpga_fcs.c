@@ -157,17 +157,54 @@ static int fcs_notify_hps_os_stage(void)
     return 0;
 }
 
-static int fcs_mbox_poll_until_ready(void)
+/* FCS HAL calls use local response arrays. Keep those arrays alive until the
+ * matching response is copied; a completion for another job is not readiness.
+ * UINT64_MAX cannot be an SDM status (FCS status is bounded by 0x7ff).
+ */
+static int fcs_mbox_poll_until_ready(sdm_client_handle handle,
+                                      uint64_t *response)
 {
+    volatile uint64_t *status = response;
     unsigned int i;
-
+    int ret = -ETIMEDOUT;
     for (i = 0U; i < FCS_MBOX_POLL_ITERS; i++) {
-        if (mbox_poll_once() > 0) {
-            return 0;
+        if (status[0] != UINT64_MAX) {
+            ret = 0;
+            break;
         }
+        (void)mbox_poll_once();
     }
+    if (status[0] != UINT64_MAX) {
+        ret = 0;
+    }
+    /* On timeout the job ID remains quarantined, but no late response may
+     * write through this pointer after the HAL's local array goes out of scope.
+     */
+    (void)mbox_detach_response_buffer(handle, response);
+    return ret;
+}
 
-    return -ETIMEDOUT;
+static int fcs_sip_send_wait(sdm_client_handle handle, uint64_t function,
+                              uint64_t *args, uint32_t args_bytes,
+                              uint64_t *response, uint32_t response_bytes)
+{
+    uint32_t i;
+    int ret;
+    if (response == NULL || response_bytes == 0U ||
+        response_bytes % sizeof(uint64_t) != 0U ||
+        response_bytes > SMC_CALL_REG_COUNT * sizeof(uint64_t)) {
+        return -EINVAL;
+    }
+    for (i = 0U; i < response_bytes / sizeof(uint64_t); i++) {
+        response[i] = UINT64_MAX;
+    }
+    ret = sip_svc_send(handle, function, args, args_bytes,
+                       response, response_bytes);
+    if (ret != 0) {
+        (void)mbox_detach_response_buffer(handle, response);
+        return ret;
+    }
+    return fcs_mbox_poll_until_ready(handle, response);
 }
 
 void fcs_callback(uint64_t *resp_values);
@@ -256,7 +293,7 @@ static sdm_client_handle get_client_handle(char *uuid, uint32_t *session_id)
 }
 
 /* Use the random number generator to generate a UUID for the session ID */
-static void generate_uuid(sdm_client_handle fcs_handle, uint32_t session_id,
+static int generate_uuid(sdm_client_handle fcs_handle, uint32_t session_id,
         char *uuid)
 {
     uint64_t rng_args[4], rng_resp[2] =
@@ -271,13 +308,14 @@ static void generate_uuid(sdm_client_handle fcs_handle, uint32_t session_id,
     cache_force_invalidate(fcs_out_ops_buffer, FCS_UUID_SIZE +
             FCS_RESP_HEADER_SIZE);
 
-    ret = sip_svc_send(fcs_handle, FCS_RANDOM_NUMBER, rng_args,
+    ret = fcs_sip_send_wait(fcs_handle, FCS_RANDOM_NUMBER, rng_args,
             sizeof(rng_args), rng_resp, sizeof(rng_resp));
     if (ret == 0)
     {
                 // OSAL_TIMEOUT_WAIT_FOREVER) == true)
         {
-            if (rng_resp[FCS_RESP_STATUS] == 0UL)
+            ret = (int)(rng_resp[FCS_RESP_STATUS] & FCS_STATUS_MASK);
+            if (ret == 0)
             {
                 cache_force_invalidate(fcs_out_ops_buffer, FCS_UUID_SIZE +
                         FCS_RESP_HEADER_SIZE);
@@ -287,6 +325,7 @@ static void generate_uuid(sdm_client_handle fcs_handle, uint32_t session_id,
             }
         }
     }
+    return ret;
 }
 int run_fcs_open_service_session(char *uuid)
 {
@@ -344,11 +383,8 @@ int run_fcs_open_service_session(char *uuid)
     }
 
     printf("Open_session: No args\n");
-    ret = sip_svc_send(fcs_handle, FCS_OPEN_SESSION, NULL, 0U, open_session_resp,
+    ret = fcs_sip_send_wait(fcs_handle, FCS_OPEN_SESSION, NULL, 0U, open_session_resp,
             sizeof(open_session_resp));
-    if (ret == 0) {
-        ret = fcs_mbox_poll_until_ready();
-    }
     if (ret == 0)
     {
                 // OSAL_TIMEOUT_WAIT_FOREVER) == true)
@@ -360,11 +396,18 @@ int run_fcs_open_service_session(char *uuid)
                 session_id = (uint32_t)open_session_resp[FCS_RESP_SIZE];
                 fcs_descriptor->session_map[i].session_id = session_id;
                 printf("Generating UUID");
-                generate_uuid(fcs_handle, session_id, uuid);
-                if (uuid == NULL)
-                {
-                    printf("Failed to generate UUID");
-                    return -EIO;
+                ret = generate_uuid(fcs_handle, session_id, uuid);
+                if (ret != 0) {
+                    uint64_t close_arg = session_id;
+                    uint64_t close_resp = UINT64_MAX;
+                    int close_ret = fcs_sip_send_wait(fcs_handle,
+                            FCS_CLOSE_SESSION, &close_arg, sizeof(close_arg),
+                            &close_resp, sizeof(close_resp));
+                    printf("Failed to generate UUID: rc=%d; cleanup close rc=%d status=%lx\n",
+                           ret, close_ret, close_resp);
+                    (void)memset(&fcs_descriptor->session_map[i], 0,
+                                 sizeof(fcs_descriptor->session_map[i]));
+                    return ret;
                 }
                 /* UUID v4 formatting */
                 uuid[6] = (char)(((uint8_t)uuid[6] & 0x0FU) | 0x40U);
@@ -404,7 +447,7 @@ int run_fcs_close_service_session(char *uuid)
     }
     close_session_arg = session_id;
     printf("Close_session: session_id: %lu", close_session_arg);
-    ret = sip_svc_send(fcs_handle, FCS_CLOSE_SESSION, &close_session_arg,
+    ret = fcs_sip_send_wait(fcs_handle, FCS_CLOSE_SESSION, &close_session_arg,
             sizeof(close_session_arg), &resp_err, sizeof(resp_err));
 
     if (ret == 0)
@@ -470,7 +513,7 @@ int run_fcs_random_number_ext(char *rand_buf, char *uuid,
             FCS_RESP_HEADER_SIZE);
 
     printf("Random_number_ext: rand_size: %lu", rand_size + extra_data);
-    ret = sip_svc_send(fcs_handle, FCS_RANDOM_NUMBER, rng_args,
+    ret = fcs_sip_send_wait(fcs_handle, FCS_RANDOM_NUMBER, rng_args,
             sizeof(rng_args), rng_resp, sizeof(rng_resp));
     if (ret == 0)
     {
@@ -478,7 +521,9 @@ int run_fcs_random_number_ext(char *rand_buf, char *uuid,
         {
             printf("SIP_SVC response x1: %lx, x2: %lx", rng_resp[0],
                     rng_resp[1]);
-            if (rng_resp[FCS_RESP_STATUS] == 0UL)
+            status = (uint16_t)(rng_resp[FCS_RESP_STATUS] & FCS_STATUS_MASK);
+            ret = (int)status;
+            if (status == 0U)
             {
                 cache_force_invalidate(fcs_out_ops_buffer, rand_size +
                         FCS_RESP_HEADER_SIZE);
@@ -779,7 +824,7 @@ int run_fcs_service_get_provision_data(char *prov_data,
 
     prov_data_arg = (uint64_t)prov_data;
     printf("Get_provision_data: prov_data_buffer: 0x%" PRIxPTR "\n", (uintptr_t)prov_data);
-    ret = sip_svc_send(fcs_descriptor->security_handle, FCS_GET_PROVISION_DATA,
+    ret = fcs_sip_send_wait(fcs_descriptor->security_handle, FCS_GET_PROVISION_DATA,
             &prov_data_arg, sizeof(prov_data_arg), prov_data_resp,
             sizeof(prov_data_resp));
 
@@ -1488,7 +1533,7 @@ int run_fcs_get_chip_id(uint32_t *chip_low,
     }
 
     printf("Get_chip_id: No args");
-    ret = sip_svc_send(fcs_descriptor->security_handle, FCS_GET_CHIP_ID, NULL,
+    ret = fcs_sip_send_wait(fcs_descriptor->security_handle, FCS_GET_CHIP_ID, NULL,
             0, get_chip_id_resp, sizeof(get_chip_id_resp));
 
     if (ret == 0)
@@ -1659,7 +1704,7 @@ int run_fcs_get_jtag_idcode(uint32_t *jtag_id_code)
     }
 
     printf("Get_jtag_idcode: No args");
-    ret = sip_svc_send(fcs_descriptor->security_handle, FCS_GET_IDCODE, NULL, 0,
+    ret = fcs_sip_send_wait(fcs_descriptor->security_handle, FCS_GET_IDCODE, NULL, 0,
             get_idcode_resp, sizeof(get_idcode_resp));
     if (ret == 0)
     {

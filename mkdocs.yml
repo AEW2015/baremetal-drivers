@@ -67,7 +67,7 @@ nav:
       - Complete platform catalog: example-catalog.md
       - Shared labs on QEMU, Simics and hardware: cross-platform.md
       - QEMU CPU, NEON and RAM: examples/qemu.md
-      - Six QEMU practice labs: examples/qemu-labs.md
+      - Seven QEMU practice labs: examples/qemu-labs.md
       - Simics upstream and legacy examples: simics.md
       - OCRAM UART Hello: examples/ocram.md
       - DDR bring-up and Hello: examples/ddr.md
@@ -89,6 +89,7 @@ nav:
       - "Vendor ECC register/default checks": examples/vendor-ecc.md
   - Reference:
       - Codex skill: agent-skill.md
+      - Full QEMU, Simics and hardware campaign: full-validation-2026-10-31.md
       - Validation and limits: validation.md
       - Fresh-clone remote validation: remote-validation.md
       - Upstream 26.3 API and migration: upstream-26.3.md

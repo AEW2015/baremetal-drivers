@@ -64,6 +64,30 @@ def reap_debugger(proc):
     # Reaping a forcibly stopped docker client does not confirm remote exit.
     return False
 
+def bl31_load_script(prefix, remote, size):
+    """Generate file-based secure load with restoration of the numeric CSW."""
+    return prefix.replace('; ', '\n')+f'''hps.dap apsel 0x4000
+set csw_report [hps.dap apcsw]
+if {{![regexp {{csw (0x[0-9a-fA-F]+)}} $csw_report -> old_csw]}} {{error "CSW decode failed"}}
+hps.dap apcsw 0x10000000 0x30000000
+set load_status [catch {{
+targets hps.sys_bus
+load_image {remote} 0x80000000 bin
+dump_image {remote}.readback 0x80000000 {size}
+}} load_message]
+hps.dap apcsw $old_csw
+if {{$load_status}} {{error $load_message}}
+puts "BL31_LOAD_READBACK_COMPLETE"
+shutdown
+'''
+
+def bl31_readback_valid(result, readback, expected):
+    body=result.stdout+result.stderr
+    return (result.returncode==0 and b'Error:' not in body
+            and b'BL31_LOAD_READBACK_COMPLETE' in body
+            and readback.is_file() and readback.read_bytes()==expected)
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--bench',type=Path,required=True,help='Established baremetal-guide-validation directory')
@@ -72,12 +96,12 @@ def main():
     p.add_argument('--port',default='/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0')
     p.add_argument('--wait-for-hardware',action='store_true',help='Queue on the shared bench mutex instead of failing busy')
     p.add_argument('--bl31',type=Path,help='Verified pinned RESET_TO_BL31 image')
-    p.add_argument('--suite',choices=['upstream','practice','config','memory-ddr','memory-dsu'],default='upstream')
+    p.add_argument('--suite',choices=['upstream','practice','config','memory-ddr','memory-dsu','candidates','psci','services'],default='upstream')
     p.add_argument('--capture-seconds',type=int,help='UART deadline, 5..300; default 180 for memory labs, 35 otherwise')
     p.add_argument('--only')
     a=p.parse_args()
     checker=lab
-    allowed=('crc','perf','combophy','noc','reset','mailbox','bridge-control')
+    allowed=('crc','perf','combophy','noc','reset','mailbox','bridge-control','smc-guard','perf-zero-clock')
     default='crc,perf,combophy,noc,reset'
     if a.suite=='practice':
         spec=importlib.util.spec_from_file_location('practice_runner',ROOT/'practice/run.py')
@@ -91,6 +115,23 @@ def main():
         allowed=checker.NAMES
         default=','.join(allowed)
         if a.bl31:p.error('Configuration snapshots require the standalone EL3 bootstrap; omit --bl31')
+    if a.suite=='services':
+        spec=importlib.util.spec_from_file_location('service_oracle',ROOT/'service-candidates/oracle.py')
+        checker=importlib.util.module_from_spec(spec);spec.loader.exec_module(checker)
+        allowed=checker.NAMES
+        default='fcs' if a.bl31 else 'ecc-readonly'
+    if a.suite=='psci':
+        spec=importlib.util.spec_from_file_location('psci_oracle',ROOT/'reference/psci/oracle.py')
+        checker=importlib.util.module_from_spec(spec);spec.loader.exec_module(checker)
+        allowed=checker.NAMES
+        default='psci'
+        if not a.bl31:p.error('PSCI requires resident BL31 and NS EL2; provide --bl31')
+    if a.suite=='candidates':
+        spec=importlib.util.spec_from_file_location('hardware_candidates',ROOT/'hardware-candidates/oracle.py')
+        checker=importlib.util.module_from_spec(spec);spec.loader.exec_module(checker)
+        allowed=checker.NAMES
+        default=','.join(allowed)
+        if a.bl31:p.error('Hardware candidates require standalone EL3; omit --bl31')
     if a.suite.startswith('memory-'):
         kind=a.suite.split('-',1)[1]
         spec=importlib.util.spec_from_file_location('memory_oracle',ROOT/'memory-labs/hardware_oracle.py')
@@ -103,12 +144,16 @@ def main():
     if not 5<=capture_seconds<=300:p.error('capture-seconds must be 5..300')
     names=(a.only or default).split(',')
     if any(n not in allowed for n in names):p.error('Choose '+','.join(allowed))
+    if a.suite=='services':
+        if 'fcs' in names and not a.bl31:p.error('FCS services require resident BL31; provide --bl31')
+        if 'ecc-readonly' in names and a.bl31:p.error('ECC read-only snapshot requires standalone EL3; omit --bl31')
+    if a.suite=='upstream' and a.bl31 and any(n in ('smc-guard','perf-zero-clock') for n in names):p.error('Diagnostic controls require standalone EL3; omit --bl31')
     build_metadata=None;validated_segments={}
-    if a.suite.startswith('memory-'):
+    if a.suite.startswith('memory-') or a.suite in ('candidates','psci','services'):
         build_metadata=json.loads((a.artifacts/'build.json').read_text())
         if build_metadata.get('target')!='agilex5':
             p.error('Memory hardware runs require an Agilex5 build; never load QEMU-addressed artifacts')
-    if a.suite=='practice' or a.suite.startswith('memory-'):
+    if a.suite=='practice' or a.suite.startswith('memory-') or a.suite in ('candidates','psci','services'):
         if build_metadata is None:build_metadata=json.loads((a.artifacts/'build.json').read_text())
         validated_segments=preflight_payloads(a.artifacts,names,build_metadata)
     sys.path.insert(0,str(a.mcp_client.parent));from mcp_client import MCP
@@ -172,7 +217,7 @@ def main():
                 prefix='hps.a55.0 configure -event halted {}; hps.a55.0 configure -event resumed {}; gdb port disabled; tcl port disabled; telnet port disabled; init; halt; '
                 command=prefix+f'targets hps.sys_bus; load_image {container_image} 0x82400000 bin; dump_image {readback} 0x82400000 {image.stat().st_size}; shutdown'
                 transfers=[(destination,image.read_bytes())]
-                if a.suite=='practice' or a.suite.startswith('memory-'):
+                if a.suite=='practice' or a.suite.startswith('memory-') or a.suite in ('candidates','psci','services'):
                     command=prefix+'targets hps.sys_bus; '
                     transfers=[]
                     for index,(address,data) in enumerate(validated_segments[name]):
@@ -196,10 +241,18 @@ def main():
                     # transactions. Preserve every other CSW pattern bit and
                     # restore the original pattern before closing the session.
                     Path(str(monitor)+'.readback').unlink(missing_ok=True)
-                    load=prefix+f'hps.dap apsel 0x4000; set old_csw [hps.dap apcsw]; hps.dap apcsw 0x10000000 0x30000000; targets hps.sys_bus; load_image {remote} 0x80000000 bin; dump_image {remote}.readback 0x80000000 {monitor.stat().st_size}; hps.dap apcsw $old_csw; shutdown'
-                    result=subprocess.run(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','30s','openocd','-f',cfg,'-c',load],capture_output=True,timeout=40)
+                    # The vendor launcher reparses -c and can lose Tcl quoting.
+                    # apcsw returns descriptive text, not just a numeric value.
+                    # Run a file and decode the old value before restoring it.
+                    load=bl31_load_script(prefix,remote,monitor.stat().st_size)
+                    load_script=a.bench/'examples/build'/(out.name+'-'+name+'-bl31-load.tcl')
+                    load_script.write_text(load)
+                    (out/(name+'-bl31-load.tcl')).write_text(load)
+                    remote_script='/home/dev/baremetal-guide-validation/examples/build/'+load_script.name
+                    result=subprocess.run(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','30s','openocd','-f',cfg,'-f',remote_script],capture_output=True,timeout=40)
                     (out/(name+'-bl31-load.log')).write_bytes(result.stdout+result.stderr)
-                    if result.returncode or not Path(str(monitor)+'.readback').is_file() or Path(str(monitor)+'.readback').read_bytes()!=monitor.read_bytes():raise RuntimeError('BL31 load/readback failed')
+                    if not bl31_readback_valid(result,Path(str(monitor)+'.readback'),monitor.read_bytes()):
+                        raise RuntimeError('BL31 load/readback failed')
                     (out/(name+'-bl31-readback.json')).write_text(json.dumps({'status':'pass','bytes':monitor.stat().st_size,'sha256':lab.digest(monitor),'debug_access':'secure privileged AXI5; original CSW pattern restored'},indent=2)+'\n')
                     command=prefix+'reg x0 0; reg x1 0; reg x2 0; reg x3 0; resume 0x80000000; shutdown'
                 else:
@@ -223,7 +276,10 @@ def main():
                                     if marker in body and marker.decode() not in observations:observations[marker.decode()]=time.monotonic()
 
                             if proc.poll() is not None and proc.returncode:break
-                            if a.suite=='config':complete=b'CONFIG_AUDIT_COMPLETE' in body
+                            if a.suite=='services':complete=b'SERVICE_COMPLETE' in body
+                            elif a.suite=='psci':complete=b'PSCI_COMPLETE' in body
+                            elif a.suite=='candidates':complete=b'CANDIDATE_COMPLETE' in body
+                            elif a.suite=='config':complete=b'CONFIG_AUDIT_COMPLETE' in body
                             else:complete=(b'LAB COMPLETE' in body or b'LAB FAILED' in body) if a.suite=='practice' or a.suite.startswith('memory-') else b'UPSTREAM_LAB_COMPLETE' in body
                             if complete and proc.poll() is not None:
                                 if done_at is None:done_at=time.monotonic()

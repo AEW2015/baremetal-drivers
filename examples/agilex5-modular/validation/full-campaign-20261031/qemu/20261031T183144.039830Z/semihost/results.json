@@ -1,0 +1,66 @@
+{
+  "scope": "Unchanged reference assembly relinked into QEMU virt RAM; semihost SYS_WRITE0 plus GDB stop at hello_done. Printed OCRAM text is literal source wording, not a physical OCRAM qualification. Guest deliberately loops at hello_done and host terminates after GDB proof.",
+  "tests": [
+    {
+      "name": "semihost",
+      "status": "pass",
+      "catalog_id": "reference/semihost",
+      "compiler_exit": 0,
+      "gdb_exit": 0,
+      "qemu_exit_after_deliberate_host_termination": 0,
+      "elf_sha256": "517d73e11e03faeaf5adf701a2649db84590404564ab50990aef607e66d974c5",
+      "source_sha256": "2a3e07b1e90d8434cf1a908246637ef64ca1c9be93c5eacd19ed533fe6244b0e",
+      "build_command": [
+        "aarch64-none-elf-gcc",
+        "-nostdlib",
+        "-g3",
+        "-Wl,--build-id=none,-Ttext=0x40200000,-e,hello_entry",
+        "bootstrap/ocram/hello_semihost.S",
+        "-o",
+        "/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/qemu-semihost-campaign/hello_semihost.elf"
+      ],
+      "qemu_command": [
+        "qemu-system-aarch64",
+        "-machine",
+        "virt,secure=on,virtualization=on",
+        "-cpu",
+        "cortex-a53",
+        "-m",
+        "128M",
+        "-nic",
+        "none",
+        "-display",
+        "none",
+        "-serial",
+        "none",
+        "-monitor",
+        "none",
+        "-semihosting-config",
+        "enable=on,target=native",
+        "-device",
+        "loader,file=/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/qemu-semihost-campaign/hello_semihost.elf,cpu-num=0",
+        "-S",
+        "-chardev",
+        "socket,id=gdb,path=/tmp/agx5-semihost-t9r4htrh/gdb,server=on,wait=off",
+        "-gdb",
+        "chardev:gdb"
+      ],
+      "gdb_command": [
+        "gdb-multiarch",
+        "-q",
+        "-batch",
+        "/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/qemu-semihost-campaign/hello_semihost.elf",
+        "-ex",
+        "target remote /tmp/agx5-semihost-t9r4htrh/gdb",
+        "-ex",
+        "break hello_done",
+        "-ex",
+        "continue",
+        "-ex",
+        "printf \"SEMIHOST_DONE_PC=%#lx\n\", $pc",
+        "-ex",
+        "detach"
+      ]
+    }
+  ]
+}

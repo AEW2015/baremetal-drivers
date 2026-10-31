@@ -1,0 +1,124 @@
+Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 23:07:33 Oct 30 2026
+
+Commit: 001649d
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > ddr_selftest
+
+
+
++------------------------------------------------------------+
+
+|                  DDR BIST / INIT COMMAND                   |
+
++------------------------------------------------------------+
+
+Mode  : Agilex5 OCRAM on-demand DDR bring-up
+
+Step 1: Run IOSSM/DDR init flow (ATF-compatible) ... DDR: Reset type is 'Power-On'
+
+IOSSM: Calibration success status check...
+
+IOSSM: All EMIF instances within the IO96 have calibrated successfully!
+
+DDR: Calibration success
+
+DDR: ECC is disabled
+
+DDR: DDR size configured is (2048 MiB)
+
+DDR: Mismatch with hardware size (8192 MiB).
+
+###DDR:init success###
+
+PASS
+
+
+
+Step 2: Run DDR memory validation suite
+
+------------------------------------------------------------
+
+Region: 0x83000000 - 0x83FFFFFF (16 MB)
+
+
+
+Test 1 of 4 : Fixed data-pattern test
+
+------------------------------------------------------------
+
+  Pattern 0x00000000 ....................... PASS
+
+  Pattern 0xFFFFFFFF ....................... PASS
+
+  Pattern 0xAAAAAAAA ....................... PASS
+
+  Pattern 0x55555555 ....................... PASS
+
+
+
+Test 2 of 4 : Walking-bit test
+
+------------------------------------------------------------
+
+  Walk 32 single-bit patterns ............... PASS
+
+
+
+Test 3 of 4 : Address-uniqueness test
+
+------------------------------------------------------------
+
+  Write/verify unique address values ........ PASS
+
+
+
+Test 4 of 4 : March C- test
+
+------------------------------------------------------------
+
+  March C- up/down sweeps ................... PASS
+
+------------------------------------------------------------
+
+
+
+RESULT : 4 of 4 tests passed  -  SELF-TEST PASSED
+
+
+
+SoCFPGA Bare-Metal > UPSTREAM_LAB_BEGIN case=1
+GUEST_EXCEPTION_LEVEL=3
+COUNTER_HZ=400000000
+COUNTER_INTERVAL_START
+COUNTER_INTERVAL_END ticks=400000017
+UPSTREAM_COMMAND perf_selftest timer
+
+[PERF][TIMER] ARM generic counter frequency: 400000000 Hz
+[PERF][TIMER] timestamp overhead: min=0 us avg=0 us max=0 us
+UPSTREAM_COMMAND perf_selftest mem 0x85000000 65536 2
+
+[PERF][MEM] destructive DDR test
+[PERF][MEM] src=0x0000000085000000 dst=0x0000000085010000 size=65536 loops=2
+[PERF] mem-write: bytes=131072 time=573 us rate=223385 KiB/s 1829.975 Mbps
+[PERF] mem-read: bytes=131072 time=328 us rate=390243 KiB/s 3196.878 Mbps
+[PERF][MEM] read sink=0x00000000
+[PERF] mem-copy: bytes=131072 time=409 us rate=312958 KiB/s 2563.755 Mbps
+PASS PERF_MEMORY_READBACK words=16384 mismatches=0
+UPSTREAM_COMMAND perf_selftest latency timer 100
+
+[PERF][LAT][TIMER] measuring perf_counter_ticks() overhead loops=100
+[PERF][LAT] timer-overhead: samples=100 min=287 ns avg=287 ns max=287 ns status=0
+UPSTREAM_COMMAND perf_selftest log dump
+
+[PERF][LOG] entries=4 max=64
+[PERF][LOG][00] seq=1 type=THR tag=mem-write bytes=131072 time=573 us rate=223385 KiB/s 1829.975 Mbps status=0
+[PERF][LOG][01] seq=2 type=THR tag=mem-read bytes=131072 time=328 us rate=390243 KiB/s 3196.878 Mbps status=0
+[PERF][LOG][02] seq=3 type=THR tag=mem-copy bytes=131072 time=409 us rate=312958 KiB/s 2563.755 Mbps status=0
+[PERF][LOG][03] seq=4 type=LAT tag=timer-overhead samples=100 min=287 ns avg=287 ns max=287 ns status=0
+UPSTREAM_LAB_COMPLETE status=0

@@ -1,0 +1,51 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+UPSTREAM_LAB_BEGIN case=1
+GUEST_EXCEPTION_LEVEL=3
+COUNTER_HZ=400000000
+COUNTER_INTERVAL_START
+COUNTER_INTERVAL_END ticks=400000022
+UPSTREAM_COMMAND perf_selftest timer
+
+[PERF][TIMER] ARM generic counter frequency: 400000000 Hz
+[PERF][TIMER] timestamp overhead: min=1 us avg=1 us max=1 us
+UPSTREAM_COMMAND perf_selftest mem 0x85000000 65536 2
+
+[PERF][MEM] destructive DDR test
+[PERF][MEM] src=0x0000000085000000 dst=0x0000000085010000 size=65536 loops=2
+[PERF] mem-write: bytes=131072 time=4224 us rate=30303 KiB/s 248.242 Mbps
+[PERF] mem-read: bytes=131072 time=12172 us rate=10515 KiB/s 86.146 Mbps
+[PERF][MEM] read sink=0x00000000
+[PERF] mem-copy: bytes=131072 time=18258 us rate=7010 KiB/s 57.431 Mbps
+PASS PERF_MEMORY_READBACK words=16384 mismatches=0
+UPSTREAM_COMMAND perf_selftest latency timer 100
+
+[PERF][LAT][TIMER] measuring perf_counter_ticks() overhead loops=100
+[PERF][LAT] timer-overhead: samples=100 min=1107 ns avg=1407 ns max=1922 ns status=0
+UPSTREAM_COMMAND perf_selftest log dump
+
+[PERF][LOG] entries=4 max=64
+[PERF][LOG][00] seq=1 type=THR tag=mem-write bytes=131072 time=4224 us rate=30303 KiB/s 248.242 Mbps status=0
+[PERF][LOG][01] seq=2 type=THR tag=mem-read bytes=131072 time=12172 us rate=10515 KiB/s 86.146 Mbps status=0
+[PERF][LOG][02] seq=3 type=THR tag=mem-copy bytes=131072 time=18258 us rate=7010 KiB/s 57.431 Mbps status=0
+[PERF][LOG][03] seq=4 type=LAT tag=timer-overhead samples=100 min=1107 ns avg=1407 ns max=1922 ns status=0
+UPSTREAM_LAB_COMPLETE status=0

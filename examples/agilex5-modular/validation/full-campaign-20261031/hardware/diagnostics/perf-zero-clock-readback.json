@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 99520,
+  "segments": [
+    {
+      "file": "upstream26-perf-zero-clock.bin",
+      "bytes": 99520,
+      "sha256": "a9373f3f489f3bf323ba374c218ebb85ca9c4c4f6cb2b6af3227b23d1faefa4a"
+    }
+  ]
+}

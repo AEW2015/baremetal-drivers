@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 10076,
+  "segments": [
+    {
+      "file": "upstream26-stalled.segment0.bin",
+      "bytes": 8908,
+      "sha256": "718a1e679205489690cd26739046bfe609077fa0c36b413047c312b15615b28a"
+    },
+    {
+      "file": "upstream26-stalled.segment1.bin",
+      "bytes": 1168,
+      "sha256": "03fb443ffdc010f56e3879227d7e27a2db481f5dd034c739b665a9502ef5a757"
+    }
+  ]
+}

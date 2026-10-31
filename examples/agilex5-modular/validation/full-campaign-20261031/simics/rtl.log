@@ -1,0 +1,4 @@
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/runs/simics-rtl-verilator-20261031T183633.011006Z
+PASS add
+PASS xor
+PASS missing-done

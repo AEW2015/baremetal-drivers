@@ -19,7 +19,7 @@ jobs:
       - name: Install freestanding cross compiler and QEMU
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends gcc-aarch64-linux-gnu libc6-dev-arm64-cross qemu-system-arm gdb-multiarch verilator g++ make cmake ninja-build
+          sudo apt-get install -y --no-install-recommends gcc-aarch64-linux-gnu libc6-dev-arm64-cross qemu-system-arm gdb-multiarch verilator g++ make cmake ninja-build tcl
       - name: Check QEMU, fabric RTL and driver builds
         working-directory: examples/agilex5-modular
         env:
@@ -42,6 +42,11 @@ jobs:
           AGILEX_TEST_REAL_QEMU=1 python3 -m unittest discover -s tests -v
           ./simics/build.sh OCRAM
           ./simics/build.sh DDR
+          bash hardware-candidates/build.sh
+          bash service-candidates/build.sh
+          bash reference/psci/build.sh
+          bash reference/build.sh
+          bash service-candidates/tests/test_fcs_transport.sh
           bash upstream-lab/build.sh qemu
           python3 upstream-lab/run.py qemu --only crc,perf,smc-guard,perf-zero-clock
           bash upstream-lab/build.sh agilex5

@@ -1,0 +1,9 @@
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/runs/simics-new-examples-simics-20261031T183213.803356Z
+crc: pass
+perf: pass
+combophy: pass
+noc: pass
+reset: pass
+reboot: fail
+smc-guard: pass
+perf-zero-clock: pass

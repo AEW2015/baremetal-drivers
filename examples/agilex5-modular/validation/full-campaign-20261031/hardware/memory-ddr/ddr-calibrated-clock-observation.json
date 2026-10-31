@@ -1,0 +1,9 @@
+{
+  "interval_seconds": 0.9920008089393377,
+  "expected_seconds": 1.0,
+  "acceptance": [
+    0.9,
+    1.1
+  ],
+  "scope": "Coarse independent host wall-clock rate check; UART/scheduling uncertainty, not precision calibration"
+}

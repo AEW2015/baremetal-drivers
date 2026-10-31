@@ -1,0 +1,33 @@
+{
+  "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+  "source_revision": "14f7982c9b73e690d234bedb379f032c832f8416",
+  "artifacts": {
+    "build/upstream26-ocram/baremetal.bin": "025972a740c9c99a490d2551003f2f56dcc6b7d60aafd81408347a11234bbadd",
+    "build/campaign-simics-ddr/baremetal.bin": "256d2339a1df65d5a1a236ae6cd74fd1dc0762abb5ae45a821d81fc793bbdc4e",
+    "build/campaign-simics-ddr/baremetal.elf": "93e288ea4d4e65a4891455feb545b40cd21fa869811d137479e160253029ff67"
+  },
+  "tests": [
+    {
+      "name": "fcs",
+      "catalog_id": "upstream/fcs",
+      "command": "fcs_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 9.030659044161439,
+      "limitation": "EL2/BL31 accepts CHIP_ID SiP call but model SDM returns error 0x3; console re-enters OCRAM bootstrap before any FCS identity/session/RNG completion. A returned prompt is not command success.",
+      "script_sha256": "af70ef99048db518a043a67f43ec4d49b93e36a8eac560ddfc4847ac3bc0057b",
+      "initial_status": "partial"
+    },
+    {
+      "name": "seu",
+      "catalog_id": "upstream/seu",
+      "command": "seu_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 8.982223139610142,
+      "limitation": "EL2/BL31 service entry works, but model SDM rejects every sector-stat query with error 0x3; no valid sector and no injection test.",
+      "script_sha256": "44e552ca458f0202e18a54d84fbd8be153d3b33aa8c67989fc73098082d23f38"
+    }
+  ],
+  "bl31_sha256": "bc4b3684d4db7f4a73b7adcc471366f6cd51774017d9c804827a455ff7f24f49"
+}

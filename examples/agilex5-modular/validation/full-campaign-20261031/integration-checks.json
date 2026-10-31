@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "main_regression_real_qemu": "98 tests passed",
+    "fcs_delayed_transport": "passed",
+    "catalog_generation": "passed",
+    "architecture_generation": "80 blocks, 94 mapped examples; passed",
+    "strict_mkdocs": "passed",
+    "embedded_pages": "32 pages, 94 catalog links; passed",
+    "offline_diagram_browser": "16 checks, all 94 selections, no JavaScript errors; passed",
+    "embedded_page_browser": "8 checks; passed",
+    "container_recipe_hashes": "all match recorded built images"
+  },
+  "notes": "Physical and simulator execution are documented separately in their unchanged result records. CI/deployment status belongs to the GitHub Actions run for the committed revision."
+}

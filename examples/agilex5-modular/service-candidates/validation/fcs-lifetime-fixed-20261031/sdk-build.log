@@ -1,0 +1,147 @@
+-- The C compiler identification is GNU 13.3.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/aarch64-linux-gnu-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/aarch64-linux-gnu-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- ====================================
+-- Selected platform: agilex5
+-- Build mode       : DDR
+-- Debug            : 1
+-- ATF direct boot  : 0
+-- ====================================
+-- Configuring done (3.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-fcs-fixed
+[0/2] Re-checking globbed directories...
+[1/119] Building ASM object CMakeFiles/baremetal.elf.dir/src/vectors.S.obj
+[2/119] Building ASM object CMakeFiles/baremetal.elf.dir/src/startup.S.obj
+[3/119] Building C object CMakeFiles/baremetal.elf.dir/src/crt0.c.obj
+[4/119] Building C object CMakeFiles/baremetal.elf.dir/src/main.c.obj
+[5/119] Building C object api/CMakeFiles/bm_api.dir/bridge/bridge_api.c.obj
+[6/119] Building C object api/CMakeFiles/bm_api.dir/ccu/ccu_api.c.obj
+[7/119] Building C object api/CMakeFiles/bm_api.dir/combophy/combophy_api.c.obj
+[8/119] Building C object api/CMakeFiles/bm_api.dir/clk_mngr/clk_mngr_api.c.obj
+[9/119] Building C object api/CMakeFiles/bm_api.dir/crc/crc_api.c.obj
+[10/119] Building C object api/CMakeFiles/bm_api.dir/console/console_api.c.obj
+[11/119] Building C object api/CMakeFiles/bm_api.dir/console/command.c.obj
+[12/119] Building C object api/CMakeFiles/bm_api.dir/ecc/ecc_api.c.obj
+[13/119] Building C object api/CMakeFiles/bm_api.dir/dma/dma_api.c.obj
+[14/119] Building C object api/CMakeFiles/bm_api.dir/gic/gic_api.c.obj
+[15/119] Building C object api/CMakeFiles/bm_api.dir/fcs/fcs_api.c.obj
+[16/119] Building C object api/CMakeFiles/bm_api.dir/gpio/gpio_api.c.obj
+[17/119] Building C object api/CMakeFiles/bm_api.dir/i3c/i3c_api.c.obj
+[18/119] Building C object api/CMakeFiles/bm_api.dir/i2c/i2c_api.c.obj
+[19/119] Building C object api/CMakeFiles/bm_api.dir/mailbox/mailbox_api.c.obj
+[20/119] Building C object api/CMakeFiles/bm_api.dir/iossm/iossm_api.c.obj
+[21/119] Building C object api/CMakeFiles/bm_api.dir/mmu/mmu_api.c.obj
+[22/119] Building C object api/CMakeFiles/bm_api.dir/noc_firewall/noc_firewall_api.c.obj
+[23/119] Building C object api/CMakeFiles/bm_api.dir/noc_probe/noc_probe_api.c.obj
+[24/119] Building C object api/CMakeFiles/bm_api.dir/reboot_mngr/reboot_mngr_api.c.obj
+[25/119] Building C object api/CMakeFiles/bm_api.dir/rst_mngr/rst_mngr_api.c.obj
+[26/119] Building C object api/CMakeFiles/bm_api.dir/perf/perf_api.c.obj
+[27/119] Building C object api/CMakeFiles/bm_api.dir/sdmmc/sdmmc_api.c.obj
+[28/119] Building C object api/CMakeFiles/bm_api.dir/seu/seu_api.c.obj
+[29/119] Building C object api/CMakeFiles/bm_api.dir/smmu/smmu_api.c.obj
+[30/119] Building C object api/CMakeFiles/bm_api.dir/spi/spi_api.c.obj
+[31/119] Building C object api/CMakeFiles/bm_api.dir/timer/timer_api.c.obj
+[32/119] Building C object api/CMakeFiles/bm_api.dir/uart/uart_api.c.obj
+[33/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/bridge/socfpga_bridge.c.obj
+[34/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/bridge/socfpga_bridge_ll.c.obj
+[35/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ccu/socfpga_ccu.c.obj
+[36/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ccu/socfpga_ccu_ll.c.obj
+[37/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/combophy/socfpga_combophy.c.obj
+[38/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/combophy/socfpga_combophy_ll.c.obj
+[39/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/crc/socfpga_crc.c.obj
+[40/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/clk_mngr/socfpga_clk_mngr_ll.c.obj
+[41/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ddr/socfpga_ddr.c.obj
+[42/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ddr/socfpga_ddr_mailbox.c.obj
+[43/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/dma/socfpga_dma_ll.c.obj
+[44/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ecc/socfpga_ecc.c.obj
+[45/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/gic/socfpga_gic_reg.c.obj
+[46/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/gic/socfpga_gic.c.obj
+[47/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/gic/socfpga_interrupt.c.obj
+[48/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/gpio/socfpga_gpio.c.obj
+[49/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/fcs/socfpga_fcs.c.obj
+[50/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/i3c/socfpga_i3c.c.obj
+[51/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/i2c/socfpga_i2c_ll.c.obj
+[52/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/i2c/socfpga_i2c.c.obj
+[53/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/i3c/socfpga_i3c_ll.c.obj
+[54/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/mmu/socfpga_mmu.c.obj
+[55/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/iossm/socfpga_iossm_ll.c.obj
+[56/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/mmu/socfpga_mmu_ll.c.obj
+[57/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/noc_firewall/socfpga_noc_firewall_ll.c.obj
+[58/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/noc_probe/socfpga_noc_probe.c.obj
+[59/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/noc_firewall/socfpga_noc_firewall.c.obj
+[60/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/noc_probe/socfpga_noc_probe_ll.c.obj
+[61/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/reboot_mngr/socfpga_reboot_mngr.c.obj
+[62/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/reset_mngr/socfpga_rst_mngr.c.obj
+[63/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/reset_mngr/socfpga_rst_mngr_ll.c.obj
+[64/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdm_mailbox/socfpga_sip_handler.c.obj
+[65/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdm_mailbox/socfpga_mbox_client.c.obj
+[66/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdmmc/socfpga_sdmmc_ll.c.obj
+[67/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/seu/socfpga_seu.c.obj
+[68/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdmmc/socfpga_sdmmc.c.obj
+[69/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/spi/socfpga_spi.c.obj
+[70/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/smmu/socfpga_smmu.c.obj
+[71/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/spi/socfpga_spi_ll.c.obj
+[72/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/timer/socfpga_timer.c.obj
+[73/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/uart/socfpga_uart_ll.c.obj
+[74/119] Building C object examples/CMakeFiles/bm_examples.dir/ccu/ccu_selftest.c.obj
+[75/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/wdt/socfpga_watchdog.c.obj
+[76/119] Building C object examples/CMakeFiles/bm_examples.dir/bridge/bridge_selftest.c.obj
+[77/119] Building C object examples/CMakeFiles/bm_examples.dir/combophy/combophy_selftest.c.obj
+[78/119] Building C object examples/CMakeFiles/bm_examples.dir/clk_mngr/clk_mngr_selftest.c.obj
+[79/119] Building C object examples/CMakeFiles/bm_examples.dir/crc/crc_selftest.c.obj
+[80/119] Linking C static library drivers/libsocfpga_drivers.a
+[81/119] Building C object examples/CMakeFiles/bm_examples.dir/ddr/ddr_selftest.c.obj
+[82/119] Building C object examples/CMakeFiles/bm_examples.dir/dma/dma_selftest.c.obj
+[83/119] Building C object examples/CMakeFiles/bm_examples.dir/example_register.c.obj
+[84/119] Building C object examples/CMakeFiles/bm_examples.dir/ecc/ecc_selftest.c.obj
+[85/119] Building C object examples/CMakeFiles/bm_examples.dir/fcs/fcs_selftest.c.obj
+[86/119] Building C object examples/CMakeFiles/bm_examples.dir/gic/gic_selftest.c.obj
+[87/119] Building C object examples/CMakeFiles/bm_examples.dir/gpio/gpio_selftest.c.obj
+[88/119] Building C object examples/CMakeFiles/bm_examples.dir/hello/hello_selftest.c.obj
+[89/119] Building C object examples/CMakeFiles/bm_examples.dir/i3c/i3c_selftest.c.obj
+[90/119] Building C object examples/CMakeFiles/bm_examples.dir/iossm/iossm_selftest.c.obj
+[91/119] Building C object examples/CMakeFiles/bm_examples.dir/mailbox/mailbox_selftest.c.obj
+[92/119] Building C object examples/CMakeFiles/bm_examples.dir/i2c/i2c_selftest.c.obj
+[93/119] Building C object examples/CMakeFiles/bm_examples.dir/mmu/mmu_selftest.c.obj
+[94/119] Building C object examples/CMakeFiles/bm_examples.dir/noc/noc_firewall_selftest.c.obj
+[95/119] Building C object examples/CMakeFiles/bm_examples.dir/noc/noc_selftest.c.obj
+[96/119] Building C object examples/CMakeFiles/bm_examples.dir/reboot_mngr/reboot_mngr_selftest.c.obj
+[97/119] Building C object examples/CMakeFiles/bm_examples.dir/reset_mngr/reset_mngr_selftest.c.obj
+[98/119] Building C object examples/CMakeFiles/bm_examples.dir/sdmmc/sdmmc_selftest.c.obj
+[99/119] Building C object examples/CMakeFiles/bm_examples.dir/seu/seu_selftest.c.obj
+[100/119] Building C object examples/CMakeFiles/bm_examples.dir/smmu/smmu_selftest.c.obj
+[101/119] Building C object examples/CMakeFiles/bm_examples.dir/spi/spi_selftest.c.obj
+[102/119] Building C object examples/CMakeFiles/bm_examples.dir/timer/timer_selftest.c.obj
+[103/119] Building C object middleware/CMakeFiles/bm_middleware.dir/bridge/socfpga_bridge.c.obj
+[104/119] Building C object middleware/CMakeFiles/bm_middleware.dir/dma/socfpga_dma.c.obj
+[105/119] Building C object middleware/CMakeFiles/bm_middleware.dir/rstmgr/socfpga_rstmgr.c.obj
+[106/119] Building C object middleware/CMakeFiles/bm_middleware.dir/iossm/socfpga_iossm.c.obj
+[107/119] Building C object src/CMakeFiles/bm_app.dir/__/lib/lib_time.c.obj
+[108/119] Building C object src/CMakeFiles/bm_app.dir/__/lib/lib_string.c.obj
+[109/119] Building C object middleware/CMakeFiles/bm_middleware.dir/uart/socfpga_uart.c.obj
+[110/119] Building C object src/CMakeFiles/bm_app.dir/__/lib/lib_printf.c.obj
+[111/119] Linking C static library middleware/libbm_middleware.a
+[112/119] Building ASM object src/CMakeFiles/bm_app.dir/__/lib/cache_maintenance.S.obj
+[113/119] Building C object src/CMakeFiles/bm_app.dir/__/lib/lib_parse.c.obj
+[114/119] Building C object platform/CMakeFiles/platform_obj.dir/agilex5/platform_setup.c.obj
+[115/119] Linking C static library src/libbm_app.a
+[116/119] Linking C static library api/libbm_api.a
+[117/119] Building C object platform/CMakeFiles/platform_obj.dir/agilex5/clk_mngr_platform.c.obj
+[118/119] Linking C static library platform/libplatform.a
+[119/119] Linking C executable baremetal.elf
+/usr/lib/gcc-cross/aarch64-linux-gnu/13/../../../../aarch64-linux-gnu/bin/ld: warning: .note.gnu.build-id section discarded, --build-id ignored
+   text	   data	    bss	    dec	    hex	filename
+ 224248	   4696	5304664	5533608	 546fa8	/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-fcs-fixed/baremetal.elf
+-- ------------------------------------------------------------
+--   Section size report: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-fcs-fixed/baremetal.elf
+-- ------------------------------------------------------------
+--   Section    Used        Budget      Used%   Status
+--   .text      224248 B  1048576 B  21%  PASS
+--   .data+bss  5309296 B  16777216 B  31%  PASS
+-- ------------------------------------------------------------

@@ -1,0 +1,16 @@
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/practice
+startup: PASS
+corruption: PASS
+exception: PASS
+timer: PASS
+mmu: PASS
+uart: PASS
+multicore: PASS
+startup-no-bss: PASS
+startup-no-data: PASS
+corruption-no-injection: PASS
+exception-wrong-brk: PASS
+timer-wrong-ppi: PASS
+mmu-writable-ro: PASS
+startup-gdb: PASS
+corruption-gdb: PASS

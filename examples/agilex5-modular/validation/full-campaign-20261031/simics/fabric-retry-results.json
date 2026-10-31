@@ -1,0 +1,33 @@
+{
+  "scope": "Retry with actual runner CLI names; initial human-label arguments were rejected before execution",
+  "commands": [
+    {
+      "name": "f2h-valid",
+      "command": "python3 memory-labs/fabric-ddr/simics/run.py --case native-valid --route f2soc --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/full-campaign-20261031/simics/fabric-f2h-valid",
+      "exit_code": 0,
+      "seconds": 8.529132619965822,
+      "evidence": "fabric-f2h-valid/results.json"
+    },
+    {
+      "name": "f2h-fault",
+      "command": "python3 memory-labs/fabric-ddr/simics/run.py --case native-fault --route f2soc --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/full-campaign-20261031/simics/fabric-f2h-fault",
+      "exit_code": 0,
+      "seconds": 8.472005363088101,
+      "evidence": "fabric-f2h-fault/results.json"
+    },
+    {
+      "name": "f2sdram-valid",
+      "command": "python3 memory-labs/fabric-ddr/simics/run.py --case native-valid --route f2sdram --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/full-campaign-20261031/simics/fabric-f2sdram-valid",
+      "exit_code": 0,
+      "seconds": 8.478834980167449,
+      "evidence": "fabric-f2sdram-valid/results.json"
+    },
+    {
+      "name": "f2sdram-fault",
+      "command": "python3 memory-labs/fabric-ddr/simics/run.py --case native-fault --route f2sdram --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/full-campaign-20261031/simics/fabric-f2sdram-fault",
+      "exit_code": 0,
+      "seconds": 8.334510778076947,
+      "evidence": "fabric-f2sdram-fault/results.json"
+    }
+  ]
+}

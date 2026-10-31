@@ -1,0 +1,42 @@
+{
+  "scope": "Native Agilex Simics cores and resident TF-A PSCI; same physical-addressed C/ASM harness and strict oracle, no QEMU substitution or physical-board claim",
+  "simulator_exit": 0,
+  "seconds": 8.93189908284694,
+  "build": {
+    "target": "agilex5",
+    "scope": "Physical PSCI CPU_ON using unchanged callable helper, one declared A55.1 target from recorded board topology; resident BL31 -> NS EL2 required; CPU_OFF and affinity OFF proof mandatory",
+    "source_revision": "14f7982c9b73e690d234bedb379f032c832f8416",
+    "compiler": "aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009",
+    "entry": "0x82400000",
+    "secondary_target_mpidr": "0x100",
+    "primary_stack": "0x83fff000",
+    "secondary_stack": "0x83ffb000",
+    "shared_record": "0x85000000",
+    "expected_context": "0x5053434943545854",
+    "sources_sha256": {
+      "core/secondary_core.c": "fdee6bf92a1ebc2f150ac698606172d5ac58d3d24e026789426735962ad90006",
+      "../../lib/lib_printf.c": "836d85c18e9e1a5f19860b9b9f2917ace0fc435b677bc1db0ee070003e500c12",
+      "reference/psci/build.sh": "44e3475be0336558a55b98228a7ba0a9bb4399cda9950c4aee5078a72193d958",
+      "reference/psci/oracle.py": "83ff6622c2f8f284b30e5d0bd1fb26860d4cb760a5e5ecfe4e0967b27b9b1c68",
+      "reference/psci/start.S": "06b7e62dad64d4ac4d28d45b48b7d13aa6b19afd9fb3032eadfb6433991b68e1",
+      "reference/psci/psci.c": "5e23386aa0c69856db66eca2c2d80e8392a8e00380d6a06300eaf5b38102d1ec",
+      "reference/psci/README.md": "204c82efc35bdaec7b310104d5691059372bbb4345af2c3d61b8b9e1598fa366"
+    },
+    "artifacts": {
+      "psci.elf": "445e39a70bec59de4dc2d090cfe160acae0b20fa39a14db8d635a106f8bba7ac",
+      "psci.bin": "cf8a969a014cbcf24dfd275d7081c571bf6e6218f8779739c5750ec45e1fa8f2"
+    }
+  },
+  "boot_sha256": "025972a740c9c99a490d2551003f2f56dcc6b7d60aafd81408347a11234bbadd",
+  "bl31_sha256": "79a4cdd701a87baff39de85fa45de58b4fae335f54593b2d7778e72f53cdd2f8",
+  "oracle_sha256": "981621ea03dd6273ed8dc8d1a8a45654e2b80fb7a692040f60cb080e6997046f",
+  "script_sha256": "17e994124305ab8c3acf24f13b1dc32746625313cfd03948a65e2d9186b45962",
+  "tests": [
+    {
+      "name": "reference/psci",
+      "status": "pass",
+      "initial_status": "fail"
+    }
+  ],
+  "assessment_correction": "Same captured native execution and guest/BL31 binaries; oracle hex character classes now accept actual uppercase formatter output while retaining every numeric/context/affinity/off-state check. Original failed assessment and oracle retained."
+}

@@ -1,0 +1,222 @@
+-- Defaulting architecture to ARM
+-- The C compiler identification is GNU 13.2.1
+-- The CXX compiler identification is GNU 13.2.1
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/local/bin/aarch64-none-elf-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/local/bin/aarch64-none-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/local/bin/aarch64-none-elf-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done (27.8s)
+-- Generating done (0.1s)
+-- Build files have been written to: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/legacy-vendor
+[1/184] Building C object test/simics/uart/CMakeFiles/uart_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[2/184] Building C object test/simics/uart/CMakeFiles/uart_test_ocram.elf.dir/uart_test.c.obj
+[3/184] Building CXX object test/simics/uart/CMakeFiles/uart_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[4/184] Building C object test/simics/uart/CMakeFiles/uart_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[5/184] Building C object test/simics/uart/CMakeFiles/uart_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[6/184] Building C object test/simics/uart/CMakeFiles/uart_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[7/184] Building C object test/simics/i2c/CMakeFiles/i2c_test_ocram.elf.dir/i2c_test.c.obj
+[8/184] Building C object test/simics/uart/CMakeFiles/uart_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[9/184] Building CXX object test/simics/i2c/CMakeFiles/i2c_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[10/184] Building C object test/simics/i2c/CMakeFiles/i2c_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[11/184] Building C object test/simics/i2c/CMakeFiles/i2c_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[12/184] Building C object test/simics/i2c/CMakeFiles/i2c_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[13/184] Building C object test/simics/i2c/CMakeFiles/i2c_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[14/184] Building C object test/simics/i2c/CMakeFiles/i2c_test_ocram.elf.dir/__/__/__/src/i2c/i2c.c.obj
+[15/184] Building C object test/simics/i2c/CMakeFiles/i2c_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[16/184] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test_ocram.elf.dir/mmu_el3_test.c.obj
+[17/184] Building C object test/simics/i2c/CMakeFiles/i2c_test_ocram.elf.dir/__/__/__/src/i2c/i2c_internal.c.obj
+[18/184] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test_ocram.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[19/184] Building CXX object test/simics/mmu_el3/CMakeFiles/mmu_el3_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[20/184] Building CXX object test/simics/i2c/CMakeFiles/i2c_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[21/184] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[22/184] Building CXX object test/simics/uart/CMakeFiles/uart_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[23/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/uart_test_ocram.elf
+[24/184] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[25/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/i2c_test_ocram.elf
+[26/184] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[27/184] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[28/184] Building C object test/simics/mmu_el3/CMakeFiles/mmu_el3_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[29/184] Building C object test/simics/spi/CMakeFiles/spi_test_ocram.elf.dir/spi_test.c.obj
+[30/184] Building CXX object test/simics/spi/CMakeFiles/spi_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[31/184] Building C object test/simics/spi/CMakeFiles/spi_test_ocram.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[32/184] Building C object test/simics/spi/CMakeFiles/spi_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[33/184] Building C object test/simics/spi/CMakeFiles/spi_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[34/184] Building CXX object test/simics/mmu_el3/CMakeFiles/mmu_el3_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[35/184] Building C object test/simics/spi/CMakeFiles/spi_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[36/184] Building C object test/simics/spi/CMakeFiles/spi_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[37/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/mmu_el3_test_ocram.elf
+[38/184] Building C object test/simics/spi/CMakeFiles/spi_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[39/184] Building C object test/simics/spi/CMakeFiles/spi_test_ocram.elf.dir/__/__/__/src/spi/spi.c.obj
+[40/184] Building C object test/simics/i3c/CMakeFiles/i3c_test_ocram.elf.dir/i3c_test.c.obj
+[41/184] Building C object test/simics/spi/CMakeFiles/spi_test_ocram.elf.dir/__/__/__/src/spi/spi_internal.c.obj
+[42/184] Building CXX object test/simics/i3c/CMakeFiles/i3c_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[43/184] Building C object test/simics/i3c/CMakeFiles/i3c_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[44/184] Building C object test/simics/i3c/CMakeFiles/i3c_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[45/184] Building C object test/simics/i3c/CMakeFiles/i3c_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[46/184] Building C object test/simics/i3c/CMakeFiles/i3c_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[47/184] Building CXX object test/simics/spi/CMakeFiles/spi_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[48/184] Building C object test/simics/i3c/CMakeFiles/i3c_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[49/184] Building C object test/simics/i3c/CMakeFiles/i3c_test_ocram.elf.dir/__/__/__/src/i3c/i3c.c.obj
+[50/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/spi_test_ocram.elf
+[51/184] Building C object test/simics/timer/CMakeFiles/timer_test_ocram.elf.dir/timer_test.c.obj
+[52/184] Building C object test/simics/i3c/CMakeFiles/i3c_test_ocram.elf.dir/__/__/__/src/i3c/i3c_internal.c.obj
+[53/184] Building CXX object test/simics/timer/CMakeFiles/timer_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[54/184] Building C object test/simics/timer/CMakeFiles/timer_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[55/184] Building C object test/simics/timer/CMakeFiles/timer_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[56/184] Building C object test/simics/timer/CMakeFiles/timer_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[57/184] Building C object test/simics/timer/CMakeFiles/timer_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[58/184] Building CXX object test/simics/i3c/CMakeFiles/i3c_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[59/184] Building C object test/simics/timer/CMakeFiles/timer_test_ocram.elf.dir/__/__/__/src/timer/timer.c.obj
+[60/184] Building C object test/simics/timer/CMakeFiles/timer_test_ocram.elf.dir/__/__/__/src/timer/timer_internal.c.obj
+[61/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/i3c_test_ocram.elf
+[62/184] Building C object test/simics/timer/CMakeFiles/timer_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[63/184] Building C object test/simics/hello-world/CMakeFiles/printf_hello_world_ocram.elf.dir/printf_hello_world.c.obj
+[64/184] Building C object test/simics/hello-world/CMakeFiles/printf_hello_world_ocram.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[65/184] Building C object test/simics/hello-world/CMakeFiles/printf_hello_world_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[66/184] Building CXX object test/simics/hello-world/CMakeFiles/printf_hello_world_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[67/184] Building C object test/simics/hello-world/CMakeFiles/printf_hello_world_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[68/184] Building C object test/simics/hello-world/CMakeFiles/printf_hello_world_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[69/184] Building C object test/simics/hello-world/CMakeFiles/printf_hello_world_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[70/184] Building CXX object test/simics/timer/CMakeFiles/timer_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[71/184] Building C object test/simics/watchdog/CMakeFiles/watchdog_test_ocram.elf.dir/watchdog_test.c.obj
+[72/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/timer_test_ocram.elf
+[73/184] Building C object test/simics/hello-world/CMakeFiles/printf_hello_world_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[74/184] Building C object test/simics/watchdog/CMakeFiles/watchdog_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[75/184] Building CXX object test/simics/watchdog/CMakeFiles/watchdog_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[76/184] Building C object test/simics/watchdog/CMakeFiles/watchdog_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[77/184] Building C object test/simics/watchdog/CMakeFiles/watchdog_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[78/184] Building C object test/simics/watchdog/CMakeFiles/watchdog_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[79/184] Building C object test/simics/watchdog/CMakeFiles/watchdog_test_ocram.elf.dir/__/__/__/src/watchdog/watchdog.c.obj
+[80/184] Building C object test/simics/watchdog/CMakeFiles/watchdog_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[81/184] Building C object test/simics/watchdog/CMakeFiles/watchdog_test_ocram.elf.dir/__/__/__/src/watchdog/watchdog_internal.c.obj
+[82/184] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test_ocram.elf.dir/sdmmc_test.c.obj
+[83/184] Building CXX object test/simics/hello-world/CMakeFiles/printf_hello_world_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[84/184] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[85/184] Building CXX object test/simics/sdmmc/CMakeFiles/sdmmc_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[86/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/printf_hello_world_ocram.elf
+[87/184] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[88/184] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[89/184] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[90/184] Building CXX object test/simics/watchdog/CMakeFiles/watchdog_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[91/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/watchdog_test_ocram.elf
+[92/184] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test_ocram.elf.dir/__/__/__/src/sdmmc/sdmmc.c.obj
+[93/184] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[94/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/dma_test.c.obj
+[95/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[96/184] Building CXX object test/simics/sdmmc/CMakeFiles/sdmmc_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[97/184] Building C object test/simics/sdmmc/CMakeFiles/sdmmc_test_ocram.elf.dir/__/__/__/src/sdmmc/sdmmc_internal.c.obj
+[98/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[99/184] Building CXX object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[100/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/sdmmc_test_ocram.elf
+[101/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[102/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[103/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[104/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[105/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/src/dma/dma.c.obj
+[106/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/src/dma/dma_internal.c.obj
+[107/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/src/noc_firewall/noc_firewall.c.obj
+[108/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/src/sysmgr/sysmgr.c.obj
+[109/184] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test_ocram.elf.dir/hps_mailbox_test.c.obj
+[110/184] Building CXX object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[111/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/src/noc_firewall/noc_firewall_internal.c.obj
+[112/184] Building C object test/simics/dma/CMakeFiles/dma_test_ocram.elf.dir/__/__/__/src/sysmgr/sysmgr_internal.c.obj
+[113/184] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test_ocram.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[114/184] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[115/184] Building CXX object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[116/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/dma_test_ocram.elf
+[117/184] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[118/184] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[119/184] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[120/184] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test_ocram.elf.dir/__/__/__/src/hps_mailbox/hps_mailbox.c.obj
+[121/184] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[122/184] Building C object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test_ocram.elf.dir/__/__/__/src/hps_mailbox/hps_mailbox_internal.c.obj
+[123/184] Building C object test/simics/ccu/CMakeFiles/ccu_test_ocram.elf.dir/ccu_test.c.obj
+[124/184] Building C object test/simics/ccu/CMakeFiles/ccu_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[125/184] Building CXX object test/simics/ccu/CMakeFiles/ccu_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[126/184] Building C object test/simics/ccu/CMakeFiles/ccu_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[127/184] Building C object test/simics/ccu/CMakeFiles/ccu_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[128/184] Building C object test/simics/ccu/CMakeFiles/ccu_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[129/184] Building C object test/simics/ccu/CMakeFiles/ccu_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[130/184] Building CXX object test/simics/hps_mailbox/CMakeFiles/hps_mailbox_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[131/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/hps_mailbox_test_ocram.elf
+[132/184] Building C object test/simics/ccu/CMakeFiles/ccu_test_ocram.elf.dir/__/__/__/src/ccu/ccu.c.obj
+[133/184] Building C object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/xgmac_test.c.obj
+[134/184] Building C object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[135/184] Building C object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[136/184] Building CXX object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[137/184] Building CXX object test/simics/ccu/CMakeFiles/ccu_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[138/184] Building C object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/src/clkmgr/clkmgr.c.obj
+[139/184] Building C object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/src/clkmgr/clkmgr_internal.c.obj
+[140/184] Building C object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[141/184] Building C object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[142/184] Building C object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[143/184] Building C object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[144/184] Building C object test/simics/ccu/CMakeFiles/ccu_test_ocram.elf.dir/__/__/__/src/ccu/ccu_internal.c.obj
+[145/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/ccu_test_ocram.elf
+[146/184] Building C object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/src/xgmac/mrvl_phy_helper.c.obj
+[147/184] Building CXX object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[148/184] Building C object test/simics/smmu/CMakeFiles/smmu_test_ocram.elf.dir/smmu_test.c.obj
+[149/184] Building C object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/src/xgmac/xgmac.c.obj
+[150/184] Building C object test/simics/smmu/CMakeFiles/smmu_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[151/184] Building CXX object test/simics/smmu/CMakeFiles/smmu_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[152/184] Building C object test/simics/smmu/CMakeFiles/smmu_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[153/184] Building C object test/simics/smmu/CMakeFiles/smmu_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[154/184] Building C object test/simics/smmu/CMakeFiles/smmu_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[155/184] Building C object test/simics/smmu/CMakeFiles/smmu_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[156/184] Building C object test/simics/smmu/CMakeFiles/smmu_test_ocram.elf.dir/__/__/__/src/smmu/smmu.c.obj
+[157/184] Building C object test/simics/ecc/CMakeFiles/ecc_test_ocram.elf.dir/ecc_test.c.obj
+[158/184] Building C object test/simics/smmu/CMakeFiles/smmu_test_ocram.elf.dir/__/__/__/src/smmu/smmu_internal.c.obj
+[159/184] Building CXX object test/simics/smmu/CMakeFiles/smmu_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[160/184] Building C object test/simics/ecc/CMakeFiles/ecc_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[161/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/smmu_test_ocram.elf
+[162/184] Building CXX object test/simics/ecc/CMakeFiles/ecc_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[163/184] Building C object test/simics/ecc/CMakeFiles/ecc_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[164/184] Building C object test/simics/xgmac/CMakeFiles/xgmac_test_ocram.elf.dir/__/__/__/src/xgmac/xgmac_internal.c.obj
+[165/184] Building C object test/simics/ecc/CMakeFiles/ecc_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[166/184] Building C object test/simics/ecc/CMakeFiles/ecc_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[167/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/xgmac_test_ocram.elf
+[168/184] Building C object test/simics/ecc/CMakeFiles/ecc_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[169/184] Building C object test/simics/ecc/CMakeFiles/ecc_test_ocram.elf.dir/__/__/__/src/ecc/ecc.c.obj
+[170/184] Building C object test/simics/ecc/CMakeFiles/ecc_test_ocram.elf.dir/__/__/__/src/ecc/ecc_internal.c.obj
+[171/184] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test_ocram.elf.dir/clkmgr_test.c.obj
+[172/184] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test_ocram.elf.dir/__/__/__/src/base/device.c.obj
+[173/184] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test_ocram.elf.dir/__/__/__/helpers/fsbl_boot_help.c.obj
+[174/184] Building CXX object test/simics/clkmgr/CMakeFiles/clkmgr_test_ocram.elf.dir/__/__/__/src/mmu/page_tables.cpp.obj
+[175/184] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test_ocram.elf.dir/__/__/__/src/uart/uart.c.obj
+[176/184] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr.c.obj
+[177/184] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test_ocram.elf.dir/__/__/__/src/uart/uart_internal.c.obj
+[178/184] Building CXX object test/simics/ecc/CMakeFiles/ecc_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[179/184] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test_ocram.elf.dir/__/__/__/src/clkmgr/clkmgr.c.obj
+[180/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/ecc_test_ocram.elf
+[181/184] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test_ocram.elf.dir/__/__/__/src/clkmgr/clkmgr_internal.c.obj
+[182/184] Building C object test/simics/clkmgr/CMakeFiles/clkmgr_test_ocram.elf.dir/__/__/__/src/rstmgr/rstmgr_internal.c.obj
+[183/184] Building CXX object test/simics/clkmgr/CMakeFiles/clkmgr_test_ocram.elf.dir/__/__/__/helpers/mylibc.cpp.obj
+[184/184] Linking CXX executable /workspace/baremetal-fixes-20261029/examples/agilex5-modular/.deps/baremetal-25.1/build/aarch64/out/clkmgr_test_ocram.elf
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/runs/simics-legacy25-20261031T183412.376722Z
+PASS hello-world
+PASS uart
+PASS dma
+FAIL timer
+PASS watchdog
+PASS i2c
+PASS i3c
+PASS spi
+PASS sdmmc
+FAIL xgmac
+PASS mmu_el3
+PASS smmu
+PASS ccu
+PASS clkmgr
+PASS ecc
+FAIL hps_mailbox

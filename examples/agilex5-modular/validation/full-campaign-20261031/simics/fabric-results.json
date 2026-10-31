@@ -1,0 +1,53 @@
+{
+  "scope": "Eight actual Arm C driver/RTL/native memory profiles; transaction-stepped co-simulation, no physical bridge/timing qualification",
+  "tests": [
+    {
+      "name": "physical",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/fabric-physical/results.json",
+      "scope": "Actual Arm driver CSR -> actual Verilator AXI initiator -> native Simics physical DDR; explicit injections are not native SMMU faults; no physical bridge or cycle-accurate platform timing qualification"
+    },
+    {
+      "name": "axi-error",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/fabric-axi-error/results.json",
+      "scope": "Actual Arm driver CSR -> actual Verilator AXI initiator -> native Simics physical DDR; explicit injections are not native SMMU faults; no physical bridge or cycle-accurate platform timing qualification"
+    },
+    {
+      "name": "read-error",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/fabric-read-error/results.json",
+      "scope": "Actual Arm driver CSR -> actual Verilator AXI initiator -> native Simics physical DDR; explicit injections are not native SMMU faults; no physical bridge or cycle-accurate platform timing qualification"
+    },
+    {
+      "name": "timeout-drain",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/fabric-timeout-drain/results.json",
+      "scope": "Actual Arm driver CSR -> actual Verilator AXI initiator -> native Simics physical DDR; explicit injections are not native SMMU faults; no physical bridge or cycle-accurate platform timing qualification"
+    },
+    {
+      "name": "f2h-valid",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/fabric-f2h-valid/results.json",
+      "scope": "Actual Arm driver CSR -> actual Verilator AXI initiator -> native Simics F2H/F2SDRAM TBU stage-2 table walks -> DDR; model TLB cache disabled, no command-queue/TLBI claim; no physical bridge or cycle-accurate platform timing qualification"
+    },
+    {
+      "name": "f2h-fault",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/fabric-f2h-fault/results.json",
+      "scope": "Actual Arm driver CSR -> actual Verilator AXI initiator -> native Simics F2H/F2SDRAM TBU stage-2 table walks -> DDR; model TLB cache disabled, no command-queue/TLBI claim; no physical bridge or cycle-accurate platform timing qualification"
+    },
+    {
+      "name": "f2sdram-valid",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/fabric-f2sdram-valid/results.json",
+      "scope": "Actual Arm driver CSR -> actual Verilator AXI initiator -> native Simics F2H/F2SDRAM TBU stage-2 table walks -> DDR; model TLB cache disabled, no command-queue/TLBI claim; no physical bridge or cycle-accurate platform timing qualification"
+    },
+    {
+      "name": "f2sdram-fault",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/fabric-f2sdram-fault/results.json",
+      "scope": "Actual Arm driver CSR -> actual Verilator AXI initiator -> native Simics F2H/F2SDRAM TBU stage-2 table walks -> DDR; model TLB cache disabled, no command-queue/TLBI claim; no physical bridge or cycle-accurate platform timing qualification"
+    }
+  ]
+}

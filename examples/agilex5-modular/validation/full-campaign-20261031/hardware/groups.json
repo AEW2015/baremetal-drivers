@@ -1,0 +1,367 @@
+{
+  "scope": "Physical runs; unsupported/destructive/fixture-dependent references excluded after source audit",
+  "groups": [
+    {
+      "name": "references",
+      "command": [
+        "/usr/bin/python3",
+        "reference/run_hardware.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py"
+      ],
+      "exit": 0,
+      "seconds": 87.51,
+      "runs": [
+        "runs/reference-hardware-20261031T183919.447168Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "board-suite",
+      "command": [
+        "/usr/bin/python3",
+        "run_suite.py"
+      ],
+      "exit": 0,
+      "seconds": 504.24,
+      "runs": [
+        "runs/20261031T184047.317635Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "practice",
+      "command": [
+        "/usr/bin/python3",
+        "upstream-lab/hardware.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--artifacts",
+        "build/practice-agilex5",
+        "--suite",
+        "practice",
+        "--only",
+        "startup,corruption,exception,timer,mmu,uart,multicore,startup-no-bss,startup-no-data,corruption-no-injection,exception-wrong-brk,mmu-writable-ro,timer-no-irqs"
+      ],
+      "exit": 2,
+      "seconds": 0.03,
+      "runs": [],
+      "restorations": []
+    },
+    {
+      "name": "practice",
+      "command": [
+        "/usr/bin/python3",
+        "upstream-lab/hardware.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--artifacts",
+        "build/practice-agilex5",
+        "--suite",
+        "practice",
+        "--only",
+        "startup,corruption,exception,timer,mmu,uart,multicore,startup-no-bss,startup-no-data,corruption-no-injection,exception-wrong-brk,mmu-writable-ro,timer-wrong-ppi"
+      ],
+      "exit": 0,
+      "seconds": 423.94,
+      "runs": [
+        "runs/upstream26-hardware-20261031T185049.488891Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "upstream",
+      "command": [
+        "/usr/bin/python3",
+        "upstream-lab/hardware.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--artifacts",
+        "build/upstream-lab-agilex5",
+        "--only",
+        "crc,perf,combophy,noc,reset"
+      ],
+      "exit": 0,
+      "seconds": 212.62,
+      "runs": [
+        "runs/upstream26-hardware-20261031T185753.422526Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "upstream-runtime",
+      "command": [
+        "/usr/bin/python3",
+        "upstream-lab/hardware.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--artifacts",
+        "build/upstream-lab-agilex5",
+        "--bl31",
+        "build/runtime-atf/agilex5/debug/bl31.bin",
+        "--only",
+        "mailbox,bridge-control"
+      ],
+      "exit": 0,
+      "seconds": 112.78,
+      "runs": [
+        "runs/upstream26-hardware-20261031T190126.050995Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "config",
+      "command": [
+        "/usr/bin/python3",
+        "upstream-lab/hardware.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--artifacts",
+        "build/config-audit",
+        "--suite",
+        "config"
+      ],
+      "exit": 0,
+      "seconds": 120.12,
+      "runs": [
+        "runs/upstream26-hardware-20261031T190318.835541Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "candidates",
+      "command": [
+        "/usr/bin/python3",
+        "upstream-lab/hardware.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--artifacts",
+        "build/hardware-candidates",
+        "--suite",
+        "candidates"
+      ],
+      "exit": 1,
+      "seconds": 318.17,
+      "runs": [
+        "runs/upstream26-hardware-20261031T190518.962173Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "ocram-uart",
+      "command": [
+        "/usr/bin/python3",
+        "reference/run_hardware.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--ocram-uart"
+      ],
+      "exit": 0,
+      "seconds": 60.0,
+      "runs": [
+        "runs/reference-hardware-20261031T191037.126106Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "psci",
+      "command": [
+        "/usr/bin/python3",
+        "upstream-lab/hardware.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--artifacts",
+        "build/reference-psci",
+        "--suite",
+        "psci",
+        "--bl31",
+        "build/runtime-atf/agilex5/debug/bl31.bin"
+      ],
+      "exit": 0,
+      "seconds": 65.21,
+      "runs": [
+        "runs/upstream26-hardware-20261031T191137.131291Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "ethernet",
+      "command": [
+        "/usr/bin/python3",
+        "ethernet/run.py",
+        "--interface",
+        "enp111s0",
+        "--smoke",
+        "--coordination-lock",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation/examples/hardware.lock"
+      ],
+      "exit": 0,
+      "seconds": 70.28,
+      "runs": [
+        "runs/ethernet-20261031T191242.681760Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "usb",
+      "command": [
+        "/usr/bin/python3",
+        "usb-bringup/run.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--uboot",
+        "build/usb-uboot-source/u-boot-usb-standalone.bin",
+        "--command",
+        "usb start",
+        "--command",
+        "usb tree",
+        "--command",
+        "usb storage"
+      ],
+      "exit": 1,
+      "seconds": 129.18,
+      "runs": [
+        "runs/usb-uboot-20261031T191352.623480Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "vendor-timer",
+      "log": "vendor-timer.log",
+      "command": [
+        "/usr/bin/python3",
+        "run_suite.py",
+        "--only",
+        "vendor-timer"
+      ],
+      "exit": 0,
+      "seconds": 60.98,
+      "runs": [
+        "runs/20261031T191623.397069Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "diagnostics",
+      "log": "diagnostics.log",
+      "command": [
+        "/usr/bin/python3",
+        "upstream-lab/hardware.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--artifacts",
+        "build/upstream-lab-agilex5",
+        "--only",
+        "smc-guard,perf-zero-clock"
+      ],
+      "exit": 0,
+      "seconds": 102.46,
+      "runs": [
+        "runs/upstream26-hardware-20261031T191723.997820Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "fcs",
+      "log": "fcs.log",
+      "command": [
+        "/usr/bin/python3",
+        "upstream-lab/hardware.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--artifacts",
+        "build/service-candidates",
+        "--suite",
+        "services",
+        "--only",
+        "fcs",
+        "--bl31",
+        "build/runtime-atf/agilex5/debug/bl31.bin"
+      ],
+      "exit": 1,
+      "seconds": 67.59,
+      "runs": [
+        "runs/upstream26-hardware-20261031T191906.463594Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "ecc-readonly",
+      "log": "ecc-readonly.log",
+      "command": [
+        "/usr/bin/python3",
+        "upstream-lab/hardware.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--artifacts",
+        "build/service-candidates",
+        "--suite",
+        "services",
+        "--only",
+        "ecc-readonly"
+      ],
+      "exit": 1,
+      "seconds": 60.99,
+      "runs": [
+        "runs/upstream26-hardware-20261031T192014.056667Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    }
+  ]
+}

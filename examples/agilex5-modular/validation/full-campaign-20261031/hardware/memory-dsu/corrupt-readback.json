@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 10100,
+  "segments": [
+    {
+      "file": "upstream26-corrupt.segment0.bin",
+      "bytes": 8932,
+      "sha256": "2f56384364cadf382440c4c0f06d80e499595bb466d2574643b9d7645bca815b"
+    },
+    {
+      "file": "upstream26-corrupt.segment1.bin",
+      "bytes": 1168,
+      "sha256": "03fb443ffdc010f56e3879227d7e27a2db481f5dd034c739b665a9502ef5a757"
+    }
+  ]
+}

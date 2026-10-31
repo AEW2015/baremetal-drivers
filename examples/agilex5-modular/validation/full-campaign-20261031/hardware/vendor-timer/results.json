@@ -1,0 +1,22 @@
+{
+  "requested_tests": [
+    "vendor-timer"
+  ],
+  "started_utc": "2026-10-31T19:16:23.397178+00:00",
+  "initial_full_recovery": false,
+  "tests": [
+    {
+      "name": "vendor-timer",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/vendor_timer.elf",
+      "sha256": "60aac383fed2e60486912c6c09abbb5a8d2343fe0a3de3855117e0ad90f548af",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 31.5,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": []
+    }
+  ],
+  "restoration": "pass"
+}

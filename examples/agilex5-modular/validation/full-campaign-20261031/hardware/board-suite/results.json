@@ -1,0 +1,237 @@
+{
+  "requested_tests": [
+    "core",
+    "dma",
+    "gic",
+    "mmu",
+    "som",
+    "som-i2c",
+    "multicore",
+    "som-i3c",
+    "mailbox",
+    "interfaces",
+    "vendor-uart",
+    "vendor-ccu",
+    "vendor-clkmgr",
+    "vendor-smmu",
+    "vendor-ecc"
+  ],
+  "started_utc": "2026-10-31T18:40:47.317711+00:00",
+  "initial_full_recovery": false,
+  "tests": [
+    {
+      "name": "core",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/core_examples.elf",
+      "sha256": "408736b0fbda5b520952145591af848a32f78defe2e87686af08464b86237dc1",
+      "status": "pass",
+      "entry": "0x82100000",
+      "elapsed_seconds": 30.5,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS CPU_NEON: four vector additions",
+        "PASS CACHE_INFO: configuration read; cache coherency is a separate test",
+        "PASS DDR_BUFFERS: CPU copied and verified 64 KiB",
+        "PASS GPIO_READ: no output pin direction changed",
+        "PASS COUNTER: generic timer increments",
+        "PASS GIC_INFO: identification only; interrupt delivery is a separate example"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "dma",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/dma_copy.elf",
+      "sha256": "591d179858e05550bf647462f39dc928d0d8a931a895d0fcf7dff4fd88c858f4",
+      "status": "pass",
+      "entry": "0x82200000",
+      "elapsed_seconds": 30.4,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS DMA_COPY: 4096 bytes transferred by DMAC0 and verified"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "gic",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/gic_sgi.elf",
+      "sha256": "0f7dcf25cb011fba635a65bcc2cbd19ad92c54f332c8e6b913db4534e9a541e0",
+      "status": "pass",
+      "entry": "0x82300000",
+      "elapsed_seconds": 30.3,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS GIC_SGI: core 0 received and acknowledged SGI 0"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "mmu",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/mmu_translation.elf",
+      "sha256": "7932bfc609dba450ba52a0348eb91922e33f2ed41adab9ab21ec8b29055e7b18",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 30.3,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS MMU_TRANSLATION: EL3 translation and DDR readback"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "som",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/som_peripherals.elf",
+      "sha256": "27e21aa6730936c4f0275fa6e0d2efe8f91c1c843d82c29d7a90b560691bfc29",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 36.6,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS HPS_TIMER: periodic timer expiry and clear",
+        "PASS WATCHDOG_IRQ: watchdog 1 expiry observed, peripheral reset",
+        "PASS SPI_LOOPBACK: four bytes through internal loopback",
+        "PASS GPIO_LED_PAD: SOM heartbeat output high/low readback",
+        "PASS I2C_IDENT: two controller IDs; no bus transfer"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "som-i2c",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/som_i2c.elf",
+      "sha256": "d34e12c69f32d2184246fd67f1d84787b5bb4a6893ccf31f024138f19ee60294",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 31.5,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS SOM_TEMP_ID: TMP464 manufacturer read",
+        "PASS SOM_EEPROM_READ: 16 bytes received; no data written"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "multicore",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/multicore.elf",
+      "sha256": "222b6968eb2451b54310d5d0558a550773e5049da70e9e526090873e92e1fe03",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 30.3,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS MULTICORE: three secondary cores executed and published records"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "som-i3c",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/som_i3c.elf",
+      "sha256": "c8112429cd96c11ed7453a68e3b4d97c92b3fb43ae84576ea4ae41c6a06adc08",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 30.4,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS NATIVE_I3C_TEMP: legacy I2C read via I3C1",
+        "PASS NATIVE_I3C_EEPROM: 16-byte read, no data writes"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "mailbox",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/mailbox_status.elf",
+      "sha256": "b8cb7ca2f9905568100c6101e061f215eed28cc7a730d0d3ba2a29772a66db09",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 30.3,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS MAILBOX_IDCODE: SDM returned matching Agilex 5 device ID"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "interfaces",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/som_interfaces.elf",
+      "sha256": "e56ac98c7f9097465183f912ec04adda7962bd7b8d6ceb2a04824fbe1120a8c4",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 30.3,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS SOM_PHY_ID: EMAC2 MDIO reached Marvell 88E1512",
+        "PASS SDMMC_IDENT: controller revision matches",
+        "PASS USB_IDENT: DWC_usb31 controller ID; enumeration not tested"
+      ],
+      "failure_lines": []
+    },
+    {
+      "name": "vendor-uart",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/vendor_uart.elf",
+      "sha256": "a221509f226ebab80fb27737bced0a05121b16bd404e90d3c04b24d36bcc20e3",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 31.4,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": []
+    },
+    {
+      "name": "vendor-ccu",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/vendor_ccu.elf",
+      "sha256": "b114643bc655370ef9d88f08c27237d18c26341083a928fd0ee5f8fc8e6d0acf",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 34.1,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": []
+    },
+    {
+      "name": "vendor-clkmgr",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/vendor_clkmgr.elf",
+      "sha256": "a46d21ba9d0f599ec9834bfabff550f1bbc2666e2f6ed79df86744574b511edb",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 33.0,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": []
+    },
+    {
+      "name": "vendor-smmu",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/vendor_smmu.elf",
+      "sha256": "d45c08198b3ea28e0acff95df079b1619a81497b7f7d93b5427c0148c68c35a5",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 33.1,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": []
+    },
+    {
+      "name": "vendor-ecc",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/vendor_ecc.elf",
+      "sha256": "ab3141f77cbf73065c4aee935330e0636e23f357ab6e2cad1e541e5f735efdbe",
+      "status": "pass",
+      "entry": "0x80200800",
+      "elapsed_seconds": 32.7,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [],
+      "failure_lines": []
+    }
+  ],
+  "restoration": "pass"
+}

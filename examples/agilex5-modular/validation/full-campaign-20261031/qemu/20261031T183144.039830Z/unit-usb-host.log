@@ -1,0 +1,13 @@
+test_collector_derives_root_hub_companion_pair_only_from_peer_links (test_assess.AssessFixtures.test_collector_derives_root_hub_companion_pair_only_from_peer_links) ... ok
+test_downstream_storage_must_share_usb3_hub_ancestry (test_assess.AssessFixtures.test_downstream_storage_must_share_usb3_hub_ancestry) ... ok
+test_mouse_on_unrelated_usb2_hub_is_topology_unconfirmed (test_assess.AssessFixtures.test_mouse_on_unrelated_usb2_hub_is_topology_unconfirmed) ... ok
+test_network_or_storage_side_effects_are_rejected (test_assess.AssessFixtures.test_network_or_storage_side_effects_are_rejected) ... ok
+test_non_agilex_identity_is_rejected_by_collector_guard (test_assess.AssessFixtures.test_non_agilex_identity_is_rejected_by_collector_guard) ... ok
+test_port_number_or_vid_pid_similarity_is_not_peer_evidence (test_assess.AssessFixtures.test_port_number_or_vid_pid_similarity_is_not_peer_evidence) ... ok
+test_split_usb2_mouse_confirms_only_with_peer_link_pair (test_assess.AssessFixtures.test_split_usb2_mouse_confirms_only_with_peer_link_pair) ... ok
+test_usb2_mouse_speed_is_required (test_assess.AssessFixtures.test_usb2_mouse_speed_is_required) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.003s
+
+OK

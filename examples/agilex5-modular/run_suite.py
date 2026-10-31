@@ -20,6 +20,9 @@ TESTS['mailbox']={'elf':'mailbox_status','entry':0x82400000,'markers':['PASS MAI
 TESTS['interfaces']={'elf':'som_interfaces','entry':0x82400000,'markers':['PASS SOM_PHY_ID','PASS SDMMC_IDENT','PASS USB_IDENT','HPS SOM INTERFACES COMPLETE']}
 for name in ['uart','ccu','clkmgr','smmu','ecc']:
  TESTS['vendor-'+name]={'elf':'vendor_'+name,'entry':None,'markers':['HPS_SUITE_PASS '+name+' rc=0x00000000']}
+DEFAULT_NAMES=','.join(TESTS)
+# Optional unchanged legacy timer body, bounded by the same host runner.
+TESTS['vendor-timer']={'elf':'vendor_timer','entry':None,'markers':['Timer count set','Timer mode set','Timer started','Timer expired -- test pass','HPS_SUITE_PASS timer rc=0x00000000']}
 # SPI's original test transmits to an EEPROM; mailbox test asserts Simics offsets.
 # Their board-specific replacements are registered separately when built.
 def container(args,timeout=45):
@@ -126,7 +129,7 @@ def restore_ddr(out,results,port,lock,skip=False):
 
 def main(preflight=None):
  p=argparse.ArgumentParser(description=__doc__)
- p.add_argument('--only',default=','.join(TESTS));p.add_argument('--port',default=PORT)
+ p.add_argument('--only',default=DEFAULT_NAMES);p.add_argument('--port',default=PORT)
  p.add_argument('--list',action='store_true')
  p.add_argument('--full-recovery',action='store_true',help='Use the matching merged volatile SOF for the first bootstrap')
  a=p.parse_args()

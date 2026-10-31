@@ -1,0 +1,87 @@
+{
+  "environment": "physical Modular ES",
+  "suite": "memory-ddr",
+  "requested_tests": [
+    "ddr-calibrated",
+    "ddr-path",
+    "ddr-copy-fault",
+    "ddr-clock-fault"
+  ],
+  "capture_seconds": 180,
+  "runner_sha256": "36d3d02258f4b9878a95b83ee8600d3e0e7c5e9a96b0e5c7b5311f58ef7933d2",
+  "tests": [
+    {
+      "name": "ddr-calibrated",
+      "status": "pass",
+      "debug_exit": 0,
+      "elf_sha256": "5e143d9327616469876ba7ea3da48d73c1cd13c60c6fa37691df3b0eb962c3db",
+      "timing_valid": true,
+      "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+      "entry": "0x82400000"
+    },
+    {
+      "name": "ddr-path",
+      "status": "pass",
+      "debug_exit": 0,
+      "elf_sha256": "4675f1c9b796738348e083aeeab20b2d8acabaad6c715f6fedf6dee36969a2e5",
+      "timing_valid": false,
+      "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+      "entry": "0x82400000"
+    },
+    {
+      "name": "ddr-copy-fault",
+      "status": "pass",
+      "debug_exit": 0,
+      "elf_sha256": "cd2cac0efe2569839ffb044012194029deaeeb8aa26f1c1dfbb282830fb1727f",
+      "timing_valid": false,
+      "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+      "entry": "0x82400000"
+    },
+    {
+      "name": "ddr-clock-fault",
+      "status": "pass",
+      "debug_exit": 0,
+      "elf_sha256": "2aa947cd1262391b5174394cc9bf9e7fb35e11ebf8f58ff12ea65de918a015ad",
+      "timing_valid": false,
+      "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+      "entry": "0x82400000"
+    }
+  ],
+  "build": {
+    "scope": "Compile only; hardware timing not qualified",
+    "target": "agilex5",
+    "source_revision": "af81d9e81572a5d630ba7d405db715a5dfbe7ec8",
+    "source_sha256": {
+      "memory-labs/ddr/ddr.c": "9bf6009803dd6cb1a8073906f6a19189d164feb6d6c69057c75ef1cdfbb1b146",
+      "memory-labs/ddr/build.sh": "09479b5b9fc38afcfb3dd89e01da091ff6d9b7ddf1908c045f8b1e69a4ac9ccf",
+      "qemu/labs/start.S": "dd94c3884c078c186e582b3bcb79b7cfc517b48009320bca69647c7e830b7b4d",
+      "qemu/labs/runtime.c": "86fe3dbb0b7d171d9e602e6bc3536b9ebb0baf329b9097e4c2553a884c6caaaf",
+      "qemu/labs/link.ld": "aa24579e892b7eaf5dd6b98bd12714328c2bd684b50855686f6fb20e92d2b81d",
+      "qemu/labs/lab.h": "b97dd13ada04b42c0ecea1db353485df8ed90f7bf9a00d92b90f9fd421da5540",
+      "memory-labs/ddr/calibrated.c": "46e10ba1dd7fdab7a8a4038d4130997def8d078c2ca4d51dbc512d6ded03fd8e"
+    },
+    "artifacts": {
+      "ddr-copy-fault.bin": "2e924add656da2605c1258c7ebe31266d4ee3fe9d5a813c4eb9585ed30f30b51",
+      "ddr-calibrated.bin": "dc94e502b2170f75b43c09ea389e056a5d1d6b1cce1ba8d34cbb2ba890afac1a",
+      "ddr-clock-fault.elf": "2aa947cd1262391b5174394cc9bf9e7fb35e11ebf8f58ff12ea65de918a015ad",
+      "ddr-copy-fault.elf": "cd2cac0efe2569839ffb044012194029deaeeb8aa26f1c1dfbb282830fb1727f",
+      "ddr-path.bin": "103e0ee586eb2aa482c4456ebbf740d37e5ca1ff7a458507803ae7481e2df0ae",
+      "ddr-calibrated.elf": "5e143d9327616469876ba7ea3da48d73c1cd13c60c6fa37691df3b0eb962c3db",
+      "ddr-path.elf": "4675f1c9b796738348e083aeeab20b2d8acabaad6c715f6fedf6dee36969a2e5",
+      "ddr-clock-fault.bin": "4299004c87486eba14fd84f0329e715aedde1b1403a795d753d0d1037df15354"
+    },
+    "calibration": {
+      "variant": "ddr-calibrated",
+      "declared_frequency_hz": 400000000,
+      "nominal_interval_ticks": 400000000,
+      "host_interval_grade_seconds": [
+        0.9,
+        1.1
+      ],
+      "scope": "Compile only; independent host coarse interval required; not fine timing accuracy"
+    }
+  },
+  "restoration": "pass",
+  "bl31_sha256": null,
+  "bootstrap_image_sha256": "5f1d0b42f6f28014cdfabbcfea7582628ff268c974d6284c1edf724db75022e9"
+}

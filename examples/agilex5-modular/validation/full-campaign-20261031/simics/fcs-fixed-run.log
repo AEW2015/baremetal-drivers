@@ -1,0 +1,96 @@
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/full-campaign-20261031/simics/fcs-fixed-20261031T192929Z
+FCS strict capability result: fail
+Preserved control flow: True
+
+
+=== FCS demo: end-to-end ===
+MBOX client #2 opened, handle=0x000000008240B6F0
+
+SERVICE_FCS_API init rc=0
+PASS FCS_REAL_INIT
+[FCS][PASS] fcs_api_init: rc=0
+Get_chip_id: No argsINFO:    MBOX: SVC_V3: x0 0x42000135, x1 0x20, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+INFO:    MBOX: mailbox_send_cmd_async_v3: status: 0
+
+INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+INFO:    MBOX: SVC_V3: x0 0x420000c8, x1 0x20, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+INFO:    MBOX: sip_smc_get_chipid_cb: mailbox_err 03, data[0] 0x0, data[1] 0x0
+
+SIP_SVC response x0: 3, x1: 0, x2: 0INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+
+SERVICE_FCS_API chip rc=-1 hi=0x00000000 lo=0x00000000
+FAIL FCS_REAL_CHIP_ID_DATA
+[FCS][FAIL] fcs_api_get_chip_id: rc=-1
+       chip_id: hi=0x00000000 lo=0x00000000
+Get_jtag_idcode: No argsINFO:    MBOX: SVC_V3: x0 0x420000d3, x1 0x21, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+INFO:    MBOX: mailbox_send_cmd_async_v3: status: 0
+
+INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+INFO:    MBOX: SVC_V3: x0 0x420000c8, x1 0x21, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+SIP_SVC response x1: 3, x2: 0INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+
+SERVICE_FCS_API jtag rc=-1 value=0x00000000
+FAIL FCS_REAL_MODULAR_JTAG_ID
+[FCS][FAIL] fcs_api_get_jtag_idcode: rc=-1
+       jtag_idcode: 0x00000000
+Open_session: No args
+INFO:    MBOX: SVC_V3: x0 0x4200013a, x1 0x22, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+INFO:    MBOX: mailbox_send_cmd_async_v3: status: 0
+
+INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+INFO:    MBOX: SVC_V3: x0 0x420000c8, x1 0x22, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+SIP_SVC response x1: 3, x2: 0INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+
+SERVICE_FCS_API open rc=-1
+SERVICE_FCS_BYTES uuid count=16 hex=00000000000000000000000000000000
+FAIL FCS_REAL_SESSION_UUID
+[FCS][FAIL] fcs_api_open_session: rc=-1
+[FCS][INFO] Unexpected open_session rc=-1 (not the common 0x85 security denial).
+[FCS][INFO] fcs_api_get_random_number skipped (no crypto session).
+[FCS][INFO] fcs_api_close_session skipped (no crypto session).
+
+SERVICE_FCS_API deinit rc=0
+PASS FCS_REAL_DEINIT
+[FCS][PASS] fcs_api_deinit: rc=0
+=== FCS demo: 2/5 step(s) PASS ===
+
+SERVICE_FCS_SUMMARY init=1 chip=1 jtag=1 open=1 rng=0 close=0 deinit=1 provision=0 denied=0
+FAIL FCS_REAL_CALL_SEQUENCE
+SERVICE_COMPLETE status=1
+

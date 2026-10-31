@@ -22,3 +22,7 @@ examples/agilex5-modular/validation/usb-baremetal/**/*.log -text -whitespace
 examples/agilex5-modular/validation/usb-baremetal/**/*.txt -text -whitespace
 examples/agilex5-modular/memory-labs/**/validation/**/*.log -text -whitespace
 examples/agilex5-modular/memory-labs/**/validation/**/*.txt -text -whitespace
+examples/agilex5-modular/validation/full-campaign-20261031/**/*.log -text -whitespace
+examples/agilex5-modular/validation/full-campaign-20261031/**/*.txt -text -whitespace
+examples/agilex5-modular/service-candidates/validation/**/*.log -text -whitespace
+examples/agilex5-modular/service-candidates/validation/**/*.txt -text -whitespace

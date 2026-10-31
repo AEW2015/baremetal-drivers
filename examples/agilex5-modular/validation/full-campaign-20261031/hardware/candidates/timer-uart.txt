@@ -1,0 +1,64 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+CANDIDATE_BEGIN name=timer
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CANDIDATE_COMMAND timer_selftest 
+
++------------------------------------------------------------+
+|                TIMER POLLING SELF-TEST                     |
++------------------------------------------------------------+
+
+Using timer instance 0 with period 1000000 us
+
+Test 1 of 2 : Timer must start and advance
+------------------------------------------------------------
+  Open timer instance ....................... timer_descriptor addr = 0x00000000824072D0
+OK
+  Set timer period to 1000000 us ............. OK
+  Start timer ............................... Starting timer instance
+OK
+  Read timer value .......................... clk_hz now = 100000000
+clk_hz now = 100000000
+OK (993783 us -> 313677 us)
+  Verify timer advanced ..................... PASS
+
+Test 2 of 2 : Timer polling over multiple samples
+------------------------------------------------------------
+  Sample 1 of 5 ............................. clk_hz now = 100000000
+291213 us
+  Sample 2 of 5 ............................. clk_hz now = 100000000
+606280 us
+  Sample 3 of 5 ............................. clk_hz now = 100000000
+921346 us
+  Sample 4 of 5 ............................. clk_hz now = 100000000
+236413 us
+  Sample 5 of 5 ............................. clk_hz now = 100000000
+551479 us
+  Stop timer ................................ Stopping timer instanceOK
+  Verify polling completed .................. PASS
+------------------------------------------------------------
+
+RESULT : 2 of 2 tests passed  -  SELF-TEST PASSED
+
+CANDIDATE_COMPLETE status=0

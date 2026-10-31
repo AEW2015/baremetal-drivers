@@ -1,0 +1,52 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bCANDIDATE_BEGIN name=gic
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+PASS GIC_REDISTRIBUTOR_POWER_READY
+CANDIDATE_COMMAND gic_selftest 
+
++------------------------------------------------------------+
+|              GIC SGI INTERRUPT SELF-TEST                   |
++------------------------------------------------------------+
+
+Initializing GIC environment ................ GIC_GROUP1_CPU_CONTROL=0x0
+PASS GIC_GROUP1_CPU_DISABLED
+done
+
+Test 1 of 2 : Masked SGI must NOT be delivered
+------------------------------------------------------------
+  Register ISR for SGI 2 .................... OK
+  Trigger SGI 2 while disabled .............. OK
+  Verify no ISR was invoked ................. PASS
+
+Test 2 of 2 : Enabled SGI must be delivered
+------------------------------------------------------------
+  Register ISR for SGI 1 .................... OK
+  Enable SGI 1 .............................. OK
+  Trigger SGI 1 ............................. OK
+  Verify ISR was invoked .................... PASS (IRQ=1, count=1)
+------------------------------------------------------------
+
+RESULT : 2 of 2 tests passed  -  SELF-TEST PASSED
+
+CANDIDATE_COMPLETE status=0

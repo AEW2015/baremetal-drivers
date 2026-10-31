@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-31T18:34:25Z",
+  "host": {
+    "architecture": "x86_64",
+    "docker_client_version": "29.8.0",
+    "docker_server_version": "29.8.0"
+  },
+  "image": {
+    "tag": "agilex-learning:13.2-reference",
+    "image_id": "sha256:7c525a7ca46fefe8d87a7c471547dafb71678d739411005e9de95215e22d9e51",
+    "repository_digests": [],
+    "size_bytes": 1376510270,
+    "build_command": "docker build --memory=3g --build-arg USER_UID=\"$(id -u)\" --build-arg USER_GID=\"$(id -g)\" -t agilex-learning:13.2-reference examples/agilex5-modular/container",
+    "build_result": "success; dependency/toolchain layers were reused from the verified build cache, including the previously SHA-256-checked Arm GNU archive",
+    "build_log": "examples/agilex5-modular/validation/full-campaign-20261031/container/learning-check-final-20261031/build.log"
+  },
+  "recipe_sha256": {
+    "examples/agilex5-modular/container/Dockerfile": "e2fa3844f9e6c068c7abd028682f41194044470763345f7f6fb497776ab2d810",
+    "examples/agilex5-modular/container/install-arm.sh": "0e6549dd11a56d0a3de6f4dbf2c269e232e29d1f7789a5a2a6688956c696ad4b",
+    "examples/agilex5-modular/container/check-learning.sh": "2a3977cc8f96610fc33144dae12808f7c087563517a567d2686448b6e1ed6ac1"
+  },
+  "tool_smoke": {
+    "image_id": "sha256:7c525a7ca46fefe8d87a7c471547dafb71678d739411005e9de95215e22d9e51",
+    "command": "docker run --rm agilex-learning:13.2-reference bash -lc 'id && aarch64-none-elf-gcc --version | head -1 && aarch64-linux-gnu-gcc --version | head -1 && qemu-system-aarch64 --version | head -1 && verilator --version && dtc --version && python3 -c \"import elftools; print(\\\"pyelftools\\\", elftools.__version__)\" && for p in bc bison flex make; do command -v \"$p\"; done'",
+    "exit_code": 0,
+    "log": "examples/agilex5-modular/validation/full-campaign-20261031/container/learning-check-final-20261031/tool-smoke.log",
+    "output": [
+      "uid=1000(dev) gid=1000(ubuntu)",
+      "aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009",
+      "aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)",
+      "Verilator 5.020 2024-01-01 rev (Debian 5.020-1)",
+      "Version: DTC 1.7.0",
+      "pyelftools 0.30",
+      "/usr/bin/bc",
+      "/usr/bin/bison",
+      "/usr/bin/flex",
+      "/usr/bin/make"
+    ]
+  },
+  "qemu_hello_smoke": {
+    "command": "docker run --rm --mount type=bind,src=/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029,dst=/src,readonly agilex-learning:13.2-reference bash -lc 'mkdir -p /tmp/container-qemu-check && cp -a /src/examples/agilex5-modular/. /tmp/container-qemu-check/ && cd /tmp/container-qemu-check && bash qemu/build.sh && python3 qemu/run.py --check'",
+    "source_mount": "repository mounted read-only at /src and copied to /tmp/container-qemu-check inside disposable container; repository build directories untouched",
+    "exit_code": 0,
+    "output": [
+      "ld warning: build/qemu/hello.elf has a LOAD segment with RWX permissions",
+      "QEMU: running bounded checks...",
+      "QEMU VIRT AARCH64 BEGIN",
+      "PASS EL3",
+      "PASS NEON: 11 22 33 44",
+      "PASS MEMORY: 4096-byte CPU copy",
+      "QEMU EXAMPLE COMPLETE",
+      "PASS QEMU_CHECK: all required markers and exit status zero"
+    ],
+    "result": "pass",
+    "limits": [
+      "This verifies the generic QEMU virt hello example only, not Agilex hardware behavior.",
+      "The linker emits an RWX LOAD-segment warning for the example ELF."
+    ]
+  },
+  "learning_check": {
+    "status": "pass",
+    "image_tag": "agilex-learning:13.2-reference",
+    "image_id": "sha256:7c525a7ca46fefe8d87a7c471547dafb71678d739411005e9de95215e22d9e51",
+    "script": "examples/agilex5-modular/container/check-learning.sh",
+    "script_sha256": "2a3977cc8f96610fc33144dae12808f7c087563517a567d2686448b6e1ed6ac1",
+    "source_commit": "14f7982c9b73e690d234bedb379f032c832f8416",
+    "recorded_run_id": "learning-check-20261031T190545138923791Z",
+    "docker_invocation": {
+      "image": "agilex-learning:13.2-reference",
+      "source_mount": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029:/src:ro",
+      "evidence_mount": "examples/agilex5-modular/validation/full-campaign-20261031/container/learning-check-final-20261031:/evidence:rw",
+      "container_setup": "git clone --shared /src \"$work/repo\"; copy /src/examples/agilex5-modular/container/check-learning.sh into cloned HEAD because the new file is uncommitted; run `bash container/check-learning.sh` in the clone; copy its `runs/learning-check-*` output to /evidence/run",
+      "container_work_root": "/tmp/agilex-learning-final.XXXXXX"
+    },
+    "clone_method": "Disposable local `git clone --shared`; only the new check-learning.sh was copied from the read-only source mount. All build and run files stayed in the disposable clone.",
+    "exit_code": 0,
+    "results": {
+      "qemu_hello": "PASS build, --check, six baseline/mutation/recovery checks",
+      "qemu_labs": "PASS 7 positive programs, 6 negative controls, 2 batch-GDB checks",
+      "dsu_qemu": "PASS normal/corrupt/stalled/contention (4/4)",
+      "ddr_qemu": "PASS ddr-path/copy-fault/clock-fault (3/3)",
+      "smmu_qemu": "PASS normal/bypass/keep-mapping (3/3)",
+      "fabric_test": "PASS ADD and XOR RTL/C driver tests",
+      "fabric_ddr_test": "PASS sizes 1/257/4096, range guard, corruption/BRESP/RRESP faults, AW/W/B/AR/R timeouts/drain"
+    },
+    "commands": [
+      "bash qemu/build.sh",
+      "python3 qemu/run.py --check",
+      "python3 qemu/experiment.py",
+      "bash qemu/labs/build.sh qemu",
+      "python3 qemu/labs/run.py --negative --gdb --output runs/learning-check-20261031T190545138923791Z/qemu-labs",
+      "bash memory-labs/dsu/build.sh qemu",
+      "python3 memory-labs/dsu/run.py --build build/dsu-qemu --output runs/learning-check-20261031T190545138923791Z/dsu-qemu",
+      "bash memory-labs/ddr/build.sh qemu",
+      "python3 memory-labs/ddr/run.py --artifacts build/memory-ddr-qemu --output runs/learning-check-20261031T190545138923791Z/ddr-qemu",
+      "bash memory-labs/smmu/build.sh",
+      "python3 memory-labs/smmu/run.py --out runs/learning-check-20261031T190545138923791Z/smmu-qemu",
+      "bash fabric/test.sh",
+      "bash memory-labs/fabric-ddr/test.sh"
+    ],
+    "full_stdout_log": "examples/agilex5-modular/validation/full-campaign-20261031/container/learning-check-final-20261031/stdout.log",
+    "per_step_and_runner_evidence": "examples/agilex5-modular/validation/full-campaign-20261031/container/learning-check-final-20261031/run/",
+    "tool_smoke_log": "examples/agilex5-modular/validation/full-campaign-20261031/container/learning-check-final-20261031/tool-smoke.log",
+    "previous_attempt": {
+      "image_id": "sha256:2cb40452a219224027b1dc7cf30622d75128ac87872f93f8f6a204b6eea973c7",
+      "run_path": "examples/agilex5-modular/validation/full-campaign-20261031/container/learning-check-20261031/run/",
+      "stdout_log": "examples/agilex5-modular/validation/full-campaign-20261031/container/learning-check-20261031/stdout.log",
+      "result": "passed; retained as earlier pre-final-recipe image run"
+    },
+    "limits": [
+      "QEMU functional models and Verilator behavioral RTL only; no physical hardware qualification.",
+      "The script invokes QEMU-target builds only; it does not build Agilex-target artifacts, Quartus projects or access a board."
+    ]
+  },
+  "hardware_base_check": {
+    "recorded_utc": "2026-10-31T19:04:13Z",
+    "base_image": {
+      "reference": "alterafpga/quartus-pro:26.1.1-all@sha256:2a8df893f43c88799768bd1cdff73d3c66c1b5c0006faf69cc1aa401f9522761",
+      "image_id": "sha256:5179d1adf503c7f1a2c9c010483c245db46ba3b3c82d900b254174047ce0e41a",
+      "size_bytes": 43610568747
+    },
+    "derived_image": {
+      "tag": "agilex-hardware:26.1.1-reference",
+      "image_id": "sha256:c7024eba20c4ef9ee324aae497ae748abaa0a2dc585dc5908665e84da6de7857",
+      "repository_digests": [],
+      "size_bytes": 44957576285,
+      "build_exit_code": 0
+    },
+    "build_command": "docker build --memory=3g --build-arg USER_UID=\"$(id -u)\" --build-arg USER_GID=\"$(id -g)\" --build-arg BASE_IMAGE=alterafpga/quartus-pro:26.1.1-all@sha256:2a8df893f43c88799768bd1cdff73d3c66c1b5c0006faf69cc1aa401f9522761 -t agilex-hardware:26.1.1-reference examples/agilex5-modular/container",
+    "build_log": "examples/agilex5-modular/validation/full-campaign-20261031/container/hardware-base-check/build.log",
+    "recipe_sha256": {
+      "examples/agilex5-modular/container/Dockerfile": "e2fa3844f9e6c068c7abd028682f41194044470763345f7f6fb497776ab2d810",
+      "examples/agilex5-modular/container/install-arm.sh": "0e6549dd11a56d0a3de6f4dbf2c269e232e29d1f7789a5a2a6688956c696ad4b"
+    },
+    "smoke_command": "docker run --rm agilex-hardware:26.1.1-reference bash -lc 'set -e; id; printf \"LANG=%s LC_CTYPE=%s LC_ALL=%s\\n\" \"$LANG\" \"$LC_CTYPE\" \"$LC_ALL\"; for t in quartus_sh quartus_pgm quartus_stp jtagconfig openocd qsys-generate niosv-bsp system-console; do printf \"%s=\" \"$t\"; command -v \"$t\" || exit 1; done; quartus_sh --version 2>&1 | head -3; quartus_pgm --version 2>&1 | head -3; openocd --version 2>&1 | head -3; aarch64-none-elf-gcc --version | head -1; aarch64-linux-gnu-gcc --version | head -1; verilator --version; qemu-system-aarch64 --version | head -1'",
+    "smoke_exit_code": 0,
+    "smoke_log": "examples/agilex5-modular/validation/full-campaign-20261031/container/hardware-base-check/smoke.log",
+    "tool_paths": {
+      "quartus_sh": "/opt/altera/quartus/bin/quartus_sh",
+      "quartus_pgm": "/opt/altera/quartus/bin/quartus_pgm",
+      "quartus_stp": "/opt/altera/quartus/bin/quartus_stp",
+      "jtagconfig": "/opt/altera/quartus/bin/jtagconfig",
+      "openocd": "/opt/altera/quartus/bin/openocd",
+      "qsys-generate": "/opt/altera/qsys/bin/qsys-generate",
+      "niosv-bsp": "/opt/altera/niosv/bin/niosv-bsp",
+      "system-console": "/opt/altera/syscon/bin/system-console"
+    },
+    "versions": {
+      "quartus": "26.1.1 Build 130 08/06/2026 SC Pro Edition",
+      "openocd": "0.12.0+quartus-gc58ca4ebc (2026-02-26-10:54)",
+      "arm_gnu": "13.2.1 20231009",
+      "linux_aarch64_gcc": "13.3.0-6ubuntu2~24.04.1",
+      "verilator": "5.020",
+      "qemu": "8.2.2"
+    },
+    "result": "PASS; tools resolve through preserved Quartus, Nios V, Qsys and System Console PATH entries. jtagconfig availability was checked with command -v only; no JTAG command, device or license was used.",
+    "limits": [
+      "No Quartus compilation was run.",
+      "No board, USB device or license file/server was mounted.",
+      "Tool presence/version checks do not qualify programming or hardware behavior."
+    ]
+  },
+  "previous_learning_check": {
+    "image_id": "sha256:2cb40452a219224027b1dc7cf30622d75128ac87872f93f8f6a204b6eea973c7",
+    "script_sha256": "03b055721f2a103b320bfb5bfe8b10377246ba93381df1b42c50f47429056e17",
+    "result": "passed before final recipe rebuild; superseded by final check below",
+    "stdout_log": "examples/agilex5-modular/validation/full-campaign-20261031/container/learning-check-20261031/stdout.log",
+    "per_step_and_runner_evidence": "examples/agilex5-modular/validation/full-campaign-20261031/container/learning-check-20261031/run/"
+  }
+}

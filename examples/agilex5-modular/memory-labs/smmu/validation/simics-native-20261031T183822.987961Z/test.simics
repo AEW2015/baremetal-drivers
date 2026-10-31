@@ -1,0 +1,19 @@
+$fsbl_image_filename = "/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream26-ocram/baremetal.bin"
+$hps_reset_vector = 0
+run-script (sim->project + "/targets/agilex5e-universal/agilex5e-universal.simics")
+$con = $system.board.fpga.soc_inst.hps_subsys.agilex_hps.console0.con
+$ready = (bp.console_string.break $con "SoCFPGA Bare-Metal > ")
+script-branch {
+ run
+ bp.wait-for-breakpoint $ready
+ stop
+ $con.input "ddr_selftest\n"
+ run
+ bp.wait-for-breakpoint $ready
+ stop
+ echo "NATIVE_TBU_DDR_BOOTSTRAP_COMPLETE"
+ @import sys
+ @sys.path.insert(0,"/workspace/baremetal-fixes-20261029/examples/agilex5-modular/memory-labs/smmu")
+ @import native_cases
+ @native_cases.run_cases("/workspace/baremetal-fixes-20261029/examples/agilex5-modular/memory-labs/smmu/validation/simics-native-20261031T183822.987961Z/native-results.json")
+}

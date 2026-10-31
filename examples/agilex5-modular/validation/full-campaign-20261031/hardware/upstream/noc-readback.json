@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 98976,
+  "segments": [
+    {
+      "file": "upstream26-noc.bin",
+      "bytes": 98976,
+      "sha256": "763a7528b70bad9bd4fbeded1939614e689efdcb91990490a8d2f763dabbce19"
+    }
+  ]
+}

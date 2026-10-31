@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 26816,
+  "segments": [
+    {
+      "file": "upstream26-ecc-readonly.segment0.bin",
+      "bytes": 26816,
+      "sha256": "3a29445031e471e2be6d1bb61cf6f61018a71af66fc83f9e85da013452aed8fa"
+    }
+  ]
+}

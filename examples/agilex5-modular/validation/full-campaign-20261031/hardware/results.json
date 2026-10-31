@@ -1,0 +1,1342 @@
+{
+  "scope": "Fresh physical Modular ES runs. Named rows bundle related controls; partial is not a full upstream exercise pass. Original verdicts and all restoration logs retained.",
+  "tests": [
+    {
+      "name": "board/core",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "core",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/core_examples.elf",
+          "sha256": "408736b0fbda5b520952145591af848a32f78defe2e87686af08464b86237dc1",
+          "status": "pass",
+          "entry": "0x82100000",
+          "elapsed_seconds": 30.5,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [
+            "PASS CPU_NEON: four vector additions",
+            "PASS CACHE_INFO: configuration read; cache coherency is a separate test",
+            "PASS DDR_BUFFERS: CPU copied and verified 64 KiB",
+            "PASS GPIO_READ: no output pin direction changed",
+            "PASS COUNTER: generic timer increments",
+            "PASS GIC_INFO: identification only; interrupt delivery is a separate example"
+          ],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "CPU/NEON, cache discovery, DDR copy, GPIO/counter/GIC reads; no coherency proof."
+    },
+    {
+      "name": "board/dma",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "dma",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/dma_copy.elf",
+          "sha256": "591d179858e05550bf647462f39dc928d0d8a931a895d0fcf7dff4fd88c858f4",
+          "status": "pass",
+          "entry": "0x82200000",
+          "elapsed_seconds": 30.4,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [
+            "PASS DMA_COPY: 4096 bytes transferred by DMAC0 and verified"
+          ],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "4096-byte linked-descriptor DMA copy; complete data readback."
+    },
+    {
+      "name": "board/gic",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "gic",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/gic_sgi.elf",
+          "sha256": "0f7dcf25cb011fba635a65bcc2cbd19ad92c54f332c8e6b913db4534e9a541e0",
+          "status": "pass",
+          "entry": "0x82300000",
+          "elapsed_seconds": 30.3,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [
+            "PASS GIC_SGI: core 0 received and acknowledged SGI 0"
+          ],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Polled secure SGI acknowledgement; not exception delivery."
+    },
+    {
+      "name": "board/interfaces",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "interfaces",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/som_interfaces.elf",
+          "sha256": "e56ac98c7f9097465183f912ec04adda7962bd7b8d6ceb2a04824fbe1120a8c4",
+          "status": "pass",
+          "entry": "0x82400000",
+          "elapsed_seconds": 30.3,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [
+            "PASS SOM_PHY_ID: EMAC2 MDIO reached Marvell 88E1512",
+            "PASS SDMMC_IDENT: controller revision matches",
+            "PASS USB_IDENT: DWC_usb31 controller ID; enumeration not tested"
+          ],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Ethernet PHY, SD/card-detect and USB controller identification only."
+    },
+    {
+      "name": "board/mailbox",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "mailbox",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/mailbox_status.elf",
+          "sha256": "b8cb7ca2f9905568100c6101e061f215eed28cc7a730d0d3ba2a29772a66db09",
+          "status": "pass",
+          "entry": "0x82400000",
+          "elapsed_seconds": 30.3,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [
+            "PASS MAILBOX_IDCODE: SDM returned matching Agilex 5 device ID"
+          ],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Direct SDM GET_IDCODE, separate from TF-A mailbox API."
+    },
+    {
+      "name": "board/mmu",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "mmu",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/mmu_translation.elf",
+          "sha256": "7932bfc609dba450ba52a0348eb91922e33f2ed41adab9ab21ec8b29055e7b18",
+          "status": "pass",
+          "entry": "0x82400000",
+          "elapsed_seconds": 30.3,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [
+            "PASS MMU_TRANSLATION: EL3 translation and DDR readback"
+          ],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "EL3 identity translation and DDR access."
+    },
+    {
+      "name": "board/multicore",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "multicore",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/multicore.elf",
+          "sha256": "222b6968eb2451b54310d5d0558a550773e5049da70e9e526090873e92e1fe03",
+          "status": "pass",
+          "entry": "0x82400000",
+          "elapsed_seconds": 30.3,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [
+            "PASS MULTICORE: three secondary cores executed and published records"
+          ],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Direct reset/power release; three secondary identity records; not PSCI."
+    },
+    {
+      "name": "board/som",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "som",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/som_peripherals.elf",
+          "sha256": "27e21aa6730936c4f0275fa6e0d2efe8f91c1c843d82c29d7a90b560691bfc29",
+          "status": "pass",
+          "entry": "0x82400000",
+          "elapsed_seconds": 36.6,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [
+            "PASS HPS_TIMER: periodic timer expiry and clear",
+            "PASS WATCHDOG_IRQ: watchdog 1 expiry observed, peripheral reset",
+            "PASS SPI_LOOPBACK: four bytes through internal loopback",
+            "PASS GPIO_LED_PAD: SOM heartbeat output high/low readback",
+            "PASS I2C_IDENT: two controller IDs; no bus transfer"
+          ],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Peripheral timer, watchdog interrupt-first mode, SPI loopback, LED pad, I2C IDs."
+    },
+    {
+      "name": "board/som-i2c",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "som-i2c",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/som_i2c.elf",
+          "sha256": "d34e12c69f32d2184246fd67f1d84787b5bb4a6893ccf31f024138f19ee60294",
+          "status": "pass",
+          "entry": "0x82400000",
+          "elapsed_seconds": 31.5,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [
+            "PASS SOM_TEMP_ID: TMP464 manufacturer read",
+            "PASS SOM_EEPROM_READ: 16 bytes received; no data written"
+          ],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "GPIO I2C sensor ID and EEPROM reads; no EEPROM array writes."
+    },
+    {
+      "name": "board/som-i3c",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "som-i3c",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/som_i3c.elf",
+          "sha256": "c8112429cd96c11ed7453a68e3b4d97c92b3fb43ae84576ea4ae41c6a06adc08",
+          "status": "pass",
+          "entry": "0x82400000",
+          "elapsed_seconds": 30.4,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [
+            "PASS NATIVE_I3C_TEMP: legacy I2C read via I3C1",
+            "PASS NATIVE_I3C_EEPROM: 16-byte read, no data writes"
+          ],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "I3C controller legacy-I2C sensor/EEPROM reads; no native I3C qualification."
+    },
+    {
+      "name": "board/vendor-ccu",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "vendor-ccu",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/vendor_ccu.elf",
+          "sha256": "b114643bc655370ef9d88f08c27237d18c26341083a928fd0ee5f8fc8e6d0acf",
+          "status": "pass",
+          "entry": "0x80200800",
+          "elapsed_seconds": 34.1,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings."
+    },
+    {
+      "name": "board/vendor-clkmgr",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "vendor-clkmgr",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/vendor_clkmgr.elf",
+          "sha256": "a46d21ba9d0f599ec9834bfabff550f1bbc2666e2f6ed79df86744574b511edb",
+          "status": "pass",
+          "entry": "0x80200800",
+          "elapsed_seconds": 33.0,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings."
+    },
+    {
+      "name": "board/vendor-ecc",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "vendor-ecc",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/vendor_ecc.elf",
+          "sha256": "ab3141f77cbf73065c4aee935330e0636e23f357ab6e2cad1e541e5f735efdbe",
+          "status": "pass",
+          "entry": "0x80200800",
+          "elapsed_seconds": 32.7,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings."
+    },
+    {
+      "name": "board/vendor-smmu",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "vendor-smmu",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/vendor_smmu.elf",
+          "sha256": "d45c08198b3ea28e0acff95df079b1619a81497b7f7d93b5427c0148c68c35a5",
+          "status": "pass",
+          "entry": "0x80200800",
+          "elapsed_seconds": 33.1,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings."
+    },
+    {
+      "name": "board/vendor-uart",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/board-suite/results.json",
+      "source_sha256": "731de2679b2e73bd131120ae615cf75a89c6aa8ccaa3dea2376ee66a623c7afc",
+      "cases": [
+        {
+          "name": "vendor-uart",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/vendor_uart.elf",
+          "sha256": "a221509f226ebab80fb27737bced0a05121b16bd404e90d3c04b24d36bcc20e3",
+          "status": "pass",
+          "entry": "0x80200800",
+          "elapsed_seconds": 31.4,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings."
+    },
+    {
+      "name": "board/vendor-timer",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/vendor-timer/results.json",
+      "source_sha256": "3a16f841f3f315c959b6fc4546253549afe31cfc6863e5b7a9831bfca7a07c86",
+      "cases": [
+        {
+          "name": "vendor-timer",
+          "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/vendor_timer.elf",
+          "sha256": "60aac383fed2e60486912c6c09abbb5a8d2343fe0a3de3855117e0ad90f548af",
+          "status": "pass",
+          "entry": "0x80200800",
+          "elapsed_seconds": 31.5,
+          "missing": [],
+          "debug_returncode": 0,
+          "observed_pass_markers": [],
+          "failure_lines": []
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Unchanged pinned25.1 timer body through the board adapter: count set, started, observed zero and returned success; no interrupt or calibrated period claim."
+    },
+    {
+      "name": "practice/startup",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/practice/results.json",
+      "source_sha256": "a968f99cdd89245d73147a781a9b3597b2810dc9412e0d4d180c7f0b2b107da6",
+      "cases": [
+        {
+          "name": "startup",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "5fc1aca1ea59f008c5f5d880a6bd1ce85004be91427ec46766b851baf02e4780",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "startup-no-bss",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "25a8e0766304b6a1760eda0f2107fcd20fd21d4c840f634da55c46e696714eb4",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "startup-no-data",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "47673268146fdd5956117b7b97399e33d5a4fe4e7416d0e3c83261ee9ee96175",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Shared checks with platform-specific startup/UART/memory map."
+    },
+    {
+      "name": "practice/corruption",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/practice/results.json",
+      "source_sha256": "a968f99cdd89245d73147a781a9b3597b2810dc9412e0d4d180c7f0b2b107da6",
+      "cases": [
+        {
+          "name": "corruption",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "9338b7fa8927dcf7608cd79c62643f9308b740f66609ce3a0d0daa9fc7a56c27",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "corruption-no-injection",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "6c6b01414da0c326ab1593ced97072fdb48fdf05e033121bc5e9165264716b40",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Shared checks with platform-specific startup/UART/memory map."
+    },
+    {
+      "name": "practice/exception",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/practice/results.json",
+      "source_sha256": "a968f99cdd89245d73147a781a9b3597b2810dc9412e0d4d180c7f0b2b107da6",
+      "cases": [
+        {
+          "name": "exception",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "d3083501fb1aa1bc4fa5f4dfa65cdecb1aa017f2b4c22aa577827cfd35fc60ac",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "exception-wrong-brk",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "ae75e87e8d991e05ec4ecdbb7cd552f1d01b6bbba4a39d7c0eb38442602f39bc",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Shared checks with platform-specific startup/UART/memory map."
+    },
+    {
+      "name": "practice/timer",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/practice/results.json",
+      "source_sha256": "a968f99cdd89245d73147a781a9b3597b2810dc9412e0d4d180c7f0b2b107da6",
+      "cases": [
+        {
+          "name": "timer",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "64201939a82f2d604a37128a3989c340b4c60f06df7186e821121ac84293bebf",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "timer-wrong-ppi",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "2a8fb20f62ac99164d7c645153d86675f3049556d39f23d70b99595e456aa247",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Ten actual secure timer FIQs through GIC; not a calibrated speed benchmark."
+    },
+    {
+      "name": "practice/mmu",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/practice/results.json",
+      "source_sha256": "a968f99cdd89245d73147a781a9b3597b2810dc9412e0d4d180c7f0b2b107da6",
+      "cases": [
+        {
+          "name": "mmu",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "d6c4a1797375d2292dd2c5add7a9337aaf2a04d775cfd1601a054d58eb0b8ba1",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "mmu-writable-ro",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "59a7eebca658871423541ccf5b204cc15846504d85efd1a4cf7727546f142b9d",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Shared checks with platform-specific startup/UART/memory map."
+    },
+    {
+      "name": "practice/uart",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/practice/results.json",
+      "source_sha256": "a968f99cdd89245d73147a781a9b3597b2810dc9412e0d4d180c7f0b2b107da6",
+      "cases": [
+        {
+          "name": "uart",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "cdc46f0cf69d89d31ca77281c44b0a614d55a0e0ab6a8e794630e585b602433b",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Eleven command, editing, boundary and recovery input cases."
+    },
+    {
+      "name": "practice/multicore",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/practice/results.json",
+      "source_sha256": "a968f99cdd89245d73147a781a9b3597b2810dc9412e0d4d180c7f0b2b107da6",
+      "cases": [
+        {
+          "name": "multicore",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "9adcf6a403caa0c5ee2f99ab1f7e41edfe9831ca7edc4106eee6f5eed2a095c6",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Three secondary execution/identity records; platform-specific release; not PSCI CPU_ON."
+    },
+    {
+      "name": "upstream/crc",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/upstream/results.json",
+      "source_sha256": "27e08fde2e2492b12f5af198fdf29249d791c04d00e07a56380fcec921b69350",
+      "cases": [
+        {
+          "name": "crc",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "5620aebb57a08f13835141d36156ca75964e7254e0ba74d9e6eb9b1b0c63e76a",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Current 26.3 implementation; not qualified by legacy results."
+    },
+    {
+      "name": "upstream/perf",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/upstream/results.json",
+      "source_sha256": "27e08fde2e2492b12f5af198fdf29249d791c04d00e07a56380fcec921b69350",
+      "cases": [
+        {
+          "name": "perf",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "d04e9eabe354c0856eb857ce84d896daf8c24dbbdc2b00c830d04a8336ac27f9",
+          "timing_valid": true,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "CPU memory correctness; physical 400 MHz counter checked against host time. Diagnostic rates, not optimized DDR bandwidth."
+    },
+    {
+      "name": "upstream/combophy",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/upstream/results.json",
+      "source_sha256": "27e08fde2e2492b12f5af198fdf29249d791c04d00e07a56380fcec921b69350",
+      "cases": [
+        {
+          "name": "combophy",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "3b585085d8e82cf5dc4efb80c9b4a7a206ebb398acbd4fabdb0fe8e5c3193e39",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Current 26.3 implementation; not qualified by legacy results."
+    },
+    {
+      "name": "upstream/noc",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/upstream/results.json",
+      "source_sha256": "27e08fde2e2492b12f5af198fdf29249d791c04d00e07a56380fcec921b69350",
+      "cases": [
+        {
+          "name": "noc",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "8cdc5752e3f4942f6c8155f8c7bedc357edb8691dbd771cd599318152c17826d",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Current 26.3 implementation; not qualified by legacy results."
+    },
+    {
+      "name": "upstream/reset_mngr",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/upstream/results.json",
+      "source_sha256": "27e08fde2e2492b12f5af198fdf29249d791c04d00e07a56380fcec921b69350",
+      "cases": [
+        {
+          "name": "reset",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "a242691b8ea197f9176baaaca1b81204798153b1189a0d1ae8f4f4acce3b2afc",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Current 26.3 implementation; not qualified by legacy results."
+    },
+    {
+      "name": "upstream/mailbox",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/upstream-runtime/results.json",
+      "source_sha256": "52980b0b9ba083b2f095750c38c179b77d42958671144aa5f0560ee21b1c8457",
+      "cases": [
+        {
+          "name": "mailbox",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "2f6c54e20e8c745539af5bd4bb605a4450412efb3e6b7973d626f79e5a297892",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Simics NOOP/config pass, GET_IDCODE rejected; physical TF-A path passes all three."
+    },
+    {
+      "name": "custom/bridge-control",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/upstream-runtime/results.json",
+      "source_sha256": "52980b0b9ba083b2f095750c38c179b77d42958671144aa5f0560ee21b1c8457",
+      "cases": [
+        {
+          "name": "bridge-control",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "6cf29516b368f2d8a33563d3e9d665a61e1000b74addef2ec18a90be8cc9b259",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Enable/disable only; no fabric-memory access."
+    },
+    {
+      "name": "config/sysmgr",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/config/results.json",
+      "source_sha256": "63a5416b3b77a5477793fd5f79675b11fc90b09772d40bf1f57d904840386373",
+      "cases": [
+        {
+          "name": "sysmgr",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "44116fe5f89ee9ce9eda3f0d8500ccf36ffbc582076c6995cbeda6cdc6726420",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "unstable",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "742c5ed0955cc15e9e9fbd44cc2a9e48f0597c953cd50fa1923e0045988a08f9",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Three stable read-only register snapshots; pinmux UART-route comparison matches the recorded handoff. Not full subsystem qualification."
+    },
+    {
+      "name": "config/pinmux",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/config/results.json",
+      "source_sha256": "63a5416b3b77a5477793fd5f79675b11fc90b09772d40bf1f57d904840386373",
+      "cases": [
+        {
+          "name": "pinmux",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "4c7da1bc73be4dcf573863abe0298a71ad543f90ff56b8a10f601a028ba60af9",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Three stable read-only register snapshots; pinmux UART-route comparison matches the recorded handoff. Not full subsystem qualification."
+    },
+    {
+      "name": "upstream/hello",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/candidates/reviewed-results.json",
+      "source_sha256": "bd7dbec672725f332099c5a12427f5599df6f52ed9d94d76f2ab2926053c4ae8",
+      "cases": [
+        {
+          "name": "hello",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "df7af93db051422bd98500f25b2b487d6355518fbe609782cfb66fd18941e94c",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000",
+          "original_status": "pass",
+          "scope": "Unchanged current hello CLI command under board DDR startup",
+          "uart_sha256": "d3fce38283c318a47eded865d00a2c61f54a6450bd401b919efca1aec46f74f8",
+          "load_readback_sha256": "aa87d2b88d8d1be99e1eae380084258e216eb22fd64bf278d462f5183e27cff9",
+          "upstream_scope_status": "pass"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Unchanged current hello CLI command under board DDR startup"
+    },
+    {
+      "name": "upstream/ccu",
+      "status": "partial",
+      "source_evidence": "validation/full-campaign-20261031/hardware/candidates/reviewed-results.json",
+      "source_sha256": "bd7dbec672725f332099c5a12427f5599df6f52ed9d94d76f2ab2926053c4ae8",
+      "cases": [
+        {
+          "name": "ccu-readonly",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "56140ffe7d0798fa3211d8f94856874c50e1c27ac95e8bc006f61dfbde9a4c9e",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000",
+          "original_status": "fail",
+          "scope": "Current CCU ID/error APIs only; no original all-DMI cache-flush test",
+          "uart_sha256": "427119584d5c9fc837263b563a424dbb47565d84fb7be9110b8a7f39a4f30732",
+          "load_readback_sha256": "a010703f2544978efc37b943b1d932b20da4127a8808e73ee4128e19b35f27c5",
+          "upstream_scope_status": "partial"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Current CCU ID/error APIs only; no original all-DMI cache-flush test"
+    },
+    {
+      "name": "upstream/clk_mngr",
+      "status": "partial",
+      "source_evidence": "validation/full-campaign-20261031/hardware/candidates/reviewed-results.json",
+      "source_sha256": "bd7dbec672725f332099c5a12427f5599df6f52ed9d94d76f2ab2926053c4ae8",
+      "cases": [
+        {
+          "name": "clkmgr-readonly",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "468e2eed93effd8ee9af71b968fa1b80e0e820f512ce674fff50ff495af6cdac",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000",
+          "original_status": "pass",
+          "scope": "Current clock getter APIs only; no initialization/divisor writes or physical frequency measurement",
+          "uart_sha256": "5c46217f0945af7e0c8b82c6c355d4879954ea1b61a3b1bc6f8f4aeed07bce4d",
+          "load_readback_sha256": "0d60ab75effb2e4e8a8ba64e0b6fe8aa56f9296322aecc6c62159062d5f72ace",
+          "upstream_scope_status": "partial"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Current clock getter APIs only; no initialization/divisor writes or physical frequency measurement"
+    },
+    {
+      "name": "upstream/dma",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/candidates/reviewed-results.json",
+      "source_sha256": "bd7dbec672725f332099c5a12427f5599df6f52ed9d94d76f2ab2926053c4ae8",
+      "cases": [
+        {
+          "name": "dma",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "2f3ccb25f0e5d8d0dae1c0e6f0fa66072f94c4235926c5dfdfd6604e56e0bbfb",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000",
+          "original_status": "fail",
+          "scope": "Unchanged sync256/async1024 demo plus4096-byte current API copy and full readback; polling fallback can invoke callback, no hardware DMA IRQ proof",
+          "uart_sha256": "3ab49c6abb16c306b5334262eacd26604136c98bbd9bfb1bd1418ea181a7745b",
+          "load_readback_sha256": "874460e4124982e739a58e4d4a67b3a3a3c9280e37fb1d70d34f21401ff82868",
+          "upstream_scope_status": "pass",
+          "limitation": "Polling fallback invokes callback; no hardware DMA interrupt-delivery proof. DMA get_error is a stub and not used as error qualification."
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Unchanged sync256/async1024 demo plus4096-byte current API copy and full readback; polling fallback can invoke callback, no hardware DMA IRQ proof"
+    },
+    {
+      "name": "upstream/gic",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/candidates/reviewed-results.json",
+      "source_sha256": "bd7dbec672725f332099c5a12427f5599df6f52ed9d94d76f2ab2926053c4ae8",
+      "cases": [
+        {
+          "name": "gic",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "89ad6cfb25755d31e8fdbbf06c58f73c9e3a6bcc6ef27cbf2427e82a13bfefc4",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000",
+          "original_status": "fail",
+          "scope": "Masked/enabled Group0 SGI ISR demo with board GIC-600 power preflight, Group1 CPU interfaces disabled/read back, and EL3 IRQ/FIQ vector shim",
+          "uart_sha256": "cb58bf9cc195bdfa39a4a4d0caea2888304cc771823fd9decbaf1294c168c2ba",
+          "load_readback_sha256": "0a4d5eccde50fc8e99e52f17bfb1dc79b26e788fb122bfdc1e11193d7b2aacbc",
+          "upstream_scope_status": "pass"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Masked/enabled Group0 SGI ISR demo with board GIC-600 power preflight, Group1 CPU interfaces disabled/read back, and EL3 IRQ/FIQ vector shim"
+    },
+    {
+      "name": "upstream/mmu",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/candidates/reviewed-results.json",
+      "source_sha256": "bd7dbec672725f332099c5a12427f5599df6f52ed9d94d76f2ab2926053c4ae8",
+      "cases": [
+        {
+          "name": "mmu",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "0c21f8f45ab9bf8853369043c5098b3d46ba986c930b11c6c7cc422162e37d35",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000",
+          "original_status": "pass",
+          "scope": "Unchanged MMU EL3 status command only; no translation exercise",
+          "uart_sha256": "23a53bc13b3bc68497f6f44d0ab18df786b3f33af63c3b784e2dcff5bc32a8be",
+          "load_readback_sha256": "83c4d8afca607d38591d2e86a6019ccfb38f3988ca969ba523e3b5cad0488f22",
+          "upstream_scope_status": "pass"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Unchanged MMU EL3 status command only; no translation exercise"
+    },
+    {
+      "name": "upstream/smmu",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/candidates/reviewed-results.json",
+      "source_sha256": "bd7dbec672725f332099c5a12427f5599df6f52ed9d94d76f2ab2926053c4ae8",
+      "cases": [
+        {
+          "name": "smmu",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "f8f393eac67f94d7e42bf25a5b6df42774b71af7bb5d386cab76e0f768a02d92",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000",
+          "original_status": "pass",
+          "scope": "Unchanged SMMU enable-status command only; no DMA translation qualification",
+          "uart_sha256": "a457fff6da7a6661f8e5b87967fa5f05f553f62f4132eae95d6a39824f85ab22",
+          "load_readback_sha256": "d81353a79e36b6223fb140ccca39631939c91bc5ccf03f190ea4797b8a5eaaba",
+          "upstream_scope_status": "pass"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Unchanged SMMU enable-status command only; no DMA translation qualification"
+    },
+    {
+      "name": "upstream/spi",
+      "status": "partial",
+      "source_evidence": "validation/full-campaign-20261031/hardware/candidates/reviewed-results.json",
+      "source_sha256": "bd7dbec672725f332099c5a12427f5599df6f52ed9d94d76f2ab2926053c4ae8",
+      "cases": [
+        {
+          "name": "spi",
+          "status": "partial",
+          "debug_exit": 0,
+          "elf_sha256": "e8bb406acbbae5a04247636f0ce06e25f786ad6b0d1af4224abe419c6ffaada0",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000",
+          "original_status": "fail",
+          "scope": "SPI32-byte and current API256-byte internal loopbacks; original status phase is partial when API has auto-closed, no external peer",
+          "uart_sha256": "8706ec06e4b423b645b3bb067ee1f7e47dee332fe0a00d5f6fc813d95df00a0d",
+          "load_readback_sha256": "f3b029027fbe1251c2df6ad8622e7dc17d2d11d069a43dd847751f36aedd501c",
+          "upstream_scope_status": "partial",
+          "limitation": "SPI32/256 internal loopbacks verified; original SPI status phase reports API not open, so full upstream selftest is not qualified."
+        }
+      ],
+      "restoration": "pass",
+      "scope": "SPI32-byte and current API256-byte internal loopbacks; original status phase is partial when API has auto-closed, no external peer"
+    },
+    {
+      "name": "upstream/timer",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/candidates/reviewed-results.json",
+      "source_sha256": "bd7dbec672725f332099c5a12427f5599df6f52ed9d94d76f2ab2926053c4ae8",
+      "cases": [
+        {
+          "name": "timer",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "fd24d88f7ba0fa98bc08f089ad45e19814c18b9c02109c2ad6f9cf56a5deade2",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000",
+          "original_status": "fail",
+          "scope": "Unchanged timer polling command, advancing samples and stopped state; no timing calibration",
+          "uart_sha256": "3399499ca87a9584a6e933d46d595a946dbe80ea347af50371eafeab7b3a2668",
+          "load_readback_sha256": "f475105836cbab533494374714860403742367098cc5806bf59439ed42d0c89a",
+          "upstream_scope_status": "pass"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Unchanged timer polling command, advancing samples and stopped state; no timing calibration"
+    },
+    {
+      "name": "reference/semihost",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/references/results.json",
+      "source_sha256": "d715b6d98aa5fbbd11b6f1994319e3587f043782b8ea6d32f373d221b20a1ba3",
+      "cases": [
+        {
+          "name": "semihost",
+          "status": "pass",
+          "elf_sha256": "0fd7848c4cd9c3ca12de1586b28a43f20f6cb95c434187acf3759a2167aa8345",
+          "binary_sha256": "e43d4119c7fc7a86a9be56e0cfaf5e6a4151c0a98dc3b9d8d31c363d1fbd4139",
+          "source_sha256": "2a3e07b1e90d8434cf1a908246637ef64ca1c9be93c5eacd19ed533fe6244b0e",
+          "entry": "0x20004",
+          "completion_pc": "0x20010",
+          "debug_exit": 0
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Unchanged assembly: QEMU RAM semihost output/GDB completion; physical OCRAM output, payload readback and exact completion PC."
+    },
+    {
+      "name": "custom/fault-probe",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/references/results.json",
+      "source_sha256": "d715b6d98aa5fbbd11b6f1994319e3587f043782b8ea6d32f373d221b20a1ba3",
+      "cases": [
+        {
+          "name": "fault-probe",
+          "status": "pass",
+          "elf_sha256": "5a3aee8fce92065e827ae92cbc2a074f5e0ab059281f19a3d53ee81fcce15b11",
+          "source_sha256": "68e533c728270d92fe22107c6412496a7f51404d9c4dd349c1de5494c081203d",
+          "debug_exit": 0,
+          "scope": "Reads exception state; does not inject or recover a fault"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Physical read-only ESR/ELR/FAR/SCTLR/CPTR snapshot; does not inject a fault or prove recovery."
+    },
+    {
+      "name": "custom/ocram-hello",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/ocram-uart/results.json",
+      "source_sha256": "04164783e6cfbb5036b0696bdaba2450c2e062a8c9dc16566ef1857f4f2d579d",
+      "cases": [
+        {
+          "name": "ocram-uart",
+          "status": "pass",
+          "source_sha256": {
+            "bootstrap/ocram/uart_start.S": "5bba8dc8fa089750591293235e434b91c5024454a8fd9a64b24b4295f4c88a29",
+            "bootstrap/ocram/uart_local.c": "32eaf2c9c48d33afa29da3d0c0c04ddc670c570cc2787af81bd2181816182e9e",
+            "bootstrap/ocram/uart_local.ld": "f8bfab0f1d82f3584027ff93ecbf49b1cb5a8363858276b6f9273bdebca5481d"
+          },
+          "elf_sha256": "0ccecbdafb87fa1ccdb2d7889d9ee1db4dd269e8647c633455672d88fdb0156c",
+          "binary_sha256": "3b01db43eed38fdbe49e0f59ef2a3f6cdf15a8b870101eed942c513cd23ab76d",
+          "entry": "0x0",
+          "completion_pc": "0x0000000000000138",
+          "lines": 3,
+          "debug_exit": 0
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Fresh physical OCRAM UART output, full payload readback and PC in its image. Entered by JTAG after bootstrap; this run does not separately qualify cold boot with DDR absent. Replays matching handoff and fixed100MHz UART divisor54."
+    },
+    {
+      "name": "reference/psci",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/psci/results.json",
+      "source_sha256": "82d3eb7ac78f626beb694c7ddcf2ee13d06948a45bd58e44e6d50a26087e4651",
+      "cases": [
+        {
+          "name": "psci",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "445e39a70bec59de4dc2d090cfe160acae0b20fa39a14db8d635a106f8bba7ac",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Exact CPU_ON helper under resident BL31/NS EL2: physical A55.1 context, identity, stack and CPU_OFF affinity verified; no forced takeover."
+    },
+    {
+      "name": "memory/dsu",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/memory-dsu/results.json",
+      "source_sha256": "2b9b9a2cf1d6cda6038d4040713d67f6a0bd9a43009545af71d89d26a14ac2f0",
+      "cases": [
+        {
+          "name": "normal",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "0f0c6be06e5f1f6f8109b7f3efe8174a2afe830596d40659a326ed62f35262b2",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "corrupt",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "6b329639e5c44fec925ce67fc1db5d3ada5a846fd39f4d01238e3f2d62d6a5e7",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "stalled",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "5cd0b6b88c25451502472a4aeef87b8ea7ff9ce033fbb085f0239bcc9aea709d",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "contention",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "19c38c7603b72221513949d9f6da232f790ea945e771953ddaf257702710a9b3",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Physical and model cached transfers: three consumers, full integrity, per-core attributes, negative controls and clean quiescence."
+    },
+    {
+      "name": "memory/l3-partition",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/l3-partition/results.json",
+      "source_sha256": "cbb4d1e99731a1102e4ab7592e5085c0d367578c8a7d61e7421b12b14c673cfa",
+      "cases": [
+        {
+          "name": "partitioned",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "122344c51e60f33e0c5cfbb63cee17267d687ded57767b35d6d9609ba4758c12",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Physical opt-in DSU policy: PARTCR/SID save, configure, readback and restore; shared/partitioned contention completes. No proven speedup or way-occupancy measurement."
+    },
+    {
+      "name": "memory/ddr-sweep",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/memory-ddr/results.json",
+      "source_sha256": "9af6d0d7d83e3bb9002680a8572c6a05d67f597ce6ec0bf4f572d4a81bb484fd",
+      "cases": [
+        {
+          "name": "ddr-calibrated",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "5e143d9327616469876ba7ea3da48d73c1cd13c60c6fa37691df3b0eb962c3db",
+          "timing_valid": true,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "ddr-path",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "4675f1c9b796738348e083aeeab20b2d8acabaad6c715f6fedf6dee36969a2e5",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "ddr-copy-fault",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "cd2cac0efe2569839ffb044012194029deaeeb8aa26f1c1dfbb282830fb1727f",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        },
+        {
+          "name": "ddr-clock-fault",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "2aa947cd1262391b5174394cc9bf9e7fb35e11ebf8f58ff12ea65de918a015ad",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Physical 20-sample 64KiB\u201316MiB NC CPU sweep with full integrity, negative controls and coarse400MHz counter check; scalar effective path, not peak MPFE bandwidth."
+    },
+    {
+      "name": "diagnostic/smc-guard",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/diagnostics/results.json",
+      "source_sha256": "c9e0eabb0e890dfb78b0e77e00f2153e2533b05421966e43cb88df54bfe287a2",
+      "cases": [
+        {
+          "name": "smc-guard",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "b32edb2e359f0e307b0e91e39e001b320c78183c32d2a72592f4162a61c44947",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Precondition/failure-detection control; counted once, not each assertion."
+    },
+    {
+      "name": "diagnostic/perf-zero-clock",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/diagnostics/results.json",
+      "source_sha256": "c9e0eabb0e890dfb78b0e77e00f2153e2533b05421966e43cb88df54bfe287a2",
+      "cases": [
+        {
+          "name": "perf-zero-clock",
+          "status": "pass",
+          "debug_exit": 0,
+          "elf_sha256": "6aee79c015f5faed25727a6e110e5315e1ddb3ca29d6145e568b3a6e6a6cf862",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Precondition/failure-detection control; counted once, not each assertion."
+    },
+    {
+      "name": "upstream/fcs",
+      "status": "partial",
+      "source_evidence": "validation/full-campaign-20261031/hardware/fcs-fixed/results.json",
+      "source_sha256": "901c687cd67881226ca4086a6e217076789a1056905b934d734bc5165b8e52b3",
+      "cases": [
+        {
+          "name": "fcs",
+          "status": "partial",
+          "debug_exit": 0,
+          "elf_sha256": "23950ef44cd3a4b4719544b02be698ee77af345efc04c878bf95cf4b793c4754",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Fixed HAL identity and36-byte read-only provision query complete; actual SDM0x85 denies session opening. Crypto session/RNG untested; no provisioning or key writes. Original stack-corruption failure preserved."
+    },
+    {
+      "name": "upstream/ecc",
+      "status": "partial",
+      "source_evidence": "validation/full-campaign-20261031/hardware/ecc-readonly/results.json",
+      "source_sha256": "617d82e47ec89540e0e763e5efff3f8f489505866460e4522b17f001f6c46952",
+      "cases": [
+        {
+          "name": "ecc-readonly",
+          "status": "partial",
+          "debug_exit": 0,
+          "elf_sha256": "3a2a4dbec139dd1f777c7f1358520792aeb693cbd5e5138bb8f8707dcc1971f7",
+          "timing_valid": false,
+          "uart_path": "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0",
+          "entry": "0x82400000"
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Current getter APIs match raw SERR0x00010000/DERR0 without initialization, clearing, injection or recovery. Nonzero status remains unchanged; this is not an ECC-health qualification."
+    },
+    {
+      "name": "custom/ethernet",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/ethernet/results.json",
+      "source_sha256": "ef5ad6de0e89d35e9911a6179cdfb3a0b8c8099cc26888c3dfef17f2f35a198b",
+      "cases": [
+        {
+          "name": "counter_calibration",
+          "status": "pass",
+          "measured_hz": 399984544.6685731,
+          "configured_hz": 400000000
+        },
+        {
+          "name": "udp_echo",
+          "status": "pass",
+          "sizes": [
+            64,
+            256,
+            512,
+            1024,
+            1472
+          ]
+        },
+        {
+          "name": "udp_sequence_and_corruption_controls",
+          "status": "pass",
+          "stats": {
+            "run": 1024,
+            "ticks": 14286191910,
+            "counter_hz": 400000000,
+            "rx_packets": 102,
+            "rx_bytes": 104448,
+            "bad": 1,
+            "duplicates": 2,
+            "reordered": 1,
+            "tx_packets": 0,
+            "tx_errors": 0,
+            "tx_active": 0,
+            "tcp_rx_bytes": 0,
+            "tcp_tx_acked": 0,
+            "tcp_bad_chunks": 0,
+            "mac_tx": 14,
+            "mac_rx": 119,
+            "mac_tx_full": 0,
+            "mac_rx_errors": 0,
+            "dma_status": 4,
+            "pbuf_used": 0,
+            "pbuf_max": 1,
+            "pbuf_errors": 0,
+            "tcp_drops": 0,
+            "tcp_checksum_errors": 0
+          }
+        },
+        {
+          "name": "tcp_board_receive",
+          "status": "pass",
+          "bytes": 65536
+        },
+        {
+          "name": "tcp_board_transmit",
+          "status": "pass",
+          "bytes": 262144
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Physical HPS EMAC2 at1Gb/s: ARP/ping, counter check, five UDP echo sizes, sequence/corruption controls and TCP65536-byte receive/transmit. Smoke campaign, no new bandwidth/soak claim; not USB Ethernet."
+    },
+    {
+      "name": "custom/usb-host",
+      "status": "fail",
+      "source_evidence": "validation/full-campaign-20261031/hardware/usb/results.json",
+      "source_sha256": "bc03c2068b3d4612b66229a658e5349c45e7ff8eab760975931396a89eaeba35",
+      "cases": [
+        {
+          "command": "usb start",
+          "prompt_returned": true,
+          "xhci_started": false,
+          "device_counts": [],
+          "external_devices_observed": false
+        }
+      ],
+      "restoration": "pass",
+      "scope": "Physical guarded U-Boot boots; xHCI CNR timeout prevents enumeration. No hub/mouse/flash/USB-NIC class traffic qualified."
+    },
+    {
+      "name": "custom/ddr-hello",
+      "status": "pass",
+      "source_evidence": "validation/full-campaign-20261031/hardware/fcs-fixed/restore-bootstrap.log",
+      "source_sha256": "bb9531448d8364f021c977f47b0432cfa9dcd436f3cebeb1141f2fd8a3aff708",
+      "cases": [],
+      "restoration": "pass",
+      "scope": "Fresh matching DDR bootstrap repeatedly validates four64MiB patterns, payload readback and executing PC in HPS bank3A; not full8GiB qualification."
+    }
+  ],
+  "counts": {
+    "pass": 49,
+    "partial": 5,
+    "fail": 1
+  }
+}

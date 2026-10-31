@@ -1,0 +1,63 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+UPSTREAM_LAB_BEGIN case=3
+GUEST_EXCEPTION_LEVEL=3
+UPSTREAM_COMMAND noc_selftest 
+
++------------------------------------------------------------+
+|                  NOC SELF-TEST                             |
++------------------------------------------------------------+
+
+Test 1 of 6 : NOC FIREWALL UART0
+------------------------------------------------------------
+NOC firewall UART0 allow-nonsecure PASS
+PASS
+
+Test 2 of 6 : NOC FIREWALL PROBE
+------------------------------------------------------------
+NOC firewall NOC probe allow-nonsecure PASS
+PASS
+
+Test 3 of 6 : NOC FIREWALL I2C0
+------------------------------------------------------------
+NOC firewall I2C0 allow-nonsecure PASS
+PASS
+
+Test 4 of 6 : NOC PROBE ID
+------------------------------------------------------------
+NOC probe core/id: 0xF49A0E07
+PASS
+
+Test 5 of 6 : NOC ERROR
+------------------------------------------------------------
+NOC error valid: 0
+NOC probe is accessible; no captured error is currently latched.
+PASS
+
+Test 6 of 6 : NOC ERROR CLEAR
+------------------------------------------------------------
+NOC error logger clear PASS
+PASS
+
+RESULT : 6 of 6 tests passed  -  SELF-TEST PASSED
+
+UPSTREAM_LAB_COMPLETE status=0

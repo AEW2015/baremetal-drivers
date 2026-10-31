@@ -643,6 +643,31 @@ int32_t sip_svc_send(sdm_client_handle mbox_handle, uint64_t smc_func_id,
     return ret;
 }
 
+int32_t mbox_detach_response_buffer(sdm_client_handle mbox_handle,
+                                   uint64_t *response)
+{
+    uint32_t client, job;
+    int32_t detached = 0;
+    if (response == NULL) {
+        return -22; /* -EINVAL; no dependency on a platform errno header. */
+    }
+    for (client = 2U; client < MAX_CLIENT_INSTANCES; client++) {
+        if (mbox_handle != &client_descriptors[client]) {
+            continue;
+        }
+        for (job = 0U; job < MAX_JOB_ID; job++) {
+            if (mbox_handle->job_resp[job].resp_data == response) {
+                mbox_handle->job_resp[job].resp_data = NULL;
+                mbox_handle->job_resp[job].resp_len = 0U;
+                detached++;
+            }
+        }
+        /* Do not free a pending job ID: quarantine it until its reply arrives. */
+        return detached;
+    }
+    return -22;
+}
+
 int32_t mbox_set_callback(sdm_client_handle mbox_handle,
         mbox_call_back_t callback)
 {

@@ -6,9 +6,9 @@ hardware compilation, physical transactions and measured hardware timing.
 
 | Lab | Start here | Current evidence |
 |---|---|---|
-| Cached multicore handoff and contention | [DSU](dsu/README.md) | Four QEMU and four Agilex Simics cases pass |
-| L3 way partitioning | [DSU policy variant](dsu/README.md) | Opt-in Agilex image compiles; hardware comparison pending |
-| DDR read/write/copy and dependent loads | [DDR sweeps](ddr/README.md) | 20 samples plus two failure controls pass in QEMU and Simics; no physical timing result |
+| Cached multicore handoff and contention | [DSU](dsu/README.md) | Four physical Modular ES cases pass; functional coherency qualified, not cache occupancy/performance |
+| L3 way partitioning | [DSU policy variant](dsu/README.md) | Physical policy readback, workload and restoration pass; no cache occupancy proof or statistical speedup |
+| DDR read/write/copy and dependent loads | [DDR sweeps](ddr/README.md) | Physical 20-sample scalar noncacheable path and two negative controls pass; coarse counter-rate gate passes, no peak MPFE claim |
 | Translated DMA and an unmapped destination | [SMMU](smmu/README.md) | Actual QEMU PCI EDU DMA, table walks and fault events pass |
 | Native DMA0/F2H/F2SDRAM TBU model paths | [SMMU model fixture](smmu/README.md) | Host-issued native translated requests/faults pass; not an Arm DMAC driver result |
 | Fabric traffic generator | [AXI core and C driver](fabric-ddr/README.md) | Native RTL/driver tests and Platform Designer component generation pass |
@@ -76,15 +76,19 @@ python3 upstream-lab/hardware.py --suite memory-dsu --only normal \
 
 Memory labs default to a 180-second UART deadline. The runner rejects QEMU-target
 memory builds before hardware access. Begin with `normal`; DSU `contention`
-and the explicitly selected `partitioned` variant are separate later runs.
+and the explicitly selected `partitioned` variant are separate runs.
 Partitioning keeps DDR-backed cacheable memory; it does not turn L3 into SRAM.
-Use `--only ddr-calibrated` for the later DDR timing run: it requires both the
-guest calibration checks and an independent host-measured interval of 0.9–1.1
-seconds. A plain `ddr-path` pass establishes functional results, not calibrated
-physical rates. The calibrated image has only been compiled so far.
+The physical `ddr-calibrated` run requires both the guest checks and an
+independent host-measured interval of 0.9–1.1 seconds; the captured interval
+passed at 0.9920008089 seconds. A plain `ddr-path` result has no independent
+counter-rate gate. Both physical sweep results and their raw UART evidence are
+in the campaign directory linked above.
 
-No new physical result is claimed here. USB's clean-start retry awaits the
-requested board power cycle. The fabric core's full-board fit/deployment awaits
+The current physical DSU and DDR evidence is under
+[`validation/full-campaign-20261031/hardware/`](../validation/full-campaign-20261031/hardware/).
+Clean-power-cycle and flash retries of USB both reproduced CNR/ULPI failures;
+the full-SPL experiment stopped at `spl_early_init`, and DDR Hello was restored.
+The fabric core's full-board fit/deployment awaits
 the reserved OpenTPU R4 build window and a verified master-view address map.
 The fitted image, stream-ID assignment, security, cache state and timing results
 must each be recorded before qualifying a hardware route.

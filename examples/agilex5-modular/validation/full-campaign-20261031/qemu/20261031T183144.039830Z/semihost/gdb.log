@@ -1,0 +1,8 @@
+hello_entry () at bootstrap/ocram/hello_semihost.S:10
+10	    mov x0, #4                 /* SYS_WRITE0 */
+Breakpoint 1 at 0x40200010: file bootstrap/ocram/hello_semihost.S, line 15.
+
+Breakpoint 1, hello_done () at bootstrap/ocram/hello_semihost.S:15
+15	    b hello_done
+SEMIHOST_DONE_PC=0x40200010
+[Inferior 1 (process 1) detached]

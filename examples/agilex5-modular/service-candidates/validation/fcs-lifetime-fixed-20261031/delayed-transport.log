@@ -1,0 +1,385 @@
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_random_number_ext’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:515:45: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 2 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+  515 |     printf("Random_number_ext: rand_size: %lu", rand_size + extra_data);
+      |                                           ~~^   ~~~~~~~~~~~~~~~~~~~~~~
+      |                                             |             |
+      |                                             |             uint32_t {aka unsigned int}
+      |                                             long unsigned int
+      |                                           %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_import_service_key’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:577:62: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+  577 |     printf("Import_service_key: key_buffer: %lx, key_size: %lu", (uint64_t)key,
+      |                                                            ~~^
+      |                                                              |
+      |                                                              long unsigned int
+      |                                                            %u
+  578 |             key_size);
+      |             ~~~~~~~~                                          
+      |             |
+      |             uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_export_service_key’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:627:43: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 2 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+  627 |     printf("Export_service_key: key_id: %lu", key_id);
+      |                                         ~~^   ~~~~~~
+      |                                           |   |
+      |                                           |   uint32_t {aka unsigned int}
+      |                                           long unsigned int
+      |                                         %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_remove_service_key’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:674:43: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 2 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+  674 |     printf("Remove_service_key: key_id: %lu", key_id);
+      |                                         ~~^   ~~~~~~
+      |                                           |   |
+      |                                           |   uint32_t {aka unsigned int}
+      |                                           long unsigned int
+      |                                         %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_get_service_key_printf’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:720:45: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 2 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+  720 |     printf("Get_service_key_info: key_id: %lu", key_id);
+      |                                           ~~^   ~~~~~~
+      |                                             |   |
+      |                                             |   uint32_t {aka unsigned int}
+      |                                             long unsigned int
+      |                                           %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_create_service_key’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:781:62: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+  781 |     printf("Create_service_key: key_buffer: %lx, key_size: %lu", (uint64_t)key,
+      |                                                            ~~^
+      |                                                              |
+      |                                                              long unsigned int
+      |                                                            %u
+  782 |             key_size);
+      |             ~~~~~~~~                                          
+      |             |
+      |             uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_send_certificate’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:872:62: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+  872 |     printf("Send_certificate: cert_buffer: %lx, cert_size: %lu",
+      |                                                            ~~^
+      |                                                              |
+      |                                                              long unsigned int
+      |                                                            %u
+  873 |             (uint64_t)cert_data, cert_size);
+      |                                  ~~~~~~~~~                    
+      |                                  |
+      |                                  uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_service_counter_set_preauthorized’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:916:48: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 2 has type ‘int’ [-Wformat=]
+  916 |     printf("Counter_set_preauthorized: type: %lu, value: %lu, test: %lu", type,
+      |                                              ~~^                          ~~~~
+      |                                                |                          |
+      |                                                long unsigned int          int
+      |                                              %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:916:60: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+  916 |     printf("Counter_set_preauthorized: type: %lu, value: %lu, test: %lu", type,
+      |                                                          ~~^
+      |                                                            |
+      |                                                            long unsigned int
+      |                                                          %u
+  917 |             value, test);
+      |             ~~~~~                                           
+      |             |
+      |             uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:916:71: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 4 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+  916 |     printf("Counter_set_preauthorized: type: %lu, value: %lu, test: %lu", type,
+      |                                                                     ~~^
+      |                                                                       |
+      |                                                                       long unsigned int
+      |                                                                     %u
+  917 |             value, test);
+      |                    ~~~~                                                
+      |                    |
+      |                    uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_get_digest_init’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:975:40: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 2 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+  975 |     printf("Get_digest_init: key_id: %lu, "
+      |                                      ~~^
+      |                                        |
+      |                                        long unsigned int
+      |                                      %u
+  976 |             "op_mode: %lu, dig_size: %lu", key_id, op_mode, dig_size);
+      |                                            ~~~~~~
+      |                                            |
+      |                                            uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:975:12: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+  975 |     printf("Get_digest_init: key_id: %lu, "
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  976 |             "op_mode: %lu, dig_size: %lu", key_id, op_mode, dig_size);
+      |                                                    ~~~~~~~
+      |                                                    |
+      |                                                    uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:976:25: note: format string is defined here
+  976 |             "op_mode: %lu, dig_size: %lu", key_id, op_mode, dig_size);
+      |                       ~~^
+      |                         |
+      |                         long unsigned int
+      |                       %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:975:12: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 4 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+  975 |     printf("Get_digest_init: key_id: %lu, "
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  976 |             "op_mode: %lu, dig_size: %lu", key_id, op_mode, dig_size);
+      |                                                             ~~~~~~~~
+      |                                                             |
+      |                                                             uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:976:40: note: format string is defined here
+  976 |             "op_mode: %lu, dig_size: %lu", key_id, op_mode, dig_size);
+      |                                      ~~^
+      |                                        |
+      |                                        long unsigned int
+      |                                      %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_get_digest_update’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1018:50: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]
+ 1018 |         printf("Get_digest_finalize: src_addrr: %x, src_size: %lu",
+      |                                                 ~^
+      |                                                  |
+      |                                                  unsigned int
+      |                                                 %lx
+ 1019 |                 (uint64_t)src_data, src_size);
+      |                 ~~~~~~~~~~~~~~~~~~                
+      |                 |
+      |                 long unsigned int
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1018:65: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1018 |         printf("Get_digest_finalize: src_addrr: %x, src_size: %lu",
+      |                                                               ~~^
+      |                                                                 |
+      |                                                                 long unsigned int
+      |                                                               %u
+ 1019 |                 (uint64_t)src_data, src_size);
+      |                                     ~~~~~~~~                     
+      |                                     |
+      |                                     uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1026:48: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]
+ 1026 |         printf("Get_digest_update: src_addrr: %x, src_size: %lu",
+      |                                               ~^
+      |                                                |
+      |                                                unsigned int
+      |                                               %lx
+ 1027 |                 (uint64_t)src_data, src_size);
+      |                 ~~~~~~~~~~~~~~~~~~              
+      |                 |
+      |                 long unsigned int
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1026:63: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1026 |         printf("Get_digest_update: src_addrr: %x, src_size: %lu",
+      |                                                             ~~^
+      |                                                               |
+      |                                                               long unsigned int
+      |                                                             %u
+ 1027 |                 (uint64_t)src_data, src_size);
+      |                                     ~~~~~~~~                   
+      |                                     |
+      |                                     uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_mac_verify_init’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1147:40: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 2 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1147 |     printf("Mac_verify_init: key_id: %lu, dig_size: %lu", key_id, dig_size);
+      |                                      ~~^                  ~~~~~~
+      |                                        |                  |
+      |                                        long unsigned int  uint32_t {aka unsigned int}
+      |                                      %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1147:55: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1147 |     printf("Mac_verify_init: key_id: %lu, dig_size: %lu", key_id, dig_size);
+      |                                                     ~~^           ~~~~~~~~
+      |                                                       |           |
+      |                                                       |           uint32_t {aka unsigned int}
+      |                                                       long unsigned int
+      |                                                     %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_mac_verify_update’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1189:63: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1189 |         printf("Mac_verify_update: src_addr: %lx, src_size: %lu, "
+      |                                                             ~~^
+      |                                                               |
+      |                                                               long unsigned int
+      |                                                             %u
+ 1190 |                 "mac_data_size: %lu", (uint64_t)src_addr, src_size,
+      |                                                           ~~~~~~~~
+      |                                                           |
+      |                                                           uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1189:16: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 4 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1189 |         printf("Mac_verify_update: src_addr: %lx, src_size: %lu, "
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1190 |                 "mac_data_size: %lu", (uint64_t)src_addr, src_size,
+ 1191 |                 mac_data_size);
+      |                 ~~~~~~~~~~~~~
+      |                 |
+      |                 uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1190:35: note: format string is defined here
+ 1190 |                 "mac_data_size: %lu", (uint64_t)src_addr, src_size,
+      |                                 ~~^
+      |                                   |
+      |                                   long unsigned int
+      |                                 %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1198:65: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1198 |         printf("Mac_verify_finalize: src_addr: %lx, src_size: %lu, "
+      |                                                               ~~^
+      |                                                                 |
+      |                                                                 long unsigned int
+      |                                                               %u
+ 1199 |                 "mac_data_size: %lu", (uint64_t)src_addr, src_size,
+      |                                                           ~~~~~~~~
+      |                                                           |
+      |                                                           uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1198:16: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 4 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1198 |         printf("Mac_verify_finalize: src_addr: %lx, src_size: %lu, "
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1199 |                 "mac_data_size: %lu", (uint64_t)src_addr, src_size,
+ 1200 |                 mac_data_size);
+      |                 ~~~~~~~~~~~~~
+      |                 |
+      |                 uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1199:35: note: format string is defined here
+ 1199 |                 "mac_data_size: %lu", (uint64_t)src_addr, src_size,
+      |                                 ~~^
+      |                                   |
+      |                                   long unsigned int
+      |                                 %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_sdos_encrypt’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1358:54: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1358 |     printf("Sdos_encrypt: src_addr: %lx, src_size: %lu, resp_addr: %lx",
+      |                                                    ~~^
+      |                                                      |
+      |                                                      long unsigned int
+      |                                                    %u
+ 1359 |             (uint64_t)src_data, src_size, (uint64_t)resp_data);
+      |                                 ~~~~~~~~              
+      |                                 |
+      |                                 uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_sdos_decrypt’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1426:41: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+ 1426 |             "Sdos_decrypt: owner_flag: %d, src_addr: %lx, src_size: %lu, resp_addr: %lx",
+      |                                        ~^
+      |                                         |
+      |                                         int
+      |                                        %ld
+ 1427 |             owner_flag, (uint64_t)src_data, src_size, (uint64_t)resp_data,
+      |             ~~~~~~~~~~                   
+      |             |
+      |             uint64_t {aka long unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1426:71: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 4 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1426 |             "Sdos_decrypt: owner_flag: %d, src_addr: %lx, src_size: %lu, resp_addr: %lx",
+      |                                                                     ~~^
+      |                                                                       |
+      |                                                                       long unsigned int
+      |                                                                     %u
+ 1427 |             owner_flag, (uint64_t)src_data, src_size, (uint64_t)resp_data,
+      |                                             ~~~~~~~~                   
+      |                                             |
+      |                                             uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1426:13: warning: too many arguments for format [-Wformat-extra-args]
+ 1426 |             "Sdos_decrypt: owner_flag: %d, src_addr: %lx, src_size: %lu, resp_addr: %lx",
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_hkdf_request’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1495:37: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 2 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1495 |     printf("HKDF_request: key_id: %lu, step_type: %lu, "
+      |                                   ~~^
+      |                                     |
+      |                                     long unsigned int
+      |                                   %u
+ 1496 |             "mac_mode: %lu, input_buffer: %lx, output_key_size: %lu", key_id,
+      |                                                                       ~~~~~~
+      |                                                                       |
+      |                                                                       uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1495:53: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1495 |     printf("HKDF_request: key_id: %lu, step_type: %lu, "
+      |                                                   ~~^
+      |                                                     |
+      |                                                     long unsigned int
+      |                                                   %u
+ 1496 |             "mac_mode: %lu, input_buffer: %lx, output_key_size: %lu", key_id,
+ 1497 |             step_type, mac_mode, (uint64_t)input_buffer, output_key_size);
+      |             ~~~~~~~~~                                
+      |             |
+      |             uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1495:12: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 4 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1495 |     printf("HKDF_request: key_id: %lu, step_type: %lu, "
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1496 |             "mac_mode: %lu, input_buffer: %lx, output_key_size: %lu", key_id,
+ 1497 |             step_type, mac_mode, (uint64_t)input_buffer, output_key_size);
+      |                        ~~~~~~~~
+      |                        |
+      |                        uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1496:26: note: format string is defined here
+ 1496 |             "mac_mode: %lu, input_buffer: %lx, output_key_size: %lu", key_id,
+      |                        ~~^
+      |                          |
+      |                          long unsigned int
+      |                        %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1495:12: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 6 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1495 |     printf("HKDF_request: key_id: %lu, step_type: %lu, "
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1496 |             "mac_mode: %lu, input_buffer: %lx, output_key_size: %lu", key_id,
+ 1497 |             step_type, mac_mode, (uint64_t)input_buffer, output_key_size);
+      |                                                          ~~~~~~~~~~~~~~~
+      |                                                          |
+      |                                                          uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1496:67: note: format string is defined here
+ 1496 |             "mac_mode: %lu, input_buffer: %lx, output_key_size: %lu", key_id,
+      |                                                                 ~~^
+      |                                                                   |
+      |                                                                   long unsigned int
+      |                                                                 %u
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_mctp_cmd_send’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:1667:51: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘uint32_t’ {aka ‘unsigned int’} [-Wformat=]
+ 1667 |     printf("Mctp_send: src_data: %lx, src_size: %lu, resp_data: %lx",
+      |                                                 ~~^
+      |                                                   |
+      |                                                   long unsigned int
+      |                                                 %u
+ 1668 |             (uint64_t)src_data, src_size, (uint64_t)resp_data);
+      |                                 ~~~~~~~~           
+      |                                 |
+      |                                 uint32_t {aka unsigned int}
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_ecdsa_hash_sign’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:2195:51: warning: format ‘%lx’ expects argument of type ‘long unsigned int’, but argument 2 has type ‘char *’ [-Wformat=]
+ 2195 |     printf("Hash data sign finalize: Hash data: %lx, Hash data size: %u",
+      |                                                 ~~^
+      |                                                   |
+      |                                                   long unsigned int
+      |                                                 %s
+ 2196 |             hash_data, hash_data_size);
+      |             ~~~~~~~~~                              
+      |             |
+      |             char *
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_ecdsa_sha2_data_sign_verify_update’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:2581:60: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘char *’ [-Wformat=]
+ 2581 |                 "ECDSA SHA2 sign verify update: src_addr: %x, src_size: %u, sig_addr:%u,"
+      |                                                           ~^
+      |                                                            |
+      |                                                            unsigned int
+      |                                                           %s
+ 2582 |                 "sig_size: %u", src_addr, src_size, signed_data, sig_size);
+      |                                 ~~~~~~~~                    
+      |                                 |
+      |                                 char *
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:2581:87: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘char *’ [-Wformat=]
+ 2581 |                 "ECDSA SHA2 sign verify update: src_addr: %x, src_size: %u, sig_addr:%u,"
+      |                                                                                      ~^
+      |                                                                                       |
+      |                                                                                       unsigned int
+      |                                                                                      %s
+ 2582 |                 "sig_size: %u", src_addr, src_size, signed_data, sig_size);
+      |                                                     ~~~~~~~~~~~                        
+      |                                                     |
+      |                                                     char *
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c: In function ‘run_fcs_ecdh_request’:
+/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/../../drivers/fcs/socfpga_fcs.c:2843:43: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘char *’ [-Wformat=]
+ 2843 |     printf("ECDH finalize: pub_key_addr: %x, pub_key_size: %u", pub_key_data,
+      |                                          ~^                     ~~~~~~~~~~~~
+      |                                           |                     |
+      |                                           unsigned int          char *
+      |                                          %s
+MBOX client #2 opened, handle=0x5c29ab4e9b90
+Get_chip_id: No argsSIP_SVC response x0: 0, x1: c1556501, x2: 42199601PASS delayed CHIP_ID copied before HAL returns
+Get_jtag_idcode: No argsSIP_SVC response x1: 0, x2: 364f0ddPASS delayed JTAG_ID copied before HAL returns
+Get_chip_id: No argsGet_chip_id: No argsSIP_SVC response x0: 0, x1: c1556504, x2: 42199604PASS timeout then late old reply cannot overwrite/reuse a returned local buffer or satisfy the next request
+PASS detached late response leaves owned canary untouched
+Get_chip_id: No argsSIP_SVC response x0: 85, x1: c1556506, x2: 42199606PASS actual SDM error propagated instead of false zero-status success
+Open_session: No args
+SIP_SVC response x1: 0, x2: 7Generating UUIDRandom_number_ext: rand_size: 16SIP_SVC response x1: 0, x2: 10Random_number_ext: rand_size: 16SIP_SVC response x1: 9, x2: 10Close_session: session_id: 7SIP_SVC response: x1: 0Session closedPASS delayed session UUID/RNG/close lifecycle and RNG error status
+Open_session: No args
+SIP_SVC response x1: 85, x2: 7[FCS][INFO] SDM returned 0x85 (security denial; often unowned / pubkey not provisioned)
+PASS actual security denial preserved
+Open_session: No args
+SIP_SVC response x1: 0, x2: 7Generating UUIDFailed to generate UUID: rc=133; cleanup close rc=0 status=0
+PASS UUID RNG failure closes the newly opened remote session and propagates error
+Get_provision_data: prov_data_buffer: 0x83800000
+SIP_SVC response x1: 0, x2: cGet_chip_id: No argsSIP_SVC response x0: 0, x1: c1556511, x2: 42199611PASS API drain sees no expired HAL response mappings
+FCS_DELAYED_TRANSPORT_COMPLETE

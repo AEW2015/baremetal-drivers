@@ -1,0 +1,3 @@
+Evidence: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/reference-hardware-20261031T191037.126106Z
+ocram-uart: pass
+DDR Hello restoration: pass

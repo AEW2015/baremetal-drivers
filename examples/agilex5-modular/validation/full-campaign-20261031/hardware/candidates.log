@@ -1,0 +1,388 @@
+Evidence: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/upstream26-hardware-20261031T190518.962173Z
+hello: pass
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+CANDIDATE_BEGIN name=hello
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CANDIDATE_COMMAND hello_selftest 
+Hello, Baremetal World!
+CANDIDATE_COMPLETE status=0
+
+ccu-readonly: fail
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x8200000CANDIDATE_BEGIN name=ccu-readonly
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CCU_READONLY ID=0x80000000 ERROR=0x00000000 rc_id=0 rc_error=0
+PASS CCU_READONLY_API_RAW_AGREE
+SCOPE CCU status only; original all-DMI flush not executed
+CANDIDATE_COMPLETE status=0
+
+clkmgr-readonly: pass
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+CANDIDATE_BEGIN name=clkmgr-readonly
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CLK_READONLY block=7 rc=0 frequency_hz=100000000
+CLK_READONLY block=8 rc=0 frequency_hz=100000000
+CLK_READONLY block=9 rc=0 frequency_hz=100000000
+CLK_READONLY block=3 rc=0 frequency_hz=100000000
+CLK_READONLY block=4 rc=0 frequency_hz=100000000
+CLK_READONLY block=0 rc=0 frequency_hz=533333333
+CLK_READONLY block=5 rc=0 frequency_hz=400000000
+CLK_READONLY block=6 rc=0 frequency_hz=400000000
+PASS CLK_READONLY_ALL_RATES_NONZERO
+PASS CLK_READONLY_REGISTER_UNCHANGED
+SCOPE Clock getter path only; no PLL/pinmux/divisor initialization or physical frequency measurement
+CANDIDATE_COMPLETE status=0
+
+dma: fail
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executinCANDIDATE_BEGIN name=dma
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CANDIDATE_COMMAND dma_selftest 
+
+=== DMA Memory-to-Memory Transfer Demo ===
+
+[Step 1] Initialise DMA (instance 0, channel 0)
+DMA: GIC interrupt_enable failed (id=112, rc=1) - falling back to polling mode
+  [PASS] dma_init
+
+[Step 2] Synchronous transfer (256 bytes, pattern 0xA5)
+Starting the DMA transfer on channel 0  [PASS] dma_memcpy (sync)
+  [PASS] Sync data verification
+  All 256 bytes match 0xA5
+
+[Step 3] Asynchronous transfer (1024 bytes, incrementing pattern)
+Starting the DMA transfer on channel 0  [PASS] dma_memcpy_async (start)
+  [PASS] dma_wait (async timeout = 2000 ms)
+  Callback fired : yes
+  [PASS] Async data verification (1024 bytes matched)
+
+[Step 4] Error status
+  [PASS] No transfer errors (CH_INTSTATUS error flags = 0x00000000)
+
+[Step 5] Deinitialise DMA
+  Done.
+DMA: GIC interrupt_enable failed (id=112, rc=1) - falling back to polling mode
+DMA_STRICT_INIT rc=0
+PASS DMA_STRICT_INIT
+Starting the DMA transfer on channel 0DMA_STRICT_COPY rc=0
+DMA_STRICT_READBACK bytes=4096 mismatches=0
+PASS DMA_STRICT_4096_READBACK
+DMA_STRICT_HW CHEN=0x0 INTSTATUS=0x0
+PASS DMA_STRICT_CHANNEL_IDLE
+CANDIDATE_COMPLETE status=0
+
+gic: fail
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bCANDIDATE_BEGIN name=gic
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+PASS GIC_REDISTRIBUTOR_POWER_READY
+CANDIDATE_COMMAND gic_selftest 
+
++------------------------------------------------------------+
+|              GIC SGI INTERRUPT SELF-TEST                   |
++------------------------------------------------------------+
+
+Initializing GIC environment ................ GIC_GROUP1_CPU_CONTROL=0x0
+PASS GIC_GROUP1_CPU_DISABLED
+done
+
+Test 1 of 2 : Masked SGI must NOT be delivered
+------------------------------------------------------------
+  Register ISR for SGI 2 .................... OK
+  Trigger SGI 2 while disabled .............. OK
+  Verify no ISR was invoked ................. PASS
+
+Test 2 of 2 : Enabled SGI must be delivered
+------------------------------------------------------------
+  Register ISR for SGI 1 .................... OK
+  Enable SGI 1 .............................. OK
+  Trigger SGI 1 ............................. OK
+  Verify ISR was invoked .................... PASS (IRQ=1, count=1)
+------------------------------------------------------------
+
+RESULT : 2 of 2 tests passed  -  SELF-TEST PASSED
+
+CANDIDATE_COMPLETE status=0
+
+mmu: pass
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+CANDIDATE_BEGIN name=mmu
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CANDIDATE_COMMAND mmu_selftest 3
+MMU EL3: disabled
+PASS MMU_EL3_STATUS_DISABLED
+CANDIDATE_COMPLETE status=0
+
+smmu: pass
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+CANDIDATE_BEGIN name=smmu
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CANDIDATE_COMMAND smmu_selftest 
+SMMU: disabled
+SMMU_STATUS_RAW CR0=0x00000000
+PASS SMMU_STATUS_API_RAW_AGREE
+CANDIDATE_COMPLETE status=0
+
+spi: fail
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000CANDIDATE_BEGIN name=spi
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CANDIDATE_COMMAND spi_selftest 0 1 32
+
++------------------------------------------------------------+
+|                  SPI SELF-TEST                             |
++------------------------------------------------------------+
+
+Test 1 of 3 : SPI PROBE
+------------------------------------------------------------
+SPI0 version: 0x3430302A
+PASS
+
+Test 2 of 3 : SPI LOOPBACK
+------------------------------------------------------------
+SPI0 loopback PASS (32 bytes, CS1)
+PASS
+
+Test 3 of 3 : SPI STATUS
+------------------------------------------------------------
+SPI API is not open. Use spi_selftest for a self-contained test.
+PASS
+
+RESULT : 3 of 3 tests passed  -  SELF-TEST PASSED
+
+SPI_API_256 rc=0
+PASS SPI_API_256_LOOPBACK
+CANDIDATE_COMPLETE status=0
+
+timer: fail
+ executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+CANDIDATE_BEGIN name=timer
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CANDIDATE_COMMAND timer_selftest 
+
++------------------------------------------------------------+
+|                TIMER POLLING SELF-TEST                     |
++------------------------------------------------------------+
+
+Using timer instance 0 with period 1000000 us
+
+Test 1 of 2 : Timer must start and advance
+------------------------------------------------------------
+  Open timer instance ....................... timer_descriptor addr = 0x00000000824072D0
+OK
+  Set timer period to 1000000 us ............. OK
+  Start timer ............................... Starting timer instance
+OK
+  Read timer value .......................... clk_hz now = 100000000
+clk_hz now = 100000000
+OK (993783 us -> 313677 us)
+  Verify timer advanced ..................... PASS
+
+Test 2 of 2 : Timer polling over multiple samples
+------------------------------------------------------------
+  Sample 1 of 5 ............................. clk_hz now = 100000000
+291213 us
+  Sample 2 of 5 ............................. clk_hz now = 100000000
+606280 us
+  Sample 3 of 5 ............................. clk_hz now = 100000000
+921346 us
+  Sample 4 of 5 ............................. clk_hz now = 100000000
+236413 us
+  Sample 5 of 5 ............................. clk_hz now = 100000000
+551479 us
+  Stop timer ................................ Stopping timer instanceOK
+  Verify polling completed .................. PASS
+------------------------------------------------------------
+
+RESULT : 2 of 2 tests passed  -  SELF-TEST PASSED
+
+CANDIDATE_COMPLETE status=0
+
+DDR Hello restoration: pass

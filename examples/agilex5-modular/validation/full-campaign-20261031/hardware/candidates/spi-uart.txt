@@ -1,0 +1,50 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000CANDIDATE_BEGIN name=spi
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CANDIDATE_COMMAND spi_selftest 0 1 32
+
++------------------------------------------------------------+
+|                  SPI SELF-TEST                             |
++------------------------------------------------------------+
+
+Test 1 of 3 : SPI PROBE
+------------------------------------------------------------
+SPI0 version: 0x3430302A
+PASS
+
+Test 2 of 3 : SPI LOOPBACK
+------------------------------------------------------------
+SPI0 loopback PASS (32 bytes, CS1)
+PASS
+
+Test 3 of 3 : SPI STATUS
+------------------------------------------------------------
+SPI API is not open. Use spi_selftest for a self-contained test.
+PASS
+
+RESULT : 3 of 3 tests passed  -  SELF-TEST PASSED
+
+SPI_API_256 rc=0
+PASS SPI_API_256_LOOPBACK
+CANDIDATE_COMPLETE status=0

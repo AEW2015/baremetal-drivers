@@ -1,0 +1,13 @@
+ccu: pass
+clk_mngr: pass
+dma: fail
+ecc: fail
+fcs: fail
+gpio: partial
+i2c: partial
+i3c: fail
+mmu: pass
+sdmmc: fail
+seu: fail
+smmu: pass
+spi: pass

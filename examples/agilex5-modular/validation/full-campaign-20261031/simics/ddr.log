@@ -1,0 +1,4 @@
+ddr-path: pass
+ddr-copy-fault: pass
+ddr-clock-fault: pass
+/workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/full-campaign-20261031/simics/ddr

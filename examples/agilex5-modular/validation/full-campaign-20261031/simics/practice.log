@@ -1,0 +1,14 @@
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/runs/simics-practice-20261031T183401.617459Z
+startup: pass
+corruption: pass
+exception: pass
+timer: pass
+mmu: pass
+uart: pass
+multicore: pass
+startup-no-bss: pass
+startup-no-data: pass
+corruption-no-injection: pass
+exception-wrong-brk: pass
+timer-wrong-ppi: pass
+mmu-writable-ro: pass

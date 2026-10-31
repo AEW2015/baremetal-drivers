@@ -1,0 +1,33 @@
+000000008240115c <__wrap_gic_api_init>:
+    8240115c:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    82401160:	910003fd 	mov	x29, sp
+    82401164:	a90153f3 	stp	x19, x20, [sp, #16]
+    82401168:	940001c3 	bl	82401874 <gic_api_init>
+    8240116c:	d5384240 	mrs	x0, currentel
+    82401170:	90000033 	adrp	x19, 82405000 <interrupt_callbacks+0x1098>
+    82401174:	f100301f 	cmp	x0, #0xc
+    82401178:	540000e0 	b.eq	82401194 <__wrap_gic_api_init+0x38>  // b.none
+    8240117c:	52800000 	mov	w0, #0x0                   	// #0
+    82401180:	d0000001 	adrp	x1, 82403000 <lib_puts+0x24>
+    82401184:	91298021 	add	x1, x1, #0xa60
+    82401188:	97ffffac 	bl	82401038 <check>
+    8240118c:	b940d260 	ldr	w0, [x19, #208]
+    82401190:	97ffffe8 	bl	82401130 <candidate_done>
+    82401194:	d51eccff 	msr	icc_igrpen1_el3, xzr
+    82401198:	d5033fdf 	isb
+    8240119c:	d53eccf4 	mrs	x20, icc_igrpen1_el3
+    824011a0:	d0000000 	adrp	x0, 82403000 <lib_puts+0x24>
+    824011a4:	aa1403e1 	mov	x1, x20
+    824011a8:	912a0c00 	add	x0, x0, #0xa83
+    824011ac:	97ffffb8 	bl	8240108c <__wrap_printf>
+    824011b0:	f240069f 	tst	x20, #0x3
+    824011b4:	d0000001 	adrp	x1, 82403000 <lib_puts+0x24>
+    824011b8:	1a9f17e0 	cset	w0, eq	// eq = none
+    824011bc:	912a8821 	add	x1, x1, #0xaa2
+    824011c0:	97ffff9e 	bl	82401038 <check>
+    824011c4:	b940d260 	ldr	w0, [x19, #208]
+    824011c8:	35fffe40 	cbnz	w0, 82401190 <__wrap_gic_api_init+0x34>
+    824011cc:	a94153f3 	ldp	x19, x20, [sp, #16]
+    824011d0:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    824011d4:	d65f03c0 	ret
+

@@ -1,0 +1,2156 @@
+{
+  "scope": "All94 registered rows accounted for; exercised includes failed/partial runtime attempts, not a claim of full capability. HostRTL evidence is separate from QEMU/Simics/hardware.",
+  "examples": [
+    {
+      "id": "upstream/bridge",
+      "scope": "Simics 16-word loopback; physical fabric endpoint still required.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/bridge",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "upstream/ccu",
+      "scope": "Current CCU ID/error APIs only; no original all-DMI cache-flush test",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/ccu",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "partial",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/ccu",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/clk_mngr",
+      "scope": "Physical read-only current getters verified; full initialization/divisor writes excluded. Model also has two unsupported divisor getters; partial on both targets.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "partial",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/clk_mngr",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "partial",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/clk_mngr",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/combophy",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/combophy",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/combophy",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/crc",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "upstream/crc",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/crc",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/crc",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/ddr",
+      "scope": "Current OCRAM console DDR validation; separate physical bootstrap listed below.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/ddr",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "upstream/dma",
+      "scope": "Unchanged sync256/async1024 demo plus4096-byte current API copy and full readback; polling fallback can invoke callback, no hardware DMA IRQ proof",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/dma",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/dma",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/ecc",
+      "scope": "Current getter APIs match raw SERR0x00010000/DERR0 without initialization, clearing, injection or recovery. Nonzero status remains unchanged; this is not an ECC-health qualification.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "fail",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/ecc",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "partial",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/ecc",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/fcs",
+      "scope": "Fixed HAL identity and36-byte read-only provision query complete; actual SDM0x85 denies session opening. Crypto session/RNG untested; no provisioning or key writes. Original stack-corruption failure preserved.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "fail",
+          "evidence": "validation/full-campaign-20261031/simics/fcs-fixed-results.json",
+          "case": "fcs-fixed",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "partial",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/fcs",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/gic",
+      "scope": "Masked/enabled Group0 SGI ISR demo with board GIC-600 power preflight, Group1 CPU interfaces disabled/read back, and EL3 IRQ/FIQ vector shim",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/gic",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/gic",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/gpio",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "partial",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/gpio",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "upstream/hello",
+      "scope": "Unchanged current hello CLI command under board DDR startup",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/hello",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/hello",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/i2c",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "partial",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/i2c",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "upstream/i3c",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "fail",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/i3c",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "upstream/iossm",
+      "scope": "Simics image readback passes; ECC injection/clear rejected and recovery unqualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "partial",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/iossm",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "upstream/mailbox",
+      "scope": "Simics NOOP/config pass, GET_IDCODE rejected; physical TF-A path passes all three.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "partial",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/mailbox",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/mailbox",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/mmu",
+      "scope": "Unchanged MMU EL3 status command only; no translation exercise",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/mmu",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/mmu",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/noc",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/noc",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/noc",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/perf",
+      "scope": "CPU memory correctness; physical 400 MHz counter checked against host time. Diagnostic rates, not optimized DDR bandwidth.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "upstream/perf",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/perf",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/perf",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/reboot_mngr",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/reboot_mngr",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "upstream/reset_mngr",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/reset_mngr",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/reset_mngr",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/sdmmc",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "fail",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/sdmmc",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "upstream/seu",
+      "scope": "Current 26.3 implementation; not qualified by legacy results.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "fail",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/seu",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "upstream/smmu",
+      "scope": "Unchanged SMMU enable-status command only; no DMA translation qualification",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/smmu",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/smmu",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/spi",
+      "scope": "SPI32-byte and current API256-byte internal loopbacks; original status phase is partial when API has auto-closed, no external peer",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "partial",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/spi",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "partial",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/spi",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "upstream/timer",
+      "scope": "Unchanged timer polling command, advancing samples and stopped state; no timing calibration",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "upstream/timer",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "upstream/timer",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/core",
+      "scope": "CPU/NEON, cache discovery, DDR copy, GPIO/counter/GIC reads; no coherency proof.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/core",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/dma",
+      "scope": "4096-byte linked-descriptor DMA copy; complete data readback.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/dma",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/gic",
+      "scope": "Polled secure SGI acknowledgement; not exception delivery.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/gic",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/interfaces",
+      "scope": "Ethernet PHY, SD/card-detect and USB controller identification only.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/interfaces",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/mailbox",
+      "scope": "Direct SDM GET_IDCODE, separate from TF-A mailbox API.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/mailbox",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/mmu",
+      "scope": "EL3 identity translation and DDR access.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/mmu",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/multicore",
+      "scope": "Direct reset/power release; three secondary identity records; not PSCI.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/multicore",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/som",
+      "scope": "Peripheral timer, watchdog interrupt-first mode, SPI loopback, LED pad, I2C IDs.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/som",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/som-i2c",
+      "scope": "GPIO I2C sensor ID and EEPROM reads; no EEPROM array writes.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/som-i2c",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/som-i3c",
+      "scope": "I3C controller legacy-I2C sensor/EEPROM reads; no native I3C qualification.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/som-i3c",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-ccu",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/vendor-ccu",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-clkmgr",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/vendor-clkmgr",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-ecc",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/vendor-ecc",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-smmu",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/vendor-smmu",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-uart",
+      "scope": "Pinned 25.1 vendor adaptation; register/identity checks, with recorded ES warnings.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/vendor-uart",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-timer",
+      "scope": "Unchanged pinned25.1 timer body through the board adapter: count set, started, observed zero and returned success; no interrupt or calibrated period claim.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "board/vendor-timer",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "board/vendor-watchdog",
+      "scope": "Compiled adapter; not one of the 15 qualified board-suite entries.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "Original watchdog can progress into system reset; needs dedicated interrupt/reset recovery adaptation. Safe interrupt-first behavior is covered by board/som."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Original watchdog can progress into system reset; needs dedicated interrupt/reset recovery adaptation. Safe interrupt-first behavior is covered by board/som."
+        },
+        "hardware": {
+          "status": "compile-only",
+          "campaign_disposition": "not-executed",
+          "reason": "Original watchdog can progress into system reset; needs dedicated interrupt/reset recovery adaptation. Safe interrupt-first behavior is covered by board/som."
+        }
+      }
+    },
+    {
+      "id": "board/vendor-spi",
+      "scope": "Compiled adapter; not one of the 15 qualified board-suite entries.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "Original pinned test can write external EEPROM; no disposable target authorized. Current internal-loopback path tested separately."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Original pinned test can write external EEPROM; no disposable target authorized. Current internal-loopback path tested separately."
+        },
+        "hardware": {
+          "status": "compile-only",
+          "campaign_disposition": "not-executed",
+          "reason": "Original pinned test can write external EEPROM; no disposable target authorized. Current internal-loopback path tested separately."
+        }
+      }
+    },
+    {
+      "id": "board/vendor-hps_mailbox",
+      "scope": "Compiled adapter; not one of the 15 qualified board-suite entries.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "Original pinned mailbox offsets/queue assumptions not ported to this board; modern and board-specific mailbox paths tested separately."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Original pinned mailbox offsets/queue assumptions not ported to this board; modern and board-specific mailbox paths tested separately."
+        },
+        "hardware": {
+          "status": "compile-only",
+          "campaign_disposition": "not-executed",
+          "reason": "Original pinned mailbox offsets/queue assumptions not ported to this board; modern and board-specific mailbox paths tested separately."
+        }
+      }
+    },
+    {
+      "id": "legacy/hello-world",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/hello-world",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/uart",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/uart",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/dma",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/dma",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/timer",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "fail",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/timer",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/watchdog",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/watchdog",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/i2c",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/i2c",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/i3c",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/i3c",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/spi",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/spi",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/sdmmc",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/sdmmc",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/xgmac",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "fail",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/xgmac",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/mmu_el3",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/mmu_el3",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/smmu",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/smmu",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/ccu",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/ccu",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/clkmgr",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/clkmgr",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/ecc",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/ecc",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "legacy/hps_mailbox",
+      "scope": "Pinned legacy reference; modeled peripherals/targets differ from the physical SOM.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "fail",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "legacy/hps_mailbox",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Native legacy ELF/startup assumes modeled targets/addresses. Reviewed board adapters execute separately; no direct unsafe legacy load."
+        }
+      }
+    },
+    {
+      "id": "custom/qemu-hello",
+      "scope": "Original QEMU smoke exercise.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "custom/qemu-hello",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "practice/startup",
+      "scope": "Shared checks with platform-specific startup/UART/memory map.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "practice/startup",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "practice/startup",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "practice/startup",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "practice/corruption",
+      "scope": "Shared checks with platform-specific startup/UART/memory map.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "practice/corruption",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "practice/corruption",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "practice/corruption",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "practice/exception",
+      "scope": "Shared checks with platform-specific startup/UART/memory map.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "practice/exception",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "practice/exception",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "practice/exception",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "practice/timer",
+      "scope": "Ten actual secure timer FIQs through GIC; not a calibrated speed benchmark.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "practice/timer",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "practice/timer",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "practice/timer",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "practice/mmu",
+      "scope": "Shared checks with platform-specific startup/UART/memory map.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "practice/mmu",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "practice/mmu",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "practice/mmu",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "practice/uart",
+      "scope": "Eleven command, editing, boundary and recovery input cases.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "practice/uart",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "practice/uart",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "practice/uart",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "practice/multicore",
+      "scope": "Three secondary execution/identity records; platform-specific release; not PSCI CPU_ON.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "practice/multicore",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "practice/multicore",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "practice/multicore",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "diagnostic/smc-guard",
+      "scope": "Precondition/failure-detection control; counted once, not each assertion.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "diagnostic/smc-guard",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "diagnostic/smc-guard",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "diagnostic/smc-guard",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "diagnostic/perf-zero-clock",
+      "scope": "Precondition/failure-detection control; counted once, not each assertion.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "diagnostic/perf-zero-clock",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "diagnostic/perf-zero-clock",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "diagnostic/perf-zero-clock",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "custom/bridge-control",
+      "scope": "Enable/disable only; no fabric-memory access.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "custom/bridge-control",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "custom/bridge-control",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "custom/ocram-hello",
+      "scope": "Fresh physical OCRAM UART output, full payload readback and PC in its image. Entered by JTAG after bootstrap; this run does not separately qualify cold boot with DDR absent. Replays matching handoff and fixed100MHz UART divisor54.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "custom/ocram-hello",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "custom/ddr-hello",
+      "scope": "Fresh matching DDR bootstrap repeatedly validates four64MiB patterns, payload readback and executing PC in HPS bank3A; not full8GiB qualification.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "custom/ddr-hello",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "reference/semihost",
+      "scope": "Unchanged assembly: QEMU RAM semihost output/GDB completion; physical OCRAM output, payload readback and exact completion PC.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "reference/semihost",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "reference/semihost",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "reference/psci",
+      "scope": "Exact CPU_ON helper under resident BL31/NS EL2: physical A55.1 context, identity, stack and CPU_OFF affinity verified; no forced takeover.",
+      "platforms": {
+        "qemu": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "reference/psci",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "reference/psci",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "custom/fault-probe",
+      "scope": "Physical read-only ESR/ELR/FAR/SCTLR/CPTR snapshot; does not inject a fault or prove recovery.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "custom/fault-probe",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "custom/ethernet",
+      "scope": "Physical HPS EMAC2 at1Gb/s: ARP/ping, counter check, five UDP echo sizes, sequence/corruption controls and TCP65536-byte receive/transmit. Smoke campaign, no new bandwidth/soak claim; not USB Ethernet.",
+      "platforms": {
+        "qemu": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "custom/ethernet",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "fabric/add",
+      "scope": "Verilator C-driver/RTL co-simulation passed; physical deployment and simulator MMIO models unqualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      },
+      "host_rtl": {
+        "status": "pass",
+        "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/fabric-rtl.log",
+        "scope": "Native C driver against actual Verilator RTL; not a physical FPGA or a QEMU peripheral model."
+      }
+    },
+    {
+      "id": "fabric/xor",
+      "scope": "Verilator C-driver/RTL co-simulation passed; physical deployment and simulator MMIO models unqualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      },
+      "host_rtl": {
+        "status": "pass",
+        "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/fabric-rtl.log",
+        "scope": "Native C driver against actual Verilator RTL; not a physical FPGA or a QEMU peripheral model."
+      }
+    },
+    {
+      "id": "reference/pr",
+      "scope": "Reference integration workflow; no live PR qualification.",
+      "platforms": {
+        "qemu": {
+          "status": "reference",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs matching fitted PR static/persona images and recovery; no live PR design deployed."
+        },
+        "simics": {
+          "status": "reference",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs matching fitted PR static/persona images and recovery; no live PR design deployed."
+        },
+        "hardware": {
+          "status": "reference",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs matching fitted PR static/persona images and recovery; no live PR design deployed."
+        }
+      }
+    },
+    {
+      "id": "config/sysmgr",
+      "scope": "Three stable read-only register snapshots; pinmux UART-route comparison matches the recorded handoff. Not full subsystem qualification.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "config/sysmgr",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "config/sysmgr",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "config/pinmux",
+      "scope": "Three stable read-only register snapshots; pinmux UART-route comparison matches the recorded handoff. Not full subsystem qualification.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "config/pinmux",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "config/pinmux",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "integration/simics-rtl-add",
+      "scope": "Actual AArch64 guest MMIO through a synchronous adapter to actual Verilator RTL; distinct from host-only driver tests. HPS bridge RTL, CDC and physical timing are unqualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "integration/simics-rtl-add",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "integration/simics-rtl-xor",
+      "scope": "Actual AArch64 guest MMIO through a synchronous adapter to actual Verilator RTL; distinct from host-only driver tests. HPS bridge RTL, CDC and physical timing are unqualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "integration/simics-rtl-xor",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "model/pio",
+      "scope": "Modeled bit-0 input snapshots and 32-bit LED data-pattern readback/restoration; includes bad-mask negative control. No physical I/O or external transitions qualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "model/pio",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "memory/dsu",
+      "scope": "Physical and model cached transfers: three consumers, full integrity, per-core attributes, negative controls and clean quiescence.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "memory/dsu",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "memory/dsu",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "memory/dsu",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "memory/l3-partition",
+      "scope": "Physical opt-in DSU policy: PARTCR/SID save, configure, readback and restore; shared/partitioned contention completes. No proven speedup or way-occupancy measurement.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "memory/l3-partition",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "memory/ddr-sweep",
+      "scope": "Physical 20-sample 64KiB\u201316MiB NC CPU sweep with full integrity, negative controls and coarse400MHz counter check; scalar effective path, not peak MPFE bandwidth.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "memory/ddr-sweep",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "memory/ddr-sweep",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "memory/ddr-sweep",
+          "campaign_disposition": "exercised"
+        }
+      }
+    },
+    {
+      "id": "memory/smmu-qemu",
+      "scope": "QEMU virt stage-2 nonidentity 4096-byte DMA, unmap/TLBI fault and guards; PCI EDU does not exist on Agilex.",
+      "platforms": {
+        "qemu": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "case": "memory/smmu-qemu",
+          "campaign_disposition": "exercised"
+        },
+        "simics": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "memory/native-tbu",
+      "scope": "Host-issued native DMA0/F2H/F2SDRAM TBU reads/writes and unmapped faults. Cache-disabled fresh walks; not a guest DMA engine or TLBI test.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "memory/native-tbu",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "memory/dma-tbu",
+      "scope": "Guest drives actual DMAC0 model: 4096-byte nonidentity copy, destination fault, guards and cleanup. Host configures model tables; hardware port pending.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "memory/dma-tbu",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "memory/fabric-ddr",
+      "scope": "Actual C driver and Verilator AXI initiator through native Simics DDR/F2H/F2SDRAM, translated faults and guards. Component generates; full-board fit/deployment pending.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "pass",
+          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "case": "memory/fabric-ddr",
+          "campaign_disposition": "exercised"
+        },
+        "hardware": {
+          "status": "blocked",
+          "campaign_disposition": "not-executed",
+          "reason": "Needs a physical port, matched fabric image, specific peer, reset/recovery setup or reviewed non-destructive command; see hardware eligibility audit."
+        }
+      }
+    },
+    {
+      "id": "custom/usb-host",
+      "scope": "Physical guarded U-Boot boots; xHCI CNR timeout prevents enumeration. No hub/mouse/flash/USB-NIC class traffic qualified.",
+      "platforms": {
+        "qemu": {
+          "status": "not-supported",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching QEMU virt platform/startup or peripheral model for this registered implementation; existing supported CPU exercises are separate rows."
+        },
+        "simics": {
+          "status": "not-run",
+          "campaign_disposition": "not-executed",
+          "reason": "No matching distinct native model runner/profile for this registered implementation; physical adapters and model integrations are separate rows."
+        },
+        "hardware": {
+          "status": "fail",
+          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "case": "custom/usb-host",
+          "campaign_disposition": "exercised"
+        }
+      }
+    }
+  ],
+  "counts": {
+    "qemu": {
+      "not-supported": 73,
+      "pass": 16,
+      "not-run": 4,
+      "reference": 1
+    },
+    "simics": {
+      "pass": 49,
+      "partial": 6,
+      "fail": 8,
+      "not-run": 28,
+      "reference": 1,
+      "not-supported": 2
+    },
+    "hardware": {
+      "not-run": 29,
+      "partial": 5,
+      "pass": 49,
+      "compile-only": 3,
+      "reference": 1,
+      "not-supported": 5,
+      "blocked": 1,
+      "fail": 1
+    }
+  },
+  "exercised": {
+    "qemu": 16,
+    "simics": 63,
+    "hardware": 55
+  },
+  "distinct_runtime_rows": 88,
+  "host_rtl_only_rows": 2
+}

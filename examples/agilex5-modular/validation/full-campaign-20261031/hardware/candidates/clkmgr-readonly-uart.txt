@@ -1,0 +1,36 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+CANDIDATE_BEGIN name=clkmgr-readonly
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CLK_READONLY block=7 rc=0 frequency_hz=100000000
+CLK_READONLY block=8 rc=0 frequency_hz=100000000
+CLK_READONLY block=9 rc=0 frequency_hz=100000000
+CLK_READONLY block=3 rc=0 frequency_hz=100000000
+CLK_READONLY block=4 rc=0 frequency_hz=100000000
+CLK_READONLY block=0 rc=0 frequency_hz=533333333
+CLK_READONLY block=5 rc=0 frequency_hz=400000000
+CLK_READONLY block=6 rc=0 frequency_hz=400000000
+PASS CLK_READONLY_ALL_RATES_NONZERO
+PASS CLK_READONLY_REGISTER_UNCHANGED
+SCOPE Clock getter path only; no PLL/pinmux/divisor initialization or physical frequency measurement
+CANDIDATE_COMPLETE status=0

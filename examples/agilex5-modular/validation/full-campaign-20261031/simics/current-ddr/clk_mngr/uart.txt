@@ -1,0 +1,207 @@
+Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 23:07:33 Oct 30 2026
+
+Commit: 001649d
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > ddr_selftest
+
+
+
++------------------------------------------------------------+
+
+|                  DDR BIST / INIT COMMAND                   |
+
++------------------------------------------------------------+
+
+Mode  : Agilex5 OCRAM on-demand DDR bring-up
+
+Step 1: Run IOSSM/DDR init flow (ATF-compatible) ... DDR: Reset type is 'Power-On'
+
+IOSSM: Calibration success status check...
+
+IOSSM: All EMIF instances within the IO96 have calibrated successfully!
+
+DDR: Calibration success
+
+DDR: ECC is disabled
+
+DDR: DDR size configured is (2048 MiB)
+
+DDR: Mismatch with hardware size (8192 MiB).
+
+###DDR:init success###
+
+PASS
+
+
+
+Step 2: Run DDR memory validation suite
+
+------------------------------------------------------------
+
+Region: 0x83000000 - 0x83FFFFFF (16 MB)
+
+
+
+Test 1 of 4 : Fixed data-pattern test
+
+------------------------------------------------------------
+
+  Pattern 0x00000000 ....................... PASS
+
+  Pattern 0xFFFFFFFF ....................... PASS
+
+  Pattern 0xAAAAAAAA ....................... PASS
+
+  Pattern 0x55555555 ....................... PASS
+
+
+
+Test 2 of 4 : Walking-bit test
+
+------------------------------------------------------------
+
+  Walk 32 single-bit patterns ............... PASS
+
+
+
+Test 3 of 4 : Address-uniqueness test
+
+------------------------------------------------------------
+
+  Write/verify unique address values ........ PASS
+
+
+
+Test 4 of 4 : March C- test
+
+------------------------------------------------------------
+
+  March C- up/down sweeps ................... PASS
+
+------------------------------------------------------------
+
+
+
+RESULT : 4 of 4 tests passed  -  SELF-TEST PASSED
+
+
+
+SoCFPGA Bare-Metal > Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 18:33:41 Oct 31 2026
+
+Commit: 14f7982
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > clk_mngr_selftest
+
+
+
++------------------------------------------------------------+
+
+|                CLK MNGR SELFTEST SELF-TEST                 |
+
++------------------------------------------------------------+
+
+
+
+Test 1 of 1 : Command 'clk_mngr_selftest' execution
+
+------------------------------------------------------------
+
+  Run command ............................... Clock Manager Example
+
+  [NOCDIV before init]
+
+    L4_SYS_FREE : div=4
+
+    L4_MP       : div=2
+
+    L4_SP       : div=4
+
+    SOFT_PHY    : error (rc=-22)
+
+    CCU         : div=2
+
+    MPU_PERIPH  : div=4
+
+    CS_CLK      : error (rc=-22)
+
+    CS_TRACE    : div=4
+
+    CS_PDBG     : div=4
+
+  [clk_mngr_api_init]
+
+    init: OK
+
+  [NOCDIV after init]
+
+    L4_SYS_FREE : div=4
+
+    L4_MP       : div=2
+
+    L4_SP       : div=4
+
+    SOFT_PHY    : error (rc=-22)
+
+    CCU         : div=2
+
+    MPU_PERIPH  : div=4
+
+    CS_CLK      : error (rc=-22)
+
+    CS_TRACE    : div=4
+
+    CS_PDBG     : div=4
+
+  [set_divisor validation]
+
+    L4_SP div=4 (valid)   : OK
+
+    L4_SP div=99 (invalid): OK
+
+  [get_clk frequency]
+
+    (HW: actual PLL-derived values)
+
+    UART       : 100000000 Hz
+
+    WDT        : 100000000 Hz
+
+    I2C        : 100000000 Hz
+
+    SP_TIMER   : 100000000 Hz
+
+    OSC1TIMER  : 100000000 Hz
+
+    SDMMC      : 25000000 Hz
+
+    MPU        : 933333333 Hz
+
+    SSPI       : 400000000 Hz
+
+    L4MAIN     : 400000000 Hz
+
+Clock Manager Example Done
+
+DONE
+
+------------------------------------------------------------
+
+
+
+RESULT : command completed  -  CHECK DETAILED OUTPUT
+
+
+
+SoCFPGA Bare-Metal > 

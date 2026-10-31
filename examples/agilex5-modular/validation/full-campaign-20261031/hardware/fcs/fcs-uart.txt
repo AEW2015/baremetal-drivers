@@ -1,0 +1,55 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+NOTICE:  SOCFPGA: Boot Core = 0
+NOTICE:  SOCFPGA: CPU ID = 0
+INFO:    SOCFPGA: Invalidate Data cache
+NOTICE:  SOCFPGA: Setting CLUSTERECTRL_EL1
+NOTICE:  BL31: v2.14.1(debug):QPDS26.1.1_REL_GSRD_PR
+NOTICE:  BL31: Built : 04:08:25, Oct 29 2026
+INFO:    GICv3 without legacy support detected.
+INFO:    ARM GICv3 driver initialized in EL3
+INFO:    Maximum SPI INTID supported: 575
+INFO:    BL31: Initializing runtime services
+INFO:    BL31: cortex_a55: CPU workaround for erratum 1530923 was applied
+INFO:    BL31: Preparing for EL3 exit to normal world
+INFO:    Entry point address = 0x82400000
+INFO:    SPSR = 0x3c9
+SERVICE_BEGIN name=fcs EL=2
+
+=== FCS demo: end-to-end ===
+MBOX client #2 opened, handle=0x000000008240B400
+
+SERVICE_FCS_API init rc=0
+PASS FCS_REAL_INIT
+[FCS][PASS] fcs_api_init: rc=0
+Get_chip_id: No argsINFO:    MBOX: SVC_V3: x0 0x42000135, x1 0x20, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: mailbox_send_cmd_async_v3: status: 0
+SIP_SVC response x0: 0, x1: 0, x2: 0INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: SVC_V3: x0 0x420000c8, x1 0x20, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: sip_smc_get_chipid_cb: mailbox_err 00, data[0] 0xc15565bc, data[1] 0x42199610
+INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+FAIL SERVICE_EXCEPTION EL=2 ESR=0x2000000 PC=0xC15565BC
+SERVICE_COMPLETE status=1

@@ -1,0 +1,11 @@
+uid=1000(dev) gid=1000(ubuntu) groups=1000(ubuntu),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev)
+aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009
+aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)
+Verilator 5.020 2024-01-01 rev (Debian 5.020-1)
+Version: DTC 1.7.0
+pyelftools 0.30
+/usr/bin/bc
+/usr/bin/bison
+/usr/bin/flex
+/usr/bin/make

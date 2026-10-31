@@ -1,0 +1,34 @@
+Open On-Chip Debugger 0.12.0+quartus-gc58ca4ebc (2026-02-26-10:54)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : [hps.a55.0] Hardware thread awareness created
+Info : Application name is OpenOCD.20261031183348
+Info : No cable specified, so will be searching for cables
+
+Info : At present, The first hardware cable will be used [2 cable(s) detected]
+Info : Cable 1: device_name=(null), hw_name=Agilex_5E MDK Carrier, server=(null), port=1-4.2.1, chain_id=0x57334abc3ce0, persistent_id=3, chain_type=1, features=34816, server_version_info=Version 26.1.1 Build 130 08/06/2026 SC Pro Edition
+Info : TAP position 0 (4BA06477) has 0 SLD nodes
+Info : TAP position 1 (364F0DD) has 0 SLD nodes
+Info : TAP position 2 (20D10DD) has 3 SLD nodes
+Info :     node  0 idcode=0C006E00 position_n=0
+Info :     node  1 idcode=0C206E00 position_n=0
+Info :     node  2 idcode=19104600 position_n=0
+Info : Discovered 3 TAP devices
+Info : Detected device (tap_position=0) device_id=4ba06477, instruction_length=4, features=0, device_name=ARM_CORESIGHT_SOC_600
+Info : Found a ARM device at tap_position 0. Currently assume it is JTAG-DP capable
+Info : Detected device (tap_position=1) device_id=0364f0dd, instruction_length=10, features=12, device_name=A5E(C065BB32AR0|D065BB32AR0)
+Info : Found an Intel device at tap_position 1.Currently assuming it is SLD Hub
+Info : Detected device (tap_position=2) device_id=020d10dd, instruction_length=10, features=4, device_name=VTAP10
+Info : Found an Intel device at tap_position 2.Currently assuming it is SLD Hub
+Info : Note: The adapter "aji_client" doesn't support configurable speed
+Info : JTAG tap: hps.tap tap/device found: 0x4ba06477 (mfg: 0x23b (ARM Ltd), part: 0xba06, ver: 0x4)
+Warn : AUTO auto0.tap - use "jtag newtap auto0 tap -irlen 10 -expected-id 0x0364f0dd"
+Warn : AUTO auto1.tap - use "jtag newtap auto1 tap -irlen 10 -expected-id 0x020d10dd"
+Info : hps.a55.0: hardware has 6 breakpoints, 4 watchpoints
+Info : hps.a55.0 socket 0 cluster 0 core 0 thread 0 multi core
+Info : [hps.a55.0] Examination succeed
+Info : [hps.sys_bus] Examination succeed
+Info : [hps.a55.0] gdb port disabled
+Info : [hps.sys_bus] gdb port disabled
+shutdown command invoked

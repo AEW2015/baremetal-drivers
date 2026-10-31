@@ -1,0 +1,146 @@
+{
+  "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+  "source_revision": "14f7982c9b73e690d234bedb379f032c832f8416",
+  "artifacts": {
+    "build/upstream26-ocram/baremetal.bin": "025972a740c9c99a490d2551003f2f56dcc6b7d60aafd81408347a11234bbadd",
+    "build/campaign-simics-ddr/baremetal.bin": "256d2339a1df65d5a1a236ae6cd74fd1dc0762abb5ae45a821d81fc793bbdc4e",
+    "build/campaign-simics-ddr/baremetal.elf": "93e288ea4d4e65a4891455feb545b40cd21fa869811d137479e160253029ff67"
+  },
+  "tests": [
+    {
+      "name": "ccu",
+      "catalog_id": "upstream/ccu",
+      "command": "ccu_selftest",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.779494849033654,
+      "limitation": null,
+      "script_sha256": "b60ffd7669f7b258ea6192e65f5f09d29d34b0885b9f1221308d1dcfb8ff617b"
+    },
+    {
+      "name": "clk_mngr",
+      "catalog_id": "upstream/clk_mngr",
+      "command": "clk_mngr_selftest",
+      "status": "partial",
+      "process_exit": 0,
+      "seconds": 9.030607535038143,
+      "limitation": "Clock init, L4_SP divisor set/rejection and model frequencies passed, but SOFT_PHY and CS_CLK divisor queries returned -EINVAL (-22). No physical clock measurement.",
+      "script_sha256": "729eac4c17bee3a8f10c2aced1269a91ee37d26e29fa1da291c5070fe8b2b235",
+      "initial_status": "pass"
+    },
+    {
+      "name": "dma",
+      "catalog_id": "upstream/dma",
+      "command": "dma_selftest",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.427917886059731,
+      "limitation": "Driver fell back to polling because GIC IRQ enable returned 1. Sync 256-byte and async 1024-byte readback and callback passed; hardware interrupt delivery is not qualified.",
+      "script_sha256": "d9b3fed1918d0e53ae2378080c190f173aab8f7d59467eaf92a589595d733a5f",
+      "initial_status": "fail",
+      "assessment_review": "The initial broad failure regex treated an explicit successful polling fallback as a test failure; the per-operation PASS/readback evidence was reviewed."
+    },
+    {
+      "name": "ecc",
+      "catalog_id": "upstream/ecc",
+      "command": "ecc_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 8.428882509004325,
+      "limitation": null,
+      "script_sha256": "7127c6f3a208eb93ec081062e5e358da8a99deb8cb1e826f15e39ccb48a301b9"
+    },
+    {
+      "name": "fcs",
+      "catalog_id": "upstream/fcs",
+      "command": "fcs_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 8.330571447033435,
+      "limitation": null,
+      "script_sha256": "2803fc4b02780bedd2cb205d3ab9f06aff83c4808156fca7a26e875d8572cac7"
+    },
+    {
+      "name": "gpio",
+      "catalog_id": "upstream/gpio",
+      "command": "gpio_selftest",
+      "status": "partial",
+      "process_exit": 0,
+      "seconds": 8.327717024832964,
+      "limitation": "Source never opens the GPIO handle; printed value cannot prove a GPIO operation",
+      "script_sha256": "110f7d12dfcb57defa8d7698aaf2c6f4bacb16f52f1ff3291b6883c33487bc13"
+    },
+    {
+      "name": "i2c",
+      "catalog_id": "upstream/i2c",
+      "command": "i2c_selftest",
+      "status": "partial",
+      "process_exit": 0,
+      "seconds": 10.18372704833746,
+      "limitation": "Command returned but required meaningful success markers were incomplete",
+      "script_sha256": "e6ea079a46eb6d75fcb061038b1e48340dddbe25ab41d0aac139ce4a0c5c52b3"
+    },
+    {
+      "name": "i3c",
+      "catalog_id": "upstream/i3c",
+      "command": "i3c_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 8.329287804663181,
+      "limitation": null,
+      "script_sha256": "1f2352fe351e399e274907267e8acdc917f5c35afae744cca18ff5566e63f926"
+    },
+    {
+      "name": "mmu",
+      "catalog_id": "upstream/mmu",
+      "command": "mmu_selftest 3",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.279474519193172,
+      "limitation": null,
+      "script_sha256": "416a129138c5b6b3e41bad33c3668147c5643fcd9701b81a5e87435fcebb6334"
+    },
+    {
+      "name": "sdmmc",
+      "catalog_id": "upstream/sdmmc",
+      "command": "sdmmc_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 8.278248543851078,
+      "limitation": null,
+      "script_sha256": "e9999291031339241c2b4173f1c00123cdbbd973a52373a6839b3397086e2424"
+    },
+    {
+      "name": "seu",
+      "catalog_id": "upstream/seu",
+      "command": "seu_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 8.279149175155908,
+      "limitation": null,
+      "script_sha256": "c518efc1b586dfaccd1e61e892dfa2f82f0f60de322454f0d15695caa0f80afe"
+    },
+    {
+      "name": "smmu",
+      "catalog_id": "upstream/smmu",
+      "command": "smmu_selftest",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.230418959166855,
+      "limitation": null,
+      "script_sha256": "0aadf48050a6573d5a5ed3177661283dc7af3b16516251bfe1d62e218465d843"
+    },
+    {
+      "name": "spi",
+      "catalog_id": "upstream/spi",
+      "command": "spi_selftest",
+      "status": "partial",
+      "process_exit": 0,
+      "seconds": 8.280057291965932,
+      "limitation": "Controller version and 32-byte internal loopback passed. The subsequent status phase runs after the helper closes the API and reports not open; the unconditional 3/3 summary does not qualify full SPI selftest completion.",
+      "script_sha256": "2379adbd1d1045859071bc28e987a1312eb227748292c5b816de380cf652a99f",
+      "initial_status": "pass",
+      "assessment_review": "Scope correction from the same captured execution, not a new failure or rerun: preserve the genuine loopback result separately from the unperformed status query."
+    }
+  ]
+}

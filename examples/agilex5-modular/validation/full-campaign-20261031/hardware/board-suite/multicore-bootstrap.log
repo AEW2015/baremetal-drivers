@@ -1,0 +1,10 @@
+DDR stage: checking UART, container mount, tools and image hashes...
+DDR stage: programming ddr_probe.hps.rbf at verified FPGA position 2.
+Image SHA256: 5f1d0b42f6f28014cdfabbcfea7582628ff268c974d6284c1edf724db75022e9
+Programmer log: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/bootstrap/ddr/program-20261031-184357-605488.log
+DDR stage: waiting for four patterns, payload and three fresh Hello messages.
+UART capture: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/bootstrap/ddr/uart-20261031-184357-605488.bin
+DDR stage: confirming CPU PC through OpenOCD...
+PASS: HPS DDR bank 3A initialized; four 64 MiB patterns and payload readback passed.
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+CPU PC confirmed in DDR: 0x82000024. Application left running.

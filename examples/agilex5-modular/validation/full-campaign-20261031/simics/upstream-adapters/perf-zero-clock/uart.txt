@@ -1,0 +1,123 @@
+Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 23:07:33 Oct 30 2026
+
+Commit: 001649d
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > ddr_selftest
+
+
+
++------------------------------------------------------------+
+
+|                  DDR BIST / INIT COMMAND                   |
+
++------------------------------------------------------------+
+
+Mode  : Agilex5 OCRAM on-demand DDR bring-up
+
+Step 1: Run IOSSM/DDR init flow (ATF-compatible) ... DDR: Reset type is 'Power-On'
+
+IOSSM: Calibration success status check...
+
+IOSSM: All EMIF instances within the IO96 have calibrated successfully!
+
+DDR: Calibration success
+
+DDR: ECC is disabled
+
+DDR: DDR size configured is (2048 MiB)
+
+DDR: Mismatch with hardware size (8192 MiB).
+
+###DDR:init success###
+
+PASS
+
+
+
+Step 2: Run DDR memory validation suite
+
+------------------------------------------------------------
+
+Region: 0x83000000 - 0x83FFFFFF (16 MB)
+
+
+
+Test 1 of 4 : Fixed data-pattern test
+
+------------------------------------------------------------
+
+  Pattern 0x00000000 ....................... PASS
+
+  Pattern 0xFFFFFFFF ....................... PASS
+
+  Pattern 0xAAAAAAAA ....................... PASS
+
+  Pattern 0x55555555 ....................... PASS
+
+
+
+Test 2 of 4 : Walking-bit test
+
+------------------------------------------------------------
+
+  Walk 32 single-bit patterns ............... PASS
+
+
+
+Test 3 of 4 : Address-uniqueness test
+
+------------------------------------------------------------
+
+  Write/verify unique address values ........ PASS
+
+
+
+Test 4 of 4 : March C- test
+
+------------------------------------------------------------
+
+  March C- up/down sweeps ................... PASS
+
+------------------------------------------------------------
+
+
+
+RESULT : 4 of 4 tests passed  -  SELF-TEST PASSED
+
+
+
+SoCFPGA Bare-Metal > UPSTREAM_LAB_BEGIN case=11
+GUEST_EXCEPTION_LEVEL=3
+COUNTER_HZ=0
+TIMING_UNAVAILABLE counter frequency is zero; memory correctness only
+UPSTREAM_COMMAND perf_selftest timer
+
+[PERF][TIMER] ARM generic counter frequency: 0 Hz
+[PERF][TIMER] TIMING_UNAVAILABLE: counter frequency is zero
+UPSTREAM_COMMAND perf_selftest mem 0x85000000 65536 2
+
+[PERF][MEM] destructive DDR test
+[PERF][MEM] src=0x0000000085000000 dst=0x0000000085010000 size=65536 loops=2
+[PERF] mem-write: TIMING_UNAVAILABLE (counter frequency or elapsed interval is zero)
+[PERF] mem-read: TIMING_UNAVAILABLE (counter frequency or elapsed interval is zero)
+[PERF][MEM] read sink=0x00000000
+[PERF] mem-copy: TIMING_UNAVAILABLE (counter frequency or elapsed interval is zero)
+PASS PERF_MEMORY_READBACK words=16384 mismatches=0
+UPSTREAM_COMMAND perf_selftest latency timer 100
+
+[PERF][LAT][TIMER] measuring perf_counter_ticks() overhead loops=100
+[PERF][LAT] timer-overhead: TIMING_UNAVAILABLE (counter frequency is zero)
+UPSTREAM_COMMAND perf_selftest log dump
+
+[PERF][LOG] entries=4 max=64
+[PERF][LOG] tag=mem-write TIMING_UNAVAILABLE status=-61
+[PERF][LOG] tag=mem-read TIMING_UNAVAILABLE status=-61
+[PERF][LOG] tag=mem-copy TIMING_UNAVAILABLE status=-61
+[PERF][LOG] tag=timer-overhead TIMING_UNAVAILABLE status=-61
+UPSTREAM_LAB_COMPLETE status=0

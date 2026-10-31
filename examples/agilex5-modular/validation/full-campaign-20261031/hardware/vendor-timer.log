@@ -1,0 +1,14 @@
+[preflight] Checking host/container mapping, tools and artifact hashes...
+Evidence: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T191623.397069Z
+[vendor-timer] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261031T191623.397069Z/vendor-timer-bootstrap.log for live stages.
+[vendor-timer] Loading vendor_timer.elf and collecting fresh UART results...
+vendor-timer: pass
+HPS_SUITE_BEGIN timer
+Timer count set
+Timer mode set
+Timer started
+Timer expired -- test pass
+HPS_SUITE_PASS timer rc=0x00000000
+
+[restore] Restoring DDR Hello; inspect restore.log for live stages.
+DDR Hello restoration: pass

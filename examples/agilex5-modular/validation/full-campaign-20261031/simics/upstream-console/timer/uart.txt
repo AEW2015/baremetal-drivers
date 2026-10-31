@@ -1,0 +1,87 @@
+Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 23:07:33 Oct 30 2026
+
+Commit: 001649d
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > timer_selftest
+
+
+
++------------------------------------------------------------+
+
+|                TIMER POLLING SELF-TEST                     |
+
++------------------------------------------------------------+
+
+
+
+Using timer instance 0 with period 1000000 us
+
+
+
+Test 1 of 2 : Timer must start and advance
+
+------------------------------------------------------------
+
+  Open timer instance ....................... timer_descriptor addr = 0x0000000000045240
+
+OK
+
+  Set timer period to 1000000 us ............. OK
+
+  Start timer ............................... Starting timer instance
+
+OK
+
+  Read timer value .......................... clk_hz now = 100000000
+
+clk_hz now = 100000000
+
+OK (999360 us -> 971852 us)
+
+  Verify timer advanced ..................... PASS
+
+
+
+Test 2 of 2 : Timer polling over multiple samples
+
+------------------------------------------------------------
+
+  Sample 1 of 5 ............................. clk_hz now = 100000000
+
+970468 us
+
+  Sample 2 of 5 ............................. clk_hz now = 100000000
+
+942850 us
+
+  Sample 3 of 5 ............................. clk_hz now = 100000000
+
+915323 us
+
+  Sample 4 of 5 ............................. clk_hz now = 100000000
+
+887796 us
+
+  Sample 5 of 5 ............................. clk_hz now = 100000000
+
+860268 us
+
+  Stop timer ................................ Stopping timer instanceOK
+
+  Verify polling completed .................. PASS
+
+------------------------------------------------------------
+
+
+
+RESULT : 2 of 2 tests passed  -  SELF-TEST PASSED
+
+
+
+SoCFPGA Bare-Metal > 

@@ -1,0 +1,4 @@
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/runs/simics-legacy25-20261031T183213.657055Z
+usage: legacy.py [-h] [--only ONLY] [--all] [--build] [--project PROJECT]
+                 [--timeout TIMEOUT]
+legacy.py: error: Build the selected OCRAM image first with --build

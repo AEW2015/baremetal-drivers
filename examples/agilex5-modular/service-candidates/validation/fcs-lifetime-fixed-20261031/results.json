@@ -1,0 +1,67 @@
+{
+  "scope": "Narrow FCS asynchronous response-lifetime correction, not a complete FCS HAL audit",
+  "recorded_utc": "2026-10-31T19:33:52.143468+00:00",
+  "changed_sdk_sources": [
+    "drivers/fcs/socfpga_fcs.c",
+    "drivers/sdm_mailbox/socfpga_mbox_client.c",
+    "drivers/sdm_mailbox/socfpga_mbox_client.h"
+  ],
+  "source_sha256": {
+    "drivers/fcs/socfpga_fcs.c": "aaa2538dc683805a7f9896fbcebda0567e43e6bda6122bfc30531cad942cebaf",
+    "drivers/sdm_mailbox/socfpga_mbox_client.c": "40c21f55eb391887f16ae27c8eed95a36ad2f0cd242bd60ab805885233c947fb",
+    "drivers/sdm_mailbox/socfpga_mbox_client.h": "e6bbb4203dd23ddc7f1df7d590c0c27172822af2a1aed1e1ddd0d1581fa597ee"
+  },
+  "test_sources_sha256": {
+    "service-candidates/tests/test_fcs_transport.c": "ceb37cf665f2453e31e5c66491a38e6760f708b203cbda03a111a9e4fd703477",
+    "service-candidates/tests/test_fcs_transport.sh": "9bd2ecbe15043dcdc5d8f38b1b700a9952c1c562ce5b4e96c8cc526f6f7f5ee8",
+    "tests/test_fcs_lifetime.py": "c57e16307b78025027ee46143d5c148175e67f42d128d9f0e3a838e02c65006c"
+  },
+  "fixed_artifact_sha256": {
+    "build/service-candidates-fcs-fixed/fcs.elf": "23950ef44cd3a4b4719544b02be698ee77af345efc04c878bf95cf4b793c4754",
+    "build/service-candidates-fcs-fixed/fcs.bin": "23ff93a0558b94ccab0d9960c52da73fa1294b1101d88aaeb3526cab8955d316",
+    "build/upstream26-fcs-fixed/drivers/libsocfpga_drivers.a": "7234a8a4c497a831af61cc24f52fca41280a36633f9a8627a8707de9162ba561",
+    "build/upstream26-fcs-fixed/api/libbm_api.a": "afd74925b66f9c66aef18d8ef670fbeebd0dd7873d92890553b758588d6a6d52"
+  },
+  "tests": [
+    {
+      "name": "delayed-transport",
+      "status": "pass",
+      "evidence": "delayed-transport.log",
+      "implementation": "Actual FCS HAL/API and mailbox queue; modeled SiP firmware replies",
+      "covers": [
+        "delayed chip/JTAG return data before HAL scope ends",
+        "bounded timeout preserves pending job quarantine",
+        "late old reply cannot overwrite expired local or satisfy a new reply",
+        "FCS API deinit/reinit retains shared client/quarantine",
+        "explicit detach protects owned canary",
+        "actual SDM error propagation",
+        "UUID/RNG/session close and UUID-failure cleanup"
+      ]
+    },
+    {
+      "name": "main-regression",
+      "status": "pass",
+      "count": 98,
+      "real_qemu": true,
+      "evidence": "main-regression.log"
+    },
+    {
+      "name": "original-physical-fcs",
+      "status": "fail",
+      "evidence": "runs/upstream26-hardware-20261031T191906.463594Z/results.json",
+      "evidence_sha256": "9f5a5d8f000da0f6b57f547c505750f48363512a306153f26e536c6d971a4186",
+      "elf_sha256": "b522ab5da83d41fdd2865217b1ef1e371593bda1bfd0936afd18a9a712ae638f",
+      "limitation": "SDM CHIP_ID result overwrote expired response-stack location; PC matched chip low word"
+    },
+    {
+      "name": "fixed-physical-fcs",
+      "status": "partial",
+      "evidence": "runs/upstream26-hardware-20261031T193005.659836Z/results.json",
+      "evidence_sha256": "901c687cd67881226ca4086a6e217076789a1056905b934d734bc5165b8e52b3",
+      "elf_sha256": "23950ef44cd3a4b4719544b02be698ee77af345efc04c878bf95cf4b793c4754",
+      "restoration": "pass",
+      "limitation": "Identity and read-only36-byte provisioning query succeed; actual SDM0x85 session denial prevents RNG/session completion. No exception."
+    }
+  ],
+  "remaining_scope": "Other key/digest/MAC/AES/attestation/signing HAL paths still use existing transport and are not qualified by this fix"
+}

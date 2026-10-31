@@ -60,14 +60,22 @@ exercised; it must not introduce a new hardware PASS.
   [separate evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/config-audit).
 - [x] **DSU / shared L3 prototype** (`/HPS/MPU/DSU`): cached producer/consumer,
   full payload verification, per-core MMU/cache attributes, corruption/timeout
-  controls and contention pass in QEMU and Agilex Simics. The hardware-only L3
-  policy variant compiles with register restoration and secondary quiescence;
-  physical coherency and partition-performance qualification remain pending.
+  controls and contention pass in QEMU, Agilex Simics and physical Modular ES.
+  The physical L3 policy run verifies `PARTCR` 0→`0x1e`→0, per-core policy
+  restoration and secondary quiescence. This qualifies functional coherency and
+  policy readback/restoration, but not cache-way occupancy or a statistical
+  speedup. Keep the performance comparison unchecked until matched repeated
+  baseline/partitioned measurements are analyzed. Raw evidence: [four DSU
+  cases](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-dsu/)
+  and [L3 partition](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/l3-partition/).
 - [x] **MPFE NoC benchmark software** (`/DDR_IO96/MPFE/NoC`): 64 KiB–16 MiB
   read/write/copy and dependent-load sweeps pass all 20 samples and both failure
-  controls in QEMU and Simics. Cache state and raw ticks are explicit. The
-  hardware variant requiring an independent counter-rate check compiles; no physical bandwidth
-  or peak MPFE performance result is claimed.
+  controls in QEMU and Simics, and the physical Modular ES `ddr-calibrated` and
+  `ddr-path` sweeps pass all 20 samples with both fault controls rejected. The
+  independent host interval is 0.9920008089 s for the nominal one-second
+  counter interval (0.9–1.1 s gate). Cache state and raw ticks are explicit.
+  This is scalar Normal Noncacheable CPU-path evidence; no peak MPFE throughput
+  or DDR-pin bandwidth result is claimed. See [physical DDR evidence](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-ddr/).
 - [x] **Simics PIO** (`/Fabric/Simics_reference/PIO`): the recorded Simics
   guest reads modeled button/switch inputs (static zero values), checks two
   LED patterns by readback, and restores the initial LED state. A negative
@@ -90,7 +98,10 @@ See the [memory/fabric results](memory-fabric-labs.md) for commands and evidence
   (`USB3_MISC0` `0x07c00c11` → `0x07c04c11`, `PER0MODRST=0`); xHCI still timed
   out waiting for CNR with `USBSTS=0x00000801` and error `-110`. The change did
   not resolve the issue or identify its cause. PHY, PIPE-clock, and board-control
-  behavior remain under investigation. This item remains pending. The standalone
+  behavior remain under investigation. Clean-power-cycle and flash retries
+  reproduced the CNR and ULPI failures. A full-SPL experiment stopped at
+  `spl_early_init`; the established DDR Hello was restored. No enumeration or
+  transfer passed. The standalone
   SDK currently has only a USB controller-ID result.
   See the [USB bring-up record](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/usb-bringup/README.md).
 - [ ] **USB PHY interface** (`/HPS/PSS/Peripherals/USB_PHY_interface`): establish
@@ -164,17 +175,24 @@ handoff, and use the shared hardware mutex for physical execution.
 
 ## Physical acceptance still pending
 
-- [ ] Run cached multicore integrity and shared-versus-partitioned contention
-  on the Modular ES hardware, with policy restoration and secondary cleanup.
-- [ ] Run the HPS DDR sweep with the independent host counter-rate check before
-  qualifying physical timing; report software-path throughput and latency.
+- [x] Run cached multicore integrity and shared-versus-partitioned contention
+  on Modular ES with policy restoration and secondary cleanup. This establishes
+  functional coherency and policy readback/restoration, not cache-way occupancy
+  or a statistical performance difference.
+- [x] Run the HPS DDR sweep with the independent host counter-rate check. The
+  physical coarse interval passed; retain raw ticks and scope results to the
+  scalar noncacheable path, without peak MPFE or DDR-pin bandwidth claims.
+- [ ] Analyze matched repeated baseline/partitioned measurements before making
+  any DSU performance comparison or speedup claim.
 - [ ] Port SMMU setup to the supported hardware initialization/queue sequence
   and verify real DMAC0 translation/fault routing and stream assignment.
 - [ ] Fit and deploy the fabric initiator after the reserved OpenTPU build
   window, using a verified CSR/master map and the matching HPS handoff.
 - [ ] Verify both physical fabric TBU paths, faults and guards on HPS DDR bank 3A.
-- [ ] Resolve USB controller/PHY startup and obtain actual hub/class traffic;
-  the clean-power-start retry is awaiting the requested board power cycle.
+- [ ] Resolve USB controller/PHY startup and obtain actual hub/class traffic.
+  Clean-power-cycle and flash retries reproduced CNR/ULPI failures; full SPL
+  stopped at `spl_early_init`. DDR Hello was restored, but enumeration and
+  transfers remain unqualified.
 
 ## Completion evidence for each lab
 

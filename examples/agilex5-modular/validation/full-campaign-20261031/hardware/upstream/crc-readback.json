@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 98976,
+  "segments": [
+    {
+      "file": "upstream26-crc.bin",
+      "bytes": 98976,
+      "sha256": "8e3cb57e4f3c5f36d5442b3f6e7c15923210d8a34ab2631df1b441ff5e0e4f5d"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "tests": [
+    {
+      "name": "hello-gdb",
+      "status": "fail",
+      "qemu_returncode": 0,
+      "gdb_returncode": 1,
+      "elf_sha256": "d93b690171a5790a221a13e5c5ac5770f00efb4a7f0b626859737ae65c049ce7",
+      "qemu_command": [
+        "qemu-system-aarch64",
+        "-machine",
+        "virt,secure=on,virtualization=on,gic-version=3",
+        "-cpu",
+        "cortex-a53",
+        "-m",
+        "128M",
+        "-nic",
+        "none",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-serial",
+        "stdio",
+        "-semihosting-config",
+        "enable=on,target=native",
+        "-device",
+        "loader,file=/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/qemu/hello.elf,cpu-num=0",
+        "-S",
+        "-chardev",
+        "socket,id=gdb,path=/tmp/agx5-hello-cj118ozw/gdb,server=on,wait=off",
+        "-gdb",
+        "chardev:gdb"
+      ]
+    }
+  ],
+  "scope": "Actual GDB breakpoints at main and qemu_done, source step, inspected status/failures/vector and final memory word; QEMU virt only"
+}

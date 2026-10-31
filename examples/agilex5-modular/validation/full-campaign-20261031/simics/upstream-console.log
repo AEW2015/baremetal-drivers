@@ -1,0 +1,6 @@
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/runs/simics-upstream26-20261031T183200.207878Z
+PASS hello
+PASS help
+PASS timer
+PASS gic
+PASS ddr

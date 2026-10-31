@@ -1,0 +1,169 @@
+Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 23:07:33 Oct 30 2026
+
+Commit: 001649d
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > ddr_selftest
+
+
+
++------------------------------------------------------------+
+
+|                  DDR BIST / INIT COMMAND                   |
+
++------------------------------------------------------------+
+
+Mode  : Agilex5 OCRAM on-demand DDR bring-up
+
+Step 1: Run IOSSM/DDR init flow (ATF-compatible) ... DDR: Reset type is 'Power-On'
+
+IOSSM: Calibration success status check...
+
+IOSSM: All EMIF instances within the IO96 have calibrated successfully!
+
+DDR: Calibration success
+
+DDR: ECC is disabled
+
+DDR: DDR size configured is (2048 MiB)
+
+DDR: Mismatch with hardware size (8192 MiB).
+
+###DDR:init success###
+
+PASS
+
+
+
+Step 2: Run DDR memory validation suite
+
+------------------------------------------------------------
+
+Region: 0x83000000 - 0x83FFFFFF (16 MB)
+
+
+
+Test 1 of 4 : Fixed data-pattern test
+
+------------------------------------------------------------
+
+  Pattern 0x00000000 ....................... PASS
+
+  Pattern 0xFFFFFFFF ....................... PASS
+
+  Pattern 0xAAAAAAAA ....................... PASS
+
+  Pattern 0x55555555 ....................... PASS
+
+
+
+Test 2 of 4 : Walking-bit test
+
+------------------------------------------------------------
+
+  Walk 32 single-bit patterns ............... PASS
+
+
+
+Test 3 of 4 : Address-uniqueness test
+
+------------------------------------------------------------
+
+  Write/verify unique address values ........ PASS
+
+
+
+Test 4 of 4 : March C- test
+
+------------------------------------------------------------
+
+  March C- up/down sweeps ................... PASS
+
+------------------------------------------------------------
+
+
+
+RESULT : 4 of 4 tests passed  -  SELF-TEST PASSED
+
+
+
+SoCFPGA Bare-Metal > NOTICE:  SOCFPGA: Boot Core = 0
+
+NOTICE:  SOCFPGA: CPU ID = 0
+
+INFO:    SOCFPGA: Invalidate Data cache
+
+NOTICE:  SOCFPGA: Setting CLUSTERECTRL_EL1
+
+NOTICE:  BL31: v2.14.1(debug):QPDS26.1.1_REL_GSRD_PR
+
+NOTICE:  BL31: Built : 04:08:25, Oct 29 2026
+
+INFO:    GICv3 without legacy support detected.
+
+INFO:    ARM GICv3 driver initialized in EL3
+
+INFO:    Maximum SPI INTID supported: 991
+
+INFO:    BL31: Initializing runtime services
+
+WARNING: BL31: cortex_a55: CPU workaround for erratum 798953 was missing!
+
+INFO:    BL31: cortex_a55: CPU workaround for erratum 1530923 was applied
+
+INFO:    BL31: Preparing for EL3 exit to normal world
+
+INFO:    Entry point address = 0x82400000
+
+INFO:    SPSR = 0x3c9
+
+UPSTREAM_LAB_BEGIN case=4
+GUEST_EXCEPTION_LEVEL=2
+UPSTREAM_COMMAND iossm_demo 
+
+=== IOSSM Image Load to DDR Demo ===
+
+[Step 1] Open IOSSM instance 0
+IOSSM MW: IRQ enable failed (1) - polling mode only
+  [PASS] Instance opened
+  [PASS] Enable ECC
+
+[Step 2] Load image to DDR (0x90000000)
+  Loading 64-byte image to 0x90000000 ...
+  [PASS] Image load
+
+[Step 3] Verify image
+  Verifying image at 0x90000000 ...
+  All 8 words match.
+  [PASS] Image verify
+
+[Step 4] ECC status after image load
+  [PASS] ECC error count = 0 (no errors during load)
+
+[Step 5] Inject single-bit (correctable) ECC error
+  Target address: 0xA0000000
+IOSSM_COMMAND_REJECTED status=0x00000021 general=0 command=1
+  [FAIL] SBE injection request (not event proof) (rc=-5)
+
+[Step 6] Inject double-bit (uncorrectable) ECC error
+  Target address: 0xA0000008
+IOSSM_COMMAND_REJECTED status=0x00000021 general=0 command=1
+  [FAIL] DBE injection request (not event proof) (rc=-5)
+
+[Step 7] Clear ECC error buffer
+IOSSM_COMMAND_REJECTED status=0x00000003 general=1 command=0
+  [FAIL] Clear error buffer (rc=-5)
+  ECC error count after clear: 0
+
+[Cleanup] Closing IOSSM instance 0
+  [PASS] Close instance
+IOSSM_ECC_RESULT observed=0 unverified=2; event type/recovery requires separate verification
+
+=== IOSSM Demo complete ===
+
+UPSTREAM_LAB_COMPLETE status=0

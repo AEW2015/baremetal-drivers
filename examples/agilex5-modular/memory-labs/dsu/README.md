@@ -9,15 +9,25 @@ performed during those transfers.
 
 | Image | QEMU | Agilex 5 Simics | Modular ES hardware |
 |---|---|---|---|
-| `normal` | Passed, functional model | Passed, functional model | Built, not run here |
-| `corrupt` | Expected data failure detected | Expected data failure detected | Built, not run here |
-| `stalled` | Expected protocol timeout detected | Expected protocol timeout detected | Built, not run here |
-| `contention` | Passed, workload/control flow only | Passed, workload/control flow only | Built, not run here |
-| `partitioned` | Unsupported; not built | Do not run without modeled DSU registers | Built, opt-in; not run here |
+| `normal` | Passed, functional model | Passed, functional model | Passed: cached multicore integrity/coherency |
+| `corrupt` | Expected data failure detected | Expected data failure detected | Passed: injected payload corruption detected and secondaries quiesced |
+| `stalled` | Expected protocol timeout detected | Expected protocol timeout detected | Passed: producer timeout detected and secondaries quiesced |
+| `contention` | Passed, workload/control flow only | Passed, workload/control flow only | Passed: shared-policy workload and integrity |
+| `partitioned` | Unsupported; not built | Do not run without modeled DSU registers | Passed: policy readback, workload, and restoration |
 
 QEMU TCG and native Simics do not establish physical cache coherency, L3
-partition behavior or memory latency. Hardware needs an independent captured
-run. Recorded model logs and exact compiler/source/artifact identities are in
+partition behavior or memory latency. Physical evidence now establishes the
+functional cached-coherency workload and successful DSU policy readback and
+restoration on Modular ES. It does not prove cache-way occupancy or a statistical
+speedup. The captured hardware result records, UART output, debug output and
+readbacks are in
+[normal](../../validation/full-campaign-20261031/hardware/memory-dsu/normal-uart.txt),
+[corruption](../../validation/full-campaign-20261031/hardware/memory-dsu/corrupt-uart.txt),
+[stalled](../../validation/full-campaign-20261031/hardware/memory-dsu/stalled-uart.txt),
+[contention](../../validation/full-campaign-20261031/hardware/memory-dsu/contention-uart.txt),
+and [partitioned](../../validation/full-campaign-20261031/hardware/l3-partition/partitioned-uart.txt)
+UART logs; `results.json`, raw policy readbacks, debug output, bootstrap and
+chain records are alongside them. Model logs and exact compiler/source/artifact identities remain in
 [validation/](validation/).
 
 ## Build and execute the functional checks
@@ -174,9 +184,14 @@ SID/ACTLR. Detected protocol failures request a coordinated abort. An
 unexpected exception or failed quiescence requires the outer runner's fresh
 HPS/DDR recovery; the lab does not claim restoration after a hard fault.
 
-The partitioned image has **compiled only**. It must not be run on the QEMU
-A53 model or assumed supported by the installed Simics model. A physical
-comparison requires fresh matching bootstraps, raw policy readbacks, identical
-clock/cache/workload settings, repeated baseline/partitioned runs, and all
-integrity, quiescence and register-restoration checks. No improvement or
-deterministic latency guarantee is claimed from these sources or model runs.
+The physical `partitioned` run passed with readback from `PARTCR=0` to `0x1e`
+and back to `0`; all per-core policy registers were restored. The UART transcript
+includes the policy readback; the result JSON, debug output, bootstrap and chain records are in
+[`partitioned UART output`](../../validation/full-campaign-20261031/hardware/l3-partition/partitioned-uart.txt)
+and the [campaign result record](../../validation/full-campaign-20261031/hardware/l3-partition/results.json).
+The four normal, corrupt, stalled and contention UART transcripts are linked above.
+These runs qualify the functional workload, policy readback and restoration.
+They do not measure cache-way occupancy or establish a statistical performance
+improvement; raw counter ticks include software overhead and require matched,
+repeated comparisons before any performance claim. Do not run the partitioned
+variant on QEMU or assume the installed Simics model supports its DSU registers.

@@ -1,0 +1,57 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executinCANDIDATE_BEGIN name=dma
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CANDIDATE_COMMAND dma_selftest 
+
+=== DMA Memory-to-Memory Transfer Demo ===
+
+[Step 1] Initialise DMA (instance 0, channel 0)
+DMA: GIC interrupt_enable failed (id=112, rc=1) - falling back to polling mode
+  [PASS] dma_init
+
+[Step 2] Synchronous transfer (256 bytes, pattern 0xA5)
+Starting the DMA transfer on channel 0  [PASS] dma_memcpy (sync)
+  [PASS] Sync data verification
+  All 256 bytes match 0xA5
+
+[Step 3] Asynchronous transfer (1024 bytes, incrementing pattern)
+Starting the DMA transfer on channel 0  [PASS] dma_memcpy_async (start)
+  [PASS] dma_wait (async timeout = 2000 ms)
+  Callback fired : yes
+  [PASS] Async data verification (1024 bytes matched)
+
+[Step 4] Error status
+  [PASS] No transfer errors (CH_INTSTATUS error flags = 0x00000000)
+
+[Step 5] Deinitialise DMA
+  Done.
+DMA: GIC interrupt_enable failed (id=112, rc=1) - falling back to polling mode
+DMA_STRICT_INIT rc=0
+PASS DMA_STRICT_INIT
+Starting the DMA transfer on channel 0DMA_STRICT_COPY rc=0
+DMA_STRICT_READBACK bytes=4096 mismatches=0
+PASS DMA_STRICT_4096_READBACK
+DMA_STRICT_HW CHEN=0x0 INTSTATUS=0x0
+PASS DMA_STRICT_CHANNEL_IDLE
+CANDIDATE_COMPLETE status=0

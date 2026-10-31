@@ -1,0 +1,11 @@
+test_expected_mask_negative_control_passes (test_run.PioAssessorTests.test_expected_mask_negative_control_passes) ... ok
+test_negative_case_requires_expected_rejection_marker (test_run.PioAssessorTests.test_negative_case_requires_expected_rejection_marker) ... ok
+test_positive_case_passes (test_run.PioAssessorTests.test_positive_case_passes) ... ok
+test_rejects_conflicting_completion_statuses (test_run.PioAssessorTests.test_rejects_conflicting_completion_statuses) ... ok
+test_rejects_missing_ddr_bootstrap_marker (test_run.PioAssessorTests.test_rejects_missing_ddr_bootstrap_marker) ... ok
+test_rejects_simulator_failure (test_run.PioAssessorTests.test_rejects_simulator_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

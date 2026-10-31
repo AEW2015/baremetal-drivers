@@ -1,0 +1,305 @@
+{
+  "environment": "Agilex5 Simics model",
+  "scope": "Model functional execution only; counter-derived results do not qualify physical DDR/MPFE timing",
+  "runner_sha256": "a59f916ef89a7933addd8f4733bae182884f7d48d6d6cf6cafeb331dbc483115",
+  "oracle_sha256": "1b0777d271cb1dcdcda35e3ef1e532d10e95dfb1d06930b5205d9b40d2df82ec",
+  "bootstrap_sha256": "025972a740c9c99a490d2551003f2f56dcc6b7d60aafd81408347a11234bbadd",
+  "simics_launcher_sha256": "f8927571c024f086fc7547fdf28ecdc9bfe159fe7d211868affe2f59a6ada0bc",
+  "build": {
+    "scope": "Compile only; hardware timing not qualified",
+    "target": "agilex5",
+    "source_revision": "af81d9e81572a5d630ba7d405db715a5dfbe7ec8",
+    "source_sha256": {
+      "memory-labs/ddr/ddr.c": "9bf6009803dd6cb1a8073906f6a19189d164feb6d6c69057c75ef1cdfbb1b146",
+      "memory-labs/ddr/build.sh": "09479b5b9fc38afcfb3dd89e01da091ff6d9b7ddf1908c045f8b1e69a4ac9ccf",
+      "qemu/labs/start.S": "dd94c3884c078c186e582b3bcb79b7cfc517b48009320bca69647c7e830b7b4d",
+      "qemu/labs/runtime.c": "86fe3dbb0b7d171d9e602e6bc3536b9ebb0baf329b9097e4c2553a884c6caaaf",
+      "qemu/labs/link.ld": "aa24579e892b7eaf5dd6b98bd12714328c2bd684b50855686f6fb20e92d2b81d",
+      "qemu/labs/lab.h": "b97dd13ada04b42c0ecea1db353485df8ed90f7bf9a00d92b90f9fd421da5540",
+      "memory-labs/ddr/calibrated.c": "46e10ba1dd7fdab7a8a4038d4130997def8d078c2ca4d51dbc512d6ded03fd8e"
+    },
+    "artifacts": {
+      "ddr-copy-fault.bin": "2e924add656da2605c1258c7ebe31266d4ee3fe9d5a813c4eb9585ed30f30b51",
+      "ddr-calibrated.bin": "dc94e502b2170f75b43c09ea389e056a5d1d6b1cce1ba8d34cbb2ba890afac1a",
+      "ddr-clock-fault.elf": "2aa947cd1262391b5174394cc9bf9e7fb35e11ebf8f58ff12ea65de918a015ad",
+      "ddr-copy-fault.elf": "cd2cac0efe2569839ffb044012194029deaeeb8aa26f1c1dfbb282830fb1727f",
+      "ddr-path.bin": "103e0ee586eb2aa482c4456ebbf740d37e5ca1ff7a458507803ae7481e2df0ae",
+      "ddr-calibrated.elf": "5e143d9327616469876ba7ea3da48d73c1cd13c60c6fa37691df3b0eb962c3db",
+      "ddr-path.elf": "4675f1c9b796738348e083aeeab20b2d8acabaad6c715f6fedf6dee36969a2e5",
+      "ddr-clock-fault.bin": "4299004c87486eba14fd84f0329e715aedde1b1403a795d753d0d1037df15354"
+    },
+    "calibration": {
+      "variant": "ddr-calibrated",
+      "declared_frequency_hz": 400000000,
+      "nominal_interval_ticks": 400000000,
+      "host_interval_grade_seconds": [
+        0.9,
+        1.1
+      ],
+      "scope": "Compile only; independent host coarse interval required; not fine timing accuracy"
+    }
+  },
+  "tests": [
+    {
+      "name": "ddr-path",
+      "status": "pass",
+      "negative_control": false,
+      "expected_failure": null,
+      "process_exit": 0,
+      "seconds": 12.387391129974276,
+      "elf_sha256": "4675f1c9b796738348e083aeeab20b2d8acabaad6c715f6fedf6dee36969a2e5",
+      "script_sha256": "3c89659854c06f86076e0cce4fac7cb2517bf20d445be4c3f8e111afc85263a8",
+      "samples": [
+        {
+          "op": "read",
+          "working_set_bytes": 65536,
+          "ticks": 131628,
+          "payload_bytes": 131072,
+          "accesses": 16384,
+          "checksum": 671632206730108928,
+          "emulated_declared_seconds": 0.00032907,
+          "emulated_payload_bytes_per_second": 398310389.88665026
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 65536,
+          "ticks": 148013,
+          "payload_bytes": 131072,
+          "accesses": 16384,
+          "checksum": 335816103365054464,
+          "emulated_declared_seconds": 0.0003700325,
+          "emulated_payload_bytes_per_second": 354217534.94625473
+        },
+        {
+          "op": "copy",
+          "working_set_bytes": 65536,
+          "ticks": 131628,
+          "payload_bytes": 131072,
+          "accesses": 16384,
+          "checksum": 335816103365054464,
+          "emulated_declared_seconds": 0.00032907,
+          "emulated_payload_bytes_per_second": 398310389.88665026
+        },
+        {
+          "op": "dependent-load",
+          "working_set_bytes": 65536,
+          "ticks": 16721,
+          "payload_bytes": 16384,
+          "accesses": 2048,
+          "checksum": 1047552,
+          "emulated_declared_seconds": 4.18025e-05,
+          "emulated_payload_bytes_per_second": 391938281.2032773,
+          "emulated_ns_per_load": 20.411376953125
+        },
+        {
+          "op": "read",
+          "working_set_bytes": 262144,
+          "ticks": 526152,
+          "payload_bytes": 524288,
+          "accesses": 65536,
+          "checksum": 1987290771547389952,
+          "emulated_declared_seconds": 0.00131538,
+          "emulated_payload_bytes_per_second": 398582919.0043942
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 262144,
+          "ticks": 591689,
+          "payload_bytes": 524288,
+          "accesses": 65536,
+          "checksum": 993645385773694976,
+          "emulated_declared_seconds": 0.0014792225,
+          "emulated_payload_bytes_per_second": 354434846.6846604
+        },
+        {
+          "op": "copy",
+          "working_set_bytes": 262144,
+          "ticks": 526152,
+          "payload_bytes": 524288,
+          "accesses": 65536,
+          "checksum": 993645385773694976,
+          "emulated_declared_seconds": 0.00131538,
+          "emulated_payload_bytes_per_second": 398582919.0043942
+        },
+        {
+          "op": "dependent-load",
+          "working_set_bytes": 262144,
+          "ticks": 65873,
+          "payload_bytes": 65536,
+          "accesses": 8192,
+          "checksum": 16773120,
+          "emulated_declared_seconds": 0.0001646825,
+          "emulated_payload_bytes_per_second": 397953638.0611176,
+          "emulated_ns_per_load": 20.10284423828125
+        },
+        {
+          "op": "read",
+          "working_set_bytes": 1048576,
+          "ticks": 2104248,
+          "payload_bytes": 2097152,
+          "accesses": 262144,
+          "checksum": 15772865267322978304,
+          "emulated_declared_seconds": 0.00526062,
+          "emulated_payload_bytes_per_second": 398651109.56503224
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 1048576,
+          "ticks": 2366393,
+          "payload_bytes": 2097152,
+          "accesses": 262144,
+          "checksum": 17109804670516264960,
+          "emulated_declared_seconds": 0.0059159825,
+          "emulated_payload_bytes_per_second": 354489216.2882497
+        },
+        {
+          "op": "copy",
+          "working_set_bytes": 1048576,
+          "ticks": 2104248,
+          "payload_bytes": 2097152,
+          "accesses": 262144,
+          "checksum": 17109804670516264960,
+          "emulated_declared_seconds": 0.00526062,
+          "emulated_payload_bytes_per_second": 398651109.56503224
+        },
+        {
+          "op": "dependent-load",
+          "working_set_bytes": 1048576,
+          "ticks": 263135,
+          "payload_bytes": 262144,
+          "accesses": 32768,
+          "checksum": 268419072,
+          "emulated_declared_seconds": 0.0006578375,
+          "emulated_payload_bytes_per_second": 398493548.93875766,
+          "emulated_ns_per_load": 20.075607299804688
+        },
+        {
+          "op": "read",
+          "working_set_bytes": 4194304,
+          "ticks": 8416632,
+          "payload_bytes": 8388608,
+          "accesses": 1048576,
+          "checksum": 2049781457998053376,
+          "emulated_declared_seconds": 0.02104158,
+          "emulated_payload_bytes_per_second": 398668160.85103875
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 4194304,
+          "ticks": 9465209,
+          "payload_bytes": 8388608,
+          "accesses": 1048576,
+          "checksum": 10248262765853802496,
+          "emulated_declared_seconds": 0.0236630225,
+          "emulated_payload_bytes_per_second": 354502811.2955562
+        },
+        {
+          "op": "copy",
+          "working_set_bytes": 4194304,
+          "ticks": 8416632,
+          "payload_bytes": 8388608,
+          "accesses": 1048576,
+          "checksum": 10248262765853802496,
+          "emulated_declared_seconds": 0.02104158,
+          "emulated_payload_bytes_per_second": 398668160.85103875
+        },
+        {
+          "op": "dependent-load",
+          "working_set_bytes": 4194304,
+          "ticks": 1052183,
+          "payload_bytes": 1048576,
+          "accesses": 131072,
+          "checksum": 4294901760,
+          "emulated_declared_seconds": 0.0026304575,
+          "emulated_payload_bytes_per_second": 398628755.6442178,
+          "emulated_ns_per_load": 20.068798065185547
+        },
+        {
+          "op": "read",
+          "working_set_bytes": 16777216,
+          "ticks": 33666168,
+          "payload_bytes": 33554432,
+          "accesses": 4194304,
+          "checksum": 3599992259633741824,
+          "emulated_declared_seconds": 0.08416542,
+          "emulated_payload_bytes_per_second": 398672423.90045696
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 16777216,
+          "ticks": 37860473,
+          "payload_bytes": 33554432,
+          "accesses": 4194304,
+          "checksum": 1799996129816870912,
+          "emulated_declared_seconds": 0.0946511825,
+          "emulated_payload_bytes_per_second": 354506210.2103162
+        },
+        {
+          "op": "copy",
+          "working_set_bytes": 16777216,
+          "ticks": 33666168,
+          "payload_bytes": 33554432,
+          "accesses": 4194304,
+          "checksum": 1799996129816870912,
+          "emulated_declared_seconds": 0.08416542,
+          "emulated_payload_bytes_per_second": 398672423.90045696
+        },
+        {
+          "op": "dependent-load",
+          "working_set_bytes": 16777216,
+          "ticks": 4208375,
+          "payload_bytes": 4194304,
+          "accesses": 524288,
+          "checksum": 68719214592,
+          "emulated_declared_seconds": 0.0105209375,
+          "emulated_payload_bytes_per_second": 398662571.6577064,
+          "emulated_ns_per_load": 20.06709575653076
+        }
+      ]
+    },
+    {
+      "name": "ddr-copy-fault",
+      "status": "pass",
+      "negative_control": true,
+      "expected_failure": "DDR_COPY_READBACK",
+      "process_exit": 0,
+      "seconds": 8.779663885012269,
+      "elf_sha256": "cd2cac0efe2569839ffb044012194029deaeeb8aa26f1c1dfbb282830fb1727f",
+      "script_sha256": "f15bf6c99bcc6a09a07d8e86a495cd0355e22c82aad898662915db053f541f54",
+      "samples": [
+        {
+          "op": "read",
+          "working_set_bytes": 65536,
+          "ticks": 131628,
+          "payload_bytes": 131072,
+          "accesses": 16384,
+          "checksum": 671632206730108928,
+          "emulated_declared_seconds": 0.00032907,
+          "emulated_payload_bytes_per_second": 398310389.88665026
+        },
+        {
+          "op": "write",
+          "working_set_bytes": 65536,
+          "ticks": 148013,
+          "payload_bytes": 131072,
+          "accesses": 16384,
+          "checksum": 335816103365054464,
+          "emulated_declared_seconds": 0.0003700325,
+          "emulated_payload_bytes_per_second": 354217534.94625473
+        }
+      ]
+    },
+    {
+      "name": "ddr-clock-fault",
+      "status": "pass",
+      "negative_control": true,
+      "expected_failure": "DDR_DECLARED_TIMER_FREQUENCY_RANGE",
+      "process_exit": 0,
+      "seconds": 8.283172913827002,
+      "elf_sha256": "2aa947cd1262391b5174394cc9bf9e7fb35e11ebf8f58ff12ea65de918a015ad",
+      "script_sha256": "29d8a33866b33cb3d26fb6f5cde3e3653f91965ce86c281929494c680d6fd5dc",
+      "samples": []
+    }
+  ],
+  "passed": true
+}

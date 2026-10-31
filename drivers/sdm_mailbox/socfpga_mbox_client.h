@@ -183,6 +183,18 @@ int32_t sip_svc_send(sdm_client_handle mbox_handle, uint64_t smc_func_id,
         resp_len);
 
 
+/* Function: mbox_detach_response_buffer
+ *
+ * Drop references to a caller-owned response buffer before its lifetime ends.
+ * Matching jobs remain allocated until their late responses are drained, so a
+ * timed-out transaction cannot be reused to write into a later stack object.
+ * This changes no send/completion semantics; synchronous adapters may use it
+ * after completion or a bounded wait. Returns the number of detached mappings,
+ * or -EINVAL for an invalid client/buffer. Single-threaded bare-metal use.
+ */
+int32_t mbox_detach_response_buffer(sdm_client_handle mbox_handle,
+                                   uint64_t *response);
+
 /* Section: Asynchronous Management */
 
 /* Function: mbox_set_callback

@@ -1,0 +1,12 @@
+test_cli_returns_two_for_invalid_snapshot (test_handoff.ParseHandoffTests.test_cli_returns_two_for_invalid_snapshot) ... ok
+test_compare_reports_register_mismatch_and_handoff_hash (test_handoff.ParseHandoffTests.test_compare_reports_register_mismatch_and_handoff_hash) ... ok
+test_extracts_expected_offsets (test_handoff.ParseHandoffTests.test_extracts_expected_offsets) ... ok
+test_rejects_corrupted_boot_magic (test_handoff.ParseHandoffTests.test_rejects_corrupted_boot_magic) ... ok
+test_rejects_duplicate_pmux_offset (test_handoff.ParseHandoffTests.test_rejects_duplicate_pmux_offset) ... ok
+test_rejects_missing_target_offset (test_handoff.ParseHandoffTests.test_rejects_missing_target_offset) ... ok
+test_rejects_truncated_handoff (test_handoff.ParseHandoffTests.test_rejects_truncated_handoff) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK

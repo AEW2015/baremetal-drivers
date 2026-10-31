@@ -8,7 +8,7 @@ dependent-load ring and restores its translation registers afterward.
 | Target | Status |
 |---|---|
 | QEMU `virt` / TCG | Normal sweep passed; corrupted-copy and invalid-frequency controls rejected |
-| Agilex 5 Modular ES | Compiled; physical execution and timing not tested |
+| Agilex 5 Modular ES | Physical `ddr-calibrated` and `ddr-path` 20-sample sweeps pass; copy-fault and clock-fault controls reject as expected |
 | Agilex 5 Simics | Normal 20-sample sweep passed; both deliberate failures correctly rejected. Model timing only. |
 
 The [recorded QEMU results](validation/qemu-final/results.json) include every
@@ -52,10 +52,11 @@ dependent-load count `N`:
 The guest checks the declared frequency range and that the counter advances.
 The Agilex build additionally requires the established bootstrap's 400 MHz
 `CNTFRQ_EL0` value. The shared startup fills that declaration if it was zero.
-**This is a consistency check, not independent oscillator calibration.** Before
-publishing hardware timings, record the matching handoff/clock configuration and
-validate the counter rate against an independent time reference. The benchmark
-does not use CPU clock frequency as a substitute for the counter frequency.
+The physical calibrated run measured a 0.9920008089 second host interval for
+the nominal one-second counter interval, within the 0.9–1.1 second gate. This is
+a coarse independent rate check with UART/scheduling uncertainty, not precision
+oscillator calibration. The benchmark does not use CPU clock frequency as a
+substitute for the counter frequency.
 
 ## Memory ownership
 
@@ -101,16 +102,30 @@ negative controls must exit nonzero for their specific expected failure.
 The hardware image requires the existing matching DDR bootstrap and a fresh
 standalone EL3 entry. Use the shared bench mutex and the existing verified ELF
 segment loader rather than loading the flat binary's possible relocation gap.
-The runner must restore DDR Hello in its finalizer. This subtree does not start
-a physical-board run or claim hardware qualification.
+The runner restores DDR Hello in its finalizer. Physical Modular ES results now
+pass `ddr-calibrated`, `ddr-path`, `ddr-copy-fault` and `ddr-clock-fault`. The
+calibrated wrapper's host interval passed the independent 0.9–1.1 second gate.
+The campaign JSON, readback/bootstrap records, and raw UART/debug/load outputs
+are in
+[`validation/full-campaign-20261031/hardware/memory-ddr/`](../../validation/full-campaign-20261031/hardware/memory-ddr/).
+Raw UART output: [calibrated](../../validation/full-campaign-20261031/hardware/memory-ddr/ddr-calibrated-uart.txt),
+[path](../../validation/full-campaign-20261031/hardware/memory-ddr/ddr-path-uart.txt),
+[copy-fault](../../validation/full-campaign-20261031/hardware/memory-ddr/ddr-copy-fault-uart.txt),
+and [clock-fault](../../validation/full-campaign-20261031/hardware/memory-ddr/ddr-clock-fault-uart.txt);
+the measured host interval is in
+[ddr-calibrated-clock-observation.json](../../validation/full-campaign-20261031/hardware/memory-ddr/ddr-calibrated-clock-observation.json).
+Raw counter ticks and rates characterize this scalar CPU path with normal
+noncacheable memory and the tested 64 KiB–16 MiB ranges. They do not establish
+peak MPFE throughput, DDR-pin bandwidth or write-back-cache performance.
 
 ## Hardware-only coarse counter calibration gate
 
 `ddr-calibrated` is a separate hardware-target wrapper around the unchanged
-`ddr.c` sweep. It **compiled successfully but has not run on hardware**. Its
+`ddr.c` sweep. Its
 [compile record](validation/build-agilex5-calibrated.json) includes the wrapper
 hash and confirms that the original source and all existing QEMU/Agilex ELF/bin
-images remained unchanged when this variant was added.
+images remained unchanged when this variant was added. The hardware result and
+measured host interval are in the campaign evidence linked above.
 
 The wrapper checks EL3/cache-off entry, the pinned 400 MHz counter declaration,
 and that the counter advances. It prints `COUNTER_INTERVAL_START`, waits for
@@ -126,14 +141,14 @@ DDR_CALIBRATED_ONLY=1 bash memory-labs/ddr/build.sh agilex5
 ```
 
 A normal `build.sh agilex5` also includes the wrapper. QEMU builds exclude it.
-The hardware runner must independently timestamp the two markers using host
-monotonic time and require **0.9–1.1 seconds** between them before setting
-`timing_valid=true`. Guest output alone cannot pass that gate. It is a coarse
-check that the declared counter rate agrees approximately with wall time, not
-an oscillator calibration, a fine timing-accuracy claim or a proof of peak DDR
-bandwidth. UART delivery and host scheduling contribute uncertainty. A failed
-or missing interval must leave timing unqualified even if memory integrity
-checks complete successfully.
+The hardware runner independently timestamps the two markers using host
+monotonic time and requires **0.9–1.1 seconds** between them before setting
+`timing_valid=true`. Guest output alone cannot pass that gate. The captured
+interval was 0.9920008089 seconds. This is a coarse check that the declared
+counter rate agrees approximately with wall time, not a precision timing claim
+or proof of peak DDR bandwidth. UART delivery and host scheduling contribute
+uncertainty. A failed or missing interval leaves timing unqualified even if
+memory integrity checks complete successfully.
 
 The Simics runner reuses the configured `build/simics26` project and
 `build/upstream26-ocram/baremetal.bin` bootstrap. It requires the DDR self-test

@@ -1,0 +1,23 @@
+uid=1000(dev) gid=1000(ubuntu) groups=1000(ubuntu),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev)
+LANG=C.UTF-8 LC_CTYPE=C.UTF-8 LC_ALL=C.UTF-8
+quartus_sh=/opt/altera/quartus/bin/quartus_sh
+quartus_pgm=/opt/altera/quartus/bin/quartus_pgm
+quartus_stp=/opt/altera/quartus/bin/quartus_stp
+jtagconfig=/opt/altera/quartus/bin/jtagconfig
+openocd=/opt/altera/quartus/bin/openocd
+qsys-generate=/opt/altera/qsys/bin/qsys-generate
+niosv-bsp=/opt/altera/niosv/bin/niosv-bsp
+system-console=/opt/altera/syscon/bin/system-console
+Quartus Prime Shell
+Version 26.1.1 Build 130 08/06/2026 SC Pro Edition
+Copyright (C) 2026  Altera Corporation. All rights reserved.
+Quartus Prime Programmer
+Version 26.1.1 Build 130 08/06/2026 SC Pro Edition
+Copyright (C) 2026  Altera Corporation. All rights reserved.
+Open On-Chip Debugger 0.12.0+quartus-gc58ca4ebc (2026-02-26-10:54)
+Licensed under GNU GPL v2
+For bug reports, read
+aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009
+aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Verilator 5.020 2024-01-01 rev (Debian 5.020-1)
+QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)

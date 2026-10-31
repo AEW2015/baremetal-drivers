@@ -1,0 +1,77 @@
+{
+  "scope": "Actual Arm guest MMIO through Simics Python adapter to actual transaction-stepped Verilator RTL; no physical-board/HPS bridge timing qualification",
+  "simics_version": "Simics Base            1000    7.89.0    (                7163) 2026-06-09\nCrypto Engine          1030    7.18.0    (                7150) 2026-04-10\nSimics GDB             1031    7.11.0    (                7155) 2026-04-29\nSimics Python          1033    7.15.0    (                7150) 2026-04-10\nIntel FPGA External    9000    7.1.0     (intel.fpga:263000013)           \nPython version: 3.10.19\nVMP kernel module is not loaded\n",
+  "boot_sha256": "025972a740c9c99a490d2551003f2f56dcc6b7d60aafd81408347a11234bbadd",
+  "build": {
+    "scope": "Arm guest via Simics MMIO adapter to actual transaction-stepped Verilator RTL; no physical board/timing qualification",
+    "guest_compiler": "aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009",
+    "verilator": "Verilator 5.020 2024-01-01 rev (Debian 5.020-1)",
+    "sha256": {
+      "simics-rtl/transactor.cpp": "7c6fafa98edd7586a15d9424c9c51ad555515d23ccdc964d8550533b017650a5",
+      "simics-rtl/guest.c": "6f655f343100cb04fdc69464299ddada4318fd63d82e15a78bd405344f4c0a83",
+      "simics-rtl/build.sh": "94a133eb02f1101864af95bc035f292841bb3e98fc2dbea73ec7a6a0991c3a09",
+      "fabric/lab_driver.c": "98850c2e6abd00426e62538483123c15e9743c690594c636087fc2a0e859730f",
+      "fabric/lab_mmio.c": "587018d3b9af7b115bac789ab44a97ffe6200547f918b3873392bdd364253615",
+      "fabric/lab_driver.h": "686fd2f24480929609024cccbe3569668d640298443d8e8b3a4a5c528325d5b1",
+      "fabric/rtl/lab_ip.sv": "3ac67d8a752cb38b9fd55c606a9757144dc7ae3dc99efbf91409b388d1a6d07c",
+      "fabric/rtl/lab_persona.sv": "f78b8b773cd784b5b85cf2a0442baaebfe13e2e3a513096b398c248db563edd1",
+      "core/start.S": "10849a4ae54643556bad1556f94241154233b3d2f9d7ba18d5edee9b358fd9eb",
+      "core/link.ld": "1b92bcf78c732dd436759fea55a3ad4e90f1375990446eb43fbd2e4aacaeb10e",
+      "core/fault.c": "be53d1703a3aa3ce52bebb1570d1b74435f15ec169c9c110c7d6a9611367d748",
+      "core/common.h": "379491cc3318b18b74691c512137d9ae31a27bf32c08eeb404649be2beab3689",
+      "build/simics-rtl/guest0.bin": "fc7df87f92f92b58b993944643d1979e1053b586216d71f1ef62b06c04edad56",
+      "build/simics-rtl/guest1.elf": "9c1abb3473390777482d43ba06c2e19e32a62c5999c94da340a98004fd6c5c0e",
+      "build/simics-rtl/guest0.elf": "a5fbec1847c0140c759a6b0b0f76af20754b9b55a24bd4f64f8f5c3f9e92dffe",
+      "build/simics-rtl/guest1.bin": "2f6fa74838a15ea6840f7e1a3fc61c835f81d76ae1f376a8bece1dc5f826a423",
+      "build/simics-rtl/mode1/Vlab_ip": "198597a7dc5727904ed83968392abea8faa854eb25ae4f1d4e5755620e224266",
+      "build/simics-rtl/mode2/Vlab_ip": "2de3ec6049ae5586acbf97c586aa3c67612d96c2eb156b200aa65386c2204850"
+    }
+  },
+  "adapter_sha256": "7ac8c89a7f2c370caab3f3ee349dcbdc243b02c7e92af1831cb66ae04b85887d",
+  "transport_sha256": "2d38fec5c1a4254bd0864fb30e93cbc1605136e2525f9fc25b1fb9a67d49b15e",
+  "runner_sha256": "2b73caacab6b5b28c1e16b80410c98fc363990e4eef4b937c42d35fb4c58323f",
+  "tests": [
+    {
+      "name": "add",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.232998663093895,
+      "backend": {
+        "missing_done_injection": false,
+        "rtl_cycles": 128,
+        "transactions": 63
+      },
+      "all_transactions_from_arm_core0": true,
+      "script_sha256": "a4640c21f3e636f676773a3c649690429e3692e0e7ff462a6d6d967cc307e7bb",
+      "transactions_sha256": "5078a79b40458714b7dbbb4715cc391362e4a5ef1d2fc94db242f48fc2dbb7d5"
+    },
+    {
+      "name": "xor",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.480632289778441,
+      "backend": {
+        "missing_done_injection": false,
+        "rtl_cycles": 128,
+        "transactions": 63
+      },
+      "all_transactions_from_arm_core0": true,
+      "script_sha256": "21ea968003a4ee47e265dcab425afe0cce361968164ecd5fda653c1797b4314b",
+      "transactions_sha256": "33762b111286d8fa4f4edeb0dc80b476fafe885765f3a7759a28a874753dd56c"
+    },
+    {
+      "name": "missing-done",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.329833673778921,
+      "backend": {
+        "missing_done_injection": true,
+        "rtl_cycles": 42,
+        "transactions": 20
+      },
+      "all_transactions_from_arm_core0": true,
+      "script_sha256": "58591bdbe0a9fba017ce24108b740aac582d62fb168851ccfdcf66e9562cc430",
+      "transactions_sha256": "2f63b52259e99fb1ecef29f0c89a0673cf5cac0227f854e836570681a0484f36"
+    }
+  ]
+}

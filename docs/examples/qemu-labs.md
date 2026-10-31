@@ -1,8 +1,8 @@
-# Six QEMU practice labs
+# Seven QEMU practice labs
 
 These exercises extend the [first QEMU lesson](../qemu.md). Each is a separate
 freestanding C program with shared AArch64 startup and exception vectors.
-You need no board: use QEMU `virt`, secure EL3, Cortex-A53, one core, GICv3,
+You need no board: use QEMU `virt`, secure EL3, Cortex-A53, GICv3,
 128 MiB RAM and TCG. These addresses and peripherals belong to QEMU, not Agilex.
 
 <!-- example-architecture:start -->
@@ -26,13 +26,13 @@ bash qemu/labs/build.sh
 python3 qemu/labs/run.py --negative --gdb
 ```
 
-The build produces six normal ELFs and six deliberate failure variants in
+The build produces seven normal ELFs and six deliberate failure variants in
 `build/qemu-labs/`. It uses `aarch64-none-elf-gcc` with debug information and
 warnings treated as errors. The runner needs `qemu-system-aarch64`; `--gdb`
 also needs `gdb-multiarch` with Python support. Set `CROSS_COMPILE`, `QEMU` or
 `GDB` to override tool names. The compiler is also queried for the result manifest.
 
-Expected host summary: six normal PASS results, six negative-control PASS
+Expected host summary: seven normal PASS results, six negative-control PASS
 results, and `startup-gdb: PASS` plus `corruption-gdb: PASS`. A negative-control
 PASS means the broken guest exited with failure and the checker rejected it.
 The overall command exits zero only when every selected check passes.
@@ -45,7 +45,7 @@ timer and MMU lessons. Both that compiler and Arm GNU 13.2.Rel1 are checked.
 Failed runs print their guest/debugger diagnostics as well as saving the logs.
 
 Run one exercise with `python3 qemu/labs/run.py --only startup`, replacing
-`startup` with `corruption`, `exception`, `timer`, `mmu` or `uart`.
+`startup` with `corruption`, `exception`, `timer`, `mmu`, `uart` or `multicore`.
 The runner writes guest logs, exact QEMU commands, tool versions, source and
 ELF hashes, UART cases and `results.json` under `runs/qemu-labs-<UTC timestamp>/`.
 It requires a fresh begin marker, every required PASS marker, `LAB COMPLETE`,
@@ -185,6 +185,18 @@ The batch runner tests 11 cases, including both editing characters, unknown and
 empty commands, 31/32/80-character boundaries, overflow recovery and clean exit.
 `memcheck` verifies 32 words and prints `PASS UART_MEMCHECK`; `exit` prints
 `PASS UART_SESSION`. Interactive input times out after 60 seconds without a byte.
+
+## 7. Verify secondary-core execution
+
+[multicore.c](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/qemu/labs/multicore.c)
+runs with four virtual cores. Each secondary records its MPIDR, MIDR and exception
+level in shared RAM. The primary checks three distinct core identities and EL3,
+then prints `PASS THREE_SECONDARIES_EXECUTED`. Run it with
+`python3 qemu/labs/run.py --only multicore`.
+
+This is a secondary execution and identity exercise. QEMU startup differs from
+the Agilex reset sequence; this lesson does not establish PSCI or cache coherency.
+The dedicated DSU and PSCI examples test those separately.
 
 ## Scope and evidence
 

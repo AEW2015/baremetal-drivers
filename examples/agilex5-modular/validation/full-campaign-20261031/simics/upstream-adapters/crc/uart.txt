@@ -1,0 +1,118 @@
+Welcome to SoCFPGA Baremetal World for Agilex5 Platform
+
+Built: 23:07:33 Oct 30 2026
+
+Commit: 001649d
+
+Running on Core 0
+
+Type 'help' for commands.
+
+SoCFPGA Bare-Metal > ddr_selftest
+
+
+
++------------------------------------------------------------+
+
+|                  DDR BIST / INIT COMMAND                   |
+
++------------------------------------------------------------+
+
+Mode  : Agilex5 OCRAM on-demand DDR bring-up
+
+Step 1: Run IOSSM/DDR init flow (ATF-compatible) ... DDR: Reset type is 'Power-On'
+
+IOSSM: Calibration success status check...
+
+IOSSM: All EMIF instances within the IO96 have calibrated successfully!
+
+DDR: Calibration success
+
+DDR: ECC is disabled
+
+DDR: DDR size configured is (2048 MiB)
+
+DDR: Mismatch with hardware size (8192 MiB).
+
+###DDR:init success###
+
+PASS
+
+
+
+Step 2: Run DDR memory validation suite
+
+------------------------------------------------------------
+
+Region: 0x83000000 - 0x83FFFFFF (16 MB)
+
+
+
+Test 1 of 4 : Fixed data-pattern test
+
+------------------------------------------------------------
+
+  Pattern 0x00000000 ....................... PASS
+
+  Pattern 0xFFFFFFFF ....................... PASS
+
+  Pattern 0xAAAAAAAA ....................... PASS
+
+  Pattern 0x55555555 ....................... PASS
+
+
+
+Test 2 of 4 : Walking-bit test
+
+------------------------------------------------------------
+
+  Walk 32 single-bit patterns ............... PASS
+
+
+
+Test 3 of 4 : Address-uniqueness test
+
+------------------------------------------------------------
+
+  Write/verify unique address values ........ PASS
+
+
+
+Test 4 of 4 : March C- test
+
+------------------------------------------------------------
+
+  March C- up/down sweeps ................... PASS
+
+------------------------------------------------------------
+
+
+
+RESULT : 4 of 4 tests passed  -  SELF-TEST PASSED
+
+
+
+SoCFPGA Bare-Metal > UPSTREAM_LAB_BEGIN case=0
+GUEST_EXCEPTION_LEVEL=3
+UPSTREAM_COMMAND crc_selftest 
+
+==== CRC API DEMO ====
+  channel    : 0x0000000000001123
+  image size : 32 bytes
+  golden CRC : 0x1B61EFC6
+======================
+[success] PASS | verdict=OK
+  actual=32 expected=32 calc_crc=0x1B61EFC6 size_valid=yes crc_valid=yes
+[corrupt] CRC_MISMATCH | verdict=OK
+  actual=32 expected=32 calc_crc=0x89824208 size_valid=yes crc_valid=no
+[partial] SIZE_MISMATCH | verdict=OK
+  actual=27 expected=32 calc_crc=0x00000000 size_valid=no crc_valid=no
+[large] IMAGE_TOO_LARGE | verdict=OK
+  actual=65 expected=65 calc_crc=0x00000000 size_valid=no crc_valid=no
+
+==== CRC DEMO SUMMARY ====
+  executed : 4 case(s)
+  passed   : 4 case(s)
+  failed   : 0 case(s)
+==========================
+UPSTREAM_LAB_COMPLETE status=0

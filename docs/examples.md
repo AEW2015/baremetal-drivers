@@ -2,7 +2,7 @@
 
 Choose an example in the **Examples** navigation. Each page has **What it does**, **Build and run**, **Expected results**, and **Limits** subtabs, with source links and captured output.
 
-Use the [clickable HPS and fabric map](architecture.md) to locate all 81 catalog
+Use the [clickable HPS and fabric map](architecture.md) to locate catalog
 entries by block, then open their source, expected results and platform evidence.
 
 <!-- example-architecture:start -->
@@ -22,7 +22,7 @@ entries by block, then open their source, expected results and platform evidence
 | Example | Runs on | Expected result |
 |---|---|---|
 | [QEMU CPU/NEON/RAM](examples/qemu.md) | Generic QEMU virt | EL3, vector `{11,22,33,44}`, verified 4 KiB copy, exit 0 |
-| [Six QEMU practice labs](examples/qemu-labs.md) | Generic QEMU virt | Startup, watchpoint, exception, timer, permissions and UART checks |
+| [Shared CPU practice labs](examples/qemu-labs.md) | QEMU, Agilex Simics and the Modular kit | Startup, watchpoint, exception, timer, permissions, UART and multicore checks |
 | [Simics current and legacy suites](simics.md) | Agilex 5 virtual platform | Current 26.3 console checks and separately pinned 25.1 samples |
 | [OCRAM Hello](examples/ocram.md) | Modular SOM | Repeated OCRAM UART Hello; no DDR initialization |
 | [DDR bring-up](examples/ddr.md) | Modular SOM | Four 64 MiB patterns, payload readback, fresh Hello and DDR PC |
@@ -38,7 +38,7 @@ Complete [hardware setup](hardware.md), build the selected image inside the deve
 python3 run_suite.py --only core
 ```
 
-The runner freshly initializes DDR before each program and restores DDR Hello afterward. Example pages provide their exact command, ELF and recorded entry. Only the separate QEMU exercise runs on generic QEMU virt.
+The runner freshly initializes DDR before each program and restores DDR Hello afterward. Example pages provide their exact command, ELF and recorded entry. The generic CPU practice labs also run on QEMU; SoC peripheral examples need the corresponding Agilex model or hardware profile.
 
 | Selector | Detailed example | What to expect |
 |---|---|---|
@@ -67,9 +67,30 @@ Require a fresh begin marker, every required result, no failure marker, a succes
 
 The original [15-entry hardware record](validation.md) and [tutorial debugger checks](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/tutorial) remain separate. The supplied hardware F5 launch targets the `core` ELF; use each page’s runner command for the other entries.
 
-## Supporting and deferred examples
+## Additional validation and remaining dependencies
 
-`secondary_core.c` is a compile-only PSCI wrapper requiring resident BL31 and a nonsecure caller, absent in the current EL3 bootstrap. `fault_probe.c` is a manual diagnostic utility, not a peripheral qualification test. The U-Boot/Linux recipes are unexecuted setup references. Ethernet traffic uses its separate peer-dependent runner above. USB enumeration, SD media access, native I3C protocols, SMMU translation, ECC injection and coherent multicore sharing are not claimed by these tests.
+The [2026-10-31 campaign](full-validation-2026-10-31.md) records rebuilt board-suite
+results alongside QEMU, Simics and additional physical tests. The separate
+[cached DSU/L3 and HPS DDR labs](memory-fabric-labs.md) now have physical results;
+those capabilities are not inferred from the 15 register/SOM entries above.
+
+The [PSCI harness](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/reference/psci)
+uses `secondary_core.c` under resident BL31 from nonsecure EL2. Native Simics
+verified CPU_ON, the secondary context/identity/stack, CPU_OFF and final OFF
+affinity. Its physical and native Simics tests passed; the 15-entry standalone EL3 bootstrap
+remains a different environment.
+
+The [automated physical reference checks](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/references/results.json)
+passed OCRAM semihost output with load/readback and stopped-PC proof, plus the
+read-only `fault_probe.c` register snapshot. The latter does not inject or recover
+a fault. The [USB lab](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-bringup)
+reaches a source-built U-Boot prompt on hardware, but xHCI CNR still times out
+before enumeration. Linux boot/media recipes remain separate references.
+
+Ethernet uses its peer-dependent runner above. USB enumeration, SD media access,
+native I3C protocols, physical SMMU translation and ECC injection/recovery still
+need their own passing evidence. Native model translation/fault tests are
+recorded separately from physical-board qualification.
 
 ## Fabric IP extension
 

@@ -1,0 +1,44 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+HPS_SUITE_BEGIN ccu
+CCU open
+Read DSU CAIUIDR default value SUCCESSFUL!
+Read DSU CAIUTCR SUCCESSFUL!
+Warning: DSU CAIUUEVIR expected: 0x80020348, observerd: 0x80020323!
+Warning: NCAIU XAIUINFOR expected: 0x80011348, observerd: 0x80021323!
+Warning: NCAIU XAIUINFOR expected: 0x80011348, observerd: 0x80011323!
+Warning: NCAIU XAIUINFOR expected: 0x80011348, observerd: 0x80011323!
+Warning: NCAIU XAIUINFOR expected: 0x80011348, observerd: 0x80021323!
+Warning: DCE DCEUINFOR expected: 0x80008348, observerd: 0x80008323!
+Warning: DCE DCEUINFOR expected: 0x80008348, observerd: 0x80008323!
+Warning: DMI DMIUINFOR expected: 0x80309348, observerd: 0x80309323!
+Warning: DMI DMIUINFOR expected: 0x80309348, observerd: 0x80309323!
+Warning: DII DIIUINFOR expected: 0x8000a348, observerd: 0x8000a323!
+Warning: DII DIIUINFOR expected: 0x8000a348, observerd: 0x8000a323!
+Warning: DII DIIUINFOR expected: 0x8000a348, observerd: 0x8000a323!
+Warning: DII DIIUINFOR expected: 0x8000a348, observerd: 0x8000a323!
+Warning: DII DIIUINFOR expected: 0x8000a348, observerd: 0x8000a323!
+Warning: DVE DVEUINFOR expected: 0x8000b348, observerd: 0x8000b323!
+Warning: SYS GBL GRBUNSIDR expected: 0x1348, observerd: 0x1323!
+CCU close
+HPS_SUITE_PASS ccu rc=0x00000000

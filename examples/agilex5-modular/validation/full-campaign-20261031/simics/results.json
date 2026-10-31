@@ -1,0 +1,710 @@
+{
+  "scope": "Fresh native Simics and Simics/Verilator campaign; per-row distinctions retained; no physical hardware claims",
+  "finished_utc": "2026-10-31T19:16:49.930626+00:00",
+  "simics_version": "Simics Base            1000    7.89.0    (                7163) 2026-06-09\nCrypto Engine          1030    7.18.0    (                7150) 2026-04-10\nSimics GDB             1031    7.11.0    (                7155) 2026-04-29\nSimics Python          1033    7.15.0    (                7150) 2026-04-10\nIntel FPGA External    9000    7.1.0     (intel.fpga:263000013)           \nPython version: 3.10.19\nVMP kernel module is not loaded\n",
+  "inventory_rows": 94,
+  "rows_executed": 63,
+  "counts": {
+    "pass": 49,
+    "partial": 6,
+    "fail": 8,
+    "not-run": 28,
+    "reference": 1,
+    "not-supported": 2
+  },
+  "tests": [
+    {
+      "name": "upstream/bridge",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-services/results.json",
+      "source_case": "bridge",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "upstream/ccu",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr/results.json",
+      "source_case": "ccu",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": null
+    },
+    {
+      "name": "upstream/clk_mngr",
+      "status": "partial",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr/results.json",
+      "source_case": "clk_mngr",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": "Clock init, L4_SP divisor set/rejection and model frequencies passed, but SOFT_PHY and CS_CLK divisor queries returned -EINVAL (-22). No physical clock measurement."
+    },
+    {
+      "name": "upstream/combophy",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-adapters/results.json",
+      "source_case": "combophy",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "upstream/crc",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-adapters/results.json",
+      "source_case": "crc",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "upstream/ddr",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-console/results.json",
+      "source_case": "ddr",
+      "scope": "upstream 26.3 OCRAM console on the Agilex 5 virtual platform; no physical-board qualification",
+      "limitation": null
+    },
+    {
+      "name": "upstream/dma",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr/results.json",
+      "source_case": "dma",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": "Driver fell back to polling because GIC IRQ enable returned 1. Sync 256-byte and async 1024-byte readback and callback passed; hardware interrupt delivery is not qualified."
+    },
+    {
+      "name": "upstream/ecc",
+      "status": "fail",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr/results.json",
+      "source_case": "ecc",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": "OCRAM ECC initialization timed out before error injection."
+    },
+    {
+      "name": "upstream/fcs",
+      "status": "fail",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr-el2/results.json",
+      "source_case": "fcs",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": "EL2/BL31 accepts CHIP_ID SiP call but model SDM returns error 0x3; console re-enters OCRAM bootstrap before any FCS identity/session/RNG completion. A returned prompt is not command success."
+    },
+    {
+      "name": "upstream/gic",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-console/results.json",
+      "source_case": "gic",
+      "scope": "upstream 26.3 OCRAM console on the Agilex 5 virtual platform; no physical-board qualification",
+      "limitation": null
+    },
+    {
+      "name": "upstream/gpio",
+      "status": "partial",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr/results.json",
+      "source_case": "gpio",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": "Source never opens the GPIO handle; printed value cannot prove a GPIO operation"
+    },
+    {
+      "name": "upstream/hello",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-console/results.json",
+      "source_case": "hello",
+      "scope": "upstream 26.3 OCRAM console on the Agilex 5 virtual platform; no physical-board qualification",
+      "limitation": null
+    },
+    {
+      "name": "upstream/i2c",
+      "status": "partial",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr/results.json",
+      "source_case": "i2c",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": "Seven of nine phases passed; explicit target write/readback and P3T sensor phases skipped (no matching target supplied/found)."
+    },
+    {
+      "name": "upstream/i3c",
+      "status": "fail",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr/results.json",
+      "source_case": "i3c",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": "Native model critical access to held-reset I3C0; enum names incorrectly tested with #ifdef in API reset selection."
+    },
+    {
+      "name": "upstream/iossm",
+      "status": "partial",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-services/results.json",
+      "source_case": "iossm",
+      "scope": null,
+      "limitation": "Model ECC counter register is unmapped; memory readback passes, injection command failure remains unqualified"
+    },
+    {
+      "name": "upstream/mailbox",
+      "status": "partial",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-services/results.json",
+      "source_case": "mailbox",
+      "scope": null,
+      "limitation": "Model rejects GET_IDCODE; NOOP and CONFIG_STATUS passed through BL31"
+    },
+    {
+      "name": "upstream/mmu",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr/results.json",
+      "source_case": "mmu",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": null
+    },
+    {
+      "name": "upstream/noc",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-adapters/results.json",
+      "source_case": "noc",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "upstream/perf",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-adapters/results.json",
+      "source_case": "perf",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "upstream/reboot_mngr",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/reboot-bl31/results.json",
+      "source_case": "reboot",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "upstream/reset_mngr",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-adapters/results.json",
+      "source_case": "reset",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "upstream/sdmmc",
+      "status": "fail",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr/results.json",
+      "source_case": "sdmmc",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": "SDMMC command/transfer timeout during initialization; no successful media transfer."
+    },
+    {
+      "name": "upstream/seu",
+      "status": "fail",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr-el2/results.json",
+      "source_case": "seu",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": "EL2/BL31 service entry works, but model SDM rejects every sector-stat query with error 0x3; no valid sector and no injection test."
+    },
+    {
+      "name": "upstream/smmu",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr/results.json",
+      "source_case": "smmu",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": null
+    },
+    {
+      "name": "upstream/spi",
+      "status": "partial",
+      "evidence": "validation/full-campaign-20261031/simics/current-ddr/results.json",
+      "source_case": "spi",
+      "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+      "limitation": "Controller version and 32-byte internal loopback passed. The subsequent status phase runs after the helper closes the API and reports not open; the unconditional 3/3 summary does not qualify full SPI selftest completion."
+    },
+    {
+      "name": "upstream/timer",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-console/results.json",
+      "source_case": "timer",
+      "scope": "upstream 26.3 OCRAM console on the Agilex 5 virtual platform; no physical-board qualification",
+      "limitation": null
+    },
+    {
+      "name": "board/core",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/dma",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/gic",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/interfaces",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/mailbox",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/mmu",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/multicore",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/som",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/som-i2c",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/som-i3c",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/vendor-ccu",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/vendor-clkmgr",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/vendor-ecc",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/vendor-smmu",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/vendor-uart",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/vendor-timer",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/vendor-watchdog",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/vendor-spi",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "board/vendor-hps_mailbox",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "legacy/hello-world",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "hello-world",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/uart",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "uart",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/dma",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "dma",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/timer",
+      "status": "fail",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "timer",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/watchdog",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "watchdog",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/i2c",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "i2c",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/i3c",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "i3c",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/spi",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "spi",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/sdmmc",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "sdmmc",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/xgmac",
+      "status": "fail",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "xgmac",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/mmu_el3",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "mmu_el3",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/smmu",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "smmu",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/ccu",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "ccu",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/clkmgr",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "clkmgr",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/ecc",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "ecc",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "legacy/hps_mailbox",
+      "status": "fail",
+      "evidence": "validation/full-campaign-20261031/simics/legacy-final/results.json",
+      "source_case": "hps_mailbox",
+      "scope": "legacy 25.1 reference tests, not the rewritten 26.3 APIs",
+      "limitation": null
+    },
+    {
+      "name": "custom/qemu-hello",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "practice/startup",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/practice/results.json",
+      "source_case": "startup",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "practice/corruption",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/practice/results.json",
+      "source_case": "corruption",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "practice/exception",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/practice/results.json",
+      "source_case": "exception",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "practice/timer",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/practice/results.json",
+      "source_case": "timer",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "practice/mmu",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/practice/results.json",
+      "source_case": "mmu",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "practice/uart",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/practice/results.json",
+      "source_case": "uart",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "practice/multicore",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/practice/results.json",
+      "source_case": "multicore",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "diagnostic/smc-guard",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-adapters/results.json",
+      "source_case": "smc-guard",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "diagnostic/perf-zero-clock",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-adapters/results.json",
+      "source_case": "perf-zero-clock",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "custom/bridge-control",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/upstream-services/results.json",
+      "source_case": "bridge-control",
+      "scope": null,
+      "limitation": null
+    },
+    {
+      "name": "custom/ocram-hello",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "custom/ddr-hello",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "reference/semihost",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "reference/psci",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/psci/results.json",
+      "source_case": "reference/psci",
+      "scope": "Native Agilex Simics cores and resident TF-A PSCI; same physical-addressed C/ASM harness and strict oracle, no QEMU substitution or physical-board claim",
+      "limitation": null
+    },
+    {
+      "name": "custom/fault-probe",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "custom/ethernet",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "fabric/add",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "fabric/xor",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    },
+    {
+      "name": "reference/pr",
+      "status": "reference",
+      "limitation": "Requires matching static/PR bitstreams and physical PR deployment; Simics does not run fabric RTL through reconfiguration."
+    },
+    {
+      "name": "config/sysmgr",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/config-audit/results.json",
+      "source_case": "sysmgr",
+      "scope": "Read-only snapshots and negative control; no physical-board qualification",
+      "limitation": null
+    },
+    {
+      "name": "config/pinmux",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/config-audit/results.json",
+      "source_case": "pinmux",
+      "scope": "Read-only snapshots and negative control; no physical-board qualification",
+      "limitation": null
+    },
+    {
+      "name": "integration/simics-rtl-add",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/rtl/results.json",
+      "source_case": "add",
+      "scope": "Actual Arm guest MMIO through Simics Python adapter to actual transaction-stepped Verilator RTL; no physical-board/HPS bridge timing qualification",
+      "limitation": null
+    },
+    {
+      "name": "integration/simics-rtl-xor",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/rtl/results.json",
+      "source_case": "xor",
+      "scope": "Actual Arm guest MMIO through Simics Python adapter to actual transaction-stepped Verilator RTL; no physical-board/HPS bridge timing qualification",
+      "limitation": null
+    },
+    {
+      "name": "model/pio",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/model-audit/results.json",
+      "source_case": "pio",
+      "scope": "Simics model PIO readback; no physical board or external button/switch transition qualification",
+      "limitation": null
+    },
+    {
+      "name": "memory/dsu",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/dsu/results.json",
+      "source_cases": [
+        "normal",
+        "corrupt",
+        "stalled",
+        "contention"
+      ],
+      "scope": "Cached guest/control-flow execution only; no physical coherency, L3 partition, cache timing or bandwidth qualification",
+      "limitation": null
+    },
+    {
+      "name": "memory/l3-partition",
+      "status": "not-supported",
+      "limitation": "Native model does not implement the target hardware partition policy; build-only hardware variant."
+    },
+    {
+      "name": "memory/ddr-sweep",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/ddr/results.json",
+      "source_cases": [
+        "ddr-path",
+        "ddr-copy-fault",
+        "ddr-clock-fault"
+      ],
+      "scope": "Model functional execution only; counter-derived results do not qualify physical DDR/MPFE timing",
+      "limitation": null
+    },
+    {
+      "name": "memory/smmu-qemu",
+      "status": "not-supported",
+      "limitation": "QEMU PCI EDU device/topology does not exist on the Agilex Simics target."
+    },
+    {
+      "name": "memory/native-tbu",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/native-tbu/results.json",
+      "source_cases": [
+        "dma0",
+        "f2h",
+        "f2sdram"
+      ],
+      "scope": "Host-issued transactions through native Agilex SMMU/TBU models; not physical DMA/fabric qualification; fresh walks with model TLB cache disabled; no command-queue invalidation claim",
+      "limitation": null
+    },
+    {
+      "name": "memory/dma-tbu",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/dmac-tbu/results.json",
+      "source_cases": [
+        "native-dmac-smmu"
+      ],
+      "scope": "Guest DMAC0 native-model transfer/fault, host-configured native S2 tables, TLB cache disabled; no physical hardware/TLBI qualification",
+      "limitation": null
+    },
+    {
+      "name": "memory/fabric-ddr",
+      "status": "pass",
+      "evidence": "validation/full-campaign-20261031/simics/fabric-results.json",
+      "source_cases": [
+        "physical",
+        "axi-error",
+        "read-error",
+        "timeout-drain",
+        "f2h-valid",
+        "f2h-fault",
+        "f2sdram-valid",
+        "f2sdram-fault"
+      ],
+      "scope": "Actual C driver -> Verilator RTL -> native physical DDR/F2H/F2SDRAM TBU; includes native fault and explicit-injection controls; model only",
+      "limitation": null
+    },
+    {
+      "name": "custom/usb-host",
+      "status": "not-run",
+      "limitation": "No matching model runner for this distinct implementation; a passed sibling implementation does not qualify it."
+    }
+  ],
+  "notes": [
+    "Initial legacy invocation was blocked by missing compiled outputs; rebuilt the pinned legacy dependency and reran all 16.",
+    "Initial reboot adapter was attempted at EL3 and correctly rejected SMC; the supported resident-BL31 rerun passed.",
+    "Initial native-fabric descriptive --case arguments were rejected by argparse; all four corrected native-valid/native-fault profiles executed and passed.",
+    "DMA current DDR test passed full 256/1024-byte data/callback checks via driver polling fallback; interrupt delivery is not claimed.",
+    "Clock manager remains partial for two -EINVAL divisor getters.",
+    "FCS remains failed even through BL31: SDM rejects CHIP_ID and guest re-enters OCRAM console before FCS completion.",
+    "I2C is partial (7 of 9 phases, target write/P3T skipped); GPIO is partial because unchanged code uses NULL handle and ignores errors.",
+    "Native SMMU TBU fixtures explicitly disable model TLB cache and check fresh table walks, not command-queue/TLBI completion."
+  ]
+}

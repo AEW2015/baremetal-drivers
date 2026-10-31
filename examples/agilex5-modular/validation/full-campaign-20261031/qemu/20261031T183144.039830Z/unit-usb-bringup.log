@@ -1,0 +1,7 @@
+test_exact_block_boundary_has_final_empty_packet (test_tftp_peer.PeerTests.test_exact_block_boundary_has_final_empty_packet) ... ok
+test_short_final_packet_and_read_only_rejections (test_tftp_peer.PeerTests.test_short_final_packet_and_read_only_rejections) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

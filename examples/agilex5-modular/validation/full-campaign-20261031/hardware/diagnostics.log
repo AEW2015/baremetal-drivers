@@ -1,0 +1,84 @@
+Evidence: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/upstream26-hardware-20261031T191723.997820Z
+smc-guard: pass
+nk 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+UPSTREAM_LAB_BEGIN case=9
+GUEST_EXCEPTION_LEVEL=3
+SMC_UNAVAILABLE: caller is EL3; enter EL1/EL2 through resident TF-A BL31
+PASS SMC_EL3_REJECTED_AND_IOSSM_STATUS_VALIDATED
+UPSTREAM_LAB_COMPLETE status=0
+
+perf-zero-clock: pass
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+UPSTREAM_LAB_BEGIN case=11
+GUEST_EXCEPTION_LEVEL=3
+COUNTER_HZ=0
+TIMING_UNAVAILABLE counter frequency is zero; memory correctness only
+UPSTREAM_COMMAND perf_selftest timer
+
+[PERF][TIMER] ARM generic counter frequency: 0 Hz
+[PERF][TIMER] TIMING_UNAVAILABLE: counter frequency is zero
+UPSTREAM_COMMAND perf_selftest mem 0x85000000 65536 2
+
+[PERF][MEM] destructive DDR test
+[PERF][MEM] src=0x0000000085000000 dst=0x0000000085010000 size=65536 loops=2
+[PERF] mem-write: TIMING_UNAVAILABLE (counter frequency or elapsed interval is zero)
+[PERF] mem-read: TIMING_UNAVAILABLE (counter frequency or elapsed interval is zero)
+[PERF][MEM] read sink=0x00000000
+[PERF] mem-copy: TIMING_UNAVAILABLE (counter frequency or elapsed interval is zero)
+PASS PERF_MEMORY_READBACK words=16384 mismatches=0
+UPSTREAM_COMMAND perf_selftest latency timer 100
+
+[PERF][LAT][TIMER] measuring perf_counter_ticks() overhead loops=100
+[PERF][LAT] timer-overhead: TIMING_UNAVAILABLE (counter frequency is zero)
+UPSTREAM_COMMAND perf_selftest log dump
+
+[PERF][LOG] entries=4 max=64
+[PERF][LOG] tag=mem-write TIMING_UNAVAILABLE status=-61
+[PERF][LOG] tag=mem-read TIMING_UNAVAILABLE status=-61
+[PERF][LOG] tag=mem-copy TIMING_UNAVAILABLE status=-61
+[PERF][LOG] tag=timer-overhead TIMING_UNAVAILABLE status=-61
+UPSTREAM_LAB_COMPLETE status=0
+
+DDR Hello restoration: pass

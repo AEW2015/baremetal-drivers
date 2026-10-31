@@ -1,0 +1,85 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World!LAB BEGIN ddr-path
+PASS DDR_MMU_AND_DCACHE_INITIALLY_OFF
+PASS DDR_DECLARED_TIMER_FREQUENCY_RANGE
+PASS DDR_TIMER_MATCHES_PINNED_BOOTSTRAP
+TIMER_SOURCE pinned-bootstrap-declared-400MHz; external-calibration-not-performed
+DDR_TIMER frequency_hz=400000000
+PASS DDR_TIMER_ADVANCES
+DDR_STATE mmu=on memory=normal-noncacheable shareability=inner data_cache=off
+DDR_SCOPE scalar-CPU-effective-path; copy-bytes-are-payload; no-peak-MPFE-claim
+DDR_SOURCE=0x0000000085000000
+DDR_DESTINATION=0x0000000086000000
+PASS DDR_READ_CHECKSUM
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=read working_set_bytes=65536 ticks=2326818 payload_bytes=131072 accesses=16384 checksum=671632206730108928
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=write working_set_bytes=65536 ticks=51218 payload_bytes=131072 accesses=16384 checksum=335816103365054464
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=copy working_set_bytes=65536 ticks=2435944 payload_bytes=131072 accesses=16384 checksum=335816103365054464
+PASS DDR_DEPENDENT_RING_INTEGRITY
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=dependent-load working_set_bytes=65536 ticks=304830 payload_bytes=16384 accesses=2048 checksum=1047552
+PASS DDR_READ_CHECKSUM
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=read working_set_bytes=262144 ticks=9305553 payload_bytes=524288 accesses=65536 checksum=1987290771547389952
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=write working_set_bytes=262144 ticks=201726 payload_bytes=524288 accesses=65536 checksum=993645385773694976
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=copy working_set_bytes=262144 ticks=9741605 payload_bytes=524288 accesses=65536 checksum=993645385773694976
+PASS DDR_DEPENDENT_RING_INTEGRITY
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=dependent-load working_set_bytes=262144 ticks=1278345 payload_bytes=65536 accesses=8192 checksum=16773120
+PASS DDR_READ_CHECKSUM
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=read working_set_bytes=1048576 ticks=37221339 payload_bytes=2097152 accesses=262144 checksum=15772865267322978304
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=write working_set_bytes=1048576 ticks=806979 payload_bytes=2097152 accesses=262144 checksum=17109804670516264960
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=copy working_set_bytes=1048576 ticks=38966444 payload_bytes=2097152 accesses=262144 checksum=17109804670516264960
+PASS DDR_DEPENDENT_RING_INTEGRITY
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=dependent-load working_set_bytes=1048576 ticks=5113013 payload_bytes=262144 accesses=32768 checksum=268419072
+PASS DDR_READ_CHECKSUM
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=read working_set_bytes=4194304 ticks=148882542 payload_bytes=8388608 accesses=1048576 checksum=2049781457998053376
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=write working_set_bytes=4194304 ticks=3227103 payload_bytes=8388608 accesses=1048576 checksum=10248262765853802496
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=copy working_set_bytes=4194304 ticks=155865048 payload_bytes=8388608 accesses=1048576 checksum=10248262765853802496
+PASS DDR_DEPENDENT_RING_INTEGRITY
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=dependent-load working_set_bytes=4194304 ticks=20452263 payload_bytes=1048576 accesses=131072 checksum=4294901760
+PASS DDR_READ_CHECKSUM
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=read working_set_bytes=16777216 ticks=595529857 payload_bytes=33554432 accesses=4194304 checksum=3599992259633741824
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=write working_set_bytes=16777216 ticks=12908492 payload_bytes=33554432 accesses=4194304 checksum=1799996129816870912
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=copy working_set_bytes=16777216 ticks=623458842 payload_bytes=33554432 accesses=4194304 checksum=1799996129816870912
+PASS DDR_DEPENDENT_RING_INTEGRITY
+PASS DDR_NONZERO_SAMPLE_TICKS
+DDR_SAMPLE op=dependent-load working_set_bytes=16777216 ticks=81809167 payload_bytes=4194304 accesses=524288 checksum=68719214592
+PASS DDR_TRANSLATION_STATE_RESTORED
+PASS DDR_SWEEP_COMPLETE
+LAB COMPLETE

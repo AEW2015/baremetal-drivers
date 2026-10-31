@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 98880,
+  "segments": [
+    {
+      "file": "upstream26-smc-guard.bin",
+      "bytes": 98880,
+      "sha256": "1605b36c3b36d504d51970afcc678ceaf6f4a4899f63f6ae958e0882d273c7ae"
+    }
+  ]
+}

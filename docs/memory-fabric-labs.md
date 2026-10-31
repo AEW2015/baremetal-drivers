@@ -21,21 +21,32 @@ new full-board fit or bitstream is included here.
 
 | Lab | Passed evidence | Still unqualified |
 |---|---|---|
-| HPS DDR path | QEMU: 20 samples and two negative controls. Native Agilex Simics: 20 samples and two negative controls. | No physical DDR timing run; model timing is not board timing. |
-| DSU shared-cache handoff | Four cases pass in QEMU and four in native Simics: normal, corruption, timeout and contention. | Partitioned image compiled only; no L3 partition hardware run. |
+| HPS DDR path | QEMU and native Agilex Simics: 20 samples and two negative controls each. Physical Modular ES: 20-sample `ddr-calibrated` and `ddr-path` sweeps, plus expected copy/clock-fault rejection; host counter interval 0.9920008089 s against 0.9–1.1 s gate. | Physical result is a scalar CPU path with Normal Noncacheable memory. Raw ticks are retained; no peak MPFE or DDR-pin bandwidth claim. |
+| DSU shared-cache handoff | Four cases pass in QEMU and native Simics; four physical Modular ES cases pass: normal, corruption, timeout and contention. Physical partitioned run also passes policy readback, workload and restoration. | Functional coherency and policy restoration are qualified; cache-way occupancy and statistical speedup are not established. |
 | SMMUv3 DMA | QEMU PCI EDU: translated 4096-byte DMA round trip, unmapped S2 fault, intact guard and two negative controls. Native Simics: bare-metal guest drives DMAC0 for a translated 4096-byte copy and native SID 8 S2 fault; host configures the SMMU fixture and verifies memory. | No physical-board TCU/TBU run. Native TLB cache is disabled, so this checks fresh walks, not TLBI/ACK or full hardware-driver sequencing. |
 | Fabric AXI memory probe | Verilator: actual RTL/C driver with behavioral RAM, three sizes, range/fault injection and five timeout/drain channels. Native Simics RAM: Arm C driver → Verilator AXI master, 64 writes/64 reads, CPU readback and three explicit injected failures. | No physical bridge or DDR qualification. |
 | F2H / F2SDRAM translated fabric | Native Simics: actual RTL transactions through each native TBU route, with translated valid and unmapped/fault cases for both routes (four cases total). | Simics model transactions do not establish physical ingress wiring, AXUSER-to-SID mapping, board timing or fit. |
-| USB host | Bare-metal controller-not-ready and ULPI PHY-ID timeout are captured. | Power cycle and fresh capture remain pending; no enumeration or transfer pass. |
+| USB host | Clean power-cycle and flash retry both reproduced controller-not-ready and ULPI PHY-ID failures; full-SPL experiment stopped at `spl_early_init`; DDR Hello restored. | No enumeration or transfer pass. |
 
 ## HPS DDR path
 
 The CPU lab covers scalar read, write, copy and dependent loads across five
 working sets from 64 KiB to 16 MiB. QEMU and native Simics each completed the
 20-sample sweep and rejected corrupted-copy and invalid-frequency controls.
-Simics runs the Agilex-target image against a model; neither emulator's timing
-is physical DDR performance. The Agilex image compiled, but no physical timing
-run was made.
+Physical Modular ES also passed all 20 samples in both `ddr-calibrated` and
+`ddr-path`, and correctly rejected the corrupted-copy and invalid-frequency
+controls. The host measured 0.9920008089 seconds for the nominal one-second
+counter interval, inside the 0.9–1.1 second acceptance gate. This is a coarse
+rate check, not precision calibration. Hardware UART captures are linked from
+[`memory-ddr/results.json`](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-ddr/results.json):
+[calibrated](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-ddr/ddr-calibrated-uart.txt),
+[path](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-ddr/ddr-path-uart.txt),
+[copy-fault](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-ddr/ddr-copy-fault-uart.txt),
+[clock-fault](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-ddr/ddr-clock-fault-uart.txt), and
+[host interval](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-ddr/ddr-calibrated-clock-observation.json).
+These measurements are scalar CPU-path results with normal noncacheable memory;
+they do not establish peak MPFE throughput, DDR-pin bandwidth or write-back
+cache performance. Model timing remains model-only.
 
 Sources: [lab notes](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/memory-labs/ddr/README.md), [benchmark](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/memory-labs/ddr/ddr.c), [QEMU evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/ddr/validation/qemu-final), [Simics evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/ddr/validation/simics-negatives).
 
@@ -43,9 +54,21 @@ Sources: [lab notes](https://github.com/AEW2015/baremetal-drivers/blob/main/exam
 
 Four functional cases pass on QEMU and native Simics: normal cached
 producer/consumer handoff, deliberate corruption, stalled-consumer timeout and
-contention workload. These are model execution results, not physical cache
-coherency, L3 behavior or latency measurements. The optional partitioned image
-has compiled only; it has not run on hardware.
+contention workload. All four also pass on physical Modular ES. The physical
+partitioned image applies the per-core policy, verifies it, runs the workload,
+and restores the original policy: `PARTCR` transitions from `0` to `0x1e` and
+back to `0`; per-core policy restoration passes. Raw UART evidence is in
+[`memory-dsu`](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-dsu/)
+and [`l3-partition`](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/l3-partition/).
+Raw DSU UART captures: [normal](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-dsu/normal-uart.txt),
+[corrupt](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-dsu/corrupt-uart.txt),
+[stalled](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-dsu/stalled-uart.txt),
+[contention](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/memory-dsu/contention-uart.txt),
+and [partitioned](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/l3-partition/partitioned-uart.txt).
+This qualifies functional cached coherency and policy readback/restoration, not
+cache-way occupancy or a statistical speedup. Raw counter ticks include software
+overhead and are not isolated L3 access latency. QEMU TCG and native Simics
+remain model evidence only.
 
 Sources: [DSU lab and platform limits](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/memory-labs/dsu/README.md), [QEMU and Simics evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/dsu/validation).
 
@@ -115,8 +138,9 @@ Sources: [native Simics adapter and limits](https://github.com/AEW2015/baremetal
 
 ## USB status
 
-The most recent bare-metal capture reports controller-not-ready and a ULPI
-PHY-ID timeout. The user power cycle and fresh capture are still pending, so
-USB enumeration, HID and storage behavior remain unverified.
+The clean-power-cycle and flash retries both reproduced xHCI
+controller-not-ready and ULPI PHY-ID failures. The full-SPL experiment stopped
+at `spl_early_init`; the established DDR Hello was restored. No hub enumeration,
+HID, storage or USB-Ethernet transfer has passed.
 
 Sources: [USB bring-up status](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/usb-bringup/README.md), [captured evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/usb-baremetal).

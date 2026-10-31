@@ -1,0 +1,119 @@
+0
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+NOTICE:  SOCFPGA: Boot Core = 0
+NOTICE:  SOCFPGA: CPU ID = 0
+INFO:    SOCFPGA: Invalidate Data cache
+NOTICE:  SOCFPGA: Setting CLUSTERECTRL_EL1
+NOTICE:  BL31: v2.14.1(debug):QPDS26.1.1_REL_GSRD_PR
+NOTICE:  BL31: Built : 04:08:25, Oct 29 2026
+INFO:    GICv3 without legacy support detected.
+INFO:    ARM GICv3 driver initialized in EL3
+INFO:    Maximum SPI INTID supported: 575
+INFO:    BL31: Initializing runtime services
+INFO:    BL31: cortex_a55: CPU workaround for erratum 1530923 was applied
+INFO:    BL31: Preparing for EL3 exit to normal world
+INFO:    Entry point address = 0x82400000
+INFO:    SPSR = 0x3c9
+SERVICE_BEGIN name=fcs EL=2
+
+=== FCS demo: end-to-end ===
+MBOX client #2 opened, handle=0x000000008240B720
+
+SERVICE_FCS_API init rc=0
+PASS FCS_REAL_INIT
+[FCS][PASS] fcs_api_init: rc=0
+Get_chip_id: No argsINFO:    MBOX: SVC_V3: x0 0x42000135, x1 0x20, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: mailbox_send_cmd_async_v3: status: 0
+INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: SVC_V3: x0 0x420000c8, x1 0x20, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: sip_smc_get_chipid_cb: mailbox_err 00, data[0] 0xc15565bc, data[1] 0x42199610
+SIP_SVC response x0: 0, x1: C15565BC, x2: 42199610INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+SERVICE_FCS_API chip rc=0 hi=0x42199610 lo=0xC15565BC
+PASS FCS_REAL_CHIP_ID_DATA
+[FCS][PASS] fcs_api_get_chip_id: rc=0
+       chip_id: hi=0x42199610 lo=0xC15565BC
+Get_jtag_idcode: No argsINFO:    MBOX: SVC_V3: x0 0x420000d3, x1 0x21, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: mailbox_send_cmd_async_v3: status: 0
+INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: SVC_V3: x0 0x420000c8, x1 0x21, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+SIP_SVC response x1: 0, x2: 364F0DDINFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+SERVICE_FCS_API jtag rc=0 value=0x0364F0DD
+PASS FCS_REAL_MODULAR_JTAG_ID
+[FCS][PASS] fcs_api_get_jtag_idcode: rc=0
+       jtag_idcode: 0x0364F0DD
+Open_session: No args
+INFO:    MBOX: SVC_V3: x0 0x4200013a, x1 0x22, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: mailbox_send_cmd_async_v3: status: 0
+INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: SVC_V3: x0 0x420000c8, x1 0x22, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+SIP_SVC response x1: 85, x2: FF[FCS][INFO] SDM returned 0x85 (security denial; often unowned / pubkey not provisioned)
+INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+SERVICE_FCS_API open rc=-5
+SERVICE_PARTIAL FCS_SDM_SECURITY_DENIED_0x85
+[FCS][INFO] fcs_api_open_session: SDM 0x85 security denial (expected when device is not OWNED / user pubkey not provisioned)
+[FCS][INFO] Crypto session steps will be skipped; chip-id / idcode checks above remain valid.
+[FCS] Querying provisioning via MBOX_FCS_GET_PROVISION (0x7B)...
+Get_provision_data: prov_data_buffer: 0x83800000
+INFO:    MBOX: SVC_V3: x0 0x42000132, x1 0x23, x2 0x83800000, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: mailbox_send_cmd_async_v3: status: 0
+INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: SVC_V3: x0 0x420000c8, x1 0x23, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: sip_smc_ret_nbytes_cb: mailbox_err 00, nbytes_ret 36
+SIP_SVC response x1: 0, x2: 24INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+SERVICE_FCS_API get_provision rc=0 bytes=36 (read-only)
+PASS FCS_READONLY_PROVISION_RESULT
+[FCS][INFO] provision dword[2]=0x0000FF00 (secure_state=0 hash_count=255)
+[FCS][INFO] Device appears UNOWNED / not provisioned (user public key not present).
+             Provision the owner key before open_session can succeed.
+[FCS][INFO] fcs_api_get_random_number skipped (no crypto session).
+[FCS][INFO] fcs_api_close_session skipped (no crypto session).
+
+SERVICE_FCS_API deinit rc=0
+PASS FCS_REAL_DEINIT
+[FCS][PASS] fcs_api_deinit: rc=0
+=== FCS demo: 4/4 step(s) PASS (1 expected security skip(s)) ===
+
+SERVICE_FCS_SUMMARY init=1 chip=1 jtag=1 open=1 rng=0 close=0 deinit=1 provision=1 denied=1
+PASS FCS_REAL_CALL_SEQUENCE
+SERVICE_COMPLETE status=0
