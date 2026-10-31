@@ -1,0 +1,14 @@
+{
+  "source_commit": "58fe52390a7b088b7e5c7393e5a43d47fb0496bc",
+  "image_id": "sha256:54c54e89cee3711ebf648b46b86dcef898bfa2c4c5c18159ca0c21c415a627b8",
+  "size_bytes": 1383129461,
+  "recipe_sha256": "1207a1a00c1d409318001feb8c581c73d3972dd5ccd70c7965ac4bcdfafbf578",
+  "learning_script_sha256": "79ae1c35ba6873ed3ff75bc4dc53fe2606afaafcc6733b79a914db25e2d50ed9",
+  "status": "pass",
+  "scope": "Updated public learning image, all board-free QEMU/Verilator checks plus PR models and four-state controls; source read-only and build in disposable shared clone. No Simics license or board mounted.",
+  "initial_harness_failure": "Copying selected source directories without git metadata failed the existing git-revision query; retained. A proper fresh clone passed.",
+  "logs": {
+    "container-build.log": "1e700b987b733756dec585884b37b537bdc721fe6f66200684762a0bbdc6a891",
+    "container-fresh-check.log": "74e68a3a0e8833127fa79222bfe0dfb786952bbbf4dab3dcdcf273e46b91e63b"
+  }
+}

@@ -1,0 +1,86 @@
+Board-free validation output: /tmp/lab/runs/learning-check-20261031T211645285041366Z
+Compiler: aarch64-none-elf-
+
+== qemu-hello-build ==
+COMMAND: bash qemu/build.sh
+/opt/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-elf/bin/../lib/gcc/aarch64-none-elf/13.2.1/../../../../aarch64-none-elf/bin/ld: warning: build/qemu/hello.elf has a LOAD segment with RWX permissions
+
+== qemu-hello-check ==
+COMMAND: python3 qemu/run.py --check
+QEMU: running bounded checks...
+QEMU VIRT AARCH64 BEGIN
+PASS EL3
+PASS NEON: 11 22 33 44
+PASS MEMORY: 4096-byte CPU copy
+QEMU EXAMPLE COMPLETE
+PASS QEMU_CHECK: all required markers and exit status zero
+
+== qemu-hello-experiment ==
+COMMAND: python3 qemu/experiment.py
+BASELINE: runner exit 0
+QEMU: running bounded checks...
+QEMU VIRT AARCH64 BEGIN
+PASS EL3
+PASS NEON: 11 22 33 44
+PASS MEMORY: 4096-byte CPU copy
+QEMU EXAMPLE COMPLETE
+PASS QEMU_CHECK: all required markers and exit status zero
+BASELINE: vector {11,22,33,44}; all checks pass.
+MISMATCH: runner exit 1
+QEMU: running bounded checks...
+QEMU VIRT AARCH64 BEGIN
+PASS EL3
+FAIL NEON
+PASS MEMORY: 4096-byte CPU copy
+QEMU EXAMPLE FAILED
+ERROR: QEMU check failed (exit 1); missing markers: PASS NEON: 11 22 33 44, QEMU EXAMPLE COMPLETE. Inspect FAIL lines and restore any deliberate source changes, then rebuild.
+Help: https://aew2015.github.io/baremetal-drivers/troubleshooting/#qemu
+MISMATCH: predicted vector {12,22,33,44}; old expectation fails; memory still passes.
+CORRECTED: runner exit 0
+QEMU: running bounded checks...
+QEMU VIRT AARCH64 BEGIN
+PASS EL3
+PASS NEON: 12 22 33 44
+PASS MEMORY: 4096-byte CPU copy
+QEMU EXAMPLE COMPLETE
+PASS QEMU_CHECK: all required markers and exit status zero
+CORRECTED: expected values and marker agree; all checks pass.
+NEON_RESULT: runner exit 1
+QEMU: running bounded checks...
+QEMU VIRT AARCH64 BEGIN
+PASS EL3
+FAIL NEON
+PASS MEMORY: 4096-byte CPU copy
+QEMU EXAMPLE FAILED
+ERROR: QEMU check failed (exit 1); missing markers: PASS NEON: 11 22 33 44, QEMU EXAMPLE COMPLETE. Inspect FAIL lines and restore any deliberate source changes, then rebuild.
+Help: https://aew2015.github.io/baremetal-drivers/troubleshooting/#qemu
+LAST_WORD: runner exit 1
+QEMU: running bounded checks...
+QEMU VIRT AARCH64 BEGIN
+PASS EL3
+PASS NEON: 11 22 33 44
+FAIL MEMORY
+QEMU EXAMPLE FAILED
+ERROR: QEMU check failed (exit 1); missing markers: PASS MEMORY: 4096-byte CPU copy, QEMU EXAMPLE COMPLETE. Inspect FAIL lines and restore any deliberate source changes, then rebuild.
+Help: https://aew2015.github.io/baremetal-drivers/troubleshooting/#qemu
+RECOVERED: runner exit 0
+QEMU: running bounded checks...
+QEMU VIRT AARCH64 BEGIN
+PASS EL3
+PASS NEON: 11 22 33 44
+PASS MEMORY: 4096-byte CPU copy
+QEMU EXAMPLE COMPLETE
+PASS QEMU_CHECK: all required markers and exit status zero
+RECOVERED: original values restored; original checkout unchanged.
+
+== qemu-labs-build ==
+COMMAND: bash qemu/labs/build.sh qemu
+fatal: not a git repository (or any of the parent directories): .git
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+  File "/usr/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.
