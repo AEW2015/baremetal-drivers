@@ -1677,17 +1677,19 @@
       "id": "reference/pr",
       "title": "Partial reconfiguration persona swap",
       "family": "Additional diagnostics and integration",
-      "source": "examples/agilex5-modular/fabric",
-      "scope": "Reference integration workflow; no live PR qualification.",
+      "source": "examples/agilex5-modular/fabric/pr",
+      "scope": "Actual Simics Arm guest + Verilator static shell passed ADD-XOR-ADD, DDR guard/static continuity and load-error/wrong-persona controls. Simulated loader only; physical PR floorplan/fit/images pending.",
       "platforms": {
         "qemu": {
           "status": "reference"
         },
         "simics": {
-          "status": "reference"
+          "status": "partial",
+          "evidence": "fabric/pr/validation/20261031/results.json",
+          "case": "pr-transition"
         },
         "hardware": {
-          "status": "reference"
+          "status": "blocked"
         }
       }
     },

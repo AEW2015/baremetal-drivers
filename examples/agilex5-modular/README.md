@@ -184,7 +184,7 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 | [`custom/ethernet`](ethernet) | ⬜ Not tested | ⬜ Not tested | [✅ Passed](validation/full-campaign-20261031/hardware/results.json) |
 | [`fabric/add`](fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
 | [`fabric/xor`](fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
-| [`reference/pr`](fabric) | 📖 Reference | 📖 Reference | 📖 Reference |
+| [`reference/pr`](fabric/pr) | 📖 Reference | [⚠️ Partial](fabric/pr/validation/20261031/results.json) | 🚧 Blocked |
 
 </details>
 

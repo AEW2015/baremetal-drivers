@@ -1,0 +1,2 @@
+PASS PHYSICAL_SHELL_RTL host_handshake simulation_register_absent wrong_persona_isolated; NO_HARDWARE_EXECUTION
+fabric/pr/tests/physical_shell_tb.sv:18: $finish called at 770000 (1ps)

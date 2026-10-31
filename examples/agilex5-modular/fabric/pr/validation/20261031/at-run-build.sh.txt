@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+cd "$(dirname "$0")/../.."
+out=$PWD/build/pr
+mkdir -p "$out"
+for fault in 0 1 2;do
+ verilator --cc --exe --build --assert -Wall --top-module pr_model \
+  --Mdir "$out/model$fault" -CFLAGS "-DPR_FAULT=$fault" \
+  "$PWD/fabric/pr/rtl/pr_static.sv" "$PWD/fabric/pr/rtl/pr_model.sv" \
+  "$PWD/fabric/rtl/lab_ip.sv" "$PWD/fabric/rtl/lab_persona.sv" "$PWD/fabric/pr/transactor.cpp" \
+  > "$out/verilator$fault.log" 2>&1 || { cat "$out/verilator$fault.log";exit 1; }
+done
+for negative in 0 1;do
+ "${CROSS_COMPILE:-aarch64-none-elf-}gcc" -Os -g -Wall -Wextra -Werror -mgeneral-regs-only \
+  -ffreestanding -fno-builtin -fno-pie -fno-stack-protector -nostdlib -static -no-pie \
+  -DEXPECT_FAILURE="$negative" -Wl,-T,core/link.ld -o "$out/guest$negative.elf" \
+  core/start.S core/fault.c fabric/pr/guest.c fabric/pr/pr_driver.c fabric/lab_driver.c fabric/lab_mmio.c
+ "${CROSS_COMPILE:-aarch64-none-elf-}objcopy" -O binary "$out/guest$negative.elf" "$out/guest$negative.bin"
+done
+iverilog -g2012 -s pr_tb -o "$out/pr_tb" fabric/pr/tests/pr_tb.sv fabric/pr/rtl/pr_model.sv \
+ fabric/pr/rtl/pr_static.sv fabric/rtl/lab_ip.sv fabric/rtl/lab_persona.sv
+vvp "$out/pr_tb" | tee "$out/four-state.log"
+iverilog -g2012 -s physical_shell_tb -o "$out/physical_shell_tb" fabric/pr/tests/physical_shell_tb.sv \
+ fabric/pr/rtl/lab_pr.sv fabric/pr/rtl/pr_slot.sv fabric/pr/rtl/pr_static.sv fabric/rtl/lab_ip.sv fabric/rtl/lab_persona.sv
+vvp "$out/physical_shell_tb" | tee "$out/physical-shell-rtl.log"
+python3 -m unittest discover -s fabric/pr/tests -v
+python3 - <<'PY' 
+import hashlib,json,subprocess
+from pathlib import Path
+files=list(Path('fabric/pr').rglob('*.sv'))+list(Path('fabric/pr').glob('*.c'))+list(Path('fabric/pr').glob('*.h'))
+files+=[Path(p) for p in ('core/start.S','core/link.ld','core/fault.c','core/common.h','fabric/lab_driver.h')]
+files+=[Path('fabric/pr/transactor.cpp'),Path('fabric/pr/build.sh')]+list(Path('fabric').glob('lab_*.c'))+list(Path('fabric/rtl').glob('*.sv'))
+files+=list(Path('build/pr').glob('guest*.*'))+list(Path('build/pr').glob('model*/Vpr_model'))
+Path('build/pr/build.json').write_text(json.dumps({'scope':'Runtime persona-transition simulation, not physical FPGA PR or RBF validation','compiler':subprocess.check_output(['bash','-c','${CROSS_COMPILE:-aarch64-none-elf-}gcc --version'],text=True).splitlines()[0],'sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}},indent=2)+'\n')
+PY

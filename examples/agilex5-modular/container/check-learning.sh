@@ -51,4 +51,6 @@ run_step smmu-qemu-check python3 memory-labs/smmu/run.py --out "$out/smmu-qemu"
 run_step fabric-test bash fabric/test.sh
 run_step fabric-ddr-test bash memory-labs/fabric-ddr/test.sh
 
+run_step pr-transition-build bash fabric/pr/build.sh
+
 printf '\nPASS BOARD_FREE_LEARNING_CHECK\nEvidence: %s/%s\n' "$pack_dir" "$out"

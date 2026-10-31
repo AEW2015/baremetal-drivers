@@ -47,6 +47,11 @@ synchronously to a Verilator child process over a bounded pipe. Each modeled
 read or write advances the RTL for two clock cycles. No RTL runs in the
 background between guest accesses.
 
+For **runtime ADD→XOR→ADD transitions in the same guest**, including static
+isolation/reset and failure controls, use the new
+[PR transition example](partial-reconfiguration.md#run-the-transition-example).
+Its loader is simulated; the ADD/XOR commands below remain separate runs.
+
 ## Prerequisites
 
 Use the Linux development container with Verilator, `g++`, Python 3, and the

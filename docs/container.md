@@ -3,7 +3,7 @@
 The [public source recipe](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/container)
 supports a learning image based on Ubuntu 24.04 and a hardware image based on
 the public Quartus Pro 26.1.1 distribution. Both install the SHA-256-verified
-Arm GNU 13.2.Rel1 archive, QEMU, GDB, Verilator, and U-Boot build dependencies
+Arm GNU 13.2.Rel1 archive, QEMU, GDB, Verilator, Icarus and U-Boot build dependencies
 (including `bc`, `bison`, `flex`, `libssl-dev`, Python `pyelftools`, and device-tree
 compiler). No private
 XRDP image, tool bundle, license file or institution's license server is needed

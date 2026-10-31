@@ -9,7 +9,7 @@ PASS records execution of the referenced artifacts, not a promise about every fu
 | Platform | Recorded PASS | Partial | Failed |
 |---|---:|---:|---:|
 | qemu | 16 | 0 | 0 |
-| simics | 49 | 6 | 8 |
+| simics | 49 | 7 | 8 |
 | hardware | 49 | 5 | 1 |
 
 Inventory: **94 rows**. Results include historical versions; see each row’s scope and evidence.
@@ -123,7 +123,7 @@ Inventory: **94 rows**. Results include historical versions; see each row’s sc
 | [UDP / TCP bandwidth](assets/architecture/design.html?example=custom%2Fethernet) | NOT-RUN | NOT-RUN | [PASS](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) | Physical HPS EMAC2 at1Gb/s: ARP/ping, counter check, five UDP echo sizes, sequence/corruption controls and TCP65536-byte receive/transmit. Smoke campaign, no new bandwidth/soak claim; not USB Ethernet. |
 | [ADD fabric IP / C driver](assets/architecture/design.html?example=fabric%2Fadd) | NOT-RUN | NOT-RUN | NOT-RUN | Verilator C-driver/RTL co-simulation passed; physical deployment and simulator MMIO models unqualified. |
 | [XOR fabric IP / C driver](assets/architecture/design.html?example=fabric%2Fxor) | NOT-RUN | NOT-RUN | NOT-RUN | Verilator C-driver/RTL co-simulation passed; physical deployment and simulator MMIO models unqualified. |
-| [Partial reconfiguration persona swap](assets/architecture/design.html?example=reference%2Fpr) | REFERENCE | REFERENCE | REFERENCE | Reference integration workflow; no live PR qualification. |
+| [Partial reconfiguration persona swap](assets/architecture/design.html?example=reference%2Fpr) | REFERENCE | [PARTIAL](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric/pr/validation/20261031/results.json) | BLOCKED | Actual Simics Arm guest + Verilator static shell passed ADD-XOR-ADD, DDR guard/static continuity and load-error/wrong-persona controls. Simulated loader only; physical PR floorplan/fit/images pending. |
 
 ## HPS configuration diagnostics
 

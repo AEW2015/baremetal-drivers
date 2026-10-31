@@ -1,0 +1,99 @@
+{
+  "scope": "One Arm guest executes ADD-XOR-ADD through the actual static-shell RTL and simulated loader; no RBF parsing, physical PR or HPS bridge timing qualification",
+  "simics_version": "Simics Base            1000    7.89.0    (                7163) 2026-06-09\nCrypto Engine          1030    7.18.0    (                7150) 2026-04-10\nSimics GDB             1031    7.11.0    (                7155) 2026-04-29\nSimics Python          1033    7.15.0    (                7150) 2026-04-10\nIntel FPGA External    9000    7.1.0     (intel.fpga:263000013)           \nPython version: 3.10.19\nVMP kernel module is not loaded\n",
+  "boot_sha256": "025972a740c9c99a490d2551003f2f56dcc6b7d60aafd81408347a11234bbadd",
+  "build": {
+    "scope": "Runtime persona-transition simulation, not physical FPGA PR or RBF validation",
+    "compiler": "aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009",
+    "sha256": {
+      "fabric/pr/rtl/pr_static.sv": "b8a35c10e78fd48391f4cb6bf5c51ee2ab73b081d1e04a5a026cb5ac875ac9a5",
+      "fabric/pr/rtl/pr_model.sv": "8a15e5c0b2aff7e7a7eca86105bcda1d6d051bac50559a818055b952fedea87a",
+      "fabric/pr/rtl/lab_pr.sv": "cd476b32984c73d17407a42939f952dc64590c40e7148bddff74048dd5ac0e67",
+      "fabric/pr/rtl/pr_slot.sv": "21fff51a495a2ca83e884544ae302e035e1c6f3af09311c9e56c2c3aa22d971d",
+      "fabric/pr/tests/physical_shell_tb.sv": "1139b0731a76767c3fba7ffb41cb3c0b166968d14181748bdfffe5bb704a61d3",
+      "fabric/pr/tests/pr_tb.sv": "c83a616a5bcd64e76307ec75666c8e148a397e31863257032c20c536d1d18348",
+      "fabric/pr/guest.c": "0767ba13b52170768305c7c2e9c12d56e93f1f95b8251a58b74d2c0ecc72cd41",
+      "fabric/pr/pr_driver.c": "295f4376be6dc5044714ebf593cf78a29ead06d4e73ce9b02e286418d8e5e340",
+      "fabric/pr/pr_driver.h": "7244d08be95ae12e8af0528aaaabdd64e80f5689b256c82a0f3ee6831a6ae3c9",
+      "core/start.S": "10849a4ae54643556bad1556f94241154233b3d2f9d7ba18d5edee9b358fd9eb",
+      "core/link.ld": "1b92bcf78c732dd436759fea55a3ad4e90f1375990446eb43fbd2e4aacaeb10e",
+      "core/fault.c": "be53d1703a3aa3ce52bebb1570d1b74435f15ec169c9c110c7d6a9611367d748",
+      "core/common.h": "379491cc3318b18b74691c512137d9ae31a27bf32c08eeb404649be2beab3689",
+      "fabric/lab_driver.h": "686fd2f24480929609024cccbe3569668d640298443d8e8b3a4a5c528325d5b1",
+      "fabric/pr/transactor.cpp": "42cd948691bbb80058e1ef479db8122f0a1e1ce8480477ae791cc49c1cb59b83",
+      "fabric/pr/build.sh": "f41a9e0365f18640537d9a78046aae7f04dd888501e4e68f205c03eea02b8a53",
+      "fabric/lab_mmio.c": "587018d3b9af7b115bac789ab44a97ffe6200547f918b3873392bdd364253615",
+      "fabric/lab_driver.c": "98850c2e6abd00426e62538483123c15e9743c690594c636087fc2a0e859730f",
+      "fabric/rtl/lab_persona.sv": "f78b8b773cd784b5b85cf2a0442baaebfe13e2e3a513096b398c248db563edd1",
+      "fabric/rtl/lab_ip.sv": "3ac67d8a752cb38b9fd55c606a9757144dc7ae3dc99efbf91409b388d1a6d07c",
+      "build/pr/guest0.bin": "801d4d982ae3b63397a23ed101768a180642fa94c97dc2bd3504d80c6163df07",
+      "build/pr/guest1.elf": "fa3a25784304b5b96616e324bf3f0af1793a2af47ef8632a52fe4f39bd32bc37",
+      "build/pr/guest-hardware.elf": "c3839fb9df93702ede2b110ec3ffa637152dd58a661648450bb249a1e1a68261",
+      "build/pr/guest0.elf": "cd6088e070270088b277a6a8ebcc18fcfb875a0ca1471ea7b8968e1196e45b03",
+      "build/pr/guest1.bin": "18443f939e6c9954b0ec7d1f3e633a35799fd5695dff3d3e730ef7dc4fb15838",
+      "build/pr/guest-hardware.bin": "bcbf4f57072682c299d88996d767cb61889fe27425d366ad9b50631beb5a801a",
+      "build/pr/model2/Vpr_model": "6e526b5081709d8bba26504f4ca1a133ad01e5ade7da039f42af0cadbc207412",
+      "build/pr/model1/Vpr_model": "a6ba0335108013b0a3ff67fd164bfa2c47c653cb6c0fb6c08f37b3dbe3f05c5f",
+      "build/pr/model0/Vpr_model": "0be33f63af7e259cc1357194d20ef0fc26040280c0cf8e833cccb14b08faa3a9"
+    }
+  },
+  "adapter_sha256": "bea9f5991c56c335aced567ee9d78d67bd6c8f2f37b64bcf73372ab875e5706e",
+  "transport_sha256": "21195ab8b14fbe29716296958ca0fde18eaeeba36f26fdb36b8144d3e2cedfa3",
+  "runner_sha256": "ff6a64f184059bfd0423a23bfeca9390535253ac8e1b18a95a873077f1888696",
+  "oracle_sha256": "9998bcd2271495d747cc2e9fd921b08e4075b1d5af7ff347b3eea0b315ab0097",
+  "base_transport_sha256": "2d38fec5c1a4254bd0864fb30e93cbc1605136e2525f9fc25b1fb9a67d49b15e",
+  "tests": [
+    {
+      "name": "swap",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 13.7358782957308,
+      "backend": {
+        "missing_done_injection": false,
+        "rtl_cycles": 422,
+        "transactions": 210
+      },
+      "all_transactions_from_arm_core0": true,
+      "simulated_loads": [
+        2,
+        1
+      ],
+      "script_sha256": "0852d1eac7def2f7ff55a43bfa8239f9b2a68251329967829a8ba899ad05c54b",
+      "transactions_sha256": "a475830a86db80e9802f2735c0832428763f94673b748b5a77a75a3d35c45f8b"
+    },
+    {
+      "name": "load-error",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 9.696608780883253,
+      "backend": {
+        "missing_done_injection": false,
+        "rtl_cycles": 138,
+        "transactions": 68
+      },
+      "all_transactions_from_arm_core0": true,
+      "simulated_loads": [
+        2
+      ],
+      "script_sha256": "f312d80a3fc847be2da8e3762d263ac7000f092c82f104e5e03870fb68cc6664",
+      "transactions_sha256": "1db25aad40518f9d0d8cfb0d2beae4d0a1b9fa679c411eae1fa8c122c355ea3e"
+    },
+    {
+      "name": "wrong-persona",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 7.778431274928153,
+      "backend": {
+        "missing_done_injection": false,
+        "rtl_cycles": 146,
+        "transactions": 72
+      },
+      "all_transactions_from_arm_core0": true,
+      "simulated_loads": [
+        2
+      ],
+      "script_sha256": "be65e2f1820195c53daa4328cd8a2187686108ceec883a6b7e402d6386188c1f",
+      "transactions_sha256": "f48fd852cadf653710352ba0f4fb374e056265ee0950e70b92d2fea1770eca9f"
+    }
+  ]
+}

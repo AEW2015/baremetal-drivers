@@ -19,7 +19,7 @@ jobs:
       - name: Install freestanding cross compiler and QEMU
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends gcc-aarch64-linux-gnu libc6-dev-arm64-cross qemu-system-arm gdb-multiarch verilator g++ make cmake ninja-build tcl
+          sudo apt-get install -y --no-install-recommends gcc-aarch64-linux-gnu libc6-dev-arm64-cross qemu-system-arm gdb-multiarch verilator iverilog g++ make cmake ninja-build tcl
       - name: Check QEMU, fabric RTL and driver builds
         working-directory: examples/agilex5-modular
         env:
@@ -51,6 +51,8 @@ jobs:
           python3 upstream-lab/run.py qemu --only crc,perf,smc-guard,perf-zero-clock
           bash upstream-lab/build.sh agilex5
           bash upstream-lab/build_bl31.sh
+          bash fabric/pr/build.sh
+          bash fabric/pr/hardware/build_guest.sh
           ./fabric/test.sh
           bash model-audit/build.sh
           python3 -m unittest discover -s model-audit -p 'test_*.py' -v

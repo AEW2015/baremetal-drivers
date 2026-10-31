@@ -1,0 +1,73 @@
+{
+  "scope": "Transition model executed, physical SDM/bitstream PR unqualified",
+  "tests": [
+    {
+      "name": "pr-transition",
+      "status": "partial",
+      "simics_cases": [
+        {
+          "name": "swap",
+          "status": "pass",
+          "process_exit": 0,
+          "seconds": 8.0796451959759,
+          "backend": {
+            "missing_done_injection": false,
+            "rtl_cycles": 422,
+            "transactions": 210
+          },
+          "all_transactions_from_arm_core0": true,
+          "simulated_loads": [
+            2,
+            1
+          ],
+          "script_sha256": "4c5c9e48ea423fdb6059101e7632add89ce39fea67c94a4a2b844f309298c9e2",
+          "transactions_sha256": "a475830a86db80e9802f2735c0832428763f94673b748b5a77a75a3d35c45f8b"
+        },
+        {
+          "name": "load-error",
+          "status": "pass",
+          "process_exit": 0,
+          "seconds": 7.778788210824132,
+          "backend": {
+            "missing_done_injection": false,
+            "rtl_cycles": 138,
+            "transactions": 68
+          },
+          "all_transactions_from_arm_core0": true,
+          "simulated_loads": [
+            2
+          ],
+          "script_sha256": "afd8991d49a8dd666f2be6f22b5222d1248a88ff7e13632e1c5a8c8904ff07ba",
+          "transactions_sha256": "1db25aad40518f9d0d8cfb0d2beae4d0a1b9fa679c411eae1fa8c122c355ea3e"
+        },
+        {
+          "name": "wrong-persona",
+          "status": "pass",
+          "process_exit": 0,
+          "seconds": 7.876563029363751,
+          "backend": {
+            "missing_done_injection": false,
+            "rtl_cycles": 146,
+            "transactions": 72
+          },
+          "all_transactions_from_arm_core0": true,
+          "simulated_loads": [
+            2
+          ],
+          "script_sha256": "0860b01439198ac1be75c24ca03dd3b8a91181c18df4c6dc1468789805733a7a",
+          "transactions_sha256": "f48fd852cadf653710352ba0f4fb374e056265ee0950e70b92d2fea1770eca9f"
+        }
+      ],
+      "reason": "One actual Arm guest and Verilator static/region RTL passed transitions and controls; simulated loader does not validate RBF/SDM PR."
+    }
+  ],
+  "hardware": {
+    "status": "blocked",
+    "reason": "PR floorplan/base/persona full fitting held by ACTIVE shared OpenTPU build reservation; no PR board programming attempted. Platform Designer generation for A5ED065BB32AE6SR0 passed."
+  },
+  "four_state": "24 checks passed, including deliberate missing-reset unknown-register detection",
+  "physical_wrapper_rtl": "Host handshake, absent simulation register and wrong-persona isolation passed in four-state simulation; no physical execution",
+  "vendor_reference_revision": "bfb56b23790a54a766dc76a37e376cd270c5f5a3",
+  "final_simics_evidence": "simics-current/results.json",
+  "superseded_simics_evidence": "simics/results.json (same behavior, prior runner formatting cleanup; retained)"
+}

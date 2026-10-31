@@ -155,7 +155,7 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 | [`custom/ethernet`](examples/agilex5-modular/ethernet) | ⬜ Not tested | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
 | [`fabric/add`](examples/agilex5-modular/fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
 | [`fabric/xor`](examples/agilex5-modular/fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
-| [`reference/pr`](examples/agilex5-modular/fabric) | 📖 Reference | 📖 Reference | 📖 Reference |
+| [`reference/pr`](examples/agilex5-modular/fabric/pr) | 📖 Reference | [⚠️ Partial](examples/agilex5-modular/fabric/pr/validation/20261031/results.json) | 🚧 Blocked |
 
 </details>
 

@@ -1,0 +1,2 @@
+PASS PR_FOUR_STATE checks=24 ADD_XOR_ADD isolation failure recovery reset continuity
+fabric/pr/tests/pr_tb.sv:36: $finish called at 2080000 (1ps)

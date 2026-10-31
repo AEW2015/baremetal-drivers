@@ -5,13 +5,43 @@ replacing an **ADD1** accelerator with **XOR1**, then swapping back. Both expose
 the [same register ABI](fabric-ip.md#register-abi-10), so the application probes
 the current persona and reuses its driver.
 
-!!! info "Advanced integration lab — live PR not yet validated"
-    Agilex 5 is covered by Altera's PR design flow. This repository supplies the
-    two tested arithmetic implementations, common driver and integration recipe;
-    it does not yet supply a fitted Modular PR base, persona RBFs or a tested
-    PR bitstream transport. Confirm support for the exact **A5ED065BB32AE6SR0 ES**
-    device and installed Quartus/IP version in your project before proceeding.
-    Family-level support does not establish that this specific bench build works.
+!!! info "Runtime transition simulation implemented; physical fit pending"
+    The new static shell and C driver have passed ADD→XOR→ADD transitions in
+    Simics with actual external Verilator RTL. Loader-error and wrong-persona
+    controls remain isolated; four-state tests verify unknown-output isolation
+    and reset recovery. The loader is simulated, so these results do not qualify
+    SDM bitstream loading or physical PR. Modular ES platform generation passed;
+    fitted base/persona images and physical deployment remain pending.
+
+## Run the transition example
+
+From `examples/agilex5-modular`, using the compiler, Verilator, Icarus and the
+separately installed Simics platform:
+
+```sh
+bash fabric/pr/build.sh
+python3 fabric/pr/run_simics.py
+```
+
+[Implementation and memory map](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/fabric/pr/README.md) ·
+[Physical build preparation](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/fabric/pr/hardware/README.md) ·
+[Captured execution evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric/pr/validation)
+
+Actual guest output includes:
+
+```text
+PASS XOR_VECTORS
+PASS STATIC_SCRATCH_CONTINUITY
+PASS STATIC_HEARTBEAT_PROGRESS
+PASS DDR_GUARD_256_WORDS
+PASS RETURN_ADD_VECTORS
+PASS TWO_RUNTIME_SWAPS
+PR_LAB_COMPLETE status=0
+```
+
+The model advances on MMIO transactions. Heartbeat progress proves preservation
+across those modeled transitions, not independent clock accuracy or PR timing.
+The 256-word DDR guard is a continuity check, not full DDR qualification.
 
 Altera describes the device capability in its
 [Agilex 5 overview](https://docs.altera.com/r/docs/762191/current/agilex-5-fpgas-and-socs-device-overview/partial-and-dynamic-configuration-of-agilex-5-fpgas-and-socs)
@@ -36,6 +66,7 @@ and the implementation flow in its
 |---|---|---|---|
 | Compile-time MODE | Logic selected during synthesis | Not a runtime swap | ADD/XOR RTL + C driver simulated |
 | Full SOF replacement | Whole volatile fabric; HPS bring-up repeated | No application-continuity claim | Guarded deployment recipe supplied; new fabric not board-qualified |
+| Runtime RTL-model swap | Selected model persona | One guest, static scratch/heartbeat and DDR guard | Simics/Verilator passed; simulated loader |
 | Partial persona RBF | One planned PR region | Static shell/HPS/DDR by design | Integration lab; hardware demonstration pending |
 
 The normal DDR runner programs a boot image and restarts the application.
@@ -62,7 +93,9 @@ and any configuration transport outside the changing region. The CSR interface
 (width, address span, read timing and clock/reset) must match for every persona.
 No native external IO pins or memory controllers are needed in the region.
 
-Use the [Avalon-MM PR Freeze Bridge IP](https://docs.altera.com/r/docs/683834/25.1/quartus-prime-pro-edition-user-guide-partial-reconfiguration/avalon-mm-partial-reconfiguration-freeze-bridge-ip)
+The implemented fixed-latency demo uses the bounded `pr_static` isolation
+contract described in its memory-map README. For a general Avalon integration,
+use the [Avalon-MM PR Freeze Bridge IP](https://docs.altera.com/r/docs/683834/25.1/quartus-prime-pro-edition-user-guide-partial-reconfiguration/avalon-mm-partial-reconfiguration-freeze-bridge-ip)
 between the static Avalon interconnect and PR agent, with a static region
 controller/sequencer appropriate to your installed IP. If you later place an AXI
 interface across the boundary, use isolation that handles AXI's independent

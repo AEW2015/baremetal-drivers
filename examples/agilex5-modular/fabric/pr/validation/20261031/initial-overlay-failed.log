@@ -1,0 +1,28 @@
+***************************************************************
+Quartus is a registered trademark of Altera Corporation in the
+US and other countries.  Portions of the Quartus Prime software
+code, and other portions of the code included in this download
+or on this DVD, are licensed to Altera Corporation and are the
+copyrighted property of third parties. For license details,
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+***************************************************************
+
+2026.10.31.21:06:32 Warning: Both --quartus-project and --new-quartus-project switches are not used. A new Quartus project named overlay will be created using the tcl script filename: /workspace/agilex5-pr-20261031/stage1/overlay.qpf.
+2026.10.31.21:06:32 Info: Doing: qsys-script --script=overlay.tcl --search-path=custom_ip/**/*,$
+2026.10.31.21:06:36 Info: load_system fabric_subsys.qsys
+2026.10.31.21:06:38 Info: get_instances 
+2026.10.31.21:06:38 Info: add_instance u_lab_pr lab_pr 1.0
+2026.10.31.21:06:38 Error: add_instance u_lab_pr lab_pr 1.0: No module type named lab_pr.
+2026.10.31.21:06:38 Info: add_connection u_system_clock.out_clk u_lab_pr.clock
+2026.10.31.21:06:38 Error: add_connection u_system_clock.out_clk u_lab_pr.clock: No interface named u_lab_pr.clock.
+2026.10.31.21:06:38 Info: add_connection u_system_reset.out_reset u_lab_pr.reset
+2026.10.31.21:06:38 Error: add_connection u_system_reset.out_reset u_lab_pr.reset: No interface named u_lab_pr.reset.
+2026.10.31.21:06:38 Info: add_connection u_peripherals_mm_bridge.m0 u_lab_pr.csr
+2026.10.31.21:06:38 Error: add_connection u_peripherals_mm_bridge.m0 u_lab_pr.csr: No interface named u_lab_pr.csr.
+2026.10.31.21:06:38 Info: set_connection_parameter_value u_peripherals_mm_bridge.m0/u_lab_pr.csr baseAddress 0x00020000
+2026.10.31.21:06:38 Error: set_connection_parameter_value u_peripherals_mm_bridge.m0/u_lab_pr.csr baseAddress 0x00020000: No interface named u_lab_pr.csr.
+2026.10.31.21:06:38 Info: set_connection_parameter_value u_peripherals_mm_bridge.m0/u_lab_pr.csr arbitrationPriority 1
+2026.10.31.21:06:38 Error: set_connection_parameter_value u_peripherals_mm_bridge.m0/u_lab_pr.csr arbitrationPriority 1: No interface named u_lab_pr.csr.
+2026.10.31.21:06:38 Info: save_system fabric_subsys.qsys
+2026.10.31.21:06:38 Info: Info: All modules have been converted to Generic Components.
