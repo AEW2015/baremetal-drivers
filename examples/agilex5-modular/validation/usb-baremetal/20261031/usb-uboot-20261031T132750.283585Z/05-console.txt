@@ -1,0 +1,2 @@
+usb info
+SOCFPGA_AGILEX5 # 

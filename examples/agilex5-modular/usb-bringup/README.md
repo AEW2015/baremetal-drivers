@@ -429,3 +429,31 @@ Use `setenv autostart no`, `setenv ethrotate no` and the enumerated USB NIC's
 for the USB adapter. The runner allowlist limits downloads to `0x82000000`,
 flash read buffers to `0x82200000`/`0x82300000`, and blocks media writes.
 These exercises remain pending while controller initialization fails.
+
+
+### Clean-power-cycle retest: failure reproduced
+
+After the user confirmed a full board power cycle with the hub attached, run
+`usb-uboot-20261031T132750.283585Z` repeated the normal bit14-only monitor
+and source-built U-Boot diagnostics. The initial JTAG scan had no HPS DAP;
+the runner selected the existing matching merged recovery SOF. DDR initialized,
+all four 64 MiB patterns and payload readback passed, and the CPU PC was
+confirmed in DDR. Both firmware images passed full JTAG load/readback checks.
+
+The fresh U-Boot console reproduced:
+
+```text
+USB_LAB_RESET stage=halt-return rc=0 USBCMD=00000000 USBSTS=00000801
+USB_LAB_RESET stage=hcrst-return rc=0 USBCMD=00000000 USBSTS=00000801
+USB_LAB_RESET stage=cnr-return rc=-110 USBCMD=00000000 USBSTS=00000801
+No USB controllers found
+FAIL USB_ULPI_TIMEOUT reg=0 viewport=02800000 polls=100
+```
+
+The USB tree remained empty; no storage or USB NIC enumerated. `net list`
+reported only the HPS Ethernet interfaces. This reproduces the failure after
+a clean power cycle; it does not identify its root cause or qualify the
+external devices. No shared GPIO reset pulse was issued. The runner returned
+nonzero for the failed USB checks and successfully restored DDR Hello with a
+fresh DDR bootstrap. Raw console, JTAG and bootstrap logs plus artifact hashes
+are in [the archived run](../validation/usb-baremetal/20261031/usb-uboot-20261031T132750.283585Z/results.json).
