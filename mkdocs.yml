@@ -59,6 +59,10 @@ nav:
       - 5. Fabric IP, map and driver: fabric-ip.md
       - 6. Swap IP with partial reconfiguration: partial-reconfiguration.md
   - Examples:
+      - Find an example: example-finder.md
+      - Hello on three platforms: hello-world.md
+      - Educational coding standard: educational-coding-standard.md
+      - Education and discovery audit: education-audit.md
       - Overview: examples.md
       - Clickable HPS and fabric map: architecture.md
       - Missing-example TODO roadmap: example-roadmap.md
@@ -107,3 +111,9 @@ nav:
 exclude_docs: |
   TERMINOLOGY.md
   examples/README.md
+
+extra_javascript:
+  - assets/javascripts/example-discovery.js
+  - assets/javascripts/example-finder.js
+extra_css:
+  - assets/stylesheets/example-finder.css
