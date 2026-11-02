@@ -1,0 +1,27 @@
+name: Portable launcher
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  launcher:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022, windows-2025]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tools/portability -v
+      - run: python tools/portability/check_paths.py
+      - run: python lab.py paths
+      - run: python lab.py --dry-run qemu
+      - run: python lab.py --backend native --dry-run qemu

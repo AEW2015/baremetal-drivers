@@ -87,7 +87,7 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 | [`upstream/fcs`](../fcs) | ➖ Unsupported | [❌ Failed](validation/stack-26.3-20261101/simics/results.json) | [⚠️ Partial](validation/stack-26.3-20261101/hardware/results.json) |
 | [`upstream/gic`](../gic) | ➖ Unsupported | [✅ Passed](validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](validation/stack-26.3-20261101/hardware/results.json) |
 | [`upstream/gpio`](../gpio) | ➖ Unsupported | [⚠️ Partial](validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
-| [`upstream/hello`](../hello) | ➖ Unsupported | [✅ Passed](validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/hello`](../hello) | ➖ Unsupported | [✅ Passed](validation/portable-20261102/simics-hello/results.json) | [✅ Passed](validation/portable-20261102/hardware-hello/results.json) |
 | [`upstream/i2c`](../i2c) | ➖ Unsupported | [⚠️ Partial](validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
 | [`upstream/i3c`](../i3c) | ➖ Unsupported | [❌ Failed](validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
 | [`upstream/iossm`](../iossm) | ➖ Unsupported | [⚠️ Partial](validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
@@ -169,7 +169,7 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`custom/qemu-hello`](qemu/hello.c) | [✅ Passed](validation/education-20261102/qemu/results.json) | ⬜ Not tested | ⬜ Not tested |
+| [`custom/qemu-hello`](qemu/hello.c) | [✅ Passed](validation/portable-20261102/qemu/results.json) | ⬜ Not tested | ⬜ Not tested |
 | [`practice/startup`](qemu/labs/startup.c) | [✅ Passed](validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](validation/stack-26.3-20261101/hardware/results.json) |
 | [`practice/corruption`](qemu/labs/corruption.c) | [✅ Passed](validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](validation/stack-26.3-20261101/hardware/results.json) |
 | [`practice/exception`](qemu/labs/exception.c) | [✅ Passed](validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](validation/stack-26.3-20261101/hardware/results.json) |
@@ -196,7 +196,7 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 | [`custom/ethernet`](ethernet) | ⬜ Not tested | ⬜ Not tested | [✅ Passed](validation/stack-26.3-20261101/hardware/results.json) |
 | [`fabric/add`](fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
 | [`fabric/xor`](fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
-| [`reference/pr`](fabric/pr) | 📖 Reference | [⚠️ Partial](validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](validation/stack-26.3-20261101/hardware/results.json) |
+| [`reference/pr`](fabric/pr) | 📖 Reference | [⚠️ Partial](validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](validation/portable-20261102/hardware-pr/results.json) |
 
 </details>
 

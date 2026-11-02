@@ -40,12 +40,8 @@ physical run:
 # Host: add the usual --bench and --mcp-client paths.
 python3 upstream-lab/hardware.py --suite services --only fcs \
   --artifacts build/service-candidates --bl31 /path/to/verified-bl31-entry-82400000.bin \
-  --bench /home/lada/altera-agilex/home/baremetal-guide-validation \
-  --mcp-client /home/lada/quartus26-mcp-demos/mcp_client.py
 python3 upstream-lab/hardware.py --suite services --only ecc-readonly \
-  --artifacts build/service-candidates \
-  --bench /home/lada/altera-agilex/home/baremetal-guide-validation \
-  --mcp-client /home/lada/quartus26-mcp-demos/mcp_client.py
+  --artifacts build/service-candidates
 ```
 
 The shared runner supplies fresh DDR, exclusive hardware ownership, validated

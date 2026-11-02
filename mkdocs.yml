@@ -46,6 +46,10 @@ markdown_extensions:
 nav:
   - Start here: index.md
   - Tutorial:
+      - Portable quickstart: quickstart.md
+      - Host operating systems: host-support.md
+      - Hardware input checklist: hardware-inputs.md
+      - Portable workflow validation: portable-validation.md
       - 1. Install the tools: setup.md
       - Recreate the container: container.md
       - Upgrade to the 26.3 stack: stack-26.3.md

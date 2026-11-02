@@ -32,3 +32,15 @@ examples/agilex5-modular/fabric/pr/validation/**/*.txt -text -whitespace
 # Preserve unmodified compiler reports alongside PR execution evidence.
 examples/agilex5-modular/fabric/pr/validation/**/*.rpt -text -whitespace
 examples/agilex5-modular/fabric/pr/validation/**/*.summary -text -whitespace
+# Preserve portable-workflow terminal evidence; source whitespace is still checked.
+examples/agilex5-modular/validation/portable-20261102/**/*.log -text -whitespace
+examples/agilex5-modular/validation/portable-20261102/**/*.txt -text -whitespace
+examples/agilex5-modular/validation/portable-20261102/**/*.rpt -text -whitespace
+# Shell/build sources must remain runnable in WSL and Linux containers after a Windows checkout.
+*.sh text eol=lf
+*.py text eol=lf
+*.S text eol=lf
+*.ld text eol=lf
+*.tcl text eol=lf
+*.cfg text eol=lf
+Makefile text eol=lf

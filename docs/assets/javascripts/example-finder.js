@@ -28,6 +28,10 @@
         const response = await fetch(new URL(root.dataset.catalogUrl, document.baseURI));
         if (!response.ok) throw new Error(`Catalog HTTP ${response.status}`);
         const {examples} = await response.json();
+        const passes = platform => examples.filter(example => example.platforms[platform].status === 'pass').length;
+        const both = examples.filter(example => ExampleDiscovery.matches(example, {verified: 'both'})).length;
+        document.getElementById('finder-coverage').textContent =
+            `Recorded full passes: QEMU ${passes('qemu')}; Simics ${passes('simics')}; hardware ${passes('hardware')}; both Simics + hardware ${both}. Partial results are excluded.`;
         for (const name of new Set(examples.map(example => example.family))) {
             const option = element('option', name);
             option.value = name;

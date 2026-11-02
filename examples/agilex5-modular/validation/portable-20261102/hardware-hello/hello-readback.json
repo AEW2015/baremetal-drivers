@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 18208,
+  "segments": [
+    {
+      "file": "upstream26-hello.segment0.bin",
+      "bytes": 18208,
+      "sha256": "9501c28890451920a5a9cbbacd169ad903ae9cc5563cb757b34c8a6e78cce597"
+    }
+  ]
+}

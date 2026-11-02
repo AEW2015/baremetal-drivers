@@ -149,9 +149,7 @@ manifest names absolute host paths and SHA-256 hashes for `full_sof`,
 MCP check. The parent must be the final bootloader-embedded full SOF.
 
 ```sh
-python3 fabric/pr/hardware/run.py --manifest /path/to/manifest.json \
-  --bench /home/lada/altera-agilex/home/baremetal-guide-validation \
-  --mcp-client /home/lada/quartus26-mcp-demos/mcp_client.py
+python3 fabric/pr/hardware/run.py --manifest /path/to/manifest.json
 ```
 
 The default only validates files; add `--run` to execute. A busy hardware mutex

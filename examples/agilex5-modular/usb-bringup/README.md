@@ -19,8 +19,7 @@ The reviewed input is the 26.1.1 baseline-A55 `u-boot.itb`, SHA-256
 The existing bench copy is outside this repository:
 
 ```text
-/home/lada/altera-agilex/home/agilex5-litedram-phylite/
-  integration/hps-ethernet-v1/boot-assets/boot-files/u-boot.itb
+build/vendor-inputs/u-boot.itb
 ```
 
 `prepare.py` extracts only the raw U-Boot component and its separate U-Boot DTB,
@@ -286,9 +285,7 @@ it is shared with the FTDI UART and Ethernet reset paths. To collect the
 snapshot again, from the repository root run:
 
 ```sh
-python3 examples/agilex5-modular/usb-bringup/read_reset_snapshot.py \
-  --bench /home/lada/altera-agilex/home/baremetal-guide-validation \
-  --mcp-client /home/lada/quartus26-mcp-demos/mcp_client.py
+python3 examples/agilex5-modular/usb-bringup/read_reset_snapshot.py
 ```
 
 The script performs read-only Memory AP register reads and does not halt or
@@ -405,8 +402,6 @@ From the repository root on the established host:
 
 ```sh
 python3 examples/agilex5-modular/usb-bringup/run.py \
-  --bench /home/lada/altera-agilex/home/baremetal-guide-validation \
-  --mcp-client /home/lada/quartus26-mcp-demos/mcp_client.py \
   --uboot examples/agilex5-modular/build/usb-uboot-26.3/u-boot-usb-standalone.bin
 ```
 

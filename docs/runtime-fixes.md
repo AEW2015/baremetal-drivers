@@ -375,7 +375,7 @@ or synthetic ECC events inserted to make this pass.
 The hardware runner uses the existing shared file mutex:
 
 ```text
-/home/lada/altera-agilex/home/baremetal-guide-validation/examples/hardware.lock
+examples/agilex5-modular/hardware.lock
 ```
 
 `--wait-for-hardware` waits without interrupting the active owner. A per-run
@@ -395,9 +395,7 @@ Example host invocation, with the established bench paths:
 
 ```sh
 python3 upstream-lab/hardware.py \
-  --bench /home/lada/altera-agilex/home/baremetal-guide-validation \
   --artifacts /path/to/frozen/upstream-lab-agilex5 \
-  --mcp-client /home/lada/quartus26-mcp-demos/mcp_client.py \
   --bl31 /path/to/frozen/bl31.bin \
   --only perf,mailbox,bridge-control --wait-for-hardware
 ```

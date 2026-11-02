@@ -1,5 +1,10 @@
 # 2. Set up VS Code
 
+See [host OS routes](host-support.md). On Windows, use **Remote WSL** or attach
+to the configured Linux tool container for the full F5/GDB, Simics and hardware
+workflows. The first QEMU build/check tasks also have native PowerShell Python
+overrides; the owned-socket QEMU debugger remains a Linux/WSL workflow.
+
 ## Open the workspace where the tools live
 
 Install [Visual Studio Code](https://code.visualstudio.com/download) and the
@@ -99,3 +104,9 @@ A breakpoint stop is not program completion. Continue deliberately before
 judging output, and close your own session before using a port again. The
 [troubleshooting guide](troubleshooting.md) has checks for occupied ports, missing
 tools, optimized-out variables and wrong workspace roots.
+
+The workspace resolves Python and GDB from PATH rather than `/usr/bin`. On a
+non-Ubuntu native Linux installation, select the installed Arm GDB executable
+in `miDebuggerPath` if its package is named differently from `gdb-multiarch`.
+Keep this machine setting local; the repository's files and ELF paths remain
+relative to the workspace.

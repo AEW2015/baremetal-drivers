@@ -1,12 +1,13 @@
-# Copy to ~/.config/agilex5/hardware.env on the Linux HOST, edit, then source.
-# These are configuration placeholders. Nothing is programmed by sourcing this.
-export AGILEX_CONTAINER=agilex-hardware
-export AGILEX_CONTAINER_USER=dev
-export AGILEX_CONTAINER_ROOT=/absolute/container/path/baremetal-drivers/examples/agilex5-modular
-export AGILEX_UART=/dev/serial/by-path/CHANGE-ME-TO-VERIFIED-SOM-J2
-
-# FPGA-first 26.3 stack: directory containing the matching ddr_recovery.sof.
-export AGILEX_BOOTSTRAP_DIR=/absolute/host/path/to/matched/boot
+# Optional Linux/WSL shell environment. Prefer repo-root `python3 lab.py configure`.
+# Source this while in examples/agilex5-modular; no board is accessed.
+export AGILEX_EXECUTION=native
+export AGILEX_BOOTSTRAP_DIR="$PWD/build/boot"
+export AGILEX_MCP_CLIENT="$PWD/mcp_client.py"
+export AGILEX_HARDWARE_LOCK="$PWD/hardware.lock"
 export AGILEX_FORCE_FULL_BOOT=1
-# Every checkout and debugger must share this same lock inode.
-export AGILEX_HARDWARE_LOCK=/absolute/host/path/to/shared/hardware.lock
+export AGILEX_UART=/dev/serial/by-path/CHANGE-ME-TO-VERIFIED-SOM-J2
+# For an existing tools container instead of native tools:
+# export AGILEX_EXECUTION=container
+# export AGILEX_CONTAINER=YOUR-TOOLS
+# export AGILEX_CONTAINER_ROOT=/work/examples/agilex5-modular
+# export AGILEX_CONTAINER_USER=dev

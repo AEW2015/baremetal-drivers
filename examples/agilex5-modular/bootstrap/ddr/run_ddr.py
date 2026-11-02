@@ -36,7 +36,7 @@ def main():
         verify_mount()
         verify_container_tools(['jtagconfig', 'quartus_pgm', 'openocd'])
         hashes = verify_mapped_files([image, cfg])
-        mcp_client=os.environ.get('AGILEX_MCP_CLIENT')
+        mcp_client=os.environ.get('AGILEX_MCP_CLIENT',str(ROOT.parents[1]/'mcp_client.py'))
         programmer_chain=None
         if mcp_client:
             spec=importlib.util.spec_from_file_location('stack_programmer_client',mcp_client)
@@ -46,7 +46,7 @@ def main():
             finally:client.close()
             decoded=programmer_chain.get('text','')
             if 'Agilex_5E MDK Carrier' not in decoded or not any(int(v,16)==0x0364f0dd for v in re.findall(r'JTAG ID 0x([0-9a-fA-F]+)',decoded)):
-                raise BenchError('Fresh Programmer MCP chain does not identify the Modular ES FPGA')
+                raise BenchError('Fresh programmer discovery does not identify the Modular ES FPGA')
         chain = checked_container(['jtagconfig'])
         first = chain.split('2)')[0]
         cable_match = re.search(r'^1\) (Agilex_5E MDK Carrier .*)$', first, re.M)

@@ -16,6 +16,12 @@ class ArtifactGuards(unittest.TestCase):
     p=root/(key+'.compatibility.json');p.write_text('{"offline-test-fixture":true}')
     data[key]['compatibility']={'status':'pass','parent_sha256':data['full_sof']['sha256'],'child_sha256':data[key]['sha256'],'path':str(p),'sha256':run.sha(p)}
    manifest=root/'manifest.json';manifest.write_text(json.dumps(data));self.assertEqual(run.validate_manifest(manifest),data)
+   relative=copy.deepcopy(data)
+   for key in ('full_sof','guest_bin','guest_elf','add','xor'):
+    relative[key]['path']=Path(relative[key]['path']).name
+   for key in ('add','xor'):
+    relative[key]['compatibility']['path']=Path(relative[key]['compatibility']['path']).name
+   manifest.write_text(json.dumps(relative));self.assertEqual(run.validate_manifest(manifest),data)
    for change in ('wrong-device','wrong-parent','failed-check'):
     d=copy.deepcopy(data)
     if change=='wrong-device':d['device_id']='436DB0DD'

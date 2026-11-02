@@ -52,11 +52,15 @@ class CurrentStack(unittest.TestCase):
    with patch('bench.ROOT',root),patch.dict(os.environ,{'AGILEX_BOOTSTRAP_DIR':str(boot)},clear=True):
     self.assertTrue(bootstrap_requires_full_image())
     self.assertEqual(bootstrap_image_path('ddr_probe.hps.rbf'),boot/'ddr_recovery.sof')
- def test_legacy_profile_keeps_recorded_bench_paths(self):
-  with patch.dict(os.environ,{},clear=True):
-   b=StackBench('/legacy-bench');self.assertFalse(b.current);self.assertEqual(str(b.image),'/legacy-bench/ddr-bringup/ddr_probe.hps.rbf')
-   self.assertIn('agilex-xrdp',b.command(['openocd']))
-   self.assertEqual(bootstrap_image_path('ddr_recovery.sof'),ROOT/'bootstrap/ddr/ddr_recovery.sof')
+ def test_default_profile_is_repository_owned_even_with_an_old_bench_argument(self):
+  with patch.dict(os.environ,{'AGILEX_CONTAINER_ROOT':'/work/examples'},clear=True):
+   b=StackBench('/missing-external-bench')
+   self.assertTrue(b.current)
+   self.assertEqual(b.bench,ROOT/'build/bench')
+   self.assertEqual(b.cfg,'/work/examples/bootstrap/ocram/agilex5.cfg')
+   self.assertEqual(b.remote(ROOT/'build/payload.bin'),'/work/examples/build/payload.bin')
+   self.assertEqual(b.image,ROOT/'build/boot/ddr_recovery.sof')
+   self.assertNotIn('AGILEX_BOOTSTRAP_DIR',os.environ)
  def test_active_firmware_pins_match_the_26_3_release_not_legacy_fixtures(self):
   self.assertEqual(PINS['atf']['commit'],'09c4dc6628810d8570af69db43918d344f9e80e9')
   self.assertEqual(PINS['uboot']['commit'],'5ba74aeda63ed07e98670f8c2f0135de06543ba0')

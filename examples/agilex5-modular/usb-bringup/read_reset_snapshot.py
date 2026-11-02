@@ -10,14 +10,21 @@ import subprocess
 import sys
 
 
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT))
+from stack_bench import StackBench
+from hardware_lock import HardwareLock
+from owned_process import run_owned
+from bench import BenchError
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--bench', type=Path, required=True)
-    parser.add_argument('--mcp-client', type=Path, required=True)
+    parser.add_argument('--bench', type=Path)
+    parser.add_argument('--mcp-client', type=Path, default=ROOT/'mcp_client.py')
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
-    with (args.bench/'examples/hardware.lock').open('a') as lock:
-        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    stack=StackBench(args.bench)
+    with HardwareLock():
         sys.path.insert(0, str(args.mcp_client.parent))
         from mcp_client import MCP
         client = MCP('programmer')
@@ -35,21 +42,23 @@ def main():
             # The vendor launcher reparses -c arguments. Use a Tcl file so
             # braces and variables reach OpenOCD without shell expansion.
             (out/'read-registers.cfg').write_text(command+'\n')
-            name = out.name+'-read-registers.cfg'
-            (args.bench/'examples/build'/name).write_text(command+'\n')
-            invocation = ['docker', 'exec', 'agilex-xrdp', 'timeout', '--kill-after=5s', '30s',
-                          'openocd', '-f', '/home/dev/baremetal-guide-validation/examples/recovery/sysbus.cfg',
-                          '-f', '/home/dev/baremetal-guide-validation/examples/build/'+name]
-            run = subprocess.run(invocation, capture_output=True, timeout=40)
-            raw = run.stdout+run.stderr
+            arguments=['timeout','--kill-after=5s','30s','openocd','-f',
+                       stack.remote(ROOT/'bootstrap/ocram/sysbus.cfg'),
+                       '-f',stack.remote(out/'read-registers.cfg')]
+            invocation=stack.command(arguments)
+            try:
+                raw=run_owned(arguments,timeout=40).encode()
+                code=0
+            except BenchError as error:
+                raw=str(error).encode();code=1
             (out/'memory-ap.log').write_bytes(raw)
             values = {}
             for address, word in re.findall(rb'USB_RESET_REG ([0-9a-fA-F]{8}) ([0-9a-fA-F]{8})', raw):
                 values[int(address,16)] = int(word,16)
             expected = [0x10d13028, 0x10c03200, 0x10c03204, 0x10c03250]
             result = {'scope': 'Memory AP register reads only; no CPU halt/resume, peripheral writes or PHY transactions',
-                      'invocation': invocation, 'returncode': run.returncode,
-                      'complete': run.returncode == 0 and all(a in values for a in expected),
+                      'invocation': invocation, 'returncode': code,
+                      'complete': code == 0 and all(a in values for a in expected),
                       'registers': {hex(a): hex(v) for a,v in values.items()}}
             if result['complete']:
                 result.update(pin10sel_gpio=values[0x10d13028] & 15 == 8,

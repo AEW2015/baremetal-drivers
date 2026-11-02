@@ -1,5 +1,9 @@
 # 1. Install the tools
 
+[Start from a fresh clone](quickstart.md) with the portable launcher.
+[Host OS routes](host-support.md) cover vendor-supported Windows and Linux;
+[hardware inputs](hardware-inputs.md) collect board prerequisites in one place.
+
 ## Choose a track before you begin
 
 | Track | You need | First success checkpoint |
@@ -10,9 +14,9 @@
 
 This walkthrough uses Ubuntu 24.04 on **x86-64**. Check `uname -m` before
 installing the compiler below. An ARM64 host needs a compiler archive built for
-that host; an x86-64 download can fail with `Exec format error` there. Native
-Windows/macOS USB/JTAG flows are not validated by this tutorial. Desktop VS Code
-can instead connect to the documented Linux environment.
+that host; an x86-64 download can fail with `Exec format error` there. The automated hardware runner executes in Linux/WSL; native Windows Quartus
+and the documented vendor host routes are described in [host support](host-support.md).
+Vendor support and this repository’s physical execution evidence are distinct.
 
 !!! info "Hardware instructor prerequisite"
     Cloning this repository does not provide a board-specific FPGA design.
@@ -88,8 +92,7 @@ adapter/DAP-capable OpenOCD described in the [hardware chapter](hardware.md).
 Use [the Simics 26.3 track](simics.md) for the Agilex HPS virtual platform.
 The updated learning image includes both cross compilers; the separate simulator
 installer/models are not bundled. Our existing Quartus 26.3 bench container is
-`agilex26-mcp-demos`, with host `/home/lada/quartus26-mcp-demos` mounted at
-`/workspace`. Use the same checkout and the correct container path for your task.
+`agilex26-mcp-demos`, with the host checkout bind-mounted into its tool environment. Use the same checkout and the correct container path for your task.
 The current hardware campaign uses that 26.3 container and matching new images.
 The older `agilex-xrdp` setup remains a separate recovery profile.
 

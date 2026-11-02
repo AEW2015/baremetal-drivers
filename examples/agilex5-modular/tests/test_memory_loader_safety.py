@@ -2,6 +2,7 @@
 import importlib.util
 import hashlib
 import json
+import os
 import sys
 from pathlib import Path
 import struct
@@ -96,7 +97,8 @@ class LoaderSafety(unittest.TestCase):
             fake_root=folder/'lab';(fake_root/'memory-labs').mkdir(parents=True)
             shutil.copy2(ROOT/'memory-labs/hardware_oracle.py',fake_root/'memory-labs/hardware_oracle.py')
             bench=folder/'bench';(bench/'examples').mkdir(parents=True)
-            (bench/'ddr-bringup').mkdir();(bench/'ddr-bringup/ddr_probe.hps.rbf').write_bytes(b'bootstrap-fixture')
+            boot=fake_root/'build/boot';boot.mkdir(parents=True)
+            (boot/'ddr_recovery.sof').write_bytes(b'bootstrap-fixture')
             client=Mock();client.call.return_value={'ids':['0364f0dd','4ba06477']}
             module=types.ModuleType('mcp_client');module.MCP=Mock(return_value=client)
             calls=[]
@@ -109,13 +111,15 @@ class LoaderSafety(unittest.TestCase):
                   '--artifacts',str(artifacts),'--mcp-client',str(folder/'mcp_client.py'),
                   '--port',str(folder/'never-a-real-uart')]
             with patch.object(hardware,'ROOT',fake_root),patch.object(sys,'argv',argv),\
+                 patch('stack_bench.ROOT',fake_root),patch('bench.ROOT',fake_root),\
+                 patch.dict(os.environ,{'AGILEX_BOOTSTRAP_DIR':str(boot),'AGILEX_HARDWARE_LOCK':str(fake_root/'hardware.lock'),'AGILEX_CONTAINER_ROOT':'/fixture/lab'},clear=True),\
                  patch.object(sys,'path',list(sys.path)),patch.dict(sys.modules,{'mcp_client':module}),\
                  patch.object(hardware.subprocess,'run',side_effect=bootstrap_only),\
                  contextlib.redirect_stdout(io.StringIO()):
                 with self.assertRaisesRegex(RuntimeError,'Payload changed during bootstrap'):
                     hardware.main()
             self.assertEqual(len(calls),2) # Initial fixture + restoration fixture.
-            self.assertFalse((bench/'examples/build/upstream26-ddr-path.bin').exists())
+            self.assertFalse((fake_root/'build/bench-transfers/upstream26-ddr-path.bin').exists())
             records=list((fake_root/'runs').glob('*/results.json'))
             self.assertEqual(json.loads(records[0].read_text())['tests'],[])
 

@@ -1,0 +1,24 @@
+{
+  "recorded_utc": "2026-11-02T15:22:01.825211+00:00",
+  "scope": "Public root launcher; learning image; generic QEMU first lesson and deliberate corruption/recovery.",
+  "elf_sha256": "f2e140c85ad64bccf94c735e8c6a8b2623699b96d9594a06f323ac19cd0ca7bc",
+  "source_sha256": {
+    "lab.py": "6b785ea3ec47683470fff2e792b50773cec567a4f8420f101be2aebeed85088c",
+    "examples/agilex5-modular/qemu/build.py": "5a6613102d794496f77c7c9dba2c9b807cfbdf6baedf7c4ed18a159d1eb85c7a",
+    "examples/agilex5-modular/qemu/hello.c": "5b18f4423bb284fa7f4efc7bf8b24e0ce3135587ea56b16faf60abe5a378fd4c",
+    "examples/agilex5-modular/qemu/start.S": "014173c05846dcea47c6f4dc84b67fa44806d8606949da993ed529a3f79e678a",
+    "examples/agilex5-modular/qemu/link.ld": "9b215693e5f0f01d42445595b10be1de37983257515bddb1ef2e6604a52114cc",
+    "examples/agilex5-modular/qemu/run.py": "a672a84af241262a213020bbce40b108487f65ea37f967d82ea7209c049be73b",
+    "examples/agilex5-modular/qemu/experiment.py": "0165b5dc42c1c155b45c84cb519ac39519169d7bba795edc1a8f03b2355e7138"
+  },
+  "tests": [
+    {
+      "name": "hello",
+      "status": "pass"
+    },
+    {
+      "name": "corruption-recovery",
+      "status": "pass"
+    }
+  ]
+}

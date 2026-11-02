@@ -9,14 +9,14 @@ from stack_bench import StackBench
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
  p=argparse.ArgumentParser(description=__doc__)
- p.add_argument('--bench',type=Path,required=True);p.add_argument('--mcp-client',type=Path,required=True)
+ p.add_argument('--bench',type=Path);p.add_argument('--mcp-client',type=Path,default=ROOT/'mcp_client.py')
  p.add_argument('--ocram-uart',action='store_true',help='Run the OCRAM UART payload only')
- p.add_argument('--port',default='/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0')
- a=p.parse_args();stack=StackBench(a.bench);sys.path.insert(0,str(a.mcp_client.parent));from mcp_client import MCP
+ p.add_argument('--port',default=os.environ.get('AGILEX_UART',''))
+ a=p.parse_args();stack=StackBench(a.bench);a.bench=stack.bench;sys.path.insert(0,str(a.mcp_client.parent));from mcp_client import MCP
  out=ROOT/'runs'/('reference-hardware-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ'));out.mkdir(parents=True)
  record={'scope':('Physical OCRAM UART with verified Modular handoff replay and fixed100MHz divisor54' if a.ocram_uart else 'Semihost source executing in physical OCRAM; read-only exception-register probe in DDR'),'tests':[],'restoration':'pending','runner_sha256':digest(Path(__file__)),'bootstrap_sha256':digest(stack.image)}
  def save():(out/'results.json').write_text(json.dumps(record,indent=2)+'\n')
- lock=(a.bench/'examples/hardware.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+ lock=stack.lock_path.open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
  m=MCP('programmer');bootstrap_failed=False;fd=None;print('Evidence: '+str(out),flush=True);save()
  def bootstrap(label):
   nonlocal bootstrap_failed

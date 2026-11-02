@@ -4,6 +4,9 @@ This fork contains Altera's current **26.3 driver/API source** at the repository
 root, plus the [Agilex 5 Modular tutorial](https://aew2015.github.io/baremetal-drivers/)
 and [local example pack](examples/agilex5-modular/README.md).
 
+- [Portable quickstart](docs/quickstart.md): clone, `python3 lab.py image`, then `python3 lab.py qemu` (`py -3` on Windows).
+- [Host OS routes](docs/host-support.md) and [hardware inputs](docs/hardware-inputs.md): vendor support, local settings and required artifacts.
+- [Movable lab-ready release](https://github.com/AEW2015/baremetal-drivers/releases/tag/lab-ready): tested commit, evidence and known limits.
 - [26.3 stack and migration](docs/stack-26.3.md): matched HPS/EMIF, ATF, U-Boot and hardware loading.
 - [Find an example](https://aew2015.github.io/baremetal-drivers/example-finder/): search all 94 entries and filter full passes on one or several platforms.
 - [Hello World on three platforms](docs/hello-world.md): exact directories, commands and expected output.
@@ -56,7 +59,7 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 | [`upstream/fcs`](examples/fcs) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 | [`upstream/gic`](examples/gic) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 | [`upstream/gpio`](examples/gpio) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
-| [`upstream/hello`](examples/hello) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/hello`](examples/hello) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/portable-20261102/simics-hello/results.json) | [✅ Passed](examples/agilex5-modular/validation/portable-20261102/hardware-hello/results.json) |
 | [`upstream/i2c`](examples/i2c) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
 | [`upstream/i3c`](examples/i3c) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
 | [`upstream/iossm`](examples/iossm) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
@@ -138,7 +141,7 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`custom/qemu-hello`](examples/agilex5-modular/qemu/hello.c) | [✅ Passed](examples/agilex5-modular/validation/education-20261102/qemu/results.json) | ⬜ Not tested | ⬜ Not tested |
+| [`custom/qemu-hello`](examples/agilex5-modular/qemu/hello.c) | [✅ Passed](examples/agilex5-modular/validation/portable-20261102/qemu/results.json) | ⬜ Not tested | ⬜ Not tested |
 | [`practice/startup`](examples/agilex5-modular/qemu/labs/startup.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 | [`practice/corruption`](examples/agilex5-modular/qemu/labs/corruption.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 | [`practice/exception`](examples/agilex5-modular/qemu/labs/exception.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
@@ -165,7 +168,7 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 | [`custom/ethernet`](examples/agilex5-modular/ethernet) | ⬜ Not tested | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 | [`fabric/add`](examples/agilex5-modular/fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
 | [`fabric/xor`](examples/agilex5-modular/fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
-| [`reference/pr`](examples/agilex5-modular/fabric/pr) | 📖 Reference | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`reference/pr`](examples/agilex5-modular/fabric/pr) | 📖 Reference | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/portable-20261102/hardware-pr/results.json) |
 
 </details>
 

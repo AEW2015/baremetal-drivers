@@ -21,7 +21,7 @@ The established container has QEMU and the AArch64 compiler. From the host:
 
 ```sh
 docker exec agilex26-mcp-demos bash -lc '
-  cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular
+  cd examples/agilex5-modular
   bash memory-labs/smmu/build.sh
   python3 memory-labs/smmu/run.py
 '

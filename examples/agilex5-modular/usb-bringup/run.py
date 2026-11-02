@@ -24,16 +24,16 @@ def allowed_command(command):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--bench',type=Path,required=True)
-    p.add_argument('--mcp-client',type=Path,required=True)
+    p.add_argument('--bench',type=Path)
+    p.add_argument('--mcp-client',type=Path,default=ROOT/'mcp_client.py')
     p.add_argument('--uboot',type=Path,default=ROOT/'build/usb-uboot-26.3/u-boot-usb-standalone.bin')
     p.add_argument('--monitor',type=Path,default=ROOT/'build/usb-bringup-atf-26.3/agilex5/debug/bl31.bin')
-    p.add_argument('--port',default='/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0')
+    p.add_argument('--port',default=os.environ.get('AGILEX_UART',''))
     p.add_argument('--command',action='append',help='One allowed console command; repeat to select commands')
     p.add_argument('--timeout',type=int,default=60)
     p.add_argument('--queue',type=Path,help='Optional append-only JSON command list; __DONE__ restores DDR Hello')
     p.add_argument('--queue-seconds',type=int,default=300)
-    a=p.parse_args();stack=StackBench(a.bench)
+    a=p.parse_args();stack=StackBench(a.bench);a.bench=stack.bench
     commands=a.command or ['version','bdinfo','usb start','usb reset','usb tree','usb info','usb storage','net list']
     if any(not allowed_command(c) for c in commands):p.error('Command outside the USB/read-only-media/isolated-network allowlist')
     if not 5<=a.timeout<=120:p.error('timeout must be 5..120 seconds')
@@ -43,7 +43,7 @@ def main():
     out=ROOT/'runs'/('usb-uboot-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ'));out.mkdir(parents=True)
     record={'scope':'Volatile U-Boot USB session; no persistent environment or media writes','uboot_sha256':digest(a.uboot),'monitor_sha256':digest(a.monitor),'runner_sha256':digest(Path(__file__)),'commands':[],'restoration':'pending'}
     def save():(out/'results.json').write_text(json.dumps(record,indent=2)+'\n')
-    lock=(a.bench/'examples/hardware.lock').open('a')
+    lock=stack.lock_path.open('a')
     try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     except BlockingIOError:raise RuntimeError('Shared hardware mutex busy; no board access')
     print('Evidence: '+str(out),flush=True);save()

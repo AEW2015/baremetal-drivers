@@ -30,6 +30,8 @@ def main():
     parser.add_argument('--port', type=int, default=3338)
     parser.add_argument('--timeout', type=float, default=20, help='Bounded --check timeout in seconds (default: 20)')
     args = parser.parse_args()
+    if args.debug and os.name == 'nt':
+        raise RunError('Use VS Code Remote WSL or a Linux tool container for the owned-socket GDB walkthrough; native Windows supports --check.')
     if not 1 <= args.port <= 65535:
         parser.error('port must be 1..65535')
     if not .05 <= args.timeout <= 300:

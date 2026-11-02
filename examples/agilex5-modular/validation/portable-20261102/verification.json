@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-11-02T15:34:45.316647+00:00",
+  "unit_tests": {
+    "passed": 114,
+    "skipped": 0
+  },
+  "portable_launcher_tests": 12,
+  "pr_tests": 6,
+  "diagram_examples": 94,
+  "diagram_browser_checks": 17,
+  "embedded_pages": 32,
+  "page_browser_checks": 9,
+  "hardware_hello": "pass",
+  "hardware_pr": "pass",
+  "restoration": "pass",
+  "scope": "Focused Linux execution plus portable command tests; Windows CI is separate and does not claim Windows hardware execution."
+}

@@ -60,9 +60,7 @@ loaded byte through the memory debug port, and restores DDR Hello afterward.
 
 ```sh
 python3 upstream-lab/hardware.py \
-  --bench /home/lada/altera-agilex/home/baremetal-guide-validation \
-  --artifacts /home/lada/quartus26-mcp-demos/baremetal-simics-cleancheck-20261028/examples/agilex5-modular/build/upstream-lab-agilex5 \
-  --mcp-client /home/lada/quartus26-mcp-demos/mcp_client.py
+  --artifacts build/upstream-lab-agilex5
 ```
 
 These paths describe this bench. Read the kit hardware profile before adapting

@@ -9,6 +9,22 @@ Before connecting, use the [container recipe and host/container map](container.m
 and [FPGA artifact onboarding](fpga-design.md). The latter identifies the exact
 recorded design, its upstream origin, and the current new-kit qualification gap.
 
+## Portable first run
+
+The current [hardware input checklist](hardware-inputs.md) covers the exact board,
+images, firmware, host OS routes and commands. Use the repository entry point
+from the clone root:
+
+```sh
+python3 lab.py hardware doctor
+python3 lab.py hardware hello --build
+```
+
+Configure its native Linux/WSL or named-container tool environment first. All
+builds and local settings live below `examples/agilex5-modular/build/`; no
+external bench or agent installation is required. The detailed steps below
+also show the lower-level runners for students inspecting the implementation.
+
 ## 1. Connect the actual SOM UART and JTAG
 
 Connect carrier JTAG and the separate **J2 HPS_UART on the small SOM**. The
@@ -55,7 +71,7 @@ In the **container**, from `examples/agilex5-modular`:
 
 ```sh
 ./build_all.sh
-export AGILEX_SOF=/absolute/path/to/your/matching-memory_test.sof
+export AGILEX_SOF=build/fpga/base.sof
 ./bootstrap/ddr/build_ddr.sh
 ```
 
@@ -73,11 +89,13 @@ For a source SOF deliberately assembled as HPS-first, set
 On the **host**, change to the bind-mounted copy of the example directory:
 
 ```sh
-cd /host/path/to/baremetal-drivers/examples/agilex5-modular
+cd examples/agilex5-modular
 export AGILEX_CONTAINER=agilex-hardware
 export AGILEX_CONTAINER_USER=dev
 export AGILEX_CONTAINER_ROOT=/home/dev/baremetal-drivers/examples/agilex5-modular
 export AGILEX_UART=/dev/serial/by-path/YOUR-VERIFIED-SOM-UART
+export AGILEX_BOOTSTRAP_DIR="$PWD/build/boot"
+export AGILEX_MCP_CLIENT="$PWD/mcp_client.py"
 export AGILEX_FORCE_FULL_BOOT=1
 ```
 

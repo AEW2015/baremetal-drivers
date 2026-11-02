@@ -25,6 +25,7 @@ jobs:
         env:
           CROSS_COMPILE: aarch64-linux-gnu-
         run: |
+          (cd ../.. && python3 lab.py --backend native qemu)
           ./qemu/build.sh
           python3 qemu/run.py --check
           python3 qemu/experiment.py

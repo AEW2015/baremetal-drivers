@@ -1,0 +1,9 @@
+.............START TCP simultaneous seconds=5
+.START TCP pc_to_som streams=4 seconds=0.1
+.START TCP som_to_pc streams=4 seconds=0.1
+.START TCP som_to_pc streams=4 seconds=30
+..................................................................................................
+----------------------------------------------------------------------
+Ran 114 tests in 11.596s
+
+OK

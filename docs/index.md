@@ -7,7 +7,7 @@ Start with QEMU if you do not have a board connected. Use [Simics](simics.md) fo
 command-console examples. Move to hardware to test
 the HPS controllers and the devices actually populated on the SOM.
 
-[Install the tools](setup.md){ .md-button .md-button--primary }
+[Portable quickstart](quickstart.md){ .md-button .md-button--primary }
 [Find an example](example-finder.md){ .md-button }
 [Explore the clickable HPS / fabric map](architecture.md){ .md-button }
 
@@ -17,6 +17,9 @@ real terminal output and the remaining partial capabilities.
 [Start with Hello World on all three platforms](hello-world.md). Search the
 [finder](example-finder.md) for full passes on both Simics and hardware, then
 open the source, expected output or associated diagram block.
+
+[Host operating systems](host-support.md) · [Hardware input checklist](hardware-inputs.md) ·
+[Movable lab-ready release](https://github.com/AEW2015/baremetal-drivers/releases/tag/lab-ready)
 
 ## What you will build
 

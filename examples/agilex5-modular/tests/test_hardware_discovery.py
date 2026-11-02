@@ -31,7 +31,7 @@ class DiscoveryRecovery(unittest.TestCase):
             (artifacts/'build.json').write_text(json.dumps({'artifacts':hashes}))
             image = root/'image'
             image.write_bytes(b'fixture')
-            stack = MagicMock(image=image)
+            stack = MagicMock(image=image, bench=root/'bench', lock_path=root/'bench/examples/hardware.lock')
             client = MagicMock()
             client.call.return_value = {'text':'0364F0DD 4BA06477'}
             factory = MagicMock(return_value=client)

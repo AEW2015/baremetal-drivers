@@ -2,7 +2,7 @@
 
 The [public source recipe](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/container)
 supports a learning image based on Ubuntu 24.04 and a hardware image based on
-a user-supplied Quartus 26.3 installation image. Both install the SHA-256-verified
+a user-supplied **apt-based** Quartus 26.3 installation image. Both install the SHA-256-verified
 Arm GNU 13.2.Rel1 archive, QEMU, GDB, Verilator, Icarus and U-Boot build dependencies
 (including `bc`, `bison`, `flex`, `libssl-dev`, Python `pyelftools`, and device-tree
 compiler). The learning build needs no Quartus bundle or license. The hardware build
@@ -19,6 +19,18 @@ and tested with **Quartus 26.3 Build 114**. Use that matching tool release for i
 FPGA images and the current HPS 14.1 / EMIF 5.1 sources. See the
 [26.3 stack migration](stack-26.3.md).
 The public learning image runs the PR C-driver/RTL checks without Quartus.
+
+## Portable entry point
+
+The [quickstart](quickstart.md) runs the learning recipe from Linux or PowerShell:
+`python3 lab.py image` followed by `python3 lab.py qemu` (`py -3` on Windows).
+The launcher derives the host mount path and maps it at `/work`. It does not
+require a particular clone name or a pre-existing container. For vendor Windows
+Server and Simics routes, see [host OS support](host-support.md).
+
+The low-level Linux commands below remain available for users building and
+managing their own named tool container. On RHEL/SUSE hosts, use an appropriate
+container engine installation rather than the Ubuntu host package commands.
 
 ## Clone on the x86-64 Linux host
 
@@ -146,6 +158,8 @@ export AGILEX_CONTAINER_USER=dev
 export AGILEX_CONTAINER_ROOT=/home/dev/baremetal-drivers/examples/agilex5-modular
 export AGILEX_UART=/dev/serial/by-path/YOUR-VERIFIED-SOM-J2
 cd examples/agilex5-modular
+export AGILEX_BOOTSTRAP_DIR="$PWD/build/boot"
+export AGILEX_MCP_CLIENT="$PWD/mcp_client.py"
 python3 doctor.py --target hardware
 ```
 

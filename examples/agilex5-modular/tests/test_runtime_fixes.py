@@ -32,7 +32,8 @@ class RuntimeFixes(unittest.TestCase):
             (temp/'mcp_client.py').write_text('class MCP:\n def __init__(self,*a): raise RuntimeError("Hardware must not be touched while waiting")\n')
             code='import importlib.util,pathlib; s=importlib.util.spec_from_file_location("hw",'+repr(str(ROOT/'upstream-lab/hardware.py'))+'); m=importlib.util.module_from_spec(s);s.loader.exec_module(m); m.ROOT=pathlib.Path('+repr(str(temp/'lab'))+');raise SystemExit(m.main())'
             cmd=[sys.executable,'-c',code,'--bench',str(bench),'--artifacts',str(temp/'not-read'),'--mcp-client',str(temp/'mcp_client.py'),'--wait-for-hardware','--only','perf']
-            process=subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+            process=subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,
+                env=dict(os.environ,AGILEX_HARDWARE_LOCK=str(bench/'examples/hardware.lock')))
             try:
                 end=time.monotonic()+5;records=[]
                 while time.monotonic()<end:

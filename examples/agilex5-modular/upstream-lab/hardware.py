@@ -92,16 +92,16 @@ def bl31_readback_valid(result, readback, expected):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--bench',type=Path,required=True,help='Established baremetal-guide-validation directory')
+    p.add_argument('--bench',type=Path,help='Deprecated compatibility option; current assets always use this checkout')
     p.add_argument('--artifacts',type=Path,required=True,help='Host directory containing upstream-lab-agilex5 binaries/build.json')
-    p.add_argument('--mcp-client',type=Path,required=True,help='Existing quartus26-mcp-demos/mcp_client.py')
-    p.add_argument('--port',default='/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0')
+    p.add_argument('--mcp-client',type=Path,default=ROOT/'mcp_client.py',help='Repository programmer client or an explicit vendor MCP adapter')
+    p.add_argument('--port',default=os.environ.get('AGILEX_UART',''))
     p.add_argument('--wait-for-hardware',action='store_true',help='Queue on the shared bench mutex instead of failing busy')
     p.add_argument('--bl31',type=Path,help='Verified pinned RESET_TO_BL31 image')
     p.add_argument('--suite',choices=['upstream','practice','config','memory-ddr','memory-dsu','candidates','psci','services'],default='upstream')
     p.add_argument('--capture-seconds',type=int,help='UART deadline, 5..300; default 180 for memory labs, 35 otherwise')
     p.add_argument('--only')
-    a=p.parse_args();stack=StackBench(a.bench)
+    a=p.parse_args();stack=StackBench(a.bench);a.bench=stack.bench
     checker=lab
     allowed=('crc','perf','combophy','noc','reset','mailbox','bridge-control','smc-guard','perf-zero-clock')
     default='crc,perf,combophy,noc,reset'
@@ -164,7 +164,7 @@ def main():
         temporary=out/'mutex.json.tmp'
         temporary.write_text(json.dumps(data,indent=2)+'\n')
         temporary.replace(out/'mutex.json')
-    lock=(a.bench/'examples/hardware.lock').open('a')
+    lock=stack.lock_path.open('a')
     queued=time.monotonic()
     while True:
         if (out/'CANCEL').exists():
@@ -173,7 +173,7 @@ def main():
         try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);break
         except BlockingIOError:
             if not a.wait_for_hardware:lock.close();raise RuntimeError('Bench mutex busy; use --wait-for-hardware to queue without interrupting its owner')
-            write_mutex({'state':'waiting','pid':os.getpid(),'lock':str(a.bench/'examples/hardware.lock'),'wait_seconds':round(time.monotonic()-queued)})
+            write_mutex({'state':'waiting','pid':os.getpid(),'lock':str(stack.lock_path),'wait_seconds':round(time.monotonic()-queued)})
             print('WAITING_FOR_HARDWARE_MUTEX '+str(out),flush=True)
             time.sleep(5)
     if (out/'CANCEL').exists():
@@ -187,7 +187,7 @@ def main():
     mcp=None;bootstrap_failed=False;debugger_cleanup_failed=False;bootstrap_attempted=False
     def bootstrap(label):
         nonlocal bootstrap_failed,bootstrap_attempted
-        print(f'{label}: discovering JTAG chain through Programmer MCP...',flush=True)
+        print(f'{label}: discovering JTAG chain through the programmer...',flush=True)
         chain=mcp.call('read_jtag_config',{});(out/(label+'-chain.json')).write_text(json.dumps(chain,indent=2))
         text=json.dumps(chain).lower()
         if '364f0dd' not in text:raise RuntimeError('Modular ES silicon not present')
@@ -201,7 +201,7 @@ def main():
             raise RuntimeError('DDR bootstrap failed; stop board operations')
         print(f'{label}: DDR bootstrap PASS; log: {out/(label+"-bootstrap.log")}',flush=True)
     try:
-        print('Starting Programmer MCP connection...',flush=True)
+        print('Starting programmer connection...',flush=True)
         mcp=MCP('programmer')
         for name in names:
             image=a.artifacts/(name+'.bin');elf=a.artifacts/(name+'.elf')

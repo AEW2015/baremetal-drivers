@@ -150,14 +150,14 @@ legacy loader entries do not include their fetched vendor dependency.
 | `diagnostic/perf-zero-clock` | [examples/agilex5-modular/upstream-lab/lab.c](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/upstream-lab/lab.c) | 1 | 2 |
 | `custom/bridge-control` | [examples/agilex5-modular/upstream-lab/lab.c](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/upstream-lab/lab.c) | 1 | 2 |
 | `custom/ocram-hello` | [examples/agilex5-modular/bootstrap/ocram/uart_local.c](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/bootstrap/ocram/uart_local.c) | 1 | 1 |
-| `custom/ddr-hello` | [examples/agilex5-modular/bootstrap/ddr](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/bootstrap/ddr) | 3 | 33 |
+| `custom/ddr-hello` | [examples/agilex5-modular/bootstrap/ddr](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/bootstrap/ddr) | 3 | 36 |
 | `reference/semihost` | [examples/agilex5-modular/bootstrap/ocram/hello_semihost.S](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/bootstrap/ocram/hello_semihost.S) | 1 | 0 |
 | `reference/psci` | [examples/agilex5-modular/core/secondary_core.c](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/core/secondary_core.c) | 1 | 0 |
 | `custom/fault-probe` | [examples/agilex5-modular/core/fault_probe.c](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/core/fault_probe.c) | 1 | 0 |
-| `custom/ethernet` | [examples/agilex5-modular/ethernet](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/ethernet) | 11 | 96 |
-| `fabric/add` | [examples/agilex5-modular/fabric](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric) | 44 | 192 |
-| `fabric/xor` | [examples/agilex5-modular/fabric](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric) | 44 | 192 |
-| `reference/pr` | [examples/agilex5-modular/fabric/pr](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric/pr) | 31 | 170 |
+| `custom/ethernet` | [examples/agilex5-modular/ethernet](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/ethernet) | 11 | 97 |
+| `fabric/add` | [examples/agilex5-modular/fabric](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric) | 44 | 189 |
+| `fabric/xor` | [examples/agilex5-modular/fabric](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric) | 44 | 189 |
+| `reference/pr` | [examples/agilex5-modular/fabric/pr](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric/pr) | 31 | 167 |
 | `config/sysmgr` | [examples/agilex5-modular/config-audit](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/config-audit) | 6 | 9 |
 | `config/pinmux` | [examples/agilex5-modular/config-audit](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/config-audit) | 6 | 9 |
 | `integration/simics-rtl-add` | [examples/agilex5-modular/simics-rtl](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/simics-rtl) | 8 | 44 |
@@ -170,7 +170,7 @@ legacy loader entries do not include their fetched vendor dependency.
 | `memory/native-tbu` | [examples/agilex5-modular/memory-labs/smmu/native_fixture.py](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/smmu/native_fixture.py) | 1 | 3 |
 | `memory/dma-tbu` | [examples/agilex5-modular/memory-labs/smmu/dmac](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/smmu/dmac) | 4 | 23 |
 | `memory/fabric-ddr` | [examples/agilex5-modular/memory-labs/fabric-ddr](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/memory-labs/fabric-ddr) | 14 | 92 |
-| `custom/usb-host` | [examples/agilex5-modular/usb-bringup](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-bringup) | 11 | 115 |
+| `custom/usb-host` | [examples/agilex5-modular/usb-bringup](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-bringup) | 11 | 114 |
 
 Regenerate with `python3 tools/education/audit_examples.py`.
 The JSON record includes per-file source hashes and metrics.

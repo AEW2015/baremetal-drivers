@@ -43,9 +43,7 @@ The host operator then selects the existing verified resident monitor:
 
 ```sh
 python3 upstream-lab/hardware.py --suite psci \
-  --bench /home/lada/altera-agilex/home/baremetal-guide-validation \
   --artifacts build/reference-psci \
-  --mcp-client /home/lada/quartus26-mcp-demos/mcp_client.py \
   --bl31 /path/to/verified/reset-to-bl31-entry-82400000.bin
 ```
 

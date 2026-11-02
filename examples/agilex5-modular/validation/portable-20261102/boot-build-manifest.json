@@ -1,0 +1,10 @@
+{
+  "boot_order": "fpga-first",
+  "atf_commit": "09c4dc6628810d8570af69db43918d344f9e80e9",
+  "lwh2f_enabled": false,
+  "source_sof": "/workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/fpga/base.sof",
+  "source_sof_sha256": "d9420be26ef4167d17b3ad1abd7803c200750df16c45fc4eafd361eb5ebc6eaf",
+  "images": {
+    "ddr_recovery.sof": "5c34cd980cdb51183545fcce06dcddbf29eeaa543188d77cba36710c025a2f9b"
+  }
+}

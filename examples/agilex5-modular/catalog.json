@@ -253,13 +253,13 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/stack-26.3-20261101/simics/results.json",
-          "case": "upstream/hello"
+          "evidence": "validation/portable-20261102/simics-hello/results.json",
+          "case": "hello"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
-          "case": "upstream/hello"
+          "evidence": "validation/portable-20261102/hardware-hello/results.json",
+          "case": "hello"
         }
       }
     },
@@ -1264,7 +1264,7 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/education-20261102/qemu/results.json",
+          "evidence": "validation/portable-20261102/qemu/results.json",
           "case": "hello"
         },
         "simics": {
@@ -1690,8 +1690,8 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
-          "case": "reference/pr"
+          "evidence": "validation/portable-20261102/hardware-pr/results.json",
+          "case": "pr-swap"
         }
       }
     },

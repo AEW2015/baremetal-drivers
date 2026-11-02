@@ -40,9 +40,7 @@ The host operator uses the existing locked runner:
 
 ```sh
 python3 upstream-lab/hardware.py --suite candidates \
-  --bench /home/lada/altera-agilex/home/baremetal-guide-validation \
   --artifacts build/hardware-candidates \
-  --mcp-client /home/lada/quartus26-mcp-demos/mcp_client.py \
   --only hello,ccu-readonly,clkmgr-readonly,dma,gic,mmu,smmu,spi,timer
 ```
 

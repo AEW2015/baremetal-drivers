@@ -1,42 +1,40 @@
 # Hello World on QEMU, Simics and hardware
 
-Start with QEMU. Then run the upstream Hello command on the Agilex Simics model
-or the Modular kit. Simics and hardware share `examples/hello/hello_selftest.c`;
-QEMU has its own startup, UART and memory map.
+Start with [the portable quickstart](quickstart.md). All commands below start
+from the repository root. `lab.py` finds this checkout using its own location;
+there is no required clone name, personal home directory or external bench repo.
+Use `py -3` in native PowerShell or `python3` in Linux/WSL. See
+[host OS routes](host-support.md) for vendor support and execution requirements.
 
-## Where the files are on this bench
+## Where the files are
 
-| Location | Path |
+| Relative to the repository | Purpose |
 |---|---|
-| Host checkout | `/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029` |
-| Same checkout in `agilex26-mcp-demos` | `/workspace/baremetal-fixes-20261029` |
-| QEMU source | `examples/agilex5-modular/qemu/hello.c` |
-| Shared upstream Hello source | `examples/hello/hello_selftest.c` |
-| Simics scripts | `examples/agilex5-modular/simics/` |
-| Physical-board wrapper | `examples/agilex5-modular/hardware-candidates/` |
-
-These are the established bench paths. For a different checkout, configure the
-[container mount](container.md) and [hardware environment](hardware.md) first.
-The first QEMU lab uses the [educational coding standard](educational-coding-standard.md).
+| `lab.py` | Cross-platform entry point |
+| `examples/agilex5-modular/qemu/hello.c` | QEMU first lesson |
+| `examples/hello/hello_selftest.c` | Shared Simics/hardware Hello command |
+| `examples/agilex5-modular/simics/` | Current SDK build and Simics scripts |
+| `examples/agilex5-modular/hardware-candidates/` | Physical-board Hello wrapper |
+| `examples/agilex5-modular/build/local.json` | Ignored local configuration |
+| `examples/agilex5-modular/build/boot/` | Generated DDR firmware and merged SOF |
 
 ## QEMU: no board needed
 
-In a **host terminal**, enter the existing tool container:
+With a configured Linux-container engine on the host:
 
 ```sh
-docker exec -it \
-  -w /workspace/baremetal-fixes-20261029/examples/agilex5-modular \
-  agilex26-mcp-demos bash
+python3 lab.py image
+python3 lab.py qemu
 ```
 
-In that **container terminal**:
+With native Linux/WSL tools already installed:
 
 ```sh
-./qemu/build.sh
-python3 qemu/run.py --check
+python3 lab.py --backend native configure
+python3 lab.py qemu
 ```
 
-Expected output from the exercised lesson:
+Expected guest output and runner verdict:
 
 ```text
 QEMU VIRT AARCH64 BEGIN
@@ -47,58 +45,55 @@ QEMU EXAMPLE COMPLETE
 PASS QEMU_CHECK: all required markers and exit status zero
 ```
 
-The runner exits 0. Next, [step through `main` and `qemu_done`](qemu.md) or run
-`python3 qemu/experiment.py` to practise corruption and recovery in scratch
-copies. Deliberately failed guests exit 1; the complete experiment exits 0
-when all expected failures and recoveries are observed.
+The runner exits 0. Next run `python3 lab.py qemu --experiment` for deliberate
+corruption and recovery in scratch copies. The failed guests exit 1; the complete
+experiment exits 0 when those failures and recovery are verified.
+The [GDB lesson](qemu.md) uses `main` and `qemu_done`; keep the debugger inside
+the same execution environment. For a named tool container, configure it and
+attach VS Code as described in [the container guide](container.md).
 
 ## Simics: Agilex virtual HPS
 
-Use the same **container terminal**. The model is already deployed on this bench;
-a new machine needs the [Simics installation and deployment](simics.md).
+Install the model using [the Simics guide](simics.md), in Linux/WSL or a tool
+container. The vendor installer and model are separate downloads. Native route:
 
 ```sh
-./simics/build.sh OCRAM
-python3 simics/run.py --only hello
+python3 lab.py --backend native configure
+# SIMICS_FPGA_ROOT identifies the user's vendor installation, outside the repo.
+python3 lab.py simics --setup
 ```
 
-The guest command and captured response include:
+For a model already deployed under `examples/agilex5-modular/build/simics26`:
+
+```sh
+python3 lab.py simics
+```
+
+This builds the OCRAM console and runs `hello_selftest`. Captured guest output:
 
 ```text
 SoCFPGA Bare-Metal > hello_selftest
 Hello, Baremetal World!
 ```
 
-Require the runner's `PASS hello` and zero exit, rather than the console's generic
-“command completed” message alone. [See the captured Simics UART output](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/stack-26.3-20261101/simics/upstream-console/hello/uart.txt).
+Require `PASS hello` and exit zero, rather than the console's generic command
+completion alone. [Captured Simics UART](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/stack-26.3-20261101/simics/upstream-console/hello/uart.txt).
 
-## Hardware: use the Linux host
+## Hardware: qualify the inputs first
 
-Exit the container terminal with `exit`. Leave JTAG and the SOM J2 UART connected.
-On the **host**, this bench already has the matched images and built Hello ELF:
+Follow [the hardware input checklist](hardware-inputs.md) to prepare the matching
+Modular ES image, tool environment, UART and shared mutex. The public command is:
 
 ```sh
-cd /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular
-source /home/lada/quartus26-mcp-demos/agilex5-stack-20261101/current-stack-env.sh
-python3 upstream-lab/hardware.py \
-  --suite candidates --only hello \
-  --bench /home/lada/altera-agilex/home/baremetal-guide-validation \
-  --artifacts "$PWD/build/hardware-candidates" \
-  --mcp-client "$AGILEX_MCP_CLIENT" \
-  --port "$AGILEX_UART" --wait-for-hardware
+python3 lab.py hardware doctor
+python3 lab.py hardware hello --build
 ```
 
-This runs the existing built hardware adapter. To rebuild it, use the container
-commands `./simics/build.sh DDR` and `bash hardware-candidates/build.sh` first.
-A linker RWX-segment warning can accompany these diagnostic RAM ELFs; a successful
-link produces the ELF, but does not establish memory permission isolation.
+Use the Linux execution host for the runner, including a configured WSL2 route
+on Windows. The compiler/Quartus commands run in the configured native tools or
+named container. No external `--bench` or `--mcp-client` path is required.
 
-The runner acquires the shared mutex, discovers JTAG, boots DDR, loads and checks
-the payload, captures its UART result and restores DDR Hello. Current runs print
-each stage; a bootstrap can take up to its 400-second bound. If waiting, inspect
-the evidence directory rather than starting a second board operator.
-
-The successful physical retry captured:
+Captured physical output includes:
 
 ```text
 CANDIDATE_BEGIN name=hello
@@ -109,8 +104,14 @@ Hello, Baremetal World!
 CANDIDATE_COMPLETE status=0
 ```
 
-Require both `hello: pass` and `DDR Hello restoration: pass` from the runner.
-[Recorded retry and recovery](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/hello-followup-20261102)
-include the earlier interrupted discovery. Read
-[the quiet-run troubleshooting note](troubleshooting.md#hardware-hello-appears-quiet-after-printing-its-evidence-directory)
-if discovery is interrupted.
+Require both `hello: pass` and `DDR Hello restoration: pass`. Each bootstrap has
+a 400-second bound; visible stages distinguish discovery, DDR checks, payload
+loading and restoration. Read [the quiet-run troubleshooting note](troubleshooting.md#hardware-hello-appears-quiet-after-printing-its-evidence-directory)
+before interrupting or starting a second board operator.
+
+## Continue from the result
+
+Use [the finder](example-finder.md) to select another verified lab and open its
+source, expected output, execution evidence and [associated diagram](architecture.md).
+The [coding standard](educational-coding-standard.md) explains how the first
+lesson separates computation, independent checks and the final verdict.

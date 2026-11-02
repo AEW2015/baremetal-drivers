@@ -4,7 +4,7 @@ from pathlib import Path
 import subprocess,sys,tempfile,shutil
 
 def run(root):
-    subprocess.run(['bash',str(root/'qemu/build.sh')],check=True,capture_output=True)
+    subprocess.run([sys.executable,str(root/'qemu/build.py')],check=True,capture_output=True)
     return subprocess.run([sys.executable,str(root/'qemu/run.py'),'--check'],capture_output=True,text=True,timeout=30)
 
 def verify(label, result, expected_status, *markers):

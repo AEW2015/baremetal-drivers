@@ -10,7 +10,7 @@ from run_suite import run_bootstrap,restore_ddr
 from peer import Peer
 
 def root_command(args):
- cmd=['docker','exec','-u','root',os.environ.get('AGILEX_CONTAINER','agilex-xrdp'),*args]
+ cmd=list(args) if os.environ.get('AGILEX_EXECUTION')=='native' else ['docker','exec','-u','root',os.environ.get('AGILEX_CONTAINER','agilex-hardware'),*args]
  result=subprocess.run(cmd,capture_output=True,text=True,timeout=15)
  if result.returncode:
   detail=(result.stderr or result.stdout).strip()

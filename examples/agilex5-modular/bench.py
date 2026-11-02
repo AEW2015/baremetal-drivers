@@ -15,14 +15,21 @@ class BenchError(RuntimeError):
     """A configuration or bench failure with a useful student-facing message."""
 
 def container_path(path):
+    if os.environ.get('AGILEX_EXECUTION') == 'native':
+        value=str(Path(path).resolve())
+        if not re.fullmatch(r'/[A-Za-z0-9_./-]+',value):
+            raise BenchError('Native hardware paths must have no spaces or Tcl metacharacters. Use a simple Linux checkout path or a container mapped at /work.')
+        return value
     base = os.environ.get('AGILEX_CONTAINER_ROOT')
     if not base or not re.fullmatch(r'/[A-Za-z0-9_./-]+', base) or '..' in PurePosixPath(base).parts:
         raise BenchError('Set AGILEX_CONTAINER_ROOT to this example directory inside the container (absolute, no spaces or Tcl metacharacters). See the host/container mapping section of the hardware tutorial.')
     return str(PurePosixPath(base) / Path(path).resolve().relative_to(ROOT))
 
 def container_command(args):
+    if os.environ.get('AGILEX_EXECUTION') == 'native':
+        return list(args)
     return ['docker', 'exec', '-u', os.environ.get('AGILEX_CONTAINER_USER', 'dev'),
-            os.environ.get('AGILEX_CONTAINER', 'agilex-xrdp'), *args]
+            os.environ.get('AGILEX_CONTAINER', 'agilex-hardware'), *args]
 
 def checked_container(args, timeout=30, include_stderr=False):
     try:
@@ -69,6 +76,8 @@ def verify_mount():
     Writes/removes a temporary workspace nonce; never opens hardware devices.
     """
     container_path(ROOT)
+    if os.environ.get('AGILEX_EXECUTION') == 'native':
+        return
     if shutil.which('docker') is None:
         raise BenchError('Docker CLI is missing. Run hardware automation on the Linux host, not inside the development container.')
     try:
@@ -103,7 +112,7 @@ def verify_mapped_files(paths, expected=None):
 
 def bootstrap_directory():
     """Select qualified images inside the shared example tree."""
-    folder=Path(os.environ.get('AGILEX_BOOTSTRAP_DIR',ROOT/'bootstrap/ddr')).resolve()
+    folder=Path(os.environ.get('AGILEX_BOOTSTRAP_DIR',ROOT/'build/boot')).resolve()
     if not folder.is_relative_to(ROOT.resolve()):
         raise BenchError('AGILEX_BOOTSTRAP_DIR must be inside the bind-mounted example directory so host/container hashes can be verified. Copy the qualified image pair under build/ and select that directory.')
     return folder
@@ -113,7 +122,8 @@ def bootstrap_requires_full_image():
         return True
     manifest = bootstrap_directory() / 'build-manifest.json'
     if not manifest.is_file():
-        return False  # Historical HPS-first profile.
+        return bootstrap_directory() == (ROOT/'build/boot').resolve()
+        # Explicit historical HPS-first directories may have no manifest.
     try:
         data = json.loads(manifest.read_text())
         if not isinstance(data, dict) or data.get('boot_order') not in (None, 'hps-first', 'fpga-first'):

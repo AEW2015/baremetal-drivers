@@ -1,0 +1,284 @@
+[
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/results.json",
+    "source_sha256": "bbe9b79bb5aa7be3a152bab9c139556f34fc0b11e610956043be58b271e51029",
+    "saved_as": "hardware-pr/results.json",
+    "saved_sha256": "bbe9b79bb5aa7be3a152bab9c139556f34fc0b11e610956043be58b271e51029"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/guest-uart.txt",
+    "source_sha256": "9f92d004a380aac6b7857e6ce01868cacac79e48cef4d16dbf49bbebb7e97521",
+    "saved_as": "hardware-pr/guest-uart.txt",
+    "saved_sha256": "4e137506a99249990893afec1859a194238bd1148d178bd1cefe091b1e3c2f41"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/base-config-status.json",
+    "source_sha256": "e1c844126776fc5e12be200837017a7e4e53336e5288a05be31f29a246ca8891",
+    "saved_as": "hardware-pr/base-config-status.json",
+    "saved_sha256": "e1c844126776fc5e12be200837017a7e4e53336e5288a05be31f29a246ca8891"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/base-kickoff.json",
+    "source_sha256": "3cffb4c3ffae4189fc02e24b251c973d05d0d28b05adcc5f2d64beb4ebc8af3e",
+    "saved_as": "hardware-pr/base-kickoff.json",
+    "saved_sha256": "3cffb4c3ffae4189fc02e24b251c973d05d0d28b05adcc5f2d64beb4ebc8af3e"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/add-done.log",
+    "source_sha256": "ba109e35fa36986c2f70a1c1a0dab5d601a8a8eebb83504c1354c1c072ef3a5d",
+    "saved_as": "hardware-pr/add-done.log",
+    "saved_sha256": "ba109e35fa36986c2f70a1c1a0dab5d601a8a8eebb83504c1354c1c072ef3a5d"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/restore-chain.json",
+    "source_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4",
+    "saved_as": "hardware-pr/restore-chain.json",
+    "saved_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/xor-pr-chain.json",
+    "source_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4",
+    "saved_as": "hardware-pr/xor-pr-chain.json",
+    "saved_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/xor-done-control-chain.json",
+    "source_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4",
+    "saved_as": "hardware-pr/xor-done-control-chain.json",
+    "saved_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/xor-begin-control-chain.json",
+    "source_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4",
+    "saved_as": "hardware-pr/xor-begin-control-chain.json",
+    "saved_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/base-uart.txt",
+    "source_sha256": "f43bb5498f6202ca0d0e3546dfb979630b8b8c87a72d16296ac483471d0c73a8",
+    "saved_as": "hardware-pr/base-uart.txt",
+    "saved_sha256": "e3121e52a3756042c750720d7428a42021af4dda0942e535e1d442daeee70945"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/add-begin.tcl",
+    "source_sha256": "6af1a3fd41b37173dfe0a4d9a1d931ba76d38aa3287322528dc099d535178975",
+    "saved_as": "hardware-pr/add-begin.tcl",
+    "saved_sha256": "6af1a3fd41b37173dfe0a4d9a1d931ba76d38aa3287322528dc099d535178975"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/add-pr-chain.json",
+    "source_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4",
+    "saved_as": "hardware-pr/add-pr-chain.json",
+    "saved_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/guest-load.tcl",
+    "source_sha256": "cc393bc1bae80f722ce029970d9feccbc61e92fdefe73fd71f21e304407eceea",
+    "saved_as": "hardware-pr/guest-load.tcl",
+    "saved_sha256": "cc393bc1bae80f722ce029970d9feccbc61e92fdefe73fd71f21e304407eceea"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/add-pr.log",
+    "source_sha256": "6bf300aba99845db6781ec7b2715f4384a18a14d6aae7ce5a11670f7ae013be9",
+    "saved_as": "hardware-pr/add-pr.log",
+    "saved_sha256": "6bf300aba99845db6781ec7b2715f4384a18a14d6aae7ce5a11670f7ae013be9"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/add-begin-control-chain.json",
+    "source_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4",
+    "saved_as": "hardware-pr/add-begin-control-chain.json",
+    "saved_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/guest-load-chain.json",
+    "source_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4",
+    "saved_as": "hardware-pr/guest-load-chain.json",
+    "saved_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/add-begin.log",
+    "source_sha256": "b2fd339c660c3fa450428af210d0d21bd15604b5a58c9adf31b08b70ccd593f1",
+    "saved_as": "hardware-pr/add-begin.log",
+    "saved_sha256": "b2fd339c660c3fa450428af210d0d21bd15604b5a58c9adf31b08b70ccd593f1"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/guest-load.log",
+    "source_sha256": "343b22e3990cfa8304773e7d8d6494365e2876497b2430db687df39cf4e40d74",
+    "saved_as": "hardware-pr/guest-load.log",
+    "saved_sha256": "343b22e3990cfa8304773e7d8d6494365e2876497b2430db687df39cf4e40d74"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/xor-done.tcl",
+    "source_sha256": "0454a293280ddd7a787e3e1971f355b0b87ba0cdd3ee4f637ca66455ce275a6f",
+    "saved_as": "hardware-pr/xor-done.tcl",
+    "saved_sha256": "0454a293280ddd7a787e3e1971f355b0b87ba0cdd3ee4f637ca66455ce275a6f"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/add-done-control-chain.json",
+    "source_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4",
+    "saved_as": "hardware-pr/add-done-control-chain.json",
+    "saved_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/xor-pr.log",
+    "source_sha256": "cfa9dd9a06a91f627bd44bb398f2dd50b4948c37affa6fc3c1e5b4491a50d4ee",
+    "saved_as": "hardware-pr/xor-pr.log",
+    "saved_sha256": "cfa9dd9a06a91f627bd44bb398f2dd50b4948c37affa6fc3c1e5b4491a50d4ee"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/xor-done.log",
+    "source_sha256": "dadda6898567deb195d2806c65b767078e0b1be5263d3d64af80c424da0b9cf2",
+    "saved_as": "hardware-pr/xor-done.log",
+    "saved_sha256": "dadda6898567deb195d2806c65b767078e0b1be5263d3d64af80c424da0b9cf2"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/restore.log",
+    "source_sha256": "731392ec021b6be5e1933ac2eed3a116df957d569cf1d3b66d0cd4400a4fa3d0",
+    "saved_as": "hardware-pr/restore.log",
+    "saved_sha256": "731392ec021b6be5e1933ac2eed3a116df957d569cf1d3b66d0cd4400a4fa3d0"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/guest-start.log",
+    "source_sha256": "300e22615998d70dba4682bbc405ef5a0105f90548ca88278d536472934cdb4a",
+    "saved_as": "hardware-pr/guest-start.log",
+    "saved_sha256": "300e22615998d70dba4682bbc405ef5a0105f90548ca88278d536472934cdb4a"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/base-program.json",
+    "source_sha256": "29def389e3211a22360cc6e7ab194d023343b2378dd43071eb9b57d5eb8f046f",
+    "saved_as": "hardware-pr/base-program.json",
+    "saved_sha256": "29def389e3211a22360cc6e7ab194d023343b2378dd43071eb9b57d5eb8f046f"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/add-done.tcl",
+    "source_sha256": "8c5ab077c46aaaef072e4d682bae2978494d236139133b3eeb871655ab82dcf3",
+    "saved_as": "hardware-pr/add-done.tcl",
+    "saved_sha256": "8c5ab077c46aaaef072e4d682bae2978494d236139133b3eeb871655ab82dcf3"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/base-chain.json",
+    "source_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4",
+    "saved_as": "hardware-pr/base-chain.json",
+    "saved_sha256": "bc68862951d21ff63c1e9b5b38fe35942f41d720d3199511fb90f01d70726aa4"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/xor-begin.log",
+    "source_sha256": "38506430641d7bffdb0e787a76972e3cb04b7b49fd2a92085f91d0ec6bded1f3",
+    "saved_as": "hardware-pr/xor-begin.log",
+    "saved_sha256": "38506430641d7bffdb0e787a76972e3cb04b7b49fd2a92085f91d0ec6bded1f3"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/xor-begin.tcl",
+    "source_sha256": "850816bef27545a49c8e09bc1797f1c200f0f3eafbaaf49b53769451d4b8e102",
+    "saved_as": "hardware-pr/xor-begin.tcl",
+    "saved_sha256": "850816bef27545a49c8e09bc1797f1c200f0f3eafbaaf49b53769451d4b8e102"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/guest-start.tcl",
+    "source_sha256": "57e3e37424f17f545ffdeac85dc4d21aedaa5a56e705fb1a5c44289ab6c49693",
+    "saved_as": "hardware-pr/guest-start.tcl",
+    "saved_sha256": "57e3e37424f17f545ffdeac85dc4d21aedaa5a56e705fb1a5c44289ab6c49693"
+  },
+  {
+    "source": "runs/pr-hardware-20261102T151029.472096Z/guest-readback.json",
+    "source_sha256": "5e0ae0be43583b0af2047b7dc6e85f5979b0b7084e06a5b8f14c3bfd07226b1c",
+    "saved_as": "hardware-pr/guest-readback.json",
+    "saved_sha256": "5e0ae0be43583b0af2047b7dc6e85f5979b0b7084e06a5b8f14c3bfd07226b1c"
+  },
+  {
+    "source": "runs/simics-upstream26-20261102T150855.699271Z/results.json",
+    "source_sha256": "271182eacb9bf43b0c63cb2b1547aae125bab649ab611a0dfddbffd6846f4899",
+    "saved_as": "simics-hello/results.json",
+    "saved_sha256": "271182eacb9bf43b0c63cb2b1547aae125bab649ab611a0dfddbffd6846f4899"
+  },
+  {
+    "source": "runs/simics-upstream26-20261102T150855.699271Z/hello/uart.txt",
+    "source_sha256": "91344ce440f43971592ee5d84c4881ae3e0d713ea4eb04c143ffc137ce219b82",
+    "saved_as": "simics-hello/hello/uart.txt",
+    "saved_sha256": "91344ce440f43971592ee5d84c4881ae3e0d713ea4eb04c143ffc137ce219b82"
+  },
+  {
+    "source": "runs/simics-upstream26-20261102T150855.699271Z/hello/terminal.log",
+    "source_sha256": "7c98ed91d0b9f015128b7aa1af025c017cfbb9948053f01281c286eec2793710",
+    "saved_as": "simics-hello/hello/terminal.log",
+    "saved_sha256": "bd23655a7c678316fed2036bf2acdcfe7c33724aa6e355639c46d1116d2c3c94"
+  },
+  {
+    "source": "runs/simics-upstream26-20261102T150855.699271Z/hello/test.simics",
+    "source_sha256": "b1ff2c1e88faab7d047841554d56f509c41ef3d96c20c8d245900c3e86bd302a",
+    "saved_as": "simics-hello/hello/test.simics",
+    "saved_sha256": "b1ff2c1e88faab7d047841554d56f509c41ef3d96c20c8d245900c3e86bd302a"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T150039.784650Z/results.json",
+    "source_sha256": "2edfe9a50414a08f7d0bfcf5212b127f3c8ffc16b6e35974425dde2f2f0e5486",
+    "saved_as": "initial-mcp-preflight/results.json",
+    "saved_sha256": "2edfe9a50414a08f7d0bfcf5212b127f3c8ffc16b6e35974425dde2f2f0e5486"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T150039.784650Z/mutex.json",
+    "source_sha256": "fab523397332bfea52ae6992ed51eb0cc4b32a9b84b31376850d4061f5f1d1ee",
+    "saved_as": "initial-mcp-preflight/mutex.json",
+    "saved_sha256": "fab523397332bfea52ae6992ed51eb0cc4b32a9b84b31376850d4061f5f1d1ee"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T152853.277314Z/results.json",
+    "source_sha256": "81246ecfc59138f7212954d3ee616302ddaec9d40305cfd55448f097e14931e5",
+    "saved_as": "hardware-hello/results.json",
+    "saved_sha256": "81246ecfc59138f7212954d3ee616302ddaec9d40305cfd55448f097e14931e5"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T152853.277314Z/hello-bootstrap.log",
+    "source_sha256": "b81f225ff231cfd8d7a0d882d462288e7fb938ffd75f8cd246a711026b009360",
+    "saved_as": "hardware-hello/hello-bootstrap.log",
+    "saved_sha256": "b81f225ff231cfd8d7a0d882d462288e7fb938ffd75f8cd246a711026b009360"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T152853.277314Z/hello-load.log",
+    "source_sha256": "5d40f7281a889335b023af26552aa632c33cd8eec69bbaca0acb43c5da57f128",
+    "saved_as": "hardware-hello/hello-load.log",
+    "saved_sha256": "5d40f7281a889335b023af26552aa632c33cd8eec69bbaca0acb43c5da57f128"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T152853.277314Z/restore-chain.json",
+    "source_sha256": "eacfb086376d020a45d29e212db96f80c7084d18a1334f429fd36d15d7bea8d8",
+    "saved_as": "hardware-hello/restore-chain.json",
+    "saved_sha256": "eacfb086376d020a45d29e212db96f80c7084d18a1334f429fd36d15d7bea8d8"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T152853.277314Z/mutex.json",
+    "source_sha256": "65d6e29322dbe0ce7fec88cd7512e9c98b42af8bd33506ba6d267108cce5a1e9",
+    "saved_as": "hardware-hello/mutex.json",
+    "saved_sha256": "65d6e29322dbe0ce7fec88cd7512e9c98b42af8bd33506ba6d267108cce5a1e9"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T152853.277314Z/hello-chain.json",
+    "source_sha256": "eacfb086376d020a45d29e212db96f80c7084d18a1334f429fd36d15d7bea8d8",
+    "saved_as": "hardware-hello/hello-chain.json",
+    "saved_sha256": "eacfb086376d020a45d29e212db96f80c7084d18a1334f429fd36d15d7bea8d8"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T152853.277314Z/hello-debug.log",
+    "source_sha256": "9ca31fb39b751f4cec4c0db0f081cc8ce31e59ab2000281711b705d29123feb7",
+    "saved_as": "hardware-hello/hello-debug.log",
+    "saved_sha256": "9ca31fb39b751f4cec4c0db0f081cc8ce31e59ab2000281711b705d29123feb7"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T152853.277314Z/hello-uart.txt",
+    "source_sha256": "62c8b8f68b597c907c69224eb5b856da1a38ea2b21a29f6a1f0b2e9a3bbd3bd5",
+    "saved_as": "hardware-hello/hello-uart.txt",
+    "saved_sha256": "62c8b8f68b597c907c69224eb5b856da1a38ea2b21a29f6a1f0b2e9a3bbd3bd5"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T152853.277314Z/restore-bootstrap.log",
+    "source_sha256": "686ee10a9501e4f37dd32b81b1ffdb3c8c62d10be88581a2b171c0d70cc2017c",
+    "saved_as": "hardware-hello/restore-bootstrap.log",
+    "saved_sha256": "686ee10a9501e4f37dd32b81b1ffdb3c8c62d10be88581a2b171c0d70cc2017c"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T152853.277314Z/hello-readback.json",
+    "source_sha256": "aa87d2b88d8d1be99e1eae380084258e216eb22fd64bf278d462f5183e27cff9",
+    "saved_as": "hardware-hello/hello-readback.json",
+    "saved_sha256": "aa87d2b88d8d1be99e1eae380084258e216eb22fd64bf278d462f5183e27cff9"
+  }
+]

@@ -5,13 +5,18 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def validate_manifest(path):
+ path=path.resolve()
  d=json.loads(path.read_text())
  if d.get('device_id')!='0364F0DD':raise ValueError('Wrong physical device profile')
  for key in ('full_sof','guest_bin','guest_elf','add','xor'):
   obj=d[key];p=Path(obj['path'])
+  if not p.is_absolute():p=path.parent/p
+  obj['path']=str(p.resolve())
   if not p.is_file() or sha(p)!=obj['sha256']:raise ValueError('Missing/changed artifact: '+key)
  for key in ('add','xor'):
   proof=d[key]['compatibility']
+  proof_path=Path(proof['path'])
+  proof['path']=str((path.parent/proof_path).resolve() if not proof_path.is_absolute() else proof_path.resolve())
   if proof.get('status')!='pass' or proof['parent_sha256']!=d['full_sof']['sha256'] or proof['child_sha256']!=d[key]['sha256']:raise ValueError('No matching PR compatibility evidence: '+key)
   if sha(proof['path'])!=proof['sha256']:raise ValueError('Changed compatibility evidence')
  return d
@@ -26,14 +31,16 @@ def require_fabric_user_mode(config_text):
 
 def main():
  p=argparse.ArgumentParser(description=__doc__)
- p.add_argument('--manifest',required=True,type=Path);p.add_argument('--bench',required=True,type=Path)
- p.add_argument('--mcp-client',required=True,type=Path);p.add_argument('--port',default='/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0')
+ p.add_argument('--manifest',required=True,type=Path);p.add_argument('--bench',type=Path)
+ p.add_argument('--mcp-client',type=Path,default=ROOT/'mcp_client.py');p.add_argument('--port',default=os.environ.get('AGILEX_UART',''))
  p.add_argument('--run',action='store_true');p.add_argument('--wait-for-hardware',action='store_true')
  a=p.parse_args();manifest=validate_manifest(a.manifest)
  sys.path.insert(0,str(ROOT));from stack_bench import StackBench
- stack=StackBench(a.bench)
+ stack=StackBench(a.bench);a.bench=stack.bench
  workspace=a.mcp_client.resolve().parent
- def remote(path):return '/workspace/'+str(Path(path).resolve().relative_to(workspace))
+ def remote(path):
+  from bench import container_path
+  return container_path(path)
  for key in ('full_sof','add','xor'):remote(manifest[key]['path'])
  if not a.run:print('PASS PR_ARTIFACT_PREFLIGHT; no hardware access');return 0
  sys.path.insert(0,str(workspace));from mcp_client import MCP
@@ -41,7 +48,7 @@ def main():
  record={'scope':'Physical Modular ES, one HPS guest with JTAG ADD-XOR-ADD PR; no flash/media/fuse writes','manifest':manifest,'runner_sha256':sha(Path(__file__)),'tests':[],'restoration':'pending'}
  def save():(out/'results.json').write_text(json.dumps(record,indent=2)+'\n')
  print('Evidence:',out,flush=True);save()
- lock=(a.bench/'examples/hardware.lock').open('a')
+ lock=stack.lock_path.open('a')
  while True:
   try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);break
   except BlockingIOError:
@@ -57,7 +64,7 @@ def main():
   block=blocks[0];idx,cable=block.splitlines()[0].split(': ',1)
   pos=[int(n) for n,v in re.findall(r'Device (\d+): JTAG ID 0x([0-9a-fA-F]+)',block) if int(v,16)==0x0364f0dd]
   if len(pos)!=1:raise RuntimeError('Modular ES FPGA ID missing')
-  subprocess.run(['docker','exec','agilex26-mcp-demos','jtagconfig','--setparam',idx,'JtagClock','6M'],check=True,capture_output=True)
+  subprocess.run(stack.command(['jtagconfig','--setparam',idx,'JtagClock','6M']),check=True,capture_output=True)
   return idx,cable,pos[0]
  def drain(wait=.1):
   data=b''
@@ -108,7 +115,7 @@ def main():
  def control(stage,expected,label):
   _,cable,index=chain(label+'-control')
   script=out/(label+'.tcl');script.write_text(f'set pr_stage {stage}\nset pr_expected {expected:#x}\nset pr_sof {{{remote(manifest["full_sof"]["path"])}}}\nset pr_cable {{{cable}}}\nset pr_index {index}\n'+Path(__file__).with_name('host_control.tcl').read_text())
-  body=command(['docker','exec','agilex26-mcp-demos','timeout','--kill-after=5s','35s','system-console','--script='+remote(script)],label)
+  body=command(stack.command(['timeout','--kill-after=5s','35s','system-console','--script='+remote(script)]),label)
   marker='PR_HOST_STAGE_RESULT stage='+stage+' PASS'
   if len(re.findall('^'+re.escape(marker)+'$',body,re.M))!=1 or 'PR_HOST_STAGE_ERROR' in body:raise RuntimeError('No trustworthy System Console completion: '+label)
  try:
@@ -151,7 +158,7 @@ shutdown
     key=('xor','add')[len(loads)]
     if sha(manifest[key]['path'])!=manifest[key]['sha256']:raise RuntimeError('Persona changed before programming')
     control('begin',expected,key+'-begin');_,cable,index=chain(key+'-pr')
-    body=command(['docker','exec','agilex26-mcp-demos','timeout','--kill-after=5s','120s','quartus_pgm','-c',cable,'-m','jtag','--pr',remote(manifest[key]['path'])+'@'+str(index)],key+'-pr',135)
+    body=command(stack.command(['timeout','--kill-after=5s','120s','quartus_pgm','-c',cable,'-m','jtag','--pr',remote(manifest[key]['path'])+'@'+str(index)]),key+'-pr',135)
     if 'Successfully performed operation' not in body:raise RuntimeError('No positive PR programmer completion')
     control('done',expected,key+'-done');loads.append(key);record['completed_loads']=loads;save()
    if b'PR_LAB_COMPLETE' in uart:break
@@ -169,13 +176,8 @@ shutdown
     if idx!='1':raise RuntimeError('Bench recovery requires verified carrier as cable 1')
     # The migrated full base is independently qualified before PR testing.
     # Its bootstrap pre-halts the old guest and verifies fresh UART/DDR/PC.
-    if stack.current:
-     record['restoration_image_sha256']=sha(stack.image)
-     r=stack.bootstrap(a.port,lock.fileno(),full=True)
-    else:
-     halt='hps.a55.0 configure -event halted {}; hps.a55.0 configure -event resumed {}; gdb port disabled; tcl port disabled; telnet port disabled; init; halt; shutdown'
-     command(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','30s','openocd','-f','/home/dev/baremetal-guide-validation/ocram/agilex5.cfg','-c',halt],'restore-prehalt',45)
-     r=subprocess.run([sys.executable,str(a.bench/'ddr-bringup/run_ddr.py'),'--port',a.port,'--full-recovery'],capture_output=True,timeout=240)
+    record['restoration_image_sha256']=sha(stack.image)
+    r=stack.bootstrap(a.port,lock.fileno(),full=True)
     (out/'restore.log').write_bytes(r.stdout+r.stderr);record['restoration']='pass' if r.returncode==0 else 'fail'
    else:record['restoration']='not attempted: uncertain owned process' if uncertain else 'not needed'
   except BaseException as exc:record['restoration']='fail';record['restore_error']=repr(exc)

@@ -31,12 +31,26 @@
     "tasks": [
       {
         "label": "Check QEMU setup",
-        "type": "shell",
-        "command": "python3 doctor.py --target qemu",
+        "type": "process",
+        "command": "python3",
         "options": {
           "cwd": "${workspaceFolder}"
         },
-        "problemMatcher": []
+        "problemMatcher": [],
+        "args": [
+          "doctor.py",
+          "--target",
+          "qemu"
+        ],
+        "windows": {
+          "command": "py",
+          "args": [
+            "-3",
+            "doctor.py",
+            "--target",
+            "qemu"
+          ]
+        }
       },
       {
         "label": "Prepare QEMU debug",
@@ -49,34 +63,44 @@
       },
       {
         "label": "Build QEMU",
-        "type": "shell",
-        "command": "./qemu/build.sh",
+        "type": "process",
+        "command": "python3",
         "options": {
-          "cwd": "${workspaceFolder}",
-          "shell": {
-            "executable": "/bin/bash",
-            "args": [
-              "-lc"
-            ]
-          }
+          "cwd": "${workspaceFolder}"
         },
-        "problemMatcher": "$gcc"
+        "problemMatcher": "$gcc",
+        "args": [
+          "qemu/build.py"
+        ],
+        "windows": {
+          "command": "py",
+          "args": [
+            "-3",
+            "qemu/build.py"
+          ]
+        }
       },
       {
         "label": "Run QEMU checks",
-        "type": "shell",
-        "command": "python3 qemu/run.py --check",
+        "type": "process",
+        "command": "python3",
         "options": {
-          "cwd": "${workspaceFolder}",
-          "shell": {
-            "executable": "/bin/bash",
-            "args": [
-              "-lc"
-            ]
-          }
+          "cwd": "${workspaceFolder}"
         },
         "problemMatcher": "$gcc",
-        "dependsOn": "Build QEMU"
+        "dependsOn": "Build QEMU",
+        "args": [
+          "qemu/run.py",
+          "--check"
+        ],
+        "windows": {
+          "command": "py",
+          "args": [
+            "-3",
+            "qemu/run.py",
+            "--check"
+          ]
+        }
       },
       {
         "label": "Build HPS core",
@@ -296,9 +320,9 @@
         "program": "${workspaceFolder}/build/qemu/hello.elf",
         "cwd": "${workspaceFolder}",
         "MIMode": "gdb",
-        "miDebuggerPath": "/usr/bin/gdb-multiarch",
+        "miDebuggerPath": "gdb-multiarch",
         "miDebuggerServerAddress": "127.0.0.1:3338",
-        "debugServerPath": "/usr/bin/python3",
+        "debugServerPath": "python3",
         "debugServerArgs": "\"${workspaceFolder}/qemu/run.py\" --debug",
         "serverStarted": "QEMU GDB ready",
         "filterStdout": true,
@@ -321,7 +345,7 @@
         "program": "${workspaceFolder}/build/core_examples.elf",
         "cwd": "${workspaceFolder}",
         "MIMode": "gdb",
-        "miDebuggerPath": "/usr/bin/gdb-multiarch",
+        "miDebuggerPath": "gdb-multiarch",
         "debugServerPath": "${workspaceFolder}/debug-server.sh",
         "serverStarted": "Listening on port 3337",
         "filterStderr": true,

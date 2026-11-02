@@ -10,6 +10,9 @@ repository's recorded platform results.
 
 <iframe src="../assets/architecture/design.html" title="Clickable Agilex 5 HPS and fabric example map" width="100%" height="820" style="border:1px solid #b8c6d7;border-radius:8px" loading="lazy"></iframe>
 
+[Portable quickstart](quickstart.md) · [Host OS routes](host-support.md) ·
+[Hardware inputs](hardware-inputs.md) · [Movable release](https://github.com/AEW2015/baremetal-drivers/releases/tag/lab-ready)
+
 ## Use the diagram
 
 - **Click a block** to see its role, related examples, platform results,

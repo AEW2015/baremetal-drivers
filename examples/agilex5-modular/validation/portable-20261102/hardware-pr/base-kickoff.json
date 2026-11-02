@@ -1,0 +1,13 @@
+{
+  "jobId": "f0c646b9-deb8-40a8-94d7-44f39b90ec7a",
+  "status": "running",
+  "projectDir": "/workspace",
+  "pollAfterSeconds": 15,
+  "next": {
+    "tool": "get_job_status",
+    "arguments": {
+      "jobId": "f0c646b9-deb8-40a8-94d7-44f39b90ec7a",
+      "projectDir": "/workspace"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+Running: ["/usr/bin/python3", "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/upstream-lab/hardware.py", "--suite", "candidates", "--only", "hello", "--artifacts", "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/hardware-candidates", "--port", "/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0", "--wait-for-hardware"]
+Evidence: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/upstream26-hardware-20261102T152853.277314Z
+Starting programmer connection...
+{"timestamp":"2026-11-02T15:28:53.917Z","event":"programmer_start","level":"INFO","logger":"ProgrammerRuntime","tool":"server","phase":"start","msg":"server","session_id":"50c8ece51bca","pid":1605610,"audit_log":null,"audit_log_env":"QUARTUS_AUDIT_LOG_FILE"}
+QuartusIQ Programmer MCP Server running on Stdio
+hello: discovering JTAG chain through the programmer...
+{"timestamp":"2026-11-02T15:28:53.930Z","event":"tool_call","level":"INFO","logger":"ProgrammerRuntime","tool":"read_jtag_config","phase":"entry","msg":"read_jtag_config","session_id":"50c8ece51bca","pid":1605610,"params":{}}
+{"timestamp":"2026-11-02T15:28:54.255Z","event":"tool_success","level":"INFO","logger":"ProgrammerRuntime","tool":"read_jtag_config","phase":"exit","msg":"read_jtag_config","session_id":"50c8ece51bca","pid":1605610,"outcome":"success","duration_ms":325,"durationMs":325}
+hello: JTAG verified; initializing DDR and checking fresh UART/memory/CPU evidence (up to 400 seconds)...
+hello: DDR bootstrap PASS; log: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/upstream26-hardware-20261102T152853.277314Z/hello-bootstrap.log
+hello: loading payload and verifying every byte...
+hello: pass
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing fCANDIDATE_BEGIN name=hello
+CANDIDATE_EL=3 SCTLR=0x30C51838
+PASS STANDALONE_EL3_MMU_DCACHE_OFF
+CANDIDATE_COMMAND hello_selftest 
+Hello, Baremetal World!
+CANDIDATE_COMPLETE status=0
+
+restore: discovering JTAG chain through the programmer...
+{"timestamp":"2026-11-02T15:29:33.980Z","event":"tool_call","level":"INFO","logger":"ProgrammerRuntime","tool":"read_jtag_config","phase":"entry","msg":"read_jtag_config","session_id":"50c8ece51bca","pid":1605610,"params":{}}
+{"timestamp":"2026-11-02T15:29:34.312Z","event":"tool_success","level":"INFO","logger":"ProgrammerRuntime","tool":"read_jtag_config","phase":"exit","msg":"read_jtag_config","session_id":"50c8ece51bca","pid":1605610,"outcome":"success","duration_ms":332,"durationMs":332}
+restore: JTAG verified; initializing DDR and checking fresh UART/memory/CPU evidence (up to 400 seconds)...
+restore: DDR bootstrap PASS; log: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/upstream26-hardware-20261102T152853.277314Z/restore-bootstrap.log
+DDR Hello restoration: pass

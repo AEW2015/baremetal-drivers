@@ -33,14 +33,15 @@ Build boot firmware from the pinned ATF source. FPGA-first configuration uses
 a complete SOF with BL2 embedded; PFG rejects the HPS-only conversion for that
 boot order. Keep the previous known-good recovery image separately.
 
-On the host, with the same repository mounted inside the tool container:
+On the host, from `examples/agilex5-modular`, with the same checkout mounted
+inside the tool container:
 
 ```sh
 export AGILEX_CONTAINER=agilex-hardware
 export AGILEX_CONTAINER_USER=dev
 export AGILEX_CONTAINER_ROOT=/home/dev/baremetal-drivers/examples/agilex5-modular
-export AGILEX_BOOTSTRAP_DIR="$PWD/bootstrap/ddr"
-export AGILEX_HARDWARE_LOCK=/path/to/the/shared/bench/hardware.lock
+export AGILEX_BOOTSTRAP_DIR="$PWD/build/boot"
+export AGILEX_HARDWARE_LOCK="$PWD/hardware.lock"
 export AGILEX_UART=/dev/serial/by-path/YOUR-VERIFIED-SOM-UART
 export AGILEX_FORCE_FULL_BOOT=1
 python3 bootstrap/ddr/run_ddr.py --full-recovery
@@ -55,8 +56,9 @@ The bootstrap directory must be inside this shared example tree and contain
 the matching `ddr_recovery.sof`, so both host and container see the same bytes.
 `AGILEX_BOOTSTRAP_DIR` selects the current runner/container profile; it also
 stages payloads under the repository rather than the older bench directory.
-Set `AGILEX_MCP_CLIENT` to the established Programmer MCP Python client when
-using this bench's additional native chain-discovery check. Every operation
+The repository-owned programmer client is selected automatically. Optional
+`AGILEX_PROGRAMMER_MCP_COMMAND` selects an installed vendor MCP server; CLI
+discovery is labelled separately. Every operation
 holds the shared hardware mutex and freshly identifies the Modular FPGA.
 
 The runner halts the preceding boot before starting UART capture, then

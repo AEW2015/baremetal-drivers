@@ -9,9 +9,8 @@ import shutil
 import socket
 import subprocess
 from pathlib import Path
-from bench import (ROOT, BenchError, HELP, checked_container, container_path, validate_uart,
+from bench import (bootstrap_image_path, ROOT, BenchError, HELP, checked_container, container_path, validate_uart,
                    verify_container_tools, verify_mapped_files, verify_mount)
-from hardware_lock import HardwareLock
 from check_artifacts import check as check_artifacts
 
 def main():
@@ -41,11 +40,11 @@ def main():
     where = 'container' if Path('/.dockerenv').exists() else 'host/native environment'
     add('environment', 'pass', f'{where}; {platform.system()} {platform.machine()}; workspace {ROOT}')
     if args.target == 'qemu':
-        if platform.machine() not in ('x86_64', 'amd64'):
+        if platform.machine().lower() not in ('x86_64', 'amd64'):
             add('host architecture', 'warn', 'The tutorial download is x86-64. Use a toolchain archive built for your host architecture; QEMU can still work with compatible installed tools.')
         for label, executable in [('compiler', os.environ.get('CROSS_COMPILE', 'aarch64-none-elf-') + 'gcc'),
                                   ('QEMU', os.environ.get('QEMU', 'qemu-system-aarch64')),
-                                  ('GDB', 'gdb-multiarch')]:
+                                  ('GDB', os.environ.get('GDB') or shutil.which('gdb-multiarch') or 'aarch64-none-elf-gdb')]:
             def version(executable=executable):
                 if not shutil.which(executable):
                     raise BenchError(f'{executable} is missing in THIS environment. Follow setup.md and check PATH; host and container installations are separate.')
@@ -64,6 +63,7 @@ def main():
             except OSError:
                 add('GDB port 3338', 'warn', 'In use. Inspect ss -ltnp and stop your own previous debugger before F5; normal --check does not need this port.')
     else:
+        from hardware_lock import HardwareLock
         # This checks configuration/mounts and may query JTAG identity; it never
         # sets JTAG speed, programs an image, reads UART bytes, or loads an ELF.
         if args.sof:
@@ -80,7 +80,7 @@ def main():
             mounted = False
         if mounted:
             tools = attempt('container tools', lambda: verify_container_tools(['jtagconfig', 'quartus_pgm', 'openocd', 'aarch64-none-elf-readelf']))
-            attempt('core/image hashes', lambda: (verify_mapped_files([ROOT/'build/core_examples.elf', ROOT/'bootstrap/ddr/ddr_probe.hps.rbf', ROOT/'bootstrap/ocram/agilex5.cfg']) and 'Host/container artifact hashes match.'))
+            attempt('core/image hashes', lambda: (verify_mapped_files([bootstrap_image_path('ddr_probe.hps.rbf'), ROOT/'bootstrap/ocram/agilex5.cfg']) and 'Host/container artifact hashes match.'))
             if tools:
                 try:
                     with HardwareLock():
