@@ -1,0 +1,2 @@
+setenv bootargs console=ttyS0,115200n8 earlycon=uart8250,mmio32,0x10c02000 rdinit=/init maxcpus=1 clk_ignore_unused loglevel=7 panic=0
+SOCFPGA_AGILEX5 # 

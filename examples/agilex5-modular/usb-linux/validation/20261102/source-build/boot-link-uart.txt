@@ -1,0 +1,5 @@
+ping 192.168.50.1
+ethernet@10830000 Waiting for PHY auto negotiation to complete....... done
+Using ethernet@10830000 device
+host 192.168.50.1 is alive
+SOCFPGA_AGILEX5 # 

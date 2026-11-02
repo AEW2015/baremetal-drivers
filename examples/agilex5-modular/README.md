@@ -11,7 +11,9 @@ or read the [educational coding standard and audit](../../docs/educational-codin
 
 The [fresh 26.3 validation](../../docs/validation-26.3.md) records 50 hardware
 passes and 6 partial capabilities, including live ADD–XOR–ADD PR and working
-xHCI/USB3320 identification. External USB device enumeration remains pending.
+xHCI/USB3320 identification. The separate [Linux USB lab](usb-linux/README.md)
+now boots on hardware and reads the attached Lexar flash drive at 480 Mb/s;
+external hub, mouse and USB Ethernet checks remain separate.
 
 The [2026-10-31 validation campaign](../../docs/full-validation-2026-10-31.md)
 rebuilt and reran all 15 board-suite entries successfully. Its
@@ -373,11 +375,12 @@ write-test is claimed. PHY/controller IDs and SD card detect do not establish
 Ethernet traffic, USB enumeration or SD media access.
 
 The U-Boot/Linux commands in [recipes/](recipes/) target a separately configured
-board and external peers, not the host container. The [USB lab](usb-bringup/README.md)
-has booted source-built U-Boot on the kit, but controller readiness still fails
-before hub, mouse, flash-drive or USB-Ethernet enumeration. Linux boot/media
-recipes remain separate setup references. NAND/eMMC population is not established
-on this SOM.
+board and external peers, not the host container. The [U-Boot USB lab](usb-bringup/README.md)
+has qualified controller readiness and USB3320 identity on the 26.3 stack.
+The separate [Linux RAM-boot lab](usb-linux/README.md) builds U-Boot, Linux and
+BusyBox, loads them over HPS Ethernet or JTAG, and tests USB classes individually.
+Its flash-read result does not qualify the bare-metal driver or USB Ethernet.
+NAND/eMMC population is not established on this SOM.
 
 For manual debugging, initialize DDR first, then run `debug-server.sh` inside the
 container and use [recipes/debug.gdb](recipes/debug.gdb) from this directory with

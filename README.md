@@ -18,6 +18,7 @@ and [local example pack](examples/agilex5-modular/README.md).
 - [Upstream 26.3 migration and example catalog](docs/upstream-26.3.md).
 - [Modular ES hardware](docs/hardware.md): matching bench image and recorded scope.
 - [Memory and fabric labs](docs/memory-fabric-labs.md): cached multicore handoff, DDR sweeps, translated DMA and RTL memory traffic.
+- [USB Linux RAM-boot lab](examples/agilex5-modular/usb-linux/README.md): source-built U-Boot, kernel and BusyBox with separate hub, flash, mouse and USB Ethernet checks.
 
 The previously qualified 25.1 register-driver samples are fetched at a pinned
 commit when their compatibility builds are requested. Their results do not

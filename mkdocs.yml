@@ -60,6 +60,7 @@ nav:
       - Simics 26.3 virtual HPS: simics.md
       - Simics connected to Verilator RTL: simics-rtl.md
       - 4. Run on the Modular kit: hardware.md
+      - USB hub with U-Boot and Linux: usb-linux.md
       - 5. Fabric IP, map and driver: fabric-ip.md
       - 6. Swap IP with partial reconfiguration: partial-reconfiguration.md
   - Examples:

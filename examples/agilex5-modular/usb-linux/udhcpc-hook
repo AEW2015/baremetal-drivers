@@ -1,0 +1,13 @@
+#!/bin/sh
+# udhcpc supplies these values; this hook runs only for the selected USB NIC.
+case "$1" in
+ bound|renew)
+  ifconfig "$interface" "$ip" netmask "${subnet:-255.255.255.0}" up
+  set -- $router
+  if [ "$#" -gt 0 ]; then
+   route del default dev "$interface" 2>/dev/null || true
+   route add default gw "$1" dev "$interface"
+  fi
+ ;;
+ deconfig) ifconfig "$interface" 0.0.0.0 up;;
+esac

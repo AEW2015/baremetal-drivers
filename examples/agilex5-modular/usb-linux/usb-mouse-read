@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+for node in /sys/class/input/mouse*; do
+ [ -e "$node/device" ] || continue
+ case "$(readlink -f "$node/device")" in */usb[0-9]*/*) ;; *) continue;; esac
+ name=${node##*/}
+ echo "USB_MOUSE_SELECTED device=$name path=$(readlink -f "$node/device")"
+ echo USB_MOUSE_BYTES_BEGIN
+ timeout 12 hexdump -v -n 12 "/dev/input/$name" || true
+ echo USB_MOUSE_BYTES_END
+ exit 0
+done
+echo USB_MOUSE_NOT_AVAILABLE
+exit 2

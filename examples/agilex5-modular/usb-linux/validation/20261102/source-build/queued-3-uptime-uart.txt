@@ -1,0 +1,3 @@
+cat /proc/uptime
+54.37 53.44
+USB_LINUX# 

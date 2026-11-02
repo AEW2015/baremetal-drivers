@@ -1,0 +1,9 @@
+for d in /sys/bus/platform/devices/*11000000*; do echo "$d"; ls -l "$
+d/driver"; cat "$d/modalias"; done
+/sys/bus/platform/devices/11000000.usb
+lrwxrwxrwx    1 0        0                0 Jan  1 00:01 [1;36m/sys/bus/platform/devices/11000000.usb/driver[m -> [1;34m../../../../../bus/platform/drivers/dwc3[m
+of:NusbT(null)Csnps,dwc3
+/sys/bus/platform/devices/11000000.usb1
+lrwxrwxrwx    1 0        0                0 Jan  1 00:01 [1;36m/sys/bus/platform/devices/11000000.usb1/driver[m -> [1;34m../../../../bus/platform/drivers/dwc3-of-simple[m
+of:Nusb1T(null)Cintel,agilex5-dwc3
+USB_LINUX# 

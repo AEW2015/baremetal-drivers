@@ -1,0 +1,18 @@
+#!/bin/sh
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+/bin/busybox --install -s /bin
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t devtmpfs devtmpfs /dev
+mkdir -p /run /dev/pts
+mount -t tmpfs -o size=16m tmpfs /run
+mount -t devpts devpts /dev/pts
+hostname agilex5-usb-lab
+export PS1='USB_LINUX# '
+echo USB_LINUX_BOOT_BEGIN
+uname -a
+cat /proc/cmdline
+sleep 5
+/bin/usb-lab
+echo USB_LINUX_READY
+exec /bin/setsid /bin/cttyhack /bin/sh

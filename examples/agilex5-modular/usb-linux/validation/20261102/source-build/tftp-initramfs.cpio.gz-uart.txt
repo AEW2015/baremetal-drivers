@@ -1,0 +1,11 @@
+tftpboot 0x86000000 initramfs.cpio.gz
+Using ethernet@10830000 device
+TFTP from server 192.168.50.1; our IP address is 192.168.50.3
+Filename 'initramfs.cpio.gz'.
+Load address: 0x86000000
+Loading: *#################################################################
+	 ################
+	 21.3 MiB/s
+done
+Bytes transferred = 1185397 (121675 hex)
+SOCFPGA_AGILEX5 # 

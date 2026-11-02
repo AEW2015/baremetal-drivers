@@ -1,0 +1,2 @@
+setenv ethrotate no
+SOCFPGA_AGILEX5 # 

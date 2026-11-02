@@ -1154,9 +1154,9 @@
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/guest.c",
-          "sha256": "2c2bec39b8cec94fb516888c76f696a7ee4da2791e585a15d82f0d5bc979d1e8",
-          "lines": 54,
-          "lines_over_100_columns": 6
+          "sha256": "05e34492785efb3c6e6e6b30c2c0170589116d395aba3146e0a56cdd64ce3547",
+          "lines": 78,
+          "lines_over_100_columns": 7
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/build_boot.sh",
@@ -1166,9 +1166,9 @@
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/build_guest.sh",
-          "sha256": "f971c8b30597b58977d531acb919803277c7b147fe848fa4c5b617d9994b36e1",
-          "lines": 9,
-          "lines_over_100_columns": 2
+          "sha256": "d853791529679fbd034250a0c0b8fab15d45f54e7935da7428d10356f584edc8",
+          "lines": 17,
+          "lines_over_100_columns": 1
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/configure.py",
@@ -1220,9 +1220,15 @@
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/run.py",
-          "sha256": "d70f2c2e2fc6105040305609141e4102f8dbe6df57e8b4a58df828a78f61c649",
-          "lines": 186,
-          "lines_over_100_columns": 35
+          "sha256": "2577657ecec8477d4a0f11137650808a31d895f9796c5de7482c44aaba20bacc",
+          "lines": 239,
+          "lines_over_100_columns": 42
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/start.S",
+          "sha256": "fb821c3b0ce2fe533c9b5e1596fe6b5e6b78891d269848c0d99dbfdc88fced8b",
+          "lines": 20,
+          "lines_over_100_columns": 0
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/upgrade_ip.py",
@@ -1297,6 +1303,18 @@
           "lines_over_100_columns": 12
         },
         {
+          "path": "examples/agilex5-modular/fabric/pr/sdm_loader.c",
+          "sha256": "00af8c9b4b1b80a816d704f8bb2259a80c469ff47f34c5e78baa00983ed20452",
+          "lines": 122,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/sdm_loader.h",
+          "sha256": "759c40965673703edaf820c732c4d7fbf04197c751cbaa21aaf0f85a70ed3cfc",
+          "lines": 9,
+          "lines_over_100_columns": 0
+        },
+        {
           "path": "examples/agilex5-modular/fabric/pr/tests/physical_shell_tb.sv",
           "sha256": "1139b0731a76767c3fba7ffb41cb3c0b166968d14181748bdfffe5bb704a61d3",
           "lines": 21,
@@ -1309,10 +1327,16 @@
           "lines_over_100_columns": 9
         },
         {
+          "path": "examples/agilex5-modular/fabric/pr/tests/sdm_protocol_test.c",
+          "sha256": "8b9c00d0a6c635722a006514d120072b63b18e48360cde8dfd31f8e773cb9057",
+          "lines": 57,
+          "lines_over_100_columns": 0
+        },
+        {
           "path": "examples/agilex5-modular/fabric/pr/tests/test_hardware_manifest.py",
-          "sha256": "df1302ff4cef0537f1d6ae9a583c22d1d73dbf1f0a5f7c65375c2b7f7eee3296",
-          "lines": 34,
-          "lines_over_100_columns": 5
+          "sha256": "f7e2482dc7ec8274ea1beb22ff7a55829496e044eecab5ff2705ce735921bc68",
+          "lines": 64,
+          "lines_over_100_columns": 10
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/tests/test_host_control.py",
@@ -1325,6 +1349,12 @@
           "sha256": "5169b1b956a1aa069baf070d3f0dd4d86693f7e901be94db05366a454ce84738",
           "lines": 18,
           "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/test_sdm_protocol.py",
+          "sha256": "ca5f9896a1c9115f643a016f5f97f82d8769c4d37ea44168904354f941e5e599",
+          "lines": 19,
+          "lines_over_100_columns": 0
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/transactor.cpp",
@@ -1425,9 +1455,9 @@
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/guest.c",
-          "sha256": "2c2bec39b8cec94fb516888c76f696a7ee4da2791e585a15d82f0d5bc979d1e8",
-          "lines": 54,
-          "lines_over_100_columns": 6
+          "sha256": "05e34492785efb3c6e6e6b30c2c0170589116d395aba3146e0a56cdd64ce3547",
+          "lines": 78,
+          "lines_over_100_columns": 7
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/build_boot.sh",
@@ -1437,9 +1467,9 @@
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/build_guest.sh",
-          "sha256": "f971c8b30597b58977d531acb919803277c7b147fe848fa4c5b617d9994b36e1",
-          "lines": 9,
-          "lines_over_100_columns": 2
+          "sha256": "d853791529679fbd034250a0c0b8fab15d45f54e7935da7428d10356f584edc8",
+          "lines": 17,
+          "lines_over_100_columns": 1
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/configure.py",
@@ -1491,9 +1521,15 @@
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/run.py",
-          "sha256": "d70f2c2e2fc6105040305609141e4102f8dbe6df57e8b4a58df828a78f61c649",
-          "lines": 186,
-          "lines_over_100_columns": 35
+          "sha256": "2577657ecec8477d4a0f11137650808a31d895f9796c5de7482c44aaba20bacc",
+          "lines": 239,
+          "lines_over_100_columns": 42
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/start.S",
+          "sha256": "fb821c3b0ce2fe533c9b5e1596fe6b5e6b78891d269848c0d99dbfdc88fced8b",
+          "lines": 20,
+          "lines_over_100_columns": 0
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/upgrade_ip.py",
@@ -1568,6 +1604,18 @@
           "lines_over_100_columns": 12
         },
         {
+          "path": "examples/agilex5-modular/fabric/pr/sdm_loader.c",
+          "sha256": "00af8c9b4b1b80a816d704f8bb2259a80c469ff47f34c5e78baa00983ed20452",
+          "lines": 122,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/sdm_loader.h",
+          "sha256": "759c40965673703edaf820c732c4d7fbf04197c751cbaa21aaf0f85a70ed3cfc",
+          "lines": 9,
+          "lines_over_100_columns": 0
+        },
+        {
           "path": "examples/agilex5-modular/fabric/pr/tests/physical_shell_tb.sv",
           "sha256": "1139b0731a76767c3fba7ffb41cb3c0b166968d14181748bdfffe5bb704a61d3",
           "lines": 21,
@@ -1580,10 +1628,16 @@
           "lines_over_100_columns": 9
         },
         {
+          "path": "examples/agilex5-modular/fabric/pr/tests/sdm_protocol_test.c",
+          "sha256": "8b9c00d0a6c635722a006514d120072b63b18e48360cde8dfd31f8e773cb9057",
+          "lines": 57,
+          "lines_over_100_columns": 0
+        },
+        {
           "path": "examples/agilex5-modular/fabric/pr/tests/test_hardware_manifest.py",
-          "sha256": "df1302ff4cef0537f1d6ae9a583c22d1d73dbf1f0a5f7c65375c2b7f7eee3296",
-          "lines": 34,
-          "lines_over_100_columns": 5
+          "sha256": "f7e2482dc7ec8274ea1beb22ff7a55829496e044eecab5ff2705ce735921bc68",
+          "lines": 64,
+          "lines_over_100_columns": 10
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/tests/test_host_control.py",
@@ -1596,6 +1650,12 @@
           "sha256": "5169b1b956a1aa069baf070d3f0dd4d86693f7e901be94db05366a454ce84738",
           "lines": 18,
           "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/test_sdm_protocol.py",
+          "sha256": "ca5f9896a1c9115f643a016f5f97f82d8769c4d37ea44168904354f941e5e599",
+          "lines": 19,
+          "lines_over_100_columns": 0
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/transactor.cpp",
@@ -1648,9 +1708,9 @@
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/guest.c",
-          "sha256": "2c2bec39b8cec94fb516888c76f696a7ee4da2791e585a15d82f0d5bc979d1e8",
-          "lines": 54,
-          "lines_over_100_columns": 6
+          "sha256": "05e34492785efb3c6e6e6b30c2c0170589116d395aba3146e0a56cdd64ce3547",
+          "lines": 78,
+          "lines_over_100_columns": 7
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/build_boot.sh",
@@ -1660,9 +1720,9 @@
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/build_guest.sh",
-          "sha256": "f971c8b30597b58977d531acb919803277c7b147fe848fa4c5b617d9994b36e1",
-          "lines": 9,
-          "lines_over_100_columns": 2
+          "sha256": "d853791529679fbd034250a0c0b8fab15d45f54e7935da7428d10356f584edc8",
+          "lines": 17,
+          "lines_over_100_columns": 1
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/configure.py",
@@ -1714,9 +1774,15 @@
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/run.py",
-          "sha256": "d70f2c2e2fc6105040305609141e4102f8dbe6df57e8b4a58df828a78f61c649",
-          "lines": 186,
-          "lines_over_100_columns": 35
+          "sha256": "2577657ecec8477d4a0f11137650808a31d895f9796c5de7482c44aaba20bacc",
+          "lines": 239,
+          "lines_over_100_columns": 42
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/start.S",
+          "sha256": "fb821c3b0ce2fe533c9b5e1596fe6b5e6b78891d269848c0d99dbfdc88fced8b",
+          "lines": 20,
+          "lines_over_100_columns": 0
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/hardware/upgrade_ip.py",
@@ -1791,6 +1857,18 @@
           "lines_over_100_columns": 12
         },
         {
+          "path": "examples/agilex5-modular/fabric/pr/sdm_loader.c",
+          "sha256": "00af8c9b4b1b80a816d704f8bb2259a80c469ff47f34c5e78baa00983ed20452",
+          "lines": 122,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/sdm_loader.h",
+          "sha256": "759c40965673703edaf820c732c4d7fbf04197c751cbaa21aaf0f85a70ed3cfc",
+          "lines": 9,
+          "lines_over_100_columns": 0
+        },
+        {
           "path": "examples/agilex5-modular/fabric/pr/tests/physical_shell_tb.sv",
           "sha256": "1139b0731a76767c3fba7ffb41cb3c0b166968d14181748bdfffe5bb704a61d3",
           "lines": 21,
@@ -1803,10 +1881,16 @@
           "lines_over_100_columns": 9
         },
         {
+          "path": "examples/agilex5-modular/fabric/pr/tests/sdm_protocol_test.c",
+          "sha256": "8b9c00d0a6c635722a006514d120072b63b18e48360cde8dfd31f8e773cb9057",
+          "lines": 57,
+          "lines_over_100_columns": 0
+        },
+        {
           "path": "examples/agilex5-modular/fabric/pr/tests/test_hardware_manifest.py",
-          "sha256": "df1302ff4cef0537f1d6ae9a583c22d1d73dbf1f0a5f7c65375c2b7f7eee3296",
-          "lines": 34,
-          "lines_over_100_columns": 5
+          "sha256": "f7e2482dc7ec8274ea1beb22ff7a55829496e044eecab5ff2705ce735921bc68",
+          "lines": 64,
+          "lines_over_100_columns": 10
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/tests/test_host_control.py",
@@ -1819,6 +1903,12 @@
           "sha256": "5169b1b956a1aa069baf070d3f0dd4d86693f7e901be94db05366a454ce84738",
           "lines": 18,
           "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/test_sdm_protocol.py",
+          "sha256": "ca5f9896a1c9115f643a016f5f97f82d8769c4d37ea44168904354f941e5e599",
+          "lines": 19,
+          "lines_over_100_columns": 0
         },
         {
           "path": "examples/agilex5-modular/fabric/pr/transactor.cpp",
@@ -2393,8 +2483,8 @@
         },
         {
           "path": "examples/agilex5-modular/usb-bringup/build_uboot.sh",
-          "sha256": "7eb103c7a26b3b81a050d59d82c2d94a57b155576d78101ee18f5fc4c81fb667",
-          "lines": 80,
+          "sha256": "59e9977abb394a7986217ac2802c27c6edb92a5052e5087d517c05b82fded664",
+          "lines": 81,
           "lines_over_100_columns": 19
         },
         {
@@ -2423,7 +2513,7 @@
         },
         {
           "path": "examples/agilex5-modular/usb-bringup/run.py",
-          "sha256": "011147dc429e1852545894308afff0bb6c91700a1b432d5b8562f06784523909",
+          "sha256": "c8ff6a13047a7eb227fbdd4a8514a6a05aefd9cd2b1d257611201f05be58f16c",
           "lines": 155,
           "lines_over_100_columns": 37
         },

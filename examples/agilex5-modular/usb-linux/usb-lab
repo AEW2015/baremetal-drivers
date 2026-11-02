@@ -1,0 +1,25 @@
+#!/bin/sh
+# Enumeration is separate from class traffic. Root hubs are excluded explicitly.
+echo USB_LAB_TOPOLOGY_BEGIN
+external=0
+hubs=0
+for path in /sys/bus/usb/devices/*; do
+ [ -f "$path/idVendor" ] || continue
+ name=${path##*/}
+ vendor=$(cat "$path/idVendor")
+ product=$(cat "$path/idProduct")
+ class=$(cat "$path/bDeviceClass")
+ speed=$(cat "$path/speed")
+ printf 'USB_DEVICE name=%s vid=%s pid=%s class=%s speed_mbps=%s\n' "$name" "$vendor" "$product" "$class" "$speed"
+ case "$name" in usb[0-9]*) ;; *) external=$((external+1)); [ "$class" != 09 ] || hubs=$((hubs+1));; esac
+done
+printf 'USB_LAB_COUNTS external_devices=%s external_hubs=%s\n' "$external" "$hubs"
+echo USB_LAB_STORAGE
+cat /proc/partitions
+echo USB_LAB_INPUT
+cat /proc/bus/input/devices
+for path in /sys/class/net/*; do
+ [ -e "$path/device" ] || continue
+ printf 'USB_LAB_NET name=%s device=%s\n' "${path##*/}" "$(readlink -f "$path/device")"
+done
+echo USB_LAB_TOPOLOGY_END

@@ -1,0 +1,21 @@
+sleep 2; /bin/usb-lab
+[    6.369504] scsi 0:0:0:0: Direct-Access     Lexar    USB Flash Drive       PQ: 0 ANSI: 4
+[    6.379919] sd 0:0:0:0: [sda] 243404800 512-byte logical blocks: (125 GB/116 GiB)
+[    6.387877] sd 0:0:0:0: [sda] Write Protect is off
+[    6.392925] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[    6.418543]  sda: sda1 sda2
+[    6.421719] sd 0:0:0:0: [sda] Attached SCSI removable disk
+USB_LAB_TOPOLOGY_BEGIN
+USB_DEVICE name=1-1 vid=21c4 pid=0809 class=00 speed_mbps=480
+USB_DEVICE name=usb1 vid=1d6b pid=0002 class=09 speed_mbps=480
+USB_DEVICE name=usb2 vid=1d6b pid=0003 class=09 speed_mbps=10000
+USB_LAB_COUNTS external_devices=1 external_hubs=0
+USB_LAB_STORAGE
+major minor  #blocks  name
+
+   8        0  121702400 sda
+   8        1  121701376 sda1
+   8        2          0 sda2
+USB_LAB_INPUT
+USB_LAB_TOPOLOGY_END
+USB_LINUX# 

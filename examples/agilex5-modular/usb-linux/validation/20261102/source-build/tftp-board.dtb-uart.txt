@@ -1,0 +1,10 @@
+tftpboot 0x81f00000 board.dtb
+Using ethernet@10830000 device
+TFTP from server 192.168.50.1; our IP address is 192.168.50.3
+Filename 'board.dtb'.
+Load address: 0x81f00000
+Loading: *##
+	 23.8 MiB/s
+done
+Bytes transferred = 24956 (617c hex)
+SOCFPGA_AGILEX5 # 

@@ -25,6 +25,7 @@ def pages():
         'memory-fabric-labs.md':['memory/dsu','memory/l3-partition','memory/ddr-sweep','memory/smmu-qemu','memory/native-tbu','memory/dma-tbu','memory/fabric-ddr','custom/usb-host'],
         'config-audit.md':['config/sysmgr','config/pinmux'],
         'simics-rtl.md':['integration/simics-rtl-add','integration/simics-rtl-xor'],
+        'usb-linux.md':['custom/usb-host'],
         'qemu.md':['custom/qemu-hello'],
         'cross-platform.md':PRACTICE,
         'fabric-ip.md':['fabric/add','fabric/xor'],

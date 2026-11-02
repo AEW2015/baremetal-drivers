@@ -44,3 +44,10 @@ examples/agilex5-modular/validation/portable-20261102/**/*.rpt -text -whitespace
 *.tcl text eol=lf
 *.cfg text eol=lf
 Makefile text eol=lf
+examples/agilex5-modular/usb-linux/init text eol=lf
+examples/agilex5-modular/usb-linux/usb-* text eol=lf
+examples/agilex5-modular/usb-linux/udhcpc-hook text eol=lf
+examples/agilex5-modular/usb-linux/kernel.config text eol=lf
+# USB execution captures retain exact UART bytes and prompt spacing.
+examples/agilex5-modular/usb-linux/validation/**/*.log -text -whitespace
+examples/agilex5-modular/usb-linux/validation/**/*.txt -text -whitespace

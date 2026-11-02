@@ -1,0 +1,20 @@
+#!/bin/sh
+set -eu
+target=${1:?Supply the PC IPv4 address}
+found=0
+for node in /sys/class/net/*; do
+ [ -e "$node/device" ] || continue
+ case "$(readlink -f "$node/device")" in */usb[0-9]*/*) ;; *) continue;; esac
+ name=${node##*/}
+ echo "USB_ETH_SELECTED device=$name path=$(readlink -f "$node/device")"
+ ip link set dev "$name" up
+ udhcpc -i "$name" -n -q -t 4 -T 3 -s /bin/udhcpc-hook
+ ip addr show dev "$name"
+ ip route show
+ echo "USB_ETH_DHCP_PASS device=$name"
+ ping -I "$name" -c 3 -W 3 "$target"
+ echo "USB_ETH_PING_PASS device=$name target=$target"
+ found=1
+ break
+done
+[ "$found" = 1 ] || { echo USB_ETH_NOT_AVAILABLE; exit 2; }

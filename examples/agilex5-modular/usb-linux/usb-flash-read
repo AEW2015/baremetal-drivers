@@ -1,0 +1,20 @@
+#!/bin/sh
+set -eu
+# Restrict reads to whole SCSI disks whose actual device path contains USB.
+found=0
+for node in /sys/class/block/sd*; do
+ [ -e "$node/device" ] || continue
+ case "$(readlink -f "$node/device")" in */usb[0-9]*/*) ;; *) continue;; esac
+ name=${node##*/}
+ blockdev --setro "/dev/$name"
+ [ "$(blockdev --getro "/dev/$name")" = 1 ]
+ dd if="/dev/$name" of=/run/flash-a.bin bs=4096 count=1
+ dd if="/dev/$name" of=/run/flash-b.bin bs=4096 count=1
+ [ "$(wc -c </run/flash-a.bin)" -eq 4096 ]
+ cmp /run/flash-a.bin /run/flash-b.bin
+ sha256sum /run/flash-a.bin /run/flash-b.bin
+ echo "USB_FLASH_READ_PASS device=$name bytes=4096 kernel_readonly=1"
+ found=1
+ break
+done
+[ "$found" = 1 ] || { echo USB_FLASH_READ_NOT_AVAILABLE; exit 2; }

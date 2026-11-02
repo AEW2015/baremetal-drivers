@@ -1,0 +1,2 @@
+setenv tftpdstp 1069
+SOCFPGA_AGILEX5 # 

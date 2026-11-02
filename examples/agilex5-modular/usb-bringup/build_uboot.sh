@@ -32,7 +32,8 @@ make -C "$source_dir" O="$out" CROSS_COMPILE="$prefix" socfpga_agilex5_a0_modula
 config="$source_dir/scripts/config"
 "$config" --file "$out/.config" --enable ENV_IS_NOWHERE --disable ENV_IS_IN_FAT --disable ENV_IS_IN_UBI \
  --disable ENV_IS_IN_FLASH --disable ENV_IS_IN_NAND --disable ENV_IS_IN_MMC --disable ENV_IS_IN_SPI_FLASH \
- --disable HANDOFF --disable SPL_HANDOFF --disable BLOBLIST --disable USE_PREBOOT --disable USE_BOOTCOMMAND --set-val BOOTDELAY -1 --set-val CUSTOM_SYS_INIT_SP_ADDR 0x80600000 --disable CMD_SAVEENV --disable CMD_FPGA \
+ --disable HANDOFF --disable SPL_HANDOFF --disable BLOBLIST --disable WATCHDOG_AUTOSTART --disable USE_PREBOOT --disable USE_BOOTCOMMAND --set-val BOOTDELAY -1 --set-val CUSTOM_SYS_INIT_SP_ADDR 0x80600000 --disable CMD_SAVEENV --disable CMD_FPGA \
+ --enable CMD_HASH --enable SHA256 --enable HASH_VERIFY \
  --enable USB --enable USB_XHCI_HCD --enable USB_XHCI_DWC3 --enable USB_DWC3 --enable CMD_USB \
  --enable USB_STORAGE --enable USB_KEYBOARD --enable USB_HOST_ETHER --enable USB_ETHER_RTL8152 \
  --enable USB_ETHER_ASIX --enable USB_ETHER_ASIX88179 --enable USB_ETHER_LAN75XX --enable USB_ETHER_LAN78XX \
@@ -42,10 +43,10 @@ python3 - "$out/.config" <<'PY'
 from pathlib import Path
 import sys
 s=Path(sys.argv[1]).read_text();yes={line.split('=')[0] for line in s.splitlines() if line.endswith('=y')}
-required=['ENV_IS_NOWHERE','USB_XHCI_HCD','USB_XHCI_DWC3','USB_DWC3','CMD_USB','USB_STORAGE','USB_HOST_ETHER','USB_ETHER_RTL8152','USB_ETHER_ASIX','USB_ETHER_ASIX88179','USB_ETHER_LAN75XX','USB_ETHER_LAN78XX','USB_ETHER_SMSC95XX','USB_ETHER_MCS7830']
+required=['CMD_HASH','SHA256','HASH_VERIFY','ENV_IS_NOWHERE','USB_XHCI_HCD','USB_XHCI_DWC3','USB_DWC3','CMD_USB','USB_STORAGE','USB_HOST_ETHER','USB_ETHER_RTL8152','USB_ETHER_ASIX','USB_ETHER_ASIX88179','USB_ETHER_LAN75XX','USB_ETHER_LAN78XX','USB_ETHER_SMSC95XX','USB_ETHER_MCS7830']
 for name in required:
  if 'CONFIG_'+name not in yes:raise SystemExit('Missing required config: '+name)
-for name in ['HANDOFF','SPL_HANDOFF','BLOBLIST','USE_PREBOOT','USE_BOOTCOMMAND','CMD_SAVEENV','CMD_FPGA']:
+for name in ['WATCHDOG_AUTOSTART','HANDOFF','SPL_HANDOFF','BLOBLIST','USE_PREBOOT','USE_BOOTCOMMAND','CMD_SAVEENV','CMD_FPGA']:
  if 'CONFIG_'+name in yes:raise SystemExit('Unsafe lab config remains enabled: '+name)
 if 'CONFIG_BOOTDELAY=-1' not in s:raise SystemExit('Autoboot delay not disabled')
 if any(name.startswith('CONFIG_ENV_IS_IN_') for name in yes):raise SystemExit('Persistent environment backend remains enabled')

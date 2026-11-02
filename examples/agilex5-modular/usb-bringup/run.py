@@ -81,7 +81,7 @@ def main():
         for path,address,secure,label in [(a.uboot,0x80200000,False,'uboot'),(a.monitor,0x80000000,True,'monitor')]:
             name=out.name+'-'+label+'.bin';destination=stack.payload(name);destination.write_bytes(path.read_bytes())
             remote=stack.remote(destination);readback=Path(str(destination)+'.readback');readback.unlink(missing_ok=True)
-            secure_set='hps.dap apsel 0x4000; set old_csw [hps.dap apcsw]; hps.dap apcsw 0x10000000 0x30000000; ' if secure else ''
+            secure_set='hps.dap apsel 0x4000; set old_csw_text [hps.dap apcsw]; if {![regexp {(0x[0-9a-fA-F]+)$} $old_csw_text -> old_csw]} {error {Cannot decode original AP CSW}}; hps.dap apcsw 0x10000000 0x30000000; ' if secure else ''
             secure_restore='hps.dap apcsw $old_csw; ' if secure else ''
             debug(prefix+secure_set+f'targets hps.sys_bus; load_image {remote} {address:#x} bin; dump_image {remote}.readback {address:#x} {path.stat().st_size}; '+secure_restore+'shutdown',label+'-load')
             if not readback.is_file() or readback.read_bytes()!=path.read_bytes():raise RuntimeError('Load/readback mismatch: '+label)

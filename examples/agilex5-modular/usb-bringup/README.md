@@ -5,6 +5,11 @@ return `0424:0007`. U-Boot enumerates its5Gb/s root hub; external hub/flash/
 mouse/USB Ethernet remain unqualified. See the [fresh report](../../../docs/validation-26.3.md).
 Earlier CNR/PHY timeout experiments below retain their historical evidence.
 
+For an operating-system host stack, use the separate [U-Boot/Linux RAM-boot
+lab](../usb-linux/README.md). Linux has enumerated the attached Lexar flash drive
+and completed matching read-only sector reads. That result is separate from
+this U-Boot-only lab's enumeration record.
+
 
 This directory prepares an existing reviewed vendor U-Boot payload and an
 isolated TF-A monitor for a **bare-metal USB demonstration without booting an

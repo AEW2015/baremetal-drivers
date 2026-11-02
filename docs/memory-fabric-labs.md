@@ -26,7 +26,7 @@ new full-board fit or bitstream is included here.
 | SMMUv3 DMA | QEMU PCI EDU: translated 4096-byte DMA round trip, unmapped S2 fault, intact guard and two negative controls. Native Simics: bare-metal guest drives DMAC0 for a translated 4096-byte copy and native SID 8 S2 fault; host configures the SMMU fixture and verifies memory. | No physical-board TCU/TBU run. Native TLB cache is disabled, so this checks fresh walks, not TLBI/ACK or full hardware-driver sequencing. |
 | Fabric AXI memory probe | Verilator: actual RTL/C driver with behavioral RAM, three sizes, range/fault injection and five timeout/drain channels. Native Simics RAM: Arm C driver → Verilator AXI master, 64 writes/64 reads, CPU readback and three explicit injected failures. | No physical bridge or DDR qualification. |
 | F2H / F2SDRAM translated fabric | Native Simics: actual RTL transactions through each native TBU route, with translated valid and unmapped/fault cases for both routes (four cases total). | Simics model transactions do not establish physical ingress wiring, AXUSER-to-SID mapping, board timing or fit. |
-| USB host | Clean power-cycle and flash retry both reproduced controller-not-ready and ULPI PHY-ID failures; full-SPL experiment stopped at `spl_early_init`; DDR Hello restored. | No enumeration or transfer pass. |
+| USB host | The 26.3 stack passes controller readiness and USB3320 identity. The separate [Linux RAM-boot lab](usb-linux.md) enumerates the Lexar flash drive at 480 Mb/s and passes matching read-only sector reads. | External hub, mouse, USB Ethernet and external SuperSpeed transfers remain unqualified. Earlier controller/PHY failures are retained as historical evidence. |
 
 ## HPS DDR path
 

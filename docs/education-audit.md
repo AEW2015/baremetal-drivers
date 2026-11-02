@@ -155,9 +155,9 @@ legacy loader entries do not include their fetched vendor dependency.
 | `reference/psci` | [examples/agilex5-modular/core/secondary_core.c](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/core/secondary_core.c) | 1 | 0 |
 | `custom/fault-probe` | [examples/agilex5-modular/core/fault_probe.c](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/core/fault_probe.c) | 1 | 0 |
 | `custom/ethernet` | [examples/agilex5-modular/ethernet](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/ethernet) | 11 | 97 |
-| `fabric/add` | [examples/agilex5-modular/fabric](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric) | 44 | 189 |
-| `fabric/xor` | [examples/agilex5-modular/fabric](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric) | 44 | 189 |
-| `reference/pr` | [examples/agilex5-modular/fabric/pr](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric/pr) | 31 | 167 |
+| `fabric/add` | [examples/agilex5-modular/fabric](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric) | 49 | 201 |
+| `fabric/xor` | [examples/agilex5-modular/fabric](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric) | 49 | 201 |
+| `reference/pr` | [examples/agilex5-modular/fabric/pr](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric/pr) | 36 | 179 |
 | `config/sysmgr` | [examples/agilex5-modular/config-audit](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/config-audit) | 6 | 9 |
 | `config/pinmux` | [examples/agilex5-modular/config-audit](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/config-audit) | 6 | 9 |
 | `integration/simics-rtl-add` | [examples/agilex5-modular/simics-rtl](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/simics-rtl) | 8 | 44 |

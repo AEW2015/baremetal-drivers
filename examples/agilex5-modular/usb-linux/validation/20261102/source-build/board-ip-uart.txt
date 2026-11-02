@@ -1,0 +1,2 @@
+setenv ipaddr 192.168.50.3
+SOCFPGA_AGILEX5 # 
