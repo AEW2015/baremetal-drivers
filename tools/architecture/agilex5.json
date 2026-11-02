@@ -158,8 +158,8 @@
     {
       "path": "/Fabric/PR_recipe",
       "title": "Partial reconfiguration recipe",
-      "role": "Static-shell/persona workflow; no live PR qualification",
-      "scope": "Reference only",
+      "role": "Matched 26.3 Modular ES ADD\u2013XOR\u2013ADD hardware swap passed with static-state and DDR guards; Simics uses a simulated loader",
+      "scope": "Matched 26.3 hardware qualification; Simics partial",
       "documents": [
         "bridges"
       ]

@@ -22,6 +22,11 @@ def verify(label, result, expected_status, *markers):
     print(f'{label}: runner exit {result.returncode}', flush=True)
     print(output, end='', flush=True)
 
+def replace_once(text, old, new):
+    if text.count(old) != 1:
+        raise RuntimeError('Exercise source changed; expected one anchor: ' + old)
+    return text.replace(old, new, 1)
+
 def main():
     original=Path(__file__).resolve().parent
     with tempfile.TemporaryDirectory(prefix='agilex-student-') as folder:
@@ -31,19 +36,19 @@ def main():
         baseline=run(root)
         verify('BASELINE',baseline,0,'PASS NEON','PASS MEMORY','PASS QEMU_CHECK')
         print('BASELINE: vector {11,22,33,44}; all checks pass.')
-        source.write_text(source.read_text().replace('vector_b[4]={10,20,30,40}','vector_b[4]={11,20,30,40}'))
+        source.write_text(replace_once(source.read_text(), 'vector_b[4] = {10, 20, 30, 40}', 'vector_b[4] = {11, 20, 30, 40}'))
         broken=run(root)
         verify('MISMATCH',broken,1,'FAIL NEON','PASS MEMORY','QEMU EXAMPLE FAILED')
         print('MISMATCH: predicted vector {12,22,33,44}; old expectation fails; memory still passes.')
-        source.write_text(source.read_text().replace('vector_result[i]!=(i+1)*11','vector_result[i]!=(i==0?12:(i+1)*11)').replace('PASS NEON: 11 22 33 44','PASS NEON: 12 22 33 44'))
+        source.write_text(replace_once(source.read_text(), 'vector_result[i] != (i + 1U) * 11U', 'vector_result[i] != (i == 0U ? 12U : (i + 1U) * 11U)').replace('PASS NEON: 11 22 33 44','PASS NEON: 12 22 33 44'))
         runner.write_text(runner.read_text().replace('PASS NEON: 11 22 33 44','PASS NEON: 12 22 33 44'))
         fixed=run(root)
         verify('CORRECTED',fixed,0,'PASS NEON: 12 22 33 44','PASS QEMU_CHECK')
         print('CORRECTED: expected values and marker agree; all checks pass.')
         runner.write_text((original/'run.py').read_text())
         # Inject after computation, before validation; keep checks unchanged.
-        neon_anchor='for(unsigned i=0;i<4;i++)if(vector_result[i]'
-        memory_anchor='for(unsigned i=0;i<512;i++)if(destination[i]'
+        neon_anchor='/* LAB_FAULT_INJECTION: neon */'
+        memory_anchor='/* LAB_FAULT_INJECTION: memory */'
         for label,anchor,injection,markers in [
             ('NEON_RESULT',neon_anchor,'vector_result[0]^=1;\n ',('FAIL NEON','PASS MEMORY')),
             ('LAST_WORD',memory_anchor,'destination[511]^=1;\n ',('PASS NEON','FAIL MEMORY')),

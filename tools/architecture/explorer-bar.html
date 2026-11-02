@@ -2,6 +2,7 @@
   <div class="architecture-heading"><strong>Agilex 5 · examples to hardware</strong>
     <span>Click for details · double-click to open · scroll to zoom</span>
     <a href="https://aew2015.github.io/baremetal-drivers/architecture/" target="_blank" rel="noopener">Guide and sources ↗</a>
+    <a href="https://aew2015.github.io/baremetal-drivers/example-finder/" target="_blank" rel="noopener">Find a lab ↗</a>
   </div>
   <nav id="diagram-navigation" aria-label="Diagram navigation">
     <button id="architecture-back" type="button" title="Return to the previous diagram level" disabled>← Back</button>
@@ -14,7 +15,9 @@
     <label>Example <select id="example-picker" aria-label="Choose an example"><option value="">All examples</option></select></label>
     <label>Find <input id="example-search" type="search" placeholder="mailbox, timer, fabric…" aria-label="Search examples"></label>
     <label>Results <select id="platform-picker" aria-label="Emphasize platform results"><option value="all">All platforms</option><option value="qemu">QEMU</option><option value="simics">Simics</option><option value="hardware">Hardware</option></select></label>
+    <label>Passed on <select id="verified-picker" aria-label="Filter by verified platforms"><option value="all">Any result</option><option value="qemu">QEMU</option><option value="simics">Simics</option><option value="hardware">Hardware</option><option value="both">Both Simics + hardware</option><option value="all-three">All three</option></select></label>
     <span id="example-count" role="status"></span>
   </div>
+  <details id="example-results"><summary>Browse matching examples</summary><div id="example-results-list" aria-label="Matching examples"></div></details>
   <div class="architecture-scope">TRM Figure 1 layout · DDR labs use HPS DDR bank 3A. <span class="coverage-legend">◇ Dashed border = no example yet in this block or its children.</span> Click selects; Open enters; Up leaves the current diagram level.</div>
 </section>

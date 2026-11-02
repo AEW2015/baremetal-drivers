@@ -1,0 +1,2457 @@
+{
+  "scope": "All catalog entry paths inventoried. Long lines are review signals, not defects or compliance grades. Directory entries include tracked authored sources, excluding build/run/evidence trees. A loader path does not mean fetched vendor sources were inspected.",
+  "examples": [
+    {
+      "id": "upstream/bridge",
+      "family": "Current upstream",
+      "source": "examples/bridge",
+      "files": [
+        {
+          "path": "examples/bridge/bridge_selftest.c",
+          "sha256": "46a605e07a2da399b45fb8b7333ab8b9f68289e6f82fdf84fa27ccf4a6a79495",
+          "lines": 776,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/ccu",
+      "family": "Current upstream",
+      "source": "examples/ccu",
+      "files": [
+        {
+          "path": "examples/ccu/ccu_selftest.c",
+          "sha256": "96b9d5cf115f78f82497f61f5afee0c4f8c4595fc4966584504eb0f78bcf721f",
+          "lines": 128,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/clk_mngr",
+      "family": "Current upstream",
+      "source": "examples/clk_mngr",
+      "files": [
+        {
+          "path": "examples/clk_mngr/clk_mngr_selftest.c",
+          "sha256": "de5cf1de555eefb12941465a21b695d6f672f9a7259aa4dae01331bfd9706050",
+          "lines": 115,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/combophy",
+      "family": "Current upstream",
+      "source": "examples/combophy",
+      "files": [
+        {
+          "path": "examples/combophy/combophy_selftest.c",
+          "sha256": "933a60d0e70b54a0ac4639dc60d9fcf12b86fdc2d6e64f6ccf77470ec965783c",
+          "lines": 43,
+          "lines_over_100_columns": 1
+        }
+      ]
+    },
+    {
+      "id": "upstream/crc",
+      "family": "Current upstream",
+      "source": "examples/crc",
+      "files": [
+        {
+          "path": "examples/crc/crc_selftest.c",
+          "sha256": "d41e7cbedd1a17792ae6bae0292457d23bbd5173ee61c52d77f948b75cbf3117",
+          "lines": 168,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/ddr",
+      "family": "Current upstream",
+      "source": "examples/ddr",
+      "files": [
+        {
+          "path": "examples/ddr/ddr_selftest.c",
+          "sha256": "31e5e2189807673a338465afa097b2c807093465f12555d3de235de2eb18dad6",
+          "lines": 279,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/dma",
+      "family": "Current upstream",
+      "source": "examples/dma",
+      "files": [
+        {
+          "path": "examples/dma/dma_selftest.c",
+          "sha256": "0e7255b1e099c423ec7df9553b70335f6960e59b203701ade34e4beb47156f71",
+          "lines": 224,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/ecc",
+      "family": "Current upstream",
+      "source": "examples/ecc",
+      "files": [
+        {
+          "path": "examples/ecc/ecc_selftest.c",
+          "sha256": "80a18451707ed0b9adc99083823d49b1f89026a4d68b8b87163bd93491a215cd",
+          "lines": 423,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/fcs",
+      "family": "Current upstream",
+      "source": "examples/fcs",
+      "files": [
+        {
+          "path": "examples/fcs/fcs_selftest.c",
+          "sha256": "22c12679581c7f8f67a12f2feeb431665544f8128662038747d017b979c34498",
+          "lines": 244,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/gic",
+      "family": "Current upstream",
+      "source": "examples/gic",
+      "files": [
+        {
+          "path": "examples/gic/gic_selftest.c",
+          "sha256": "06835cbe055ca7639505e9598d461dab29ab1c611cd714e3d65e81ca86876b1d",
+          "lines": 178,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/gpio",
+      "family": "Current upstream",
+      "source": "examples/gpio",
+      "files": [
+        {
+          "path": "examples/gpio/gpio_selftest.c",
+          "sha256": "57bca43ec371a72fdd71509368e8f9ad5fc1219a1ac4c4f0494a338fdc50a77f",
+          "lines": 48,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/hello",
+      "family": "Current upstream",
+      "source": "examples/hello",
+      "files": [
+        {
+          "path": "examples/hello/hello_selftest.c",
+          "sha256": "5bbe97934962e3fd7df45b503a03fb980be1b05f764687765aac15c646c6455a",
+          "lines": 36,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/i2c",
+      "family": "Current upstream",
+      "source": "examples/i2c",
+      "files": [
+        {
+          "path": "examples/i2c/i2c_selftest.c",
+          "sha256": "babe651d17db42f2b3645c1ba7ff7d94fceb1a39dba8d27e008d7c83a079ee77",
+          "lines": 971,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/i3c",
+      "family": "Current upstream",
+      "source": "examples/i3c",
+      "files": [
+        {
+          "path": "examples/i3c/i3c_selftest.c",
+          "sha256": "2366382f8f01385ce390aea40f1974f7903eae8125956b157b6110cab5d12107",
+          "lines": 232,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/iossm",
+      "family": "Current upstream",
+      "source": "examples/iossm",
+      "files": [
+        {
+          "path": "examples/iossm/iossm_selftest.c",
+          "sha256": "112ccc42bc02272a6f5a190ec79b82781e42ae1719ebbb5db93864182db89867",
+          "lines": 236,
+          "lines_over_100_columns": 3
+        }
+      ]
+    },
+    {
+      "id": "upstream/mailbox",
+      "family": "Current upstream",
+      "source": "examples/mailbox",
+      "files": [
+        {
+          "path": "examples/mailbox/mailbox_selftest.c",
+          "sha256": "5acde44575477a2bdb75e43ab7806a263ecadc7d401f51655268730ac83ac8f8",
+          "lines": 82,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/mmu",
+      "family": "Current upstream",
+      "source": "examples/mmu",
+      "files": [
+        {
+          "path": "examples/mmu/mmu_selftest.c",
+          "sha256": "2480fcd0802a1eb86fa2f68cd417953d0695f60482aee98f5735919e15e88ce4",
+          "lines": 57,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/noc",
+      "family": "Current upstream",
+      "source": "examples/noc",
+      "files": [
+        {
+          "path": "examples/noc/noc_firewall_selftest.c",
+          "sha256": "a4536c5c048705b1a360c01a1865ed0399558b9d206c95950350feaeebe50b11",
+          "lines": 87,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/noc/noc_selftest.c",
+          "sha256": "80f8539b9f013275051f27e5e6cd2ea72eeb77770322c2263a8dd58bd2caa010",
+          "lines": 204,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/perf",
+      "family": "Current upstream",
+      "source": "examples/perf",
+      "files": [
+        {
+          "path": "examples/perf/perf_selftest.c",
+          "sha256": "6885dbedc6ec2f17829072d6b1ffc483aa78917d36f27cf3abdeb25e7f6f6e39",
+          "lines": 612,
+          "lines_over_100_columns": 5
+        }
+      ]
+    },
+    {
+      "id": "upstream/reboot_mngr",
+      "family": "Current upstream",
+      "source": "examples/reboot_mngr",
+      "files": [
+        {
+          "path": "examples/reboot_mngr/reboot_mngr_selftest.c",
+          "sha256": "13b1a4a105095500f842ac9d43278b7959b884b1375a53d2d76f9b00f5f44887",
+          "lines": 72,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/reset_mngr",
+      "family": "Current upstream",
+      "source": "examples/reset_mngr",
+      "files": [
+        {
+          "path": "examples/reset_mngr/reset_mngr_selftest.c",
+          "sha256": "1cc8f67db5880d0fa00da0e682e8c04f9c274bfc547c08162921782c8af542a5",
+          "lines": 97,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/sdmmc",
+      "family": "Current upstream",
+      "source": "examples/sdmmc",
+      "files": [
+        {
+          "path": "examples/sdmmc/sdmmc_selftest.c",
+          "sha256": "07ad5073ac1f0e9646b0a4351a97bbdca5615a0c4d8b9dc7eadc311f90b37fb2",
+          "lines": 129,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/seu",
+      "family": "Current upstream",
+      "source": "examples/seu",
+      "files": [
+        {
+          "path": "examples/seu/seu_selftest.c",
+          "sha256": "0a037b339c560d64f201c26ff1310997a30ea84f8920956e3a5f150ab177dbb4",
+          "lines": 366,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/smmu",
+      "family": "Current upstream",
+      "source": "examples/smmu",
+      "files": [
+        {
+          "path": "examples/smmu/smmu_selftest.c",
+          "sha256": "d652dd7a1e1a43f4cbb26fb359d7c0753a47497e2bc405e566126e9bcdf1600e",
+          "lines": 50,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/spi",
+      "family": "Current upstream",
+      "source": "examples/spi",
+      "files": [
+        {
+          "path": "examples/spi/spi_selftest.c",
+          "sha256": "992d6f048af0b57abef0e60078f6639cbcff027ceff065747dbca2556ba86aa2",
+          "lines": 162,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "upstream/timer",
+      "family": "Current upstream",
+      "source": "examples/timer",
+      "files": [
+        {
+          "path": "examples/timer/timer_selftest.c",
+          "sha256": "b86b8b0bce4d81ed8871ccea6ba25741b704e5fd23941b1ed96fc66318c1c533",
+          "lines": 140,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "board/core",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/core_examples.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/core_examples.c",
+          "sha256": "f798044d88345f01d4bbc0cde0365ccb66d808a1679805ec7ae77a87727c5d09",
+          "lines": 55,
+          "lines_over_100_columns": 3
+        }
+      ]
+    },
+    {
+      "id": "board/dma",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/dma_copy.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/dma_copy.c",
+          "sha256": "16d4b9652a4e33ea65d15a690ebdd7917ba3224c8834b5b0431518a606539ad1",
+          "lines": 47,
+          "lines_over_100_columns": 2
+        }
+      ]
+    },
+    {
+      "id": "board/gic",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/gic_sgi.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/gic_sgi.c",
+          "sha256": "183fdcd21b15db6c09f77074c1f1a34f9a98f18669c1e3c3317b3453ee7266eb",
+          "lines": 38,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "board/interfaces",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/som_interfaces.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/som_interfaces.c",
+          "sha256": "c66da58cc650ea5b939e18f7ec245db0a321e491a6330df112839656029dc82c",
+          "lines": 32,
+          "lines_over_100_columns": 3
+        }
+      ]
+    },
+    {
+      "id": "board/mailbox",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/mailbox_status.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/mailbox_status.c",
+          "sha256": "6927e20e46884ff656099f53e9a01406ad8fd0f9b5ca8284961b69579956fb6a",
+          "lines": 25,
+          "lines_over_100_columns": 2
+        }
+      ]
+    },
+    {
+      "id": "board/mmu",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/mmu_translation.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/mmu_translation.c",
+          "sha256": "f130e9c6e09a434c526e638136d39e6bcca4d1871f90b159adfd9c530399d090",
+          "lines": 21,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "board/multicore",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/multicore.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/multicore.c",
+          "sha256": "68a0d9589f8feff158a05b7f7f1459e61e94fd888e58de6289ed7f7e726b7614",
+          "lines": 36,
+          "lines_over_100_columns": 1
+        }
+      ]
+    },
+    {
+      "id": "board/som",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/som_peripherals.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/som_peripherals.c",
+          "sha256": "49cc7ed9549f7060b12168de24b9ef517559b4ae8179289527f1fe380b5907b0",
+          "lines": 58,
+          "lines_over_100_columns": 3
+        }
+      ]
+    },
+    {
+      "id": "board/som-i2c",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/som_i2c.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/som_i2c.c",
+          "sha256": "6acf1f9252cda1e4929871d0e92bf491b26e802e90750ca0664b39eed41e6ecc",
+          "lines": 82,
+          "lines_over_100_columns": 3
+        }
+      ]
+    },
+    {
+      "id": "board/som-i3c",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/som_i3c.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/som_i3c.c",
+          "sha256": "e1c3fa30741144e9ea5d4b175953b626ecce7e5a9f415d324f45e799b3b8d640",
+          "lines": 46,
+          "lines_over_100_columns": 3
+        }
+      ]
+    },
+    {
+      "id": "board/vendor-ccu",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/vendor_wrapper.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/vendor_wrapper.c",
+          "sha256": "d4b672746768ec16fa38ad46deeec54f929fc0b54389f3883fc3717e240861ff",
+          "lines": 74,
+          "lines_over_100_columns": 3
+        }
+      ]
+    },
+    {
+      "id": "board/vendor-clkmgr",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/vendor_wrapper.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/vendor_wrapper.c",
+          "sha256": "d4b672746768ec16fa38ad46deeec54f929fc0b54389f3883fc3717e240861ff",
+          "lines": 74,
+          "lines_over_100_columns": 3
+        }
+      ]
+    },
+    {
+      "id": "board/vendor-ecc",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/vendor_wrapper.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/vendor_wrapper.c",
+          "sha256": "d4b672746768ec16fa38ad46deeec54f929fc0b54389f3883fc3717e240861ff",
+          "lines": 74,
+          "lines_over_100_columns": 3
+        }
+      ]
+    },
+    {
+      "id": "board/vendor-smmu",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/vendor_wrapper.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/vendor_wrapper.c",
+          "sha256": "d4b672746768ec16fa38ad46deeec54f929fc0b54389f3883fc3717e240861ff",
+          "lines": 74,
+          "lines_over_100_columns": 3
+        }
+      ]
+    },
+    {
+      "id": "board/vendor-uart",
+      "family": "Original Modular suite",
+      "source": "examples/agilex5-modular/core/vendor_wrapper.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/vendor_wrapper.c",
+          "sha256": "d4b672746768ec16fa38ad46deeec54f929fc0b54389f3883fc3717e240861ff",
+          "lines": 74,
+          "lines_over_100_columns": 3
+        }
+      ]
+    },
+    {
+      "id": "board/vendor-timer",
+      "family": "Additional vendor board adapters",
+      "source": "examples/agilex5-modular/build_board_vendor.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/build_board_vendor.py",
+          "sha256": "96446b9bb270c4ac7045ad30c5925a1aed993804966d74bacd6f39b1dda2b444",
+          "lines": 33,
+          "lines_over_100_columns": 7
+        }
+      ]
+    },
+    {
+      "id": "board/vendor-watchdog",
+      "family": "Additional vendor board adapters",
+      "source": "examples/agilex5-modular/build_board_vendor.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/build_board_vendor.py",
+          "sha256": "96446b9bb270c4ac7045ad30c5925a1aed993804966d74bacd6f39b1dda2b444",
+          "lines": 33,
+          "lines_over_100_columns": 7
+        }
+      ]
+    },
+    {
+      "id": "board/vendor-spi",
+      "family": "Additional vendor board adapters",
+      "source": "examples/agilex5-modular/build_board_vendor.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/build_board_vendor.py",
+          "sha256": "96446b9bb270c4ac7045ad30c5925a1aed993804966d74bacd6f39b1dda2b444",
+          "lines": 33,
+          "lines_over_100_columns": 7
+        }
+      ]
+    },
+    {
+      "id": "board/vendor-hps_mailbox",
+      "family": "Additional vendor board adapters",
+      "source": "examples/agilex5-modular/build_board_vendor.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/build_board_vendor.py",
+          "sha256": "96446b9bb270c4ac7045ad30c5925a1aed993804966d74bacd6f39b1dda2b444",
+          "lines": 33,
+          "lines_over_100_columns": 7
+        }
+      ]
+    },
+    {
+      "id": "legacy/hello-world",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/uart",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/dma",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/timer",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/watchdog",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/i2c",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/i3c",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/spi",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/sdmmc",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/xgmac",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/mmu_el3",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/smmu",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/ccu",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/clkmgr",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/ecc",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "legacy/hps_mailbox",
+      "family": "Legacy 25.1 Simics",
+      "source": "examples/agilex5-modular/simics/legacy.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics/legacy.py",
+          "sha256": "71b326824b2d5291698393172c7974f2165a19f553f72b26a2bd487e70dbc3df",
+          "lines": 52,
+          "lines_over_100_columns": 12
+        }
+      ]
+    },
+    {
+      "id": "custom/qemu-hello",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/hello.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/qemu/hello.c",
+          "sha256": "5b18f4423bb284fa7f4efc7bf8b24e0ce3135587ea56b16faf60abe5a378fd4c",
+          "lines": 106,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "practice/startup",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/startup.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/qemu/labs/startup.c",
+          "sha256": "450186bfc8d7ac9170fd5593b7fcf28616ebe98607d8a43af396aee7113635d7",
+          "lines": 20,
+          "lines_over_100_columns": 1
+        }
+      ]
+    },
+    {
+      "id": "practice/corruption",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/corruption.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/qemu/labs/corruption.c",
+          "sha256": "a81e23b8ae0a1b4b2303d916b2a5772419180ee36fb89d9d1ff8d2b734489387",
+          "lines": 26,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "practice/exception",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/exception.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/qemu/labs/exception.c",
+          "sha256": "058e50b1e8a3e6dd5fa03db05b510f15e270939c18b84343ec1cc5e262418689",
+          "lines": 20,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "practice/timer",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/timer.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/qemu/labs/timer.c",
+          "sha256": "f079332610408954e8b9320d1271f7a1ba3d03d0a5730cd392544244c805c184",
+          "lines": 69,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "practice/mmu",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/mmu.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/qemu/labs/mmu.c",
+          "sha256": "be775e8f4c4af994d101881c60bba91e4ee26c4414c01bdfa8776f0c75b9574f",
+          "lines": 53,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "practice/uart",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/uart.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/qemu/labs/uart.c",
+          "sha256": "d59bfd97d08c931997f5da9916e9462ce415b6ec331ab5b773c81e79be8bf0de",
+          "lines": 38,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "practice/multicore",
+      "family": "Shared CPU and practice labs",
+      "source": "examples/agilex5-modular/qemu/labs/multicore.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/qemu/labs/multicore.c",
+          "sha256": "ff1eedeaaa008d642df9025363d5fb7559161605e9a1e27ba2ba5b96510a83b1",
+          "lines": 54,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "diagnostic/smc-guard",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/upstream-lab/lab.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/upstream-lab/lab.c",
+          "sha256": "39d8b16ef7c4c4eb17d22b76c3affadbaacf00a8dbc97b714053eb26861389c2",
+          "lines": 133,
+          "lines_over_100_columns": 2
+        }
+      ]
+    },
+    {
+      "id": "diagnostic/perf-zero-clock",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/upstream-lab/lab.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/upstream-lab/lab.c",
+          "sha256": "39d8b16ef7c4c4eb17d22b76c3affadbaacf00a8dbc97b714053eb26861389c2",
+          "lines": 133,
+          "lines_over_100_columns": 2
+        }
+      ]
+    },
+    {
+      "id": "custom/bridge-control",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/upstream-lab/lab.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/upstream-lab/lab.c",
+          "sha256": "39d8b16ef7c4c4eb17d22b76c3affadbaacf00a8dbc97b714053eb26861389c2",
+          "lines": 133,
+          "lines_over_100_columns": 2
+        }
+      ]
+    },
+    {
+      "id": "custom/ocram-hello",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/bootstrap/ocram/uart_local.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/bootstrap/ocram/uart_local.c",
+          "sha256": "32eaf2c9c48d33afa29da3d0c0c04ddc670c570cc2787af81bd2181816182e9e",
+          "lines": 41,
+          "lines_over_100_columns": 1
+        }
+      ]
+    },
+    {
+      "id": "custom/ddr-hello",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/bootstrap/ddr",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/bootstrap/ddr/build_ddr.sh",
+          "sha256": "107dc6634f699937afd3e7c2bf30b8d17e60eb906f49e70e8b547bec619ecb4b",
+          "lines": 46,
+          "lines_over_100_columns": 8
+        },
+        {
+          "path": "examples/agilex5-modular/bootstrap/ddr/hello_ddr.S",
+          "sha256": "e97e3d85d252d94f0f3d7ae75a7fa7908b5220c90eeb288f05487e14e1eaadb1",
+          "lines": 22,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/bootstrap/ddr/run_ddr.py",
+          "sha256": "5ed9b188e83696455f6ba134e1966be7c9e147b48686d0c319e5614f2119791e",
+          "lines": 156,
+          "lines_over_100_columns": 25
+        }
+      ]
+    },
+    {
+      "id": "reference/semihost",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/bootstrap/ocram/hello_semihost.S",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/bootstrap/ocram/hello_semihost.S",
+          "sha256": "2a3e07b1e90d8434cf1a908246637ef64ca1c9be93c5eacd19ed533fe6244b0e",
+          "lines": 17,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "reference/psci",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/core/secondary_core.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/secondary_core.c",
+          "sha256": "fdee6bf92a1ebc2f150ac698606172d5ac58d3d24e026789426735962ad90006",
+          "lines": 14,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "custom/fault-probe",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/core/fault_probe.c",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/core/fault_probe.c",
+          "sha256": "68e533c728270d92fe22107c6412496a7f51404d9c4dd349c1de5494c081203d",
+          "lines": 8,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "custom/ethernet",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/ethernet",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/ethernet/arch/cc.h",
+          "sha256": "66449444537fda94eb55fb0ad65ae77755179f46e24f36b46992927544497014",
+          "lines": 18,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/ethernet/build.sh",
+          "sha256": "64db5167b6f4d579c6e64b3520e4d9b8950b76a9bd37a95ea594e19dc38a755a",
+          "lines": 25,
+          "lines_over_100_columns": 8
+        },
+        {
+          "path": "examples/agilex5-modular/ethernet/link.ld",
+          "sha256": "1b23f3716bdcdd704737041eefba291aabd739d8597b6117b293cfd6d884b46c",
+          "lines": 12,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/ethernet/lwipopts.h",
+          "sha256": "5c531702ff18374d8777ceb0f9b23776e75a0f1a73fea27d9adfcf02239942af",
+          "lines": 38,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/ethernet/mac.c",
+          "sha256": "c7d8650464686341ec70d9533fdaf4d93effd4ef4f3b91fe1303b74233fddcc2",
+          "lines": 111,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/ethernet/main.c",
+          "sha256": "0b5960b9e229f0dcb68eb981016e4b6a86261924a506f4531907c0e16e9c6cd0",
+          "lines": 132,
+          "lines_over_100_columns": 20
+        },
+        {
+          "path": "examples/agilex5-modular/ethernet/peer.py",
+          "sha256": "c0f5ce41ea935da5e7035a2211f930ce3917671927698b4cf60ca7fee6cd038c",
+          "lines": 193,
+          "lines_over_100_columns": 28
+        },
+        {
+          "path": "examples/agilex5-modular/ethernet/platform.c",
+          "sha256": "fb126042133d591b6b945bc6a94cc87739a32334c92d5179cd5f62c0765efba0",
+          "lines": 70,
+          "lines_over_100_columns": 9
+        },
+        {
+          "path": "examples/agilex5-modular/ethernet/platform.h",
+          "sha256": "ff34448883a419f9330c1dc0b2367a63a546a6d8ad49fe37f13a4dc8670b58ff",
+          "lines": 13,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/ethernet/run.py",
+          "sha256": "efd3acb0e3ac1caabe19b705d825477b4d60ff5a340818e433e754cc503d495a",
+          "lines": 138,
+          "lines_over_100_columns": 26
+        },
+        {
+          "path": "examples/agilex5-modular/ethernet/start.S",
+          "sha256": "14b7c93d5897ab2aa9054c15bd318094e203c96607dcf40d87286620c58187fb",
+          "lines": 28,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "fabric/add",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/fabric",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/fabric/__init__.py",
+          "sha256": "51c1c60af9769121c0a5a032fcffa1026960f651557473601495b4641168fd32",
+          "lines": 1,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/build.sh",
+          "sha256": "7a60b53e4338ff479a13fc54a4169df7e5c9c46453bfae39bdb894a0002ca7c8",
+          "lines": 17,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/check_component.sh",
+          "sha256": "41c397a8874d309a0657400c661204d2db400940ac23180263c8ce4133bb5d64",
+          "lines": 35,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/fabric_example.c",
+          "sha256": "846099acde24d043aa5e277814552f666c71a85cd4b950e03f373ca01d3cd6bc",
+          "lines": 28,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/lab_driver.c",
+          "sha256": "98850c2e6abd00426e62538483123c15e9743c690594c636087fc2a0e859730f",
+          "lines": 31,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/lab_driver.h",
+          "sha256": "686fd2f24480929609024cccbe3569668d640298443d8e8b3a4a5c528325d5b1",
+          "lines": 25,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/lab_ip_hw.tcl",
+          "sha256": "3033bfcfcec9b9d6dfe3b7f93add8c8c1edad6a854b0ca68153f949c9c5088ae",
+          "lines": 33,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/lab_mmio.c",
+          "sha256": "587018d3b9af7b115bac789ab44a97ffe6200547f918b3873392bdd364253615",
+          "lines": 13,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/build.sh",
+          "sha256": "2222e6d14dad531bc7b63a436e57796a1518b1c1cb21e963999ac8e24290cb38",
+          "lines": 35,
+          "lines_over_100_columns": 9
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/guest.c",
+          "sha256": "2c2bec39b8cec94fb516888c76f696a7ee4da2791e585a15d82f0d5bc979d1e8",
+          "lines": 54,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/build_boot.sh",
+          "sha256": "17c94586c9cfc2aa30552a3b6593d861fb866bb1bab1f82e7e0d9de1297ceb9b",
+          "lines": 31,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/build_guest.sh",
+          "sha256": "f971c8b30597b58977d531acb919803277c7b147fe848fa4c5b617d9994b36e1",
+          "lines": 9,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/configure.py",
+          "sha256": "d02462e8d32fdbbc28a34329cb822268beba909fb61dedfe27a4abfaf5d23fe3",
+          "lines": 40,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/export_static.sh",
+          "sha256": "e8760623b7bd8c559bade1a3ef10f8c81ff69cdf92ef92fab0d87114a884c129",
+          "lines": 6,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/generate.sh",
+          "sha256": "7150b9ac8e30c1b1e8eb0000855299cc6df613ed6aa34809c2130030d6121e69",
+          "lines": 49,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/host_control.tcl",
+          "sha256": "06db23771c003cc362215cce50bf5d6f022e8f0eef4f1d255382f1ea2d6d6fc0",
+          "lines": 56,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/overlay.tcl",
+          "sha256": "eb17b204bce820d6db428cbe123559622790804f716abf0f6cef51e897b1ca40",
+          "lines": 19,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/prepare.py",
+          "sha256": "8024e5580bcf3e5e97376c510078f79b12098aec03b1335cea7965e90f20f8db",
+          "lines": 49,
+          "lines_over_100_columns": 11
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/prune_unused.tcl",
+          "sha256": "c658372f1ce0025b26b25e1bf1120e9ba21281946bfc455b21faa3e963389856",
+          "lines": 11,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/register_generated.py",
+          "sha256": "3422e655a4d84d91d71ccf481f4449061daadf37a3f1d73285957f9bf03123cf",
+          "lines": 23,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/run.py",
+          "sha256": "099b7ee53febc6f7591e1ed5413adf38d2976d2dedda09dd2f58020a69de92b8",
+          "lines": 184,
+          "lines_over_100_columns": 38
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/upgrade_ip.py",
+          "sha256": "b5a8198510f672173374ddab48549534869aa6bb1f5fe550db0faa577cca1f0d",
+          "lines": 41,
+          "lines_over_100_columns": 11
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/lab_pr_hw.tcl",
+          "sha256": "2a5cbcb03080454c4d62ab920b977a5acd68031a3de48ec7ff7df7ea53b552a2",
+          "lines": 33,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/oracle.py",
+          "sha256": "9998bcd2271495d747cc2e9fd921b08e4075b1d5af7ff347b3eea0b315ab0097",
+          "lines": 17,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/pr_adapter.py",
+          "sha256": "bea9f5991c56c335aced567ee9d78d67bd6c8f2f37b64bcf73372ab875e5706e",
+          "lines": 47,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/pr_driver.c",
+          "sha256": "295f4376be6dc5044714ebf593cf78a29ead06d4e73ce9b02e286418d8e5e340",
+          "lines": 22,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/pr_driver.h",
+          "sha256": "7244d08be95ae12e8af0528aaaabdd64e80f5689b256c82a0f3ee6831a6ae3c9",
+          "lines": 14,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/pr_transport.py",
+          "sha256": "21195ab8b14fbe29716296958ca0fde18eaeeba36f26fdb36b8144d3e2cedfa3",
+          "lines": 17,
+          "lines_over_100_columns": 4
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/rtl/lab_pr.sv",
+          "sha256": "cd476b32984c73d17407a42939f952dc64590c40e7148bddff74048dd5ac0e67",
+          "lines": 25,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/rtl/pr_model.sv",
+          "sha256": "8a15e5c0b2aff7e7a7eca86105bcda1d6d051bac50559a818055b952fedea87a",
+          "lines": 22,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/rtl/pr_slot.sv",
+          "sha256": "21fff51a495a2ca83e884544ae302e035e1c6f3af09311c9e56c2c3aa22d971d",
+          "lines": 15,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/rtl/pr_static.sv",
+          "sha256": "b8a35c10e78fd48391f4cb6bf5c51ee2ab73b081d1e04a5a026cb5ac875ac9a5",
+          "lines": 74,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/run_simics.py",
+          "sha256": "70d41937af68d7a98b82d72057b891744cefcdd0fe51568153e1634e0b46ea91",
+          "lines": 81,
+          "lines_over_100_columns": 12
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/physical_shell_tb.sv",
+          "sha256": "1139b0731a76767c3fba7ffb41cb3c0b166968d14181748bdfffe5bb704a61d3",
+          "lines": 21,
+          "lines_over_100_columns": 3
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/pr_tb.sv",
+          "sha256": "c83a616a5bcd64e76307ec75666c8e148a397e31863257032c20c536d1d18348",
+          "lines": 39,
+          "lines_over_100_columns": 9
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/test_hardware_manifest.py",
+          "sha256": "34c5c136d4a324badd04d7069990285a541922083aaf1606cded967a0a12fdc7",
+          "lines": 28,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/test_host_control.py",
+          "sha256": "afb20420eadc48c165f08a24aeb841888031f35d616806ae7d9988739f498950",
+          "lines": 57,
+          "lines_over_100_columns": 7
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/test_oracle.py",
+          "sha256": "5169b1b956a1aa069baf070d3f0dd4d86693f7e901be94db05366a454ce84738",
+          "lines": 18,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/transactor.cpp",
+          "sha256": "42cd948691bbb80058e1ef479db8122f0a1e1ce8480477ae791cc49c1cb59b83",
+          "lines": 39,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/rtl/lab_ip.sv",
+          "sha256": "3ac67d8a752cb38b9fd55c606a9757144dc7ae3dc99efbf91409b388d1a6d07c",
+          "lines": 70,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/rtl/lab_persona.sv",
+          "sha256": "f78b8b773cd784b5b85cf2a0442baaebfe13e2e3a513096b398c248db563edd1",
+          "lines": 8,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/run.py",
+          "sha256": "2538d608645fd63f7994e2acd79e2559cc2840ec3df419167ed69580f7842130",
+          "lines": 52,
+          "lines_over_100_columns": 9
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/test.sh",
+          "sha256": "5497a54e19fd169aedc739f0fa21ddf47f7037345249797fa85268124f8e4145",
+          "lines": 13,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/tests/test_lab.cpp",
+          "sha256": "a4e506c445d9de81357f1da27e1927d477d96ffcbe63a196f97943027fdacf8f",
+          "lines": 35,
+          "lines_over_100_columns": 6
+        }
+      ]
+    },
+    {
+      "id": "fabric/xor",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/fabric",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/fabric/__init__.py",
+          "sha256": "51c1c60af9769121c0a5a032fcffa1026960f651557473601495b4641168fd32",
+          "lines": 1,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/build.sh",
+          "sha256": "7a60b53e4338ff479a13fc54a4169df7e5c9c46453bfae39bdb894a0002ca7c8",
+          "lines": 17,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/check_component.sh",
+          "sha256": "41c397a8874d309a0657400c661204d2db400940ac23180263c8ce4133bb5d64",
+          "lines": 35,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/fabric_example.c",
+          "sha256": "846099acde24d043aa5e277814552f666c71a85cd4b950e03f373ca01d3cd6bc",
+          "lines": 28,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/lab_driver.c",
+          "sha256": "98850c2e6abd00426e62538483123c15e9743c690594c636087fc2a0e859730f",
+          "lines": 31,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/lab_driver.h",
+          "sha256": "686fd2f24480929609024cccbe3569668d640298443d8e8b3a4a5c528325d5b1",
+          "lines": 25,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/lab_ip_hw.tcl",
+          "sha256": "3033bfcfcec9b9d6dfe3b7f93add8c8c1edad6a854b0ca68153f949c9c5088ae",
+          "lines": 33,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/lab_mmio.c",
+          "sha256": "587018d3b9af7b115bac789ab44a97ffe6200547f918b3873392bdd364253615",
+          "lines": 13,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/build.sh",
+          "sha256": "2222e6d14dad531bc7b63a436e57796a1518b1c1cb21e963999ac8e24290cb38",
+          "lines": 35,
+          "lines_over_100_columns": 9
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/guest.c",
+          "sha256": "2c2bec39b8cec94fb516888c76f696a7ee4da2791e585a15d82f0d5bc979d1e8",
+          "lines": 54,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/build_boot.sh",
+          "sha256": "17c94586c9cfc2aa30552a3b6593d861fb866bb1bab1f82e7e0d9de1297ceb9b",
+          "lines": 31,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/build_guest.sh",
+          "sha256": "f971c8b30597b58977d531acb919803277c7b147fe848fa4c5b617d9994b36e1",
+          "lines": 9,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/configure.py",
+          "sha256": "d02462e8d32fdbbc28a34329cb822268beba909fb61dedfe27a4abfaf5d23fe3",
+          "lines": 40,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/export_static.sh",
+          "sha256": "e8760623b7bd8c559bade1a3ef10f8c81ff69cdf92ef92fab0d87114a884c129",
+          "lines": 6,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/generate.sh",
+          "sha256": "7150b9ac8e30c1b1e8eb0000855299cc6df613ed6aa34809c2130030d6121e69",
+          "lines": 49,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/host_control.tcl",
+          "sha256": "06db23771c003cc362215cce50bf5d6f022e8f0eef4f1d255382f1ea2d6d6fc0",
+          "lines": 56,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/overlay.tcl",
+          "sha256": "eb17b204bce820d6db428cbe123559622790804f716abf0f6cef51e897b1ca40",
+          "lines": 19,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/prepare.py",
+          "sha256": "8024e5580bcf3e5e97376c510078f79b12098aec03b1335cea7965e90f20f8db",
+          "lines": 49,
+          "lines_over_100_columns": 11
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/prune_unused.tcl",
+          "sha256": "c658372f1ce0025b26b25e1bf1120e9ba21281946bfc455b21faa3e963389856",
+          "lines": 11,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/register_generated.py",
+          "sha256": "3422e655a4d84d91d71ccf481f4449061daadf37a3f1d73285957f9bf03123cf",
+          "lines": 23,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/run.py",
+          "sha256": "099b7ee53febc6f7591e1ed5413adf38d2976d2dedda09dd2f58020a69de92b8",
+          "lines": 184,
+          "lines_over_100_columns": 38
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/upgrade_ip.py",
+          "sha256": "b5a8198510f672173374ddab48549534869aa6bb1f5fe550db0faa577cca1f0d",
+          "lines": 41,
+          "lines_over_100_columns": 11
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/lab_pr_hw.tcl",
+          "sha256": "2a5cbcb03080454c4d62ab920b977a5acd68031a3de48ec7ff7df7ea53b552a2",
+          "lines": 33,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/oracle.py",
+          "sha256": "9998bcd2271495d747cc2e9fd921b08e4075b1d5af7ff347b3eea0b315ab0097",
+          "lines": 17,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/pr_adapter.py",
+          "sha256": "bea9f5991c56c335aced567ee9d78d67bd6c8f2f37b64bcf73372ab875e5706e",
+          "lines": 47,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/pr_driver.c",
+          "sha256": "295f4376be6dc5044714ebf593cf78a29ead06d4e73ce9b02e286418d8e5e340",
+          "lines": 22,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/pr_driver.h",
+          "sha256": "7244d08be95ae12e8af0528aaaabdd64e80f5689b256c82a0f3ee6831a6ae3c9",
+          "lines": 14,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/pr_transport.py",
+          "sha256": "21195ab8b14fbe29716296958ca0fde18eaeeba36f26fdb36b8144d3e2cedfa3",
+          "lines": 17,
+          "lines_over_100_columns": 4
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/rtl/lab_pr.sv",
+          "sha256": "cd476b32984c73d17407a42939f952dc64590c40e7148bddff74048dd5ac0e67",
+          "lines": 25,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/rtl/pr_model.sv",
+          "sha256": "8a15e5c0b2aff7e7a7eca86105bcda1d6d051bac50559a818055b952fedea87a",
+          "lines": 22,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/rtl/pr_slot.sv",
+          "sha256": "21fff51a495a2ca83e884544ae302e035e1c6f3af09311c9e56c2c3aa22d971d",
+          "lines": 15,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/rtl/pr_static.sv",
+          "sha256": "b8a35c10e78fd48391f4cb6bf5c51ee2ab73b081d1e04a5a026cb5ac875ac9a5",
+          "lines": 74,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/run_simics.py",
+          "sha256": "70d41937af68d7a98b82d72057b891744cefcdd0fe51568153e1634e0b46ea91",
+          "lines": 81,
+          "lines_over_100_columns": 12
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/physical_shell_tb.sv",
+          "sha256": "1139b0731a76767c3fba7ffb41cb3c0b166968d14181748bdfffe5bb704a61d3",
+          "lines": 21,
+          "lines_over_100_columns": 3
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/pr_tb.sv",
+          "sha256": "c83a616a5bcd64e76307ec75666c8e148a397e31863257032c20c536d1d18348",
+          "lines": 39,
+          "lines_over_100_columns": 9
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/test_hardware_manifest.py",
+          "sha256": "34c5c136d4a324badd04d7069990285a541922083aaf1606cded967a0a12fdc7",
+          "lines": 28,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/test_host_control.py",
+          "sha256": "afb20420eadc48c165f08a24aeb841888031f35d616806ae7d9988739f498950",
+          "lines": 57,
+          "lines_over_100_columns": 7
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/test_oracle.py",
+          "sha256": "5169b1b956a1aa069baf070d3f0dd4d86693f7e901be94db05366a454ce84738",
+          "lines": 18,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/transactor.cpp",
+          "sha256": "42cd948691bbb80058e1ef479db8122f0a1e1ce8480477ae791cc49c1cb59b83",
+          "lines": 39,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/rtl/lab_ip.sv",
+          "sha256": "3ac67d8a752cb38b9fd55c606a9757144dc7ae3dc99efbf91409b388d1a6d07c",
+          "lines": 70,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/rtl/lab_persona.sv",
+          "sha256": "f78b8b773cd784b5b85cf2a0442baaebfe13e2e3a513096b398c248db563edd1",
+          "lines": 8,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/run.py",
+          "sha256": "2538d608645fd63f7994e2acd79e2559cc2840ec3df419167ed69580f7842130",
+          "lines": 52,
+          "lines_over_100_columns": 9
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/test.sh",
+          "sha256": "5497a54e19fd169aedc739f0fa21ddf47f7037345249797fa85268124f8e4145",
+          "lines": 13,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/tests/test_lab.cpp",
+          "sha256": "a4e506c445d9de81357f1da27e1927d477d96ffcbe63a196f97943027fdacf8f",
+          "lines": 35,
+          "lines_over_100_columns": 6
+        }
+      ]
+    },
+    {
+      "id": "reference/pr",
+      "family": "Additional diagnostics and integration",
+      "source": "examples/agilex5-modular/fabric/pr",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/fabric/pr/build.sh",
+          "sha256": "2222e6d14dad531bc7b63a436e57796a1518b1c1cb21e963999ac8e24290cb38",
+          "lines": 35,
+          "lines_over_100_columns": 9
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/guest.c",
+          "sha256": "2c2bec39b8cec94fb516888c76f696a7ee4da2791e585a15d82f0d5bc979d1e8",
+          "lines": 54,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/build_boot.sh",
+          "sha256": "17c94586c9cfc2aa30552a3b6593d861fb866bb1bab1f82e7e0d9de1297ceb9b",
+          "lines": 31,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/build_guest.sh",
+          "sha256": "f971c8b30597b58977d531acb919803277c7b147fe848fa4c5b617d9994b36e1",
+          "lines": 9,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/configure.py",
+          "sha256": "d02462e8d32fdbbc28a34329cb822268beba909fb61dedfe27a4abfaf5d23fe3",
+          "lines": 40,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/export_static.sh",
+          "sha256": "e8760623b7bd8c559bade1a3ef10f8c81ff69cdf92ef92fab0d87114a884c129",
+          "lines": 6,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/generate.sh",
+          "sha256": "7150b9ac8e30c1b1e8eb0000855299cc6df613ed6aa34809c2130030d6121e69",
+          "lines": 49,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/host_control.tcl",
+          "sha256": "06db23771c003cc362215cce50bf5d6f022e8f0eef4f1d255382f1ea2d6d6fc0",
+          "lines": 56,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/overlay.tcl",
+          "sha256": "eb17b204bce820d6db428cbe123559622790804f716abf0f6cef51e897b1ca40",
+          "lines": 19,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/prepare.py",
+          "sha256": "8024e5580bcf3e5e97376c510078f79b12098aec03b1335cea7965e90f20f8db",
+          "lines": 49,
+          "lines_over_100_columns": 11
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/prune_unused.tcl",
+          "sha256": "c658372f1ce0025b26b25e1bf1120e9ba21281946bfc455b21faa3e963389856",
+          "lines": 11,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/register_generated.py",
+          "sha256": "3422e655a4d84d91d71ccf481f4449061daadf37a3f1d73285957f9bf03123cf",
+          "lines": 23,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/run.py",
+          "sha256": "099b7ee53febc6f7591e1ed5413adf38d2976d2dedda09dd2f58020a69de92b8",
+          "lines": 184,
+          "lines_over_100_columns": 38
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/hardware/upgrade_ip.py",
+          "sha256": "b5a8198510f672173374ddab48549534869aa6bb1f5fe550db0faa577cca1f0d",
+          "lines": 41,
+          "lines_over_100_columns": 11
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/lab_pr_hw.tcl",
+          "sha256": "2a5cbcb03080454c4d62ab920b977a5acd68031a3de48ec7ff7df7ea53b552a2",
+          "lines": 33,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/oracle.py",
+          "sha256": "9998bcd2271495d747cc2e9fd921b08e4075b1d5af7ff347b3eea0b315ab0097",
+          "lines": 17,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/pr_adapter.py",
+          "sha256": "bea9f5991c56c335aced567ee9d78d67bd6c8f2f37b64bcf73372ab875e5706e",
+          "lines": 47,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/pr_driver.c",
+          "sha256": "295f4376be6dc5044714ebf593cf78a29ead06d4e73ce9b02e286418d8e5e340",
+          "lines": 22,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/pr_driver.h",
+          "sha256": "7244d08be95ae12e8af0528aaaabdd64e80f5689b256c82a0f3ee6831a6ae3c9",
+          "lines": 14,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/pr_transport.py",
+          "sha256": "21195ab8b14fbe29716296958ca0fde18eaeeba36f26fdb36b8144d3e2cedfa3",
+          "lines": 17,
+          "lines_over_100_columns": 4
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/rtl/lab_pr.sv",
+          "sha256": "cd476b32984c73d17407a42939f952dc64590c40e7148bddff74048dd5ac0e67",
+          "lines": 25,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/rtl/pr_model.sv",
+          "sha256": "8a15e5c0b2aff7e7a7eca86105bcda1d6d051bac50559a818055b952fedea87a",
+          "lines": 22,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/rtl/pr_slot.sv",
+          "sha256": "21fff51a495a2ca83e884544ae302e035e1c6f3af09311c9e56c2c3aa22d971d",
+          "lines": 15,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/rtl/pr_static.sv",
+          "sha256": "b8a35c10e78fd48391f4cb6bf5c51ee2ab73b081d1e04a5a026cb5ac875ac9a5",
+          "lines": 74,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/run_simics.py",
+          "sha256": "70d41937af68d7a98b82d72057b891744cefcdd0fe51568153e1634e0b46ea91",
+          "lines": 81,
+          "lines_over_100_columns": 12
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/physical_shell_tb.sv",
+          "sha256": "1139b0731a76767c3fba7ffb41cb3c0b166968d14181748bdfffe5bb704a61d3",
+          "lines": 21,
+          "lines_over_100_columns": 3
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/pr_tb.sv",
+          "sha256": "c83a616a5bcd64e76307ec75666c8e148a397e31863257032c20c536d1d18348",
+          "lines": 39,
+          "lines_over_100_columns": 9
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/test_hardware_manifest.py",
+          "sha256": "34c5c136d4a324badd04d7069990285a541922083aaf1606cded967a0a12fdc7",
+          "lines": 28,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/test_host_control.py",
+          "sha256": "afb20420eadc48c165f08a24aeb841888031f35d616806ae7d9988739f498950",
+          "lines": 57,
+          "lines_over_100_columns": 7
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/tests/test_oracle.py",
+          "sha256": "5169b1b956a1aa069baf070d3f0dd4d86693f7e901be94db05366a454ce84738",
+          "lines": 18,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/fabric/pr/transactor.cpp",
+          "sha256": "42cd948691bbb80058e1ef479db8122f0a1e1ce8480477ae791cc49c1cb59b83",
+          "lines": 39,
+          "lines_over_100_columns": 5
+        }
+      ]
+    },
+    {
+      "id": "config/sysmgr",
+      "family": "HPS configuration diagnostics",
+      "source": "examples/agilex5-modular/config-audit",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/config-audit/audit.c",
+          "sha256": "c265cc489aa8ca26eb83370e40235e611cdcc23a5fba872bace86d857a97f31b",
+          "lines": 45,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/config-audit/build.sh",
+          "sha256": "d1d2218f6540d88d5a07364bdbd81200450a4c5ee76e6145e5b579e81501108d",
+          "lines": 28,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/config-audit/handoff.py",
+          "sha256": "094167fc172c7bd2f07c13f728886cf7ebe9a6143cf485df5dc12e32716716ec",
+          "lines": 151,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/config-audit/run.py",
+          "sha256": "d0d707605d612e8a2431e03d8bcee9ce008a03b46080cb52570005cc7790df1e",
+          "lines": 97,
+          "lines_over_100_columns": 7
+        },
+        {
+          "path": "examples/agilex5-modular/config-audit/start.S",
+          "sha256": "a6b715f35893cd8ed3bd22cb14c332fa92845a6d8d9fd824e329ea2a242d9ded",
+          "lines": 25,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/config-audit/test_handoff.py",
+          "sha256": "2e23a520b9b57d4e73a4df8ed7d7fff8d00541eed4db0e54720906a5c1560949",
+          "lines": 94,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "config/pinmux",
+      "family": "HPS configuration diagnostics",
+      "source": "examples/agilex5-modular/config-audit",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/config-audit/audit.c",
+          "sha256": "c265cc489aa8ca26eb83370e40235e611cdcc23a5fba872bace86d857a97f31b",
+          "lines": 45,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/config-audit/build.sh",
+          "sha256": "d1d2218f6540d88d5a07364bdbd81200450a4c5ee76e6145e5b579e81501108d",
+          "lines": 28,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/config-audit/handoff.py",
+          "sha256": "094167fc172c7bd2f07c13f728886cf7ebe9a6143cf485df5dc12e32716716ec",
+          "lines": 151,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/config-audit/run.py",
+          "sha256": "d0d707605d612e8a2431e03d8bcee9ce008a03b46080cb52570005cc7790df1e",
+          "lines": 97,
+          "lines_over_100_columns": 7
+        },
+        {
+          "path": "examples/agilex5-modular/config-audit/start.S",
+          "sha256": "a6b715f35893cd8ed3bd22cb14c332fa92845a6d8d9fd824e329ea2a242d9ded",
+          "lines": 25,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/config-audit/test_handoff.py",
+          "sha256": "2e23a520b9b57d4e73a4df8ed7d7fff8d00541eed4db0e54720906a5c1560949",
+          "lines": 94,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "integration/simics-rtl-add",
+      "family": "Simics / RTL integration",
+      "source": "examples/agilex5-modular/simics-rtl",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics-rtl/adapter.py",
+          "sha256": "7ac8c89a7f2c370caab3f3ee349dcbdc243b02c7e92af1831cb66ae04b85887d",
+          "lines": 47,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/build.sh",
+          "sha256": "94a133eb02f1101864af95bc035f292841bb3e98fc2dbea73ec7a6a0991c3a09",
+          "lines": 28,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/guest.c",
+          "sha256": "6f655f343100cb04fdc69464299ddada4318fd63d82e15a78bd405344f4c0a83",
+          "lines": 37,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/run.py",
+          "sha256": "2b73caacab6b5b28c1e16b80410c98fc363990e4eef4b937c42d35fb4c58323f",
+          "lines": 80,
+          "lines_over_100_columns": 13
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/test_protocol.py",
+          "sha256": "abcdfa9095080170f09f2af8a324944d6d63fa370d14875e3e0518b262a0b035",
+          "lines": 24,
+          "lines_over_100_columns": 7
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/test_transport.py",
+          "sha256": "ae4d21a9476b2918c75ea458076a1c0a0b6189078c7a9035d6c3449ee4abce45",
+          "lines": 37,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/transactor.cpp",
+          "sha256": "7c6fafa98edd7586a15d9424c9c51ad555515d23ccdc964d8550533b017650a5",
+          "lines": 34,
+          "lines_over_100_columns": 4
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/transport.py",
+          "sha256": "2d38fec5c1a4254bd0864fb30e93cbc1605136e2525f9fc25b1fb9a67d49b15e",
+          "lines": 78,
+          "lines_over_100_columns": 5
+        }
+      ]
+    },
+    {
+      "id": "integration/simics-rtl-xor",
+      "family": "Simics / RTL integration",
+      "source": "examples/agilex5-modular/simics-rtl",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/simics-rtl/adapter.py",
+          "sha256": "7ac8c89a7f2c370caab3f3ee349dcbdc243b02c7e92af1831cb66ae04b85887d",
+          "lines": 47,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/build.sh",
+          "sha256": "94a133eb02f1101864af95bc035f292841bb3e98fc2dbea73ec7a6a0991c3a09",
+          "lines": 28,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/guest.c",
+          "sha256": "6f655f343100cb04fdc69464299ddada4318fd63d82e15a78bd405344f4c0a83",
+          "lines": 37,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/run.py",
+          "sha256": "2b73caacab6b5b28c1e16b80410c98fc363990e4eef4b937c42d35fb4c58323f",
+          "lines": 80,
+          "lines_over_100_columns": 13
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/test_protocol.py",
+          "sha256": "abcdfa9095080170f09f2af8a324944d6d63fa370d14875e3e0518b262a0b035",
+          "lines": 24,
+          "lines_over_100_columns": 7
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/test_transport.py",
+          "sha256": "ae4d21a9476b2918c75ea458076a1c0a0b6189078c7a9035d6c3449ee4abce45",
+          "lines": 37,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/transactor.cpp",
+          "sha256": "7c6fafa98edd7586a15d9424c9c51ad555515d23ccdc964d8550533b017650a5",
+          "lines": 34,
+          "lines_over_100_columns": 4
+        },
+        {
+          "path": "examples/agilex5-modular/simics-rtl/transport.py",
+          "sha256": "2d38fec5c1a4254bd0864fb30e93cbc1605136e2525f9fc25b1fb9a67d49b15e",
+          "lines": 78,
+          "lines_over_100_columns": 5
+        }
+      ]
+    },
+    {
+      "id": "model/pio",
+      "family": "Simics native fabric models",
+      "source": "examples/agilex5-modular/model-audit",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/model-audit/build.sh",
+          "sha256": "95dbee77dff2c3c8fb3ea70bca3a0882d17b6087b91fbba9eb466bbb7d6eeb2f",
+          "lines": 26,
+          "lines_over_100_columns": 3
+        },
+        {
+          "path": "examples/agilex5-modular/model-audit/pio.c",
+          "sha256": "1322ad9b0109e08199de9d403bb0fd4be5cfd7d566574d15f7567e26ae45465a",
+          "lines": 99,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/model-audit/run.py",
+          "sha256": "d20b9b3b9baaf7fce44ffe012ab8a59ab62039d436a9253da78e59ac532051b0",
+          "lines": 161,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/model-audit/test_run.py",
+          "sha256": "236ac11fc3797a14f47d2dcbd1310b1d2d6b9f4c74c7e76f428313f80fb75dcd",
+          "lines": 73,
+          "lines_over_100_columns": 0
+        }
+      ]
+    },
+    {
+      "id": "memory/dsu",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/dsu",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/memory-labs/dsu/build.sh",
+          "sha256": "b2018b3b81ca5e04fcd2748eeb0fa4e04ce5b53acf8508796596e2e5bf0453cf",
+          "lines": 42,
+          "lines_over_100_columns": 3
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/dsu/contention.h",
+          "sha256": "8bf249228ec786019b4df6704069fbea8837539c84046f28ebf1cad893600391",
+          "lines": 128,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/dsu/dsu.c",
+          "sha256": "dd128f496a42900b230ca9116be69448c259573b6ee13139cda868f250169b62",
+          "lines": 302,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/dsu/partition.h",
+          "sha256": "629b7b8f18193d44480914f28b239f1b7a876295358d2ae07d5be1fe0542c666",
+          "lines": 74,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/dsu/run.py",
+          "sha256": "edba2d2e4249fd57c4eaf60ba5e2f65eef100d74c68c9e5c9d0d007de724cc92",
+          "lines": 93,
+          "lines_over_100_columns": 9
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/dsu/run_simics.py",
+          "sha256": "29ce00f742ef40d620104556a60bccb5ae457f2c298f5c71ccbdeb53b021d6c3",
+          "lines": 97,
+          "lines_over_100_columns": 5
+        }
+      ]
+    },
+    {
+      "id": "memory/l3-partition",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/dsu",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/memory-labs/dsu/build.sh",
+          "sha256": "b2018b3b81ca5e04fcd2748eeb0fa4e04ce5b53acf8508796596e2e5bf0453cf",
+          "lines": 42,
+          "lines_over_100_columns": 3
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/dsu/contention.h",
+          "sha256": "8bf249228ec786019b4df6704069fbea8837539c84046f28ebf1cad893600391",
+          "lines": 128,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/dsu/dsu.c",
+          "sha256": "dd128f496a42900b230ca9116be69448c259573b6ee13139cda868f250169b62",
+          "lines": 302,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/dsu/partition.h",
+          "sha256": "629b7b8f18193d44480914f28b239f1b7a876295358d2ae07d5be1fe0542c666",
+          "lines": 74,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/dsu/run.py",
+          "sha256": "edba2d2e4249fd57c4eaf60ba5e2f65eef100d74c68c9e5c9d0d007de724cc92",
+          "lines": 93,
+          "lines_over_100_columns": 9
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/dsu/run_simics.py",
+          "sha256": "29ce00f742ef40d620104556a60bccb5ae457f2c298f5c71ccbdeb53b021d6c3",
+          "lines": 97,
+          "lines_over_100_columns": 5
+        }
+      ]
+    },
+    {
+      "id": "memory/ddr-sweep",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/ddr",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/memory-labs/ddr/build.sh",
+          "sha256": "09479b5b9fc38afcfb3dd89e01da091ff6d9b7ddf1908c045f8b1e69a4ac9ccf",
+          "lines": 47,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/ddr/calibrated.c",
+          "sha256": "46e10ba1dd7fdab7a8a4038d4130997def8d078c2ca4d51dbc512d6ded03fd8e",
+          "lines": 34,
+          "lines_over_100_columns": 0
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/ddr/ddr.c",
+          "sha256": "9bf6009803dd6cb1a8073906f6a19189d164feb6d6c69057c75ef1cdfbb1b146",
+          "lines": 119,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/ddr/run.py",
+          "sha256": "1b0777d271cb1dcdcda35e3ef1e532d10e95dfb1d06930b5205d9b40d2df82ec",
+          "lines": 81,
+          "lines_over_100_columns": 12
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/ddr/run_simics.py",
+          "sha256": "a59f916ef89a7933addd8f4733bae182884f7d48d6d6cf6cafeb331dbc483115",
+          "lines": 106,
+          "lines_over_100_columns": 7
+        }
+      ]
+    },
+    {
+      "id": "memory/smmu-qemu",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/smmu",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/build.sh",
+          "sha256": "306064609e4c1c5eaefc2b935eada8b35831abe44352c99e1a20be8ddc1a9812",
+          "lines": 26,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/dmac/build.sh",
+          "sha256": "f5d79c8a075176cfa95defa83687c4b145c7edacc32fff8055ee3bcdd5006908",
+          "lines": 32,
+          "lines_over_100_columns": 7
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/dmac/main.c",
+          "sha256": "9b890c35638b690ef61dc496ce8f86c3e072010b5788df37eceede66ff230c1b",
+          "lines": 163,
+          "lines_over_100_columns": 4
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/dmac/native_dmac.py",
+          "sha256": "d4319af3f364b2e68236e80b2785958d23678e31ef70f31616e6199db46082f3",
+          "lines": 109,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/dmac/run_simics.py",
+          "sha256": "9e5efdc455165efe01c00b04465d9a6706126e78efe3e42638a14845f2ae31c7",
+          "lines": 97,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/main.c",
+          "sha256": "b354c2d2d06bcec84204e75fbd737cf7d8d7e58fe89dc5b402f9224ad360fcef",
+          "lines": 119,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/native_cases.py",
+          "sha256": "0dc9cd8f17c583f11ac558940e9253f04caeff5002c954eb4b348def56a277c8",
+          "lines": 56,
+          "lines_over_100_columns": 8
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/native_fixture.py",
+          "sha256": "342b65ef3df1d88d3e0e721abb1575cef38501ddf8eeacff80ab147f1cba1067",
+          "lines": 124,
+          "lines_over_100_columns": 3
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/native_run.py",
+          "sha256": "23d72b00f9c5381f02968fcbca738939b217fdc5830f7b5dda73e8800edfda92",
+          "lines": 73,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/run.py",
+          "sha256": "d6486435e2071f51b731bf77a61f20e9264037c46d19fb46a3061b9a888ba164",
+          "lines": 65,
+          "lines_over_100_columns": 8
+        }
+      ]
+    },
+    {
+      "id": "memory/native-tbu",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/smmu/native_fixture.py",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/native_fixture.py",
+          "sha256": "342b65ef3df1d88d3e0e721abb1575cef38501ddf8eeacff80ab147f1cba1067",
+          "lines": 124,
+          "lines_over_100_columns": 3
+        }
+      ]
+    },
+    {
+      "id": "memory/dma-tbu",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/smmu/dmac",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/dmac/build.sh",
+          "sha256": "f5d79c8a075176cfa95defa83687c4b145c7edacc32fff8055ee3bcdd5006908",
+          "lines": 32,
+          "lines_over_100_columns": 7
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/dmac/main.c",
+          "sha256": "9b890c35638b690ef61dc496ce8f86c3e072010b5788df37eceede66ff230c1b",
+          "lines": 163,
+          "lines_over_100_columns": 4
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/dmac/native_dmac.py",
+          "sha256": "d4319af3f364b2e68236e80b2785958d23678e31ef70f31616e6199db46082f3",
+          "lines": 109,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/smmu/dmac/run_simics.py",
+          "sha256": "9e5efdc455165efe01c00b04465d9a6706126e78efe3e42638a14845f2ae31c7",
+          "lines": 97,
+          "lines_over_100_columns": 6
+        }
+      ]
+    },
+    {
+      "id": "memory/fabric-ddr",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/memory-labs/fabric-ddr",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/check_component.sh",
+          "sha256": "5ccfc84d6b180dc7d8871bd4e911dbb66e71ae6d47ae64ea7fdde3d800272c67",
+          "lines": 30,
+          "lines_over_100_columns": 3
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/ddr_probe_hw.tcl",
+          "sha256": "85db3d62b491277db8caad4f4dc06719098b92795369c6fde8e7dcf2a1f89b98",
+          "lines": 66,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/driver.c",
+          "sha256": "24e40f5977614213cddf6ad2e27daa6142b576b76ca4028adec9cab6717d219b",
+          "lines": 39,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/driver.h",
+          "sha256": "475ff70f41e825cbeac53552e50dda3bd3c021e4af2a339779458a078db95754",
+          "lines": 31,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/mmio.c",
+          "sha256": "7bc1e6185971db8253c5f70e1808e54505cbaec42eef436038d3aff3d526ca73",
+          "lines": 12,
+          "lines_over_100_columns": 2
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/rtl/ddr_probe.sv",
+          "sha256": "98ea27d178969e1dda1479a7d5a617a025839c80db19ae0998664670e7f313db",
+          "lines": 176,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/simics/build.sh",
+          "sha256": "814becba6d73dd720cd220cd40c2231c93cdd368809ff24cb8f9f88e07a46123",
+          "lines": 43,
+          "lines_over_100_columns": 5
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/simics/fabric_adapter.py",
+          "sha256": "d9faac4179768bcb3bc2e4cf2e60f21e1187fb863708704b672020b1416a85c4",
+          "lines": 117,
+          "lines_over_100_columns": 15
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/simics/guest.c",
+          "sha256": "5eafd981a7f963b281859a2dfa02e48f847e8efccac1e50c81c03197990a4430",
+          "lines": 59,
+          "lines_over_100_columns": 7
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/simics/run.py",
+          "sha256": "356ef7c28d8628f80c256ed7749343840a9f9c053b5449f82d32f114b9cc4aba",
+          "lines": 176,
+          "lines_over_100_columns": 24
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/simics/transactor.cpp",
+          "sha256": "258b3f655f52d85b4adc9860fb55a5b6c802ad7344c80018c8792eb5a6e2fad6",
+          "lines": 96,
+          "lines_over_100_columns": 7
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/simics/transport.py",
+          "sha256": "f9e9b17c1b0af82398a28c9616d6d1ad060fcaa8b9e4f38bf52b1312c7020c1c",
+          "lines": 79,
+          "lines_over_100_columns": 10
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/test.sh",
+          "sha256": "f192ed82956d630e83e66d950b90b268768a38e148f543ec62e8d07c6097c6a0",
+          "lines": 12,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/memory-labs/fabric-ddr/tests/test_probe.cpp",
+          "sha256": "af390a5314214fcc028178f323e1241a5af5803229f0cfccb71c8ec73c657b5e",
+          "lines": 111,
+          "lines_over_100_columns": 13
+        }
+      ]
+    },
+    {
+      "id": "custom/usb-host",
+      "family": "Memory and fabric labs",
+      "source": "examples/agilex5-modular/usb-bringup",
+      "files": [
+        {
+          "path": "examples/agilex5-modular/usb-bringup/build_monitor.sh",
+          "sha256": "53a14f0fb15fbc9149518bf0158346ded00a3d750c334013a198c785e6e40b94",
+          "lines": 42,
+          "lines_over_100_columns": 10
+        },
+        {
+          "path": "examples/agilex5-modular/usb-bringup/build_uboot.sh",
+          "sha256": "7eb103c7a26b3b81a050d59d82c2d94a57b155576d78101ee18f5fc4c81fb667",
+          "lines": 80,
+          "lines_over_100_columns": 19
+        },
+        {
+          "path": "examples/agilex5-modular/usb-bringup/patch_diagnostics.py",
+          "sha256": "2062efeebcd2659129e2b24c10c5657180e7b92912dea9c2d0d68f3a81df1271",
+          "lines": 51,
+          "lines_over_100_columns": 14
+        },
+        {
+          "path": "examples/agilex5-modular/usb-bringup/patch_monitor.py",
+          "sha256": "72da7c9b14da2647ecb3565e558928eac41898da59d838e5353dcc10613e19ca",
+          "lines": 66,
+          "lines_over_100_columns": 7
+        },
+        {
+          "path": "examples/agilex5-modular/usb-bringup/prepare.py",
+          "sha256": "ea5d5a2ea823cd4a9107b23464c3c6feafce5870308632db92cf680eb27f3825",
+          "lines": 54,
+          "lines_over_100_columns": 16
+        },
+        {
+          "path": "examples/agilex5-modular/usb-bringup/read_reset_snapshot.py",
+          "sha256": "9210dd7692c97d9a43553b8a176e727b8b504479f6657273aa1483a5831ca32b",
+          "lines": 67,
+          "lines_over_100_columns": 4
+        },
+        {
+          "path": "examples/agilex5-modular/usb-bringup/run.py",
+          "sha256": "afb99a5bc3d4fcda42d5625bb9a4c7d567e06f0b482bb6f1e04d53dba47a3fa9",
+          "lines": 155,
+          "lines_over_100_columns": 37
+        },
+        {
+          "path": "examples/agilex5-modular/usb-bringup/test_tftp_peer.py",
+          "sha256": "9e48ba78e9deb93bca3d1bb90d51141d416ec9b76446f8f0b0051c929bbdace1",
+          "lines": 35,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/usb-bringup/tftp_peer.py",
+          "sha256": "1045bc022230dd87376cf6dac413b3b3a7175402c3974fe9f74a8ab3beb4b11e",
+          "lines": 65,
+          "lines_over_100_columns": 6
+        },
+        {
+          "path": "examples/agilex5-modular/usb-bringup/usb_lab_mouse.c",
+          "sha256": "0793b0d338867217bcfbd5212bd658fb43d66554cada25023030a4a4f6bc4fe8",
+          "lines": 143,
+          "lines_over_100_columns": 1
+        },
+        {
+          "path": "examples/agilex5-modular/usb-bringup/usb_lab_phy.c",
+          "sha256": "91a6347a96b22e057d0cc514fb2d5fe1cdd56f2590631ed757eab575ac90864b",
+          "lines": 98,
+          "lines_over_100_columns": 0
+        }
+      ]
+    }
+  ]
+}

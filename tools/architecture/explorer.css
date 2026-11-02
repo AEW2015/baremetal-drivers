@@ -52,3 +52,7 @@
 .navigation-explanation,.coverage-summary{color:var(--muted);font-size:11px}
 @media(max-width:900px){#example-picker{max-width:290px}.architecture-heading span{display:none}.architecture-scope{font-size:10px}#trm-context-link{margin-left:0;max-width:100%}}
 @media(max-width:540px){#architecture-bar{padding:8px}.architecture-heading strong{font-size:15px}.architecture-heading a{margin:0;font-size:11px}.architecture-controls{gap:6px}#example-picker{max-width:285px}#example-search{width:145px}#q{width:100px}#flows{max-width:80px}#b-tidy,#b-theme{display:none}#panel{width:calc(100vw - 24px)}#diagram-navigation button{padding:0 9px}#diagram-level{display:none}}
+#example-results{margin:0 0 6px;font-size:12px}
+#example-results summary{cursor:pointer;padding:5px 0}
+#example-results-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:5px;max-height:180px;overflow:auto;padding:5px}
+#example-results-list button{text-align:left;white-space:normal;height:auto;min-height:32px;padding:5px 8px;overflow-wrap:anywhere}

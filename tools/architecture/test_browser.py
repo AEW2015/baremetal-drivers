@@ -84,6 +84,25 @@ def main():
         screenshot('mailbox.png')
         page.select_option('#platform-picker','all')
         checks.append('Platform emphasis preserves the mailbox hardware PASS and evidence link')
+
+        expected_both={row['id'] for row in catalog['examples'] if all(row['platforms'][platform]['status']=='pass' for platform in ('simics','hardware'))}
+        page.select_option('#verified-picker','both')
+        options=page.locator('#example-picker option').evaluate_all('(nodes)=>nodes.map(node=>node.value).filter(Boolean)')
+        assert set(options)==expected_both
+        assert page.locator('#example-count').inner_text()==f'{len(expected_both)} of {count} examples'
+        page.locator('#example-results summary').click()
+        page.locator('[data-choose-example="upstream/dma"]').click()
+        page.wait_for_selector('[data-example-id="upstream/dma"]')
+        assert not page.locator('#example-results').evaluate('(node)=>node.open')
+        page.locator('#example-search').fill('no matching lesson')
+        assert page.locator('#example-picker option').count()==1
+        page.locator('#example-results summary').click()
+        assert 'No matching examples' in page.locator('#example-results-list').inner_text()
+        page.locator('#example-results summary').click()
+        page.locator('#example-search').fill('')
+        page.select_option('#verified-picker','all')
+        checks.append('Verified-platform intersection excludes partials; matching list opens an example; zero matches are explicit')
+
         page.evaluate('()=>window.__fpa.chooseExample("fabric/add")')
         assert page.locator('#panel').get_by_text('Registers',exact=True).count()==1
         assert 'Proposed CPU base 0x20020000' in page.locator('#panel').inner_text()

@@ -255,7 +255,7 @@ class RealQemuExercise(unittest.TestCase):
             good = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
             self.assertEqual(good.returncode, 0, good.stdout+good.stderr)
             source = root/'qemu/hello.c'
-            source.write_text(source.read_text().replace('vector_b[4]={10,20,30,40}', 'vector_b[4]={11,20,30,40}'))
+            source.write_text(source.read_text().replace('vector_b[4] = {10, 20, 30, 40}', 'vector_b[4] = {11, 20, 30, 40}'))
             subprocess.run(['bash', str(root/'qemu/build.sh')], check=True, capture_output=True)
             bad = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
             self.assertNotEqual(bad.returncode, 0)

@@ -95,6 +95,7 @@ jobs:
         run: |
           python tools/architecture/build_diagram.py
           python tools/architecture/build_diagram.py --check
+          python tools/education/audit_examples.py --check
           python tools/architecture/link_example_pages.py --check
       - run: mkdocs build --strict
       - run: python tools/architecture/test_example_pages.py
@@ -125,6 +126,7 @@ jobs:
         run: |
           python tools/architecture/build_diagram.py
           python tools/architecture/build_diagram.py --check
+          python tools/education/audit_examples.py --check
           python tools/architecture/link_example_pages.py --check
           python tools/architecture/test_browser.py
           mkdocs build --strict

@@ -1264,8 +1264,8 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
-          "case": "custom/qemu-hello"
+          "evidence": "validation/education-20261102/qemu/results.json",
+          "case": "hello"
         },
         "simics": {
           "status": "not-run"

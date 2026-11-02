@@ -1,6 +1,9 @@
 /* Agilex adapter UI. Upstream renderer remains unmodified in tools/vendor. */
 const ARCH = D.integration;
 let chosenExample = "", chosenPlatform = "all";
+function discoveryOptions() {
+  return {query: $("example-search").value, verified: $("verified-picker").value};
+}
 let navigationTrail = [], settledView = null, returningToView = false;
 const platformTitle = {qemu:"QEMU",simics:"Simics",hardware:"Hardware"};
 function examplesAt(path) {
@@ -29,7 +32,7 @@ function architectureDetails(path) {
   while (ancestor && !ARCH.blocks[ancestor]) ancestor=ancestor.slice(0,ancestor.lastIndexOf("/"));
   const info=ARCH.blocks[ancestor];
   const associated=coverageAt(path);
-  let examples=associated;
+  let examples=associated.filter(e=>ExampleDiscovery.matches(e,discoveryOptions()));
   if (chosenExample) examples=examples.filter(e=>e.id===chosenExample);
   const docs = documentsAt(path);
   if (info && info.address) docs.push(ARCH.sources.address_map);
@@ -41,7 +44,7 @@ function architectureDetails(path) {
   h+=`<div class="block-links"><button type="button" data-show-hierarchy="${esc(path)}">Show in hierarchy</button></div>`;
   h+=`<p class="navigation-explanation">Click selects a block. Open enters a subsystem. Up leaves the diagram level shown in the toolbar.</p>`;
   h+=`<h3>${examples.length} related example${examples.length===1?"":"s"}</h3>`;
-  h+=examples.map(exampleCard).join("") || (associated.length ? "<p>No example matches the current filter. Choose All examples to browse this block.</p>" : "<p>This block remains available for architecture and reference browsing.</p>");
+  h+=examples.map(exampleCard).join("") || (associated.length ? "<p>No example matches the current filter. Clear the search or Passed on filter, then choose All examples to browse this block.</p>" : "<p>This block remains available for architecture and reference browsing.</p>");
   h+=`<p class="architecture-credit">Rendered with ${safeLink("https://github.com/al-nafisah/fpga-project-analyzer","FPGA Project Analyzer")} (MIT), layout by ELK (EPL-2.0). ${safeLink("https://aew2015.github.io/baremetal-drivers/assets/architecture/THIRD_PARTY.txt","Licenses and provenance ↗")}</p></section>`;
   return h;
 }
@@ -99,18 +102,24 @@ function decorateArchitecture() {
       if(event.key===" "){event.preventDefault();event.stopPropagation();if(drillable(m.def))go(m.full.split('/').filter(Boolean));}
     };
   });
-  $("example-count").textContent=(chosenExample ? "Selected: "+chosenExample : ARCH.examples.length+" catalog entries")+" · "+Object.keys(ARCH.blocks).length+" blocks";
+  fillExamplePicker($("example-search").value);
 }
 function fillExamplePicker(query="") {
-  const text=query.toLowerCase(),matches=ARCH.examples.filter(e=>(e.id+" "+e.title+" "+e.family+" "+e.blocks.join(" ")).toLowerCase().includes(text));
+  const matches=ARCH.examples.filter(e=>ExampleDiscovery.matches(e,{...discoveryOptions(),query}));
   $("example-picker").innerHTML=`<option value="">All examples (${matches.length})</option>`+matches.map(e=>`<option value="${esc(e.id)}">${esc(e.id+" · "+e.title)}</option>`).join("");
   if(matches.some(e=>e.id===chosenExample))$("example-picker").value=chosenExample;
   $("example-count").textContent=matches.length+" of "+ARCH.examples.length+" examples";
+  $("example-results-list").innerHTML=matches.map(e=>`<button type="button" data-choose-example="${esc(e.id)}">${esc(e.id)} · ${esc(e.title)}</button>`).join("") || '<p>No matching examples. Clear the search or choose Any result.</p>';
+  $("example-results-list").querySelectorAll('[data-choose-example]').forEach(button=>button.onclick=()=>{
+    $("example-results").open=false;
+    chooseExample(button.dataset.chooseExample);
+  });
 }
 function initializeExplorer() {
   fillExamplePicker();
   $("example-picker").onchange=event=>chooseExample(event.target.value);
-  $("example-search").oninput=event=>fillExamplePicker(event.target.value);
+  $("example-search").oninput=event=>{fillExamplePicker(event.target.value);panel();};
+  $("verified-picker").onchange=()=>{fillExamplePicker($("example-search").value);panel();};
   $("platform-picker").onchange=event=>{chosenPlatform=event.target.value;panel();};
   $("architecture-overview").onclick=goSystem;
   $("architecture-up").onclick=goUp;

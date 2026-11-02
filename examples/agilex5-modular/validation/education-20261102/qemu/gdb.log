@@ -1,0 +1,17 @@
+_start () at qemu/start.S:4
+4	 msr daifset,#15
+Hardware assisted breakpoint 1 at 0x402000f0: file qemu/hello.c, line 63.
+
+Breakpoint 1, main () at qemu/hello.c:63
+63	{
+Hardware assisted breakpoint 2 at 0x40200078: file qemu/hello.c, line 51.
+
+Breakpoint 2, qemu_done (status=0) at qemu/hello.c:51
+51	{
+$1 = 0
+$2 = 0
+$3 = {11, 22, 33, 44}
+$4 = 1
+[Inferior 1 (process 1) detached]
+
+PASS: main and qemu_done breakpoints, zero status/failures, vector lanes and final memory word

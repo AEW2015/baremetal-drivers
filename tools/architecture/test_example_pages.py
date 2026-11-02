@@ -63,6 +63,46 @@ def main():
                     diagram.locator('[data-example-id="'+id+'"]').wait_for(timeout=30000)
                     assert diagram.locator('#example-picker').input_value()==id
                     report['browser_checks'].append({'page':name,'selected_example':id,'status':'pass'})
+                # The finder must use the same catalog statuses as the diagram.
+                page.goto(base+'/example-finder/')
+                page.wait_for_function('document.querySelectorAll(".finder-card").length === '+str(len(catalog['examples'])))
+                for target,platforms in {'qemu':['qemu'],'simics':['simics'],'hardware':['hardware'],'both':['simics','hardware'],'all-three':['qemu','simics','hardware']}.items():
+                    expected={row['id'] for row in catalog['examples'] if all(row['platforms'][platform]['status']=='pass' for platform in platforms)}
+                    page.select_option('#finder-verified',target)
+                    actual=set(page.locator('.finder-card').evaluate_all('(nodes)=>nodes.map(node=>node.dataset.exampleId)'))
+                    assert actual==expected,(target,actual^expected)
+                page.select_option('#finder-verified','both')
+                page.locator('#finder-query').fill('hello')
+                assert page.locator('.finder-card').count()==1
+                card=page.locator('.finder-card')
+                assert card.get_attribute('data-example-id')=='upstream/hello'
+                assert card.get_by_role('link',name='Source',exact=True).get_attribute('href').endswith('/examples/hello')
+                diagram_url=card.get_by_role('link',name='Show in diagram',exact=True).get_attribute('href')
+                assert parse_qs(urlsplit(diagram_url).query)['example']==['upstream/hello']
+                shared=page.url
+                page.reload()
+                page.wait_for_selector('.finder-card')
+                assert page.locator('#finder-query').input_value()=='hello'
+                assert page.locator('#finder-verified').input_value()=='both'
+                assert page.url==shared
+                assert not page.locator('#__search').is_checked()
+                page.locator('#finder-reset').click()
+                page.select_option('#finder-family','Current upstream')
+                assert page.locator('.finder-card').count()==sum(row['family']=='Current upstream' for row in catalog['examples'])
+                page.locator('#finder-query').fill('<img src=x onerror=alert(1)>')
+                assert page.locator('.finder-card').count()==0
+                assert 'No matches' in page.locator('#finder-results').inner_text()
+                assert page.locator('#finder-results img').count()==0
+                page.locator('#finder-reset').click()
+                assert page.locator('.finder-card').count()==len(catalog['examples'])
+                page.set_viewport_size({'width':390,'height':844})
+                assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
+                page.screenshot(path=str(a.output/'finder-mobile.png'),full_page=False)
+                page.set_viewport_size({'width':1440,'height':1000})
+                page.goto(diagram_url)
+                page.wait_for_selector('[data-example-id="upstream/hello"]')
+                report['browser_checks'].append({'page':'example-finder','status':'pass','checks':'all platform intersections, family, query, URL reload, empty state, text-only query rendering, mobile width and diagram deep link'})
+
                 assert not errors,errors
                 report['javascript_errors']=errors;report['browser']=browser.version
                 browser.close()

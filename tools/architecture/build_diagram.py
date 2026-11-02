@@ -147,7 +147,7 @@ def render(d,notes):
     replace('<main id="main">',(HERE/'explorer-bar.html').read_text()+'\n<main id="main">')
     replace('  P.innerHTML = h; P.hidden = false;','  if (s.type === "inst") h += architectureDetails(s.full);\n  P.innerHTML = h; P.hidden = false;\n  wireArchitectureButtons(P);')
     replace('function srcLink(src) {','function srcLink(src) {\n  if (src && src.file && D.meta.source_url_base) return `<a target="_blank" rel="noopener" href="${esc(D.meta.source_url_base + src.file + (src.line ? "#L" + src.line : ""))}">${esc(src.file)}${src.line ? ":" + src.line : ""}</a>`;')
-    replace('window.__fpa = {go, select, state: S};',(HERE/'explorer.js').read_text()+'\n'+(HERE/'trm-overview.js').read_text()+'\nwindow.__fpa = {go, select, state: S, openBlock, chooseExample};')
+    replace('window.__fpa = {go, select, state: S};',(ROOT/'docs/assets/javascripts/example-discovery.js').read_text()+'\n'+(HERE/'explorer.js').read_text()+'\n'+(HERE/'trm-overview.js').read_text()+'\nwindow.__fpa = {go, select, state: S, openBlock, chooseExample};')
     replace('go(start);','initializeExplorer();\ngo(start);\nif (q.get("example")) chooseExample(q.get("example"));')
     replace('  window.__fpa_ready = true;','  window.__fpa_ready = true;\n  decorateArchitecture();\n  updateNavigationControls();')
     replace('  if (!defAt(parts)) parts = [];','  parts = normalizeArchitecturePath(parts);\n  if (!defAt(parts)) parts = [];\n  rememberNavigation(parts);')
@@ -181,9 +181,10 @@ def outputs():
     d,notes=build();html=render(d,notes)
     design=viewer.merge_overlay(d,notes)
     result={'design.html':html,'design.json':json.dumps(design,indent=2)+'\n',
+        'examples.json':json.dumps({'examples':d['integration']['examples'],'catalog_sha256':d['integration']['catalog_sha256']},indent=2)+'\n',
         'MIT-LICENSE.txt':(VENDOR/'LICENSE').read_text(),'ELK-LICENSE.txt':(VENDOR/'fpalib/assets/vendor/ELK-LICENSE.md').read_text(),
         'THIRD_PARTY.txt':'Agilex architecture explorer\n\nRenderer and RTL parser: FPGA Project Analyzer, MIT, copyright 2026 Abdullah AlNafisah.\nhttps://github.com/al-nafisah/fpga-project-analyzer\nPinned commit: '+d['integration']['tool']+'\n\nLayout: elkjs 0.10.0 (Eclipse Layout Kernel), EPL-2.0.\nhttps://github.com/kieler/elkjs\n\nSee MIT-LICENSE.txt and ELK-LICENSE.txt. Full license texts are also embedded in design.html.\n\nThe renderer is reused through its public Python model API. HPS architecture and example associations are manually curated from the Altera TRM and repository sources; they are not a Quartus netlist extraction. Only the ADD/XOR RTL hierarchy is parsed. No Vivado constraints or DRC findings are asserted for this Quartus component.\n'}
-    sources=[HERE/'agilex5.json',HERE/'trm-layout.json',HERE/'trm-overview.js',HERE/'build_diagram.py',HERE/'explorer.js',HERE/'explorer.css',HERE/'explorer-bar.html',LAB/'catalog.json',LAB/'fabric/rtl/lab_ip.sv',LAB/'fabric/rtl/lab_persona.sv',LAB/'fabric/lab_driver.h']
+    sources=[ROOT/'docs/assets/javascripts/example-discovery.js',HERE/'agilex5.json',HERE/'trm-layout.json',HERE/'trm-overview.js',HERE/'build_diagram.py',HERE/'explorer.js',HERE/'explorer.css',HERE/'explorer-bar.html',LAB/'catalog.json',LAB/'fabric/rtl/lab_ip.sv',LAB/'fabric/rtl/lab_persona.sv',LAB/'fabric/lab_driver.h']
     sources += [LAB/'memory-labs/fabric-ddr/rtl/ddr_probe.sv',LAB/'memory-labs/fabric-ddr/driver.h',LAB/'memory-labs/fabric-ddr/ddr_probe_hw.tcl']
     metadata={'analyzer_commit':d['integration']['tool'],'nodes':len(d['integration']['blocks']),'catalog_entries':len(d['integration']['examples']),
         'scope':d['integration']['scope'],'sources_sha256':{str(p.relative_to(ROOT)):digest(p) for p in sources},

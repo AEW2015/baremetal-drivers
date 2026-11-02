@@ -31,7 +31,11 @@ repository's recorded platform results.
   every function in that subsystem has been exercised. Parsed RTL inherits its
   containing lab’s association.
 - Choose an **Example** to locate it and highlight related blocks. **Find**
-  narrows the example list; **Results** emphasizes QEMU, Simics or hardware.
+  searches names, scope and block paths. **Results** emphasizes badges; the
+  separate **Passed on** filter requires full passes on the selected platforms,
+  including **Both Simics + hardware**. Expand **Browse matching examples** to
+  see and open the matches. For a searchable card view, use the
+  [example finder](example-finder.md).
 - Open **Fabric → Lab_proposed → lab_ip** for the register ABI, then open it
   again for the parsed register logic and ADD/XOR persona hierarchy.
 - **Export** saves the current diagram level as SVG or PNG. The standalone HTML
@@ -51,7 +55,7 @@ Try direct example links:
 | [Multicore](assets/architecture/design.html?example=practice%2Fmulticore) | A55/A76 execution and power/reset context |
 | [Ethernet UDP/TCP](assets/architecture/design.html?example=custom%2Fethernet) | EMAC2 and the SOM PHY; actual traffic versus identification only |
 | [ADD fabric core](assets/architecture/design.html?example=fabric%2Fadd) | Proposed address, real RTL hierarchy and unqualified physical deployment |
-| [Partial reconfiguration](assets/architecture/design.html?example=reference%2Fpr) | Reference workflow; live PR remains unqualified |
+| [Partial reconfiguration](assets/architecture/design.html?example=reference%2Fpr) | Matched 26.3 hardware ADD–XOR–ADD passed; Simics loader remains a model |
 
 ## What the drawing represents
 
@@ -75,7 +79,7 @@ replacement for the TRM.
 | Proposed ADD/XOR fabric | Actual repository RTL, parsed structurally; C-driver/RTL co-simulation passed, physical deployment unqualified |
 | Simics reference fabric | Behavioral memory/PIO models; distinct from custom RTL |
 | Simics + Verilator | Actual Arm guest MMIO forwarded to real RTL; transaction-stepped adapter, no physical bridge/timing claim |
-| PR recipe | Reference integration workflow, not an implemented or tested static shell |
+| PR recipe | Matched 26.3 static shell and live hardware swaps passed; Simics uses a simulated loader |
 
 Results come from the [example catalog](example-catalog.md), including historical
 artifact snapshots. A controller ID PASS is not a data-transfer PASS, and an ECC

@@ -1,0 +1,51 @@
+{
+  "recorded_utc": "2026-11-02T13:47:24.120356+00:00",
+  "scope": "Fresh generic QEMU first-lesson refactor, negative exercises, GDB and unit checks. No new hardware or Simics execution claim.",
+  "elf_sha256": "5667896cafec2827c429727e91cdc6ff4da4933d6f26872093185cbb80168c89",
+  "source_sha256": {
+    "examples/agilex5-modular/qemu/hello.c": "5b18f4423bb284fa7f4efc7bf8b24e0ce3135587ea56b16faf60abe5a378fd4c",
+    "examples/agilex5-modular/qemu/start.S": "014173c05846dcea47c6f4dc84b67fa44806d8606949da993ed529a3f79e678a",
+    "examples/agilex5-modular/qemu/link.ld": "9b215693e5f0f01d42445595b10be1de37983257515bddb1ef2e6604a52114cc",
+    "examples/agilex5-modular/qemu/run.py": "e8519626decf5883d8650554fd77aa2384825abc632a304739380e272188589a",
+    "examples/agilex5-modular/qemu/build.sh": "3e1596c888e15e5b1ab2bb4c19df09c7cf07145bb71db0f5f6f9adb14a2a680c",
+    "examples/agilex5-modular/qemu/experiment.py": "95b5fff1c7c45031ff90bf5bf02cad580e84d31d03f785ef390ecbb1abf0d4e1"
+  },
+  "tests": [
+    {
+      "name": "hello",
+      "status": "pass",
+      "evidence": "run-and-negative-tests.log"
+    },
+    {
+      "name": "corruption-recovery",
+      "status": "pass",
+      "variants": [
+        "baseline",
+        "mismatch",
+        "corrected",
+        "neon-result",
+        "last-word",
+        "recovered"
+      ]
+    },
+    {
+      "name": "gdb",
+      "status": "pass",
+      "guest_exit_status": 0,
+      "failures": 0,
+      "vector_result": [
+        11,
+        22,
+        33,
+        44
+      ],
+      "last_word_equal": true
+    },
+    {
+      "name": "unit-tests",
+      "status": "pass",
+      "count": 109,
+      "skipped": 0
+    }
+  ]
+}

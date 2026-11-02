@@ -1,0 +1,11 @@
+.finder-controls{display:flex;flex-wrap:wrap;gap:1rem;align-items:end}
+.finder-controls label{display:flex;flex-direction:column;font-weight:600;gap:.3rem}
+.finder-controls input,.finder-controls select,.finder-controls button{font:inherit;padding:.5rem;border:1px solid var(--md-default-fg-color--light);border-radius:.3rem;color:var(--md-default-fg-color);background:var(--md-default-bg-color);max-width:100%}
+.finder-controls button{cursor:pointer;padding:.5rem}
+.finder-card{border:1px solid var(--md-default-fg-color--lightest);border-radius:.5rem;padding:1rem;margin:1rem 0}
+.finder-card h2{margin:0 0 .5rem;font-size:1.05rem;overflow-wrap:anywhere}
+.finder-family{font-size:.8rem;color:var(--md-default-fg-color--light)}
+.finder-badges,.finder-links{display:flex;flex-wrap:wrap;gap:.5rem}
+.finder-badge{font-size:.75rem;padding:.2rem .4rem;border:1px solid currentColor;border-radius:.3rem}
+.finder-pass{font-weight:bold}
+.finder-card code{display:block;overflow-wrap:anywhere;margin-top:.7rem}

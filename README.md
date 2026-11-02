@@ -5,6 +5,9 @@ root, plus the [Agilex 5 Modular tutorial](https://aew2015.github.io/baremetal-d
 and [local example pack](examples/agilex5-modular/README.md).
 
 - [26.3 stack and migration](docs/stack-26.3.md): matched HPS/EMIF, ATF, U-Boot and hardware loading.
+- [Find an example](https://aew2015.github.io/baremetal-drivers/example-finder/): search all 94 entries and filter full passes on one or several platforms.
+- [Hello World on three platforms](docs/hello-world.md): exact directories, commands and expected output.
+- [Educational coding standard and audit](docs/educational-coding-standard.md): readable lab structure, independent checks and adoption limits.
 - [QEMU labs](docs/qemu.md): CPU learning without a board.
 - [Fresh platform report](docs/validation-26.3.md): all 94 entries, real terminal output and remaining limits.
 - [Container reference](docs/container.md): build the public Linux development image for QEMU, Verilator and optional licensed hardware tools.
@@ -135,7 +138,7 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`custom/qemu-hello`](examples/agilex5-modular/qemu/hello.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | ⬜ Not tested | ⬜ Not tested |
+| [`custom/qemu-hello`](examples/agilex5-modular/qemu/hello.c) | [✅ Passed](examples/agilex5-modular/validation/education-20261102/qemu/results.json) | ⬜ Not tested | ⬜ Not tested |
 | [`practice/startup`](examples/agilex5-modular/qemu/labs/startup.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 | [`practice/corruption`](examples/agilex5-modular/qemu/labs/corruption.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 | [`practice/exception`](examples/agilex5-modular/qemu/labs/exception.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |

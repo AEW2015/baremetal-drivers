@@ -5,6 +5,10 @@ SOM-first bare-metal examples for the Agilex 5 E-Series Modular ES kit (FPGA ID
 the repository's Simics reference tests with physical-board startup and checks.
 They are independent of the Premium kit pinout.
 
+[Find any example](https://aew2015.github.io/baremetal-drivers/example-finder/)
+by topic and verified platform, [run Hello on all three targets](../../docs/hello-world.md),
+or read the [educational coding standard and audit](../../docs/educational-coding-standard.md).
+
 The [fresh 26.3 validation](../../docs/validation-26.3.md) records 50 hardware
 passes and 6 partial capabilities, including live ADD–XOR–ADD PR and working
 xHCI/USB3320 identification. External USB device enumeration remains pending.
@@ -165,7 +169,7 @@ Expand a group for every example. [Detailed scope and results](../../docs/exampl
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`custom/qemu-hello`](qemu/hello.c) | [✅ Passed](validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | ⬜ Not tested | ⬜ Not tested |
+| [`custom/qemu-hello`](qemu/hello.c) | [✅ Passed](validation/education-20261102/qemu/results.json) | ⬜ Not tested | ⬜ Not tested |
 | [`practice/startup`](qemu/labs/startup.c) | [✅ Passed](validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](validation/stack-26.3-20261101/hardware/results.json) |
 | [`practice/corruption`](qemu/labs/corruption.c) | [✅ Passed](validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](validation/stack-26.3-20261101/hardware/results.json) |
 | [`practice/exception`](qemu/labs/exception.c) | [✅ Passed](validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](validation/stack-26.3-20261101/hardware/results.json) |

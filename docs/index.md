@@ -8,11 +8,15 @@ command-console examples. Move to hardware to test
 the HPS controllers and the devices actually populated on the SOM.
 
 [Install the tools](setup.md){ .md-button .md-button--primary }
-[Browse the examples](examples.md){ .md-button }
+[Find an example](example-finder.md){ .md-button }
 [Explore the clickable HPS / fabric map](architecture.md){ .md-button }
 
 [Fresh 26.3 validation: hardware, QEMU and Simics](validation-26.3.md) includes
 real terminal output and the remaining partial capabilities.
+
+[Start with Hello World on all three platforms](hello-world.md). Search the
+[finder](example-finder.md) for full passes on both Simics and hardware, then
+open the source, expected output or associated diagram block.
 
 ## What you will build
 
@@ -54,5 +58,6 @@ untested end-to-end peripheral behavior.
 
 [Build a memory-mapped ADD/XOR IP and bare-metal driver](fabric-ip.md), then
 follow the [partial-reconfiguration integration lab](partial-reconfiguration.md)
-to plan live persona swaps. The software/RTL tests are executable now; the new
-whole-board FPGA integration and live PR are explicitly marked unvalidated.
+for the live ADD–XOR–ADD swap qualified on the matched 26.3 Modular ES stack.
+See the [fresh report](validation-26.3.md) for exact images and limits; the
+standalone proposed core and a new FPGA design require their own qualification.

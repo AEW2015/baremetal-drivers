@@ -1,5 +1,9 @@
 # Example catalog
 
+[Find any of the 94 examples](example-finder.md) by topic and verified platform,
+or [start with Hello World](hello-world.md). The list below focuses on the
+original SOM suite; the finder includes current, legacy and custom labs.
+
 Choose an example in the **Examples** navigation. Each page has **What it does**, **Build and run**, **Expected results**, and **Limits** subtabs, with source links and captured output.
 
 Use the [clickable HPS and fabric map](architecture.md) to locate catalog

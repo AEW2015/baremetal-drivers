@@ -63,3 +63,12 @@ clicks on every overview shape and every architecture block (plus parsed RTL
 children), checks coverage markers and panel text, enters each available
 subsystem, and checks the Up destination and retained selection. Uncovered
 architecture blocks never inherit a parent’s example mappings.
+
+The [example finder](../../docs/example-finder.md) and the diagram share
+`docs/assets/javascripts/example-discovery.js` for exact-PASS filtering.
+Generation emits `examples.json` beside the diagram; the website reads this
+small catalog payload rather than a second hand-maintained result matrix.
+The standalone HTML embeds the same predicate and remains offline-capable.
+Browser checks verify platform intersections, source/diagram links, shared
+filter URLs, empty states and mobile width. Coding/audit guidance is in
+[the educational standard](../../docs/educational-coding-standard.md).
