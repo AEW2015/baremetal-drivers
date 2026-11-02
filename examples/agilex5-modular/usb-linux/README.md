@@ -14,6 +14,8 @@ External hub enumeration, mouse reports, USB Ethernet and external SuperSpeed
 operation are still separate checks; root-hub speed is not an attached-device
 speed measurement.
 See the [hardware evidence and preserved failure](validation/20261102/README.md).
+The user confirmed that the flash drive was directly attached to the SOM for
+those runs. They qualify direct USB storage, not storage through a hub.
 
 ## Build
 

@@ -5,6 +5,11 @@ HPS DDR. On the physical Modular ES kit, Linux enumerated a Lexar USB flash
 drive at **480 Mb/s** and passed matching, read-only sector reads. This is a
 Linux result, separate from the bare-metal and U-Boot-only examples.
 
+The user subsequently confirmed that the flash drive was connected **directly
+to the SOM** during these runs. Their missing-hub entries describe that topology;
+they are not failed tests of a connected hub. Testing through the hub still
+requires reconnecting its upstream cable and downstream devices.
+
 | Check | Observed result |
 |---|---|
 | U-Boot and Linux boot | Passed on hardware; payload SHA-256 checked on the board |

@@ -12,6 +12,11 @@ payload hashes, boot transport, individual checks and restoration. The overall
 verdict is **partial**, because the captured tree contains one Lexar storage
 device and no external hub, mouse or USB NIC.
 
+After these runs, the user confirmed the Lexar was plugged directly into the
+SOM. The zero-hub inventory therefore matches the physical connection. These
+captures establish direct flash access; they do not represent a failed attempt
+to enumerate an attached hub. Hub testing remains pending reconnection.
+
 - HPS EMAC2 ping and TFTP passed; U-Boot checked all three Linux payload SHA-256 values.
 - Linux 6.18.37 started both USB host buses and reached its RAM shell.
 - VID:PID `21c4:0809` enumerated at 480 Mb/s as a 125 GB Lexar drive.
