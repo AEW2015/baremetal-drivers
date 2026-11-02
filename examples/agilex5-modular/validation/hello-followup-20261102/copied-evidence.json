@@ -1,0 +1,74 @@
+[
+  {
+    "source": "runs/upstream26-hardware-20261102T131329.943316Z/results.json",
+    "source_sha256": "0da468b653edc5f3187d3902a99234d9e62727fe852c03c1ca88baf686798bc3",
+    "saved_as": "interrupted/results.json",
+    "saved_sha256": "0da468b653edc5f3187d3902a99234d9e62727fe852c03c1ca88baf686798bc3"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T131329.943316Z/mutex.json",
+    "source_sha256": "916825e06a3f6a3696d8c061a6ad8d658ec598dbb18e372a28a8e85aa234c86d",
+    "saved_as": "interrupted/mutex.json",
+    "saved_sha256": "916825e06a3f6a3696d8c061a6ad8d658ec598dbb18e372a28a8e85aa234c86d"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T131415.447457Z/results.json",
+    "source_sha256": "460f89e9d3ad59a9041e68617d8c645db328de579f412841151f459c0cfe0a55",
+    "saved_as": "retry/results.json",
+    "saved_sha256": "460f89e9d3ad59a9041e68617d8c645db328de579f412841151f459c0cfe0a55"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T131415.447457Z/hello-bootstrap.log",
+    "source_sha256": "6a5245e9bc932e7442b8bb9e9cce68dd99fbbfc7b4c32f36e13a3a98e022eb0d",
+    "saved_as": "retry/hello-bootstrap.log",
+    "saved_sha256": "6a5245e9bc932e7442b8bb9e9cce68dd99fbbfc7b4c32f36e13a3a98e022eb0d"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T131415.447457Z/hello-load.log",
+    "source_sha256": "b3f5e6e2a04d7326b15640c550a78d6b2b0164e1213e4274b36c7fbeb191612c",
+    "saved_as": "retry/hello-load.log",
+    "saved_sha256": "b3f5e6e2a04d7326b15640c550a78d6b2b0164e1213e4274b36c7fbeb191612c"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T131415.447457Z/restore-chain.json",
+    "source_sha256": "fd7f272fdd9f4754cda3435ad07bee996fa0969957e6650229cfa0d7ee1d9917",
+    "saved_as": "retry/restore-chain.json",
+    "saved_sha256": "fd7f272fdd9f4754cda3435ad07bee996fa0969957e6650229cfa0d7ee1d9917"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T131415.447457Z/mutex.json",
+    "source_sha256": "59f4902235b7a6fe9128b55c2652dccbfacba87552bcae7d4744737caf14fc10",
+    "saved_as": "retry/mutex.json",
+    "saved_sha256": "59f4902235b7a6fe9128b55c2652dccbfacba87552bcae7d4744737caf14fc10"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T131415.447457Z/hello-chain.json",
+    "source_sha256": "fd7f272fdd9f4754cda3435ad07bee996fa0969957e6650229cfa0d7ee1d9917",
+    "saved_as": "retry/hello-chain.json",
+    "saved_sha256": "fd7f272fdd9f4754cda3435ad07bee996fa0969957e6650229cfa0d7ee1d9917"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T131415.447457Z/hello-debug.log",
+    "source_sha256": "dcac068859e2d8f787dcb194b8fe060503128ddcb3cb607117da523d0f01251d",
+    "saved_as": "retry/hello-debug.log",
+    "saved_sha256": "dcac068859e2d8f787dcb194b8fe060503128ddcb3cb607117da523d0f01251d"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T131415.447457Z/hello-uart.txt",
+    "source_sha256": "cd962c5c2cb535647baf03ec616ead84ed27b2df3b8dcefbe75d65b2515e3f9c",
+    "saved_as": "retry/hello-uart.txt",
+    "saved_sha256": "18182bebf041829e95911201d2d4a23cdcdcd069986d45761daa269451197f81"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T131415.447457Z/restore-bootstrap.log",
+    "source_sha256": "e12090a95fc2187cb0a73396ab9c2d147743e579165c7bdce4abe200e9ceef04",
+    "saved_as": "retry/restore-bootstrap.log",
+    "saved_sha256": "e12090a95fc2187cb0a73396ab9c2d147743e579165c7bdce4abe200e9ceef04"
+  },
+  {
+    "source": "runs/upstream26-hardware-20261102T131415.447457Z/hello-readback.json",
+    "source_sha256": "aa87d2b88d8d1be99e1eae380084258e216eb22fd64bf278d462f5183e27cff9",
+    "saved_as": "retry/hello-readback.json",
+    "saved_sha256": "aa87d2b88d8d1be99e1eae380084258e216eb22fd64bf278d462f5183e27cff9"
+  }
+]

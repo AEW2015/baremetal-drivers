@@ -184,23 +184,31 @@ def main():
             'bl31_sha256':lab.digest(a.bl31) if a.bl31 else None,'bootstrap_image_sha256':lab.digest(stack.image)}
     def save():(out/'results.json').write_text(json.dumps(record,indent=2)+'\n')
     print('Evidence: '+str(out),flush=True);save()
-    mcp=MCP('programmer');bootstrap_failed=False;debugger_cleanup_failed=False
+    mcp=None;bootstrap_failed=False;debugger_cleanup_failed=False;bootstrap_attempted=False
     def bootstrap(label):
-        nonlocal bootstrap_failed
+        nonlocal bootstrap_failed,bootstrap_attempted
+        print(f'{label}: discovering JTAG chain through Programmer MCP...',flush=True)
         chain=mcp.call('read_jtag_config',{});(out/(label+'-chain.json')).write_text(json.dumps(chain,indent=2))
         text=json.dumps(chain).lower()
         if '364f0dd' not in text:raise RuntimeError('Modular ES silicon not present')
+        bootstrap_attempted=True
+        record['bootstrap_attempted']=True;save()
+        print(f'{label}: JTAG verified; initializing DDR and checking fresh UART/memory/CPU evidence (up to 400 seconds)...',flush=True)
         r=stack.bootstrap(a.port,lock.fileno(),full='4ba06477' not in text)
         (out/(label+'-bootstrap.log')).write_bytes(r.stdout+r.stderr)
         if r.returncode:
             bootstrap_failed=True
             raise RuntimeError('DDR bootstrap failed; stop board operations')
+        print(f'{label}: DDR bootstrap PASS; log: {out/(label+"-bootstrap.log")}',flush=True)
     try:
+        print('Starting Programmer MCP connection...',flush=True)
+        mcp=MCP('programmer')
         for name in names:
             image=a.artifacts/(name+'.bin');elf=a.artifacts/(name+'.elf')
             for path in (image,elf):
                 if lab.digest(path)!=record['build']['artifacts'][path.name]:raise RuntimeError('Artifact hash mismatch')
             bootstrap(name)
+            print(f'{name}: loading payload and verifying every byte...',flush=True)
             destination=stack.payload('upstream26-'+image.name)
             image_bytes=image.read_bytes()
             if hashlib.sha256(image_bytes).hexdigest()!=record['build']['artifacts'][image.name]:
@@ -312,10 +320,13 @@ def main():
         record['error']=repr(exc);save();raise
     finally:
         try:
-            if debugger_cleanup_failed:record['restoration']='not attempted after debugger cleanup failure'
+            if not bootstrap_attempted:record['restoration']='not required; no bootstrap or payload attempted'
+            elif debugger_cleanup_failed:record['restoration']='not attempted after debugger cleanup failure'
             elif bootstrap_failed:record['restoration']='not attempted after bootstrap failure'
             else:bootstrap('restore');record['restoration']='pass'
         except Exception as exc:record['restoration']='fail';record['restore_error']=repr(exc)
-        save();mcp.close();lock.close();write_mutex({'state':'released','pid':os.getpid(),'restoration':record['restoration']});print('DDR Hello restoration: '+record['restoration'],flush=True)
+        save()
+        if mcp is not None:mcp.close()
+        lock.close();write_mutex({'state':'released','pid':os.getpid(),'restoration':record['restoration']});print('DDR Hello restoration: '+record['restoration'],flush=True)
     return int(record['restoration']!='pass' or any(t['status'] not in ('pass','unsupported') for t in record['tests']))
 if __name__=='__main__':raise SystemExit(main())

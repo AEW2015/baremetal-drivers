@@ -180,6 +180,26 @@ hotplug. Old DDR Hello output does not prove the newly loaded application ran.
 contains `HPS CORE EXAMPLES BEGIN`, every required core marker and COMPLETE.
 Manual debug requires deliberate continue; disconnect alone is not completion.
 
+## Hardware Hello appears quiet after printing its evidence directory
+
+The physical Hello runner performs JTAG discovery, a fresh DDR bootstrap,
+payload loading/readback and DDR Hello restoration. The older runner captured
+the bootstrap output into its evidence files, so it could look idle. Current
+runs print each stage; DDR bootstrap has a 400-second upper bound. Inspect the
+run directory and `bootstrap/ddr/program-*.log` / `uart-*.bin` for progress.
+
+A `KeyboardInterrupt` inside `mcp_client.py`'s queue wait means Ctrl+C interrupted
+an outstanding MCP request; it does not establish a failure of the Hello code.
+If initial discovery failed before any bootstrap or payload attempt, the current
+runner reports `restoration: not required`. After a bootstrap attempt it retains
+the recovery checks. Do not start a second board operator while the mutex is held.
+
+On 2026-11-02, an initial discovery was interrupted; the user's next run passed
+Hello and DDR restoration. The discovery delay's cause remains unproven.
+[Both attempts and the retry output](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/validation/hello-followup-20261102)
+are retained. Activating a Python virtual environment is not evidence that an
+interrupted JTAG request has completed.
+
 ## JTAG identity, image packaging or DDR initialization fails
 
 Inspect `docker exec -u dev agilex-xrdp jtagconfig`. The runner requires the
