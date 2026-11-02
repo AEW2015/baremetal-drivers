@@ -18,6 +18,12 @@ commit when their compatibility builds are requested. Their results do not
 qualify the rewritten 26.3 APIs. The upstream kit instructions below target
 Premium/production kits; use the Modular tutorial for our ES board.
 
+The [clickable HPS and fabric diagrams](https://aew2015.github.io/baremetal-drivers/assets/architecture/design.html)
+use [FPGA Project Analyzer](https://github.com/al-nafisah/fpga-project-analyzer)
+by **al-nafisah** for RTL parsing, layout and rendering. Our Agilex HPS/TRM model
+and example mappings are maintained in this fork; see the
+[diagram integration and upstream attribution](tools/architecture/README.md).
+
 <!-- example-platform-checklist:start -->
 ## Example platform checklist
 
