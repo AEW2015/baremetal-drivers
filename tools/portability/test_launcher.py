@@ -80,6 +80,7 @@ class Launcher(unittest.TestCase):
     def test_pr_loader_selection_reaches_the_physical_runner(self):
         for selected in ('jtag', 'hps'):
             with patch.object(lab,'load_config',return_value=dict(lab.DEFAULTS,backend='native')), \
+                 patch.object(lab.platform,'system',return_value='Linux'), \
                  patch.object(lab,'hardware_environment',return_value={}), \
                  patch.object(lab.subprocess,'run') as run, contextlib.redirect_stdout(io.StringIO()) as stream:
                 self.assertEqual(lab.main(['--dry-run','hardware','pr','--loader',selected]),0)
@@ -90,6 +91,7 @@ class Launcher(unittest.TestCase):
     def test_usb_linux_build_runs_in_tools_and_boot_runs_on_host(self):
         config=dict(lab.DEFAULTS,container='student-tools',uart='/dev/ttyUSB2')
         with patch.object(lab,'load_config',return_value=config), \
+             patch.object(lab.platform,'system',return_value='Linux'), \
              patch.object(lab,'hardware_environment',return_value={}), \
              patch.object(lab.subprocess,'run') as run, contextlib.redirect_stdout(io.StringIO()) as stream:
             self.assertEqual(lab.main(['--dry-run','hardware','usb-linux','--build',
@@ -101,6 +103,15 @@ class Launcher(unittest.TestCase):
             self.assertEqual(commands[1][-2:],['--usb-peer','192.168.2.1'])
             self.assertIn('/dev/ttyUSB2',commands[1])
             run.assert_not_called()
+
+    def test_windows_native_hardware_dry_run_keeps_the_wsl_guard(self):
+        for example in ('pr','usb-linux'):
+            with patch.object(lab,'load_config',return_value=dict(lab.DEFAULTS,backend='native')), \
+                 patch.object(lab.platform,'system',return_value='Windows'), \
+                 patch.object(lab.subprocess,'run') as run:
+                with self.assertRaisesRegex(ValueError,'--backend wsl'):
+                    lab.main(['--dry-run','hardware',example])
+                run.assert_not_called()
 
     def test_windows_wsl_backend_replaces_equals_form_option(self):
         completed=subprocess.CompletedProcess([],0)
