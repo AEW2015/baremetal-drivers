@@ -1,0 +1,1 @@
+PASS reference/semihost: SYS_WRITE0 output and GDB hello_done stop; QEMU RAM only

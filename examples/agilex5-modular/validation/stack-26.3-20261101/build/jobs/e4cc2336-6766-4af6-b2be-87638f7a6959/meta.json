@@ -1,0 +1,20 @@
+{
+  "jobId": "e4cc2336-6766-4af6-b2be-87638f7a6959",
+  "pid": 1500933,
+  "kind": "assembler",
+  "mode": "detached-cli",
+  "flow": "assembler",
+  "toolName": "quartus_asm",
+  "args": [
+    "baseline_a55",
+    "-c",
+    "pr_xor"
+  ],
+  "projectDir": "/workspace/agilex5-stack-20261101/platform",
+  "projectName": "baseline_a55",
+  "status": "completed",
+  "startedAt": "2026-11-02T03:23:02.915Z",
+  "idemKey": "assembler:/workspace/agilex5-stack-20261101/platform/baseline_a55",
+  "endedAt": "2026-11-02T03:23:52.591Z",
+  "exitCode": 0
+}

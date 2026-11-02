@@ -30,28 +30,29 @@ The existing XRDP container below remains an alternative for this bench.
 
 ### Use the existing bench container
 
-The established `agilex-xrdp` container has Arm GNU 13.2.Rel1, Quartus 26.1.1
-and Quartus OpenOCD. Its image is a local bench asset, not a public Docker Hub
+The current bench uses `agilex26-mcp-demos` with Quartus 26.3 Build 114,
+Arm GNU 13.2.Rel1 and the matching vendor OpenOCD. The older `agilex-xrdp`
+container retains the previous 26.1.1 recovery environment. Its image is a local bench asset, not a public Docker Hub
 image. On the **Linux host**, first inspect the container and bind mounts:
 
 ```sh
-docker ps --filter name=agilex-xrdp
-docker inspect --format '{{range .Mounts}}{{println .Source "->" .Destination}}{{end}}' agilex-xrdp
+docker ps --filter name=agilex26-mcp-demos
+docker inspect --format '{{range .Mounts}}{{println .Source "->" .Destination}}{{end}}' agilex26-mcp-demos
 ```
 
 For example, `/host/agilex-home -> /home/dev` means a clone under
 `/home/dev/src` inside the container is also available under
 `/host/agilex-home/src` on the host. Choose a writable bind mount before cloning.
 A container-only directory will compile, but the host hardware runner cannot use
-it. On the established bench `/home/dev` is the shared mount; verify your own
+it. On the 26.3 bench the shared mount is `/workspace`; verify your own
 output rather than assuming it.
 
 Install emulator/debugger packages in the **running container**, then enter it:
 
 ```sh
-docker exec -u root agilex-xrdp bash -lc \
+docker exec -u root agilex26-mcp-demos bash -lc \
   'apt-get update && apt-get install -y --no-install-recommends qemu-system-arm gdb-multiarch'
-docker exec -it -u dev agilex-xrdp bash -l
+docker exec -it -u dev agilex26-mcp-demos bash -l
 ```
 
 Add those packages to your own container definition if you recreate it later.
@@ -89,7 +90,8 @@ The updated learning image includes both cross compilers; the separate simulator
 installer/models are not bundled. Our existing Quartus 26.3 bench container is
 `agilex26-mcp-demos`, with host `/home/lada/quartus26-mcp-demos` mounted at
 `/workspace`. Use the same checkout and the correct container path for your task.
-The older `agilex-xrdp` environment below remains the qualified hardware setup.
+The current hardware campaign uses that 26.3 container and matching new images.
+The older `agilex-xrdp` setup remains a separate recovery profile.
 
 ## Clone into a known location
 

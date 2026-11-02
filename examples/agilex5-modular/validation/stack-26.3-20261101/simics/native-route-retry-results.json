@@ -1,0 +1,30 @@
+[
+  {
+    "label": "fabric-f2h-valid",
+    "command": "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && python3 memory-labs/fabric-ddr/simics/run.py --case native-valid --route f2soc --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-f2h-valid",
+    "exit_code": 0,
+    "seconds": 8.274064427707344,
+    "evidence": "fabric-f2h-valid/results.json"
+  },
+  {
+    "label": "fabric-f2h-fault",
+    "command": "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && python3 memory-labs/fabric-ddr/simics/run.py --case native-fault --route f2soc --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-f2h-fault",
+    "exit_code": 0,
+    "seconds": 8.176774600986391,
+    "evidence": "fabric-f2h-fault/results.json"
+  },
+  {
+    "label": "fabric-f2sdram-valid",
+    "command": "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && python3 memory-labs/fabric-ddr/simics/run.py --case native-valid --route f2sdram --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-f2sdram-valid",
+    "exit_code": 0,
+    "seconds": 8.477974086999893,
+    "evidence": "fabric-f2sdram-valid/results.json"
+  },
+  {
+    "label": "fabric-f2sdram-fault",
+    "command": "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && python3 memory-labs/fabric-ddr/simics/run.py --case native-fault --route f2sdram --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-f2sdram-fault",
+    "exit_code": 0,
+    "seconds": 8.719555010087788,
+    "evidence": "fabric-f2sdram-fault/results.json"
+  }
+]

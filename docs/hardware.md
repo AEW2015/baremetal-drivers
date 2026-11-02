@@ -19,7 +19,7 @@ On the **Linux host**:
 
 ```sh
 ls -l /dev/serial/by-path/
-docker exec -u dev agilex-xrdp jtagconfig
+docker exec -u dev agilex-hardware jtagconfig
 ```
 
 Select the UART's persistent by-path device after identifying the SOM channel.
@@ -38,7 +38,7 @@ unless its adapter/DAP capabilities have been verified.
 In a **container terminal**:
 
 ```sh
-source /etc/profile.d/baremetal-tools.sh
+if [ -f /etc/profile.d/baremetal-tools.sh ]; then source /etc/profile.d/baremetal-tools.sh; fi
 command -v quartus_pfg
 command -v quartus_pgm
 openocd --version
@@ -59,10 +59,14 @@ export AGILEX_SOF=/absolute/path/to/your/matching-memory_test.sof
 ./bootstrap/ddr/build_ddr.sh
 ```
 
-The script pins ATF to commit `2ea5afda7f34774ddcc677fb3a728fa57f780a1e`,
+The script pins ATF to the 26.3 release commit
+`09c4dc6628810d8570af69db43918d344f9e80e9`,
 patches a dedicated clone, and runs the included diagnostic hook after DDR
-initialization but before storage boot. It creates the HPS RBF and a merged
-recovery SOF locally. Neither generated image is committed to GitHub.
+initialization but before storage boot. It creates a merged recovery SOF
+locally. The default FPGA-first flow must use `--full-recovery` and
+`AGILEX_FORCE_FULL_BOOT=1`; an HPS-only RBF cannot configure its fabric.
+For a source SOF deliberately assembled as HPS-first, set
+`AGILEX_BOOT_ORDER=hps-first` when building to also create the HPS RBF. Neither generated image is committed to GitHub.
 
 ## 4. Configure host/container paths
 
@@ -70,10 +74,11 @@ On the **host**, change to the bind-mounted copy of the example directory:
 
 ```sh
 cd /host/path/to/baremetal-drivers/examples/agilex5-modular
-export AGILEX_CONTAINER=agilex-xrdp
+export AGILEX_CONTAINER=agilex-hardware
 export AGILEX_CONTAINER_USER=dev
 export AGILEX_CONTAINER_ROOT=/home/dev/baremetal-drivers/examples/agilex5-modular
 export AGILEX_UART=/dev/serial/by-path/YOUR-VERIFIED-SOM-UART
+export AGILEX_FORCE_FULL_BOOT=1
 ```
 
 `AGILEX_CONTAINER_ROOT` is that same directory's path **inside** the container.

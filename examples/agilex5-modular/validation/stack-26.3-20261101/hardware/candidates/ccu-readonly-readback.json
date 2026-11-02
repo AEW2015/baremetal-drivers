@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 20432,
+  "segments": [
+    {
+      "file": "upstream26-ccu-readonly.segment0.bin",
+      "bytes": 20432,
+      "sha256": "99285caf1dc4eb36c0a21bc79bd561dba7c0f2836b0e0a3e70e3c43f1d2abb72"
+    }
+  ]
+}

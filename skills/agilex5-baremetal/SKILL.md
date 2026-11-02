@@ -17,7 +17,8 @@ absent, obtain it at the user's chosen location from
 https://github.com/AEW2015/baremetal-drivers. Installing this skill alone does not
 install tools, examples or hardware images.
 
-Read `docs/setup.md` and `docs/container.md` in that checkout for tool setup.
+Read `docs/setup.md`, `docs/container.md` and `docs/stack-26.3.md` in that
+checkout for tool setup and the active release manifest.
 Build and run QEMU in the development environment (native Linux or the attached
 container). Run physical-board automation on the Linux host; set
 `AGILEX_CONTAINER_ROOT` to this same example directory inside the bind mount.
@@ -112,7 +113,8 @@ PASS expression into a hardware claim.
 
 For fabric IP or partial reconfiguration, read `docs/fabric-ip.md` and
 `docs/partial-reconfiguration.md`. RTL/driver simulation does not qualify a
-fitted image or live PR. The published fabric/PR labs still require target-specific
-integration; no live persona swap is established by the existing HPS campaign.
+fitted image or live PR. The 26.3 Modular ES campaign demonstrated a live ADD → XOR → ADD persona
+swap with static-state and DDR-guard checks. That result applies to the recorded
+matched full/partial images; new designs still need target-specific integration.
 When improving this skill, preserve demonstrated failures and narrow remedies,
 not universal rules inferred from one bench.

@@ -1,0 +1,24 @@
+The target architecture is set to "aarch64".
+_start () at qemu/labs/start.S:5
+5	 msr daifset,#15
+Hardware assisted breakpoint 1 at 0x402015b8: file qemu/labs/corruption.c, line 6.
+
+Breakpoint 1, copy_complete () at qemu/labs/corruption.c:6
+6	__attribute__((noinline)) void copy_complete(void) { __asm__ volatile("" ::: "memory"); }
+Hardware watchpoint 2: destination[37]
+
+Hardware watchpoint 2: destination[37]
+
+Old value = 1311768464867721253
+New value = 1311768464867721252
+0x00000000402015b4 in inject_corruption () at qemu/labs/corruption.c:5
+5	__attribute__((noinline)) void inject_corruption(void) { destination[37]^=1; }
+#0  0x00000000402015b4 in inject_corruption () at qemu/labs/corruption.c:5
+#1  0x0000000040201620 in main () at qemu/labs/corruption.c:12
+GDB PASS WATCHPOINT_CAUGHT_BAD_WRITE
+Hardware assisted breakpoint 3 at 0x402013e8: file qemu/labs/runtime.c, line 54.
+
+Breakpoint 3, lab_done (status=status@entry=0) at qemu/labs/runtime.c:54
+54	__attribute__((noreturn,noinline)) void lab_done(unsigned status) {
+GDB PASS ALL_512_WORDS_REPAIRED
+[Inferior 1 (process 1) detached]

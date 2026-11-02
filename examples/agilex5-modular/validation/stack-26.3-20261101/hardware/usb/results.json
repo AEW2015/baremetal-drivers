@@ -1,0 +1,34 @@
+{
+  "scope": "Volatile U-Boot USB session; no persistent environment or media writes",
+  "uboot_sha256": "d372f4485f31ed8474310fd9d41c9e57ba36d32c01b3cd993bf8fe57fe6194c0",
+  "monitor_sha256": "b6244ae63b11518b55365a0b02aad1d60e15299600072e26fcbbe9c704114e05",
+  "runner_sha256": "b8755c7004f9d30ae4439d96076a10944cd23fe3c24266bbe625cca5f66d76af",
+  "commands": [
+    {
+      "command": "setenv autostart no",
+      "prompt_returned": true
+    },
+    {
+      "command": "usb start",
+      "prompt_returned": true,
+      "xhci_started": true,
+      "device_counts": [
+        1
+      ],
+      "external_devices_observed": false
+    },
+    {
+      "command": "usb tree",
+      "prompt_returned": true
+    },
+    {
+      "command": "usb storage",
+      "prompt_returned": true
+    }
+  ],
+  "restoration": "pass",
+  "uboot_readback": "pass",
+  "monitor_readback": "pass",
+  "uboot_prompt": true,
+  "session_complete": true
+}

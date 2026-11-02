@@ -1,0 +1,143 @@
+{
+  "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+  "source_revision": "2e06d72895dd336e422a8c22dc3db3c0674cb624",
+  "artifacts": {
+    "build/upstream26-ocram/baremetal.bin": "e6ebc4fed1118a7f95acdfaaa164c2f013ad90ca33bdf227f2009511824b900f",
+    "build/upstream26-ddr/baremetal.bin": "fe35c0a5ef27717b946ae3bc0b68d349e756534d059b155b0251a18233b74d60",
+    "build/upstream26-ddr/baremetal.elf": "38bf695b386641090564acc0a42577c3f0457dfcff9b62ec54ae4482fb908cd6"
+  },
+  "tests": [
+    {
+      "name": "ccu",
+      "catalog_id": "upstream/ccu",
+      "command": "ccu_selftest",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 7.981162058655173,
+      "limitation": null,
+      "script_sha256": "428814b16c42f8f16cd56609fa902910e65c14dbb6950caea8aef9c92011c84a"
+    },
+    {
+      "name": "clk_mngr",
+      "catalog_id": "upstream/clk_mngr",
+      "command": "clk_mngr_selftest",
+      "status": "partial",
+      "process_exit": 0,
+      "seconds": 8.478163121268153,
+      "limitation": "Clock init/getters worked; SOFT_PHY and CS_CLK divisor getters return -EINVAL, no physical frequency claim.",
+      "script_sha256": "212b962b6b4aef86389ea90edd2990d8a511cfa121d2f844505d18f9c8ae81c4",
+      "initial_status": "pass"
+    },
+    {
+      "name": "dma",
+      "catalog_id": "upstream/dma",
+      "command": "dma_selftest",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.23368757404387,
+      "limitation": null,
+      "script_sha256": "bd8771e8baa18c625001ada6763ef954d2ce7b1cc1cbc4754352b6ccb5fa75fd"
+    },
+    {
+      "name": "ecc",
+      "catalog_id": "upstream/ecc",
+      "command": "ecc_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 7.779319287743419,
+      "limitation": null,
+      "script_sha256": "ae81656da3ee4018770af6d5343e6cec95c51afeeb39f589cd596d8c885f35d0"
+    },
+    {
+      "name": "fcs",
+      "catalog_id": "upstream/fcs",
+      "command": "fcs_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 7.877931664697826,
+      "limitation": null,
+      "script_sha256": "396f4d83c6c478649bcf5ddad5ac2e31f00888d338be2a37fa77e8489d55d5e6"
+    },
+    {
+      "name": "gpio",
+      "catalog_id": "upstream/gpio",
+      "command": "gpio_selftest",
+      "status": "partial",
+      "process_exit": 0,
+      "seconds": 7.929175755009055,
+      "limitation": "Source never opens the GPIO handle; printed value cannot prove a GPIO operation",
+      "script_sha256": "35582268840bc0c05dc22b606b06926b6cfa837b74b25d86a7fb0932c9289f22"
+    },
+    {
+      "name": "i2c",
+      "catalog_id": "upstream/i2c",
+      "command": "i2c_selftest",
+      "status": "partial",
+      "process_exit": 0,
+      "seconds": 10.080601295921952,
+      "limitation": "Command returned but required meaningful success markers were incomplete",
+      "script_sha256": "0b8d668ffc7582dc85b582ccf4409061d14c1732e35ef663626d3240ce467f6f"
+    },
+    {
+      "name": "i3c",
+      "catalog_id": "upstream/i3c",
+      "command": "i3c_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 8.029612929094583,
+      "limitation": null,
+      "script_sha256": "52daa602db3741c581d8ae467a2bda423e3ee3864887b71d2b203fd89b870656"
+    },
+    {
+      "name": "mmu",
+      "catalog_id": "upstream/mmu",
+      "command": "mmu_selftest 3",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 7.979372621979564,
+      "limitation": null,
+      "script_sha256": "b14856ba5a17e4e6a9954c744d09189a373001d881b9feab34ac22018be4515c"
+    },
+    {
+      "name": "sdmmc",
+      "catalog_id": "upstream/sdmmc",
+      "command": "sdmmc_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 7.8814442488364875,
+      "limitation": null,
+      "script_sha256": "07736762504f85a1c8239e0a518b516ab3bcb97abb78bce0c70e7c2d368f4264"
+    },
+    {
+      "name": "seu",
+      "catalog_id": "upstream/seu",
+      "command": "seu_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 8.08133244002238,
+      "limitation": null,
+      "script_sha256": "ca2daf412cd49f4a0fffe420839f3254998f9d76c92cb1c6decbbd369e816608"
+    },
+    {
+      "name": "smmu",
+      "catalog_id": "upstream/smmu",
+      "command": "smmu_selftest",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.27903317892924,
+      "limitation": null,
+      "script_sha256": "35e0865926c04c02b577fa0634034fa2e5adbc3be761d902fb08bb79131ef402"
+    },
+    {
+      "name": "spi",
+      "catalog_id": "upstream/spi",
+      "command": "spi_selftest",
+      "status": "partial",
+      "process_exit": 0,
+      "seconds": 8.579511021263897,
+      "limitation": "Internal SPI loopback passed; full command status queries fail after the API auto-closes.",
+      "script_sha256": "d72daa7af8e43631c6162843bdd20c50f82dc8815992f913a2f9c4fb30f870e1",
+      "initial_status": "pass"
+    }
+  ]
+}

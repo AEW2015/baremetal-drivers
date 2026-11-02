@@ -1,0 +1,9 @@
+{
+  "atf_commit": "09c4dc6628810d8570af69db43918d344f9e80e9",
+  "reset_to_bl31": true,
+  "bl31_base": "0x80000000",
+  "bl33_entry": "0x82400000",
+  "counter_hz": 400000000,
+  "counter_source": "plat/intel/soc/agilex5/include/socfpga_plat_def.h",
+  "bl31_sha256": "8877db31b4856bc47650778a3014697452bf328d3a1eeee6a33eeb5b06539cb4"
+}

@@ -4,9 +4,10 @@ set -Eeuo pipefail
 script_dir=$(cd "$(dirname "$0")" && pwd)
 pack_dir=$(realpath "$script_dir/../../..")
 work=$(realpath -m "${1:?Pass a new isolated output directory}")
-atf_source=$(realpath "${2:?Pass a local clone of pinned ATF 26.1.1}")
+atf_source=$(realpath "${2:?Pass a local clone of pinned ATF 26.3}")
 [[ ! -e "$work" ]] || { echo 'Output exists; preserve previous attempts' >&2; exit 1; }
-[[ $(git -C "$atf_source" rev-parse HEAD) == 2ea5afda7f34774ddcc677fb3a728fa57f780a1e ]]
+pin=$(python3 "$pack_dir/release_pins.py" atf.commit)
+[[ $(git -C "$atf_source" rev-parse HEAD) == "$pin" ]]
 mkdir -p "$work"
 git clone --no-hardlinks --local "$atf_source" "$work/atf"
 for f in hello_ddr.S atf-ddr-hook.patch local_ddr_probe.inc.in;do cp "$pack_dir/bootstrap/ddr/$f" "$work/$f";done

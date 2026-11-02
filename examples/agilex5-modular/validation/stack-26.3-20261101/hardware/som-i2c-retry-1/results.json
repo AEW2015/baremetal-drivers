@@ -1,0 +1,25 @@
+{
+  "requested_tests": [
+    "som-i2c"
+  ],
+  "started_utc": "2026-11-02T04:14:29.204264+00:00",
+  "initial_full_recovery": false,
+  "tests": [
+    {
+      "name": "som-i2c",
+      "elf": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/som_i2c.elf",
+      "sha256": "ad5e9691f4d4175fd1e64939f2f9a5fc42f930849b5aae3bda68e2d204839224",
+      "status": "pass",
+      "entry": "0x82400000",
+      "elapsed_seconds": 43.0,
+      "missing": [],
+      "debug_returncode": 0,
+      "observed_pass_markers": [
+        "PASS SOM_TEMP_ID: TMP464 manufacturer read",
+        "PASS SOM_EEPROM_READ: 16 bytes received; no data written"
+      ],
+      "failure_lines": []
+    }
+  ],
+  "restoration": "pass"
+}

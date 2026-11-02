@@ -76,7 +76,8 @@ Build isolated DDR boot variants using a local clone of pinned ATF:
 bash fabric/pr/hardware/build_boot.sh /new/boot-output /path/to/pinned/atf
 ```
 
-The script verifies ATF commit `2ea5afda7f34774ddcc677fb3a728fa57f780a1e`.
+The script verifies the 26.3 ATF commit from `stack-versions.json`
+(`09c4dc6628810d8570af69db43918d344f9e80e9`).
 Use the ADD implementation full image as the initial persona:
 
 ```sh
@@ -108,7 +109,8 @@ because the MCP conversion schema does not expose that operation.
 ## Deployment checks
 
 1. Compile the base, verify the PR partition/floorplan and static timing, and
-   export its final static QDB. Compile `pr_add` and `pr_xor` against that QDB.
+   export its final static QDB **including IP timing constraints** with
+   `bash fabric/pr/hardware/export_static.sh /path/to/platform`. Compile `pr_add` and `pr_xor` against that QDB.
 2. Inspect the resulting SOF/PMSF/RBF metadata and check both partial images
    against the same base using Programmer MCP `check_pr_compatibility`.
 3. Package the ADD-starting full image with its matching HPS bootloader/handoff
@@ -184,3 +186,25 @@ successful recovery; inspect both in `results.json`.
   boot was still at PC `0x2760`. Fresh DDR Hello and PC `0x82000024` later confirmed
   recovery. The coordinator now pre-halts and requires the recovery runner's
   new UART/PC proof; a successful programming message alone is insufficient.
+
+## Updating to the 26.3 catalog
+
+`generate.sh` explicitly upgrades root systems and leaf `.ip` sources before
+regeneration. `ip-upgrade-manifest.json` records versions and source hashes;
+the post-generation gate rejects parents that restore HPS 14.0 or EMIF 5.0.
+The qualified 26.3 catalog versions are HPS 14.1.0 and HPS EMIF 5.1.0.
+Preserve the Modular ES device, pin assignments, clock inputs and DDR settings.
+
+Use `export_static.sh` before synthesizing either implementation; both consume
+`pr_static-with-sdc.qdb`, with IP timing constraints explicitly included.
+Keep the partition import and all IP/QIP assignments **before** global
+`SDC_FILE` assignments in each QSF. The initial migrated ADD fit read the top
+SDC before imported PLL clocks and failed with an empty main-clock collection.
+An SDC-inclusive export alone did not fix the ordering. `configure.py` now
+keeps global SDC files last. Do not hide the error by skipping constraints or
+accepting auto-derived 1 ns clocks. Retain failed attempts and verify the final
+fit and timing reports.
+
+FPGA-first images reject PFG `-o hps=1`. Select the matching complete merged
+SOF with `AGILEX_FORCE_FULL_BOOT=1`; the host checks FPGA user mode in addition
+to fresh DDR/UART/PC proof. Keep a separate known-good recovery image.

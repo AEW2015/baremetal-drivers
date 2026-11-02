@@ -1,0 +1,32 @@
+{
+  "scope": "Current source DDR CLI on native Simics model, isolated instance per command; media/injection writes are virtual only",
+  "source_revision": "2e06d72895dd336e422a8c22dc3db3c0674cb624",
+  "artifacts": {
+    "build/upstream26-ocram/baremetal.bin": "e6ebc4fed1118a7f95acdfaaa164c2f013ad90ca33bdf227f2009511824b900f",
+    "build/upstream26-ddr/baremetal.bin": "fe35c0a5ef27717b946ae3bc0b68d349e756534d059b155b0251a18233b74d60",
+    "build/upstream26-ddr/baremetal.elf": "38bf695b386641090564acc0a42577c3f0457dfcff9b62ec54ae4482fb908cd6"
+  },
+  "tests": [
+    {
+      "name": "fcs",
+      "catalog_id": "upstream/fcs",
+      "command": "fcs_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 9.43451018165797,
+      "limitation": null,
+      "script_sha256": "1613a0207bc1156e0234a6a44fc7a0a90071ef26a33d1da9bd92f358277b0436"
+    },
+    {
+      "name": "seu",
+      "catalog_id": "upstream/seu",
+      "command": "seu_selftest",
+      "status": "fail",
+      "process_exit": 0,
+      "seconds": 8.684495890978724,
+      "limitation": null,
+      "script_sha256": "d499fe0cba4119bfc74e452d22f3cbb8595e8916e84acf2e1fbdf7ef210b8110"
+    }
+  ],
+  "bl31_sha256": "594acefa48f0a72be744fe610143c2aa8a03fe3dd9083314031e3511c9444f38"
+}

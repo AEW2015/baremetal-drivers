@@ -1,0 +1,15 @@
+{
+  "scope": "One Arm guest executes ADD-XOR-ADD through the actual static-shell RTL and simulated loader; no RBF parsing, physical PR or HPS bridge timing qualification",
+  "tests": [
+    {
+      "name": "pr-transition",
+      "status": "partial",
+      "observed_cases": {
+        "swap": "pass",
+        "load-error": "pass",
+        "wrong-persona": "pass"
+      },
+      "limitation": "Simulated loader does not parse RBF or implement SDM reconfiguration."
+    }
+  ]
+}

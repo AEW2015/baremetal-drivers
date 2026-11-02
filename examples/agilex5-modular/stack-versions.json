@@ -1,0 +1,26 @@
+{
+  "release": "26.3",
+  "quartus": {
+    "version": "26.3.0.114",
+    "hps_ip": "14.1.0",
+    "hps_emif_ip": "5.1.0"
+  },
+  "drivers": {
+    "commit": "66bdcc347564c5698a8997169bce83a31647d618",
+    "scope": "Upstream base revision; fork-local fixes remain tracked in Git and per-build source hashes."
+  },
+  "atf": {
+    "commit": "09c4dc6628810d8570af69db43918d344f9e80e9",
+    "tag": "QPDS26.3_REL_BASELINE_PR",
+    "scope": "Vendor release base; DDR and USB builds apply the documented local diagnostic hooks."
+  },
+  "uboot": {
+    "commit": "5ba74aeda63ed07e98670f8c2f0135de06543ba0",
+    "tag": "QPDS26.3_REL_BASELINE_PR",
+    "scope": "Vendor release base; the lab applies its guarded USB command/configuration patches."
+  },
+  "legacy": {
+    "commit": "1419101568f1a9034630b632634fe9fe71773266",
+    "scope": "Frozen historical API regression fixture; not the active firmware platform"
+  }
+}

@@ -1,0 +1,4 @@
+LAB BEGIN timer
+PASS TIMER_FREQUENCY
+FAIL timer interrupt identity
+LAB FAILED

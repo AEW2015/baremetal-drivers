@@ -92,9 +92,9 @@ def checklist(catalog, target):
                 values.append(label)
             lines.append(f"| [`{row['id']}`]({link(REPO/row['source'])}) | "+' | '.join(values)+' |')
         lines+=['','</details>','']
-    lines += [f"**USB work in progress:** the [bare-metal USB lab]({link(ROOT/'usb-bringup/README.md')}) "
-              'boots U-Boot on hardware, but USB controller readiness still fails. Hub enumeration, '
-              'mouse input, flash reads and USB-Ethernet traffic are pending.','',
+    lines += [f"**USB qualification:** the [bare-metal USB lab]({link(ROOT/'usb-bringup/README.md')}) "
+              'records controller/PHY bring-up, external-device enumeration and class traffic separately. '
+              'See the linked USB row and lab scope for current results.','',
               'Maintainers: regenerate these checklists with '
               '`python3 examples/agilex5-modular/catalog.py`; CI checks for drift.']
     return '\n'.join(lines)+'\n'

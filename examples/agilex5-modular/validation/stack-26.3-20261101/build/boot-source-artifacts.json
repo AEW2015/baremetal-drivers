@@ -1,0 +1,17 @@
+{
+  "atf_base_commit": "09c4dc6628810d8570af69db43918d344f9e80e9",
+  "scope": "Actual bridge/base diagnostic bootloader inputs and output hashes; no generated binary committed",
+  "inputs": {
+    "bootstrap/ddr/hello_ddr.S": "e97e3d85d252d94f0f3d7ae75a7fa7908b5220c90eeb288f05487e14e1eaadb1",
+    "bootstrap/ddr/atf-ddr-hook.patch": "04d2344a653d674e5f171c323aa0c0f04b45b5fafe2dd273d4c0e063c824da5a",
+    "bootstrap/ddr/local_ddr_probe.inc.in": "934e16f715c91a2574c443bbadf0b2b3c2f24fcc1201471e514014c18e8f10c7",
+    "fabric/pr/hardware/bridge_enable.inc": "6f8d6bc083600e21c709a13caab2f8f0f6d2060c94f6f8835f2a9edc5086de89",
+    "fabric/pr/hardware/build_boot.sh": "17c94586c9cfc2aa30552a3b6593d861fb866bb1bab1f82e7e0d9de1297ceb9b"
+  },
+  "artifacts": {
+    "bl2-base.hex": "45ef9459ccdf4162ffea434f67e21071c1347135ecde07bf7fbd6672dedc8dea",
+    "bl2-bridge.bin": "5dc9908133576b277402f03c45ecf85f84d8dee3d1c7caaaacb9f6a6ba86c708",
+    "bl2-base.bin": "1da907a6d8d40dff8abfb4e9f3ef410f6518ca86adf48bb51080405a4ba0c8e4",
+    "bl2-bridge.hex": "9ffdf3e231638563262792a32920fd08f32ea7e2ee64ce5b8ef36718f63231ea"
+  }
+}

@@ -1,0 +1,48 @@
+[
+  {
+    "label": "current-ddr",
+    "command": "python3 validation/stack-26.3-20261101/simics/ddr_examples.py",
+    "exit_code": 0,
+    "seconds": 107.3535930858925,
+    "evidence": []
+  },
+  {
+    "label": "current-ddr-el2",
+    "command": "python3 validation/stack-26.3-20261101/simics/ddr_examples.py --only fcs,seu --bl31 build/runtime-atf-26.3-ddr-console/agilex5/debug/bl31.bin",
+    "exit_code": 0,
+    "seconds": 18.27039334271103,
+    "evidence": []
+  },
+  {
+    "label": "psci",
+    "command": "python3 validation/stack-26.3-20261101/simics/psci_model.py",
+    "exit_code": 0,
+    "seconds": 9.022391854319721,
+    "evidence": []
+  },
+  {
+    "label": "fcs-fixed",
+    "command": "python3 validation/stack-26.3-20261101/simics/fcs_fixed.py",
+    "exit_code": 0,
+    "seconds": 10.580865737982094,
+    "evidence": [
+      "fcs-fixed"
+    ]
+  },
+  {
+    "label": "reboot-bl31",
+    "command": "python3 upstream-lab/run.py simics --only reboot --bl31 build/runtime-atf-26.3/agilex5/debug/bl31.bin --timeout 60",
+    "exit_code": 0,
+    "seconds": 9.385810524690896,
+    "evidence": [
+      "reboot-bl31"
+    ]
+  },
+  {
+    "label": "qemu-semihost",
+    "command": "python3 validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/semihost_probe.py",
+    "exit_code": 0,
+    "seconds": 0.24978554481640458,
+    "evidence": []
+  }
+]

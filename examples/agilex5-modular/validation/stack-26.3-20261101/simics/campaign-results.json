@@ -1,0 +1,201 @@
+{
+  "scope": "Fresh Simics campaign using existing hash-validated artifacts; no hardware qualification",
+  "started_utc": "2026-11-02T03:05:54.255968+00:00",
+  "source_revision": "2e06d72895dd336e422a8c22dc3db3c0674cb624",
+  "commands": [
+    {
+      "label": "upstream-console",
+      "command": "python3 simics/run.py --only hello,help,timer,gic,ddr",
+      "exit_code": 0,
+      "seconds": 12.841339886188507,
+      "evidence": [
+        "upstream-console"
+      ],
+      "log_sha256": "3a8cc31c1b1e309102a7a4a1f9b394bb321abdd69c840f5f44dcd86291279fa7"
+    },
+    {
+      "label": "legacy-all",
+      "command": "python3 simics/legacy.py --all --timeout 40",
+      "exit_code": 1,
+      "seconds": 27.269924864172935,
+      "evidence": [
+        "legacy-all"
+      ],
+      "log_sha256": "33eb3bbf5727a9f7d382f7b72e66c06da03b89cb696deb63eac5785c52b56eba"
+    },
+    {
+      "label": "upstream-adapters",
+      "command": "python3 upstream-lab/run.py simics --only crc,perf,combophy,noc,reset,reboot,smc-guard,perf-zero-clock --timeout 60",
+      "exit_code": 1,
+      "seconds": 69.2577509842813,
+      "evidence": [
+        "upstream-adapters"
+      ],
+      "log_sha256": "841cf2d1112036969c8bf3cfc7a2bddde6550bc39cab870563c482e682edac4b"
+    },
+    {
+      "label": "upstream-services",
+      "command": "python3 upstream-lab/run.py simics --only iossm,bridge,mailbox,bridge-control --bl31 build/runtime-atf-26.3/agilex5/debug/bl31.bin --timeout 60",
+      "exit_code": 1,
+      "seconds": 36.22846979415044,
+      "evidence": [
+        "upstream-services"
+      ],
+      "log_sha256": "5caf7bf8d9571d93a00384e7663adb208f086e6c9053d15b96c9c45aba19ece3"
+    },
+    {
+      "label": "practice",
+      "command": "python3 practice/run.py --negative --timeout 90",
+      "exit_code": 0,
+      "seconds": 103.29178963089362,
+      "evidence": [
+        "practice"
+      ],
+      "log_sha256": "cc07b41e7ca7c6811f8ae219b520a78a579ad4f826527eb0f0c0fd2a364e7e27"
+    },
+    {
+      "label": "config-audit",
+      "command": "python3 config-audit/run.py",
+      "exit_code": 0,
+      "seconds": 24.291529940906912,
+      "evidence": [
+        "config-audit"
+      ],
+      "log_sha256": "a69f06ad6ee50036cfdd582df841c9cf8848f3b482dd8adf8b18aee370332aba"
+    },
+    {
+      "label": "model-audit",
+      "command": "python3 model-audit/run.py",
+      "exit_code": 0,
+      "seconds": 17.460954872891307,
+      "evidence": [
+        "model-audit"
+      ],
+      "log_sha256": "1fb002543271132eff4e99234e03c8461e1469d0c9bc8be1a0c63ed1359d7f0a"
+    },
+    {
+      "label": "rtl",
+      "command": "python3 simics-rtl/run.py --timeout 90",
+      "exit_code": 0,
+      "seconds": 25.078723061829805,
+      "evidence": [
+        "rtl"
+      ],
+      "log_sha256": "73ab7e8173347f9b06ca05917e413297d550b0c85078b554daeb05f273f8d469"
+    },
+    {
+      "label": "dsu",
+      "command": "python3 memory-labs/dsu/run_simics.py --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/dsu",
+      "exit_code": 0,
+      "seconds": 55.91788431070745,
+      "evidence": [
+        "dsu"
+      ],
+      "log_sha256": "93e801bb86856b3361b86985d2f48346ff4865572db8299f52b96d2d8f89ab4a"
+    },
+    {
+      "label": "ddr",
+      "command": "python3 memory-labs/ddr/run_simics.py --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/ddr",
+      "exit_code": 0,
+      "seconds": 30.197400969918817,
+      "evidence": [
+        "ddr"
+      ],
+      "log_sha256": "2e1592c44f24455e33f606fee332b41af8448117ad18f09a96203c19a2e6c43f"
+    },
+    {
+      "label": "native-tbu",
+      "command": "python3 memory-labs/smmu/native_run.py",
+      "exit_code": 0,
+      "seconds": 8.77828175900504,
+      "evidence": [
+        "native-tbu"
+      ],
+      "log_sha256": "cb809c836d9092b9ae54b3accae986d2828090c4096d829b6f38af762e23fb6d"
+    },
+    {
+      "label": "dmac-tbu",
+      "command": "python3 memory-labs/smmu/dmac/run_simics.py --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/dmac-tbu",
+      "exit_code": 0,
+      "seconds": 9.434703117236495,
+      "evidence": [
+        "dmac-tbu"
+      ],
+      "log_sha256": "9ea889bbdfb7ba344da45a31efbb813a8ab4deca7798f976ad2c3094843254e6"
+    },
+    {
+      "label": "fabric-physical",
+      "command": "python3 memory-labs/fabric-ddr/simics/run.py --case physical --route physical --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-physical",
+      "exit_code": 0,
+      "seconds": 8.988074941094965,
+      "evidence": [
+        "fabric-physical"
+      ],
+      "log_sha256": "154032bc7327924b6a75059d8d51bfea781336ffcab39e788a335606a1d44ef9"
+    },
+    {
+      "label": "fabric-axi-error",
+      "command": "python3 memory-labs/fabric-ddr/simics/run.py --case axi-error --route physical --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-axi-error",
+      "exit_code": 0,
+      "seconds": 8.876732520759106,
+      "evidence": [
+        "fabric-axi-error"
+      ],
+      "log_sha256": "e5c853550b1f2da35ba7c6db47a8848fab8589de2145ac05160c98fc0287bb0e"
+    },
+    {
+      "label": "fabric-read-error",
+      "command": "python3 memory-labs/fabric-ddr/simics/run.py --case read-error --route physical --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-read-error",
+      "exit_code": 0,
+      "seconds": 8.677924254909158,
+      "evidence": [
+        "fabric-read-error"
+      ],
+      "log_sha256": "cdcd9ec71104f2195e97d7f2b10a8cd4ba18cb1a00a96123b82a1ad017d0a419"
+    },
+    {
+      "label": "fabric-timeout-drain",
+      "command": "python3 memory-labs/fabric-ddr/simics/run.py --case timeout-drain --route physical --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-timeout-drain",
+      "exit_code": 0,
+      "seconds": 8.72945612622425,
+      "evidence": [
+        "fabric-timeout-drain"
+      ],
+      "log_sha256": "360e13e5a56cdd907f6703e8680a1879109d98a9e39a8642508ba08cd8190c40"
+    },
+    {
+      "label": "fabric-f2h-valid",
+      "command": "python3 memory-labs/fabric-ddr/simics/run.py --case f2h-valid --route f2soc --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-f2h-valid",
+      "exit_code": 2,
+      "seconds": 0.17343177599832416,
+      "evidence": [],
+      "log_sha256": "fca0ac93c9fd21a0db6ccc71a290a6f9cd7fec50d86f56afd26da3e82d3bf5fb"
+    },
+    {
+      "label": "fabric-f2h-fault",
+      "command": "python3 memory-labs/fabric-ddr/simics/run.py --case f2h-fault --route f2soc --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-f2h-fault",
+      "exit_code": 2,
+      "seconds": 0.17452028300613165,
+      "evidence": [],
+      "log_sha256": "814176ea5da2d73fe1b71d6ac98abbbbb67b64bbd9a4d729ca6478e91a197a07"
+    },
+    {
+      "label": "fabric-f2sdram-valid",
+      "command": "python3 memory-labs/fabric-ddr/simics/run.py --case f2sdram-valid --route f2sdram --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-f2sdram-valid",
+      "exit_code": 2,
+      "seconds": 0.14246653392910957,
+      "evidence": [],
+      "log_sha256": "287f767dda0c45ed5740895edaa7f2f6b04736da4450d9bf0bd124443f89dab4"
+    },
+    {
+      "label": "fabric-f2sdram-fault",
+      "command": "python3 memory-labs/fabric-ddr/simics/run.py --case f2sdram-fault --route f2sdram --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-f2sdram-fault",
+      "exit_code": 2,
+      "seconds": 0.1450823089107871,
+      "evidence": [],
+      "log_sha256": "3d5632ce90ffcbc02f91d6c480136f73f59f5a612a56f6dd99156bf58deadcb2"
+    }
+  ],
+  "simics_version": "Simics Base            1000    7.89.0    (                7163) 2026-06-09\nCrypto Engine          1030    7.18.0    (                7150) 2026-04-10\nSimics GDB             1031    7.11.0    (                7155) 2026-04-29\nSimics Python          1033    7.15.0    (                7150) 2026-04-10\nIntel FPGA External    9000    7.1.0     (intel.fpga:263000013)           \nPython version: 3.10.19\nVMP kernel module is not loaded\n",
+  "finished_utc": "2026-11-02T03:13:30.632938+00:00"
+}

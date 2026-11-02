@@ -1,0 +1,25 @@
+Info: *******************************************************************
+Info: Running Quartus Prime Programming File Generator
+    Info: Version 26.3.0 Build 114 10/14/2026 SC Pro Edition
+    Info: Copyright (C) 2026  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Mon Nov  2 03:00:35 2026
+    Info: System process ID: 1470143
+Info: Command: quartus_pfg -c /workspace/agilex5-stack-20261101/platform/output_files/baseline_a55.sof /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/platform26.3/boot/ddr_recovery.sof -o hps_path=/workspace/agilex5-stack-20261101/boot/bl2-bridge.hex
+Info: Quartus Prime Programming File Generator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 996 megabytes
+    Info: Processing ended: Mon Nov  2 03:00:37 2026
+    Info: Elapsed time: 00:00:02
+    Info: System process ID: 1470143

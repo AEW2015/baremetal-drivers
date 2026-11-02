@@ -33,7 +33,7 @@
       "path": "/Fabric",
       "title": "FPGA fabric contexts",
       "role": "Reference, proposed RTL and PR recipe are separate contexts",
-      "scope": "Mixed contexts — inspect each child",
+      "scope": "Mixed contexts \u2014 inspect each child",
       "documents": [
         "bridges"
       ]
@@ -47,7 +47,7 @@
     {
       "path": "/HPS/MPU",
       "title": "Micro Processor Unit (MPU)",
-      "role": "Dual A76, dual A55 and DynamIQ Shared Unit — TRM chapter 3",
+      "role": "Dual A76, dual A55 and DynamIQ Shared Unit \u2014 TRM chapter 3",
       "scope": "TRM architecture",
       "documents": [
         "mpu"
@@ -56,7 +56,7 @@
     {
       "path": "/HPS/APS",
       "title": "Application Processor Subsystem (APS)",
-      "role": "CCU, GIC, SMMU, OCRAM and coherent F2H bridge — TRM section 2.3.3",
+      "role": "CCU, GIC, SMMU, OCRAM and coherent F2H bridge \u2014 TRM section 2.3.3",
       "scope": "TRM architecture",
       "documents": [
         "aps"
@@ -84,7 +84,7 @@
     {
       "path": "/HPS/PSS",
       "title": "Peripheral Subsystem (PSS)",
-      "role": "PSS NoC, peripherals, PSI and HPS-to-fabric bridges — TRM section 2.3.4",
+      "role": "PSS NoC, peripherals, PSI and HPS-to-fabric bridges \u2014 TRM section 2.3.4",
       "scope": "TRM architecture",
       "documents": [
         "pss"
@@ -680,7 +680,7 @@
     {
       "path": "/HPS/PSS/Peripherals/USB_PHY_interface",
       "title": "USB PHY channel interface",
-      "role": "Architectural PHY interface context; controller identification does not qualify external I/O",
+      "role": "USB3320 ULPI identity reads passed on the 26.3 Modular stack; external enumeration and packet traffic remain unqualified",
       "scope": "TRM architecture",
       "documents": [
         "usb31",
@@ -705,7 +705,7 @@
     },
     {
       "path": "/Fabric/HPS_DDR_probe",
-      "title": "AXI initiator → HPS DDR",
+      "title": "AXI initiator \u2192 HPS DDR",
       "role": "Guarded fabric memory traffic generator with C driver and native Simics TBU tests",
       "scope": "Actual Verilator RTL and Arm guest tests pass against modeled HPS DDR/F2H/F2SDRAM. Physical FPGA fit and bridge qualification pending. This is an initiator, not a fabric DDR controller.",
       "source": "examples/agilex5-modular/memory-labs/fabric-ddr/rtl/ddr_probe.sv",
@@ -1691,11 +1691,11 @@
   },
   "sources": {
     "trm": {
-      "title": "Agilex 5 HPS TRM — 26.1.1",
+      "title": "Agilex 5 HPS TRM \u2014 26.1.1",
       "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs"
     },
     "address_map": {
-      "title": "HPS address maps — select R0 for this ES bench",
+      "title": "HPS address maps \u2014 select R0 for this ES bench",
       "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/hps-address-map-and-register-definitions"
     },
     "overview": {
@@ -1707,7 +1707,7 @@
       "url": "https://docs.altera.com/v/u/docs/836174/agilextm-5-fpga-e-series-065b-modular-fpga-development-kit-board-som-board-schematic"
     },
     "simics": {
-      "title": "Simics fabric models — behavioral, not custom RTL",
+      "title": "Simics fabric models \u2014 behavioral, not custom RTL",
       "url": "https://docs.altera.com/r/docs/786901/25.3/intel-simics-simulator-for-altera-fpgas-agilextm-5-and-agilextm-3-virtual-platform-user-guide/fpga-fabric"
     },
     "simics_rtl": {
@@ -1715,7 +1715,7 @@
       "url": "https://aew2015.github.io/baremetal-drivers/simics-rtl/"
     },
     "memory_labs": {
-      "title": "Memory, translation and fabric labs — model results and physical gates",
+      "title": "Memory, translation and fabric labs \u2014 model results and physical gates",
       "url": "https://aew2015.github.io/baremetal-drivers/memory-fabric-labs/"
     }
   },
@@ -1754,21 +1754,21 @@
       "version": "26.1.1"
     },
     "a55": {
-      "title": "3.6. MPU Arm® Cortex® -A55 Core",
+      "title": "3.6. MPU Arm\u00ae Cortex\u00ae -A55 Core",
       "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/mpu-arm-cortex-a55-core?contentId=OeJT~52OokYgPqgJAIHNOw",
       "content_id": "OeJT~52OokYgPqgJAIHNOw",
       "kind": "trm",
       "version": "26.1.1"
     },
     "a76": {
-      "title": "3.5. MPU Arm® Cortex® -A76 Core",
+      "title": "3.5. MPU Arm\u00ae Cortex\u00ae -A76 Core",
       "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/mpu-arm-cortex-a76-core?contentId=LwX9JuMFM1ibInPs_YfgFA",
       "content_id": "LwX9JuMFM1ibInPs_YfgFA",
       "kind": "trm",
       "version": "26.1.1"
     },
     "dsu": {
-      "title": "3.7. MPU Arm® DynamIQ Shared Unit",
+      "title": "3.7. MPU Arm\u00ae DynamIQ Shared Unit",
       "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/mpu-arm-dynamiq-shared-unit?contentId=RiHTTAIy2Oap_hx3lqNP3w",
       "content_id": "RiHTTAIy2Oap_hx3lqNP3w",
       "kind": "trm",
@@ -2048,7 +2048,7 @@
       "version": "26.1.1"
     },
     "debug": {
-      "title": "15. CoreSight™ Debug and Trace",
+      "title": "15. CoreSight\u2122 Debug and Trace",
       "url": "https://docs.altera.com/r/docs/814346/26.1.1/hard-processor-system-technical-reference-manual-agilex-5-socs/coresight-debug-and-trace?contentId=kld2Ti8dciKQVqT2pYSfeQ",
       "content_id": "kld2Ti8dciKQVqT2pYSfeQ",
       "kind": "trm",
@@ -2085,7 +2085,7 @@
   },
   "flows": [
     {
-      "name": "CPU → DDR",
+      "name": "CPU \u2192 DDR",
       "nets": [
         "|HPS_DDR_access",
         "|DDR_bank_3A",
@@ -2093,7 +2093,7 @@
       ]
     },
     {
-      "name": "CPU → fabric",
+      "name": "CPU \u2192 fabric",
       "nets": [
         "/HPS|MPU_to_APS",
         "/HPS|APS_to_PSS",
@@ -2102,7 +2102,7 @@
       ]
     },
     {
-      "name": "CPU → SDM services",
+      "name": "CPU \u2192 SDM services",
       "nets": [
         "/HPS|MPU_to_APS",
         "/HPS|APS_to_PSS",

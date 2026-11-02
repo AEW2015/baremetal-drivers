@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 9976,
+  "segments": [
+    {
+      "file": "upstream26-ddr-clock-fault.segment0.bin",
+      "bytes": 8888,
+      "sha256": "20c906722b70582c00379d91ad05c5e4d6bb25e1269f2db873633211a73c3d15"
+    },
+    {
+      "file": "upstream26-ddr-clock-fault.segment1.bin",
+      "bytes": 1088,
+      "sha256": "e929c890cf9f58bb89a8fdd5dca68e686ef21bb1c27141e8f0bf28e3c9ed7e49"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{
+  "text": "Detected 2 cable(s):\n  1: Agilex_5E MDK Carrier [1-4.2.1]\n    Device 1: JTAG ID 0x4BA06477  OPN ARM_CORESIGHT_SOC_600\n    Device 2: JTAG ID 0x364F0DD  OPN A5EC065BB32AR0\n    Device 3: JTAG ID 0x20D10DD  OPN VTAP10\n  2: Atum A3 Nano [1-4.3-iface0]\n    Device 1: JTAG ID 0x436DB0DD  OPN A3CY135BB18A\n\nNote: Use JTAG ID for device matching \u2014 it is the unambiguous silicon identifier. Compare it against the 'JTAG ID' field from analyze_bitstream."
+}

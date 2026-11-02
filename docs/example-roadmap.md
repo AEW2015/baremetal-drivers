@@ -87,29 +87,16 @@ See the [memory/fabric results](memory-fabric-labs.md) for commands and evidence
 
 ## 3. Add real USB communication
 
-- [ ] **SOM USB connection** (`/SOM_IO/USB_port`): identify the connector, role,
-  cable, power requirements and known test device/host; add enumeration and
-  checked data transfers. A source-built U-Boot bare-metal image has booted on
-  the board using a bounded 128 MiB DDR window; its xHCI controller-not-ready
-  timeout currently prevents external USB enumeration. No Linux OS was booted.
-  The maintained U-Boot USB stack has intended hub, HID, storage, and candidate
-  USB-Ethernet support, but enumeration and class traffic remain unproven. In
-  the latest controlled retry, normal vendor USB3 PIPE-power bit 14 was restored
-  (`USB3_MISC0` `0x07c00c11` → `0x07c04c11`, `PER0MODRST=0`); xHCI still timed
-  out waiting for CNR with `USBSTS=0x00000801` and error `-110`. The change did
-  not resolve the issue or identify its cause. PHY, PIPE-clock, and board-control
-  behavior remain under investigation. Clean-power-cycle and flash retries
-  reproduced the CNR and ULPI failures. A full-SPL experiment stopped at
-  `spl_early_init`; the established DDR Hello was restored. No enumeration or
-  transfer passed. The standalone
-  SDK currently has only a USB controller-ID result.
-  See the [USB bring-up record](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/usb-bringup/README.md).
-- [ ] **USB PHY interface** (`/HPS/PSS/Peripherals/USB_PHY_interface`): establish
-  the actual PHY path used by that setup and associate its physical evidence.
-  Controller identification is not PHY or external-device communication.
-  The current xHCI CNR timeout blocks external enumeration, so this PHY
-  association is also pending; the PIPE-power retry above did not identify the
-  root cause. See the
+- [ ] **SOM USB connection** (`/SOM_IO/USB_port`): complete external hub
+  enumeration and checked HID, read-only storage and USB-Ethernet transfers.
+  The [26.3 retest](validation-26.3.md) now initializes xHCI and enumerates its
+  5 Gb/s root hub, clearing the earlier CNR stall. External devices still did
+  not enumerate, including one bounded USB reset/rescan. No Linux OS was booted.
+- [x] **USB PHY register access** (`/HPS/PSS/Peripherals/USB_PHY_interface`):
+  USB3320 ULPI identity reads now return vendor `0424`, product `0007` on the
+  physical Modular kit. This establishes register communication with that PHY;
+  packet traffic and the external USB3/USB2 device paths remain unqualified.
+  See the [fresh report](validation-26.3.md) and retained
   [USB bring-up record](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/usb-bringup/README.md).
 
 This work requires a suitable external USB setup. Enumeration, checked HID
@@ -189,10 +176,10 @@ handoff, and use the shared hardware mutex for physical execution.
 - [ ] Fit and deploy the fabric initiator after the reserved OpenTPU build
   window, using a verified CSR/master map and the matching HPS handoff.
 - [ ] Verify both physical fabric TBU paths, faults and guards on HPS DDR bank 3A.
-- [ ] Resolve USB controller/PHY startup and obtain actual hub/class traffic.
-  Clean-power-cycle and flash retries reproduced CNR/ULPI failures; full SPL
-  stopped at `spl_early_init`. DDR Hello was restored, but enumeration and
-  transfers remain unqualified.
+- [x] Initialize xHCI and read USB3320 identity on the matched 26.3 stack.
+- [ ] Complete external hub/device enumeration and checked class traffic.
+  The root hub and PHY now respond, but flash/mouse/USB-Ethernet transfers
+  remain unqualified after the bounded reset/rescan. DDR Hello was restored.
 
 ## Completion evidence for each lab
 

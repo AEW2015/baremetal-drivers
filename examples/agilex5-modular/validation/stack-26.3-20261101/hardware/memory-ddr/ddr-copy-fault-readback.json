@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 9988,
+  "segments": [
+    {
+      "file": "upstream26-ddr-copy-fault.segment0.bin",
+      "bytes": 8900,
+      "sha256": "f8ef64f3d2bc4b9c2d710c7cc5f14b9b905f3141b7b3f887e1c46318f54d3dcc"
+    },
+    {
+      "file": "upstream26-ddr-copy-fault.segment1.bin",
+      "bytes": 1088,
+      "sha256": "5aa73a1c5633775be7eaa382ff71745e63b74278285d001ad89339f47dd27b5e"
+    }
+  ]
+}

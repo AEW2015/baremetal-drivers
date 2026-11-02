@@ -1,0 +1,60 @@
+{
+  "ip/hps_subsys/agilex_hps.ip": {
+    "old_parameter_count": 464,
+    "new_parameter_count": 466,
+    "changes": {
+      "bonusData": {
+        "old": "bonusData \n{\n   element $system\n   {\n      datum _originalDeviceFamily\n      {\n         value = \"Agilex 5\";\n         type = \"String\";\n      }\n   }\n   element intel_agilex_5_soc_inst\n   {\n      datum _originalVersion\n      {\n         value = \"13.0.0\";\n         type = \"String\";\n      }\n      datum _sortIndex\n      {\n         value = \"0\";\n         type = \"int\";\n      }\n   }\n}\n",
+        "new": "bonusData \n{\n   element intel_agilex_5_soc_inst\n   {\n      datum _sortIndex\n      {\n         value = \"0\";\n         type = \"int\";\n      }\n   }\n}\n"
+      },
+      "isInterconnectIP": {
+        "old": null,
+        "new": "false"
+      },
+      "maximumBurstLength": {
+        "old": null,
+        "new": "256"
+      }
+    }
+  },
+  "ip/hps_subsys/emif_io96b_hps.ip": {
+    "old_parameter_count": 169,
+    "new_parameter_count": 169,
+    "changes": {
+      "bonusData": {
+        "old": "bonusData \n{\n   element $system\n   {\n      datum _originalDeviceFamily\n      {\n         value = \"Agilex 5\";\n         type = \"String\";\n      }\n   }\n   element emif_io96b_hps_inst\n   {\n      datum _originalVersion\n      {\n         value = \"4.2.0\";\n         type = \"String\";\n      }\n      datum _sortIndex\n      {\n         value = \"0\";\n         type = \"int\";\n      }\n   }\n}\n",
+        "new": "bonusData \n{\n   element emif_io96b_hps_inst\n   {\n      datum _sortIndex\n      {\n         value = \"0\";\n         type = \"int\";\n      }\n   }\n}\n"
+      }
+    }
+  },
+  "ip/shell_subsys/sys_pll.ip": {
+    "old_parameter_count": 280,
+    "new_parameter_count": 285,
+    "changes": {
+      "gui_divide_factor_d": {
+        "old": null,
+        "new": "0"
+      },
+      "gui_location_type_g1": {
+        "old": null,
+        "new": "General Purpose"
+      },
+      "gui_multiply_fraction": {
+        "old": "0",
+        "new": "0.0"
+      },
+      "gui_pll_type_g1": {
+        "old": null,
+        "new": "gppll"
+      },
+      "gui_set_fractional": {
+        "old": null,
+        "new": "FRAC_OFF"
+      },
+      "gui_set_freq": {
+        "old": null,
+        "new": "FREQ_OUT"
+      }
+    }
+  }
+}

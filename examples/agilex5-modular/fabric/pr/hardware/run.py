@@ -30,6 +30,8 @@ def main():
  p.add_argument('--mcp-client',required=True,type=Path);p.add_argument('--port',default='/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0')
  p.add_argument('--run',action='store_true');p.add_argument('--wait-for-hardware',action='store_true')
  a=p.parse_args();manifest=validate_manifest(a.manifest)
+ sys.path.insert(0,str(ROOT));from stack_bench import StackBench
+ stack=StackBench(a.bench)
  workspace=a.mcp_client.resolve().parent
  def remote(path):return '/workspace/'+str(Path(path).resolve().relative_to(workspace))
  for key in ('full_sof','add','xor'):remote(manifest[key]['path'])
@@ -114,9 +116,9 @@ def main():
   v=termios.tcgetattr(fd);v[0]=v[1]=v[3]=0;v[2]=termios.CS8|termios.CREAD|termios.CLOCAL;v[4]=v[5]=termios.B115200;v[6][termios.VMIN]=v[6][termios.VTIME]=0;termios.tcsetattr(fd,termios.TCSANOW,v)
   boot('full_sof','base')
   chain('guest-load');termios.tcflush(fd,termios.TCIFLUSH)
-  image=Path(manifest['guest_bin']['path']);copy=a.bench/'examples/build'/(out.name+'-guest.bin');copy.write_bytes(image.read_bytes());readback=Path(str(copy)+'.readback');readback.unlink(missing_ok=True)
-  rp='/home/dev/baremetal-guide-validation/examples/build/'+copy.name
-  script=a.bench/'examples/build'/(out.name+'-guest.tcl')
+  image=Path(manifest['guest_bin']['path']);copy=stack.payload(out.name+'-guest.bin');copy.write_bytes(image.read_bytes());readback=Path(str(copy)+'.readback');readback.unlink(missing_ok=True)
+  rp=stack.remote(copy)
+  script=stack.payload(out.name+'-guest.tcl')
   script.write_text(f'''hps.a55.0 configure -event halted {{}}
 hps.a55.0 configure -event resumed {{}}
 gdb port disabled
@@ -132,12 +134,12 @@ puts "PR_GUEST_LOAD_COMPLETE"
 shutdown
 ''')
   (out/'guest-load.tcl').write_text(script.read_text())
-  body=command(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','30s','openocd','-f','/home/dev/baremetal-guide-validation/ocram/agilex5.cfg','-f','/home/dev/baremetal-guide-validation/examples/build/'+script.name],'guest-load',45)
+  body=command(stack.command(['timeout','--kill-after=5s','30s','openocd','-f',stack.cfg,'-f',stack.remote(script)]),'guest-load',45)
   if 'PR_GUEST_LOAD_COMPLETE' not in body or not readback.is_file() or readback.read_bytes()!=image.read_bytes():raise RuntimeError('Guest readback mismatch; CPU remains halted')
   (out/'guest-readback.json').write_text(json.dumps({'status':'pass','sha256':sha(readback),'bytes':readback.stat().st_size},indent=2)+'\n')
   script.write_text('hps.a55.0 configure -event halted {}\nhps.a55.0 configure -event resumed {}\ngdb port disabled\ntcl port disabled\ntelnet port disabled\ninit\nhalt\nresume 0x82100000\nshutdown\n')
   (out/'guest-start.tcl').write_text(script.read_text())
-  command(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','30s','openocd','-f','/home/dev/baremetal-guide-validation/ocram/agilex5.cfg','-f','/home/dev/baremetal-guide-validation/examples/build/'+script.name],'guest-start',45)
+  command(stack.command(['timeout','--kill-after=5s','30s','openocd','-f',stack.cfg,'-f',stack.remote(script)]),'guest-start',45)
   uart=b'';loads=[];deadline=time.monotonic()+300
   while time.monotonic()<deadline:
    uart+=drain();(out/'guest-uart.txt').write_bytes(uart)
@@ -165,12 +167,15 @@ shutdown
    if hardware_touched and not uncertain:
     idx,_,_=chain('restore')
     if idx!='1':raise RuntimeError('Bench recovery requires verified carrier as cable 1')
-    # Stop the previous boot's UART before the legacy recovery capture starts.
-    # Otherwise a boot still printing its DDR patterns can satisfy that runner
-    # before the replacement boot has reached DDR (observed PC 0x2760).
-    halt='hps.a55.0 configure -event halted {}; hps.a55.0 configure -event resumed {}; gdb port disabled; tcl port disabled; telnet port disabled; init; halt; shutdown'
-    command(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','30s','openocd','-f','/home/dev/baremetal-guide-validation/ocram/agilex5.cfg','-c',halt],'restore-prehalt',45)
-    r=subprocess.run([sys.executable,str(a.bench/'ddr-bringup/run_ddr.py'),'--port',a.port,'--full-recovery'],capture_output=True,timeout=240)
+    # The migrated full base is independently qualified before PR testing.
+    # Its bootstrap pre-halts the old guest and verifies fresh UART/DDR/PC.
+    if stack.current:
+     record['restoration_image_sha256']=sha(stack.image)
+     r=stack.bootstrap(a.port,lock.fileno(),full=True)
+    else:
+     halt='hps.a55.0 configure -event halted {}; hps.a55.0 configure -event resumed {}; gdb port disabled; tcl port disabled; telnet port disabled; init; halt; shutdown'
+     command(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','30s','openocd','-f','/home/dev/baremetal-guide-validation/ocram/agilex5.cfg','-c',halt],'restore-prehalt',45)
+     r=subprocess.run([sys.executable,str(a.bench/'ddr-bringup/run_ddr.py'),'--port',a.port,'--full-recovery'],capture_output=True,timeout=240)
     (out/'restore.log').write_bytes(r.stdout+r.stderr);record['restoration']='pass' if r.returncode==0 else 'fail'
    else:record['restoration']='not attempted: uncertain owned process' if uncertain else 'not needed'
   except BaseException as exc:record['restoration']='fail';record['restore_error']=repr(exc)

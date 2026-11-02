@@ -64,10 +64,10 @@ def active():
   state=pathlib.Path(f'/proc/{pid}/stat').read_text().rsplit(')',1)[1].split()[0]
   if state == 'Z': return False
   current=pathlib.Path(f'/proc/{pid}/environ').read_bytes().split(b'\\0')
- except FileNotFoundError: return False
+ except (FileNotFoundError, ProcessLookupError): return False
  except PermissionError:
   try: state=pathlib.Path(f'/proc/{pid}/stat').read_text().rsplit(')',1)[1].split()[0]
-  except FileNotFoundError: return False
+  except (FileNotFoundError, ProcessLookupError): return False
   if state in ('Z','X'): return False
   permission_retries += 1
   if permission_retries > 20: raise

@@ -9,9 +9,11 @@
 #define DR R(0x10c03200)
 #define DDR R(0x10c03204)
 #define INPUT R(0x10c03250)
+static uint32_t timeout_lines;
+static int saw_nack;
 static void pause_bus(void){for(volatile unsigned i=0;i<1500;i++){} }
 static void low(uint32_t bits){DR&=~bits;DDR|=bits;pause_bus();}
-static int release(uint32_t bits){DDR&=~bits;pause_bus();return wait_bits(0x10c03250,bits,bits);}
+static int release(uint32_t bits){DDR&=~bits;pause_bus();int ok=wait_bits(0x10c03250,bits,bits);if(!ok)timeout_lines|=bits;return ok;}
 static int start(void){if(!release(SDA))return 0;if(!release(SCL))return 0;low(SDA);low(SCL);return 1;}
 static void stop(void){low(SDA);if(release(SCL))release(SDA);}
 static int write_byte(uint8_t byte){
@@ -21,7 +23,7 @@ static int write_byte(uint8_t byte){
  low(SCL);byte<<=1;
  }
  DDR&=~SDA;pause_bus();if(!release(SCL))return 0;
- int ack=!(INPUT&SDA);low(SCL);return ack;
+ int ack=!(INPUT&SDA);if(!ack)saw_nack=1;low(SCL);return ack;
 }
 static int read_byte(uint8_t *out,int ack){
  uint8_t value8=0;DDR&=~SDA;
@@ -32,6 +34,7 @@ static int read_byte(uint8_t *out,int ack){
 }
 static unsigned nack_stage;
 static int read_register(uint8_t addr,uint16_t pointer,unsigned ptrlen,uint8_t *out,unsigned len){
+ timeout_lines=0;saw_nack=0;
  nack_stage=1;int ok=start()&&write_byte(addr<<1);
  if(!ok)goto done_read;
  nack_stage=2;
@@ -55,16 +58,23 @@ void example_main(void){
  uint32_t id=((uint32_t)bytes[0]<<8)|bytes[1];value("TMP464 manufacturer = ",id);
  text(ok&&id==0x5449?"PASS SOM_TEMP_ID: TMP464 manufacturer read\n":"FAIL SOM_TEMP_ID\n");
  if(ok&&read_register(0x48,0x00,1,bytes,2))value("TMP464 local temperature raw = ",((uint32_t)bytes[0]<<8)|bytes[1]);
- ok=read_register(0x57,0,2,bytes,16);
+ /* A shared management target can temporarily NACK its address. Retry only
+  * this idempotent pointer/read transaction, with STOP and idle between tries.
+  * Completion still requires ACKs and every requested data byte.
+  */
+ for(unsigned attempt=0;attempt<8;attempt++){
+  ok=read_register(0x57,0,2,bytes,16);
+  if(ok){value("EEPROM read attempts = ",attempt+1);break;}
+  value("EEPROM retry; transfer stage = ",nack_stage);
+  value("EEPROM retry; NACK observed = ",saw_nack);
+  value("EEPROM retry; timed-out GPIO lines = ",timeout_lines);
+  for(unsigned idle=0;idle<16;idle++)pause_bus();
+ }
  text(ok?"PASS SOM_EEPROM_READ: 16 bytes received; no data written\n":"FAIL SOM_EEPROM_READ\n");
  if(ok){for(unsigned i=0;i<16;i++)value("EEPROM byte = ",bytes[i]);}
  else {
   value("EEPROM failure stage (1 address, 2 high pointer, 3 low pointer, 4 read) = ",nack_stage);
-  for(unsigned addr=0x50;addr<=0x57;addr++){
-   int ack=start()&&write_byte((addr<<1)|1);
-   uint8_t unused=0;if(ack)ack=read_byte(&unused,0);stop();
-   if(ack)value("Read-address ACK in EEPROM range = ",addr);
-  }
+
  }
 done:
  DDR&=~(SDA|SCL);DR=dr;DDR=ddr;R(0x10d13020)=saved8;R(0x10d13024)=saved9;barrier();

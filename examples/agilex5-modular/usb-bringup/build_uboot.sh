@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 cd "$(dirname "$0")/.."
-source_dir=${USB_UBOOT_SOURCE:-$PWD/.deps/usb-uboot-source}
-pin=e09d6fcc95f33b8a60377103f6e37e635660a3ee
-out="$PWD/build/usb-uboot-source"
+source_dir=${USB_UBOOT_SOURCE:-$PWD/.deps/usb-uboot-source-26.3}
+pin=$(python3 release_pins.py uboot.commit)
+out="${USB_UBOOT_BUILD_DIR:-$PWD/build/usb-uboot-26.3}"
 if [[ ! -d "$source_dir/.git" ]]; then
   git init "$source_dir"
   git -C "$source_dir" remote add origin https://github.com/altera-fpga/u-boot-socfpga.git
@@ -75,6 +75,6 @@ subprocess.run(['fdtput',str(patched),'/reserved-memory/tfa@80000000','no-map'],
 
 combined=out/'u-boot-usb-standalone.bin';combined.write_bytes(b+patched.read_bytes())
 if base+combined.stat().st_size>=0x80500000:raise SystemExit('U-Boot image too close to reserved initial stack at0x80600000')
-meta={'scope':'Compiled maintained U-Boot host-stack demo; no hardware execution claimed','u_boot_commit':'e09d6fcc95f33b8a60377103f6e37e635660a3ee','defconfig':'socfpga_agilex5_a0_modular_defconfig','compiler':subprocess.check_output([sys.argv[3]+'gcc','--version'],text=True).splitlines()[0],'entry':'0x80200000','initial_stack':'0x80600000','appended_fdt_address':hex(base+end),'command_sha256':sha(source/'cmd/usb_lab_mouse.c'),'phy_command_sha256':sha(source/'cmd/usb_lab_phy.c'),'phy_command_scope':'Bounded USB3320 ULPI ID0..3 reads; no PHY configuration writes or enumeration proof','diagnostics_patch_sha256':sha(pathlib.Path('usb-bringup/patch_diagnostics.py')),'diagnostics':'Stage/register prints retained; DT-gated USB3 SUSPHY-clear experiment added', 'usb3_quirk_experiment':'snps,dis_u3_susphy_quirk on derived USB31 node only; HCRST/CNR checks retained','misc_init_r_a0_sdm_workaround':'retained unchanged','config_sha256':sha(out/'.config'),'dram_init_mode':'preinitialized HPS DDR; platform FDT fallback with CONFIG_HANDOFF disabled','memory_base':'0x80000000','memory_bytes':134217728,'spl_handoff':False,'bloblist':False,'persistent_environment_backend':False,'saveenv_command':False,'preboot':False,'autoboot':False,'usb_nic_classes':['ASIX','ASIX88179','RTL8152/RTL8153','LAN75XX','LAN78XX','SMSC95XX','MCS7830'],'usb_mouse_scope':'HID boot-protocol mouse, bounded interrupt reports; no generic HID report-descriptor parser','artifacts':{p.name:sha(p) for p in [binary,dtb,patched,combined,out/'u-boot']}}
+meta={'scope':'Compiled maintained U-Boot host-stack demo; no hardware execution claimed','u_boot_commit':json.loads(pathlib.Path('stack-versions.json').read_text())['uboot']['commit'],'defconfig':'socfpga_agilex5_a0_modular_defconfig','compiler':subprocess.check_output([sys.argv[3]+'gcc','--version'],text=True).splitlines()[0],'entry':'0x80200000','initial_stack':'0x80600000','appended_fdt_address':hex(base+end),'command_sha256':sha(source/'cmd/usb_lab_mouse.c'),'phy_command_sha256':sha(source/'cmd/usb_lab_phy.c'),'phy_command_scope':'Bounded USB3320 ULPI ID0..3 reads; no PHY configuration writes or enumeration proof','diagnostics_patch_sha256':sha(pathlib.Path('usb-bringup/patch_diagnostics.py')),'diagnostics':'Stage/register prints retained; DT-gated USB3 SUSPHY-clear experiment added', 'usb3_quirk_experiment':'snps,dis_u3_susphy_quirk on derived USB31 node only; HCRST/CNR checks retained','misc_init_r_a0_sdm_workaround':'retained unchanged','config_sha256':sha(out/'.config'),'dram_init_mode':'preinitialized HPS DDR; platform FDT fallback with CONFIG_HANDOFF disabled','memory_base':'0x80000000','memory_bytes':134217728,'spl_handoff':False,'bloblist':False,'persistent_environment_backend':False,'saveenv_command':False,'preboot':False,'autoboot':False,'usb_nic_classes':['ASIX','ASIX88179','RTL8152/RTL8153','LAN75XX','LAN78XX','SMSC95XX','MCS7830'],'usb_mouse_scope':'HID boot-protocol mouse, bounded interrupt reports; no generic HID report-descriptor parser','artifacts':{p.name:sha(p) for p in [binary,dtb,patched,combined,out/'u-boot']}}
 (out/'usb-uboot-build.json').write_text(json.dumps(meta,indent=2)+'\n');print('PASS USB_UBOOT_SOURCE_BUILD: class drivers and bounded mouse command; compile only')
 PY

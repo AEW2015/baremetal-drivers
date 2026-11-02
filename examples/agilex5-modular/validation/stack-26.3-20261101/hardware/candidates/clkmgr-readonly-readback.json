@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 25584,
+  "segments": [
+    {
+      "file": "upstream26-clkmgr-readonly.segment0.bin",
+      "bytes": 25584,
+      "sha256": "b4a4cbb3d0bcebcfe36070d501c6eb3c145274560583d1d5bc475e3251f686af"
+    }
+  ]
+}

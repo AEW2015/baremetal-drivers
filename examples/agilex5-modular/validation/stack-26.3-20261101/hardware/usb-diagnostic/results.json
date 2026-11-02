@@ -1,0 +1,55 @@
+{
+  "scope": "Volatile U-Boot USB session; no persistent environment or media writes",
+  "uboot_sha256": "d372f4485f31ed8474310fd9d41c9e57ba36d32c01b3cd993bf8fe57fe6194c0",
+  "monitor_sha256": "b6244ae63b11518b55365a0b02aad1d60e15299600072e26fcbbe9c704114e05",
+  "runner_sha256": "b8a1d35bb7df8e89509d7c77785a67733e36a3a719d2d6080648a0754b8e2dbf",
+  "commands": [
+    {
+      "command": "setenv autostart no",
+      "prompt_returned": true
+    },
+    {
+      "command": "usb start",
+      "prompt_returned": true,
+      "xhci_started": true,
+      "device_counts": [
+        1
+      ],
+      "external_devices_observed": false
+    },
+    {
+      "command": "usb info",
+      "prompt_returned": true
+    },
+    {
+      "command": "usb tree",
+      "prompt_returned": true
+    },
+    {
+      "command": "usb storage",
+      "prompt_returned": true
+    },
+    {
+      "command": "net list",
+      "prompt_returned": true
+    },
+    {
+      "command": "md.l 0x11000000 8",
+      "prompt_returned": true
+    },
+    {
+      "command": "md.l 0x11000420 8",
+      "prompt_returned": true
+    },
+    {
+      "command": "usb_lab_phy",
+      "prompt_returned": true,
+      "phy_id_pass": true
+    }
+  ],
+  "restoration": "pass",
+  "uboot_readback": "pass",
+  "monitor_readback": "pass",
+  "uboot_prompt": true,
+  "session_complete": true
+}

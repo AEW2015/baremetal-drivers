@@ -1,5 +1,8 @@
 # Runtime fixes, simulator results and queued hardware tests
 
+Current build commands use the [matched 26.3 stack](stack-26.3.md). The
+2026-10-30 results and earlier source pins below remain historical evidence.
+
 **2026-10-30 hardware follow-up:** the secure-debug loader correction now passes
 BL31 readback and EL2 entry on the Modular kit. Performance (including host
 counter calibration), TF-A mailbox and lightweight bridge control all passed;
@@ -80,7 +83,7 @@ bash upstream-lab/build.sh agilex5
 python3 simics/setup.py --simics-root "$SIMICS_FPGA_ROOT"
 python3 upstream-lab/run.py simics \
   --only crc,perf,combophy,noc,iossm,bridge,reset,reboot,mailbox,bridge-control \
-  --bl31 build/runtime-atf/agilex5/debug/bl31.bin --timeout 70
+  --bl31 build/runtime-atf-26.3/agilex5/debug/bl31.bin --timeout 70
 
 bash upstream-lab/build.sh qemu
 python3 upstream-lab/run.py qemu --only crc,perf,smc-guard,perf-zero-clock

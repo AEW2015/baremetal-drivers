@@ -2,22 +2,22 @@
 
 The [public source recipe](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/container)
 supports a learning image based on Ubuntu 24.04 and a hardware image based on
-the public Quartus Pro 26.1.1 distribution. Both install the SHA-256-verified
+a user-supplied Quartus 26.3 installation image. Both install the SHA-256-verified
 Arm GNU 13.2.Rel1 archive, QEMU, GDB, Verilator, Icarus and U-Boot build dependencies
 (including `bc`, `bison`, `flex`, `libssl-dev`, Python `pyelftools`, and device-tree
-compiler). No private
-XRDP image, tool bundle, license file or institution's license server is needed
-as a build input. FPGA compilation still requires your own applicable license.
+compiler). The learning build needs no Quartus bundle or license. The hardware build
+requires your own installed Quartus base; credentials remain outside image layers. FPGA compilation still requires your own applicable license.
 
 The recipe targets an x86-64 Linux host because the pinned Arm archive is
 x86-64. The default learning image does not install Quartus or Simics. The
-hardware variant selects a public Quartus distribution image; Simics is a
+hardware variant selects your installed Quartus distribution image; Simics is a
 separate, user-installed licensed product. Supply installations and licenses
 through your own environment, never by baking credentials into this image.
 
 The [physical partial-reconfiguration lab](partial-reconfiguration.md) was built
 and tested with **Quartus 26.3 Build 114**. Use that matching tool release for its
-FPGA images; the 26.1.1 hardware-image recipe supports the earlier bench workflow.
+FPGA images and the current HPS 14.1 / EMIF 5.1 sources. See the
+[26.3 stack migration](stack-26.3.md).
 The public learning image runs the PR C-driver/RTL checks without Quartus.
 
 ## Clone on the x86-64 Linux host
@@ -51,12 +51,13 @@ files. Existing students should use their existing clone instead.
 
 === "Hardware tools"
 
-    Use the public Quartus base pinned to the bench's distribution digest:
+    Use your local Quartus 26.3 base image. On the established bench it is
+    `altera-agilex-dev:26.3`; substitute your own installed image elsewhere:
 
     ```sh
     docker build --build-arg USER_UID="$(id -u)" --build-arg USER_GID="$(id -g)" \
-      --build-arg BASE_IMAGE=alterafpga/quartus-pro:26.1.1-all@sha256:2a8df893f43c88799768bd1cdff73d3c66c1b5c0006faf69cc1aa401f9522761 \
-      -t agilex-hardware:26.1.1-reference examples/agilex5-modular/container
+      --build-arg BASE_IMAGE=altera-agilex-dev:26.3 \
+      -t agilex-hardware:26.3-reference examples/agilex5-modular/container
     ```
 
     Complete any registry authentication/terms acceptance required by the image
@@ -66,15 +67,16 @@ The compiler and hardware base are pinned. Distribution package updates mean
 rebuilds are not a promise of byte-for-byte identical images. Record your image
 ID and tool versions with the run evidence.
 
-The `agilex-hardware:26.1.1-reference` variant was built and smoke-checked
-against the pinned public Quartus Pro 26.1.1 base above. Its PATH retains the
-image's Quartus, Nios V, Qsys and System Console tool directories;
-`quartus_sh`, `quartus_pgm`, `jtagconfig` and the vendor OpenOCD are available
-there. The recorded tool versions are in the
-[container evidence](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/container/evidence.json).
-A tool-version check does not verify USB/JTAG permissions, detect a board, or
-qualify a programmed design. No license or hardware was supplied to the smoke
-check; FPGA compilation still requires your applicable license.
+The `agilex-hardware:26.3-reference` variant was built locally and smoke-checked
+with Quartus 26.3 Build 114, its vendor OpenOCD, Arm GNU 13.2.Rel1, QEMU 8.2.2
+and Verilator 5.020. `xvfb` and `xauth` support headless GUI tool operations.
+The public registry had no `alterafpga/quartus-pro:26.3-all` tag at verification;
+this recipe does not claim that a local base image is publicly downloadable.
+The earlier pinned public 26.1.1 build remains historical evidence in
+[the previous container report](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/validation/full-campaign-20261031/container/evidence.json).
+
+A tool smoke check does not qualify USB permissions or an FPGA design. Supply
+your own applicable license and matching Modular hardware project.
 
 ## Start the learning container
 
@@ -124,7 +126,7 @@ docker run -d --name agilex-hardware \
   --mount type=bind,src=/dev/bus/usb,dst=/dev/bus/usb \
   --device-cgroup-rule='c 189:* rmw' \
   --env LM_LICENSE_FILE \
-  agilex-hardware:26.1.1-reference
+  agilex-hardware:26.3-reference
 ```
 
 `LM_LICENSE_FILE`, if needed, comes from your host shell and names your own

@@ -1,0 +1,10 @@
+{
+  "boot_order": "fpga-first",
+  "lwh2f_enabled": true,
+  "atf_commit": "09c4dc6628810d8570af69db43918d344f9e80e9",
+  "source_sof": "/home/lada/quartus26-mcp-demos/agilex5-stack-20261101/platform/output_files/baseline_a55.sof",
+  "source_sof_sha256": "d9420be26ef4167d17b3ad1abd7803c200750df16c45fc4eafd361eb5ebc6eaf",
+  "images": {
+    "ddr_recovery.sof": "0e88c7733c89c66f82d68917bf6d2f802c34e35b25b0481cb90e9bdf9ed9a0b3"
+  }
+}

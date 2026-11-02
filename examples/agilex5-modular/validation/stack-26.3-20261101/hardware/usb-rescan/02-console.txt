@@ -1,0 +1,10 @@
+usb_lab_phy
+USB_PHY_SNAPSHOT GSNPSID=33313130
+USB_PHY_SNAPSHOT GHWPARAMS3=1042048a GUSB2PHYCFG=00102410 GDBGLTSSM=9cc20026
+USB_ULPI_ID reg=0 value=24 viewport=01000024
+USB_ULPI_ID reg=1 value=04 viewport=01010004
+USB_ULPI_ID reg=2 value=07 viewport=01020007
+USB_ULPI_ID reg=3 value=00 viewport=01030000
+USB_PHY_ID vendor=0424 product=0007 expected=0424:0007
+PASS USB_PHY_ID USB3320 ULPI register reads completed; enumeration not tested
+SOCFPGA_AGILEX5 # 

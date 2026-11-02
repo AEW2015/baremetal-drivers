@@ -1,0 +1,27 @@
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 0, "rtl_cycles": 5, "value": 1145328177, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 4, "rtl_cycles": 7, "value": 65536, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 9, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 68, "rtl_cycles": 11, "value": 2231369728, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 72, "rtl_cycles": 13, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 76, "rtl_cycles": 15, "value": 2231435264, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 80, "rtl_cycles": 17, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 16, "rtl_cycles": 19, "value": 2231377920, "write": true}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 20, "rtl_cycles": 21, "value": 0, "write": true}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 24, "rtl_cycles": 23, "value": 64, "write": true}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 28, "rtl_cycles": 25, "value": 305419896, "write": true}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 8, "rtl_cycles": 27, "value": 1, "write": true}
+{"address": 2231377920, "axprot": 0, "axuser": 0, "data": 1311768465173141112, "kind": "native-memory", "native_exception": 1025, "native_no_exception": true, "space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.phys_mem", "write": true}
+{"address": 2231377920, "kind": "fault-injection", "response": 3, "type": "axi-response"}
+{"address": 2231377920, "axprot": 0, "axuser": 0, "data": 1311768465173141112, "kind": "axi", "op": "MEM_W", "response": 3}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 29, "value": 1, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 12, "rtl_cycles": 31, "value": 6, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 88, "rtl_cycles": 33, "value": 3, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 32, "rtl_cycles": 35, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 36, "rtl_cycles": 37, "value": 2231377920, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 40, "rtl_cycles": 39, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 44, "rtl_cycles": 41, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 48, "rtl_cycles": 43, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 52, "rtl_cycles": 45, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 56, "rtl_cycles": 47, "value": 0, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 60, "rtl_cycles": 49, "value": 3, "write": false}
+{"initiator": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.core[0]", "kind": "csr", "offset": 64, "rtl_cycles": 51, "value": 0, "write": false}

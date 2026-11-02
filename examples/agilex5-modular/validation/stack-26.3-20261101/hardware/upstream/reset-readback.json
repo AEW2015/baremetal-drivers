@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 99264,
+  "segments": [
+    {
+      "file": "upstream26-reset.bin",
+      "bytes": 99264,
+      "sha256": "9758d65f0b07cfebc124ab924da51592f02eea9469a6e534425ce0d5de6c48c8"
+    }
+  ]
+}

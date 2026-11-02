@@ -1,0 +1,23 @@
+{
+  "scope": "Physical OCRAM UART with verified Modular handoff replay and fixed100MHz divisor54",
+  "tests": [
+    {
+      "name": "ocram-uart",
+      "status": "pass",
+      "source_sha256": {
+        "bootstrap/ocram/uart_start.S": "5bba8dc8fa089750591293235e434b91c5024454a8fd9a64b24b4295f4c88a29",
+        "bootstrap/ocram/uart_local.c": "32eaf2c9c48d33afa29da3d0c0c04ddc670c570cc2787af81bd2181816182e9e",
+        "bootstrap/ocram/uart_local.ld": "f8bfab0f1d82f3584027ff93ecbf49b1cb5a8363858276b6f9273bdebca5481d"
+      },
+      "elf_sha256": "0ccecbdafb87fa1ccdb2d7889d9ee1db4dd269e8647c633455672d88fdb0156c",
+      "binary_sha256": "3b01db43eed38fdbe49e0f59ef2a3f6cdf15a8b870101eed942c513cd23ab76d",
+      "entry": "0x0",
+      "completion_pc": "0x0000000000000138",
+      "lines": 3,
+      "debug_exit": 0
+    }
+  ],
+  "restoration": "pass",
+  "runner_sha256": "8b4d276c7d371e99741aa889a99882e88c3faa02488df814159252ec1ed528e6",
+  "bootstrap_sha256": "0e88c7733c89c66f82d68917bf6d2f802c34e35b25b0481cb90e9bdf9ed9a0b3"
+}

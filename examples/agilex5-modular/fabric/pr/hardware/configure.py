@@ -15,6 +15,8 @@ base=root/'baseline_a55.qsf'
 if not base.is_file() or not (root/'fabric_subsys/synth/fabric_subsys.v').is_file():p.error('Generate the staged platform first')
 if (root/'pr-config.json').exists():p.error('PR configuration already exists; preserve that attempt')
 s=base.read_text()
+sdc=''.join(re.findall(r'^set_global_assignment -name SDC_FILE .+\n?',s,re.M))
+s=re.sub(r'^set_global_assignment -name SDC_FILE .+\n?','',s,flags=re.M)
 if 'A5ED065BB32AE6SR0' not in s:p.error('Wrong device')
 common=f'''
 set_instance_assignment -name PARTITION lab_pr_partition -to {a.slot}
@@ -27,12 +29,12 @@ set_instance_assignment -name RESERVE_ROUTE_REGION OFF -to {a.slot}
 '''
 base.write_text(s+common+'''set_global_assignment -name REVISION_TYPE PR_BASE
 set_instance_assignment -name EXPORT_PARTITION_SNAPSHOT_FINAL pr_static.qdb -to | -entity baseline_a55
-''')
+'''+sdc)
 for name,entity in (('pr_add','pr_slot'),('pr_xor','pr_slot_xor')):
  (root/(name+'.qsf')).write_text(s+common+f'''set_global_assignment -name REVISION_TYPE PR_IMPL
-set_instance_assignment -name QDB_FILE_PARTITION pr_static.qdb -to | -entity baseline_a55
+set_instance_assignment -name QDB_FILE_PARTITION pr_static-with-sdc.qdb -to | -entity baseline_a55
 set_instance_assignment -name ENTITY_REBINDING {entity} -to {a.slot}
-''')
+'''+sdc)
 (root/'baseline_a55.qpf').write_text(''.join('PROJECT_REVISION = "'+n+'"\n' for n in ('baseline_a55','pr_add','pr_xor')))
 (root/'pr-config.json').write_text(json.dumps({'status':'configured-not-compiled','slot':a.slot,'place_region':a.place_region,'route_region':a.route_region,'device':'A5ED065BB32AE6SR0','note':'Coordinates/hierarchy require compiler validation. No fitted image or physical PR result exists from this command.'},indent=2)+'\n')
 print('PR revisions configured; NOT compiled or deployed')

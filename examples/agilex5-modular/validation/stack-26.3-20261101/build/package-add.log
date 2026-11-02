@@ -1,0 +1,52 @@
+Info: *******************************************************************
+Info: Running Quartus Prime Programming File Generator
+    Info: Version 26.3.0 Build 114 10/14/2026 SC Pro Edition
+    Info: Copyright (C) 2026  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Mon Nov  2 03:16:55 2026
+    Info: System process ID: 1491840
+Info: Command: quartus_pfg -c output_files/pr_add_sdc.sof ../base-boot.sof -o hps_path=../boot/bl2-bridge.hex
+Info: Quartus Prime Programming File Generator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 996 megabytes
+    Info: Processing ended: Mon Nov  2 03:16:59 2026
+    Info: Elapsed time: 00:00:04
+    Info: System process ID: 1491840
+Info: *******************************************************************
+Info: Running Quartus Prime Programming File Generator
+    Info: Version 26.3.0 Build 114 10/14/2026 SC Pro Edition
+    Info: Copyright (C) 2026  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Mon Nov  2 03:16:59 2026
+    Info: System process ID: 1491829
+Info: Command: quartus_pfg -c output_files/pr_add_sdc.lab_pr_partition.pmsf ../pr_add.rbf
+Info (19848): Design hash is A63C5F90C14F21656517D4B2B457C83E237A7C3669507B8B322E53EB94E24970
+Info (19848): Keyed hash is 0FD6BCDFAD7997BD32A0181AFB3FF4E2C42D66EC6DA810011D890BCCAF245463
+Info: Quartus Prime Programming File Generator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 2210 megabytes
+    Info: Processing ended: Mon Nov  2 03:17:08 2026
+    Info: Elapsed time: 00:00:09
+    Info: System process ID: 1491829

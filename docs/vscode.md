@@ -17,14 +17,15 @@ code "$AGILEX_EXAMPLES/agilex5-modular.code-workspace"
 For the existing container:
 
 1. Install **Dev Containers** (`ms-vscode-remote.remote-containers`) in desktop VS Code.
-2. Use the Command Palette's **Dev Containers: Attach to Running Container** and select `agilex-xrdp`.
+2. Use the Command Palette's **Dev Containers: Attach to Running Container** and select your running tool container (`agilex-hardware` from the recipe, or
+   `agilex26-mcp-demos` on the established bench).
 3. Use `dev` as the remote user in the attached-container configuration and reconnect if needed.
 4. Open the cloned repository's `examples/agilex5-modular` directory inside the container.
 5. Open `agilex5-modular.code-workspace`, and install C/C++ in the container when prompted.
 
 The repository must be in a host bind mount for host-side UART automation. On
 the established bench the clone is under `/home/dev` in the container. Inspect
-`docker inspect agilex-xrdp` on the host to find the corresponding host directory;
+`docker inspect agilex-hardware` on the host to find the corresponding host directory;
 a repository cloned into an unmounted container-only directory will not suffice.
 See [VS Code's attach-container instructions](https://code.visualstudio.com/docs/devcontainers/attach-container).
 

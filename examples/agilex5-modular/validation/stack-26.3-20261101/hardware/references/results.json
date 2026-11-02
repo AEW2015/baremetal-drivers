@@ -1,0 +1,26 @@
+{
+  "scope": "Semihost source executing in physical OCRAM; read-only exception-register probe in DDR",
+  "tests": [
+    {
+      "name": "semihost",
+      "status": "pass",
+      "elf_sha256": "ebc492f7a940c4e5269589142aa89cef6e14cb364cb0f7bd79f77c27ff2c1b16",
+      "binary_sha256": "e43d4119c7fc7a86a9be56e0cfaf5e6a4151c0a98dc3b9d8d31c363d1fbd4139",
+      "source_sha256": "2a3e07b1e90d8434cf1a908246637ef64ca1c9be93c5eacd19ed533fe6244b0e",
+      "entry": "0x20004",
+      "completion_pc": "0x20010",
+      "debug_exit": 0
+    },
+    {
+      "name": "fault-probe",
+      "status": "pass",
+      "elf_sha256": "0abb659dcc9e285372d1e842312eb11eafde4b1e3aa0d71d39b6eda869e2893a",
+      "source_sha256": "68e533c728270d92fe22107c6412496a7f51404d9c4dd349c1de5494c081203d",
+      "debug_exit": 0,
+      "scope": "Reads exception state; does not inject or recover a fault"
+    }
+  ],
+  "restoration": "pass",
+  "runner_sha256": "8b4d276c7d371e99741aa889a99882e88c3faa02488df814159252ec1ed528e6",
+  "bootstrap_sha256": "0e88c7733c89c66f82d68917bf6d2f802c34e35b25b0481cb90e9bdf9ed9a0b3"
+}

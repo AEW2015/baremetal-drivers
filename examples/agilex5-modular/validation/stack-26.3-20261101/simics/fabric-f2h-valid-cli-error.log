@@ -1,0 +1,4 @@
+usage: run.py [-h] [--project PROJECT] [--boot BOOT] [--output OUTPUT]
+              [--timeout TIMEOUT] [--route {physical,f2soc,f2sdram}]
+              [--case {physical,axi-error,read-error,timeout-drain,native-valid,native-fault}]
+run.py: error: argument --case: invalid choice: 'f2h-valid' (choose from 'physical', 'axi-error', 'read-error', 'timeout-drain', 'native-valid', 'native-fault')

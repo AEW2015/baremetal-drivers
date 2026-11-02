@@ -1,0 +1,23 @@
+{
+  "scope": "Isolated monitor compile only; no hardware execution claimed",
+  "atf_commit": "09c4dc6628810d8570af69db43918d344f9e80e9",
+  "reset_to_bl31": true,
+  "usb_platform_init": "Normal vendor BL2 USB3 PIPE power-present BIT14 RMW, restored in isolated RESET_TO_BL31 monitor",
+  "patch_sha256": "72da7c9b14da2647ecb3565e558928eac41898da59d838e5353dcc10613e19ca",
+  "patched_source_sha256": "f9bc8b08f1c79edff25f79502d5ffbf86504488a6384ae5482e9dd6eee030917",
+  "bl31_base": "0x80000000",
+  "bl33_entry": "0x80200000",
+  "nonsecure_entry_el": 2,
+  "initial_el3_args": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "counter_hz": 400000000,
+  "bl31_sha256": "7559f87843647545b96563494ddaf868c0ec3e8971533211dc05c5b1c8ec5393",
+  "bl31_bytes": 78172,
+  "compiler": "aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "spl_reset_pulse_experiment": false,
+  "usb_misc_set_mask": "0x4000"
+}

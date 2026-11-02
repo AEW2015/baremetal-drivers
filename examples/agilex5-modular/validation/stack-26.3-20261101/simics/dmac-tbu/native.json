@@ -1,0 +1,62 @@
+{
+  "scope": "AArch64 guest programs real native DMAC0; host only configures native SMMU stage2 and removes destination mapping",
+  "python_issued_dma_transactions": false,
+  "tlbi_scope": "Native TLB cache disabled; fresh walks only, no command queue/TLBI qualification",
+  "hardware_scope": "Not ported or run on physical hardware",
+  "passed": true,
+  "dma_cfg_before": 0,
+  "configuration": {
+    "route": "dma0",
+    "memory_space": "system.board.fpga.soc_inst.hps_subsys.agilex_hps.dmac_smmu_mem_space_0",
+    "tbu_index": 0,
+    "sid": 8,
+    "sid_origin": "DMA0 System Manager read/write stream-ID registers programmed to 8",
+    "iova": "0x85000000",
+    "physical": "0x86000000",
+    "table_base": "0x85400000",
+    "model_reset_pulse": true,
+    "tlb_cache_enable": false,
+    "invalidation_scope": "fresh table walk only; no command queue/TLBI claim",
+    "cr0": "0x5",
+    "cr0ack": "0x0",
+    "additional_mappings": [
+      {
+        "iova": "0x85200000",
+        "physical": "0x86200000"
+      },
+      {
+        "iova": "0x85600000",
+        "physical": "0x86400000"
+      }
+    ],
+    "unmapped_pte": "0x85402148"
+  },
+  "phase1": {
+    "passed": true,
+    "bytes_checked": 4096,
+    "raw_alias_guard_bytes": 12288,
+    "channel_status": "0x1b"
+  },
+  "fault": {
+    "producer": 1,
+    "consumer": 0,
+    "words": [
+      34359771152,
+      1649267441664,
+      2233466880,
+      2235572552
+    ],
+    "global_error": 0
+  },
+  "phase2": {
+    "passed": true,
+    "unchanged_destination_bytes": 4096,
+    "raw_alias_guard_bytes": 12288,
+    "channel_enable": "0x0"
+  },
+  "fixture_restored": {
+    "cr0": "0x0",
+    "dma_sid": "0x0",
+    "dma_stream_control": "0x30"
+  }
+}

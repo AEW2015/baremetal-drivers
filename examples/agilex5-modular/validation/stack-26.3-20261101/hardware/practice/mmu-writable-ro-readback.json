@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 6576,
+  "segments": [
+    {
+      "file": "upstream26-mmu-writable-ro.segment0.bin",
+      "bytes": 6200,
+      "sha256": "b0534603e5c2bb66cb84583ea8925c2e8b16909f6ed482a0ff4c372fed4ff6a7"
+    },
+    {
+      "file": "upstream26-mmu-writable-ro.segment1.bin",
+      "bytes": 376,
+      "sha256": "575f61d91e8416dae2635b7319d9285e679659fc92214c2ad6448133ad3e366f"
+    }
+  ]
+}

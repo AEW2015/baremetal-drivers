@@ -1,5 +1,10 @@
 # 6. Swap test IP with partial reconfiguration
 
+The [fresh 26.3 retest](validation-26.3.md) passed live ADD–XOR–ADD swaps with
+HPS14.1/EMIF5.1 and the new matching firmware. Earlier bring-up attempts below
+remain historical evidence.
+
+
 The goal is to keep the HPS application, DDR and static fabric running while
 replacing an **ADD1** accelerator with **XOR1**, then swapping back. Both expose
 the [same register ABI](fabric-ip.md#register-abi-10), so the application probes

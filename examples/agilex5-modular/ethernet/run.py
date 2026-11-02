@@ -3,8 +3,8 @@
 import argparse,contextlib,datetime,json,os,pathlib,re,select,subprocess,sys,termios,time,signal,ipaddress,shutil,hashlib
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from bench import BenchError,container_path,verify_mount,verify_mapped_files,validate_uart
-from hardware_lock import HardwareLock
+from bench import bootstrap_image_path,BenchError,container_path,verify_mount,verify_mapped_files,validate_uart
+from hardware_lock import enter_hardware_locks
 from owned_process import OwnedProcessError,run_owned
 from run_suite import run_bootstrap,restore_ddr
 from peer import Peer
@@ -12,7 +12,9 @@ from peer import Peer
 def root_command(args):
  cmd=['docker','exec','-u','root',os.environ.get('AGILEX_CONTAINER','agilex-xrdp'),*args]
  result=subprocess.run(cmd,capture_output=True,text=True,timeout=15)
- if result.returncode:raise BenchError('Host NIC command failed: '+result.stderr.strip()+'; use a host-network container with NET_ADMIN for temporary addressing.')
+ if result.returncode:
+  detail=(result.stderr or result.stdout).strip()
+  raise BenchError(f'Host NIC command failed ({args[0]}, exit {result.returncode}): {detail}; install iproute2 in the host-network tool container. NET_ADMIN is also needed when changing temporary addresses.')
  return result.stdout
 
 def nic_snapshot(interface):
@@ -52,9 +54,8 @@ def main():
  print('Evidence: '+str(out),flush=True)
  added=False;fd=None;peer=None;uncertain=False;failure=None;uart=b''
  with contextlib.ExitStack() as stack:
-  for path in a.coordination_lock:stack.enter_context(HardwareLock(path))
-  lock=stack.enter_context(HardwareLock())
-  verify_mount();result['hashes']=verify_mapped_files([ROOT/'build/network.elf',ROOT/'bootstrap/ddr/ddr_probe.hps.rbf',ROOT/'bootstrap/ocram/agilex5.cfg'])
+  lock=enter_hardware_locks(stack,a.coordination_lock)
+  verify_mount();result['hashes']=verify_mapped_files([ROOT/'build/network.elf',bootstrap_image_path('ddr_probe.hps.rbf'),ROOT/'bootstrap/ocram/agilex5.cfg'])
   if (ROOT/'build/network.json').is_file():
    result['build']=json.loads((ROOT/'build/network.json').read_text())
    if result['build']['elf_sha256']!=result['hashes'][str((ROOT/'build/network.elf').resolve())]:raise BenchError('Firmware differs from its build manifest')

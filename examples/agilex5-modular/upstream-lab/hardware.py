@@ -4,6 +4,8 @@ import argparse,datetime,fcntl,hashlib,importlib.util,json,os,select,struct,subp
 from types import SimpleNamespace
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT))
+from stack_bench import StackBench
 spec=importlib.util.spec_from_file_location('new_examples',Path(__file__).with_name('run.py'))
 lab=importlib.util.module_from_spec(spec);spec.loader.exec_module(lab)
 
@@ -99,7 +101,7 @@ def main():
     p.add_argument('--suite',choices=['upstream','practice','config','memory-ddr','memory-dsu','candidates','psci','services'],default='upstream')
     p.add_argument('--capture-seconds',type=int,help='UART deadline, 5..300; default 180 for memory labs, 35 otherwise')
     p.add_argument('--only')
-    a=p.parse_args()
+    a=p.parse_args();stack=StackBench(a.bench)
     checker=lab
     allowed=('crc','perf','combophy','noc','reset','mailbox','bridge-control','smc-guard','perf-zero-clock')
     default='crc,perf,combophy,noc,reset'
@@ -179,7 +181,7 @@ def main():
         lock.close();print('Cancelled before hardware access',flush=True);return 2
     write_mutex({'state':'acquired','pid':os.getpid(),'wait_seconds':round(time.monotonic()-queued)})
     record={'environment':'physical Modular ES','suite':a.suite,'requested_tests':names,'capture_seconds':capture_seconds,'runner_sha256':lab.digest(Path(__file__)),'tests':[],'build':build_metadata if build_metadata is not None else json.loads((a.artifacts/'build.json').read_text()),'restoration':'pending',
-            'bl31_sha256':lab.digest(a.bl31) if a.bl31 else None,'bootstrap_image_sha256':lab.digest(a.bench/'ddr-bringup/ddr_probe.hps.rbf')}
+            'bl31_sha256':lab.digest(a.bl31) if a.bl31 else None,'bootstrap_image_sha256':lab.digest(stack.image)}
     def save():(out/'results.json').write_text(json.dumps(record,indent=2)+'\n')
     print('Evidence: '+str(out),flush=True);save()
     mcp=MCP('programmer');bootstrap_failed=False;debugger_cleanup_failed=False
@@ -188,7 +190,7 @@ def main():
         chain=mcp.call('read_jtag_config',{});(out/(label+'-chain.json')).write_text(json.dumps(chain,indent=2))
         text=json.dumps(chain).lower()
         if '364f0dd' not in text:raise RuntimeError('Modular ES silicon not present')
-        r=subprocess.run(['python3',str(a.bench/'ddr-bringup/run_ddr.py'),'--port',a.port]+(['--full-recovery'] if '4ba06477' not in text else []),capture_output=True,timeout=230)
+        r=stack.bootstrap(a.port,lock.fileno(),full='4ba06477' not in text)
         (out/(label+'-bootstrap.log')).write_bytes(r.stdout+r.stderr)
         if r.returncode:
             bootstrap_failed=True
@@ -199,13 +201,13 @@ def main():
             for path in (image,elf):
                 if lab.digest(path)!=record['build']['artifacts'][path.name]:raise RuntimeError('Artifact hash mismatch')
             bootstrap(name)
-            destination=a.bench/'examples/build'/('upstream26-'+image.name)
+            destination=stack.payload('upstream26-'+image.name)
             image_bytes=image.read_bytes()
             if hashlib.sha256(image_bytes).hexdigest()!=record['build']['artifacts'][image.name]:
                 raise RuntimeError('Payload changed during bootstrap; CPU was not resumed')
             destination.write_bytes(image_bytes)
-            container_image='/home/dev/baremetal-guide-validation/examples/build/'+destination.name
-            cfg='/home/dev/baremetal-guide-validation/ocram/agilex5.cfg'
+            container_image=stack.remote(destination)
+            cfg=stack.cfg
             fd=os.open(a.port,os.O_RDWR|os.O_NOCTTY|os.O_NONBLOCK)
             body=b''
             try:
@@ -223,19 +225,19 @@ def main():
                     for index,(address,data) in enumerate(validated_segments[name]):
                         segment=destination.with_suffix(f'.segment{index}.bin');segment.write_bytes(data)
                         Path(str(segment)+'.readback').unlink(missing_ok=True)
-                        remote_segment='/home/dev/baremetal-guide-validation/examples/build/'+segment.name
+                        remote_segment=stack.remote(segment)
                         command+=f'load_image {remote_segment} {address:#x} bin; dump_image {remote_segment}.readback {address:#x} {len(data)}; '
                         transfers.append((segment,data))
                     command+='shutdown'
-                loaded=subprocess.run(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','30s','openocd','-f',cfg,'-c',command],capture_output=True,timeout=40)
+                loaded=subprocess.run(stack.command(['timeout','--kill-after=5s','30s','openocd','-f',cfg,'-c',command]),capture_output=True,timeout=40)
                 (out/(name+'-load.log')).write_bytes(loaded.stdout+loaded.stderr)
                 if loaded.returncode or any(not Path(str(path)+'.readback').is_file() or Path(str(path)+'.readback').read_bytes()!=expected for path,expected in transfers):
                     raise RuntimeError('Payload load/readback failed; CPU was not resumed')
                 (out/(name+'-readback.json')).write_text(json.dumps({'status':'pass','bytes':sum(len(data) for _,data in transfers),'segments':[{'file':path.name,'bytes':len(data),'sha256':lab.digest(Path(str(path)+'.readback'))} for path,data in transfers]},indent=2)+'\n')
                 if a.bl31:
-                    monitor=a.bench/'examples/build/upstream26-bl31.bin'
+                    monitor=stack.payload('upstream26-bl31.bin')
                     monitor.write_bytes(a.bl31.read_bytes())
-                    remote='/home/dev/baremetal-guide-validation/examples/build/upstream26-bl31.bin'
+                    remote=stack.remote(monitor)
                     # AXI5 AP bit29 is Non-secure, bit28 Privileged. BL2 protects
                     # the first DDR MiB; BL31 must be loaded with secure debug
                     # transactions. Preserve every other CSW pattern bit and
@@ -245,11 +247,11 @@ def main():
                     # apcsw returns descriptive text, not just a numeric value.
                     # Run a file and decode the old value before restoring it.
                     load=bl31_load_script(prefix,remote,monitor.stat().st_size)
-                    load_script=a.bench/'examples/build'/(out.name+'-'+name+'-bl31-load.tcl')
+                    load_script=stack.payload(out.name+'-'+name+'-bl31-load.tcl')
                     load_script.write_text(load)
                     (out/(name+'-bl31-load.tcl')).write_text(load)
-                    remote_script='/home/dev/baremetal-guide-validation/examples/build/'+load_script.name
-                    result=subprocess.run(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','30s','openocd','-f',cfg,'-f',remote_script],capture_output=True,timeout=40)
+                    remote_script=stack.remote(load_script)
+                    result=subprocess.run(stack.command(['timeout','--kill-after=5s','30s','openocd','-f',cfg,'-f',remote_script]),capture_output=True,timeout=40)
                     (out/(name+'-bl31-load.log')).write_bytes(result.stdout+result.stderr)
                     if not bl31_readback_valid(result,Path(str(monitor)+'.readback'),monitor.read_bytes()):
                         raise RuntimeError('BL31 load/readback failed')
@@ -261,7 +263,7 @@ def main():
 
                 # OpenOCD is bounded; the existing bootstrap leaves secondaries parked.
                 with (out/(name+'-debug.log')).open('wb') as log:
-                    proc=subprocess.Popen(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','30s','openocd','-f',cfg,'-c',command],stdout=log,stderr=subprocess.STDOUT)
+                    proc=subprocess.Popen(stack.command(['timeout','--kill-after=5s','30s','openocd','-f',cfg,'-c',command]),stdout=log,stderr=subprocess.STDOUT)
                     try:
                         deadline=time.monotonic()+capture_seconds;done_at=None;input_index=0
                         while time.monotonic()<deadline:

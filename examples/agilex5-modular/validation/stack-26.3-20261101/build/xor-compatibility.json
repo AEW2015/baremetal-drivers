@@ -1,0 +1,28 @@
+{
+  "jobId": "1cab4ef0-422f-4315-b33c-93f126e88044",
+  "status": "completed",
+  "kind": "check_pr_compatibility",
+  "flow": "check_pr_compatibility",
+  "mode": "in-process",
+  "projectDir": "/workspace",
+  "projectName": "",
+  "startedAt": "2026-11-02T03:25:49.237Z",
+  "pollAfterSeconds": 15,
+  "endedAt": "2026-11-02T03:25:54.074Z",
+  "exitCode": 0,
+  "stdoutTail": "",
+  "stderrTail": "",
+  "result": {
+    "success": true,
+    "exitCode": 0,
+    "durationMs": 4837,
+    "timedOut": false,
+    "stdout": "PR programming file 'pr_xor.rbf' is COMPATIBLE with base design 'base-boot.sof'.",
+    "stderr": "",
+    "command": "check_pr_compatibility",
+    "args": []
+  },
+  "success": true,
+  "durationMs": 4837,
+  "timedOut": false
+}

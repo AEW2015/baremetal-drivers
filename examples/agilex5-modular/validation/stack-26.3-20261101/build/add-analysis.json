@@ -1,0 +1,28 @@
+{
+  "jobId": "b0729cc1-6476-441b-b785-50a5da1e9c3c",
+  "status": "completed",
+  "kind": "analyze_bitstream",
+  "flow": "analyze_bitstream",
+  "mode": "in-process",
+  "projectDir": "/workspace",
+  "projectName": "",
+  "startedAt": "2026-11-02T03:17:22.525Z",
+  "pollAfterSeconds": 15,
+  "endedAt": "2026-11-02T03:17:24.044Z",
+  "exitCode": 0,
+  "stdoutTail": "",
+  "stderrTail": "",
+  "result": {
+    "success": true,
+    "exitCode": 0,
+    "durationMs": 1517,
+    "timedOut": false,
+    "stdout": "Analysis: **pr_add.rbf**\n\n| Field | Value |\n|---|---|\n| Device | A5ED065BB32AE6SR0 |\n| Encrypted | FALSE |\n| Signed | FALSE |\n| Disable JTAG | OFF |\n\n=== VERIFIED FACTS (extracted deterministically — do not contradict) ===\nBitstream Encrypted: FALSE\nBitstream Signed: FALSE\nDisable Jtag: OFF\nOwnership Transfer Mode: FALSE\n=== END VERIFIED FACTS ===",
+    "stderr": "",
+    "command": "analyze_bitstream",
+    "args": []
+  },
+  "success": true,
+  "durationMs": 1517,
+  "timedOut": false
+}

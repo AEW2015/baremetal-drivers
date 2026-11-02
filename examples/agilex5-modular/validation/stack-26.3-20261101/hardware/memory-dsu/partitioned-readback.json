@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 13180,
+  "segments": [
+    {
+      "file": "upstream26-partitioned.segment0.bin",
+      "bytes": 11284,
+      "sha256": "c476af51890a79f49c29636a427ba9607f2fcbd65f17439a6db18960ee0469be"
+    },
+    {
+      "file": "upstream26-partitioned.segment1.bin",
+      "bytes": 1896,
+      "sha256": "c62b166a7277721d614e3b97ed3c4c0364ce444fef8cd5a98cf6d154fbb2e7c5"
+    }
+  ]
+}

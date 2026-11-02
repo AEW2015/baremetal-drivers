@@ -1,0 +1,43 @@
+{
+  "scope": "Compiled maintained U-Boot host-stack demo; no hardware execution claimed",
+  "u_boot_commit": "5ba74aeda63ed07e98670f8c2f0135de06543ba0",
+  "defconfig": "socfpga_agilex5_a0_modular_defconfig",
+  "compiler": "aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "entry": "0x80200000",
+  "initial_stack": "0x80600000",
+  "appended_fdt_address": "0x802de5d8",
+  "command_sha256": "0793b0d338867217bcfbd5212bd658fb43d66554cada25023030a4a4f6bc4fe8",
+  "phy_command_sha256": "91a6347a96b22e057d0cc514fb2d5fe1cdd56f2590631ed757eab575ac90864b",
+  "phy_command_scope": "Bounded USB3320 ULPI ID0..3 reads; no PHY configuration writes or enumeration proof",
+  "diagnostics_patch_sha256": "2062efeebcd2659129e2b24c10c5657180e7b92912dea9c2d0d68f3a81df1271",
+  "diagnostics": "Stage/register prints retained; DT-gated USB3 SUSPHY-clear experiment added",
+  "usb3_quirk_experiment": "snps,dis_u3_susphy_quirk on derived USB31 node only; HCRST/CNR checks retained",
+  "misc_init_r_a0_sdm_workaround": "retained unchanged",
+  "config_sha256": "77a548168ac2851fc8d0ae1a3e15b67fb8015ac5fac913d88e12f2c6e9ef6ada",
+  "dram_init_mode": "preinitialized HPS DDR; platform FDT fallback with CONFIG_HANDOFF disabled",
+  "memory_base": "0x80000000",
+  "memory_bytes": 134217728,
+  "spl_handoff": false,
+  "bloblist": false,
+  "persistent_environment_backend": false,
+  "saveenv_command": false,
+  "preboot": false,
+  "autoboot": false,
+  "usb_nic_classes": [
+    "ASIX",
+    "ASIX88179",
+    "RTL8152/RTL8153",
+    "LAN75XX",
+    "LAN78XX",
+    "SMSC95XX",
+    "MCS7830"
+  ],
+  "usb_mouse_scope": "HID boot-protocol mouse, bounded interrupt reports; no generic HID report-descriptor parser",
+  "artifacts": {
+    "u-boot-nodtb.bin": "a79bb970cb26d4917698fc8da0a936c4b8dffbc81a01cc9555e74665f1bdf81d",
+    "u-boot.dtb": "4791ffbafde4290b9ddd713702bd351344f164f9c2946506802ba7b8346149a2",
+    "u-boot-no-autoboot.dtb": "00393fa50cb95248ddea00bef398823f6908905f6ceb3c9a37b9440e26c7eb1f",
+    "u-boot-usb-standalone.bin": "529c515ee1157343adf1a77a1ff600a71b8e1a3f3d3c4609f056e011387a32d5",
+    "u-boot": "51d0976a042d5f7f43e769ab30e2cbdb19a3d012ec4b68d21ad3154d6c403b9e"
+  }
+}

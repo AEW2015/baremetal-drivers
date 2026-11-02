@@ -1,0 +1,20 @@
+{
+  "jobId": "b8f6ce5f-9675-4106-8f63-a324640197ab",
+  "pid": 1499846,
+  "kind": "timing",
+  "mode": "detached-cli",
+  "flow": "timing",
+  "toolName": "quartus_sta",
+  "args": [
+    "baseline_a55",
+    "-c",
+    "pr_xor"
+  ],
+  "projectDir": "/workspace/agilex5-stack-20261101/platform",
+  "projectName": "baseline_a55",
+  "status": "completed",
+  "startedAt": "2026-11-02T03:22:20.452Z",
+  "idemKey": "timing:/workspace/agilex5-stack-20261101/platform/baseline_a55",
+  "endedAt": "2026-11-02T03:22:32.694Z",
+  "exitCode": 0
+}

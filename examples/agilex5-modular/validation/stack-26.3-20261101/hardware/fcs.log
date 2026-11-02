@@ -1,0 +1,48 @@
+Evidence: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/upstream26-hardware-20261102T035110.909716Z
+fcs: partial
+x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: mailbox_send_cmd_async_v3: status: 0
+INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: SVC_V3: x0 0x420000c8, x1 0x22, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+SIP_SVC response x1: 85, x2: FF[FCS][INFO] SDM returned 0x85 (security denial; often unowned / pubkey not provisioned)
+INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+SERVICE_FCS_API open rc=-5
+SERVICE_PARTIAL FCS_SDM_SECURITY_DENIED_0x85
+[FCS][INFO] fcs_api_open_session: SDM 0x85 security denial (expected when device is not OWNED / user pubkey not provisioned)
+[FCS][INFO] Crypto session steps will be skipped; chip-id / idcode checks above remain valid.
+[FCS] Querying provisioning via MBOX_FCS_GET_PROVISION (0x7B)...
+Get_provision_data: prov_data_buffer: 0x83800000
+INFO:    MBOX: SVC_V3: x0 0x42000132, x1 0x23, x2 0x83800000, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: mailbox_send_cmd_async_v3: status: 0
+INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: SVC_V3: x0 0x420000c8, x1 0x23, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+INFO:    MBOX: sip_smc_ret_nbytes_cb: mailbox_err 00, nbytes_ret 36
+SIP_SVC response x1: 0, x2: 24INFO:    MBOX: SVC_V3: x0 0x420000c9, x1 0x0, x2 0x0, x3 0x0, x4 0x0, x5 0x0
+INFO:    MBOX: SVC_V3: x6 0x0, x7 0x0, x8 0x0, x9 0x0, x10 0x0 x11 0x0
+
+SERVICE_FCS_API get_provision rc=0 bytes=36 (read-only)
+PASS FCS_READONLY_PROVISION_RESULT
+[FCS][INFO] provision dword[2]=0x0000FF00 (secure_state=0 hash_count=255)
+[FCS][INFO] Device appears UNOWNED / not provisioned (user public key not present).
+             Provision the owner key before open_session can succeed.
+[FCS][INFO] fcs_api_get_random_number skipped (no crypto session).
+[FCS][INFO] fcs_api_close_session skipped (no crypto session).
+
+SERVICE_FCS_API deinit rc=0
+PASS FCS_REAL_DEINIT
+[FCS][PASS] fcs_api_deinit: rc=0
+=== FCS demo: 4/4 step(s) PASS (1 expected security skip(s)) ===
+
+SERVICE_FCS_SUMMARY init=1 chip=1 jtag=1 open=1 rng=0 close=0 deinit=1 provision=1 denied=1
+PASS FCS_REAL_CALL_SEQUENCE
+SERVICE_COMPLETE status=0
+
+DDR Hello restoration: pass

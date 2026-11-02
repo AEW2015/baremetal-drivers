@@ -1,0 +1,68 @@
+[
+  {
+    "path": "hardware/ethernet-retry2.log",
+    "original_saved_sha256": "7b5e99bcd8a0a7310a5212f5e8515c88b758ec89289aac5350df49a1bdeb2af7",
+    "rendered_sha256": "7f461b6e019fecbbadbc9a6906fa188b18081ef06df7a17755dbe0fa68d164f2",
+    "transformation": "NUL bytes rendered as literal \\x00; execution verdict and original captures unchanged"
+  },
+  {
+    "path": "hardware/upstream.log",
+    "original_saved_sha256": "5319b86c88c7297181db42e16ba05a0d70af1f60cde4aab5c2ece9fd89b1aeba",
+    "rendered_sha256": "ad145cad953d6a9c638b97fbfe1d2d1693b4ad160a0ed53f2c053f5bdbe34be1",
+    "transformation": "NUL bytes rendered as literal \\x00; execution verdict and original captures unchanged"
+  },
+  {
+    "path": "hardware/memory-dsu.log",
+    "original_saved_sha256": "736acfbbdefd8d27c5c80858191b3786e0b50d8c97fcbfffdcfd3a83cc662307",
+    "rendered_sha256": "e18768a1c7a182b8c32d0311192f6179f29e237cbac62bed29e4ab6832e75fed",
+    "transformation": "NUL bytes rendered as literal \\x00; execution verdict and original captures unchanged"
+  },
+  {
+    "path": "hardware/ecc-readonly.log",
+    "original_saved_sha256": "950f1f26679b53dba6df7801326cf96c1b892d56259f2e9cb80af3f06b82e467",
+    "rendered_sha256": "54f40c63f310c7877bb7d13f58d48202742f361fed10c19375ba88f51ce1a050",
+    "transformation": "NUL bytes rendered as literal \\x00; execution verdict and original captures unchanged"
+  },
+  {
+    "path": "hardware/practice.log",
+    "original_saved_sha256": "5eacfb7c852defd825814fbbded74c46b7d1f24afba872f74529267fca9bd6a5",
+    "rendered_sha256": "aaa5c4585136e1776cbc6371cefc041f0ff0e0bb3d774e1d4fae45afe8372890",
+    "transformation": "NUL bytes rendered as literal \\x00; execution verdict and original captures unchanged"
+  },
+  {
+    "path": "hardware/candidates.log",
+    "original_saved_sha256": "7a0857c21d8846d9f337f0a2ebe3aef080eaa63dc93ce418dae61abd128e761b",
+    "rendered_sha256": "b59d38a5b9267abdd31581f61ec20141bc9cfa3d634c718d5e870f8b9305fb67",
+    "transformation": "NUL bytes rendered as literal \\x00; execution verdict and original captures unchanged"
+  },
+  {
+    "path": "hardware/upstream-runtime.log",
+    "original_saved_sha256": "72bc79f4613cfcbf37eb7feefe8297d8d362864f7e459deaeca799118176cf1e",
+    "rendered_sha256": "213f438ef5e9bc1f800bb71f2a14854a87170776cf65a82c2289d41f40c06e8c",
+    "transformation": "NUL bytes rendered as literal \\x00; execution verdict and original captures unchanged"
+  },
+  {
+    "path": "hardware/config.log",
+    "original_saved_sha256": "0cf8c028e14f67ede60b1c20a96396f2bd7f33a29def3eda2b91b1b1d3a19bf9",
+    "rendered_sha256": "dfc2be819996b171f29607ec1f432c917a4a4b53d1b75ee22a86fcbcbaebb638",
+    "transformation": "NUL bytes rendered as literal \\x00; execution verdict and original captures unchanged"
+  },
+  {
+    "path": "hardware/diagnostics.log",
+    "original_saved_sha256": "a2e7fb85c7329826d49a20b61477f39a2693eb833d0d79faf3c2f172bd8c9147",
+    "rendered_sha256": "178de745a07f11852c3c993d99de8ecf5176ca59596426ab28eb40b02b204bfb",
+    "transformation": "NUL bytes rendered as literal \\x00; execution verdict and original captures unchanged"
+  },
+  {
+    "path": "hardware/memory-ddr.log",
+    "original_saved_sha256": "3cc590dce0b70db3624478f607c342e82051a2f8668c5223647c0c98fe4f9cae",
+    "rendered_sha256": "f1d9f75a0e7d4aa5f51273549146bd63a39abc0085465a602d950c8cb88f141a",
+    "transformation": "NUL bytes rendered as literal \\x00; execution verdict and original captures unchanged"
+  },
+  {
+    "path": "build/first-qualified-ddr-uart.txt",
+    "original_saved_sha256": "4fef34f86ffcdb836a206246b85a389ff382d30983d5b9c718aaba8d1f3b05ad",
+    "rendered_sha256": "abfff44229485eacdb0de6ab1b25106c5b3b4f36e8820a8f090ccd3f2953215a",
+    "transformation": "NUL bytes rendered as literal \\x00; execution verdict and original captures unchanged"
+  }
+]

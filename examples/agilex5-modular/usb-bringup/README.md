@@ -1,5 +1,11 @@
 # Volatile U-Boot preparation for SOM USB bring-up
 
+**26.3 retest:** xHCI initialization now completes and USB3320 identity reads
+return `0424:0007`. U-Boot enumerates its5Gb/s root hub; external hub/flash/
+mouse/USB Ethernet remain unqualified. See the [fresh report](../../../docs/validation-26.3.md).
+Earlier CNR/PHY timeout experiments below retain their historical evidence.
+
+
 This directory prepares an existing reviewed vendor U-Boot payload and an
 isolated TF-A monitor for a **bare-metal USB demonstration without booting an
 operating system or reconfiguring the FPGA fabric**. Preparation alone does not establish hardware behavior. The source-built image
@@ -51,10 +57,10 @@ In the Quartus development container, from `examples/agilex5-modular`:
 ./usb-bringup/build_monitor.sh
 ```
 
-This requires the existing clean `.deps/runtime-atf-26.1.1` checkout at commit
-`2ea5afda7f34774ddcc677fb3a728fa57f780a1e`. It preserves that shared source, creates the separate pinned local checkout
-`.deps/usb-atf-source`, applies `patch_monitor.py`, and uses its own
-`BUILD_BASE=build/usb-bringup-atf`, with `RESET_TO_BL31=1`,
+This requires the clean `.deps/runtime-atf-26.3` checkout at the 26.3 ATF pin
+in `stack-versions.json`. Run `upstream-lab/build_bl31.sh` first to prepare it. It preserves that shared source, creates the separate pinned local checkout
+`.deps/usb-atf-source-26.3`, applies `patch_monitor.py`, and uses its own
+`BUILD_BASE=build/usb-bringup-atf-26.3`, with `RESET_TO_BL31=1`,
 `PRELOADED_BL33_BASE=0x80200000`, `SPD=none`, debug logs and the established
 400 MHz counter definition. The default compiler prefix is
 `aarch64-linux-gnu-`; `UPSTREAM_CROSS_COMPILE` can override it.
@@ -62,8 +68,8 @@ This requires the existing clean `.deps/runtime-atf-26.1.1` checkout at commit
 Monitor outputs:
 
 ```text
-build/usb-bringup-atf/agilex5/debug/bl31.bin
-build/usb-bringup-atf/agilex5/debug/usb-monitor.json
+build/usb-bringup-atf-26.3/agilex5/debug/bl31.bin
+build/usb-bringup-atf-26.3/agilex5/debug/usb-monitor.json
 ```
 
 The monitor metadata records its exact source pin, binary hash and entry. The
@@ -143,8 +149,8 @@ The extracted vendor payload reached its U-Boot banner on this bench, but
 bare-metal/TF-A DDR bootstrap initializes DDR; it does not manufacture U-Boot
 SPL's bloblist. This failure is distinct from DDR calibration failure.
 
-`build_uboot.sh` builds the maintained vendor U-Boot host stack from pinned commit
-`e09d6fcc95f33b8a60377103f6e37e635660a3ee`, targeting
+`build_uboot.sh` builds the maintained vendor U-Boot host stack from the 26.3 pin
+`5ba74aeda63ed07e98670f8c2f0135de06543ba0` in `stack-versions.json`, targeting
 `socfpga_agilex5_a0_modular_defconfig`. The derived lab profile disables
 `CONFIG_HANDOFF`, `CONFIG_SPL_HANDOFF` and `CONFIG_BLOBLIST`, selecting the
 platform's existing FDT-memory fallback in `dram_init()` and
@@ -167,11 +173,11 @@ In the configured development container, from `examples/agilex5-modular`:
 ./usb-bringup/build_uboot.sh
 ```
 
-The script fetches the exact source pin into ignored `.deps/usb-uboot-source`,
+The script fetches the exact source pin into ignored `.deps/usb-uboot-source-26.3`,
 adds the repository's `usb_lab_mouse.c` command reproducibly, and builds only
 U-Boot proper and its DTB. It does not build/program a new FPGA design or boot
 an operating system. Outputs and checked configuration are isolated under
-`build/usb-uboot-source/`:
+`build/usb-uboot-26.3/`:
 
 ```text
 u-boot-usb-standalone.bin
@@ -401,7 +407,7 @@ From the repository root on the established host:
 python3 examples/agilex5-modular/usb-bringup/run.py \
   --bench /home/lada/altera-agilex/home/baremetal-guide-validation \
   --mcp-client /home/lada/quartus26-mcp-demos/mcp_client.py \
-  --uboot examples/agilex5-modular/build/usb-uboot-source/u-boot-usb-standalone.bin
+  --uboot examples/agilex5-modular/build/usb-uboot-26.3/u-boot-usb-standalone.bin
 ```
 
 The host runner holds the shared hardware mutex through fresh board discovery,

@@ -1,12 +1,18 @@
 # Testing, adaptation, and recovery
 
+Use the checkout's `stack-versions.json` and `docs/stack-26.3.md` for the current
+release. The migrated FPGA-first platform requires its complete merged SOF;
+HPS-only conversion instructions below apply to explicitly HPS-first sources.
+The 26.1.1 pins and events retained here describe the older recovery profile.
+
+
 ## Bootstrap sequence
 
 Use host serial capture before programming the volatile HPS RBF. Preserve the selected Modular FPGA configuration/handoff. `quartus_pfg -c <matching SOF> <output.rbf> -o hps_path=<ihex> -o hps=1` generates an HPS RBF plus other outputs; program the `.hps.rbf` to the verified FPGA position. Don't accidentally load a fabric-only helper that removes the HPS debug TAP.
 
 The local `bootstrap/ddr` initializer uses ATF 26.1.1 commit `2ea5afda7f34774ddcc677fb3a728fa57f780a1e`. Its small diagnostic hook runs immediately after successful DDR initialization and before storage/combo-PHY boot. It tests scratch DDR with MMU/data cache off, copies the UART payload to 0x82000000, checks readback, invalidates instruction cache and branches there. This is an EL3 diagnostic, not a complete resident BL31/PSCI environment. Successful DDR bring-up does not establish SD/USB/other PHY initialization.
 
-The pinned baremetal-drivers tag is `QPDS25.1_REL_GSRD_PR`, commit `1419101568f1a9034630b632634fe9fe71773266`. The guide's 25.1.1 tag was absent for that repository. Keep pinning explicit. The legacy sample sources are under the fetched dependency’s `test/simics/`; the current repository root instead contains the rewritten 26.3 `api/` and `drivers/`. Use `legacy_source.py` for the recorded old API.
+The historical legacy-adapter fixture uses the baremetal-drivers tag `QPDS25.1_REL_GSRD_PR`, commit `1419101568f1a9034630b632634fe9fe71773266`. The guide's 25.1.1 tag was absent for that repository. Keep pinning explicit. The legacy sample sources are under the fetched dependency’s `test/simics/`; the current repository root instead contains the rewritten 26.3 `api/` and `drivers/`. Use `legacy_source.py` for the recorded old API.
 
 ## Load and verify
 
@@ -136,3 +142,34 @@ The runtime follow-up uses pinned TF-A `2ea5afda7f34774ddcc677fb3a728fa57f780a1e
 BL31 programs CNTFRQ from its pinned 400 MHz platform definition. Require the queued hardware one-second interval check before claiming rates. The missing-clock QEMU control checks explicit `TIMING_UNAVAILABLE` output. IOSSM ready-plus-error responses are failures; the model's ECC register 0x300 is unmapped and its injection commands remain unqualified. Mailbox NOOP/configuration status pass in the model, but GET_IDCODE is rejected. Preserve those partial results.
 
 Use `--wait-for-hardware` to queue on the existing shared mutex. Do not interrupt its owner, replace the lock inode, or silently switch to an independent lock. Freeze the artifacts before queuing. Read per-run `mutex.json`; `CANCEL` cancels a waiting run before hardware access. The hardware `bridge-control` selection only toggles the verified lightweight bridge and does not assume the model's HPS2FPGA memory exists on this SOM. See `docs/runtime-fixes.md`.
+
+## Matched 26.3 platform loading
+
+Current builders read `examples/agilex5-modular/stack-versions.json`; historical
+26.1.1 runs retain their original pins. The migrated FPGA-first platform uses
+HPS 14.1 / EMIF 5.1 with the exact Modular ES part and original DDR/pin settings.
+PFG rejects an HPS-only RBF for this boot order. Set `AGILEX_BOOTSTRAP_DIR` to
+the paired full-image directory and `AGILEX_FORCE_FULL_BOOT=1`; select the new
+26.3 tool container explicitly. `StackBench` then uses that container's
+OpenOCD and repository-mapped payload staging, rather than older bench paths.
+
+Halt the previous CPU before UART capture so its late DDR messages cannot
+qualify a replacement boot. Require the four scratch patterns, payload
+readback, three fresh Hello lines, FPGA user mode with CONF_DONE/INIT_DONE,
+and a PC in DDR. Use `quartus_pgm -m jtag` for the configuration-status query;
+omitting the mode caused the first new-stack host qualification to fail even
+though the UART memory tests had completed. Retain that failed attempt.
+
+Share the canonical mutex inode across checkouts. Forward the actual locked
+file descriptor to a nested bootstrap; closing a duplicated inherited fd must
+not explicitly unlock its parent. Concurrent simulator result directories must
+not be mistaken for hardware runs when collecting restoration evidence.
+
+
+On the matched26.3 Modular ES stack, xHCI initialization and USB3320 ULPI
+identity reads now pass, while external hub/device enumeration remains
+unqualified. A root-hub count of1 is not an external-device pass. Keep the
+USB runner's nonzero result and distinguish controller/PHY success from class
+traffic. `usb reset` is a bounded USB-bus rescan; it does not authorize pulsing
+the SOM's shared external reset net. Consult the current report rather than
+reusing the older CNR-timeout diagnosis.

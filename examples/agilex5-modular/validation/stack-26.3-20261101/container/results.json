@@ -1,0 +1,37 @@
+{
+  "scope": "Fresh Ubuntu learning image runtime checks and firmware builds; hardware image tool smoke; no board or license supplied to these container checks",
+  "images": {
+    "agilex-learning:26.3-reference": "sha256:2a5aecc067122b4127786e2284492c2adeb6f28a81a4c793b357c9663475799e",
+    "agilex-hardware:26.3-reference": "sha256:5826b0ec40c4e07199cf5fbddba823b3973b5786f6c509c48ecac971d9151719"
+  },
+  "source_snapshot_commit": "419f7343dc2f8e2f63aa988bd3f106ab9bbd5816",
+  "dockerfile_sha256": "2e868917420ef95ab5e45d60184711e640e7bc40b73f2c65b5904f8b16d0b31c",
+  "steps": {
+    "learning-build": {
+      "status": "pass",
+      "log": "learning-build.log",
+      "sha256": "f601843308c0e33774cd4290adad319c095a5df9ed149c7f7a1c7e4664128eb7"
+    },
+    "hardware-build": {
+      "status": "pass",
+      "log": "hardware-build.log",
+      "sha256": "e136e40186d35e2f28b84686cefe80fed50a6c6cdd7ce657da9ee6e2d0891478"
+    },
+    "learning-check": {
+      "status": "pass",
+      "log": "learning-check.log",
+      "sha256": "c9987f36a94e8ae1180a8e06c1b96343dbe3ba00a719b49881fc4a53f186553e"
+    },
+    "firmware-builds": {
+      "status": "pass",
+      "log": "firmware-builds.log",
+      "sha256": "2ad89a3d9f9a55953f130eb51ae82750eff028c53e948f5ff9ae33bf96e72915"
+    },
+    "hardware-smoke": {
+      "status": "pass",
+      "log": "hardware-smoke.log",
+      "sha256": "ed85ecdc651c3f8c57d72104be3f5842b7fb261a92bb0950e9a486c8e04f3fba"
+    }
+  },
+  "finished_utc": "2026-11-02T03:42:59.607715+00:00"
+}

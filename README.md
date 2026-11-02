@@ -4,8 +4,9 @@ This fork contains Altera's current **26.3 driver/API source** at the repository
 root, plus the [Agilex 5 Modular tutorial](https://aew2015.github.io/baremetal-drivers/)
 and [local example pack](examples/agilex5-modular/README.md).
 
+- [26.3 stack and migration](docs/stack-26.3.md): matched HPS/EMIF, ATF, U-Boot and hardware loading.
 - [QEMU labs](docs/qemu.md): CPU learning without a board.
-- [Fresh platform report](docs/full-validation-2026-10-31.md): all 94 entries, real terminal output and remaining limits.
+- [Fresh platform report](docs/validation-26.3.md): all 94 entries, real terminal output and remaining limits.
 - [Container reference](docs/container.md): build the public Linux development image for QEMU, Verilator and optional licensed hardware tools.
 - [Simics labs](docs/simics.md): Agilex HPS virtual-platform execution.
 - [Upstream 26.3 migration and example catalog](docs/upstream-26.3.md).
@@ -35,32 +36,32 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`upstream/bridge`](examples/bridge) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`upstream/ccu`](examples/ccu) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [⚠️ Partial](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/clk_mngr`](examples/clk_mngr) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [⚠️ Partial](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/combophy`](examples/combophy) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/crc`](examples/crc) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/ddr`](examples/ddr) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`upstream/dma`](examples/dma) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/ecc`](examples/ecc) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [⚠️ Partial](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/fcs`](examples/fcs) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/full-campaign-20261031/simics/fcs-fixed-results.json) | [⚠️ Partial](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/gic`](examples/gic) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/gpio`](examples/gpio) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`upstream/hello`](examples/hello) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/i2c`](examples/i2c) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`upstream/i3c`](examples/i3c) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`upstream/iossm`](examples/iossm) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`upstream/mailbox`](examples/mailbox) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/mmu`](examples/mmu) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/noc`](examples/noc) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/perf`](examples/perf) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/reboot_mngr`](examples/reboot_mngr) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`upstream/reset_mngr`](examples/reset_mngr) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/sdmmc`](examples/sdmmc) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`upstream/seu`](examples/seu) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`upstream/smmu`](examples/smmu) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/spi`](examples/spi) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [⚠️ Partial](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`upstream/timer`](examples/timer) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
+| [`upstream/bridge`](examples/bridge) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`upstream/ccu`](examples/ccu) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/clk_mngr`](examples/clk_mngr) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/combophy`](examples/combophy) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/crc`](examples/crc) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/ddr`](examples/ddr) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`upstream/dma`](examples/dma) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/ecc`](examples/ecc) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/fcs`](examples/fcs) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/gic`](examples/gic) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/gpio`](examples/gpio) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`upstream/hello`](examples/hello) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/i2c`](examples/i2c) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`upstream/i3c`](examples/i3c) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`upstream/iossm`](examples/iossm) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`upstream/mailbox`](examples/mailbox) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/mmu`](examples/mmu) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/noc`](examples/noc) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/perf`](examples/perf) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/reboot_mngr`](examples/reboot_mngr) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`upstream/reset_mngr`](examples/reset_mngr) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/sdmmc`](examples/sdmmc) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`upstream/seu`](examples/seu) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`upstream/smmu`](examples/smmu) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/spi`](examples/spi) | ➖ Unsupported | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`upstream/timer`](examples/timer) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 
 </details>
 
@@ -69,21 +70,21 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`board/core`](examples/agilex5-modular/core/core_examples.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/dma`](examples/agilex5-modular/core/dma_copy.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/gic`](examples/agilex5-modular/core/gic_sgi.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/interfaces`](examples/agilex5-modular/core/som_interfaces.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/mailbox`](examples/agilex5-modular/core/mailbox_status.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/mmu`](examples/agilex5-modular/core/mmu_translation.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/multicore`](examples/agilex5-modular/core/multicore.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/som`](examples/agilex5-modular/core/som_peripherals.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/som-i2c`](examples/agilex5-modular/core/som_i2c.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/som-i3c`](examples/agilex5-modular/core/som_i3c.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/vendor-ccu`](examples/agilex5-modular/core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/vendor-clkmgr`](examples/agilex5-modular/core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/vendor-ecc`](examples/agilex5-modular/core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/vendor-smmu`](examples/agilex5-modular/core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`board/vendor-uart`](examples/agilex5-modular/core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
+| [`board/core`](examples/agilex5-modular/core/core_examples.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/dma`](examples/agilex5-modular/core/dma_copy.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/gic`](examples/agilex5-modular/core/gic_sgi.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/interfaces`](examples/agilex5-modular/core/som_interfaces.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/mailbox`](examples/agilex5-modular/core/mailbox_status.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/mmu`](examples/agilex5-modular/core/mmu_translation.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/multicore`](examples/agilex5-modular/core/multicore.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/som`](examples/agilex5-modular/core/som_peripherals.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/som-i2c`](examples/agilex5-modular/core/som_i2c.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/som-i3c`](examples/agilex5-modular/core/som_i3c.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/vendor-ccu`](examples/agilex5-modular/core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/vendor-clkmgr`](examples/agilex5-modular/core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/vendor-ecc`](examples/agilex5-modular/core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/vendor-smmu`](examples/agilex5-modular/core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`board/vendor-uart`](examples/agilex5-modular/core/vendor_wrapper.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 
 </details>
 
@@ -92,7 +93,7 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`board/vendor-timer`](examples/agilex5-modular/build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
+| [`board/vendor-timer`](examples/agilex5-modular/build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 | [`board/vendor-watchdog`](examples/agilex5-modular/build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
 | [`board/vendor-spi`](examples/agilex5-modular/build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
 | [`board/vendor-hps_mailbox`](examples/agilex5-modular/build_board_vendor.py) | ➖ Unsupported | ⬜ Not tested | 🔨 Build only |
@@ -104,22 +105,22 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`legacy/hello-world`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/uart`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/dma`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/timer`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/watchdog`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/i2c`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/i3c`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/spi`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/sdmmc`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/xgmac`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/mmu_el3`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/smmu`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/ccu`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/clkmgr`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/ecc`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`legacy/hps_mailbox`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
+| [`legacy/hello-world`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/uart`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/dma`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/timer`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/watchdog`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/i2c`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/i3c`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/spi`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/sdmmc`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/xgmac`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/mmu_el3`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/smmu`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/ccu`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/clkmgr`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/ecc`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`legacy/hps_mailbox`](examples/agilex5-modular/simics/legacy.py) | ➖ Unsupported | [❌ Failed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
 
 </details>
 
@@ -128,14 +129,14 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`custom/qemu-hello`](examples/agilex5-modular/qemu/hello.c) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | ⬜ Not tested | ⬜ Not tested |
-| [`practice/startup`](examples/agilex5-modular/qemu/labs/startup.c) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`practice/corruption`](examples/agilex5-modular/qemu/labs/corruption.c) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`practice/exception`](examples/agilex5-modular/qemu/labs/exception.c) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`practice/timer`](examples/agilex5-modular/qemu/labs/timer.c) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`practice/mmu`](examples/agilex5-modular/qemu/labs/mmu.c) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`practice/uart`](examples/agilex5-modular/qemu/labs/uart.c) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`practice/multicore`](examples/agilex5-modular/qemu/labs/multicore.c) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
+| [`custom/qemu-hello`](examples/agilex5-modular/qemu/hello.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | ⬜ Not tested | ⬜ Not tested |
+| [`practice/startup`](examples/agilex5-modular/qemu/labs/startup.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`practice/corruption`](examples/agilex5-modular/qemu/labs/corruption.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`practice/exception`](examples/agilex5-modular/qemu/labs/exception.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`practice/timer`](examples/agilex5-modular/qemu/labs/timer.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`practice/mmu`](examples/agilex5-modular/qemu/labs/mmu.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`practice/uart`](examples/agilex5-modular/qemu/labs/uart.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`practice/multicore`](examples/agilex5-modular/qemu/labs/multicore.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 
 </details>
 
@@ -144,18 +145,18 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`diagnostic/smc-guard`](examples/agilex5-modular/upstream-lab/lab.c) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`diagnostic/perf-zero-clock`](examples/agilex5-modular/upstream-lab/lab.c) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`custom/bridge-control`](examples/agilex5-modular/upstream-lab/lab.c) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`custom/ocram-hello`](examples/agilex5-modular/bootstrap/ocram/uart_local.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`custom/ddr-hello`](examples/agilex5-modular/bootstrap/ddr) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`reference/semihost`](examples/agilex5-modular/bootstrap/ocram/hello_semihost.S) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`reference/psci`](examples/agilex5-modular/core/secondary_core.c) | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`custom/fault-probe`](examples/agilex5-modular/core/fault_probe.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`custom/ethernet`](examples/agilex5-modular/ethernet) | ⬜ Not tested | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
+| [`diagnostic/smc-guard`](examples/agilex5-modular/upstream-lab/lab.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`diagnostic/perf-zero-clock`](examples/agilex5-modular/upstream-lab/lab.c) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`custom/bridge-control`](examples/agilex5-modular/upstream-lab/lab.c) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`custom/ocram-hello`](examples/agilex5-modular/bootstrap/ocram/uart_local.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`custom/ddr-hello`](examples/agilex5-modular/bootstrap/ddr) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`reference/semihost`](examples/agilex5-modular/bootstrap/ocram/hello_semihost.S) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`reference/psci`](examples/agilex5-modular/core/secondary_core.c) | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`custom/fault-probe`](examples/agilex5-modular/core/fault_probe.c) | ➖ Unsupported | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`custom/ethernet`](examples/agilex5-modular/ethernet) | ⬜ Not tested | ⬜ Not tested | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 | [`fabric/add`](examples/agilex5-modular/fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
 | [`fabric/xor`](examples/agilex5-modular/fabric) | ⬜ Not tested | ⬜ Not tested | ⬜ Not tested |
-| [`reference/pr`](examples/agilex5-modular/fabric/pr) | 📖 Reference | [⚠️ Partial](examples/agilex5-modular/fabric/pr/validation/20261031-hardware/simics/assessment.json) | [✅ Passed](examples/agilex5-modular/fabric/pr/validation/20261031-hardware/hardware/results.json) |
+| [`reference/pr`](examples/agilex5-modular/fabric/pr) | 📖 Reference | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 
 </details>
 
@@ -164,8 +165,8 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`config/sysmgr`](examples/agilex5-modular/config-audit) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`config/pinmux`](examples/agilex5-modular/config-audit) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
+| [`config/sysmgr`](examples/agilex5-modular/config-audit) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`config/pinmux`](examples/agilex5-modular/config-audit) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 
 </details>
 
@@ -174,8 +175,8 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`integration/simics-rtl-add`](examples/agilex5-modular/simics-rtl) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ➖ Unsupported |
-| [`integration/simics-rtl-xor`](examples/agilex5-modular/simics-rtl) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ➖ Unsupported |
+| [`integration/simics-rtl-add`](examples/agilex5-modular/simics-rtl) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ➖ Unsupported |
+| [`integration/simics-rtl-xor`](examples/agilex5-modular/simics-rtl) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ➖ Unsupported |
 
 </details>
 
@@ -184,7 +185,7 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`model/pio`](examples/agilex5-modular/model-audit) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ➖ Unsupported |
+| [`model/pio`](examples/agilex5-modular/model-audit) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ➖ Unsupported |
 
 </details>
 
@@ -193,18 +194,18 @@ Expand a group for every example. [Detailed scope and results](docs/example-cata
 
 | Example / source | QEMU | SIMICS | Hardware |
 |---|:---:|:---:|:---:|
-| [`memory/dsu`](examples/agilex5-modular/memory-labs/dsu) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`memory/l3-partition`](examples/agilex5-modular/memory-labs/dsu) | ➖ Unsupported | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`memory/ddr-sweep`](examples/agilex5-modular/memory-labs/ddr) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
-| [`memory/smmu-qemu`](examples/agilex5-modular/memory-labs/smmu) | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json) | ➖ Unsupported | ➖ Unsupported |
-| [`memory/native-tbu`](examples/agilex5-modular/memory-labs/smmu/native_fixture.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ➖ Unsupported |
-| [`memory/dma-tbu`](examples/agilex5-modular/memory-labs/smmu/dmac) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | ⬜ Not tested |
-| [`memory/fabric-ddr`](examples/agilex5-modular/memory-labs/fabric-ddr) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/full-campaign-20261031/simics/results.json) | 🚧 Blocked |
-| [`custom/usb-host`](examples/agilex5-modular/usb-bringup) | ➖ Unsupported | ⬜ Not tested | [❌ Failed](examples/agilex5-modular/validation/full-campaign-20261031/hardware/results.json) |
+| [`memory/dsu`](examples/agilex5-modular/memory-labs/dsu) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`memory/l3-partition`](examples/agilex5-modular/memory-labs/dsu) | ➖ Unsupported | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`memory/ddr-sweep`](examples/agilex5-modular/memory-labs/ddr) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
+| [`memory/smmu-qemu`](examples/agilex5-modular/memory-labs/smmu) | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json) | ➖ Unsupported | ➖ Unsupported |
+| [`memory/native-tbu`](examples/agilex5-modular/memory-labs/smmu/native_fixture.py) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ➖ Unsupported |
+| [`memory/dma-tbu`](examples/agilex5-modular/memory-labs/smmu/dmac) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | ⬜ Not tested |
+| [`memory/fabric-ddr`](examples/agilex5-modular/memory-labs/fabric-ddr) | ➖ Unsupported | [✅ Passed](examples/agilex5-modular/validation/stack-26.3-20261101/simics/results.json) | 🚧 Blocked |
+| [`custom/usb-host`](examples/agilex5-modular/usb-bringup) | ➖ Unsupported | ⬜ Not tested | [⚠️ Partial](examples/agilex5-modular/validation/stack-26.3-20261101/hardware/results.json) |
 
 </details>
 
-**USB work in progress:** the [bare-metal USB lab](examples/agilex5-modular/usb-bringup/README.md) boots U-Boot on hardware, but USB controller readiness still fails. Hub enumeration, mouse input, flash reads and USB-Ethernet traffic are pending.
+**USB qualification:** the [bare-metal USB lab](examples/agilex5-modular/usb-bringup/README.md) records controller/PHY bring-up, external-device enumeration and class traffic separately. See the linked USB row and lab scope for current results.
 
 Maintainers: regenerate these checklists with `python3 examples/agilex5-modular/catalog.py`; CI checks for drift.
 <!-- example-platform-checklist:end -->

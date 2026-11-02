@@ -1,5 +1,11 @@
 # Established Modular ES bench
 
+For the current 26.3 container, HPS14.1/EMIF5.1 and ATF/U-Boot pins, consult
+the checkout's `docs/stack-26.3.md` and release manifest. Keep the older image
+and tool paths below as a separate historical recovery profile; do not mix
+those artifacts into a current-stack pass claim.
+
+
 Verified board identity: Agilex_5E MDK Carrier, FPGA JTAG ID `0364F0DD`, ARM DAP `4BA06477`, MAX10 VTAP `020D10DD`. SOM FPGA is ES `A5ED065BB32AE6SR0`. The carrier cable has appeared as `Agilex_5E MDK Carrier [1-4.2.1]`; another cable is Atum A3 Nano. Derive the FPGA position from fresh `jtagconfig`: adding/removing the HPS DAP changes its index.
 
 JTAG works reliably at 6 MHz; 24 MHz gave inconsistent reads. Set `jtagconfig --setparam <verified-carrier-index> JtagClock 6M` inside the container.

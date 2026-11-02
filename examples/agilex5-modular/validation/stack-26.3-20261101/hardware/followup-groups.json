@@ -1,0 +1,128 @@
+{
+  "scope": "Current 26.3 stack follow-up; no simulated or old-image hardware passes",
+  "groups": [
+    {
+      "name": "som-i2c-retry-1",
+      "command": [
+        "/usr/bin/python3",
+        "run_suite.py",
+        "--only",
+        "som-i2c"
+      ],
+      "exit": 0,
+      "seconds": 83.37297345185652,
+      "runs": [
+        "runs/20261102T041429.204149Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "som-i2c-retry-2",
+      "command": [
+        "/usr/bin/python3",
+        "run_suite.py",
+        "--only",
+        "som-i2c"
+      ],
+      "exit": 0,
+      "seconds": 82.91654476802796,
+      "runs": [
+        "runs/20261102T041552.708151Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "pr-hardware",
+      "command": [
+        "/usr/bin/python3",
+        "fabric/pr/hardware/run.py",
+        "--manifest",
+        "/home/lada/quartus26-mcp-demos/agilex5-stack-20261101/hardware-manifest.json",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--run",
+        "--wait-for-hardware"
+      ],
+      "exit": 0,
+      "seconds": 110.6994139701128,
+      "runs": [
+        "runs/pr-hardware-20261102T041715.017270Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "usb-diagnostic",
+      "command": [
+        "/usr/bin/python3",
+        "usb-bringup/run.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--command",
+        "usb start",
+        "--command",
+        "usb info",
+        "--command",
+        "usb tree",
+        "--command",
+        "usb storage",
+        "--command",
+        "net list",
+        "--command",
+        "md.l 0x11000000 8",
+        "--command",
+        "md.l 0x11000420 8",
+        "--command",
+        "usb_lab_phy"
+      ],
+      "exit": 1,
+      "seconds": 169.74349729390815,
+      "runs": [
+        "runs/usb-uboot-20261102T042135.190419Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    },
+    {
+      "name": "usb-rescan",
+      "command": [
+        "/usr/bin/python3",
+        "usb-bringup/run.py",
+        "--bench",
+        "/home/lada/altera-agilex/home/baremetal-guide-validation",
+        "--mcp-client",
+        "/home/lada/quartus26-mcp-demos/mcp_client.py",
+        "--command",
+        "usb start",
+        "--command",
+        "usb_lab_phy",
+        "--command",
+        "usb reset",
+        "--command",
+        "usb tree",
+        "--command",
+        "usb storage",
+        "--command",
+        "md.l 0x11000420 8"
+      ],
+      "exit": 1,
+      "seconds": 172.853452923242,
+      "runs": [
+        "runs/usb-uboot-20261102T043104.122950Z"
+      ],
+      "restorations": [
+        "pass"
+      ]
+    }
+  ]
+}

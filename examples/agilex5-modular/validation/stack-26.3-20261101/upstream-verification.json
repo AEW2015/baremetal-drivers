@@ -1,0 +1,9 @@
+{
+  "recorded_utc": "2026-11-02T04:05:44.840171+00:00",
+  "method": "git ls-remote on official Altera repositories",
+  "drivers_HEAD": "66bdcc347564c5698a8997169bce83a31647d618",
+  "release_tag": "QPDS26.3_REL_BASELINE_PR",
+  "atf": "09c4dc6628810d8570af69db43918d344f9e80e9",
+  "uboot": "5ba74aeda63ed07e98670f8c2f0135de06543ba0",
+  "scope": "Immutable release bases; local diagnostic fixes and hooks retained and source-hashed separately."
+}

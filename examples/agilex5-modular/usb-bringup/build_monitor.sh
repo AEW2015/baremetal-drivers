@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 cd "$(dirname "$0")/.."
-atf=${AGILEX_RUNTIME_ATF:-$PWD/.deps/runtime-atf-26.1.1}
-pin=2ea5afda7f34774ddcc677fb3a728fa57f780a1e
+atf=${AGILEX_RUNTIME_ATF:-$PWD/.deps/runtime-atf-26.3}
+pin=$(python3 release_pins.py atf.commit)
 [[ -d "$atf/.git" ]] || { echo 'Build/fetch the existing pinned runtime checkout with upstream-lab/build_bl31.sh first' >&2; exit 1; }
 [[ $(git -C "$atf" rev-parse HEAD) == "$pin" ]] || { echo 'TF-A revision differs from the qualified runtime pin' >&2; exit 1; }
 [[ -z $(git -C "$atf" status --porcelain --untracked-files=no) ]] || { echo 'TF-A tracked sources have changes; use the clean runtime checkout' >&2; exit 1; }
@@ -10,8 +10,8 @@ pin=2ea5afda7f34774ddcc677fb3a728fa57f780a1e
 spl_reset=${USB_SPL_RESET_PULSE:-0}
 patch_args=()
 case "$spl_reset" in
-  0) usb_atf="$PWD/.deps/usb-atf-source"; out="$PWD/build/usb-bringup-atf" ;;
-  1) usb_atf="$PWD/.deps/usb-atf-source-spl-reset"; out="$PWD/build/usb-bringup-atf-spl-reset"; patch_args+=(--spl-reset-pulse) ;;
+  0) usb_atf="$PWD/.deps/usb-atf-source-26.3"; out="$PWD/build/usb-bringup-atf-26.3" ;;
+  1) usb_atf="$PWD/.deps/usb-atf-source-26.3-spl-reset"; out="$PWD/build/usb-bringup-atf-26.3-spl-reset"; patch_args+=(--spl-reset-pulse) ;;
   *) echo 'USB_SPL_RESET_PULSE must be 0 or 1' >&2; exit 1 ;;
 esac
 if [[ ! -d "$usb_atf/.git" ]]; then
@@ -31,7 +31,7 @@ make -C "$atf" BUILD_BASE="$out" bl31 PLAT=agilex5 RESET_TO_BL31=1 \
 python3 - "$atf" "$out" "${UPSTREAM_CROSS_COMPILE:-aarch64-linux-gnu-}" "$spl_reset" <<'PY'
 import hashlib,json,pathlib,subprocess,sys
 source=pathlib.Path(sys.argv[1]);out=pathlib.Path(sys.argv[2])/'agilex5/debug';image=out/'bl31.bin'
-data={'scope':'Isolated monitor compile only; no hardware execution claimed','atf_commit':'2ea5afda7f34774ddcc677fb3a728fa57f780a1e','reset_to_bl31':True,'usb_platform_init':'Normal vendor BL2 USB3 PIPE power-present BIT14 RMW, restored in isolated RESET_TO_BL31 monitor','patch_sha256':hashlib.sha256(pathlib.Path('usb-bringup/patch_monitor.py').read_bytes()).hexdigest(),'patched_source_sha256':hashlib.sha256((source/'plat/intel/soc/agilex5/bl31_plat_setup.c').read_bytes()).hexdigest(),'bl31_base':'0x80000000','bl33_entry':'0x80200000','nonsecure_entry_el':2,'initial_el3_args':[0,0,0,0],'counter_hz':400000000,'bl31_sha256':hashlib.sha256(image.read_bytes()).hexdigest(),'bl31_bytes':image.stat().st_size,'compiler':subprocess.check_output([sys.argv[3]+'gcc','--version'],text=True).splitlines()[0]}
+data={'scope':'Isolated monitor compile only; no hardware execution claimed','atf_commit':json.loads(pathlib.Path('stack-versions.json').read_text())['atf']['commit'],'reset_to_bl31':True,'usb_platform_init':'Normal vendor BL2 USB3 PIPE power-present BIT14 RMW, restored in isolated RESET_TO_BL31 monitor','patch_sha256':hashlib.sha256(pathlib.Path('usb-bringup/patch_monitor.py').read_bytes()).hexdigest(),'patched_source_sha256':hashlib.sha256((source/'plat/intel/soc/agilex5/bl31_plat_setup.c').read_bytes()).hexdigest(),'bl31_base':'0x80000000','bl33_entry':'0x80200000','nonsecure_entry_el':2,'initial_el3_args':[0,0,0,0],'counter_hz':400000000,'bl31_sha256':hashlib.sha256(image.read_bytes()).hexdigest(),'bl31_bytes':image.stat().st_size,'compiler':subprocess.check_output([sys.argv[3]+'gcc','--version'],text=True).splitlines()[0]}
 data['spl_reset_pulse_experiment']=sys.argv[4]=='1'
 data['usb_misc_set_mask']='0x5000' if data['spl_reset_pulse_experiment'] else '0x4000'
 if data['spl_reset_pulse_experiment']:

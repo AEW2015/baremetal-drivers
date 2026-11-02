@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 45840,
+  "segments": [
+    {
+      "file": "upstream26-fcs.segment0.bin",
+      "bytes": 45840,
+      "sha256": "23ff93a0558b94ccab0d9960c52da73fa1294b1101d88aaeb3526cab8955d316"
+    }
+  ]
+}

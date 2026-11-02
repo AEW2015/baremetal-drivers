@@ -1,0 +1,335 @@
+{
+  "tool": "Quartus Prime Shell",
+  "target": "A5ED065BB32AE6SR0",
+  "before": {
+    "ip/baseline_top/sys_clock.ip": {
+      "version": "19.2.0",
+      "sha256": "5f9daaf4b71cfbe26313fea685963f39f8c94471531cd19e983f50c78fc81b53"
+    },
+    "ip/baseline_top/sys_reset.ip": {
+      "version": "19.2.0",
+      "sha256": "f794a7fd2fafe4ced63c35cb20077b3c6566d02f4f0f63fa67ec5a95c861946e"
+    },
+    "ip/fabric_subsys/ace5lite_cache_coherency_translator.ip": {
+      "version": "2.1.5",
+      "sha256": "9b0351ef708ec2d6b4415677afcbd2bb13435bddb38503273779565ef5acd62e"
+    },
+    "ip/fabric_subsys/button_pio.ip": {
+      "version": "19.2.4",
+      "sha256": "1b018445f541da6943ab509f83d09f643ccc34db985b5c5e1acf999cb9255bcb"
+    },
+    "ip/fabric_subsys/dipsw_pio.ip": {
+      "version": "19.2.4",
+      "sha256": "9624025aad24c9a9f7318b18ecc9e4050c7782c8c8b77c0187f25d5a734627a6"
+    },
+    "ip/fabric_subsys/f2sdram_adapter.ip": {
+      "version": "1.0",
+      "sha256": "f58a1c126b14a8563f22c70c1b0eba53064ed31b880f441d8c0253a052aaff24"
+    },
+    "ip/fabric_subsys/h2f_axi_bridge.ip": {
+      "version": "19.10.3",
+      "sha256": "8350f4aff3fbf45900e688dc0d51a156f2d3896c6a1bd8b886cdd07727f6211f"
+    },
+    "ip/fabric_subsys/led_pio.ip": {
+      "version": "19.2.4",
+      "sha256": "6ab5ce39be1921a1fcc7a616202bb90f73dc98e1c45c145354cdbf91f9f792de"
+    },
+    "ip/fabric_subsys/lwh2f_axi_bridge.ip": {
+      "version": "19.10.3",
+      "sha256": "4aa7e6deeaa26dbe24ae70e50ccb9641af2fbe15f0d4b828340ca1b4d459c29c"
+    },
+    "ip/fabric_subsys/lwh2f_mm_bridge.ip": {
+      "version": "20.1.0",
+      "sha256": "d720f3cf419359b05bc63f671e3989db51d3e5dc55769b18c719e3138fb3a3a2"
+    },
+    "ip/fabric_subsys/ocm.ip": {
+      "version": "2.0.0",
+      "sha256": "442dfc6d85d867bdf0325ba617622ac977f84a147317827aaa284cafb3295ae0"
+    },
+    "ip/fabric_subsys/peripherals_mm_bridge.ip": {
+      "version": "20.1.0",
+      "sha256": "8da3b5d3ba25541e9375b1afbf6fcf758129d37e1a7cc8791ee529ffc0df47b9"
+    },
+    "ip/fabric_subsys/sysid.ip": {
+      "version": "20.0.0",
+      "sha256": "4404ebea0e2e3be1c351cbc8440757ed7b3c2b1d8055f2d44a055d6cd43b7aaf"
+    },
+    "ip/fabric_subsys/system_clock.ip": {
+      "version": "19.2.0",
+      "sha256": "1b92a6a7d0c9a81cc9ca17840c83b3d6b8e9c0c1e35cc72c869e158e6a24ab8b"
+    },
+    "ip/fabric_subsys/system_reset.ip": {
+      "version": "19.2.0",
+      "sha256": "6b37fec16e189b73aa61b04c814d4d4f83ec0b5ccdf513929e2cc426a9935a9b"
+    },
+    "ip/hps_subsys/agilex_hps.ip": {
+      "version": "14.0.0",
+      "sha256": "15e3f1051778e5d3ca1e38c194e089a39b0bd841a87382db0de9265cf1706647"
+    },
+    "ip/hps_subsys/emif_io96b_hps.ip": {
+      "version": "5.0.0",
+      "sha256": "5b40d3a7cfa3604a047837dd3d4a87ab53457c43a180d70c23904b1f202e91ac"
+    },
+    "ip/niosv_subsys/f2sdram_address_span_extender.ip": {
+      "version": "19.2.1",
+      "sha256": "74944752949a9774465dd70ad4a110caa5609b1a83c93bc79d3287c0a15ef350"
+    },
+    "ip/niosv_subsys/fpga2hps_address_span_extender.ip": {
+      "version": "19.2.1",
+      "sha256": "894398500781e8416de15266ff56efb5e29243b932dd5c3aa3f089cd74ad18da"
+    },
+    "ip/niosv_subsys/jtag_avalon_master.ip": {
+      "version": "19.1",
+      "sha256": "7586988f785ee1fe501b80b3b5a73791571054e5165fdec586e6447b48722a9e"
+    },
+    "ip/niosv_subsys/jtag_uart.ip": {
+      "version": "19.3.2",
+      "sha256": "0c9713610183b49543c845ff74eb9fe494e479034abe215c54e934495da4e8cd"
+    },
+    "ip/niosv_subsys/niosv_clock.ip": {
+      "version": "19.2.0",
+      "sha256": "2058884ac9bed7b596ceed18206cd75312e477073402ebd13efe5a5d388308eb"
+    },
+    "ip/niosv_subsys/niosv_m.ip": {
+      "version": "26.0.0",
+      "sha256": "0ac035a05e8df088f39af5a382104886128af683557faca4b08cd600f26a08f2"
+    },
+    "ip/niosv_subsys/niosv_onchip_memory.ip": {
+      "version": "2.0.0",
+      "sha256": "1e3f311d9f96a371799e25ee34221c360e1bc1087bea89cac7aa217b2db98aa0"
+    },
+    "ip/niosv_subsys/niosv_pio_in.ip": {
+      "version": "19.2.4",
+      "sha256": "4d3ba5410cbc0323cda3e22529823a0c0eb8da8f6ef9551e6bbb094eda406616"
+    },
+    "ip/niosv_subsys/niosv_pio_out.ip": {
+      "version": "19.2.4",
+      "sha256": "149d5af6019582a7801b059978257b06f282a200b817bd240739c9d37c06abff"
+    },
+    "ip/niosv_subsys/niosv_reset.ip": {
+      "version": "19.2.0",
+      "sha256": "82d9fdb3c437d99e61df2dab477193e618564eff18bb5a6fcf2d74df6bd873eb"
+    },
+    "ip/niosv_subsys/niosv_subsys_address_span_extender_1.ip": {
+      "version": "19.2.0",
+      "sha256": "cd299035db1a589817c2d0e7884954c7b962075d124beb4c9e0314924531eb78"
+    },
+    "ip/niosv_subsys/niosv_subsys_jtag_avalon_master.ip": {
+      "version": "19.1",
+      "sha256": "57dccdf50d988b4421556b1f9971cfeadf01f3531f7f5a95f548be3910cd4765"
+    },
+    "ip/niosv_subsys/niosv_subsys_pio_in.ip": {
+      "version": "19.2.4",
+      "sha256": "f315fe7ae9eb16470802a7713187d6a29527dd0b9d5e306cd86453335b4ed974"
+    },
+    "ip/niosv_subsys/niosv_subsys_pio_out.ip": {
+      "version": "19.2.4",
+      "sha256": "341e69bcd3484f90188dd0f83195455f37201bd51dd4c44aeffa287ba97389c2"
+    },
+    "ip/shell_subsys/clks_and_rsts.ip": {
+      "version": "1.0",
+      "sha256": "9783730a27a260b462a0f462b0430cf3bf1f6e4a216b5b570e6ea010d3f6abd3"
+    },
+    "ip/shell_subsys/gts_reset_sequencer.ip": {
+      "version": "6.0.0",
+      "sha256": "17a37963595a8d2fb5d9f1415ffb5b746e1e393405210073376fd401c143110a"
+    },
+    "ip/shell_subsys/sys_pll.ip": {
+      "version": "21.1.0",
+      "sha256": "3307e4b99ec4344185c794ac6c2dea5307dd3a1e2d1b004c7e05fdfdb7cbee62"
+    },
+    "ip/shell_subsys/user_rst_clkgate.ip": {
+      "version": "19.4.9",
+      "sha256": "f7e9caefe29dbb038fd97dfd281002c3fbe367e0e4996884385410571dcf3d3e"
+    }
+  },
+  "after": {
+    "ip/baseline_top/sys_clock.ip": {
+      "version": "19.2.0",
+      "sha256": "38772e7ffe2f88860b53ed60d37c44017e0c670ca5920b31ad280b916751b2b3"
+    },
+    "ip/baseline_top/sys_reset.ip": {
+      "version": "19.2.0",
+      "sha256": "ac685ed17a3e35494706a3687b697d06b05a057e8ba96525f876b756ac89fcc8"
+    },
+    "ip/fabric_subsys/ace5lite_cache_coherency_translator.ip": {
+      "version": "2.1.7",
+      "sha256": "d87a01a7deebcb3a374a63aa7abd5169579b595d2c96839821d8dd36d8bce603"
+    },
+    "ip/fabric_subsys/button_pio.ip": {
+      "version": "19.2.4",
+      "sha256": "4fdffe402e8fb0a39c14f16f2f99bc37305bb2193be426495ef237c8c215772f"
+    },
+    "ip/fabric_subsys/dipsw_pio.ip": {
+      "version": "19.2.4",
+      "sha256": "511ef89f4855722e0c5507b3903e63920f1e3942962ade52cde797a6f276b50c"
+    },
+    "ip/fabric_subsys/f2sdram_adapter.ip": {
+      "version": "1.0",
+      "sha256": "5a956d0e36028d9c0273eb6bd0570e83faabad9278e1360ce075bfbbc7b5c05a"
+    },
+    "ip/fabric_subsys/h2f_axi_bridge.ip": {
+      "version": "19.10.3",
+      "sha256": "187a00af8a3d3c6a316d0013c2c2a83ba781d5e12e388438f277c81222eb9e1d"
+    },
+    "ip/fabric_subsys/led_pio.ip": {
+      "version": "19.2.4",
+      "sha256": "54dbafca364d1664123a3f03d108d30d82da2d7e72303ce2ec16a4e155683311"
+    },
+    "ip/fabric_subsys/lwh2f_axi_bridge.ip": {
+      "version": "19.10.3",
+      "sha256": "451aa886f03823098cdbb2609dcd9dabd4e2737d22ad7443c16db66f27785dc5"
+    },
+    "ip/fabric_subsys/lwh2f_mm_bridge.ip": {
+      "version": "20.1.0",
+      "sha256": "0bde087d08fa3e7a45633f214cd16fc01ca4ba955e9ef04fbd925aac621ea9e3"
+    },
+    "ip/fabric_subsys/ocm.ip": {
+      "version": "2.0.0",
+      "sha256": "6b7ef0ebf84a78373f2e8ca91450019faf71fb16968998d08ef0d2f4683c545d"
+    },
+    "ip/fabric_subsys/peripherals_mm_bridge.ip": {
+      "version": "20.1.0",
+      "sha256": "ddfa3d0eb3da47f3edaefe84257b3f92a89c8c8d7c66431f29b13d092ef322e3"
+    },
+    "ip/fabric_subsys/sysid.ip": {
+      "version": "20.0.0",
+      "sha256": "f8a1368d9062f46dd3f49db3fc65951a41f42267e8304f837684ae077f01094f"
+    },
+    "ip/fabric_subsys/system_clock.ip": {
+      "version": "19.2.0",
+      "sha256": "3420468f74478523fc96f3391c7a69983fda1fc54ba59d7374f6b4b86ec12222"
+    },
+    "ip/fabric_subsys/system_reset.ip": {
+      "version": "19.2.0",
+      "sha256": "fa90b5ae09a75bfb0172ee9c5eecb91033a33d3bfc401e3269a46ed04d7129b2"
+    },
+    "ip/hps_subsys/agilex_hps.ip": {
+      "version": "14.1.0",
+      "sha256": "8022b62342eb20a69e36fc545ad6696dee6099fe3e1d83bcd5a8c9a3f280c072"
+    },
+    "ip/hps_subsys/emif_io96b_hps.ip": {
+      "version": "5.1.0",
+      "sha256": "53d17ccd56eee8fb24440a5fb05ed9e92a1d48eea96db047babc62cd293af338"
+    },
+    "ip/niosv_subsys/f2sdram_address_span_extender.ip": {
+      "version": "19.2.1",
+      "sha256": "504042f819219eb45a8280e140fd853a3d17ed3cdec8658e21c09b816c6229e7"
+    },
+    "ip/niosv_subsys/fpga2hps_address_span_extender.ip": {
+      "version": "19.2.1",
+      "sha256": "fc983c8051be344a1ee6c639a0398be0d41317a82859e3b67d3dd2b111aed288"
+    },
+    "ip/niosv_subsys/jtag_avalon_master.ip": {
+      "version": "19.1",
+      "sha256": "4f2933d3ba5a16f35a1f1ca30a4890ec85902d79589901bc9f790f9f782978e6"
+    },
+    "ip/niosv_subsys/jtag_uart.ip": {
+      "version": "19.3.2",
+      "sha256": "c3f0846d3586fa12e83008e44c0063dc58a37391fa8ec68f246dd2cfe7b6f2c2"
+    },
+    "ip/niosv_subsys/niosv_clock.ip": {
+      "version": "19.2.0",
+      "sha256": "9312cdf4ad001a9b8e7a4edb3d1fa2f7193fe9d8a1ec62534d6d691736a61840"
+    },
+    "ip/niosv_subsys/niosv_m.ip": {
+      "version": "26.0.0",
+      "sha256": "16473101151a2f27237d2a17cd66463dffcc5e40238edf1d24ec533abf99b5a4"
+    },
+    "ip/niosv_subsys/niosv_onchip_memory.ip": {
+      "version": "2.0.0",
+      "sha256": "c388a45f8eadc55e2f37933fe0a1d34435f651602aa128b5f2f78be9e8f2e8cd"
+    },
+    "ip/niosv_subsys/niosv_pio_in.ip": {
+      "version": "19.2.4",
+      "sha256": "38382b8693a11e165e820eab9d6027a4b5b182d0543f97b05933e1ddeb211c04"
+    },
+    "ip/niosv_subsys/niosv_pio_out.ip": {
+      "version": "19.2.4",
+      "sha256": "292efd191f3b362e960dcecd3cb92479014e5b838ebd3f177b1a9cdb2f64a95c"
+    },
+    "ip/niosv_subsys/niosv_reset.ip": {
+      "version": "19.2.0",
+      "sha256": "c63077132582f94723023ca3d3e38f0b1be3b8ac636d5afe3caa08949b349cae"
+    },
+    "ip/niosv_subsys/niosv_subsys_address_span_extender_1.ip": {
+      "version": "19.2.1",
+      "sha256": "87847bfe3ada6cafb86fd3361a91d8838bd403f0863e5ca16c5ba1039c667267"
+    },
+    "ip/niosv_subsys/niosv_subsys_jtag_avalon_master.ip": {
+      "version": "19.1",
+      "sha256": "94d2564921583089c593c740bf69c7cf59e25c57fc7c31da26e4f1d837d49858"
+    },
+    "ip/niosv_subsys/niosv_subsys_pio_in.ip": {
+      "version": "19.2.4",
+      "sha256": "92e91e28e73270135333d9e82e7591e3127af80aecde526bbf2a0285efdba57e"
+    },
+    "ip/niosv_subsys/niosv_subsys_pio_out.ip": {
+      "version": "19.2.4",
+      "sha256": "736a6d2563c44dcb88db1db7b8e839da5e4b90655aa31c6c1e709cfacfe4833e"
+    },
+    "ip/shell_subsys/clks_and_rsts.ip": {
+      "version": "1.0",
+      "sha256": "fc54c7982bad2531fda304541ad8e7f5e825b0212b3bfacc1afe98c00fbc47a8"
+    },
+    "ip/shell_subsys/gts_reset_sequencer.ip": {
+      "version": "6.0.0",
+      "sha256": "19a8b2215e7be51dcec8072830f6014f87de0ec377eaad0dcc32f7d7019b3921"
+    },
+    "ip/shell_subsys/sys_pll.ip": {
+      "version": "21.1.0",
+      "sha256": "d62856b526dc6ae7abb6117e4b106a6b71a99b9fd7df41d027fb9a04bd3a07a4"
+    },
+    "ip/shell_subsys/user_rst_clkgate.ip": {
+      "version": "19.4.9",
+      "sha256": "dc706633f716baf9c4070aefefc3ff0dc100d7fc8140def4dcc684ba1c633572"
+    }
+  },
+  "command": [
+    "qsys-generate",
+    "--upgrade-ip-cores",
+    "--part=A5ED065BB32AE6SR0",
+    "--search-path=/workspace/agilex5-stack-20261101/platform/custom_ip,/workspace/agilex5-stack-20261101/platform/custom_ip/baremetal/fabric/pr,$",
+    "--batch=/workspace/agilex5-stack-20261101/platform/shell_subsys.qsys",
+    "--batch=/workspace/agilex5-stack-20261101/platform/fabric_subsys.qsys",
+    "--batch=/workspace/agilex5-stack-20261101/platform/hps_subsys.qsys",
+    "--batch=/workspace/agilex5-stack-20261101/platform/niosv_subsys.qsys",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/baseline_top/sys_clock.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/baseline_top/sys_reset.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/ace5lite_cache_coherency_translator.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/button_pio.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/dipsw_pio.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/f2sdram_adapter.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/h2f_axi_bridge.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/led_pio.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/lwh2f_axi_bridge.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/lwh2f_mm_bridge.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/ocm.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/peripherals_mm_bridge.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/sysid.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/system_clock.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/system_reset.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/hps_subsys/agilex_hps.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/hps_subsys/emif_io96b_hps.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/f2sdram_address_span_extender.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/fpga2hps_address_span_extender.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/jtag_avalon_master.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/jtag_uart.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/niosv_clock.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/niosv_m.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/niosv_onchip_memory.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/niosv_pio_in.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/niosv_pio_out.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/niosv_reset.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/niosv_subsys_address_span_extender_1.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/niosv_subsys_jtag_avalon_master.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/niosv_subsys_pio_in.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/niosv_subsys_pio_out.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/shell_subsys/clks_and_rsts.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/shell_subsys/gts_reset_sequencer.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/shell_subsys/sys_pll.ip",
+    "--batch=/workspace/agilex5-stack-20261101/platform/ip/shell_subsys/user_rst_clkgate.ip",
+    "/workspace/agilex5-stack-20261101/platform/baseline_top.qsys"
+  ],
+  "status": "upgraded-not-generated-or-hardware-tested"
+}

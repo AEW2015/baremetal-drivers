@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 5088,
+  "segments": [
+    {
+      "file": "upstream26-sysmgr.bin",
+      "bytes": 5088,
+      "sha256": "42d7f514b4c13c899a71afdaa85068f49b7cf0bfab2c1ecfde89496cba9480d1"
+    }
+  ]
+}

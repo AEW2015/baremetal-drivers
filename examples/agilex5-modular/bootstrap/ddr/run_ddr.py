@@ -11,8 +11,10 @@ import subprocess
 import sys
 import termios
 import time
+import json
+import importlib.util
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
-from bench import (BenchError, HELP, checked_container, container_command, container_path,
+from bench import (bootstrap_image_path, bootstrap_requires_full_image, BenchError, HELP, checked_container, container_command, container_path,
                    validate_uart, verify_container_tools, verify_mapped_files, verify_mount)
 from hardware_lock import HardwareLock
 from owned_process import OwnedContainerProcess, OwnedProcessError, run_owned
@@ -23,7 +25,8 @@ def main():
     parser.add_argument('--port', default=os.environ.get('AGILEX_UART', ''))
     parser.add_argument('--full-recovery', action='store_true', help='Program merged matching SOF, replacing volatile fabric and HPS configuration')
     args = parser.parse_args()
-    image = ROOT / ('ddr_recovery.sof' if args.full_recovery else 'ddr_probe.hps.rbf')
+    args.full_recovery = args.full_recovery or bootstrap_requires_full_image()
+    image = bootstrap_image_path('ddr_recovery.sof' if args.full_recovery else 'ddr_probe.hps.rbf')
     cfg = ROOT.parent / 'ocram/agilex5.cfg'
     # The suite explicitly passes its locked file descriptor. Direct callers
     # acquire their own lock and cannot bypass an active F5/debugger session.
@@ -33,6 +36,17 @@ def main():
         verify_mount()
         verify_container_tools(['jtagconfig', 'quartus_pgm', 'openocd'])
         hashes = verify_mapped_files([image, cfg])
+        mcp_client=os.environ.get('AGILEX_MCP_CLIENT')
+        programmer_chain=None
+        if mcp_client:
+            spec=importlib.util.spec_from_file_location('stack_programmer_client',mcp_client)
+            module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+            client=module.MCP('programmer')
+            try:programmer_chain=client.call('read_jtag_config',{})
+            finally:client.close()
+            decoded=programmer_chain.get('text','')
+            if 'Agilex_5E MDK Carrier' not in decoded or not any(int(v,16)==0x0364f0dd for v in re.findall(r'JTAG ID 0x([0-9a-fA-F]+)',decoded)):
+                raise BenchError('Fresh Programmer MCP chain does not identify the Modular ES FPGA')
         chain = checked_container(['jtagconfig'])
         first = chain.split('2)')[0]
         cable_match = re.search(r'^1\) (Agilex_5E MDK Carrier .*)$', first, re.M)
@@ -47,6 +61,17 @@ def main():
         programmer_log = ROOT / f'program-{stamp}.log'
         uart_log = ROOT / f'uart-{stamp}.bin'
         proof_log = ROOT / f'pc-{stamp}.log'
+        if programmer_chain is not None:
+            (ROOT/f'mcp-chain-{stamp}.json').write_text(json.dumps(programmer_chain,indent=2)+'\n')
+        # Halt the previous boot before capture so its late DDR output cannot
+        # qualify a replacement boot that has not reached DDR yet.
+        halt='hps.a55.0 configure -event halted {}; hps.a55.0 configure -event resumed {}; gdb port disabled; tcl port disabled; telnet port disabled; init; halt; shutdown'
+        if '4BA06477' in ids:
+            try:run_owned(['timeout','--kill-after=5s','30s','openocd','-f',container_path(cfg),'-c',halt],timeout=40)
+            except OwnedProcessError:raise
+            except BenchError:
+                if not args.full_recovery:raise
+                print('DDR stage: previous CPU could not halt; explicit full recovery will reset it.',flush=True)
         proc = None
         fd = os.open(args.port, os.O_RDONLY | os.O_NOCTTY | os.O_NONBLOCK)
         try:
@@ -84,6 +109,11 @@ def main():
                         break
                 else:
                     raise BenchError(f'Timeout waiting for complete fresh DDR proof. Inspect {programmer_log} and {uart_log}; stop further examples until restoration is verified.')
+            if os.environ.get('AGILEX_BOOTSTRAP_DIR'):
+                status=run_owned(['quartus_pgm','-m','jtag','-c',cable_match[1],'--device='+str(index),'--status'],timeout=30)
+                (ROOT/f'config-{stamp}.log').write_text(status)
+                if ('Device has entered user mode' not in status or not re.search(r'CONF_DONE\s*=\s*1',status) or not re.search(r'INIT_DONE\s*=\s*1',status)):
+                    raise BenchError('Current stack did not retain FPGA user mode; no payload will run')
             print('DDR stage: confirming CPU PC through OpenOCD...', flush=True)
             commands = 'hps.a55.0 configure -event halted {}; hps.a55.0 configure -event resumed {}; gdb port disabled; tcl port disabled; telnet port disabled; init; halt; echo [get_reg {pc}]; resume; shutdown'
             try:

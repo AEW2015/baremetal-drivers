@@ -1,0 +1,59 @@
+{
+  "environment": "simics",
+  "scope": "Read-only snapshots and negative control; no physical-board qualification",
+  "build": {
+    "compiler": "aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "source_revision": "2e06d72895dd336e422a8c22dc3db3c0674cb624",
+    "source_sha256": {
+      "config-audit/build.sh": "d1d2218f6540d88d5a07364bdbd81200450a4c5ee76e6145e5b579e81501108d",
+      "config-audit/run.py": "d0d707605d612e8a2431e03d8bcee9ce008a03b46080cb52570005cc7790df1e",
+      "config-audit/start.S": "a6b715f35893cd8ed3bd22cb14c332fa92845a6d8d9fd824e329ea2a242d9ded",
+      "config-audit/handoff.py": "094167fc172c7bd2f07c13f728886cf7ebe9a6143cf485df5dc12e32716716ec",
+      "config-audit/test_handoff.py": "2e23a520b9b57d4e73a4df8ed7d7fff8d00541eed4db0e54720906a5c1560949",
+      "config-audit/audit.c": "c265cc489aa8ca26eb83370e40235e611cdcc23a5fba872bace86d857a97f31b",
+      "config-audit/README.md": "80321e97699bdb3c7aca728dc1833760805631abfe98cd47d72de8b21bb9b181",
+      "core/common.h": "379491cc3318b18b74691c512137d9ae31a27bf32c08eeb404649be2beab3689",
+      "core/fault.c": "be53d1703a3aa3ce52bebb1570d1b74435f15ec169c9c110c7d6a9611367d748",
+      "../../platform/agilex5/include/socfpga_sys_mngr_reg_plat.h": "52f39a65509d26b416a9fcf5ae8d219bc0b11d3f3b484991823dd18e6de27f4d"
+    },
+    "load_address": "0x82400000",
+    "entry_el": 3,
+    "configuration_writes": false,
+    "artifacts": {
+      "pinmux.bin": "4a11a5a28daaac5e94283f90fa9355e03102de5e57e7a1911b1817408fd5681a",
+      "pinmux.elf": "66d99516216d21e4e23c92e2cfefd9b0f8b922c5f10f3d89bcfab84707a258c9",
+      "sysmgr.bin": "42d7f514b4c13c899a71afdaa85068f49b7cf0bfab2c1ecfde89496cba9480d1",
+      "sysmgr.elf": "2f38bb878cb9e6f8612deffed00e30b3fb3a4f003483e412ff02e72a78ff0f03",
+      "unstable.bin": "1c3121ac86e158753feb9173b66a2c1fde557d58428aaa8751d75ccffb1cd323",
+      "unstable.elf": "8ba30adfa06499dc5b71e5380d298a29fe1a23aedf9989a0240bb69ad277c49e"
+    }
+  },
+  "bootstrap_sha256": "e6ebc4fed1118a7f95acdfaaa164c2f013ad90ca33bdf227f2009511824b900f",
+  "runner_sha256": "d0d707605d612e8a2431e03d8bcee9ce008a03b46080cb52570005cc7790df1e",
+  "tests": [
+    {
+      "name": "sysmgr",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 7.877459526062012,
+      "elf_sha256": "2f38bb878cb9e6f8612deffed00e30b3fb3a4f003483e412ff02e72a78ff0f03",
+      "negative_control": false
+    },
+    {
+      "name": "pinmux",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.028166215866804,
+      "elf_sha256": "66d99516216d21e4e23c92e2cfefd9b0f8b922c5f10f3d89bcfab84707a258c9",
+      "negative_control": false
+    },
+    {
+      "name": "unstable",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.22803999017924,
+      "elf_sha256": "8ba30adfa06499dc5b71e5380d298a29fe1a23aedf9989a0240bb69ad277c49e",
+      "negative_control": true
+    }
+  ]
+}

@@ -1,0 +1,1563 @@
+-- The C compiler identification is GNU 13.3.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/aarch64-linux-gnu-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/aarch64-linux-gnu-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- ====================================
+-- Selected platform: agilex5
+-- Build mode       : OCRAM
+-- Debug            : 1
+-- ATF direct boot  : 0
+-- ====================================
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/dev/baremetal-drivers/examples/agilex5-modular/build/upstream26-ocram
+[0/2] Re-checking globbed directories...
+[1/97] Building ASM object CMakeFiles/baremetal.elf.dir/src/vectors.S.obj
+[2/97] Building ASM object CMakeFiles/baremetal.elf.dir/src/startup.S.obj
+[3/97] Building C object CMakeFiles/baremetal.elf.dir/src/crt0.c.obj
+[4/97] Building C object CMakeFiles/baremetal.elf.dir/src/main.c.obj
+[5/97] Building C object api/CMakeFiles/bm_api.dir/ccu/ccu_api.c.obj
+[6/97] Building C object api/CMakeFiles/bm_api.dir/bridge/bridge_api.c.obj
+[7/97] Building C object api/CMakeFiles/bm_api.dir/clk_mngr/clk_mngr_api.c.obj
+[8/97] Building C object api/CMakeFiles/bm_api.dir/combophy/combophy_api.c.obj
+[9/97] Building C object api/CMakeFiles/bm_api.dir/console/command.c.obj
+[10/97] Building C object api/CMakeFiles/bm_api.dir/crc/crc_api.c.obj
+[11/97] Building C object api/CMakeFiles/bm_api.dir/console/console_api.c.obj
+[12/97] Building C object api/CMakeFiles/bm_api.dir/dma/dma_api.c.obj
+[13/97] Building C object api/CMakeFiles/bm_api.dir/gic/gic_api.c.obj
+[14/97] Building C object api/CMakeFiles/bm_api.dir/fcs/fcs_api.c.obj
+[15/97] Building C object api/CMakeFiles/bm_api.dir/ecc/ecc_api.c.obj
+[16/97] Building C object api/CMakeFiles/bm_api.dir/gpio/gpio_api.c.obj
+[17/97] Building C object api/CMakeFiles/bm_api.dir/i3c/i3c_api.c.obj
+[18/97] Building C object api/CMakeFiles/bm_api.dir/iossm/iossm_api.c.obj
+[19/97] Building C object api/CMakeFiles/bm_api.dir/i2c/i2c_api.c.obj
+[20/97] Building C object api/CMakeFiles/bm_api.dir/mailbox/mailbox_api.c.obj
+[21/97] Building C object api/CMakeFiles/bm_api.dir/mmu/mmu_api.c.obj
+[22/97] Building C object api/CMakeFiles/bm_api.dir/noc_firewall/noc_firewall_api.c.obj
+[23/97] Building C object api/CMakeFiles/bm_api.dir/noc_probe/noc_probe_api.c.obj
+[24/97] Building C object api/CMakeFiles/bm_api.dir/rst_mngr/rst_mngr_api.c.obj
+[25/97] Building C object api/CMakeFiles/bm_api.dir/reboot_mngr/reboot_mngr_api.c.obj
+[26/97] Building C object api/CMakeFiles/bm_api.dir/perf/perf_api.c.obj
+[27/97] Building C object api/CMakeFiles/bm_api.dir/seu/seu_api.c.obj
+[28/97] Building C object api/CMakeFiles/bm_api.dir/sdmmc/sdmmc_api.c.obj
+[29/97] Building C object api/CMakeFiles/bm_api.dir/smmu/smmu_api.c.obj
+[30/97] Building C object api/CMakeFiles/bm_api.dir/spi/spi_api.c.obj
+[31/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/bridge/socfpga_bridge.c.obj
+[32/97] Building C object api/CMakeFiles/bm_api.dir/timer/timer_api.c.obj
+[33/97] Building C object api/CMakeFiles/bm_api.dir/uart/uart_api.c.obj
+[34/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ccu/socfpga_ccu_ll.c.obj
+[35/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/bridge/socfpga_bridge_ll.c.obj
+[36/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ccu/socfpga_ccu.c.obj
+[37/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/combophy/socfpga_combophy_ll.c.obj
+[38/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/combophy/socfpga_combophy.c.obj
+[39/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/crc/socfpga_crc.c.obj
+[40/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/clk_mngr/socfpga_clk_mngr_ll.c.obj
+[41/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/dma/socfpga_dma_ll.c.obj
+[42/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ddr/socfpga_ddr.c.obj
+[43/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ddr/socfpga_ddr_mailbox.c.obj
+[44/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ecc/socfpga_ecc.c.obj
+[45/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/gic/socfpga_gic_reg.c.obj
+[46/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/gic/socfpga_gic.c.obj
+[47/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/gic/socfpga_interrupt.c.obj
+[48/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/gpio/socfpga_gpio.c.obj
+[49/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/fcs/socfpga_fcs.c.obj
+[50/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/i2c/socfpga_i2c.c.obj
+[51/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/i2c/socfpga_i2c_ll.c.obj
+[52/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/i3c/socfpga_i3c.c.obj
+[53/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/mmu/socfpga_mmu.c.obj
+[54/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/iossm/socfpga_iossm_ll.c.obj
+[55/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/i3c/socfpga_i3c_ll.c.obj
+[56/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/mmu/socfpga_mmu_ll.c.obj
+[57/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/noc_firewall/socfpga_noc_firewall.c.obj
+[58/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/noc_firewall/socfpga_noc_firewall_ll.c.obj
+[59/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/noc_probe/socfpga_noc_probe_ll.c.obj
+[60/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/noc_probe/socfpga_noc_probe.c.obj
+[61/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/reboot_mngr/socfpga_reboot_mngr.c.obj
+[62/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/reset_mngr/socfpga_rst_mngr.c.obj
+[63/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/reset_mngr/socfpga_rst_mngr_ll.c.obj
+[64/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdm_mailbox/socfpga_sip_handler.c.obj
+[65/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdm_mailbox/socfpga_mbox_client.c.obj
+[66/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdmmc/socfpga_sdmmc.c.obj
+[67/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdmmc/socfpga_sdmmc_ll.c.obj
+[68/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/seu/socfpga_seu.c.obj
+[69/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/smmu/socfpga_smmu.c.obj
+[70/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/spi/socfpga_spi.c.obj
+[71/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/timer/socfpga_timer.c.obj
+[72/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/spi/socfpga_spi_ll.c.obj
+[73/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/uart/socfpga_uart_ll.c.obj
+[74/97] Building C object drivers/CMakeFiles/socfpga_drivers.dir/wdt/socfpga_watchdog.c.obj
+[75/97] Building C object examples/CMakeFiles/bm_examples.dir/hello/hello_selftest.c.obj
+[76/97] Building C object examples/CMakeFiles/bm_examples.dir/ddr/ddr_selftest.c.obj
+[77/97] Building C object examples/CMakeFiles/bm_examples.dir/gic/gic_selftest.c.obj
+[78/97] Linking C static library drivers/libsocfpga_drivers.a
+[79/97] Building C object examples/CMakeFiles/bm_examples.dir/timer/timer_selftest.c.obj
+[80/97] Building C object examples/CMakeFiles/bm_examples.dir/example_register.c.obj
+[81/97] Building C object middleware/CMakeFiles/bm_middleware.dir/bridge/socfpga_bridge.c.obj
+[82/97] Building C object middleware/CMakeFiles/bm_middleware.dir/rstmgr/socfpga_rstmgr.c.obj
+[83/97] Building C object middleware/CMakeFiles/bm_middleware.dir/iossm/socfpga_iossm.c.obj
+[84/97] Building C object middleware/CMakeFiles/bm_middleware.dir/dma/socfpga_dma.c.obj
+[85/97] Building C object src/CMakeFiles/bm_app.dir/__/lib/lib_string.c.obj
+[86/97] Building C object middleware/CMakeFiles/bm_middleware.dir/uart/socfpga_uart.c.obj
+[87/97] Building C object src/CMakeFiles/bm_app.dir/__/lib/lib_time.c.obj
+[88/97] Building C object src/CMakeFiles/bm_app.dir/__/lib/lib_printf.c.obj
+[89/97] Linking C static library middleware/libbm_middleware.a
+[90/97] Building C object src/CMakeFiles/bm_app.dir/__/lib/lib_parse.c.obj
+[91/97] Building ASM object src/CMakeFiles/bm_app.dir/__/lib/cache_maintenance.S.obj
+[92/97] Linking C static library src/libbm_app.a
+[93/97] Building C object platform/CMakeFiles/platform_obj.dir/agilex5/platform_setup.c.obj
+[94/97] Linking C static library api/libbm_api.a
+[95/97] Building C object platform/CMakeFiles/platform_obj.dir/agilex5/clk_mngr_platform.c.obj
+[96/97] Linking C static library platform/libplatform.a
+[97/97] Linking C executable baremetal.elf
+/usr/lib/gcc-cross/aarch64-linux-gnu/13/../../../../aarch64-linux-gnu/bin/ld: warning: .note.gnu.build-id section discarded, --build-id ignored
+   text	   data	    bss	    dec	    hex	filename
+  65056	   4704	  18736	  88496	  159b0	/home/dev/baremetal-drivers/examples/agilex5-modular/build/upstream26-ocram/baremetal.elf
+-- ------------------------------------------------------------
+--   Section size report: /home/dev/baremetal-drivers/examples/agilex5-modular/build/upstream26-ocram/baremetal.elf
+-- ------------------------------------------------------------
+--   Section    Used        Budget      Used%   Status
+--   .text      65056 B  262144 B  24%  PASS
+--   .data+bss  23376 B  258048 B  9%  PASS
+-- ------------------------------------------------------------
+-- The C compiler identification is GNU 13.3.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/aarch64-linux-gnu-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/aarch64-linux-gnu-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- ====================================
+-- Selected platform: agilex5
+-- Build mode       : DDR
+-- Debug            : 1
+-- ATF direct boot  : 0
+-- ====================================
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/dev/baremetal-drivers/examples/agilex5-modular/build/upstream26-ddr
+[0/2] Re-checking globbed directories...
+[1/119] Building ASM object CMakeFiles/baremetal.elf.dir/src/startup.S.obj
+[2/119] Building ASM object CMakeFiles/baremetal.elf.dir/src/vectors.S.obj
+[3/119] Building C object CMakeFiles/baremetal.elf.dir/src/crt0.c.obj
+[4/119] Building C object CMakeFiles/baremetal.elf.dir/src/main.c.obj
+[5/119] Building C object api/CMakeFiles/bm_api.dir/ccu/ccu_api.c.obj
+[6/119] Building C object api/CMakeFiles/bm_api.dir/bridge/bridge_api.c.obj
+[7/119] Building C object api/CMakeFiles/bm_api.dir/clk_mngr/clk_mngr_api.c.obj
+[8/119] Building C object api/CMakeFiles/bm_api.dir/combophy/combophy_api.c.obj
+[9/119] Building C object api/CMakeFiles/bm_api.dir/console/command.c.obj
+[10/119] Building C object api/CMakeFiles/bm_api.dir/crc/crc_api.c.obj
+[11/119] Building C object api/CMakeFiles/bm_api.dir/console/console_api.c.obj
+[12/119] Building C object api/CMakeFiles/bm_api.dir/dma/dma_api.c.obj
+[13/119] Building C object api/CMakeFiles/bm_api.dir/gic/gic_api.c.obj
+[14/119] Building C object api/CMakeFiles/bm_api.dir/fcs/fcs_api.c.obj
+[15/119] Building C object api/CMakeFiles/bm_api.dir/ecc/ecc_api.c.obj
+[16/119] Building C object api/CMakeFiles/bm_api.dir/gpio/gpio_api.c.obj
+[17/119] Building C object api/CMakeFiles/bm_api.dir/iossm/iossm_api.c.obj
+[18/119] Building C object api/CMakeFiles/bm_api.dir/i3c/i3c_api.c.obj
+[19/119] Building C object api/CMakeFiles/bm_api.dir/i2c/i2c_api.c.obj
+[20/119] Building C object api/CMakeFiles/bm_api.dir/mailbox/mailbox_api.c.obj
+[21/119] Building C object api/CMakeFiles/bm_api.dir/mmu/mmu_api.c.obj
+[22/119] Building C object api/CMakeFiles/bm_api.dir/noc_firewall/noc_firewall_api.c.obj
+[23/119] Building C object api/CMakeFiles/bm_api.dir/noc_probe/noc_probe_api.c.obj
+[24/119] Building C object api/CMakeFiles/bm_api.dir/reboot_mngr/reboot_mngr_api.c.obj
+[25/119] Building C object api/CMakeFiles/bm_api.dir/rst_mngr/rst_mngr_api.c.obj
+[26/119] Building C object api/CMakeFiles/bm_api.dir/perf/perf_api.c.obj
+[27/119] Building C object api/CMakeFiles/bm_api.dir/seu/seu_api.c.obj
+[28/119] Building C object api/CMakeFiles/bm_api.dir/sdmmc/sdmmc_api.c.obj
+[29/119] Building C object api/CMakeFiles/bm_api.dir/smmu/smmu_api.c.obj
+[30/119] Building C object api/CMakeFiles/bm_api.dir/spi/spi_api.c.obj
+[31/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/bridge/socfpga_bridge.c.obj
+[32/119] Building C object api/CMakeFiles/bm_api.dir/timer/timer_api.c.obj
+[33/119] Building C object api/CMakeFiles/bm_api.dir/uart/uart_api.c.obj
+[34/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/bridge/socfpga_bridge_ll.c.obj
+[35/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ccu/socfpga_ccu_ll.c.obj
+[36/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ccu/socfpga_ccu.c.obj
+[37/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/combophy/socfpga_combophy_ll.c.obj
+[38/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/combophy/socfpga_combophy.c.obj
+[39/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/crc/socfpga_crc.c.obj
+[40/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/clk_mngr/socfpga_clk_mngr_ll.c.obj
+[41/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ddr/socfpga_ddr_mailbox.c.obj
+[42/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ddr/socfpga_ddr.c.obj
+[43/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/dma/socfpga_dma_ll.c.obj
+[44/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/gic/socfpga_gic.c.obj
+[45/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/ecc/socfpga_ecc.c.obj
+[46/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/gic/socfpga_gic_reg.c.obj
+[47/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/gic/socfpga_interrupt.c.obj
+[48/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/gpio/socfpga_gpio.c.obj
+[49/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/fcs/socfpga_fcs.c.obj
+[50/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/i2c/socfpga_i2c.c.obj
+[51/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/i3c/socfpga_i3c.c.obj
+[52/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/i2c/socfpga_i2c_ll.c.obj
+[53/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/i3c/socfpga_i3c_ll.c.obj
+[54/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/mmu/socfpga_mmu.c.obj
+[55/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/iossm/socfpga_iossm_ll.c.obj
+[56/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/mmu/socfpga_mmu_ll.c.obj
+[57/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/noc_firewall/socfpga_noc_firewall.c.obj
+[58/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/noc_firewall/socfpga_noc_firewall_ll.c.obj
+[59/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/noc_probe/socfpga_noc_probe.c.obj
+[60/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/noc_probe/socfpga_noc_probe_ll.c.obj
+[61/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/reboot_mngr/socfpga_reboot_mngr.c.obj
+[62/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/reset_mngr/socfpga_rst_mngr.c.obj
+[63/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/reset_mngr/socfpga_rst_mngr_ll.c.obj
+[64/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdm_mailbox/socfpga_sip_handler.c.obj
+[65/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdm_mailbox/socfpga_mbox_client.c.obj
+[66/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdmmc/socfpga_sdmmc.c.obj
+[67/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/sdmmc/socfpga_sdmmc_ll.c.obj
+[68/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/seu/socfpga_seu.c.obj
+[69/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/smmu/socfpga_smmu.c.obj
+[70/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/spi/socfpga_spi.c.obj
+[71/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/spi/socfpga_spi_ll.c.obj
+[72/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/timer/socfpga_timer.c.obj
+[73/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/uart/socfpga_uart_ll.c.obj
+[74/119] Building C object drivers/CMakeFiles/socfpga_drivers.dir/wdt/socfpga_watchdog.c.obj
+[75/119] Building C object examples/CMakeFiles/bm_examples.dir/ccu/ccu_selftest.c.obj
+[76/119] Building C object examples/CMakeFiles/bm_examples.dir/clk_mngr/clk_mngr_selftest.c.obj
+[77/119] Building C object examples/CMakeFiles/bm_examples.dir/bridge/bridge_selftest.c.obj
+[78/119] Building C object examples/CMakeFiles/bm_examples.dir/combophy/combophy_selftest.c.obj
+[79/119] Linking C static library drivers/libsocfpga_drivers.a
+[80/119] Building C object examples/CMakeFiles/bm_examples.dir/crc/crc_selftest.c.obj
+[81/119] Building C object examples/CMakeFiles/bm_examples.dir/ddr/ddr_selftest.c.obj
+[82/119] Building C object examples/CMakeFiles/bm_examples.dir/example_register.c.obj
+[83/119] Building C object examples/CMakeFiles/bm_examples.dir/dma/dma_selftest.c.obj
+[84/119] Building C object examples/CMakeFiles/bm_examples.dir/ecc/ecc_selftest.c.obj
+[85/119] Building C object examples/CMakeFiles/bm_examples.dir/fcs/fcs_selftest.c.obj
+[86/119] Building C object examples/CMakeFiles/bm_examples.dir/gpio/gpio_selftest.c.obj
+[87/119] Building C object examples/CMakeFiles/bm_examples.dir/gic/gic_selftest.c.obj
+[88/119] Building C object examples/CMakeFiles/bm_examples.dir/hello/hello_selftest.c.obj
+[89/119] Building C object examples/CMakeFiles/bm_examples.dir/i3c/i3c_selftest.c.obj
+[90/119] Building C object examples/CMakeFiles/bm_examples.dir/mailbox/mailbox_selftest.c.obj
+[91/119] Building C object examples/CMakeFiles/bm_examples.dir/iossm/iossm_selftest.c.obj
+[92/119] Building C object examples/CMakeFiles/bm_examples.dir/i2c/i2c_selftest.c.obj
+[93/119] Building C object examples/CMakeFiles/bm_examples.dir/mmu/mmu_selftest.c.obj
+[94/119] Building C object examples/CMakeFiles/bm_examples.dir/noc/noc_firewall_selftest.c.obj
+[95/119] Building C object examples/CMakeFiles/bm_examples.dir/noc/noc_selftest.c.obj
+[96/119] Building C object examples/CMakeFiles/bm_examples.dir/reboot_mngr/reboot_mngr_selftest.c.obj
+[97/119] Building C object examples/CMakeFiles/bm_examples.dir/reset_mngr/reset_mngr_selftest.c.obj
+[98/119] Building C object examples/CMakeFiles/bm_examples.dir/sdmmc/sdmmc_selftest.c.obj
+[99/119] Building C object examples/CMakeFiles/bm_examples.dir/seu/seu_selftest.c.obj
+[100/119] Building C object examples/CMakeFiles/bm_examples.dir/smmu/smmu_selftest.c.obj
+[101/119] Building C object examples/CMakeFiles/bm_examples.dir/spi/spi_selftest.c.obj
+[102/119] Building C object examples/CMakeFiles/bm_examples.dir/timer/timer_selftest.c.obj
+[103/119] Building C object middleware/CMakeFiles/bm_middleware.dir/bridge/socfpga_bridge.c.obj
+[104/119] Building C object middleware/CMakeFiles/bm_middleware.dir/rstmgr/socfpga_rstmgr.c.obj
+[105/119] Building C object middleware/CMakeFiles/bm_middleware.dir/dma/socfpga_dma.c.obj
+[106/119] Building C object middleware/CMakeFiles/bm_middleware.dir/iossm/socfpga_iossm.c.obj
+[107/119] Building C object src/CMakeFiles/bm_app.dir/__/lib/lib_string.c.obj
+[108/119] Building C object src/CMakeFiles/bm_app.dir/__/lib/lib_time.c.obj
+[109/119] Building C object middleware/CMakeFiles/bm_middleware.dir/uart/socfpga_uart.c.obj
+[110/119] Building ASM object src/CMakeFiles/bm_app.dir/__/lib/cache_maintenance.S.obj
+[111/119] Building C object src/CMakeFiles/bm_app.dir/__/lib/lib_printf.c.obj
+[112/119] Building C object src/CMakeFiles/bm_app.dir/__/lib/lib_parse.c.obj
+[113/119] Linking C static library middleware/libbm_middleware.a
+[114/119] Building C object platform/CMakeFiles/platform_obj.dir/agilex5/platform_setup.c.obj
+[115/119] Building C object platform/CMakeFiles/platform_obj.dir/agilex5/clk_mngr_platform.c.obj
+[116/119] Linking C static library src/libbm_app.a
+[117/119] Linking C static library api/libbm_api.a
+[118/119] Linking C static library platform/libplatform.a
+[119/119] Linking C executable baremetal.elf
+/usr/lib/gcc-cross/aarch64-linux-gnu/13/../../../../aarch64-linux-gnu/bin/ld: warning: .note.gnu.build-id section discarded, --build-id ignored
+   text	   data	    bss	    dec	    hex	filename
+ 224248	   4696	5304664	5533608	 546fa8	/home/dev/baremetal-drivers/examples/agilex5-modular/build/upstream26-ddr/baremetal.elf
+-- ------------------------------------------------------------
+--   Section size report: /home/dev/baremetal-drivers/examples/agilex5-modular/build/upstream26-ddr/baremetal.elf
+-- ------------------------------------------------------------
+--   Section    Used        Budget      Used%   Status
+--   .text      224248 B  1048576 B  21%  PASS
+--   .data+bss  5309296 B  16777216 B  31%  PASS
+-- ------------------------------------------------------------
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/dev/baremetal-drivers/examples/agilex5-modular/.deps/runtime-atf-26.3/.git/
+From https://github.com/altera-fpga/arm-trusted-firmware
+ * branch            09c4dc6628810d8570af69db43918d344f9e80e9 -> FETCH_HEAD
+HEAD is now at 09c4dc6 [Infra] Update CI workflow to reflect agilex27 name change
+make: Entering directory '/home/dev/baremetal-drivers/examples/agilex5-modular/.deps/runtime-atf-26.3'
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/runtime-atf-26.3/agilex5/debug/bl31
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/runtime-atf-26.3/agilex5/debug/bl31/bl31
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/runtime-atf-26.3/agilex5/debug/libfdt
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/runtime-atf-26.3/agilex5/debug/lib
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/runtime-atf-26.3/agilex5/debug/libc
+  CC      bl31/bl31_context_mgmt.c
+  CC      bl31/bl31_main.c
+  CC      bl31/bl31_traps.c
+  CC      bl31/interrupt_mgmt.c
+  CC      common/backtrace/backtrace.c
+  CC      common/bl_common.c
+  CC      common/fdt_wrappers.c
+  CC      common/runtime_svc.c
+  CC      common/smc_validation.c
+  CC      common/tf_log.c
+  CC      drivers/arm/cci/cci.c
+  CC      drivers/arm/gic/v3/arm_gicv3_common.c
+  CC      drivers/arm/gic/v3/gic-x00.c
+  CC      drivers/arm/gic/v3/gicdv3_helpers.c
+  CC      drivers/arm/gic/v3/gicrv3_helpers.c
+  CC      drivers/arm/gic/v3/gicv3_helpers.c
+  CC      drivers/arm/gic/v3/gicv3_main.c
+  CC      drivers/cadence/combo_phy/cdns_combo_phy.c
+  CC      drivers/cadence/emmc/cdns_sdmmc.c
+  CC      drivers/cadence/nand/cdns_nand.c
+  CC      drivers/console/multi_console.c
+  CC      drivers/delay_timer/delay_timer.c
+  CC      drivers/delay_timer/generic_delay_timer.c
+  CC      lib/compiler-rt/builtins/popcountdi2.c
+  CC      lib/compiler-rt/builtins/popcountsi2.c
+  CC      lib/cpus/errata_common.c
+  CC      lib/cpus/errata_report.c
+  CC      lib/el3_runtime/aarch64/context_mgmt.c
+  CC      lib/el3_runtime/cpu_data_array.c
+  CC      lib/el3_runtime/simd_ctx.c
+  CC      lib/extensions/mpam/mpam.c
+  CC      lib/extensions/pmuv3/aarch64/pmuv3.c
+  CC      lib/extensions/spe/spe.c
+  CC      lib/extensions/sve/sve.c
+  CC      lib/locks/bakery/bakery_lock_normal.c
+  CC      lib/locks/exclusive/aarch64/spinlock.c
+  CC      lib/per_cpu/per_cpu.c
+  CC      lib/psci/psci_common.c
+  CC      lib/psci/psci_main.c
+  CC      lib/psci/psci_mem_protect.c
+  CC      lib/psci/psci_off.c
+  CC      lib/psci/psci_on.c
+  CC      lib/psci/psci_setup.c
+  CC      lib/psci/psci_suspend.c
+  CC      lib/psci/psci_system_off.c
+  CC      lib/xlat_tables_v2/aarch64/xlat_tables_arch.c
+  CC      lib/xlat_tables_v2/xlat_tables_context.c
+  CC      lib/xlat_tables_v2/xlat_tables_core.c
+  CC      lib/xlat_tables_v2/xlat_tables_utils.c
+  CC      plat/common/aarch64/plat_common.c
+  CC      plat/common/plat_bl_common.c
+  CC      plat/common/plat_gicv3.c
+  CC      plat/common/plat_log_common.c
+  CC      plat/common/plat_psci_common.c
+  CC      plat/intel/soc/agilex5/bl31_plat_setup.c
+  CC      plat/intel/soc/agilex5/soc/agilex5_clock_manager.c
+  CC      plat/intel/soc/agilex5/soc/agilex5_power_manager.c
+  CC      plat/intel/soc/common/aarch64/platform_common.c
+  CC      plat/intel/soc/common/drivers/ccu/ncore_ccu.c
+  CC      plat/intel/soc/common/drivers/combophy/combophy.c
+  CC      plat/intel/soc/common/drivers/ddr/ddr.c
+  CC      plat/intel/soc/common/drivers/nand/nand.c
+  CC      plat/intel/soc/common/drivers/sdmmc/sdmmc.c
+  CC      plat/intel/soc/common/lib/sha/sha.c
+  CC      plat/intel/soc/common/lib/utils/alignment_utils.c
+  CC      plat/intel/soc/common/sip/socfpga_sip_ecc.c
+  CC      plat/intel/soc/common/sip/socfpga_sip_fcs.c
+  CC      plat/intel/soc/common/soc/socfpga_mailbox.c
+  CC      plat/intel/soc/common/soc/socfpga_reset_manager.c
+  CC      plat/intel/soc/common/soc/socfpga_system_manager.c
+  CC      plat/intel/soc/common/socfpga_delay_timer.c
+  CC      plat/intel/soc/common/socfpga_dt.c
+  CC      plat/intel/soc/common/socfpga_psci.c
+  CC      plat/intel/soc/common/socfpga_sip_svc.c
+  CC      plat/intel/soc/common/socfpga_topology.c
+  CC      services/arm_arch_svc/arm_arch_svc_setup.c
+  CC      services/std_svc/std_svc_setup.c
+  AS      bl31/aarch64/bl31_entrypoint.S
+  AS      bl31/aarch64/crash_reporting.S
+  AS      common/aarch64/debug.S
+  AS      bl31/aarch64/runtime_exceptions.S
+  AS      drivers/ti/uart/aarch64/16550_console.S
+  AS      lib/aarch64/cache_helpers.S
+  AS      lib/aarch64/misc_helpers.S
+  AS      lib/cpus/aarch64/aem_generic.S
+  AS      lib/cpus/aarch64/cortex_a55.S
+  AS      lib/cpus/aarch64/cortex_a76.S
+  AS      lib/cpus/aarch64/cpu_helpers.S
+  AS      lib/cpus/aarch64/wa_cve_2017_5715_bpiall.S
+  AS      lib/cpus/aarch64/wa_cve_2017_5715_mmu.S
+  AS      lib/cpus/aarch64/wa_cve_2025_0647_cpprctx.S
+  AS      lib/el3_runtime/aarch64/context.S
+  AS      lib/per_cpu/aarch64/per_cpu_asm.S
+  AS      lib/psci/aarch64/psci_helpers.S
+  AS      lib/xlat_tables_v2/aarch64/enable_mmu.S
+  AS      plat/common/aarch64/platform_helpers.S
+  AS      plat/common/aarch64/platform_mp_stack.S
+  AS      plat/intel/soc/agilex5/soc/agilex5_cache.S
+  AS      plat/intel/soc/common/aarch64/plat_helpers.S
+  CPP     bl31/bl31.ld.S
+  CC      lib/libfdt/fdt.c
+  CC      lib/libfdt/fdt_ro.c
+  CC      lib/libfdt/fdt_wip.c
+  CC      lib/libfdt/fdt_sw.c
+  CC      lib/libfdt/fdt_rw.c
+  CC      lib/libfdt/fdt_strerror.c
+  CC      lib/libfdt/fdt_empty_tree.c
+  CC      lib/libfdt/fdt_addresses.c
+  CC      lib/libfdt/fdt_overlay.c
+  CC      lib/libfdt/fdt_check.c
+  CC      lib/libc/abort.c
+  CC      lib/libc/assert.c
+  CC      lib/libc/memchr.c
+  CC      lib/libc/exit.c
+  CC      lib/libc/memcmp.c
+  CC      lib/libc/memcpy.c
+  CC      lib/libc/memcpy_s.c
+  CC      lib/libc/memmove.c
+  CC      lib/libc/memrchr.c
+  CC      lib/libc/printf.c
+  CC      lib/libc/putchar.c
+  CC      lib/libc/puts.c
+  CC      lib/libc/qsort.c
+  CC      lib/libc/snprintf.c
+  CC      lib/libc/strchr.c
+  CC      lib/libc/strcmp.c
+  CC      lib/libc/strcpy_secure.c
+  CC      lib/libc/strlcat.c
+  CC      lib/libc/strlcpy.c
+  CC      lib/libc/strlen.c
+  CC      lib/libc/strnlen_secure.c
+  CC      lib/libc/strncmp.c
+  CC      lib/libc/strnlen.c
+  CC      lib/libc/strrchr.c
+  CC      lib/libc/strtok.c
+  CC      lib/libc/strtoul.c
+  CC      lib/libc/strtoll.c
+  CC      lib/libc/strtoull.c
+  CC      lib/libc/strtol.c
+  CC      lib/libc/memset.c
+  AS      lib/libc/aarch64/setjmp.S
+  AR      /home/dev/baremetal-drivers/examples/agilex5-modular/build/runtime-atf-26.3/agilex5/debug/lib/libfdt.a
+  AR      /home/dev/baremetal-drivers/examples/agilex5-modular/build/runtime-atf-26.3/agilex5/debug/lib/libc.a
+  LD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/runtime-atf-26.3/agilex5/debug/bl31/bl31.elf
+  BIN     /home/dev/baremetal-drivers/examples/agilex5-modular/build/runtime-atf-26.3/agilex5/debug/bl31.bin
+  OD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/runtime-atf-26.3/agilex5/debug/bl31/bl31.dump
+
+Built /home/dev/baremetal-drivers/examples/agilex5-modular/build/runtime-atf-26.3/agilex5/debug/bl31.bin successfully
+
+make: Leaving directory '/home/dev/baremetal-drivers/examples/agilex5-modular/.deps/runtime-atf-26.3'
+Cloning into '/home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-atf-source-26.3'...
+Note: switching to '09c4dc6628810d8570af69db43918d344f9e80e9'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+PASS USB_MONITOR_PATCH: normal vendor USB3 PIPE-power-present initialization
+make: Entering directory '/home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-atf-source-26.3'
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-bringup-atf-26.3/agilex5/debug/bl31
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-bringup-atf-26.3/agilex5/debug/bl31/bl31
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-bringup-atf-26.3/agilex5/debug/libfdt
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-bringup-atf-26.3/agilex5/debug/lib
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-bringup-atf-26.3/agilex5/debug/libc
+  CC      bl31/bl31_context_mgmt.c
+  CC      bl31/bl31_main.c
+  CC      bl31/bl31_traps.c
+  CC      bl31/interrupt_mgmt.c
+  CC      common/backtrace/backtrace.c
+  CC      common/bl_common.c
+  CC      common/fdt_wrappers.c
+  CC      common/runtime_svc.c
+  CC      common/smc_validation.c
+  CC      common/tf_log.c
+  CC      drivers/arm/cci/cci.c
+  CC      drivers/arm/gic/v3/arm_gicv3_common.c
+  CC      drivers/arm/gic/v3/gic-x00.c
+  CC      drivers/arm/gic/v3/gicdv3_helpers.c
+  CC      drivers/arm/gic/v3/gicrv3_helpers.c
+  CC      drivers/arm/gic/v3/gicv3_helpers.c
+  CC      drivers/arm/gic/v3/gicv3_main.c
+  CC      drivers/cadence/combo_phy/cdns_combo_phy.c
+  CC      drivers/cadence/emmc/cdns_sdmmc.c
+  CC      drivers/cadence/nand/cdns_nand.c
+  CC      drivers/console/multi_console.c
+  CC      drivers/delay_timer/delay_timer.c
+  CC      drivers/delay_timer/generic_delay_timer.c
+  CC      lib/compiler-rt/builtins/popcountdi2.c
+  CC      lib/compiler-rt/builtins/popcountsi2.c
+  CC      lib/cpus/errata_common.c
+  CC      lib/cpus/errata_report.c
+  CC      lib/el3_runtime/aarch64/context_mgmt.c
+  CC      lib/el3_runtime/cpu_data_array.c
+  CC      lib/el3_runtime/simd_ctx.c
+  CC      lib/extensions/mpam/mpam.c
+  CC      lib/extensions/pmuv3/aarch64/pmuv3.c
+  CC      lib/extensions/spe/spe.c
+  CC      lib/extensions/sve/sve.c
+  CC      lib/locks/bakery/bakery_lock_normal.c
+  CC      lib/locks/exclusive/aarch64/spinlock.c
+  CC      lib/per_cpu/per_cpu.c
+  CC      lib/psci/psci_common.c
+  CC      lib/psci/psci_main.c
+  CC      lib/psci/psci_mem_protect.c
+  CC      lib/psci/psci_off.c
+  CC      lib/psci/psci_on.c
+  CC      lib/psci/psci_setup.c
+  CC      lib/psci/psci_suspend.c
+  CC      lib/psci/psci_system_off.c
+  CC      lib/xlat_tables_v2/aarch64/xlat_tables_arch.c
+  CC      lib/xlat_tables_v2/xlat_tables_context.c
+  CC      lib/xlat_tables_v2/xlat_tables_core.c
+  CC      lib/xlat_tables_v2/xlat_tables_utils.c
+  CC      plat/common/aarch64/plat_common.c
+  CC      plat/common/plat_bl_common.c
+  CC      plat/common/plat_gicv3.c
+  CC      plat/common/plat_log_common.c
+  CC      plat/common/plat_psci_common.c
+  CC      plat/intel/soc/agilex5/bl31_plat_setup.c
+  CC      plat/intel/soc/agilex5/soc/agilex5_clock_manager.c
+  CC      plat/intel/soc/agilex5/soc/agilex5_power_manager.c
+  CC      plat/intel/soc/common/aarch64/platform_common.c
+  CC      plat/intel/soc/common/drivers/ccu/ncore_ccu.c
+  CC      plat/intel/soc/common/drivers/combophy/combophy.c
+  CC      plat/intel/soc/common/drivers/ddr/ddr.c
+  CC      plat/intel/soc/common/drivers/nand/nand.c
+  CC      plat/intel/soc/common/drivers/sdmmc/sdmmc.c
+  CC      plat/intel/soc/common/lib/sha/sha.c
+  CC      plat/intel/soc/common/lib/utils/alignment_utils.c
+  CC      plat/intel/soc/common/sip/socfpga_sip_ecc.c
+  CC      plat/intel/soc/common/sip/socfpga_sip_fcs.c
+  CC      plat/intel/soc/common/soc/socfpga_mailbox.c
+  CC      plat/intel/soc/common/soc/socfpga_reset_manager.c
+  CC      plat/intel/soc/common/soc/socfpga_system_manager.c
+  CC      plat/intel/soc/common/socfpga_delay_timer.c
+  CC      plat/intel/soc/common/socfpga_dt.c
+  CC      plat/intel/soc/common/socfpga_psci.c
+  CC      plat/intel/soc/common/socfpga_sip_svc.c
+  CC      plat/intel/soc/common/socfpga_topology.c
+  CC      services/arm_arch_svc/arm_arch_svc_setup.c
+  CC      services/std_svc/std_svc_setup.c
+  AS      bl31/aarch64/bl31_entrypoint.S
+  AS      bl31/aarch64/crash_reporting.S
+  AS      bl31/aarch64/runtime_exceptions.S
+  AS      common/aarch64/debug.S
+  AS      drivers/ti/uart/aarch64/16550_console.S
+  AS      lib/aarch64/cache_helpers.S
+  AS      lib/aarch64/misc_helpers.S
+  AS      lib/cpus/aarch64/aem_generic.S
+  AS      lib/cpus/aarch64/cortex_a55.S
+  AS      lib/cpus/aarch64/cpu_helpers.S
+  AS      lib/cpus/aarch64/cortex_a76.S
+  AS      lib/cpus/aarch64/wa_cve_2017_5715_bpiall.S
+  AS      lib/cpus/aarch64/wa_cve_2017_5715_mmu.S
+  AS      lib/cpus/aarch64/wa_cve_2025_0647_cpprctx.S
+  AS      lib/el3_runtime/aarch64/context.S
+  AS      lib/per_cpu/aarch64/per_cpu_asm.S
+  AS      lib/psci/aarch64/psci_helpers.S
+  AS      lib/xlat_tables_v2/aarch64/enable_mmu.S
+  AS      plat/common/aarch64/platform_helpers.S
+  AS      plat/common/aarch64/platform_mp_stack.S
+  AS      plat/intel/soc/agilex5/soc/agilex5_cache.S
+  CPP     bl31/bl31.ld.S
+  AS      plat/intel/soc/common/aarch64/plat_helpers.S
+  CC      lib/libfdt/fdt.c
+  CC      lib/libfdt/fdt_ro.c
+  CC      lib/libfdt/fdt_wip.c
+  CC      lib/libfdt/fdt_sw.c
+  CC      lib/libfdt/fdt_rw.c
+  CC      lib/libfdt/fdt_strerror.c
+  CC      lib/libfdt/fdt_empty_tree.c
+  CC      lib/libfdt/fdt_addresses.c
+  CC      lib/libfdt/fdt_overlay.c
+  CC      lib/libfdt/fdt_check.c
+  CC      lib/libc/abort.c
+  CC      lib/libc/assert.c
+  CC      lib/libc/exit.c
+  CC      lib/libc/memchr.c
+  CC      lib/libc/memcmp.c
+  CC      lib/libc/memcpy.c
+  CC      lib/libc/memcpy_s.c
+  CC      lib/libc/memmove.c
+  CC      lib/libc/memrchr.c
+  CC      lib/libc/printf.c
+  CC      lib/libc/putchar.c
+  CC      lib/libc/puts.c
+  CC      lib/libc/qsort.c
+  CC      lib/libc/snprintf.c
+  CC      lib/libc/strchr.c
+  CC      lib/libc/strcmp.c
+  CC      lib/libc/strcpy_secure.c
+  CC      lib/libc/strlcat.c
+  CC      lib/libc/strlcpy.c
+  CC      lib/libc/strlen.c
+  CC      lib/libc/strnlen_secure.c
+  CC      lib/libc/strncmp.c
+  CC      lib/libc/strnlen.c
+  CC      lib/libc/strrchr.c
+  CC      lib/libc/strtok.c
+  CC      lib/libc/strtoul.c
+  CC      lib/libc/strtoll.c
+  CC      lib/libc/strtoull.c
+  CC      lib/libc/strtol.c
+  CC      lib/libc/memset.c
+  AS      lib/libc/aarch64/setjmp.S
+  AR      /home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-bringup-atf-26.3/agilex5/debug/lib/libfdt.a
+  AR      /home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-bringup-atf-26.3/agilex5/debug/lib/libc.a
+  LD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-bringup-atf-26.3/agilex5/debug/bl31/bl31.elf
+  BIN     /home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-bringup-atf-26.3/agilex5/debug/bl31.bin
+  OD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-bringup-atf-26.3/agilex5/debug/bl31/bl31.dump
+
+Built /home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-bringup-atf-26.3/agilex5/debug/bl31.bin successfully
+
+make: Leaving directory '/home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-atf-source-26.3'
+PASS USB_UBOOT_MONITOR_BUILD: BL31=0x80000000 -> NS_EL2 U-Boot=0x80200000; COMPILE ONLY
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-uboot-source-26.3/.git/
+From https://github.com/altera-fpga/u-boot-socfpga
+ * branch              5ba74aeda63ed07e98670f8c2f0135de06543ba0 -> FETCH_HEAD
+HEAD is now at 5ba74aed [Infra] Update CI workflow to reflect agilex27 name change
+PASS USB_DIAGNOSTIC_PATCH: stage prints plus DT-gated standard U3 no-suspend quirk
+make: Entering directory '/home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-uboot-source-26.3'
+make[1]: Entering directory '/home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-uboot-26.3'
+  HOSTCC  scripts/basic/fixdep
+  GEN     Makefile
+  HOSTCC  scripts/kconfig/conf.o
+  YACC    scripts/kconfig/zconf.tab.[ch]
+  LEX     scripts/kconfig/zconf.lex.c
+  HOSTCC  scripts/kconfig/zconf.tab.o
+  HOSTLD  scripts/kconfig/conf
+generated_defconfig:132:warning: override: reassigning to symbol DEFAULT_DEVICE_TREE
+generated_defconfig:134:warning: override: reassigning to symbol SPL_DM_REGULATOR_GPIO
+generated_defconfig:135:warning: override: reassigning to symbol DM_REGULATOR_GPIO
+generated_defconfig:140:warning: override: reassigning to symbol DEFAULT_DEVICE_TREE
+generated_defconfig:141:warning: override: reassigning to symbol SPL_MMC_UHS_SUPPORT
+generated_defconfig:142:warning: override: reassigning to symbol MMC_UHS_SUPPORT
+#
+# configuration written to .config
+#
+make[1]: Leaving directory '/home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-uboot-26.3'
+make: Leaving directory '/home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-uboot-source-26.3'
+make: Entering directory '/home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-uboot-source-26.3'
+make[1]: Entering directory '/home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-uboot-26.3'
+  GEN     Makefile
+scripts/kconfig/conf  --olddefconfig Kconfig
+#
+# configuration written to .config
+#
+make[1]: Leaving directory '/home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-uboot-26.3'
+make: Leaving directory '/home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-uboot-source-26.3'
+make: Entering directory '/home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-uboot-source-26.3'
+make[1]: Entering directory '/home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-uboot-26.3'
+  GEN     Makefile
+scripts/kconfig/conf  --syncconfig Kconfig
+  UPD     include/config.h
+  CFG     u-boot.cfg
+  GEN     include/autoconf.mk.dep
+  CFG     spl/u-boot.cfg
+  GEN     include/autoconf.mk
+  GEN     spl/include/autoconf.mk
+  GEN     Makefile
+  UPD     include/generated/timestamp_autogenerated.h
+  UPD     include/generated/dt.h
+  ENVC    include/generated/env.txt
+  ENVP    include/generated/env.in
+  ENVT    include/generated/environment.h
+  HOSTCC  scripts/dtc/dtc.o
+  COPY    scripts/dtc/pylibfdt/libfdt.i
+  HOSTCC  scripts/dtc/flattree.o
+  PYMOD   rebuild
+  HOSTCC  scripts/dtc/fstree.o
+  HOSTCC  scripts/dtc/data.o
+  HOSTCC  scripts/dtc/livetree.o
+  HOSTCC  scripts/dtc/treesource.o
+  HOSTCC  scripts/dtc/srcpos.o
+  HOSTCC  scripts/dtc/checks.o
+  HOSTCC  scripts/dtc/util.o
+  LEX     scripts/dtc/dtc-lexer.lex.c
+  YACC    scripts/dtc/dtc-parser.tab.[ch]
+  HOSTCC  scripts/dtc/libfdt/fdt.o
+  HOSTCC  scripts/dtc/libfdt/fdt_ro.o
+  HOSTCC  scripts/dtc/libfdt/fdt_wip.o
+  HOSTCC  scripts/dtc/libfdt/fdt_sw.o
+  HOSTCC  scripts/dtc/libfdt/fdt_rw.o
+  UPD     include/config/uboot.release
+  HOSTCC  scripts/dtc/libfdt/fdt_strerror.o
+  HOSTCC  scripts/dtc/libfdt/fdt_empty_tree.o
+  Using /home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-uboot-source-26.3 as source for U-Boot
+  UPD     include/generated/version_autogenerated.h
+  HOSTCC  scripts/dtc/libfdt/fdt_addresses.o
+  HOSTCC  scripts/dtc/libfdt/fdt_overlay.o
+  HOSTCC  scripts/dtc/fdtoverlay.o
+  HOSTCC  scripts/dtc/dtc-lexer.lex.o
+  HOSTCC  scripts/dtc/dtc-parser.tab.o
+  HOSTLD  scripts/dtc/fdtoverlay
+  HOSTLD  scripts/dtc/dtc
+  CC      lib/asm-offsets.s
+  CC      arch/arm/lib/asm-offsets.s
+  UPD     include/generated/asm-offsets.h
+  UPD     include/generated/generic-asm-offsets.h
+  LDS     u-boot.lds
+  AR      tools/built-in.a
+  HOSTCC  tools/gen_eth_addr
+  HOSTCC  tools/gen_ethaddr_crc.o
+  WRAP    tools/generated/lib/crc8.c
+  HOSTCC  tools/img2srec
+  HOSTCC  tools/mkenvimage.o
+  HOSTCC  tools/os_support.o
+  WRAP    tools/generated/lib/crc32.c
+  HOSTCC  tools/aisimage.o
+  HOSTCC  tools/amlimage.o
+  HOSTCC  tools/atmelimage.o
+  HOSTCC  tools/fit_common.o
+  HOSTCC  tools/fit_image.o
+  HOSTCC  tools/image-host.o
+  WRAP    tools/generated/boot/image-fit.c
+  HOSTCC  tools/image-sig-host.o
+  WRAP    tools/generated/boot/image-fit-sig.c
+  WRAP    tools/generated/boot/image-cipher.c
+  WRAP    tools/generated/boot/fdt_region.c
+  WRAP    tools/generated/boot/bootm.c
+  HOSTCC  tools/generated/lib/crc32.o
+  HOSTCC  tools/default_image.o
+  WRAP    tools/generated/lib/fdtdec_common.c
+  WRAP    tools/generated/lib/fdtdec.c
+  WRAP    tools/generated/boot/image.c
+  WRAP    tools/generated/boot/image-host.c
+  HOSTCC  tools/imagetool.o
+  HOSTCC  tools/imximage.o
+  HOSTCC  tools/imx8image.o
+  HOSTCC  tools/imx8mimage.o
+  HOSTCC  tools/kwbimage.o
+  WRAP    tools/generated/lib/md5.c
+  HOSTCC  tools/lpc32xximage.o
+  HOSTCC  tools/mxsimage.o
+  HOSTCC  tools/omapimage.o
+  HOSTCC  tools/pblimage.o
+  HOSTCC  tools/pbl_crc32.o
+  HOSTCC  tools/renesas_spkgimage.o
+  HOSTCC  tools/sfspl.o
+  HOSTCC  tools/vybridimage.o
+  HOSTCC  tools/stm32image.o
+  WRAP    tools/generated/lib/rc4.c
+  HOSTCC  tools/rkcommon.o
+  HOSTCC  tools/rkimage.o
+  HOSTCC  tools/rksd.o
+  HOSTCC  tools/rkspi.o
+  HOSTCC  tools/socfpgaimage.o
+  HOSTCC  tools/sunxi_egon.o
+  WRAP    tools/generated/lib/crc16-ccitt.c
+  WRAP    tools/generated/lib/hash-checksum.c
+  WRAP    tools/generated/lib/sha1.c
+  WRAP    tools/generated/lib/sha256.c
+  WRAP    tools/generated/lib/sha256_common.c
+  WRAP    tools/generated/lib/sha512.c
+  WRAP    tools/generated/common/hash.c
+  HOSTCC  tools/ublimage.o
+  HOSTCC  tools/zynqimage.o
+  HOSTCC  tools/zynqmpimage.o
+  HOSTCC  tools/zynqmpbif.o
+  WRAP    tools/generated/lib/fdt-libcrypto.c
+  HOSTCC  tools/sunxi_toc0.o
+  HOSTCC  tools/libfdt/fdt.o
+  HOSTCC  tools/libfdt/fdt_ro.o
+  HOSTCC  tools/libfdt/fdt_wip.o
+  HOSTCC  tools/libfdt/fdt_sw.o
+  HOSTCC  tools/libfdt/fdt_rw.o
+  HOSTCC  tools/libfdt/fdt_strerror.o
+  HOSTCC  tools/libfdt/fdt_empty_tree.o
+  HOSTCC  tools/libfdt/fdt_addresses.o
+  HOSTCC  tools/libfdt/fdt_overlay.o
+  HOSTCC  tools/gpimage.o
+  HOSTCC  tools/gpimage-common.o
+  HOSTCC  tools/mtk_image.o
+  HOSTCC  tools/mtk_nand_headers.o
+  WRAP    tools/generated/lib/ecdsa/ecdsa-libcrypto.c
+  WRAP    tools/generated/lib/rsa/rsa-sign.c
+  WRAP    tools/generated/lib/rsa/rsa-verify.c
+  WRAP    tools/generated/lib/rsa/rsa-mod-exp.c
+  WRAP    tools/generated/lib/aes/aes-encrypt.c
+  WRAP    tools/generated/lib/aes/aes-decrypt.c
+  HOSTCC  tools/dumpimage.o
+  HOSTCC  tools/generated/boot/image-fit.o
+  HOSTCC  tools/generated/boot/image-fit-sig.o
+  HOSTCC  tools/generated/boot/image-cipher.o
+  HOSTCC  tools/generated/boot/fdt_region.o
+  HOSTCC  tools/generated/boot/bootm.o
+  HOSTCC  tools/generated/lib/fdtdec_common.o
+  HOSTCC  tools/generated/lib/fdtdec.o
+  HOSTCC  tools/generated/boot/image.o
+  HOSTCC  tools/generated/boot/image-host.o
+  HOSTCC  tools/generated/lib/md5.o
+  HOSTCC  tools/generated/lib/rc4.o
+  HOSTCC  tools/generated/lib/crc16-ccitt.o
+  HOSTCC  tools/generated/lib/hash-checksum.o
+  HOSTCC  tools/generated/lib/sha1.o
+  HOSTCC  tools/generated/lib/sha256.o
+  HOSTCC  tools/generated/lib/sha256_common.o
+  HOSTCC  tools/generated/lib/sha512.o
+  HOSTCC  tools/generated/common/hash.o
+  HOSTCC  tools/generated/lib/fdt-libcrypto.o
+  HOSTCC  tools/generated/lib/ecdsa/ecdsa-libcrypto.o
+  HOSTCC  tools/generated/lib/rsa/rsa-sign.o
+  HOSTCC  tools/generated/lib/rsa/rsa-verify.o
+  HOSTCC  tools/generated/lib/rsa/rsa-mod-exp.o
+  HOSTCC  tools/generated/lib/aes/aes-encrypt.o
+  HOSTCC  tools/generated/lib/aes/aes-decrypt.o
+  HOSTCC  tools/mkimage.o
+  HOSTCC  tools/fit_info.o
+  HOSTCC  tools/fit_check_sign.o
+  HOSTCC  tools/fdt_add_pubkey.o
+  WRAP    tools/generated/boot/image-pre-load.c
+  HOSTCC  tools/preload_check_sign.o
+  HOSTCC  tools/proftool.o
+  WRAP    tools/generated/lib/abuf.c
+  HOSTCC  tools/relocate-rela
+  HOSTCC  tools/fdtgrep.o
+  HOSTCC  tools/spl_size_limit
+  HOSTCC  tools/generated/lib/crc8.o
+  HOSTLD  tools/mkenvimage
+  HOSTLD  tools/dumpimage
+  HOSTLD  tools/mkimage
+  HOSTLD  tools/fit_info
+  HOSTLD  tools/fit_check_sign
+  HOSTLD  tools/fdt_add_pubkey
+  HOSTCC  tools/generated/boot/image-pre-load.o
+  HOSTCC  tools/generated/lib/abuf.o
+  HOSTLD  tools/fdtgrep
+  HOSTLD  tools/gen_ethaddr_crc
+  HOSTLD  tools/preload_check_sign
+  HOSTLD  tools/proftool
+  AR      arch/arm/cpu/built-in.a
+  AS      arch/arm/cpu/armv8/start.o
+  CC      arch/arm/cpu/armv8/cpu.o
+  AR      arch/arm/lib/lib.a
+  CC      arch/arm/lib/image.o
+  CC      arch/arm/mach-socfpga/board.o
+  CC      arch/arm/cpu/armv8/cache_v8.o
+  AS      arch/arm/cpu/armv8/cache.o
+  CC      arch/arm/lib/bootm.o
+  AS      arch/arm/cpu/armv8/exceptions.o
+  CC      arch/arm/mach-socfpga/clock_manager.o
+  CC      arch/arm/cpu/armv8/exception_level.o
+  AS      arch/arm/lib/crt0_64.o
+  AS      arch/arm/cpu/armv8/tlb.o
+  CC      arch/arm/mach-socfpga/misc.o
+  AS      arch/arm/lib/setjmp_aarch64.o
+  AS      arch/arm/cpu/armv8/transition.o
+  AS      arch/arm/lib/relocate_64.o
+  CC      arch/arm/cpu/armv8/fwcall.o
+  CC      arch/arm/lib/bootm-fdt.o
+  CC      arch/arm/mach-socfpga/altera-sysmgr.o
+  CC      arch/arm/cpu/armv8/cpu-dt.o
+  CC      arch/arm/lib/bdinfo.o
+  CC      arch/arm/lib/sections.o
+  CC      arch/arm/lib/stack.o
+  AS      arch/arm/cpu/armv8/smccc-call.o
+  CC      arch/arm/lib/interrupts_64.o
+  AR      arch/arm/cpu/armv8/built-in.a
+  CC      arch/arm/mach-socfpga/altera-sysmgr-helpers.o
+  CC      arch/arm/mach-socfpga/clock_manager_agilex5.o
+  CC      arch/arm/lib/cache.o
+  CC      arch/arm/lib/psci-dt.o
+  CC      board/intel/agilex5-socdk/socfpga.o
+  CC      arch/arm/mach-socfpga/mailbox_s10.o
+  CC      boot/bootm.o
+  AR      board/intel/agilex5-socdk/built-in.a
+  CC      boot/bootm_os.o
+  AR      arch/arm/lib/built-in.a
+  CC      boot/pxe_utils.o
+  AR      cmd/arm/built-in.a
+  CC      cmd/boot.o
+  CC      arch/arm/mach-socfpga/misc_soc64.o
+  CC      arch/arm/mach-socfpga/mmu-arm64_s10.o
+  CC      arch/arm/mach-socfpga/reset_manager_soc64.o
+  CC      cmd/bootm.o
+  CC      arch/arm/mach-socfpga/reset_manager_soc64_platform_families.o
+  CC      arch/arm/mach-socfpga/wrap_handoff_soc64.o
+  CC      boot/image.o
+  CC      cmd/help.o
+  CC      cmd/panic.o
+  CC      arch/arm/mach-socfpga/wrap_pll_config_soc64.o
+  CC      arch/arm/mach-socfpga/ccu_ncore3.o
+  CC      cmd/version.o
+  CC      arch/arm/mach-socfpga/timer_s10.o
+  CC      arch/arm/mach-socfpga/smmu_agilex5_dv.o
+  CC      cmd/blk_common.o
+  CC      boot/image-board.o
+  CC      arch/arm/mach-socfpga/smmuv3_dv.o
+  CC      cmd/bootflow.o
+  CC      boot/bootdev-uclass.o
+  CC      cmd/source.o
+  CC      boot/bootflow.o
+  CC      cmd/bdinfo.o
+  CC      arch/arm/mach-socfpga/rsu.o
+  CC      cmd/blkcache.o
+  CC      boot/bootmeth-uclass.o
+  CC      cmd/booti.o
+  CC      boot/bootstd-uclass.o
+  CC      cmd/cache.o
+  CC      boot/bootmeth_extlinux.o
+  CC      cmd/console.o
+  CC      arch/arm/mach-socfpga/rsu_ll_qspi.o
+  CC      cmd/dm.o
+  CC      cmd/cyclic.o
+  CC      boot/bootmeth_pxe.o
+  CC      cmd/echo.o
+  CC      cmd/elf.o
+  CC      cmd/exit.o
+  CC      boot/fdt_support.o
+  CC      cmd/ext4.o
+  CC      cmd/ext2.o
+  CC      cmd/fat.o
+  CC      cmd/fdt.o
+  CC      cmd/socfpga_rsu.o
+  CC      arch/arm/mach-socfpga/rsu_misc.o
+  CC      cmd/fs.o
+  CC      cmd/gpio.o
+  CC      cmd/i2c.o
+  CC      boot/image-fdt.o
+  CC      cmd/i3c.o
+  CC      arch/arm/mach-socfpga/rsu_s10.o
+  CC      cmd/itest.o
+  CC      boot/fdt_region.o
+  CC      arch/arm/mach-socfpga/smc_api.o
+  CC      cmd/load.o
+  CC      cmd/mem.o
+  AR      arch/arm/mach-socfpga/built-in.a
+  CC      cmd/mii.o
+  CC      boot/image-fit.o
+  CC      cmd/mdio.o
+  CC      common/init/board_init.o
+  CC      cmd/sleep.o
+  AR      common/init/built-in.a
+  CC      cmd/mmc.o
+  CC      common/main.o
+  CC      common/memtop.o
+  CC      common/exports.o
+  CC      common/cli_getch.o
+  CC      common/cli_simple.o
+  CC      disk/part.o
+  CC      cmd/mtd.o
+  CC      common/cli_readline.o
+  CC      boot/image-sig.o
+  CC      boot/image-fit-sig.o
+  CC      disk/disk-uclass.o
+  CC      common/cli_hush.o
+  CC      disk/part_dos.o
+  CC      cmd/mtdparts.o
+  CC      boot/vbe.o
+  CC      disk/part_iso.o
+  CC      boot/vbe_request.o
+  CC      disk/part_efi.o
+  CC      boot/vbe_simple.o
+  CC      common/autoboot.o
+  CC      cmd/legacy-mtd-utils.o
+  CC      boot/vbe_common.o
+  CC      common/version.o
+  CC      cmd/net.o
+  CC      common/board_f.o
+  CC      boot/vbe_simple_os.o
+  AR      disk/built-in.a
+  CC      cmd/net-common.o
+  CC      cmd/nvedit.o
+  AR      boot/built-in.a
+  CC      drivers/block/blk-uclass.o
+  CC      cmd/part.o
+  CC      common/board_r.o
+  CC      cmd/pxe.o
+  CC      drivers/block/blkcache.o
+  CC      common/board_info.o
+  CC      cmd/sf.o
+  CC      cmd/setexpr.o
+  AR      drivers/block/built-in.a
+  CC      drivers/cache/cache-uclass.o
+  CC      common/miiphyutil.o
+  CC      drivers/cache/cache-l2x0.o
+  CC      cmd/spi.o
+  CC      cmd/sysboot.o
+  AR      drivers/cache/built-in.a
+  CC      common/usb.o
+  AR      drivers/clk/adi/built-in.a
+  AR      drivers/clk/airoha/built-in.a
+  AR      drivers/clk/analogbits/built-in.a
+  AR      drivers/clk/imx/built-in.a
+  CC      common/usb_hub.o
+  AR      drivers/clk/tegra/built-in.a
+  AR      drivers/clk/ti/built-in.a
+  CC      cmd/timer.o
+  CC      drivers/clk/altera/clk-agilex5.o
+  CC      cmd/test.o
+  CC      cmd/ubi.o
+  CC      common/usb_storage.o
+  AR      drivers/clk/altera/built-in.a
+  CC      drivers/clk/clk-uclass.o
+  CC      drivers/clk/clk_fixed_rate.o
+  CC      drivers/clk/clk_fixed_factor.o
+  CC      cmd/ubifs.o
+  CC      cmd/unlz4.o
+  AR      drivers/clk/built-in.a
+  CC      drivers/core/device.o
+  CC      cmd/unzip.o
+  CC      common/splash.o
+  CC      cmd/wdt.o
+  CC      cmd/lzmadec.o
+  CC      common/menu.o
+  CC      cmd/usb.o
+  CC      drivers/gpio/gpio-uclass.o
+  CC      common/usb_kbd.o
+  CC      drivers/core/fdtaddr.o
+  CC      cmd/disk.o
+  CC      common/console.o
+  CC      drivers/core/lists.o
+  CC      cmd/ximg.o
+  CC      drivers/gpio/dwapb_gpio.o
+  CC      cmd/usb_lab_mouse.o
+  CC      drivers/core/root.o
+  CC      common/dlmalloc.o
+  CC      drivers/gpio/pca953x_gpio.o
+  CC      cmd/usb_lab_phy.o
+  CC      drivers/core/uclass.o
+  AR      cmd/built-in.a
+  CC      drivers/core/util.o
+  AR      drivers/gpio/built-in.a
+  CC      drivers/core/tag.o
+  AR      drivers/usb/cdns3/built-in.a
+  CC      drivers/core/devres.o
+  CC      common/malloc_simple.o
+  CC      drivers/core/device-remove.o
+  CC      common/cyclic.o
+  CC      common/event.o
+  CC      drivers/core/simple-bus.o
+  CC      common/hash.o
+  CC      drivers/core/dump.o
+  CC      common/memsize.o
+  CC      drivers/core/regmap.o
+  CC      common/stdio.o
+  CC      common/cli.o
+  CC      drivers/core/syscon-uclass.o
+  CC      drivers/core/of_extra.o
+  CC      common/command.o
+  CC      drivers/usb/common/common.o
+  CC      drivers/core/ofnode.o
+  CC      drivers/core/read_extra.o
+  CC      drivers/usb/common/dwc2_core.o
+  CC      drivers/core/ofnode_graph.o
+  CC      common/s_record.o
+  AR      drivers/usb/common/built-in.a
+  CC      drivers/usb/dwc3/core.o
+  AR      drivers/usb/emul/built-in.a
+  CC      drivers/usb/eth/usb_ether.o
+  CC      common/xyzModem.o
+  CC      drivers/usb/eth/asix.o
+  AR      common/built-in.a
+  CC      drivers/sysreset/sysreset-uclass.o
+  AR      drivers/core/built-in.a
+  CC      drivers/usb/eth/asix88179.o
+  CC      drivers/usb/eth/mcs7830.o
+  AR      drivers/usb/dwc3/built-in.a
+  CC      drivers/sysreset/sysreset_psci.o
+  CC      drivers/usb/eth/smsc95xx.o
+  AR      drivers/sysreset/built-in.a
+  CC      drivers/firmware/firmware-uclass.o
+  CC      drivers/usb/eth/lan7x.o
+  CC      drivers/usb/eth/lan75xx.o
+  CC      drivers/firmware/psci.o
+  CC      drivers/usb/eth/lan78xx.o
+  CC      drivers/usb/eth/r8152.o
+  AR      drivers/firmware/built-in.a
+  CC      drivers/i2c/i2c-uclass.o
+  CC      drivers/usb/eth/r8152_fw.o
+  CC      drivers/usb/host/usb-uclass.o
+  CC      drivers/i2c/designware_i2c.o
+  CC      drivers/i3c/master/dw-i3c-master.o
+  CC      drivers/usb/host/usb_bootdev.o
+  AR      drivers/usb/eth/built-in.a
+  AR      drivers/usb/isp1760/built-in.a
+  CC      drivers/i3c/i3c-uclass.o
+  AR      drivers/i2c/built-in.a
+  CC      drivers/input/key_matrix.o
+  CC      drivers/usb/host/xhci.o
+  CC      drivers/input/input.o
+  CC      drivers/input/keyboard-uclass.o
+  AR      drivers/i3c/master/built-in.a
+  CC      drivers/i3c/device.o
+  CC      drivers/usb/host/xhci-mem.o
+  AR      drivers/input/built-in.a
+  AR      drivers/usb/mtu3/built-in.a
+  CC      drivers/i3c/master.o
+  AR      drivers/usb/musb-new/built-in.a
+  CC      drivers/usb/host/xhci-ring.o
+  CC      drivers/usb/host/xhci-dwc3.o
+  CC      drivers/usb/host/dwc2.o
+  CC      drivers/mmc/mmc.o
+  CC      drivers/mmc/mmc-uclass.o
+  AR      drivers/i3c/built-in.a
+  AR      drivers/mtd/nand/built-in.a
+  AR      drivers/mtd/onenand/built-in.a
+  CC      drivers/mtd/spi/sf-uclass.o
+  AR      drivers/usb/host/built-in.a
+  CC      drivers/mmc/mmc_bootdev.o
+  CC      drivers/mtd/ubi/attach.o
+  CC      drivers/mtd/spi/sf_probe.o
+  CC      drivers/mtd/spi/spi-nor-ids.o
+  CC      drivers/mtd/mtdcore.o
+  CC      drivers/mtd/spi/spi-nor-core.o
+  CC      drivers/mmc/mmc_write.o
+  CC      drivers/mmc/sdhci-adma.o
+  CC      drivers/mtd/spi/sf_mtd.o
+  CC      drivers/mmc/sdhci.o
+  CC      drivers/mtd/ubi/build.o
+  CC      drivers/mtd/ubi/vtbl.o
+  CC      drivers/mtd/ubi/vmt.o
+  CC      drivers/mmc/sdhci-cadence.o
+  AR      drivers/mtd/spi/built-in.a
+  CC      drivers/mtd/ubi/upd.o
+  CC      drivers/mtd/ubi/kapi.o
+  CC      drivers/mmc/sdhci-cadence6.o
+  CC      drivers/mtd/ubi/eba.o
+  CC      drivers/mtd/ubi/io.o
+  CC      drivers/mtd/ubi/wl.o
+  AR      drivers/mmc/built-in.a
+  CC      drivers/mtd/ubi/crc32.o
+  CC      drivers/mtd/ubi/misc.o
+  CC      drivers/mtd/ubi/debug.o
+  AR      drivers/net/airoha/built-in.a
+  AR      drivers/net/mscc_eswitch/built-in.a
+  AR      drivers/net/phy/mediatek/built-in.a
+  AR      drivers/net/phy/airoha/built-in.a
+  CC      drivers/net/phy/phy.o
+  CC      drivers/net/phy/marvell.o
+  AR      drivers/usb/phy/built-in.a
+  AR      drivers/mtd/ubi/built-in.a
+  AR      drivers/usb/tcpm/built-in.a
+  CC      drivers/mtd/mtd_uboot.o
+  AR      drivers/usb/ulpi/built-in.a
+  AR      drivers/power/pmic/built-in.a
+  CC      drivers/power/regulator/regulator-uclass.o
+  CC      drivers/mtd/mtd-uclass.o
+  CC      drivers/power/regulator/regulator_common.o
+  CC      drivers/mtd/mtdpart.o
+  CC      drivers/power/regulator/fixed.o
+  AR      drivers/net/phy/built-in.a
+  CC      drivers/ram/ram-uclass.o
+  AR      drivers/net/qe/built-in.a
+  AR      drivers/net/ti/built-in.a
+  CC      drivers/net/dwc_eth_xgmac.o
+  AR      drivers/ram/built-in.a
+  CC      drivers/serial/serial-uclass.o
+  CC      drivers/power/regulator/gpio-regulator.o
+  AR      drivers/power/regulator/built-in.a
+  AR      drivers/power/built-in.a
+  CC      drivers/spi/spi-uclass.o
+  AR      drivers/mtd/built-in.a
+  CC      drivers/serial/ns16550.o
+  CC      drivers/timer/timer-uclass.o
+  CC      drivers/net/dwc_eth_xgmac_socfpga.o
+  CC      drivers/timer/dw-apb-timer.o
+  AR      drivers/serial/built-in.a
+  CC      drivers/spi/cadence_qspi.o
+  CC      drivers/spi/cadence_qspi_apb.o
+  AR      drivers/net/built-in.a
+  AR      drivers/timer/built-in.a
+  CC      drivers/spi/spi-mem.o
+  CC      drivers/spi/designware_spi.o
+  CC      drivers/fpga/fpga.o
+  AR      drivers/bus/built-in.a
+  AR      drivers/ata/built-in.a
+  AR      drivers/crypto/aes/built-in.a
+  CC      drivers/crypto/rsa_mod_exp/mod_exp_uclass.o
+  CC      drivers/crypto/rsa_mod_exp/mod_exp_sw.o
+  AR      drivers/spi/built-in.a
+  CC      drivers/fpga/altera.o
+  CC      drivers/misc/misc-uclass.o
+  AR      drivers/dfu/built-in.a
+  CC      drivers/crypto/fsl/sec.o
+  AR      drivers/crypto/rsa_mod_exp/built-in.a
+  CC      drivers/misc/socfpga_rsu.o
+  CC      drivers/fpga/intel_sdm_mb.o
+  CC      drivers/misc/socfpga_dtreg.o
+  AR      drivers/crypto/fsl/built-in.a
+  AR      drivers/crypto/hash/built-in.a
+  AR      drivers/crypto/aspeed/built-in.a
+  AR      drivers/crypto/nuvoton/built-in.a
+  AR      drivers/crypto/tegra/built-in.a
+  AR      drivers/crypto/built-in.a
+  CC      env/common.o
+  CC      env/env.o
+  AR      drivers/fpga/built-in.a
+  AR      drivers/misc/built-in.a
+  AR      drivers/rtc/built-in.a
+  CC      env/attr.o
+  AR      drivers/scsi/built-in.a
+  AR      drivers/sound/built-in.a
+  AR      drivers/spmi/built-in.a
+  CC      drivers/watchdog/designware_wdt.o
+  CC      env/flags.o
+  CC      env/callback.o
+  CC      drivers/watchdog/wdt-uclass.o
+  CC      env/nowhere.o
+  AR      drivers/mailbox/built-in.a
+  AR      drivers/memory/built-in.a
+  AR      drivers/mfd/built-in.a
+  AR      drivers/pwm/built-in.a
+  CC      drivers/reset/reset-uclass.o
+  AR      drivers/iommu/built-in.a
+  AR      env/built-in.a
+  AR      drivers/smem/built-in.a
+  CC      drivers/reset/reset-socfpga.o
+  AR      drivers/thermal/built-in.a
+  CC      fs/ext4/ext4fs.o
+  AR      drivers/watchdog/built-in.a
+  AR      drivers/axi/built-in.a
+  AR      drivers/ufs/built-in.a
+  AR      drivers/soc/built-in.a
+  CC      lib/lzma/LzmaDec.o
+  CC      lib/libfdt/fdt.o
+  AR      drivers/reset/built-in.a
+  AR      drivers/built-in.a
+  CC      fs/ext4/ext4_common.o
+  CC      fs/ext4/dev.o
+  CC      lib/libfdt/fdt_ro.o
+  AR      lib/crypto/built-in.a
+  CC      lib/rsa/rsa-verify.o
+  CC      lib/rsa/rsa-mod-exp.o
+  AR      fs/ext4/built-in.a
+  CC      fs/fat/fat_write.o
+  AR      lib/rsa/built-in.a
+  CC      lib/lzma/LzmaTools.o
+  CC      lib/libfdt/fdt_wip.o
+  CC      lib/zlib/zlib.o
+  AR      lib/lzma/built-in.a
+  CC      fs/ubifs/ubifs.o
+  CC      lib/libfdt/fdt_strerror.o
+  CC      lib/libfdt/fdt_sw.o
+  CC      lib/libfdt/fdt_rw.o
+  CC      fs/ubifs/io.o
+  AR      lib/zlib/built-in.a
+  CC      lib/libfdt/fdt_empty_tree.o
+  CC      lib/lzo/lzo1x_decompress.o
+  CC      lib/libfdt/fdt_addresses.o
+  CC      fs/ubifs/super.o
+  AR      fs/fat/built-in.a
+  CC      net/arp.o
+  AR      lib/libfdt/built-in.a
+  CC      lib/binman.o
+  AR      lib/lzo/built-in.a
+  CC      net/bootp.o
+  CC      net/net.o
+  CC      lib/crc8.o
+  CC      lib/fdtdec_common.o
+  CC      lib/ldiv.o
+  CC      net/ping.o
+  CC      lib/net_utils.o
+  CC      fs/ubifs/sb.o
+  CC      net/tftp.o
+  CC      net/eth-uclass.o
+  CC      lib/rc4.o
+  CC      lib/rbtree.o
+  CC      fs/ubifs/master.o
+  CC      net/eth_bootdev.o
+  CC      net/eth_common.o
+  CC      lib/list_sort.o
+  CC      lib/crc16.o
+  CC      fs/ubifs/lpt.o
+  CC      net/net-common.o
+  CC      lib/crc16-ccitt.o
+  CC      lib/hash-checksum.o
+  CC      lib/md5.o
+  AR      net/built-in.a
+  CC      lib/sha1.o
+  CC      lib/sha256_common.o
+  CC      lib/sha256.o
+  CC      lib/gunzip.o
+  CC      lib/lz4_wrapper.o
+  CC      lib/fdtdec.o
+  CC      lib/qsort.o
+  CC      fs/ubifs/lpt_commit.o
+  CC      lib/hashtable.o
+  CC      lib/errno.o
+  CC      lib/display_options.o
+  CC      lib/crc32.o
+  CC      lib/ctype.o
+  CC      lib/div64.o
+  CC      lib/hang.o
+  CC      fs/ubifs/scan.o
+  CC      lib/linux_compat.o
+  CC      lib/linux_string.o
+  CC      lib/lmb.o
+  CC      lib/membuf.o
+  CC      lib/slre.o
+  CC      fs/ubifs/lprops.o
+  CC      lib/string.o
+  CC      fs/fs.o
+  CC      lib/tables_csum.o
+  CC      lib/time.o
+  CC      fs/ubifs/tnc.o
+  CC      lib/hexdump.o
+  CC      lib/uuid.o
+  CC      lib/rand.o
+  CC      fs/ubifs/tnc_misc.o
+  CC      fs/fs_internal.o
+  CC      lib/panic.o
+  CC      lib/vsprintf.o
+  CC      lib/strto.o
+  CC      fs/ubifs/debug.o
+  CC      lib/abuf.o
+  CC      fs/ubifs/budget.o
+  CC      lib/alist.o
+  CC      fs/ubifs/log.o
+  CC      lib/date.o
+  CC      lib/rtc-lib.o
+  CC      lib/elf.o
+  CC      fs/ubifs/orphan.o
+  CC      fs/ubifs/recovery.o
+  AR      lib/built-in.a
+  CC      fs/ubifs/replay.o
+  CC      fs/ubifs/gc.o
+  AR      fs/ubifs/built-in.a
+  AR      fs/built-in.a
+  AR      examples/built-in.a
+  LD      u-boot
+  OBJCOPY u-boot-nodtb.bin
+  RELOC   u-boot-nodtb.bin
+  DTC     arch/arm/dts/socfpga_agilex_n6010.dtb
+/home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-uboot-source-26.3/arch/arm/dts/socfpga_agilex-u-boot.dtsi:121.18-122.4: Warning (spi_bus_reg): /soc@0/spi@ff8d2000/flash@0: missing or empty reg property
+  also defined at /home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-uboot-source-26.3/arch/arm/dts/socfpga_agilex-u-boot.dtsi:125.9-129.3
+  DTC     arch/arm/dts/socfpga_agilex_socdk_nand.dtb
+  DTC     arch/arm/dts/socfpga_agilex3_socdk.dtb
+  DTC     arch/arm/dts/socfpga_agilex5_socdk.dtb
+  DTC     arch/arm/dts/socfpga_agilex5_socdk_013b.dtb
+  DTC     arch/arm/dts/socfpga_agilex5_socdk_a0.dtb
+  DTC     arch/arm/dts/socfpga_agilex5_socdk_a0_emmc.dtb
+  DTC     arch/arm/dts/socfpga_agilex5_socdk_a0_modular.dtb
+  DTC     arch/arm/dts/socfpga_agilex5_socdk_emmc.dtb
+  DTC     arch/arm/dts/socfpga_agilex5_socdk_nand2.dtb
+  DTC     arch/arm/dts/socfpga_agilex5_emu.dtb
+  DTC     arch/arm/dts/socfpga_agilex5_de25s.dtb
+  DTC     arch/arm/dts/socfpga_agilex5_de25_nano.dtb
+  DTC     arch/arm/dts/socfpga_arria5_secu1.dtb
+  DTC     arch/arm/dts/socfpga_arria5_socdk.dtb
+  DTC     arch/arm/dts/socfpga_arria10_chameleonv3_270_2.dtb
+  DTC     arch/arm/dts/socfpga_arria10_chameleonv3_270_3.dtb
+  DTC     arch/arm/dts/socfpga_arria10_chameleonv3_480_2.dtb
+  DTC     arch/arm/dts/socfpga_arria10_socdk_nand.dtb
+  DTC     arch/arm/dts/socfpga_arria10_socdk_qspi.dtb
+  DTC     arch/arm/dts/socfpga_arria10_socdk_sdmmc.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_mcvevk.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_is1.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_socdk.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_dbm_soc1.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_de0_nano_soc.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_de1_soc.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_de10_nano.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_sockit.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_socrates.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_sr1500.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_vining_fpga.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_ac501soc.dtb
+  DTC     arch/arm/dts/socfpga_cyclone5_ac550soc.dtb
+  DTC     arch/arm/dts/socfpga_agilex27_socdk.dtb
+  DTC     arch/arm/dts/socfpga_agilex27_socdk_emmc.dtb
+  DTC     arch/arm/dts/socfpga_n5x_socdk.dtb
+  DTC     arch/arm/dts/socfpga_stratix10_socdk.dtb
+  DTC     arch/arm/dts/socfpga_stratix10_socdk_nand.dtb
+  DTC     arch/arm/dts/socfpga_stratix10_socdk_emmc.dtb
+  COPY    dts/dt.dtb
+  COPY    u-boot.dtb
+make[1]: Leaving directory '/home/dev/baremetal-drivers/examples/agilex5-modular/build/usb-uboot-26.3'
+make: Leaving directory '/home/dev/baremetal-drivers/examples/agilex5-modular/.deps/usb-uboot-source-26.3'
+PASS USB_UBOOT_SOURCE_BUILD: class drivers and bounded mouse command; compile only
+Cloning into '/home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf'...
+warning: source repository is shallow, ignoring --local
+warning: --local is ignored
+Note: switching to '09c4dc6628810d8570af69db43918d344f9e80e9'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+make: Entering directory '/home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf'
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/bl2
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/bl2/bl2
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/libfdt
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/lib
+  MD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/libc
+  CC      bl2/aarch64/bl2_arch_setup.c
+  CC      bl2/bl2_image_load_v2.c
+  CC      bl2/bl2_main.c
+  CC      common/backtrace/backtrace.c
+  CC      common/bl_common.c
+  CC      common/desc_image_load.c
+  CC      common/fdt_wrappers.c
+  CC      common/tf_log.c
+  CC      drivers/arm/gic/v3/arm_gicv3_common.c
+  CC      drivers/arm/gic/v3/gic-x00.c
+  CC      drivers/arm/gic/v3/gicdv3_helpers.c
+  CC      drivers/arm/gic/v3/gicrv3_helpers.c
+  CC      drivers/arm/gic/v3/gicv3_helpers.c
+  CC      drivers/arm/gic/v3/gicv3_main.c
+  CC      drivers/cadence/combo_phy/cdns_combo_phy.c
+  CC      drivers/cadence/emmc/cdns_sdmmc.c
+  CC      drivers/cadence/nand/cdns_nand.c
+  CC      drivers/console/multi_console.c
+  CC      drivers/delay_timer/delay_timer.c
+  CC      drivers/delay_timer/generic_delay_timer.c
+  CC      drivers/intel/soc/stratix10/io/s10_memmap_qspi.c
+  CC      drivers/io/io_block.c
+  CC      drivers/io/io_fip.c
+  CC      drivers/io/io_mtd.c
+  CC      drivers/io/io_storage.c
+  CC      drivers/mmc/mmc.c
+  CC      drivers/partition/gpt.c
+  CC      drivers/partition/partition.c
+  CC      drivers/synopsys/emmc/dw_mmc.c
+  CC      lib/compiler-rt/builtins/popcountdi2.c
+  CC      lib/compiler-rt/builtins/popcountsi2.c
+  CC      lib/extensions/pmuv3/aarch64/pmuv3.c
+  CC      lib/locks/exclusive/aarch64/spinlock.c
+  CC      lib/xlat_tables_v2/aarch64/xlat_tables_arch.c
+  CC      lib/xlat_tables_v2/xlat_tables_context.c
+  CC      lib/xlat_tables_v2/xlat_tables_core.c
+  CC      lib/xlat_tables_v2/xlat_tables_utils.c
+  CC      lib/zlib/adler32.c
+  CC      lib/zlib/crc32.c
+  CC      lib/zlib/inffast.c
+  CC      lib/zlib/inflate.c
+  CC      lib/zlib/inftrees.c
+  CC      lib/zlib/tf_gunzip.c
+  CC      lib/zlib/zutil.c
+  CC      plat/common/aarch64/plat_common.c
+  CC      plat/common/plat_bl_common.c
+  CC      plat/common/plat_gicv3.c
+  CC      plat/common/plat_log_common.c
+  CC      plat/intel/soc/agilex5/bl2_plat_setup.c
+  CC      plat/intel/soc/agilex5/soc/agilex5_clock_manager.c
+  CC      plat/intel/soc/agilex5/soc/agilex5_ddr.c
+  CC      plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c
+  CC      plat/intel/soc/agilex5/soc/agilex5_memory_controller.c
+  CC      plat/intel/soc/agilex5/soc/agilex5_mmc.c
+  CC      plat/intel/soc/agilex5/soc/agilex5_pinmux.c
+  CC      plat/intel/soc/agilex5/soc/agilex5_power_manager.c
+  CC      plat/intel/soc/common/aarch64/platform_common.c
+  CC      plat/intel/soc/common/bl2_plat_mem_params_desc.c
+  CC      plat/intel/soc/common/drivers/ccu/ncore_ccu.c
+  CC      plat/intel/soc/common/drivers/combophy/combophy.c
+  CC      plat/intel/soc/common/drivers/ddr/ddr.c
+  CC      plat/intel/soc/common/drivers/nand/nand.c
+  CC      plat/intel/soc/common/drivers/qspi/cadence_qspi.c
+  CC      plat/intel/soc/common/drivers/sdmmc/sdmmc.c
+  CC      plat/intel/soc/common/drivers/wdt/watchdog.c
+  CC      plat/intel/soc/common/lib/sha/sha.c
+  CC      plat/intel/soc/common/lib/utils/alignment_utils.c
+  CC      plat/intel/soc/common/soc/socfpga_emac.c
+  CC      plat/intel/soc/common/soc/socfpga_firewall.c
+  CC      plat/intel/soc/common/soc/socfpga_handoff.c
+  CC      plat/intel/soc/common/soc/socfpga_mailbox.c
+  CC      plat/intel/soc/common/soc/socfpga_reset_manager.c
+  CC      plat/intel/soc/common/socfpga_delay_timer.c
+  CC      plat/intel/soc/common/socfpga_dt.c
+  CC      plat/intel/soc/common/socfpga_image_load.c
+  CC      plat/intel/soc/common/socfpga_ros.c
+  CC      plat/intel/soc/common/socfpga_storage.c
+  CC      plat/intel/soc/common/socfpga_vab.c
+  AS      bl2/aarch64/bl2_el3_entrypoint.S
+  AS      bl2/aarch64/bl2_el3_exceptions.S
+  AS      bl2/aarch64/bl2_run_next_image.S
+  AS      common/aarch64/debug.S
+  AS      common/aarch64/early_exceptions.S
+  AS      drivers/ti/uart/aarch64/16550_console.S
+  AS      lib/aarch64/cache_helpers.S
+  AS      lib/aarch64/misc_helpers.S
+  AS      lib/cpus/aarch64/cortex_a55.S
+  AS      lib/cpus/aarch64/cortex_a76.S
+  AS      lib/cpus/aarch64/cpu_helpers.S
+  AS      lib/xlat_tables_v2/aarch64/enable_mmu.S
+  AS      plat/common/aarch64/platform_helpers.S
+  AS      plat/common/aarch64/platform_up_stack.S
+  AS      plat/intel/soc/common/aarch64/plat_helpers.S
+  CPP     bl2/bl2_el3.ld.S
+  CC      lib/libfdt/fdt.c
+  CC      lib/libfdt/fdt_ro.c
+  CC      lib/libfdt/fdt_wip.c
+  CC      lib/libfdt/fdt_sw.c
+  CC      lib/libfdt/fdt_rw.c
+  CC      lib/libfdt/fdt_strerror.c
+  CC      lib/libfdt/fdt_empty_tree.c
+  CC      lib/libfdt/fdt_addresses.c
+  CC      lib/libfdt/fdt_overlay.c
+  CC      lib/libfdt/fdt_check.c
+  CC      lib/libc/abort.c
+  CC      lib/libc/assert.c
+  CC      lib/libc/exit.c
+  CC      lib/libc/memchr.c
+  CC      lib/libc/memcmp.c
+  CC      lib/libc/memcpy.c
+  CC      lib/libc/memcpy_s.c
+  CC      lib/libc/memmove.c
+  CC      lib/libc/memrchr.c
+  CC      lib/libc/printf.c
+  CC      lib/libc/putchar.c
+  CC      lib/libc/puts.c
+  CC      lib/libc/qsort.c
+  CC      lib/libc/snprintf.c
+  CC      lib/libc/strchr.c
+  CC      lib/libc/strcmp.c
+  CC      lib/libc/strcpy_secure.c
+  CC      lib/libc/strlcat.c
+  CC      lib/libc/strlcpy.c
+  CC      lib/libc/strlen.c
+  CC      lib/libc/strnlen_secure.c
+  CC      lib/libc/strncmp.c
+  CC      lib/libc/strnlen.c
+  CC      lib/libc/strrchr.c
+  CC      lib/libc/strtok.c
+  CC      lib/libc/strtoul.c
+  CC      lib/libc/strtoll.c
+  CC      lib/libc/strtoull.c
+  CC      lib/libc/strtol.c
+  CC      lib/libc/memset.c
+  AS      lib/libc/aarch64/setjmp.S
+  AR      /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/lib/libfdt.a
+  AR      /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/lib/libc.a
+  LD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/bl2/bl2.elf
+  BIN     /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/bl2.bin
+  OD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/bl2/bl2.dump
+
+Built /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/bl2.bin successfully
+
+make: Leaving directory '/home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf'
+make: Entering directory '/home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf'
+  CC      plat/intel/soc/agilex5/bl2_plat_setup.c
+  LD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/bl2/bl2.elf
+  BIN     /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/bl2.bin
+  OD      /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/bl2/bl2.dump
+
+Built /home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf/build/agilex5/debug/bl2.bin successfully
+
+make: Leaving directory '/home/dev/baremetal-drivers/examples/agilex5-modular/build/release-boot/atf'
+PASS_CLEAN_26_3_FIRMWARE_BUILDS

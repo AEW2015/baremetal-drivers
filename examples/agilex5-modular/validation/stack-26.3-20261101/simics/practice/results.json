@@ -1,0 +1,146 @@
+{
+  "environment": "simics",
+  "runner_sha256": "895939831f0951c95acd3d8108544da6df2ea46f26092a693608abcbb7b5a99f",
+  "bootstrap_sha256": "e6ebc4fed1118a7f95acdfaaa164c2f013ad90ca33bdf227f2009511824b900f",
+  "build": {
+    "target": "agilex5",
+    "source_revision": "2e06d72895dd336e422a8c22dc3db3c0674cb624",
+    "source_sha256": {
+      "qemu/labs/README.md": "bf289348f4eb178ebc9008a86b1aea7a35fd871a2b0f060ea328c6fa69eb168d",
+      "qemu/labs/build.sh": "35db19dcd35462b42f895986383cd984419f19ae3ad5f906bf86e46d3d7bda92",
+      "qemu/labs/corruption.c": "a81e23b8ae0a1b4b2303d916b2a5772419180ee36fb89d9d1ff8d2b734489387",
+      "qemu/labs/exception.c": "058e50b1e8a3e6dd5fa03db05b510f15e270939c18b84343ec1cc5e262418689",
+      "qemu/labs/lab.h": "b97dd13ada04b42c0ecea1db353485df8ed90f7bf9a00d92b90f9fd421da5540",
+      "qemu/labs/link.ld": "aa24579e892b7eaf5dd6b98bd12714328c2bd684b50855686f6fb20e92d2b81d",
+      "qemu/labs/mmu.c": "be775e8f4c4af994d101881c60bba91e4ee26c4414c01bdfa8776f0c75b9574f",
+      "qemu/labs/multicore.c": "ff1eedeaaa008d642df9025363d5fb7559161605e9a1e27ba2ba5b96510a83b1",
+      "qemu/labs/run.py": "f63a8bfa423d0ec8da644ed30cf3c99331ae9dbdc09b3a966efb2fadf933648f",
+      "qemu/labs/runtime.c": "86fe3dbb0b7d171d9e602e6bc3536b9ebb0baf329b9097e4c2553a884c6caaaf",
+      "qemu/labs/start.S": "dd94c3884c078c186e582b3bcb79b7cfc517b48009320bca69647c7e830b7b4d",
+      "qemu/labs/startup.c": "450186bfc8d7ac9170fd5593b7fcf28616ebe98607d8a43af396aee7113635d7",
+      "qemu/labs/timer.c": "f079332610408954e8b9320d1271f7a1ba3d03d0a5730cd392544244c805c184",
+      "qemu/labs/uart.c": "d59bfd97d08c931997f5da9916e9462ce415b6ec331ab5b773c81e79be8bf0de"
+    },
+    "artifacts": {
+      "corruption-no-injection.bin": "50215b79992aee0f37c8574e64815acb6a401e8a2dc10540fd4b3354b1adf8ec",
+      "corruption-no-injection.elf": "b7cee16cb475544715de3593bcb43a27700cc81ea2cc25fa8d178e7661716689",
+      "corruption.bin": "16aed217303d66d7a0d0d94ced4fb37979963193e3d1fca988333fda28709c74",
+      "corruption.elf": "18b322295cfd12f1c8bb10f3c40c43e6b61dea1ef1035a3690bfc4a31676b3da",
+      "exception-wrong-brk.bin": "e8c8b3ac0e4cf60940ceb2594b9b3ebf3f79d4e31a2b58b0f032db9ec96837bb",
+      "exception-wrong-brk.elf": "014be70012815e6b1d8b046d9ef443a934293e7e61425785736fc0e2687761d6",
+      "exception.bin": "66c280371ebdd2bb275bb640f9a4387f331eec841fc47a9801368350cb3448cb",
+      "exception.elf": "453b4ee5415a4c6653639fa7d49734dd39b0def3aca48bd9062ac67ed0aecbe4",
+      "mmu-writable-ro.bin": "ba880fb7667cf8c7fe16430d44cb3745194e36f5c9f885f1d2ea7d00df693124",
+      "mmu-writable-ro.elf": "931693d6c9c02ba3323bf5d677b04417d6f9f5068d0fd615c23a18a029b8ff3f",
+      "mmu.bin": "e9ff0a5f5a39fdc296d534776ed140c739b49c16914527fbfb5cb4346b001613",
+      "mmu.elf": "e3db8bbb9d8e080a94810b126ea8722f900e5a5a19fa2bee9218424743a8e98c",
+      "multicore.bin": "bebeeec612990afd7923932dcb5d023de2a567a2ab9fa4805ed34b868dd3ae91",
+      "multicore.elf": "928f9ca37bfbb0d7bd3e6f8b2195f1f3b614709c0b9308bbea6932a54038e43b",
+      "startup-no-bss.bin": "374fc3bd5a9cac37adb25ee8baf2b92e9bace19513770f0f9d346af2ccf23541",
+      "startup-no-bss.elf": "52c96f912d8342f5af44593c36641f8f4a006b2b7132851cd49bd10b382eb3b1",
+      "startup-no-data.bin": "88266f054ecbceeb69bc2dd5826f48da555dcdfdf04f0392f3120e97553ab963",
+      "startup-no-data.elf": "4310f05058b9aabb80a07306a542f3d4dfd9dd960f2c03aba20beed6aa02ae38",
+      "startup.bin": "f5d9564da43b10c7e484ff3de5943af93ebe5a5dcac1b9ef12bdd970a10a57f6",
+      "startup.elf": "357a068598b2b206f3220a98bab36cf56551f6f6c7c57dc7915712abdd8e9c2e",
+      "timer-wrong-ppi.bin": "590e2377a7a218aa1f5768cab1a2290636cb3c376ab9bbb116b7c0aa2f6db1a9",
+      "timer-wrong-ppi.elf": "df3c7701d2b24f04c7a221a2064cdeec03c68a8c94e51818163d559f66c207bb",
+      "timer.bin": "be4550460364145fc4b707c8fe83a54acda33b4d532f23f67c01caddc638d5c0",
+      "timer.elf": "414c45b47dacbb6432d46bc6db94406ba3d24615fbf4ecfbe6a578ebe4a2ef15",
+      "uart.bin": "0d2536ffd37877249126230cfb7a6ac3d7d417f8696c5dad4c2d70d17ca10436",
+      "uart.elf": "86339d7f6cff28cda2bb99669b304686d42f161d1cc9ac0bd97f96ae9f2040a6"
+    }
+  },
+  "tests": [
+    {
+      "name": "startup",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 7.979385938029736,
+      "elf_sha256": "357a068598b2b206f3220a98bab36cf56551f6f6c7c57dc7915712abdd8e9c2e"
+    },
+    {
+      "name": "corruption",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 7.676533571910113,
+      "elf_sha256": "18b322295cfd12f1c8bb10f3c40c43e6b61dea1ef1035a3690bfc4a31676b3da"
+    },
+    {
+      "name": "exception",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 7.775440601631999,
+      "elf_sha256": "453b4ee5415a4c6653639fa7d49734dd39b0def3aca48bd9062ac67ed0aecbe4"
+    },
+    {
+      "name": "timer",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 7.7789117861539125,
+      "elf_sha256": "414c45b47dacbb6432d46bc6db94406ba3d24615fbf4ecfbe6a578ebe4a2ef15"
+    },
+    {
+      "name": "mmu",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.027673275209963,
+      "elf_sha256": "e3db8bbb9d8e080a94810b126ea8722f900e5a5a19fa2bee9218424743a8e98c"
+    },
+    {
+      "name": "uart",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.380031265784055,
+      "elf_sha256": "86339d7f6cff28cda2bb99669b304686d42f161d1cc9ac0bd97f96ae9f2040a6"
+    },
+    {
+      "name": "multicore",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.033152997028083,
+      "elf_sha256": "928f9ca37bfbb0d7bd3e6f8b2195f1f3b614709c0b9308bbea6932a54038e43b"
+    },
+    {
+      "name": "startup-no-bss",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 7.679103683680296,
+      "elf_sha256": "52c96f912d8342f5af44593c36641f8f4a006b2b7132851cd49bd10b382eb3b1"
+    },
+    {
+      "name": "startup-no-data",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 7.627310790121555,
+      "elf_sha256": "4310f05058b9aabb80a07306a542f3d4dfd9dd960f2c03aba20beed6aa02ae38"
+    },
+    {
+      "name": "corruption-no-injection",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 7.827267176005989,
+      "elf_sha256": "b7cee16cb475544715de3593bcb43a27700cc81ea2cc25fa8d178e7661716689"
+    },
+    {
+      "name": "exception-wrong-brk",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.18044806085527,
+      "elf_sha256": "014be70012815e6b1d8b046d9ef443a934293e7e61425785736fc0e2687761d6"
+    },
+    {
+      "name": "timer-wrong-ppi",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.12960079824552,
+      "elf_sha256": "df3c7701d2b24f04c7a221a2064cdeec03c68a8c94e51818163d559f66c207bb"
+    },
+    {
+      "name": "mmu-writable-ro",
+      "status": "pass",
+      "process_exit": 0,
+      "seconds": 8.02995137264952,
+      "elf_sha256": "931693d6c9c02ba3323bf5d677b04417d6f9f5068d0fd615c23a18a029b8ff3f"
+    }
+  ]
+}

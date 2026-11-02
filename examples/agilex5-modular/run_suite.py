@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Host hardware runner; fresh DDR boot per ELF, bounded capture, durable results."""
 import argparse,datetime,hashlib,json,os,pathlib,re,select,signal,subprocess,sys,termios,time
-from bench import (BenchError, HELP, container_command, container_path, validate_uart,
+from bench import (bootstrap_image_path, BenchError, HELP, container_command, container_path, validate_uart,
                    verify_mount, verify_container_tools, verify_mapped_files)
 from hardware_lock import HardwareLock
 from owned_process import OwnedContainerProcess, OwnedProcessError, run_owned
@@ -141,8 +141,8 @@ def main(preflight=None):
  with HardwareLock() as lock:
   print('[preflight] Checking host/container mapping, tools and artifact hashes...',flush=True)
   verify_mount();verify_container_tools(['jtagconfig','quartus_pgm','openocd','aarch64-none-elf-readelf'])
-  images=[ROOT/'bootstrap/ddr/ddr_probe.hps.rbf',ROOT/'bootstrap/ocram/agilex5.cfg']
-  if a.full_recovery:images.append(ROOT/'bootstrap/ddr/ddr_recovery.sof')
+  images=[bootstrap_image_path('ddr_probe.hps.rbf'),ROOT/'bootstrap/ocram/agilex5.cfg']
+  if a.full_recovery:images.append(bootstrap_image_path('ddr_recovery.sof'))
   verify_mapped_files(images+[ROOT/'build'/(TESTS[name]['elf']+'.elf') for name in names])
   if preflight is not None:preflight()
   out=ROOT/'runs'/datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ');out.mkdir(parents=True)

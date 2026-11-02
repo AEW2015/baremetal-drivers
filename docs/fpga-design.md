@@ -1,5 +1,9 @@
 # Obtain and qualify the FPGA design
 
+For current HPS 14.1 / EMIF 5.1 and ATF/U-Boot builds, follow the
+[26.3 migration](stack-26.3.md). The original pair below remains the independent
+recovery/reference profile; its hashes are not replaced by new build hashes.
+
 Hardware students need both a tool environment and a board-specific design.
 The bare-metal repository provides neither a universal Modular SOF nor a
 reconstruction of the complete custom FPGA project used for the earlier tests.

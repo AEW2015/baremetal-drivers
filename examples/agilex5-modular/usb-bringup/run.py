@@ -3,13 +3,16 @@
 import argparse,datetime,fcntl,hashlib,json,os,re,select,subprocess,sys,termios,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT))
+from stack_bench import StackBench
 
 def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 def allowed_command(command):
-    fixed={'version','bdinfo','usb start','usb tree','usb info','usb storage','usb dev 0',
+    fixed={'version','bdinfo','usb start','usb reset','usb tree','usb info','usb storage','usb dev 0',
            'printenv bootdelay bootcmd preboot','dm tree','net list',
            'usb_lab_mouse 1','usb_lab_mouse 4','usb_lab_mouse 8','usb_lab_phy',
+           'md.l 0x11000000 8','md.l 0x11000420 8',
            'md.l 0x10c03200 2','md.l 0x10c03250 1','md.l 0x10d13008 1','md.l 0x10d13028 1',
            'setenv ethrotate no','setenv autostart no','setenv ipaddr 192.168.50.3',
            'setenv serverip 192.168.50.1','setenv netmask 255.255.255.0',
@@ -23,15 +26,15 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--bench',type=Path,required=True)
     p.add_argument('--mcp-client',type=Path,required=True)
-    p.add_argument('--uboot',type=Path,default=ROOT/'build/usb-bringup/u-boot-usb-volatile.bin')
-    p.add_argument('--monitor',type=Path,default=ROOT/'build/usb-bringup-atf/agilex5/debug/bl31.bin')
+    p.add_argument('--uboot',type=Path,default=ROOT/'build/usb-uboot-26.3/u-boot-usb-standalone.bin')
+    p.add_argument('--monitor',type=Path,default=ROOT/'build/usb-bringup-atf-26.3/agilex5/debug/bl31.bin')
     p.add_argument('--port',default='/dev/serial/by-path/pci-0000:74:00.0-usb-0:11:1.2-port0')
     p.add_argument('--command',action='append',help='One allowed console command; repeat to select commands')
     p.add_argument('--timeout',type=int,default=60)
     p.add_argument('--queue',type=Path,help='Optional append-only JSON command list; __DONE__ restores DDR Hello')
     p.add_argument('--queue-seconds',type=int,default=300)
-    a=p.parse_args()
-    commands=a.command or ['version','bdinfo','usb start','usb tree','usb info','usb storage','net list']
+    a=p.parse_args();stack=StackBench(a.bench)
+    commands=a.command or ['version','bdinfo','usb start','usb reset','usb tree','usb info','usb storage','net list']
     if any(not allowed_command(c) for c in commands):p.error('Command outside the USB/read-only-media/isolated-network allowlist')
     if not 5<=a.timeout<=120:p.error('timeout must be 5..120 seconds')
     if not 30<=a.queue_seconds<=600:p.error('queue-seconds must be 30..600')
@@ -46,17 +49,17 @@ def main():
     print('Evidence: '+str(out),flush=True);save()
     sys.path.insert(0,str(a.mcp_client.parent));from mcp_client import MCP
     m=MCP('programmer');fd=None;old=None;bootstrap_failed=False
-    cfg='/home/dev/baremetal-guide-validation/ocram/agilex5.cfg'
+    cfg=stack.cfg
     prefix='hps.a55.0 configure -event halted {}; hps.a55.0 configure -event resumed {}; gdb port disabled; tcl port disabled; telnet port disabled; init; halt; '
     def debug(command,label):
-        result=subprocess.run(['docker','exec','agilex-xrdp','timeout','--kill-after=5s','300s','openocd','-f',cfg,'-c',command],capture_output=True,timeout=310)
+        result=subprocess.run(stack.command(['timeout','--kill-after=5s','300s','openocd','-f',cfg,'-c',command]),capture_output=True,timeout=310)
         (out/(label+'.log')).write_bytes(result.stdout+result.stderr)
         if result.returncode:raise RuntimeError('OpenOCD failed: '+label)
     def bootstrap(label):
         nonlocal bootstrap_failed
         chain=m.call('read_jtag_config',{});(out/(label+'-chain.json')).write_text(json.dumps(chain,indent=2)+'\n')
         if '364f0dd' not in json.dumps(chain).lower():raise RuntimeError('Modular ES FPGA identity missing')
-        result=subprocess.run(['python3',str(a.bench/'ddr-bringup/run_ddr.py'),'--port',a.port]+(['--full-recovery'] if '4ba06477' not in json.dumps(chain).lower() else []),capture_output=True,timeout=230)
+        result=stack.bootstrap(a.port,lock.fileno(),full='4ba06477' not in json.dumps(chain).lower())
         (out/(label+'-bootstrap.log')).write_bytes(result.stdout+result.stderr)
         if result.returncode:bootstrap_failed=True;raise RuntimeError('DDR bootstrap failed; stop board operations')
     def receive(timeout,guard=False):
@@ -76,8 +79,8 @@ def main():
     try:
         bootstrap('initial')
         for path,address,secure,label in [(a.uboot,0x80200000,False,'uboot'),(a.monitor,0x80000000,True,'monitor')]:
-            name=out.name+'-'+label+'.bin';destination=a.bench/'examples/build'/name;destination.write_bytes(path.read_bytes())
-            remote='/home/dev/baremetal-guide-validation/examples/build/'+name;readback=Path(str(destination)+'.readback');readback.unlink(missing_ok=True)
+            name=out.name+'-'+label+'.bin';destination=stack.payload(name);destination.write_bytes(path.read_bytes())
+            remote=stack.remote(destination);readback=Path(str(destination)+'.readback');readback.unlink(missing_ok=True)
             secure_set='hps.dap apsel 0x4000; set old_csw [hps.dap apcsw]; hps.dap apcsw 0x10000000 0x30000000; ' if secure else ''
             secure_restore='hps.dap apcsw $old_csw; ' if secure else ''
             debug(prefix+secure_set+f'targets hps.sys_bus; load_image {remote} {address:#x} bin; dump_image {remote}.readback {address:#x} {path.stat().st_size}; '+secure_restore+'shutdown',label+'-load')
@@ -99,7 +102,7 @@ def main():
             body,ready=receive(a.timeout if budget is None else min(a.timeout,budget))
             (out/f'{index:02d}-console.txt').write_bytes(body)
             item={'command':command,'prompt_returned':ready}
-            if command=='usb start':
+            if command in ('usb start','usb reset'):
                 text=body.decode(errors='replace').replace('\r','')
                 item['xhci_started']=bool(re.search(r'^USB XHCI [0-9a-fA-F]+\.[0-9a-fA-F]+',text,re.M)) and 'No USB controllers found' not in text
                 item['device_counts']=[int(n) for n in re.findall(r'(\d+) USB Device\(s\) found',text)]
@@ -145,7 +148,7 @@ def main():
             else:bootstrap('restore');record['restoration']='pass'
         except Exception as exc:record['restoration']='fail';record['restore_error']=repr(exc)
         save();m.close();lock.close();print('DDR Hello restoration: '+record['restoration'],flush=True)
-    starts=[c for c in record['commands'] if c['command']=='usb start']
+    starts=[c for c in record['commands'] if c['command'] in ('usb start','usb reset')]
     phys=[c for c in record['commands'] if c['command']=='usb_lab_phy']
     return int(record['restoration']!='pass' or bool(starts) and not starts[-1]['external_devices_observed'] or any(not c['phy_id_pass'] for c in phys))
 

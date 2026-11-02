@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "bytes": 78172,
+  "sha256": "29f3a17191f4d775dd1cfb7cab6def65f36c7fde468c381fbc792ae6b30a2608",
+  "debug_access": "secure privileged AXI5; original CSW pattern restored"
+}

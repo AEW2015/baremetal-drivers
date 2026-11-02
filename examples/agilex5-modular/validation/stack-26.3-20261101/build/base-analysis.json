@@ -1,0 +1,28 @@
+{
+  "jobId": "510f94ac-1160-4988-b7ec-1fe1e508af68",
+  "status": "completed",
+  "kind": "analyze_bitstream",
+  "flow": "analyze_bitstream",
+  "mode": "in-process",
+  "projectDir": "/workspace",
+  "projectName": "",
+  "startedAt": "2026-11-02T03:17:12.077Z",
+  "pollAfterSeconds": 15,
+  "endedAt": "2026-11-02T03:17:14.920Z",
+  "exitCode": 0,
+  "stdoutTail": "",
+  "stderrTail": "",
+  "result": {
+    "success": true,
+    "exitCode": 0,
+    "durationMs": 2843,
+    "timedOut": false,
+    "stdout": "Analysis: **base-boot.sof**\n\n| Field | Value |\n|---|---|\n| Device | A5ED065BB32AE6SR0 |\n| Config Scheme | Active Serial x4 |\n| Clock Source | 100 MHz Clock Frequency |\n| JTAG User Code | 0xFFFFFFFF |\n| Disable JTAG | OFF |\n| Anti-Tamper | DISABLE |\n| Error Detection CRC | TRUE |\n| HPS Present | TRUE |\n| CvP | OFF |\n| RSU Max Retry | 1 |\n\n=== VERIFIED FACTS (extracted deterministically — do not contradict) ===\nDisable Jtag: OFF\nOwnership Transfer Mode: FALSE\nAnti Tamper Response: DISABLE\nFips Mode: NON_FIPS\n=== END VERIFIED FACTS ===",
+    "stderr": "",
+    "command": "analyze_bitstream",
+    "args": []
+  },
+  "success": true,
+  "durationMs": 2843,
+  "timedOut": false
+}

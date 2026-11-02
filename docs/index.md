@@ -11,6 +11,9 @@ the HPS controllers and the devices actually populated on the SOM.
 [Browse the examples](examples.md){ .md-button }
 [Explore the clickable HPS / fabric map](architecture.md){ .md-button }
 
+[Fresh 26.3 validation: hardware, QEMU and Simics](validation-26.3.md) includes
+real terminal output and the remaining partial capabilities.
+
 ## What you will build
 
 | Track | Runs where | What you learn |

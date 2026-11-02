@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 99792,
+  "segments": [
+    {
+      "file": "upstream26-perf.bin",
+      "bytes": 99792,
+      "sha256": "bd5e2b6c973bc913d2d34f08fa43bc424ff2a8c36ac2b59ec47fc003284e4feb"
+    }
+  ]
+}

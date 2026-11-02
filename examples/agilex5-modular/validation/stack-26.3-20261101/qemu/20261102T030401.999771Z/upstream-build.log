@@ -1,0 +1,4 @@
+/usr/lib/gcc-cross/aarch64-linux-gnu/13/../../../../aarch64-linux-gnu/bin/ld: warning: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream-lab-qemu/crc.elf has a LOAD segment with RWX permissions
+/usr/lib/gcc-cross/aarch64-linux-gnu/13/../../../../aarch64-linux-gnu/bin/ld: warning: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream-lab-qemu/perf.elf has a LOAD segment with RWX permissions
+/usr/lib/gcc-cross/aarch64-linux-gnu/13/../../../../aarch64-linux-gnu/bin/ld: warning: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream-lab-qemu/smc-guard.elf has a LOAD segment with RWX permissions
+/usr/lib/gcc-cross/aarch64-linux-gnu/13/../../../../aarch64-linux-gnu/bin/ld: warning: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/build/upstream-lab-qemu/perf-zero-clock.elf has a LOAD segment with RWX permissions

@@ -1,0 +1,32 @@
+[preflight] Checking host/container mapping, tools and artifact hashes...
+Evidence: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261102T041429.204149Z
+[som-i2c] Initializing DDR; follow /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/20261102T041429.204149Z/som-i2c-bootstrap.log for live stages.
+[som-i2c] Loading som_i2c.elf and collecting fresh UART results...
+som-i2c: pass
+HPS SOM I2C EXAMPLE BEGIN
+Original SDA/SCL pin selection = 0x0000000400000004
+TMP464 manufacturer = 0x0000000000005449
+PASS SOM_TEMP_ID: TMP464 manufacturer read
+TMP464 local temperature raw = 0x0000000000001498
+EEPROM read attempts = 0x0000000000000001
+PASS SOM_EEPROM_READ: 16 bytes received; no data written
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+EEPROM byte = 0x00000000000000ff
+HPS SOM I2C EXAMPLE COMPLETE
+
+[restore] Restoring DDR Hello; inspect restore.log for live stages.
+DDR Hello restoration: pass

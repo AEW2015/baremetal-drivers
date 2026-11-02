@@ -1,0 +1,43 @@
+Hit:1 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libcap2-bin libmnl0 libxtables12
+Suggested packages:
+  iproute2-doc
+Recommended packages:
+  libatm1t64 libpam-cap
+The following NEW packages will be installed:
+  iproute2 libcap2-bin libmnl0 libxtables12
+0 upgraded, 4 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,202 kB of archives.
+After this operation, 3,398 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble/main amd64 libmnl0 amd64 1.0.5-2build1 [12.3 kB]
+Get:2 http://archive.ubuntu.com/ubuntu noble/main amd64 libxtables12 amd64 1.8.10-3ubuntu2 [35.7 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libcap2-bin amd64 1:2.66-5ubuntu2.4 [34.1 kB]
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 iproute2 amd64 6.1.0-1ubuntu6.4 [1,120 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1,202 kB in 3s (478 kB/s)
+Selecting previously unselected package libmnl0:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 47479 files and directories currently installed.)
+Preparing to unpack .../libmnl0_1.0.5-2build1_amd64.deb ...
+Unpacking libmnl0:amd64 (1.0.5-2build1) ...
+Selecting previously unselected package libxtables12:amd64.
+Preparing to unpack .../libxtables12_1.8.10-3ubuntu2_amd64.deb ...
+Unpacking libxtables12:amd64 (1.8.10-3ubuntu2) ...
+Selecting previously unselected package libcap2-bin.
+Preparing to unpack .../libcap2-bin_1%3a2.66-5ubuntu2.4_amd64.deb ...
+Unpacking libcap2-bin (1:2.66-5ubuntu2.4) ...
+Selecting previously unselected package iproute2.
+Preparing to unpack .../iproute2_6.1.0-1ubuntu6.4_amd64.deb ...
+Unpacking iproute2 (6.1.0-1ubuntu6.4) ...
+Setting up libcap2-bin (1:2.66-5ubuntu2.4) ...
+Setting up libmnl0:amd64 (1.0.5-2build1) ...
+Setting up libxtables12:amd64 (1.8.10-3ubuntu2) ...
+Setting up iproute2 (6.1.0-1ubuntu6.4) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.9) ...

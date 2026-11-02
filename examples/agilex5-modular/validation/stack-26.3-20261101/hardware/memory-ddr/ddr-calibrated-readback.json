@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 10928,
+  "segments": [
+    {
+      "file": "upstream26-ddr-calibrated.segment0.bin",
+      "bytes": 9432,
+      "sha256": "146fd42443aeb5d164f9fb0cc697e1dfbc256f34d4524fd8b2fa43ff8ea54f94"
+    },
+    {
+      "file": "upstream26-ddr-calibrated.segment1.bin",
+      "bytes": 1496,
+      "sha256": "1eab79bc65d1a2744eb7f1995fa64c6b5b2f89ef5e858c187db7dfd99a2ceb75"
+    }
+  ]
+}

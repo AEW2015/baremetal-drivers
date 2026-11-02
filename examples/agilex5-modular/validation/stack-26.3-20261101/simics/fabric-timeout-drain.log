@@ -1,0 +1,2 @@
+PASS fabric-ddr-rtl-timeout-drain
+/workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/simics/fabric-timeout-drain

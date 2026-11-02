@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 10044,
+  "segments": [
+    {
+      "file": "upstream26-normal.segment0.bin",
+      "bytes": 8876,
+      "sha256": "562e026a449ebe93450f85c459a667a3d238da680c661e5c609379b4d0861972"
+    },
+    {
+      "file": "upstream26-normal.segment1.bin",
+      "bytes": 1168,
+      "sha256": "03fb443ffdc010f56e3879227d7e27a2db481f5dd034c739b665a9502ef5a757"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+Evidence: /workspace/baremetal-fixes-20261029/examples/agilex5-modular/runs/simics-legacy25-20261102T030607.648615Z
+PASS hello-world
+PASS uart
+PASS dma
+FAIL timer
+PASS watchdog
+PASS i2c
+PASS i3c
+PASS spi
+PASS sdmmc
+FAIL xgmac
+PASS mmu_el3
+PASS smmu
+PASS ccu
+PASS clkmgr
+PASS ecc
+FAIL hps_mailbox

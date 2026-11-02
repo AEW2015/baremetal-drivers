@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 20680,
+  "segments": [
+    {
+      "file": "upstream26-gic.segment0.bin",
+      "bytes": 20680,
+      "sha256": "d5de6511cdb77e7cf13e91fead2e467a6782dd539364be6ec454be259e691b3b"
+    }
+  ]
+}

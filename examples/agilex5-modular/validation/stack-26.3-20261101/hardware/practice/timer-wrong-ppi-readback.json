@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 6677,
+  "segments": [
+    {
+      "file": "upstream26-timer-wrong-ppi.segment0.bin",
+      "bytes": 6312,
+      "sha256": "9e3471bcc0135a66621274c6b992cae1155e8bfdfd700e6d9c9dadee7f370d18"
+    },
+    {
+      "file": "upstream26-timer-wrong-ppi.segment1.bin",
+      "bytes": 365,
+      "sha256": "374c9278841de99ff59318eb0f1679c2eca49d3e202a1cb8a36834d854c81acd"
+    }
+  ]
+}

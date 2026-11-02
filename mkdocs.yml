@@ -48,6 +48,8 @@ nav:
   - Tutorial:
       - 1. Install the tools: setup.md
       - Recreate the container: container.md
+      - Upgrade to the 26.3 stack: stack-26.3.md
+      - Fresh 26.3 validation: validation-26.3.md
       - Obtain the FPGA design: fpga-design.md
       - 2. Set up VS Code: vscode.md
       - 3. Run and debug QEMU: qemu.md

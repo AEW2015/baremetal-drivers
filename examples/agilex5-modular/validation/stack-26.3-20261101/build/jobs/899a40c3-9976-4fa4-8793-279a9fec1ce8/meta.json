@@ -1,0 +1,20 @@
+{
+  "jobId": "899a40c3-9976-4fa4-8793-279a9fec1ce8",
+  "pid": 1491869,
+  "kind": "synthesis",
+  "mode": "detached-cli",
+  "flow": "synthesis",
+  "toolName": "quartus_syn",
+  "args": [
+    "baseline_a55",
+    "-c",
+    "pr_xor"
+  ],
+  "projectDir": "/workspace/agilex5-stack-20261101/platform",
+  "projectName": "baseline_a55",
+  "status": "completed",
+  "startedAt": "2026-11-02T03:16:55.215Z",
+  "idemKey": "synthesis:/workspace/agilex5-stack-20261101/platform/baseline_a55",
+  "endedAt": "2026-11-02T03:17:21.958Z",
+  "exitCode": 0
+}

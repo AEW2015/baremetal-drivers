@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-11-02T02:48:50.142823+00:00",
+  "target": "A5ED065BB32AE6SR0",
+  "tool": "Quartus 26.3.0 Build114",
+  "drivers": "66bdcc347564c5698a8997169bce83a31647d618",
+  "atf_target": "09c4dc6628810d8570af69db43918d344f9e80e9",
+  "uboot_target": "5ba74aeda63ed07e98670f8c2f0135de06543ba0",
+  "hps_ip_target": "14.1.0",
+  "hps_emif_ip_target": "5.1.0",
+  "known_good_pr": "/workspace/agilex5-pr-20261031/stage5",
+  "status": "inventory; not hardware tested"
+}

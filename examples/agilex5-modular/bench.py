@@ -100,3 +100,30 @@ def verify_mapped_files(paths, expected=None):
     if remote != host:
         raise BenchError('Host and container artifact hashes differ. Correct the bind mount/path before programming.')
     return {str(p): host[container_path(p)] for p in paths}
+
+def bootstrap_directory():
+    """Select qualified images inside the shared example tree."""
+    folder=Path(os.environ.get('AGILEX_BOOTSTRAP_DIR',ROOT/'bootstrap/ddr')).resolve()
+    if not folder.is_relative_to(ROOT.resolve()):
+        raise BenchError('AGILEX_BOOTSTRAP_DIR must be inside the bind-mounted example directory so host/container hashes can be verified. Copy the qualified image pair under build/ and select that directory.')
+    return folder
+
+def bootstrap_requires_full_image():
+    if os.environ.get('AGILEX_FORCE_FULL_BOOT') == '1':
+        return True
+    manifest = bootstrap_directory() / 'build-manifest.json'
+    if not manifest.is_file():
+        return False  # Historical HPS-first profile.
+    try:
+        data = json.loads(manifest.read_text())
+        if not isinstance(data, dict) or data.get('boot_order') not in (None, 'hps-first', 'fpga-first'):
+            raise ValueError('invalid boot_order')
+    except (OSError, ValueError) as exc:
+        raise BenchError(f'Cannot select bootstrap image from {manifest}: {exc}') from exc
+    return data.get('boot_order') == 'fpga-first'
+
+def bootstrap_image_path(name):
+    folder = bootstrap_directory()
+    if name == 'ddr_probe.hps.rbf' and bootstrap_requires_full_image():
+        name = 'ddr_recovery.sof'
+    return folder / name

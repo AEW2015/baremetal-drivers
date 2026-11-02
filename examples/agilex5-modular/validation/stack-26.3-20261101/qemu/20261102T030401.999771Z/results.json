@@ -1,0 +1,518 @@
+{
+  "scope": "QEMU functional and independent RTL campaign; no hardware or cycle-accurate timing claim",
+  "started_utc": "2026-11-02T03:04:01.999869+00:00",
+  "source_revision": "2e06d72895dd336e422a8c22dc3db3c0674cb624",
+  "steps": [
+    {
+      "name": "versions",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && qemu-system-aarch64 --version; aarch64-none-elf-gcc --version; aarch64-linux-gnu-gcc --version; gdb-multiarch --version; verilator --version"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 0.27162913605570793
+    },
+    {
+      "name": "hello-build",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && bash qemu/build.sh"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 0.14953951118513942
+    },
+    {
+      "name": "hello-run",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && python3 qemu/run.py --check"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 0.18163336673751473
+    },
+    {
+      "name": "hello-experiment",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && python3 qemu/experiment.py"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 0.6535486690700054
+    },
+    {
+      "name": "practice-build",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && bash qemu/labs/build.sh qemu"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 0.9150299998000264
+    },
+    {
+      "name": "practice-run",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && python3 qemu/labs/run.py --negative --gdb --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/practice"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 0.8520968439988792
+    },
+    {
+      "name": "dsu-build",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && bash memory-labs/dsu/build.sh qemu"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 0.7570024440065026
+    },
+    {
+      "name": "dsu-run",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && python3 memory-labs/dsu/run.py --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/dsu"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 5.269039440900087
+    },
+    {
+      "name": "ddr-build",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && bash memory-labs/ddr/build.sh qemu"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 0.585432861931622
+    },
+    {
+      "name": "ddr-run",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && python3 memory-labs/ddr/run.py --output /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/ddr"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 0.6338192671537399
+    },
+    {
+      "name": "smmu-build",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && bash memory-labs/smmu/build.sh"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 0.36693030083552003
+    },
+    {
+      "name": "smmu-run",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && python3 memory-labs/smmu/run.py --out /workspace/baremetal-fixes-20261029/examples/agilex5-modular/validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/smmu"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 3.032310381066054
+    },
+    {
+      "name": "upstream-build",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && bash upstream-lab/build.sh qemu"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 2.0022637979127467
+    },
+    {
+      "name": "upstream-run",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && python3 upstream-lab/run.py qemu --only crc,perf,smc-guard,perf-zero-clock"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 1.2445293790660799
+    },
+    {
+      "name": "fabric-rtl",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && bash fabric/test.sh"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 6.324575935956091
+    },
+    {
+      "name": "fabric-ddr-rtl",
+      "command": [
+        "docker",
+        "exec",
+        "-e",
+        "CROSS_COMPILE=aarch64-none-elf-",
+        "-e",
+        "FABRIC_DDR_BUILD=../../build/fabric-ddr-qemu-campaign",
+        "agilex26-mcp-demos",
+        "bash",
+        "-lc",
+        "cd /workspace/baremetal-fixes-20261029/examples/agilex5-modular && bash memory-labs/fabric-ddr/test.sh"
+      ],
+      "status": "pass",
+      "returncode": 0,
+      "elapsed_seconds": 0.16242456715554
+    }
+  ],
+  "tests": [
+    {
+      "name": "custom/qemu-hello",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/hello-run.log",
+      "source_sha256": "f53877b346981dbd4c30d948920c02411f6ee7045af884f1de7447c6f6fb70cb",
+      "scope": "Real QEMU hello plus isolated corruption/recovery experiment; GDB practice separately recorded"
+    },
+    {
+      "name": "practice/startup",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/practice/results.json",
+      "source_sha256": "3ed78f6963f00844de7c2e0ebe31111f998afff8f5914c26fb03671f8382144d",
+      "cases": [
+        "startup",
+        "startup-no-bss",
+        "startup-no-data",
+        "startup-gdb"
+      ]
+    },
+    {
+      "name": "practice/corruption",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/practice/results.json",
+      "source_sha256": "3ed78f6963f00844de7c2e0ebe31111f998afff8f5914c26fb03671f8382144d",
+      "cases": [
+        "corruption",
+        "corruption-no-injection",
+        "corruption-gdb"
+      ]
+    },
+    {
+      "name": "practice/exception",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/practice/results.json",
+      "source_sha256": "3ed78f6963f00844de7c2e0ebe31111f998afff8f5914c26fb03671f8382144d",
+      "cases": [
+        "exception",
+        "exception-wrong-brk"
+      ]
+    },
+    {
+      "name": "practice/timer",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/practice/results.json",
+      "source_sha256": "3ed78f6963f00844de7c2e0ebe31111f998afff8f5914c26fb03671f8382144d",
+      "cases": [
+        "timer",
+        "timer-wrong-ppi"
+      ]
+    },
+    {
+      "name": "practice/mmu",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/practice/results.json",
+      "source_sha256": "3ed78f6963f00844de7c2e0ebe31111f998afff8f5914c26fb03671f8382144d",
+      "cases": [
+        "mmu",
+        "mmu-writable-ro"
+      ]
+    },
+    {
+      "name": "practice/uart",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/practice/results.json",
+      "source_sha256": "3ed78f6963f00844de7c2e0ebe31111f998afff8f5914c26fb03671f8382144d",
+      "cases": [
+        "uart"
+      ]
+    },
+    {
+      "name": "practice/multicore",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/practice/results.json",
+      "source_sha256": "3ed78f6963f00844de7c2e0ebe31111f998afff8f5914c26fb03671f8382144d",
+      "cases": [
+        "multicore"
+      ]
+    },
+    {
+      "name": "upstream/crc",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/upstream/results.json",
+      "source_sha256": "2556679b7a82fd8bb206e3c1395cc2fa64b16add7ae18b30cebc92b683b8f430",
+      "cases": [
+        "crc"
+      ]
+    },
+    {
+      "name": "upstream/perf",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/upstream/results.json",
+      "source_sha256": "2556679b7a82fd8bb206e3c1395cc2fa64b16add7ae18b30cebc92b683b8f430",
+      "cases": [
+        "perf"
+      ]
+    },
+    {
+      "name": "diagnostic/smc-guard",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/upstream/results.json",
+      "source_sha256": "2556679b7a82fd8bb206e3c1395cc2fa64b16add7ae18b30cebc92b683b8f430",
+      "cases": [
+        "smc-guard"
+      ]
+    },
+    {
+      "name": "diagnostic/perf-zero-clock",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/upstream/results.json",
+      "source_sha256": "2556679b7a82fd8bb206e3c1395cc2fa64b16add7ae18b30cebc92b683b8f430",
+      "cases": [
+        "perf-zero-clock"
+      ]
+    },
+    {
+      "name": "memory/dsu",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/dsu/results.json",
+      "source_sha256": "99b35c7e26ab23b428a16870c2f578d37075e27b527189393337399ec882ab40",
+      "cases": [
+        "normal",
+        "corrupt",
+        "stalled",
+        "contention"
+      ]
+    },
+    {
+      "name": "memory/ddr-sweep",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/ddr/results.json",
+      "source_sha256": "4fced48b337f7df7268fd0c329cb57b10e3b68aa54caa1628a620e16ec1ad65d",
+      "cases": [
+        "ddr-path",
+        "ddr-copy-fault",
+        "ddr-clock-fault"
+      ]
+    },
+    {
+      "name": "memory/smmu-qemu",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/smmu/results.json",
+      "source_sha256": "87058596ec23960a03ee5424e2dd2ce2fae7060d1896eac2a159cd0d719abf8d",
+      "cases": [
+        "normal",
+        "bypass",
+        "keep-mapping"
+      ]
+    },
+    {
+      "name": "reference/semihost",
+      "status": "pass",
+      "source_evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/semihost/results.json",
+      "source_sha256": "0bb78279688fcae82a3fa341a3e4445b23be0f628ca630686b27cfa656c515e2",
+      "cases": [
+        "semihost"
+      ]
+    }
+  ],
+  "artifacts_sha256": {
+    "build/qemu/hello.elf": "eefda517874500ed18690b2a24e4c3f0920aed11f1760fe70a23b44b33bb1854",
+    "build/qemu-labs/build.json": "851ef828903d3747d4d153b19b95e309efb5f4f56793d212544cc626e7c8a2e7",
+    "build/qemu-labs/corruption-no-injection.bin": "e22da59bd995b480d5318de35b1ce380953676783e85d67081baa8876ee60ee6",
+    "build/qemu-labs/corruption-no-injection.elf": "60abec496bf4a1da12685cb27bec7a7dbd92539293672fd3029bec59614dea2a",
+    "build/qemu-labs/corruption.bin": "a0cc9a9525149e2a0f9022b60e848cd9f2532aac46dd75f2fb5bddf7b4eb3c14",
+    "build/qemu-labs/corruption.elf": "bf0424d8f3d6a717c96483ba87ca06cf2ea97a34cd71652d558232112ec243bc",
+    "build/qemu-labs/exception-wrong-brk.bin": "19df0f7f0d2155b0b4db818ca7d968bbe574cd423a5c52caa1d3f22ab4c5aba2",
+    "build/qemu-labs/exception-wrong-brk.elf": "307a0588af21d6132a3bea7594e4fe2e429edefea6ab58670f1a691c1678977c",
+    "build/qemu-labs/exception.bin": "aba49210e36d86bfdbe58764cdf93c602ead8f856ef63b1c0cf152d210148678",
+    "build/qemu-labs/exception.elf": "12bd22733723f4dfc4c87810a4e7c6fe54bebdef6b035760da1af2ca54540824",
+    "build/qemu-labs/mmu-writable-ro.bin": "bfb6fdd9883ba77ac45393def904b10fd8e02b8cea1a4a0adaf593a321a41d3a",
+    "build/qemu-labs/mmu-writable-ro.elf": "56808cfd98e202c269afb4049a966192bd62b8132cff85eb438626d63f35f03a",
+    "build/qemu-labs/mmu.bin": "293dfb79061efbc90cb451cebcddba1e8770375b2b587e1d8d40761efbb71e21",
+    "build/qemu-labs/mmu.elf": "dc24c44ee85b686321f0b1404172d620e8c2b77aa18bb114d5552d6fcbe49205",
+    "build/qemu-labs/multicore.bin": "1ed9b8e3cbe912a2bf7d37d0fabad96ecf3074d1a11e6484fbbc8c98d55e0590",
+    "build/qemu-labs/multicore.elf": "13d62dc2ef9c218e7d39a333916556383452ff3ca33cbc0bb62418f7d9aa0c0f",
+    "build/qemu-labs/startup-no-bss.bin": "950ed0744dd402923512fcb4247cee7022c95eb6f8b052ef41b6f841dde40314",
+    "build/qemu-labs/startup-no-bss.elf": "927f462c6b099d86ba34929cd062e3508a51d89e16fa48cc1f05890c0e32d7fa",
+    "build/qemu-labs/startup-no-data.bin": "6727a8d6507b8dfe74981a1582ffad1f9ca7b13d9f8545c0c43ef2817618ac26",
+    "build/qemu-labs/startup-no-data.elf": "e02447aa46f343eb7b286a8e1c7855fb065959b616d93ba56b40977a36f16871",
+    "build/qemu-labs/startup.bin": "a12aade159881be0db2ae45df0ece107fe68991ab8f91f1e66aa40a4900f4f5b",
+    "build/qemu-labs/startup.elf": "7b82f9516e0c77857d6531f63096cb6a2fc5c4f9f650ba2331bf0866309e3564",
+    "build/qemu-labs/timer-wrong-ppi.bin": "d8745536baa35405fe84b10914e7a6f6465368f7ad0b125e07ee6ff84ffdc8ea",
+    "build/qemu-labs/timer-wrong-ppi.elf": "e74552f00fc0631adb4d01fbd966303bcfb384f687b48cbd4fe0d878606598f5",
+    "build/qemu-labs/timer.bin": "1e5bc88648a7c1eb57802c7613a8de4a8b7e3f94a65ebb9411cc5141d2a591ac",
+    "build/qemu-labs/timer.elf": "75000ccf8d7882091f5728143779867452e971b476e179dd1700ca4f997f1d05",
+    "build/qemu-labs/uart.bin": "6d108f06bdf3d275a9762f49700fd604744640526dbdb096fc24cb5787430f4b",
+    "build/qemu-labs/uart.elf": "f7e0fc1724fb8cbf540d97d6543c263b13eb054c32642ab027f6c167d82b8201",
+    "build/dsu-qemu/build.json": "36e519465d93b5742501b8eb7f0cc6b16a5b3fd1ba0e442e3b528dfe6b445d09",
+    "build/dsu-qemu/contention.bin": "9fefcea75e1651d18b45ac3e4fcf8359f831d3848c135e60edc98f679114bb84",
+    "build/dsu-qemu/contention.elf": "573e93ff536a44b299dc00bfa05bd67895a6f1dad603cb7f424c1f1619d14c58",
+    "build/dsu-qemu/corrupt.bin": "a7ae3cdb46ecd86c4b81d4889faf936adda1fffb2c8baeb41d7d16bd749afe1e",
+    "build/dsu-qemu/corrupt.elf": "f011977223df78f8f52586ea670c90399e09f1d0860b8e39d65cddad3b69803d",
+    "build/dsu-qemu/normal.bin": "aa038a8a968f647607301aba9322004e7f73452bc81594836230ffb94654319e",
+    "build/dsu-qemu/normal.elf": "2aeeb84786d8da017435386d2b28f242db3c8432b36d282a56beb23729a28568",
+    "build/dsu-qemu/stalled.bin": "ffb4b3904bd86a6422672b7a312d7268f71f97dd1f02a0f26e912752089e93db",
+    "build/dsu-qemu/stalled.elf": "7cf075cbf9ad3b47f4f40ebf842cb92cf2b9194b3f006319a3d0f7d3d993af84",
+    "build/memory-ddr-qemu/build.json": "2345a5a196c041dcaee8cd203a064b8e9d5a7aff44785656e65f500b7008a294",
+    "build/memory-ddr-qemu/ddr-clock-fault.bin": "944b677e76031f815eab9c4c97a36ed73d9860f582a21e3597aedf5a627dbfb6",
+    "build/memory-ddr-qemu/ddr-clock-fault.elf": "99e39b7bbc6d4b586849b3243c01d6cc33cdc5783821d81ae7949bc6d8072e8d",
+    "build/memory-ddr-qemu/ddr-copy-fault.bin": "c17e8fed2730931ade01278ce253069b9581273a44bb7c8e71c60bdc07fb58ef",
+    "build/memory-ddr-qemu/ddr-copy-fault.elf": "1c30c13a8025ece64b855627b9896e006a9877063772d856fcbe0b2cbece594c",
+    "build/memory-ddr-qemu/ddr-path.bin": "9feaef28c0f088be6bd4dc25f4c7db7544aff9495436d018f73b51f173203a06",
+    "build/memory-ddr-qemu/ddr-path.elf": "89480306ccddd18e6b4c57ab350bb77f6e252c77ad7b2eebc3234be6c3e729a1",
+    "build/memory-smmu/build.json": "d3ae4bd609983186be25ecefa40060b0ff8e836094417d7bec9a61b69bc62bde",
+    "build/memory-smmu/bypass.elf": "53dd47b2e1e39a73c206d5ea132fc5f5f1698c36462b4067c8646aec0450bfee",
+    "build/memory-smmu/keep-mapping.elf": "f1c6bc8754b928fb9cd486cc508ebd6da432a00242f4515d01860e7a7ab9613f",
+    "build/memory-smmu/native-results.json": "18fc25fd2ca251f075759711b712609b664fdad17ba4288c22f3ba98e4559350",
+    "build/memory-smmu/normal.elf": "d251e35686631f16b9a29db10b28eb296f9901762dc2feaf53a50a1e9c760e5c",
+    "build/upstream-lab-qemu/build.json": "823a200a1decffc7561ea31fa7c2aa2656a51300e04ad2e69479f0664d21feb5",
+    "build/upstream-lab-qemu/crc.bin": "75c0fa7b2c8547acd1df122ea5d8fac32ca7d8cc70728d0e2540b8bcc88eff5b",
+    "build/upstream-lab-qemu/crc.elf": "e0d95896dd575f92d8d92280040431210c2bd004c93ef1b02a1dc605a9c948e6",
+    "build/upstream-lab-qemu/perf-zero-clock.bin": "1d89e50169d940e1b4fef3f5922aa4b2d439329e588aeee8a584f223a323c5a4",
+    "build/upstream-lab-qemu/perf-zero-clock.elf": "caca452e462f3778e5fa98aad1831d3a6ebe0888d371aa0051ea0434f7f73ea4",
+    "build/upstream-lab-qemu/perf.bin": "2dd931cf29d2ef173070e33deb8fed19baa4267557c60c1d28945bdd5cdfaded",
+    "build/upstream-lab-qemu/perf.elf": "383dfbcadae6d7cfdde99c53b313eb75411e4c16661c593c2c7506b108a01b82",
+    "build/upstream-lab-qemu/smc-guard.bin": "d63a25d8812f53eeb15b472473bd0cb9fca2af5dc52844e4c323a495d0ea014d",
+    "build/upstream-lab-qemu/smc-guard.elf": "eff2108cd5d8bca2818eacfb0a6f96a0c490e9f9620eee418885686d852c1547"
+  },
+  "finished_utc": "2026-11-02T03:04:25.414632+00:00",
+  "counts": {
+    "pass": 16
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "scope": "Physical Modular ES, one HPS guest with JTAG ADD-XOR-ADD PR; no flash/media/fuse writes",
+  "manifest": {
+    "device_id": "0364F0DD",
+    "stack": {
+      "release": "26.3",
+      "quartus": {
+        "version": "26.3.0.114",
+        "hps_ip": "14.1.0",
+        "hps_emif_ip": "5.1.0"
+      },
+      "drivers": {
+        "commit": "66bdcc347564c5698a8997169bce83a31647d618"
+      },
+      "atf": {
+        "commit": "09c4dc6628810d8570af69db43918d344f9e80e9",
+        "tag": "QPDS26.3_REL_BASELINE_PR"
+      },
+      "uboot": {
+        "commit": "5ba74aeda63ed07e98670f8c2f0135de06543ba0",
+        "tag": "QPDS26.3_REL_BASELINE_PR"
+      },
+      "legacy": {
+        "commit": "1419101568f1a9034630b632634fe9fe71773266",
+        "scope": "Frozen historical API regression fixture; not the active firmware platform"
+      }
+    },
+    "scope": "26.3 HPS14.1/EMIF5.1, FPGA-first full image with matching ATF26.3 bootstrap; offline pairing, runtime verdict recorded separately",
+    "full_sof": {
+      "path": "/home/lada/quartus26-mcp-demos/agilex5-stack-20261101/base-boot.sof",
+      "sha256": "1a1fd96586c1c815455010732ab7dac2255b08176a0c1979888a779f4b0003ff"
+    },
+    "add": {
+      "path": "/home/lada/quartus26-mcp-demos/agilex5-stack-20261101/pr_add.rbf",
+      "sha256": "6eb0602fde39586aefe7d5be327d5725246c13a5032ada82e2a58a945158cfe5",
+      "compatibility": {
+        "status": "pass",
+        "parent_sha256": "1a1fd96586c1c815455010732ab7dac2255b08176a0c1979888a779f4b0003ff",
+        "child_sha256": "6eb0602fde39586aefe7d5be327d5725246c13a5032ada82e2a58a945158cfe5",
+        "path": "/home/lada/quartus26-mcp-demos/agilex5-stack-20261101/add-compatibility.json",
+        "sha256": "cc15e1b3ac462cf0eaf89fb457508780166834be2e3ea5cef7474ec96dc0af2d"
+      }
+    },
+    "xor": {
+      "path": "/home/lada/quartus26-mcp-demos/agilex5-stack-20261101/pr_xor.rbf",
+      "sha256": "25601e1e893374950c9a4306d6ce9d02852a74abb03a26db98bfc983d92cc166",
+      "compatibility": {
+        "status": "pass",
+        "parent_sha256": "1a1fd96586c1c815455010732ab7dac2255b08176a0c1979888a779f4b0003ff",
+        "child_sha256": "25601e1e893374950c9a4306d6ce9d02852a74abb03a26db98bfc983d92cc166",
+        "path": "/home/lada/quartus26-mcp-demos/agilex5-stack-20261101/xor-compatibility.json",
+        "sha256": "523e2b79e445ac3202564cf9c6190f926a04663e6e936246c2a78fe51ede90a4"
+      }
+    },
+    "guest_bin": {
+      "path": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/pr/guest-hardware.bin",
+      "sha256": "e8ee836d3d34d7fb55a672e2afdb5805e35d67caf17e7568bc8f02626e13179b"
+    },
+    "guest_elf": {
+      "path": "/home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/build/pr/guest-hardware.elf",
+      "sha256": "949b5ba33ebc486e9799bc1cda6f5bde8a1fae3f0b3fe0f357e29b5e2df34a9a"
+    }
+  },
+  "runner_sha256": "099b7ee53febc6f7591e1ed5413adf38d2976d2dedda09dd2f58020a69de92b8",
+  "tests": [
+    {
+      "name": "pr-swap",
+      "status": "pass",
+      "loads": [
+        "xor",
+        "add"
+      ],
+      "uart_sha256": "4c62946742bdc968c92c0db84b5f5cd28e26e672d86c3a6108c6aa943901dbd2"
+    }
+  ],
+  "restoration": "pass",
+  "completed_loads": [
+    "xor",
+    "add"
+  ],
+  "restoration_image_sha256": "0e88c7733c89c66f82d68917bf6d2f802c34e35b25b0481cb90e9bdf9ed9a0b3"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 11013,
+  "segments": [
+    {
+      "file": "upstream26-psci.segment0.bin",
+      "bytes": 11013,
+      "sha256": "cf8a969a014cbcf24dfd275d7081c571bf6e6218f8779739c5750ec45e1fa8f2"
+    }
+  ]
+}

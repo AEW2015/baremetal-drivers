@@ -1,0 +1,6 @@
+usb tree
+USB device tree:
+  1  Hub (5 Gb/s, 0mA)
+     U-Boot XHCI Host Controller 
+   
+SOCFPGA_AGILEX5 # 

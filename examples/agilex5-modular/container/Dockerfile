@@ -1,16 +1,16 @@
 # syntax=docker/dockerfile:1
 # Default: public board-free learning environment.
-# Hardware: override with the documented public Quartus 26.1.1 image digest.
+# Hardware: override BASE_IMAGE with your installed Quartus 26.3 base image.
 ARG BASE_IMAGE=ubuntu:24.04
 FROM ${BASE_IMAGE}
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential bc bison flex cmake ninja-build git curl ca-certificates xz-utils \
+    build-essential bc bison flex swig pkg-config cmake ninja-build git curl ca-certificates xz-utils \
     gcc-aarch64-linux-gnu libc6-dev-arm64-cross \
     python3 python3-dev python3-venv python3-setuptools python3-pyelftools \
     device-tree-compiler libncurses-dev libssl-dev zlib1g-dev \
-    qemu-system-arm gdb-multiarch verilator iverilog tcl libusb-1.0-0 libudev1 usbutils \
+    qemu-system-arm gdb-multiarch verilator iverilog tcl xvfb xauth libusb-1.0-0 libudev1 usbutils \
     iproute2 procps util-linux \
     && rm -rf /var/lib/apt/lists/*
 COPY install-arm.sh /tmp/install-arm.sh

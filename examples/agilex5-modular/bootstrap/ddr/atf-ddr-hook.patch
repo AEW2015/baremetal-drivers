@@ -8,10 +8,10 @@ index 374d1c0..7614a9e 100644
  
 +#include "local_ddr_probe.inc"
 +
- void bl2_el3_early_platform_setup(u_register_t x0 __unused,
+ void bl2_early_platform_setup2(u_register_t x0 __unused,
  				  u_register_t x1 __unused,
  				  u_register_t x2 __unused,
-@@ -144,6 +146,8 @@ void bl2_el3_early_platform_setup(u_register_t x0 __unused,
+@@ -144,6 +146,8 @@ void bl2_early_platform_setup2(u_register_t x0 __unused,
  		panic();
  	}
  

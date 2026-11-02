@@ -15,7 +15,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/bridge"
         },
         "hardware": {
@@ -28,19 +28,19 @@
       "title": "ccu",
       "family": "Current upstream",
       "source": "examples/ccu",
-      "scope": "Current CCU ID/error APIs only; no original all-DMI cache-flush test",
+      "scope": "Current CCU identity/error APIs only; full all-DMI cache flush excluded.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/ccu"
         },
         "hardware": {
           "status": "partial",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/ccu"
         }
       }
@@ -50,19 +50,19 @@
       "title": "clk_mngr",
       "family": "Current upstream",
       "source": "examples/clk_mngr",
-      "scope": "Physical read-only current getters verified; full initialization/divisor writes excluded. Model also has two unsupported divisor getters; partial on both targets.",
+      "scope": "Current clock getter APIs only; no initialization/divisor writes or physical frequency measurement.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
         },
         "simics": {
           "status": "partial",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/clk_mngr"
         },
         "hardware": {
           "status": "partial",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/clk_mngr"
         }
       }
@@ -79,12 +79,12 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/combophy"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/combophy"
         }
       }
@@ -98,17 +98,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "upstream/crc"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/crc"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/crc"
         }
       }
@@ -125,7 +125,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/ddr"
         },
         "hardware": {
@@ -138,19 +138,19 @@
       "title": "dma",
       "family": "Current upstream",
       "source": "examples/dma",
-      "scope": "Unchanged sync256/async1024 demo plus4096-byte current API copy and full readback; polling fallback can invoke callback, no hardware DMA IRQ proof",
+      "scope": "Current sync256/async1024 demo and4096-byte API copy with full readback; polling fallback can invoke callback, no DMA IRQ qualification.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/dma"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/dma"
         }
       }
@@ -160,19 +160,19 @@
       "title": "ecc",
       "family": "Current upstream",
       "source": "examples/ecc",
-      "scope": "Current getter APIs match raw SERR0x00010000/DERR0 without initialization, clearing, injection or recovery. Nonzero status remains unchanged; this is not an ECC-health qualification.",
+      "scope": "Current ECC getters compared with raw registers; no clearing, injection or recovery. Nonzero status is retained, not an ECC-health qualification.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
         },
         "simics": {
           "status": "fail",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/ecc"
         },
         "hardware": {
           "status": "partial",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/ecc"
         }
       }
@@ -182,19 +182,19 @@
       "title": "fcs",
       "family": "Current upstream",
       "source": "examples/fcs",
-      "scope": "Fixed HAL identity and36-byte read-only provision query complete; actual SDM0x85 denies session opening. Crypto session/RNG untested; no provisioning or key writes. Original stack-corruption failure preserved.",
+      "scope": "Read-only FCS identity/provision query with corrected response lifetime; inspect returned security/session denial separately from service completion. No provisioning or key writes.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
         },
         "simics": {
           "status": "fail",
-          "evidence": "validation/full-campaign-20261031/simics/fcs-fixed-results.json",
-          "case": "fcs-fixed"
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
+          "case": "upstream/fcs"
         },
         "hardware": {
           "status": "partial",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/fcs"
         }
       }
@@ -204,19 +204,19 @@
       "title": "gic",
       "family": "Current upstream",
       "source": "examples/gic",
-      "scope": "Masked/enabled Group0 SGI ISR demo with board GIC-600 power preflight, Group1 CPU interfaces disabled/read back, and EL3 IRQ/FIQ vector shim",
+      "scope": "Group0 SGI ISR demo with GIC-600 power preflight, Group1 interfaces disabled/read back and EL3 IRQ/FIQ vector shim.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/gic"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/gic"
         }
       }
@@ -233,7 +233,7 @@
         },
         "simics": {
           "status": "partial",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/gpio"
         },
         "hardware": {
@@ -246,19 +246,19 @@
       "title": "hello",
       "family": "Current upstream",
       "source": "examples/hello",
-      "scope": "Unchanged current hello CLI command under board DDR startup",
+      "scope": "Unchanged current hello CLI under board DDR startup.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/hello"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/hello"
         }
       }
@@ -275,7 +275,7 @@
         },
         "simics": {
           "status": "partial",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/i2c"
         },
         "hardware": {
@@ -295,7 +295,7 @@
         },
         "simics": {
           "status": "fail",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/i3c"
         },
         "hardware": {
@@ -315,7 +315,7 @@
         },
         "simics": {
           "status": "partial",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/iossm"
         },
         "hardware": {
@@ -335,12 +335,12 @@
         },
         "simics": {
           "status": "partial",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/mailbox"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/mailbox"
         }
       }
@@ -350,19 +350,19 @@
       "title": "mmu",
       "family": "Current upstream",
       "source": "examples/mmu",
-      "scope": "Unchanged MMU EL3 status command only; no translation exercise",
+      "scope": "Unchanged MMU EL3 status command; separate board/mmu exercises translation.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/mmu"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/mmu"
         }
       }
@@ -379,12 +379,12 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/noc"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/noc"
         }
       }
@@ -398,17 +398,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "upstream/perf"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/perf"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/perf"
         }
       }
@@ -425,7 +425,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/reboot_mngr"
         },
         "hardware": {
@@ -445,12 +445,12 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/reset_mngr"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/reset_mngr"
         }
       }
@@ -467,7 +467,7 @@
         },
         "simics": {
           "status": "fail",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/sdmmc"
         },
         "hardware": {
@@ -487,7 +487,7 @@
         },
         "simics": {
           "status": "fail",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/seu"
         },
         "hardware": {
@@ -500,19 +500,19 @@
       "title": "smmu",
       "family": "Current upstream",
       "source": "examples/smmu",
-      "scope": "Unchanged SMMU enable-status command only; no DMA translation qualification",
+      "scope": "Unchanged SMMU enable-status command; no DMA translation qualification.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/smmu"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/smmu"
         }
       }
@@ -522,19 +522,19 @@
       "title": "spi",
       "family": "Current upstream",
       "source": "examples/spi",
-      "scope": "SPI32-byte and current API256-byte internal loopbacks; original status phase is partial when API has auto-closed, no external peer",
+      "scope": "32-byte and current API256-byte internal loopbacks; full command status remains partial when API auto-closes; no external SPI peer.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
         },
         "simics": {
           "status": "partial",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/spi"
         },
         "hardware": {
           "status": "partial",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/spi"
         }
       }
@@ -544,19 +544,19 @@
       "title": "timer",
       "family": "Current upstream",
       "source": "examples/timer",
-      "scope": "Unchanged timer polling command, advancing samples and stopped state; no timing calibration",
+      "scope": "Unchanged timer polling command, advancing samples and stopped state; no timing calibration.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "upstream/timer"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "upstream/timer"
         }
       }
@@ -576,7 +576,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/core"
         }
       }
@@ -596,7 +596,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/dma"
         }
       }
@@ -616,7 +616,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/gic"
         }
       }
@@ -636,7 +636,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/interfaces"
         }
       }
@@ -656,7 +656,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/mailbox"
         }
       }
@@ -676,7 +676,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/mmu"
         }
       }
@@ -696,7 +696,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/multicore"
         }
       }
@@ -716,7 +716,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/som"
         }
       }
@@ -726,7 +726,7 @@
       "title": "som-i2c",
       "family": "Original Modular suite",
       "source": "examples/agilex5-modular/core/som_i2c.c",
-      "scope": "GPIO I2C sensor ID and EEPROM reads; no EEPROM array writes.",
+      "scope": "GPIO open-drain TMP464 identity and 16-byte EEPROM read with bounded retries and separate NACK/line-timeout diagnostics. Requires two fresh successful runs; no EEPROM data writes or broad address scan.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
@@ -736,7 +736,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/som-i2c"
         }
       }
@@ -756,7 +756,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/som-i3c"
         }
       }
@@ -776,7 +776,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/vendor-ccu"
         }
       }
@@ -796,7 +796,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/vendor-clkmgr"
         }
       }
@@ -816,7 +816,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/vendor-ecc"
         }
       }
@@ -836,7 +836,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/vendor-smmu"
         }
       }
@@ -856,7 +856,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/vendor-uart"
         }
       }
@@ -866,7 +866,7 @@
       "title": "vendor-timer",
       "family": "Additional vendor board adapters",
       "source": "examples/agilex5-modular/build_board_vendor.py",
-      "scope": "Unchanged pinned25.1 timer body through the board adapter: count set, started, observed zero and returned success; no interrupt or calibrated period claim.",
+      "scope": "Frozen25.1 timer body through physical adapter; set/start/read-zero completion, no interrupt or calibrated period claim.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
@@ -876,7 +876,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "board/vendor-timer"
         }
       }
@@ -947,7 +947,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/hello-world"
         },
         "hardware": {
@@ -967,7 +967,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/uart"
         },
         "hardware": {
@@ -987,7 +987,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/dma"
         },
         "hardware": {
@@ -1007,7 +1007,7 @@
         },
         "simics": {
           "status": "fail",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/timer"
         },
         "hardware": {
@@ -1027,7 +1027,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/watchdog"
         },
         "hardware": {
@@ -1047,7 +1047,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/i2c"
         },
         "hardware": {
@@ -1067,7 +1067,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/i3c"
         },
         "hardware": {
@@ -1087,7 +1087,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/spi"
         },
         "hardware": {
@@ -1107,7 +1107,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/sdmmc"
         },
         "hardware": {
@@ -1127,7 +1127,7 @@
         },
         "simics": {
           "status": "fail",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/xgmac"
         },
         "hardware": {
@@ -1147,7 +1147,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/mmu_el3"
         },
         "hardware": {
@@ -1167,7 +1167,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/smmu"
         },
         "hardware": {
@@ -1187,7 +1187,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/ccu"
         },
         "hardware": {
@@ -1207,7 +1207,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/clkmgr"
         },
         "hardware": {
@@ -1227,7 +1227,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/ecc"
         },
         "hardware": {
@@ -1247,7 +1247,7 @@
         },
         "simics": {
           "status": "fail",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "legacy/hps_mailbox"
         },
         "hardware": {
@@ -1264,7 +1264,7 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "custom/qemu-hello"
         },
         "simics": {
@@ -1284,17 +1284,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "practice/startup"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "practice/startup"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "practice/startup"
         }
       }
@@ -1308,17 +1308,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "practice/corruption"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "practice/corruption"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "practice/corruption"
         }
       }
@@ -1332,17 +1332,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "practice/exception"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "practice/exception"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "practice/exception"
         }
       }
@@ -1356,17 +1356,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "practice/timer"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "practice/timer"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "practice/timer"
         }
       }
@@ -1380,17 +1380,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "practice/mmu"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "practice/mmu"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "practice/mmu"
         }
       }
@@ -1404,17 +1404,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "practice/uart"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "practice/uart"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "practice/uart"
         }
       }
@@ -1428,17 +1428,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "practice/multicore"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "practice/multicore"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "practice/multicore"
         }
       }
@@ -1452,17 +1452,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "diagnostic/smc-guard"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "diagnostic/smc-guard"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "diagnostic/smc-guard"
         }
       }
@@ -1476,17 +1476,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "diagnostic/perf-zero-clock"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "diagnostic/perf-zero-clock"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "diagnostic/perf-zero-clock"
         }
       }
@@ -1503,12 +1503,12 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "custom/bridge-control"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "custom/bridge-control"
         }
       }
@@ -1518,7 +1518,7 @@
       "title": "OCRAM UART Hello",
       "family": "Additional diagnostics and integration",
       "source": "examples/agilex5-modular/bootstrap/ocram/uart_local.c",
-      "scope": "Fresh physical OCRAM UART output, full payload readback and PC in its image. Entered by JTAG after bootstrap; this run does not separately qualify cold boot with DDR absent. Replays matching handoff and fixed100MHz UART divisor54.",
+      "scope": "Physical OCRAM UART with full payload readback and PC in image, JTAG entry after DDR bootstrap. Not an independent cold boot with DDR absent.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
@@ -1528,7 +1528,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "custom/ocram-hello"
         }
       }
@@ -1538,7 +1538,7 @@
       "title": "DDR bootstrap and Hello",
       "family": "Additional diagnostics and integration",
       "source": "examples/agilex5-modular/bootstrap/ddr",
-      "scope": "Fresh matching DDR bootstrap repeatedly validates four64MiB patterns, payload readback and executing PC in HPS bank3A; not full8GiB qualification.",
+      "scope": "New full FPGA-first image and ATF26.3 bootstrap: four64MiB patterns, payload/PC proof and FPGA user mode; not full8GiB qualification.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
@@ -1548,7 +1548,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "custom/ddr-hello"
         }
       }
@@ -1562,7 +1562,7 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "reference/semihost"
         },
         "simics": {
@@ -1570,7 +1570,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "reference/semihost"
         }
       }
@@ -1587,12 +1587,12 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "reference/psci"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "reference/psci"
         }
       }
@@ -1612,7 +1612,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "custom/fault-probe"
         }
       }
@@ -1622,7 +1622,7 @@
       "title": "UDP / TCP bandwidth",
       "family": "Additional diagnostics and integration",
       "source": "examples/agilex5-modular/ethernet",
-      "scope": "Physical HPS EMAC2 at1Gb/s: ARP/ping, counter check, five UDP echo sizes, sequence/corruption controls and TCP65536-byte receive/transmit. Smoke campaign, no new bandwidth/soak claim; not USB Ethernet.",
+      "scope": "HPS EMAC2 physical ARP/ping, five UDP echo sizes and negative controls, TCP65536-byte receive/transmit; fresh smoke test, no new bandwidth/soak claim. Not USB Ethernet.",
       "platforms": {
         "qemu": {
           "status": "not-run"
@@ -1632,7 +1632,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "custom/ethernet"
         }
       }
@@ -1678,20 +1678,20 @@
       "title": "Partial reconfiguration persona swap",
       "family": "Additional diagnostics and integration",
       "source": "examples/agilex5-modular/fabric/pr",
-      "scope": "Physical Modular ES ADD-XOR-ADD via JTAG PR passed with one HPS invocation, static scratch/heartbeat and 256-word HPS DDR guard. Simics transition/negative controls passed with a simulated loader; no modeled SDM RBF loading.",
+      "scope": "One HPS guest, real JTAG ADD-XOR-ADD partial loads on26.3 HPS14.1/EMIF5.1 base; static scratch/heartbeat and256-word HPS DDR guard verified, full current DDR Hello restored.",
       "platforms": {
         "qemu": {
           "status": "reference"
         },
         "simics": {
           "status": "partial",
-          "evidence": "fabric/pr/validation/20261031-hardware/simics/assessment.json",
-          "case": "pr-transition"
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
+          "case": "reference/pr"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "fabric/pr/validation/20261031-hardware/hardware/results.json",
-          "case": "pr-swap"
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
+          "case": "reference/pr"
         }
       }
     },
@@ -1707,12 +1707,12 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "config/sysmgr"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "config/sysmgr"
         }
       }
@@ -1729,12 +1729,12 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "config/pinmux"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "config/pinmux"
         }
       }
@@ -1751,7 +1751,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "integration/simics-rtl-add"
         },
         "hardware": {
@@ -1771,7 +1771,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "integration/simics-rtl-xor"
         },
         "hardware": {
@@ -1791,7 +1791,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "model/pio"
         },
         "hardware": {
@@ -1808,17 +1808,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "memory/dsu"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "memory/dsu"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "memory/dsu"
         }
       }
@@ -1838,7 +1838,7 @@
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "memory/l3-partition"
         }
       }
@@ -1852,17 +1852,17 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "memory/ddr-sweep"
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "memory/ddr-sweep"
         },
         "hardware": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "memory/ddr-sweep"
         }
       }
@@ -1876,7 +1876,7 @@
       "platforms": {
         "qemu": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/qemu/20261031T183144.039830Z/results.json",
+          "evidence": "validation/stack-26.3-20261101/qemu/20261102T030401.999771Z/results.json",
           "case": "memory/smmu-qemu"
         },
         "simics": {
@@ -1899,7 +1899,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "memory/native-tbu"
         },
         "hardware": {
@@ -1919,7 +1919,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "memory/dma-tbu"
         },
         "hardware": {
@@ -1939,7 +1939,7 @@
         },
         "simics": {
           "status": "pass",
-          "evidence": "validation/full-campaign-20261031/simics/results.json",
+          "evidence": "validation/stack-26.3-20261101/simics/results.json",
           "case": "memory/fabric-ddr"
         },
         "hardware": {
@@ -1952,7 +1952,7 @@
       "title": "Bare-metal USB host bring-up",
       "family": "Memory and fabric labs",
       "source": "examples/agilex5-modular/usb-bringup",
-      "scope": "Physical guarded U-Boot boots; xHCI CNR timeout prevents enumeration. No hub/mouse/flash/USB-NIC class traffic qualified.",
+      "scope": "Current xHCI initialization,5Gb/s root hub and USB3320 identity0424:0007 passed. External hub/flash/mouse/USB Ethernet did not enumerate, including a bounded bus reset/rescan; raw exit1 retained. No media writes.",
       "platforms": {
         "qemu": {
           "status": "not-supported"
@@ -1961,8 +1961,8 @@
           "status": "not-run"
         },
         "hardware": {
-          "status": "fail",
-          "evidence": "validation/full-campaign-20261031/hardware/results.json",
+          "status": "partial",
+          "evidence": "validation/stack-26.3-20261101/hardware/results.json",
           "case": "custom/usb-host"
         }
       }

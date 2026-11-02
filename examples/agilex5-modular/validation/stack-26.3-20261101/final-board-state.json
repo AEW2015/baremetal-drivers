@@ -1,0 +1,9 @@
+{
+  "checked_utc": "2026-11-02T04:44:57.235319+00:00",
+  "shared_mutex": "available; acquired and released without board access",
+  "last_operation": "usb-rescan",
+  "restoration": "pass",
+  "image_sha256": "0e88c7733c89c66f82d68917bf6d2f802c34e35b25b0481cb90e9bdf9ed9a0b3",
+  "evidence": "hardware/usb-rescan/restore-bootstrap.log",
+  "scope": "Last campaign operation restored fresh DDR Hello and PC proof; no later board command was issued."
+}

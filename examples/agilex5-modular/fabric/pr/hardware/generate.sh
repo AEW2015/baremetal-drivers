@@ -4,6 +4,7 @@ set -Eeuo pipefail
 script_dir=$(cd "$(dirname "$0")" && pwd)
 project=$(realpath "${1:?Pass the isolated staged project directory}")
 cd "$project"
+python3 "$script_dir/upgrade_ip.py" --project "$project"
 search="$project/custom_ip,$project/custom_ip/baremetal/fabric/pr,\$"
 qsys-script --quartus-project=baseline_a55.qpf --script=overlay.tcl --search-path="$search" > overlay.log 2>&1
 python3 - <<'PY'
@@ -44,4 +45,5 @@ assert 'Error:' not in s,s[-4000:]
 PY_LEAF
 done
 python3 "$script_dir/register_generated.py" "$project"
+python3 "$script_dir/upgrade_ip.py" --project "$project" --verify-only
 echo 'PASS PR_PLATFORM_GENERATION: no whole-board compilation or programming'

@@ -1,0 +1,63 @@
+Info: *******************************************************************
+Info: Running Quartus Prime Compiler Database Interface
+    Info: Version 26.3.0 Build 114 10/14/2026 SC Pro Edition
+    Info: Copyright (C) 2026  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Mon Nov  2 03:05:49 2026
+    Info: System process ID: 1475071
+Info: Command: quartus_cdb baseline_a55 -c baseline_a55 --export_partition root_partition --snapshot final --file pr_static-with-sdc.qdb --include_sdc_entity_in_partition
+Info: Quartus(args): --project baseline_a55 -c baseline_a55 --block_name root_partition --snapshot final --file pr_static-with-sdc.qdb --include_sdc_entity_in_partition
+Info: Running design::export_block root_partition -snapshot final -file {pr_static-with-sdc.qdb}     -include_sdc_entity_in_partition 
+Info (16677): Loading final database.
+Info (16734): Loading "final" snapshot for partition "root_partition".
+Info (16734): Loading "final" snapshot for partition "auto_fab_0".
+Info (16734): Loading "final" snapshot for partition "lab_pr_partition".
+Info (16678): Successfully loaded final database: elapsed time is 00:00:03.
+Info (19171): Partition "root_partition" was exported with the option to include entity-bound SDC files. The following entity-bound SDC files are included in the Partition Database File (.qdb):
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/baseline_top/altera_reset_controller_1925/synth/altera_reset_controller.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/fabric_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/fabric_subsys_u_pr_jtag/altera_jtag_dc_streaming_191/synth/altera_avalon_st_jtag_interface.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/fabric_subsys/fabric_subsys_u_pr_jtag/altera_reset_controller_1925/synth/altera_reset_controller.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/hps_subsys/agilex_hps/intel_sundancemesa_hps_100/synth/agilex_hps_intel_sundancemesa_hps_100_j5yll7i.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/altera_jtag_dc_streaming_191/synth/altera_avalon_st_jtag_interface.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/altera_reset_controller_1925/synth/altera_reset_controller.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/emif_io96b_ddr4comp_431/synth/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp_emif_io96b_ddr4comp_431_rfkok7a.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/emif_io96b_ddr4comp_431/synth/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp_emif_io96b_ddr4comp_431_rfkok7a_report_timing.tcl.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/emif_io96b_ddr4comp_431/synth/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp_emif_io96b_ddr4comp_431_rfkok7a_report_timing_core.tcl.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/emif_io96b_ddr4comp_431/synth/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp_emif_io96b_ddr4comp_431_rfkok7a_timing_parameters.tcl.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/emif_io96b_ddr4comp_431/synth/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp_emif_io96b_ddr4comp_431_rfkok7a_timing_pins.tcl.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/hps_subsys/emif_io96b_hps/emif_io96b_hps_emif_io96b_hps_510_prw4fva/synth/ip/emif_io96b_hps_emif_io96b_hps_510_prw4fva/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp/emif_io96b_ddr4comp_431/synth/emif_io96b_hps_emif_io96b_hps_510_prw4fva_emif_0_ddr4comp_emif_io96b_ddr4comp_431_rfkok7a_timing_utils.tcl.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/jtag_avalon_master/altera_jtag_dc_streaming_191/synth/altera_avalon_st_jtag_interface.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/niosv_subsys/jtag_avalon_master/altera_reset_controller_1925/synth/altera_reset_controller.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/shell_subsys/gts_reset_sequencer/intel_srcss_gts_600/synth/gts_reset_sequencer_intel_srcss_gts_600_rqlhukq.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/shell_subsys/sys_pll/altera_iopll_2110/synth/sys_pll_altera_iopll_2110_atrnnpi.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/shell_subsys/sys_pll/altera_iopll_2110/synth/sys_pll_altera_iopll_2110_atrnnpi_all_ip_params.tcl.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/shell_subsys/sys_pll/altera_iopll_2110/synth/sys_pll_altera_iopll_2110_atrnnpi_parameters.tcl.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/shell_subsys/sys_pll/altera_iopll_2110/synth/sys_pll_altera_iopll_2110_atrnnpi_pin_map.tcl.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/ip/shell_subsys/user_rst_clkgate/altera_s10_user_rst_clkgate_1949/synth/altera_s10_user_rst_clkgate_fm.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/niosv_subsys/altera_reset_controller_1925/synth/altera_reset_controller.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/qdb/_compiler/baseline_a55/_flat/26.3.0/source/1/.temp/cpt_proxy/altera_internal_oscillator_atom.sdc.
+    Info (19172):     /workspace/agilex5-stack-20261101/platform/qdb/_compiler/baseline_a55/_flat/26.3.0/source/1/.temp/cpt_proxy/default_jtag.sdc.
+Info (20253): This project includes Synopsys Design Constraint (.sdc) files that will not be exported to the Partition Database File (.qdb).  Only entity-bound SDC files that affect the exported partition will be included in the QDB file.
+    Info (20251): Ignoring global SDC file located at "/workspace/agilex5-stack-20261101/platform/baseline_a55.sdc".
+    Info (20251): Ignoring global SDC file located at "/workspace/agilex5-stack-20261101/platform/jtag.sdc".
+Info (20980): Partition "root_partition" is exported.
+Info (20980): Partition "auto_fab_0" is exported.
+Info (23030): Evaluation of Tcl script /opt/altera/quartus/common/tcl/internal/qatm_export_block.tcl was successful
+Info: Quartus Prime Compiler Database Interface was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 2572 megabytes
+    Info: Processing ended: Mon Nov  2 03:05:54 2026
+    Info: Elapsed time: 00:00:05
+    Info: System process ID: 1475071

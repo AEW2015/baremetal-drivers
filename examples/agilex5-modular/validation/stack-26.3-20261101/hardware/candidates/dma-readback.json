@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "bytes": 30784,
+  "segments": [
+    {
+      "file": "upstream26-dma.segment0.bin",
+      "bytes": 30784,
+      "sha256": "53caea2dfadba50fbc02183cb42177f49f4dadc507fd8406193d56b4881e0846"
+    }
+  ]
+}

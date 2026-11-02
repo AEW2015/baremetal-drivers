@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "bytes": 6679,
+  "segments": [
+    {
+      "file": "upstream26-multicore.segment0.bin",
+      "bytes": 6324,
+      "sha256": "43de1e8cd34453cbec1f219343f795d38e05f937fbe2ee0a520c81bf5bc85203"
+    },
+    {
+      "file": "upstream26-multicore.segment1.bin",
+      "bytes": 355,
+      "sha256": "c022552afea6ae58d6401d14eeb763d385ea9c7cd90f2b56f36e05169eeeb806"
+    }
+  ]
+}

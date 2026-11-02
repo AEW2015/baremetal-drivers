@@ -1,0 +1,20 @@
+{
+  "jobId": "a111ed21-15a3-4f73-8150-188379e1fa12",
+  "pid": 1493198,
+  "kind": "fitter",
+  "mode": "detached-cli",
+  "flow": "fitter",
+  "toolName": "quartus_fit",
+  "args": [
+    "baseline_a55",
+    "-c",
+    "pr_xor"
+  ],
+  "projectDir": "/workspace/agilex5-stack-20261101/platform",
+  "projectName": "baseline_a55",
+  "status": "completed",
+  "startedAt": "2026-11-02T03:17:28.614Z",
+  "idemKey": "fitter:/workspace/agilex5-stack-20261101/platform/baseline_a55",
+  "endedAt": "2026-11-02T03:21:41.794Z",
+  "exitCode": 0
+}

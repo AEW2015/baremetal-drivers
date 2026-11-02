@@ -1,0 +1,13 @@
+PASS FABRIC_DDR words=1 writes=1 reads=1 cycles=9 randomized_backpressure=1
+PASS FABRIC_DDR words=257 writes=257 reads=257 cycles=2303 randomized_backpressure=1
+PASS FABRIC_DDR words=4096 writes=4096 reads=4096 cycles=36839 randomized_backpressure=1
+PASS FABRIC_RANGE software_and_RTL_guards no_AXI_transactions
+PASS FABRIC_FAULT kind=corruption verified=37 error=2
+PASS FABRIC_FAULT kind=BRESP verified=0 error=3
+PASS FABRIC_FAULT kind=RRESP verified=0 error=3
+PASS FABRIC_TIMEOUT channel=aw request_held_then_drained no_following_transactions
+PASS FABRIC_TIMEOUT channel=w request_held_then_drained no_following_transactions
+PASS FABRIC_TIMEOUT channel=b request_held_then_drained no_following_transactions
+PASS FABRIC_TIMEOUT channel=ar request_held_then_drained no_following_transactions
+PASS FABRIC_TIMEOUT channel=r request_held_then_drained no_following_transactions
+FABRIC_DDR_COMPLETE: actual C driver + actual RTL; behavioral RAM/AXI peer, no physical HPS bridge or SMMU qualification

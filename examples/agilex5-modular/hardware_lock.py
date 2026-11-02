@@ -6,8 +6,9 @@ from bench import BenchError, ROOT
 
 class HardwareLock:
     def __init__(self, path=None):
-        self.path = Path(path) if path else ROOT / 'hardware.lock'
+        self.path = Path(path) if path else Path(os.environ.get('AGILEX_HARDWARE_LOCK',ROOT / 'hardware.lock'))
         self.fd = None
+        self.explicit_path = path is not None
 
     def __enter__(self):
         inherited = os.environ.get('AGILEX_LOCK_FD')
@@ -23,11 +24,14 @@ class HardwareLock:
             fcntl.flock(self.fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError as exc:
             self.close()
-            raise BenchError('Hardware is busy in this checkout. Stop your own VS Code/OpenOCD/suite session and retry. Do not delete hardware.lock; deleting it does not release the active owner.') from exc
+            raise BenchError('Hardware is busy under the shared bench mutex. Stop your own VS Code/OpenOCD/suite session and retry. Do not delete hardware.lock; deleting it does not release the active owner.') from exc
         except (OSError, ValueError) as exc:
             self.close()
             raise BenchError(f'Cannot establish hardware ownership: {exc}. Clear a stale AGILEX_LOCK_FD environment value if you set one manually.') from exc
-        records = list(self.path.parent.glob('.agilex-process-*'))
+        # Current-profile locks may live outside this checkout. Process records
+        # remain here, so inspect both locations before reusing the board.
+        roots = {self.path.parent, ROOT} if not self.explicit_path else {self.path.parent}
+        records = [record for root in roots for record in root.glob('.agilex-process-*')]
         if records:
             self.close()
             raise BenchError(f'Unresolved hardware process record: {records[0]}. Investigate the exact owned PID before another operation; do not delete the record to bypass this check.')
@@ -45,3 +49,20 @@ class HardwareLock:
 
     def __exit__(self, *_):
         self.close()
+
+def enter_hardware_locks(stack, extra_paths=()):
+    """Hold the primary and distinct coordination inodes exactly once."""
+    primary = stack.enter_context(HardwareLock())
+    identity = os.fstat(primary.fd)
+    seen = {(identity.st_dev, identity.st_ino)}
+    for path in extra_paths:
+        try:
+            identity = Path(path).stat()
+        except FileNotFoundError:
+            identity = None
+        if identity is not None and (identity.st_dev, identity.st_ino) in seen:
+            continue
+        extra = stack.enter_context(HardwareLock(path))
+        identity = os.fstat(extra.fd)
+        seen.add((identity.st_dev, identity.st_ino))
+    return primary

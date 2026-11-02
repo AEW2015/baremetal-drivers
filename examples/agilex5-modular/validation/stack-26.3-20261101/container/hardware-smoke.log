@@ -1,0 +1,15 @@
+Quartus Prime Shell
+Version 26.3.0 Build 114 10/14/2026 SC Pro Edition
+Copyright (C) 2026  Altera Corporation. All rights reserved.
+Open On-Chip Debugger 0.12.0+quartus-gc58ca4ebc (2026-02-26-10:54)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+/usr/bin/swig
+/usr/bin/pkg-config
+/usr/bin/xvfb-run

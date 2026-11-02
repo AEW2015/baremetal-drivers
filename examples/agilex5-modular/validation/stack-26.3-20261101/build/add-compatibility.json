@@ -1,0 +1,28 @@
+{
+  "jobId": "df57f427-3169-4611-a04c-f063186aca2f",
+  "status": "completed",
+  "kind": "check_pr_compatibility",
+  "flow": "check_pr_compatibility",
+  "mode": "in-process",
+  "projectDir": "/workspace",
+  "projectName": "",
+  "startedAt": "2026-11-02T03:17:22.536Z",
+  "pollAfterSeconds": 15,
+  "endedAt": "2026-11-02T03:17:26.903Z",
+  "exitCode": 0,
+  "stdoutTail": "",
+  "stderrTail": "",
+  "result": {
+    "success": true,
+    "exitCode": 0,
+    "durationMs": 4367,
+    "timedOut": false,
+    "stdout": "PR programming file 'pr_add.rbf' is COMPATIBLE with base design 'base-boot.sof'.",
+    "stderr": "",
+    "command": "check_pr_compatibility",
+    "args": []
+  },
+  "success": true,
+  "durationMs": 4367,
+  "timedOut": false
+}
