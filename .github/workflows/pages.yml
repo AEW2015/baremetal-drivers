@@ -54,6 +54,7 @@ jobs:
           bash upstream-lab/build_bl31.sh
           bash fabric/pr/build.sh
           bash fabric/pr/hardware/build_guest.sh
+          bash fabric/pr/hardware/build_guest.sh hps
           ./fabric/test.sh
           bash model-audit/build.sh
           python3 -m unittest discover -s model-audit -p 'test_*.py' -v

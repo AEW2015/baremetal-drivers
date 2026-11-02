@@ -1,5 +1,8 @@
 #include "../../core/common.h"
 #include "pr_driver.h"
+#ifdef PR_HPS_SDM
+#include "sdm_loader.h"
+#endif
 #ifndef EXPECT_FAILURE
 #define EXPECT_FAILURE 0
 #endif
@@ -11,7 +14,9 @@ static int vectors(struct lab_device *d,uint32_t persona){
  return 1;
 }
 void example_main(void){
- #ifdef PR_PHYSICAL
+ #ifdef PR_HPS_SDM
+ text("PR_LAB_BEGIN hps_sdm_loader=1\n");
+#elif defined(PR_PHYSICAL)
  text("PR_LAB_BEGIN jtag_loader=1\n");
 #else
  text("PR_LAB_BEGIN simulation_loader=1\n");
@@ -27,7 +32,26 @@ void example_main(void){
   check(d.read(d.context,LAB_ID)==0xdec0f001,"ISOLATED_READ_RESPONSE");
   // The physical loader must replace this explicit simulation-only operation.
   int rc;
-#ifdef PR_PHYSICAL
+#ifdef PR_HPS_SDM
+  const volatile struct pr_images *images=(const volatile struct pr_images *)PR_DESCRIPTOR_ADDRESS;
+  const volatile struct pr_image *entry=swap?&images->add:&images->xor;
+  /* Scalar volatile reads: ADD's descriptor starts at +4, not 8-byte aligned.
+   * MMU-off Device accesses must not become a 64-bit structure copy.
+   */
+  struct pr_image image={entry->address,entry->bytes,entry->crc32};
+  if(images->magic!=0x50524431U){check(0,"PR_IMAGE_DESCRIPTOR");break;}
+  if(!swap) {
+   struct pr_image corrupt=image;corrupt.crc32^=1;
+   check(pr_sdm_load(&corrupt)==-12,"PR_BAD_CRC_REJECTED");
+   check(d.read(d.context,PR_CONTROL)&1,"PR_BAD_CRC_REMAINS_ISOLATED");
+   if(failures)break;
+  }
+  d.write(d.context,0x60,1); /* Loader BUSY; partition stays isolated. */
+  rc=pr_sdm_load(&image);
+  if(rc){value("PR_SDM_LOADER_ERROR=",(uint64_t)(int64_t)rc);d.write(d.context,0x60,4);check(0,"PR_HPS_LOAD");break;}
+  d.write(d.context,0x60,2); /* DONE only after the SDM's positive completion. */
+  rc=pr_finish(&d,persona,1000000);
+#elif defined(PR_PHYSICAL)
   uint64_t timer_hz=SYS(cntfrq_el0);
   value("PR_TIMER_HZ=",timer_hz);
   value("PR_HOST_LOAD_REQUEST=",persona);

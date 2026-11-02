@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Qualified-bench coordinator: one HPS invocation, two real JTAG PR loads."""
+"""One HPS invocation, two real PR loads through JTAG or the HPS SDM mailbox."""
+import struct,zlib
 import argparse,datetime,fcntl,hashlib,json,os,re,select,subprocess,sys,termios,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
@@ -29,12 +30,40 @@ def require_fabric_user_mode(config_text):
      not re.search(r'INIT_DONE\s*=\s*1',config_text)):
   raise RuntimeError('Fabric has not entered user mode; no MMIO access permitted')
 
+def hps_completed_loads(text):
+ # Host JTAG requests do not occur in this mode. Derive completion from both
+ # SDM acknowledgements and the persona IDs checked by the running guest.
+ personas=re.findall(r'PR_PERSONA=0x([0-9a-fA-F]+)',text)
+ if ([int(value,16) for value in personas]==[0x584f5231,0x41444431] and
+     text.count('PASS PR_SDM_RECONFIG_COMPLETE')==2):return ['xor','add']
+ return []
+
+def assess_guest(text,loads,loader):
+ text=text.replace('\r','')
+ begin='PR_LAB_BEGIN '+('hps_sdm_loader=1' if loader=='hps' else 'jtag_loader=1')
+ required=('INITIAL_ADD_ID','INITIAL_ADD_VECTORS','XOR_VECTORS','RETURN_ADD_VECTORS','TWO_RUNTIME_SWAPS')
+ ok=loads==['xor','add'] and text.count(begin)==1 and text.count('PR_LAB_COMPLETE status=0')==1 and 'FAIL ' not in text and all(text.count('PASS '+s)==1 for s in required) and all(text.count('PASS '+s)==2 for s in ('SWAP_RESET_AND_ID','STATIC_SCRATCH_CONTINUITY','STATIC_HEARTBEAT_PROGRESS','DDR_GUARD_256_WORDS','ISOLATED_READ_RESPONSE'))
+ if loader=='hps':
+  ok=ok and 'PR_HOST_LOAD_REQUEST' not in text and all(text.count(marker)==2 for marker in (
+   'PASS PR_SDM_BUFFER_CRC32','PASS PR_SDM_RECONFIG_COMPLETE','PR_SDM_ACKNOWLEDGED_BLOCKS=',
+   'PASS PR_SDM_OCRAM_READBACK','PASS PR_SDM_OCRAM_RESTORED'))
+  ok=ok and all(text.count('PASS '+marker)==1 for marker in ('PR_BAD_CRC_REJECTED','PR_BAD_CRC_REMAINS_ISOLATED'))
+ return ok
+
 def main():
  p=argparse.ArgumentParser(description=__doc__)
+ p.add_argument('--loader',choices=('jtag','hps'),default='jtag')
  p.add_argument('--manifest',required=True,type=Path);p.add_argument('--bench',type=Path)
  p.add_argument('--mcp-client',type=Path,default=ROOT/'mcp_client.py');p.add_argument('--port',default=os.environ.get('AGILEX_UART',''))
  p.add_argument('--run',action='store_true');p.add_argument('--wait-for-hardware',action='store_true')
  a=p.parse_args();manifest=validate_manifest(a.manifest)
+ if a.loader=='hps':
+  for key in ('add','xor'):
+   if not 64<=Path(manifest[key]['path']).stat().st_size<=0x76000:raise ValueError('HPS PR image exceeds the reserved OCRAM window')
+  for key,ext in (('guest_bin','bin'),('guest_elf','elf')):
+   image=ROOT/('build/pr/guest-hps.'+ext)
+   if not image.is_file():raise ValueError('Build hardware/build_guest.sh hps first')
+   manifest[key]={'path':str(image),'sha256':sha(image)}
  sys.path.insert(0,str(ROOT));from stack_bench import StackBench
  stack=StackBench(a.bench);a.bench=stack.bench
  workspace=a.mcp_client.resolve().parent
@@ -45,8 +74,13 @@ def main():
  if not a.run:print('PASS PR_ARTIFACT_PREFLIGHT; no hardware access');return 0
  sys.path.insert(0,str(workspace));from mcp_client import MCP
  out=ROOT/'runs'/('pr-hardware-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ'));out.mkdir(parents=True)
- record={'scope':'Physical Modular ES, one HPS guest with JTAG ADD-XOR-ADD PR; no flash/media/fuse writes','manifest':manifest,'runner_sha256':sha(Path(__file__)),'tests':[],'restoration':'pending'}
+ record={'loader':a.loader,'scope':'Physical Modular ES, one HPS guest with '+a.loader+' ADD-XOR-ADD PR; no flash/media/fuse writes','manifest':manifest,'runner_sha256':sha(Path(__file__)),'tests':[],'restoration':'pending'}
  def save():(out/'results.json').write_text(json.dumps(record,indent=2)+'\n')
+ for name in ('guest.c','pr_driver.c','sdm_loader.c','sdm_loader.h'):
+  source=ROOT/'fabric/pr'/name
+  (out/name).write_bytes(source.read_bytes())
+ (out/'guest.elf').write_bytes(Path(manifest['guest_elf']['path']).read_bytes())
+ record['source_hashes']={name:sha(out/name) for name in ('guest.c','pr_driver.c','sdm_loader.c','sdm_loader.h')}
  print('Evidence:',out,flush=True);save()
  lock=stack.lock_path.open('a')
  while True:
@@ -125,6 +159,18 @@ def main():
   chain('guest-load');termios.tcflush(fd,termios.TCIFLUSH)
   image=Path(manifest['guest_bin']['path']);copy=stack.payload(out.name+'-guest.bin');copy.write_bytes(image.read_bytes());readback=Path(str(copy)+'.readback');readback.unlink(missing_ok=True)
   rp=stack.remote(copy)
+  staging=''
+  if a.loader=='hps':
+   descriptors=[]
+   for key,address in (('add',0x88000000),('xor',0x88100000)):
+    data=Path(manifest[key]['path']).read_bytes()
+    if not data or len(data)>0x100000 or len(data)%4:raise ValueError('Invalid PR staging length')
+    staged=stack.payload(out.name+'-'+key+'.rbf');staged.write_bytes(data)
+    rb=Path(str(staged)+'.readback');rb.unlink(missing_ok=True)
+    staging+=f'load_image {stack.remote(staged)} {address:#x} bin\ndump_image {stack.remote(staged)}.readback {address:#x} {len(data)}\n'
+    descriptors.extend((address,len(data),zlib.crc32(data)))
+   descriptor=stack.payload(out.name+'-images.bin');descriptor.write_bytes(struct.pack('<7I',0x50524431,*descriptors))
+   staging+=f'load_image {stack.remote(descriptor)} 0x88200000 bin\ndump_image {stack.remote(descriptor)}.readback 0x88200000 28\n'
   script=stack.payload(out.name+'-guest.tcl')
   script.write_text(f'''hps.a55.0 configure -event halted {{}}
 hps.a55.0 configure -event resumed {{}}
@@ -137,12 +183,17 @@ hps.dap apsel 0x4000
 targets hps.sys_bus
 load_image {rp} 0x82100000 bin
 dump_image {rp}.readback 0x82100000 {image.stat().st_size}
-puts "PR_GUEST_LOAD_COMPLETE"
+{staging}puts "PR_GUEST_LOAD_COMPLETE"
 shutdown
 ''')
   (out/'guest-load.tcl').write_text(script.read_text())
-  body=command(stack.command(['timeout','--kill-after=5s','30s','openocd','-f',stack.cfg,'-f',stack.remote(script)]),'guest-load',45)
+  body=command(stack.command(['timeout','--kill-after=5s','180s','openocd','-f',stack.cfg,'-f',stack.remote(script)]),'guest-load',195)
   if 'PR_GUEST_LOAD_COMPLETE' not in body or not readback.is_file() or readback.read_bytes()!=image.read_bytes():raise RuntimeError('Guest readback mismatch; CPU remains halted')
+  if a.loader=='hps':
+   for key in ('add','xor','images'):
+    staged=stack.payload(out.name+'-'+key+('.bin' if key=='images' else '.rbf'))
+    if Path(str(staged)+'.readback').read_bytes()!=staged.read_bytes():raise RuntimeError('PR DDR staging readback mismatch: '+key)
+   record['staging_readback']='pass';save()
   (out/'guest-readback.json').write_text(json.dumps({'status':'pass','sha256':sha(readback),'bytes':readback.stat().st_size},indent=2)+'\n')
   script.write_text('hps.a55.0 configure -event halted {}\nhps.a55.0 configure -event resumed {}\ngdb port disabled\ntcl port disabled\ntelnet port disabled\ninit\nhalt\nresume 0x82100000\nshutdown\n')
   (out/'guest-start.tcl').write_text(script.read_text())
@@ -151,7 +202,8 @@ shutdown
   while time.monotonic()<deadline:
    uart+=drain();(out/'guest-uart.txt').write_bytes(uart)
    requests=re.findall(rb'PR_HOST_LOAD_REQUEST=0x([0-9a-fA-F]+)',uart)
-   if len(requests)>len(loads):
+   if a.loader=='hps' and requests:raise RuntimeError('HPS mode requested host PR')
+   if a.loader=='jtag' and len(requests)>len(loads):
     if len(loads)>=2:raise RuntimeError('Unexpected third load request')
     expected=(0x584f5231,0x41444431)[len(loads)]
     if int(requests[len(loads)],16)!=expected:raise RuntimeError('Wrong load sequence')
@@ -161,10 +213,11 @@ shutdown
     body=command(stack.command(['timeout','--kill-after=5s','120s','quartus_pgm','-c',cable,'-m','jtag','--pr',remote(manifest[key]['path'])+'@'+str(index)]),key+'-pr',135)
     if 'Successfully performed operation' not in body:raise RuntimeError('No positive PR programmer completion')
     control('done',expected,key+'-done');loads.append(key);record['completed_loads']=loads;save()
-   if b'PR_LAB_COMPLETE' in uart:break
+   if b'PR_LAB_COMPLETE' in uart or b'FAR_EL3 = ' in uart:break
   text=uart.decode(errors='replace').replace('\r','')
-  required=('INITIAL_ADD_ID','INITIAL_ADD_VECTORS','XOR_VECTORS','RETURN_ADD_VECTORS','TWO_RUNTIME_SWAPS')
-  ok=loads==['xor','add'] and text.count('PR_LAB_BEGIN jtag_loader=1')==1 and text.count('PR_LAB_COMPLETE status=0')==1 and 'FAIL ' not in text and all(text.count('PASS '+s)==1 for s in required) and all(text.count('PASS '+s)==2 for s in ('SWAP_RESET_AND_ID','STATIC_SCRATCH_CONTINUITY','STATIC_HEARTBEAT_PROGRESS','DDR_GUARD_256_WORDS','ISOLATED_READ_RESPONSE'))
+  if a.loader=='hps':loads=hps_completed_loads(text)
+  record['completed_loads']=loads
+  ok=assess_guest(text,loads,a.loader)
   record['tests'].append({'name':'pr-swap','status':'pass' if ok else 'fail','loads':loads,'uart_sha256':sha(out/'guest-uart.txt')});save()
   if not ok:raise RuntimeError('Physical PR guest evidence incomplete')
  except BaseException as exc:record['error']=repr(exc);save();raise

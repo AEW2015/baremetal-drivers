@@ -77,6 +77,16 @@ class Launcher(unittest.TestCase):
             self.assertEqual(len(data['commands']),2)
             run.assert_not_called()
 
+    def test_pr_loader_selection_reaches_the_physical_runner(self):
+        for selected in ('jtag', 'hps'):
+            with patch.object(lab,'load_config',return_value=dict(lab.DEFAULTS,backend='native')), \
+                 patch.object(lab,'hardware_environment',return_value={}), \
+                 patch.object(lab.subprocess,'run') as run, contextlib.redirect_stdout(io.StringIO()) as stream:
+                self.assertEqual(lab.main(['--dry-run','hardware','pr','--loader',selected]),0)
+                command=json.loads(stream.getvalue())['commands'][0]
+                self.assertEqual(command[command.index('--loader')+1],selected)
+                run.assert_not_called()
+
     def test_windows_wsl_backend_replaces_equals_form_option(self):
         completed=subprocess.CompletedProcess([],0)
         with patch.object(lab,'load_config',return_value=dict(lab.DEFAULTS)), \

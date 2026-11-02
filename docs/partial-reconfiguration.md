@@ -25,6 +25,18 @@ the current persona and reuses its driver.
 [Hardware build, real terminal output and failed-attempt diagnostics](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric/pr/validation/20261031-hardware) ·
 [Reproduce the physical deployment](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/fabric/pr/hardware/README.md)
 
+The [HPS-to-SDM hardware test](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/fabric/pr/validation/20261102-hps-sdm)
+also passed ADD → XOR → ADD, using preserved OCRAM staging and no host PR
+programming during the swaps. The direct SDM-to-DDR mapping remains unqualified.
+
+## Select who programs each persona
+
+The physical coordinator defaults to the qualified host JTAG path. The optional
+`--loader hps` path stages the compatible RBFs in HPS DDR and lets the secure
+bare-metal guest copy them through a preserved OCRAM window into the SDM mailbox. See the
+[HPS-to-SDM walkthrough](https://github.com/AEW2015/baremetal-drivers/blob/main/examples/agilex5-modular/fabric/pr/hardware/HPS-SDM.md)
+for its execution requirements, commands and separate hardware evidence.
+
 ## Run the transition example
 
 From `examples/agilex5-modular`, using the compiler, Verilator, Icarus and the

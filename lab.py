@@ -92,6 +92,7 @@ def main(argv=None):
     simics.add_argument('--build-only',action='store_true')
     hardware = sub.add_parser('hardware')
     hardware.add_argument('example',choices=['doctor','hello','core','pr'])
+    hardware.add_argument('--loader',choices=['jtag','hps'],default='jtag')
     hardware.add_argument('--manifest',default='build/pr/hardware-manifest.json')
     hardware.add_argument('--build',action='store_true',help='Build the current SDK and hardware Hello first')
     args = parser.parse_args(argv)
@@ -157,7 +158,7 @@ def main(argv=None):
                           '--port',config['uart'],'--wait-for-hardware']]
         elif args.example=='core':commands=[[sys.executable,str(LAB/'run_suite.py'),'--only','core','--full-recovery']]
         elif args.example=='pr':commands=[[sys.executable,str(LAB/'fabric/pr/hardware/run.py'),
-                    '--manifest',str(local_path(args.manifest)),'--port',config['uart'],'--run','--wait-for-hardware']]
+                    '--manifest',str(local_path(args.manifest)),'--loader',args.loader,'--port',config['uart'],'--run','--wait-for-hardware']]
         if not config['uart'] and not args.dry_run:raise ValueError('Configure --uart with the verified Linux SOM UART device')
     if args.dry_run:
         print(json.dumps({'cwd':str(LAB),'commands':commands,'backend':config['backend']},indent=2));return 0

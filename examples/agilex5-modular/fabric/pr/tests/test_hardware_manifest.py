@@ -32,3 +32,33 @@ class ArtifactGuards(unittest.TestCase):
    manifest.write_text(json.dumps(data));(root/'xor').write_bytes(b'rebuilt-bitstream')
    with self.assertRaises(ValueError):run.validate_manifest(manifest)
 if __name__=='__main__':unittest.main()
+
+class HpsEvidence(unittest.TestCase):
+ def test_hps_pass_requires_sdm_and_continuity_without_host_requests(self):
+  text='PR_LAB_BEGIN hps_sdm_loader=1\n'
+  for marker in ('INITIAL_ADD_ID','INITIAL_ADD_VECTORS','XOR_VECTORS','RETURN_ADD_VECTORS','TWO_RUNTIME_SWAPS','PR_BAD_CRC_REJECTED','PR_BAD_CRC_REMAINS_ISOLATED'):
+   text+='PASS '+marker+'\n'
+  for marker in ('SWAP_RESET_AND_ID','STATIC_SCRATCH_CONTINUITY','STATIC_HEARTBEAT_PROGRESS','DDR_GUARD_256_WORDS','ISOLATED_READ_RESPONSE','PR_SDM_BUFFER_CRC32','PR_SDM_RECONFIG_COMPLETE','PR_SDM_OCRAM_READBACK','PR_SDM_OCRAM_RESTORED'):
+   text+=('PASS '+marker+'\n')*2
+  text+='PR_SDM_ACKNOWLEDGED_BLOCKS=0x1\n'*2+'PR_PERSONA=0x584f5231\nPR_PERSONA=0x41444431\nPR_LAB_COMPLETE status=0\n'
+  self.assertEqual(run.hps_completed_loads(text),['xor','add'])
+  self.assertEqual(run.hps_completed_loads(text.replace('0x41444431','0x584f5231')),[])
+  self.assertTrue(run.assess_guest(text,run.hps_completed_loads(text),'hps'))
+  self.assertTrue(run.assess_guest(text,['xor','add'],'hps'))
+  for broken in (text.replace('PASS PR_SDM_RECONFIG_COMPLETE','ABSENT'),text.replace('PASS DDR_GUARD_256_WORDS','ABSENT'),text+'PR_HOST_LOAD_REQUEST=0x1\n',text+'FAIL injected\n',text+'PR_LAB_COMPLETE status=0\n'):
+   self.assertFalse(run.assess_guest(broken,['xor','add'],'hps'))
+  self.assertFalse(run.assess_guest(text,['xor'],'hps'))
+  self.assertFalse(run.assess_guest(text,['xor','add'],'jtag'))
+
+class JtagEvidence(unittest.TestCase):
+ def test_original_qualified_uart_still_passes_default_mode(self):
+  capture=ROOT.parents[1]/'validation/portable-20261102/hardware-pr/guest-uart.txt'
+  self.assertTrue(run.assess_guest(capture.read_text(),['xor','add'],'jtag'))
+  self.assertEqual(run.hps_completed_loads(capture.read_text()),[])
+
+class QualifiedHpsEvidence(unittest.TestCase):
+ def test_real_hps_uart_produces_completed_loads_and_a_pass(self):
+  capture=ROOT/'validation/20261102-hps-sdm/guest-uart.txt'
+  text=capture.read_text()
+  self.assertTrue(run.assess_guest(text,run.hps_completed_loads(text),'hps'))
+  self.assertFalse(run.assess_guest(text.replace('PASS RETURN_ADD_VECTORS','ABSENT'),run.hps_completed_loads(text),'hps'))

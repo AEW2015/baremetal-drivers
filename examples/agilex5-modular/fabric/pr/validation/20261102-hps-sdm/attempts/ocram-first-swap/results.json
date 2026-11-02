@@ -1,0 +1,79 @@
+{
+  "loader": "hps",
+  "scope": "Physical Modular ES, one HPS guest with hps ADD-XOR-ADD PR; no flash/media/fuse writes",
+  "manifest": {
+    "device_id": "0364F0DD",
+    "stack": {
+      "release": "26.3",
+      "quartus": {
+        "version": "26.3.0.114",
+        "hps_ip": "14.1.0",
+        "hps_emif_ip": "5.1.0"
+      },
+      "drivers": {
+        "commit": "66bdcc347564c5698a8997169bce83a31647d618"
+      },
+      "atf": {
+        "commit": "09c4dc6628810d8570af69db43918d344f9e80e9",
+        "tag": "QPDS26.3_REL_BASELINE_PR"
+      },
+      "uboot": {
+        "commit": "5ba74aeda63ed07e98670f8c2f0135de06543ba0",
+        "tag": "QPDS26.3_REL_BASELINE_PR"
+      },
+      "legacy": {
+        "commit": "1419101568f1a9034630b632634fe9fe71773266",
+        "scope": "Frozen historical API regression fixture; not the active firmware platform"
+      }
+    },
+    "scope": "26.3 HPS14.1/EMIF5.1, FPGA-first full image with matching ATF26.3 bootstrap; offline pairing, runtime verdict recorded separately",
+    "full_sof": {
+      "path": "build/pr/portable/base-boot.sof",
+      "sha256": "1a1fd96586c1c815455010732ab7dac2255b08176a0c1979888a779f4b0003ff"
+    },
+    "add": {
+      "path": "build/pr/portable/pr_add.rbf",
+      "sha256": "6eb0602fde39586aefe7d5be327d5725246c13a5032ada82e2a58a945158cfe5",
+      "compatibility": {
+        "status": "pass",
+        "parent_sha256": "1a1fd96586c1c815455010732ab7dac2255b08176a0c1979888a779f4b0003ff",
+        "child_sha256": "6eb0602fde39586aefe7d5be327d5725246c13a5032ada82e2a58a945158cfe5",
+        "path": "build/pr/portable/add-compatibility.json",
+        "sha256": "cc15e1b3ac462cf0eaf89fb457508780166834be2e3ea5cef7474ec96dc0af2d"
+      }
+    },
+    "xor": {
+      "path": "build/pr/portable/pr_xor.rbf",
+      "sha256": "25601e1e893374950c9a4306d6ce9d02852a74abb03a26db98bfc983d92cc166",
+      "compatibility": {
+        "status": "pass",
+        "parent_sha256": "1a1fd96586c1c815455010732ab7dac2255b08176a0c1979888a779f4b0003ff",
+        "child_sha256": "25601e1e893374950c9a4306d6ce9d02852a74abb03a26db98bfc983d92cc166",
+        "path": "build/pr/portable/xor-compatibility.json",
+        "sha256": "523e2b79e445ac3202564cf9c6190f926a04663e6e936246c2a78fe51ede90a4"
+      }
+    },
+    "guest_bin": {
+      "path": "build/pr/guest-hps.bin",
+      "sha256": "28b7a2a9299761ca3e771c69091dddb6e763f337e5aade6b3e0fce3160b6d751"
+    },
+    "guest_elf": {
+      "path": "build/pr/guest-hps.elf",
+      "sha256": "c4b8cd4a703955e0e0eb666defe37b4d47a6507f3efea883f79af4ad98a992a6"
+    }
+  },
+  "runner_sha256": "dedce23e7256e406366fc84c53bb04bc23458e3dcc51551eeb1ce9699cc3a291",
+  "tests": [
+    {
+      "name": "pr-swap",
+      "status": "fail",
+      "loads": [],
+      "uart_sha256": "345ebcbfded16662b1492263863d9c6b2b17c0aca5f182b74d1aa8a923e2e320"
+    }
+  ],
+  "restoration": "pass",
+  "staging_readback": "pass",
+  "error": "RuntimeError('Physical PR guest evidence incomplete')",
+  "restoration_image_sha256": "5c34cd980cdb51183545fcce06dcddbf29eeaa543188d77cba36710c025a2f9b",
+  "artifact_path_base": "examples/agilex5-modular"
+}

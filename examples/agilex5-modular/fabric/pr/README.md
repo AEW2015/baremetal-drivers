@@ -25,6 +25,13 @@ Simics additionally needs the separately licensed 26.3 runtime and the existing
 [setup](../../../../docs/simics.md). The guest link can emit the existing
 freestanding RWX-segment warning; successful execution is checked separately.
 
+## HPS-to-SDM loader
+
+A separate `--loader hps` path sends the partial RBFs from HPS DDR through the
+SDM mailbox using an OCRAM staging window. See [build, execution context and memory staging](hardware/HPS-SDM.md)
+for the commands and qualification evidence. The original JTAG loader remains
+the default; Simics continues to use its explicitly simulated loader.
+
 ## Static register map
 
 The region is `lab_ip`, with its existing ABI at offsets `0x00..0x3f`.
@@ -40,7 +47,7 @@ The independent JTAG Avalon manager maps this agent at **0x00020000**.
 | `0x50` | Successful swaps | Increments when software releases a validated persona. |
 | `0x54` | Observed persona | Captured after reset, before release. |
 | `0x58` | Static signature | `0x50525331` (PRS1). |
-| `0x60` | Physical host status | Physical wrapper only: bit 0 loading, bit 1 completed, bit 2 failed. Written by the JTAG coordinator around a real PR programming operation. |
+| `0x60` | Physical loader status | Physical wrapper only: bit 0 loading, bit 1 completed, bit 2 failed. Written by either the JTAG coordinator or the HPS SDM loader around a real PR operation. |
 | `0x80` | Simulated load request | **Model only**: 1 ADD / 2 XOR. Absent from the physical RTL. |
 
 The shell closes reads/writes, drains at least two static cycles, requires an observed

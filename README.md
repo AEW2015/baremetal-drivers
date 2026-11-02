@@ -30,6 +30,9 @@ by **al-nafisah** for RTL parsing, layout and rendering. Our Agilex HPS/TRM mode
 and example mappings are maintained in this fork; see the
 [diagram integration and upstream attribution](tools/architecture/README.md).
 
+The [HPS-controlled PR walkthrough](examples/agilex5-modular/fabric/pr/hardware/HPS-SDM.md)
+adds an SDM mailbox loader alongside the existing host JTAG loader.
+
 <!-- example-platform-checklist:start -->
 ## Example platform checklist
 

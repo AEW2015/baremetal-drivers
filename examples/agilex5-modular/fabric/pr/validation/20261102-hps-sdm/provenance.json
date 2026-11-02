@@ -1,0 +1,13 @@
+{
+  "original_run": "runs/pr-hardware-20261102T172245.647275Z",
+  "uart_bytes_unchanged": true,
+  "normalization": "JSON/log artifact paths made relative to examples/agilex5-modular; no verdict, hash or UART changes",
+  "compiler": "Arm GNU aarch64-none-elf 13.2.Rel1",
+  "extra_source_hashes": {
+    "fabric/pr/hardware/start.S": "fb821c3b0ce2fe533c9b5e1596fe6b5e6b78891d269848c0d99dbfdc88fced8b",
+    "fabric/pr/hardware/build_guest.sh": "d853791529679fbd034250a0c0b8fab15d45f54e7935da7428d10356f584edc8",
+    "fabric/pr/hardware/run.py": "2577657ecec8477d4a0f11137650808a31d895f9796c5de7482c44aaba20bacc",
+    "core/start.S": "10849a4ae54643556bad1556f94241154233b3d2f9d7ba18d5edee9b358fd9eb",
+    "core/link.ld": "1b92bcf78c732dd436759fea55a3ad4e90f1375990446eb43fbd2e4aacaeb10e"
+  }
+}

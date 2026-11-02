@@ -1,0 +1,46 @@
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+PR_LAB_BEGIN hps_sdm_loader=1
+PASS INITIAL_ADD_ID
+PASS INITIAL_ADD_VECTORS
+PASS ISOLATED_READ_RESPONSE
+PASS PR_SDM_BUFFER_CRC32
+PR_SDM_COMMAND=0x0000000000000010
+PR_SDM_BOOT_REMAP=0x0000000000000002
+PR_SDM_COMMAND=0x0000000000000006
+PR_SDM_CREDITS=0x0000000000000004
+PR_SDM_BLOCK_BYTES=0x00000000000ffff0
+PR_SDM_DMA_ADDRESS=0x0000000008100000
+PR_SDM_DMA_BYTES=0x0000000000076000
+PR_SDM_COMMAND=0x0000000000000008
+PR_SDM_RESPONSE_ERROR=0x000000001e0003ff
+PR_SDM_FAILURE_DETAIL=0x00000000f0030003
+PR_SDM_FAILURE_DETAIL=0x00000000001a0300
+PR_SDM_FAILURE_DETAIL=0x00000000c000008f
+PR_SDM_FAILURE_DETAIL=0x0000000000000003
+PR_SDM_FAILURE_DETAIL=0x0000000000000000
+PR_SDM_FAILURE_DETAIL=0x0000000000000000
+PR_SDM_LOADER_ERROR=0xfffffffffffffff1
+FAIL PR_HPS_LOAD
+FAIL TWO_RUNTIME_SWAPS
+PR_LAB_COMPLETE status=1

@@ -8,6 +8,9 @@ timing analysis and assembly in Quartus 26.3. Physical ADD→XOR→ADD swaps pas
 The matching Modular ES source/handoff must be retained; a production-kit
 reference cannot replace it.
 
+For HPS-initiated programming using the same images, see the
+[HPS-to-SDM loader](HPS-SDM.md).
+
 ## Prepare without changing the original project
 
 ```sh
