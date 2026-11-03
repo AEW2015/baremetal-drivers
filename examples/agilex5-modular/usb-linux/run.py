@@ -32,15 +32,24 @@ def phy_status(log):
     """Decode local PHY inputs without claiming the separate CC controller role."""
     values={int(address,16):int(value,16) for address,value in
             re.findall(r'USB_PHY_REGISTER reg=0x([0-9a-f]+) value=0x([0-9a-f]+)',log)}
-    if set(values)!={0,1,2,3,10,19} or 'USB_PHY_STATUS_COMPLETE' not in log:
+    if set(values)!={0,1,2,3,10,13,16,19} or 'USB_PHY_STATUS_COMPLETE' not in log:
         raise ValueError('Incomplete USB PHY status capture')
     if (values[0]|values[1]<<8,values[2]|values[3]<<8)!=(0x0424,0x0007):
         raise ValueError('USB PHY does not identify the SOM USB3320')
-    return {'registers':{hex(k):hex(v) for k,v in values.items()},
+    pullup=bool(values[10]&1)
+    comparator=bool((values[13]|values[16])&2)
+    internal_vbus=not bool(values[10]&128)
+    return {'decoder_version':2,
+            'registers':{hex(k):hex(v) for k,v in values.items()},
             'id_pullup_enabled':bool(values[10]&1),
-            'id_grounded_sample':bool(values[19]&16),
+            # USB3320 section 5.6.1.1: IdGnd is zero for grounded ID.
+            'idgnd_raw_bit':bool(values[19]&16),
+            'id_grounded_sample':not bool(values[19]&16) if pullup else None,
             'phy_drive_vbus_requested':bool(values[10]&32),
-            'vbus_valid_sample':bool(values[19]&2),
+            'vbus_valid_raw_bit':bool(values[19]&2),
+            'vbus_comparator_enabled':comparator,
+            'vbus_uses_internal_comparator':internal_vbus,
+            'vbus_valid_sample':bool(values[19]&2) if comparator and internal_vbus else None,
             'session_valid_sample':bool(values[19]&4),
             'typec_role':'not measured',
             'limits':'Local USB3320 input samples only; no CC-controller or PD-message capture; VBUS sample is not a voltage measurement'}

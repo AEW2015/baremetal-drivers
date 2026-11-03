@@ -13,6 +13,10 @@ explicit option after Linux remained responsive.
 
 ## PHY viewport reads
 
+**Decoder erratum:** the original JSON's derived `id_grounded_sample` field
+has reversed polarity. Raw register captures are unchanged. See the
+[correction and qualified follow-up](../dock-reattached/README.md#decoder-erratum).
+
 [`linux-phy-status.log`](linux-phy-status.log) records the actual host-side Tcl
 probe under the hardware mutex. OpenOCD initialized the memory AP without
 halting or resetting the Linux CPU. The source writes only ULPI **read request**

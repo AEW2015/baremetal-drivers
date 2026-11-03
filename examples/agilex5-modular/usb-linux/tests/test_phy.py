@@ -39,7 +39,7 @@ proc hps.sys_bus {method address width argument} {
             if {$mode eq "busy"} {return [list 0x00800000]}
             if {$selected < 0} {return [list 0]}
             if {$mode eq "timeout"} {incr polls; return [list 0x02000000]}
-            set values {0 36 1 4 2 7 3 0 10 6 19 22}
+            set values {0 36 1 4 2 7 3 0 10 39 13 31 16 31 19 22}
             return [list [expr {0x01000000 | [dict get $values $selected]}]]
         }
     }
@@ -53,12 +53,27 @@ puts "POLLS $polls"
 
     def test_completed_reads_exclude_latches_and_never_write_phy_configuration(self):
         output=self.run_script('normal')
-        self.assertIn('WRITES 0 1 2 3 10 19',output)
+        self.assertIn('WRITES 0 1 2 3 10 13 16 19',output)
         decoded=runner.phy_status(output)
         self.assertTrue(decoded['vbus_valid_sample'])
-        self.assertTrue(decoded['id_grounded_sample'])
+        self.assertFalse(decoded['id_grounded_sample'])
         self.assertEqual(decoded['typec_role'],'not measured')
         self.assertNotIn('id_role_sample_qualified',decoded)
+
+    def test_grounded_id_is_active_low_and_requires_pullup(self):
+        output=self.run_script('normal').replace('reg=0x13 value=0x16','reg=0x13 value=0x06')
+        self.assertTrue(runner.phy_status(output)['id_grounded_sample'])
+        output=output.replace('reg=0x0a value=0x27','reg=0x0a value=0x26')
+        self.assertIsNone(runner.phy_status(output)['id_grounded_sample'])
+
+    def test_disabled_or_external_vbus_is_not_an_internal_comparator_sample(self):
+        output=self.run_script('normal')
+        disabled=output.replace('reg=0x0d value=0x1f','reg=0x0d value=0x1d').replace('reg=0x10 value=0x1f','reg=0x10 value=0x1d')
+        self.assertIsNone(runner.phy_status(disabled)['vbus_valid_sample'])
+        self.assertIsNone(runner.phy_status(output.replace('reg=0x0a value=0x27','reg=0x0a value=0xa7'))['vbus_valid_sample'])
+        # Either interrupt-enable bit is sufficient to keep the comparator on.
+        falling=output.replace('reg=0x0d value=0x1f','reg=0x0d value=0x1d')
+        self.assertTrue(runner.phy_status(falling)['vbus_valid_sample'])
 
     def test_outstanding_request_is_not_overwritten(self):
         output=self.run_script('busy')

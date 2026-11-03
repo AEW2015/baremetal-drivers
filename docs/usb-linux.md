@@ -156,8 +156,27 @@ controller's role. Keep video support separate from the USB storage, HID and
 Ethernet checks.
 
 The Linux runner now also supports a bounded `phy-status` diagnostic through
-the DWC3 ULPI viewport. It reads the USB3320 vendor/product ID, OTG control and
-live interrupt-status register `0x13`; it does not read the clear-on-read latch
+the DWC3 ULPI viewport. It reads the USB3320 vendor/product ID, OTG control,
+interrupt-enable masks and live interrupt-status register `0x13`; it does not read the clear-on-read latch
 or change PHY configuration. It refuses an outstanding viewport request and
 times out after 100 polls. This provides local ID/VBUS indications for the next
 attached-versus-unattached comparison, not a CC or PD-message capture.
+
+### Dock reattached to the SOM
+
+After the user moved the WD25 back from the PC, a fresh Linux inventory still
+reported `external_devices=0 external_hubs=0`. Both xHCI ports read `0x2a0`
+(no current connection). The PHY returned OTG control `0x27`, interrupt-enable
+masks `0x1f`/`0x1f` and live status `0x14`. The ID pull-up is enabled, the local
+ID input reads floating, and the enabled internal VBUS comparator reports
+not valid. These are attach-path observations, not a connector voltage
+measurement or a measured Type-C role. The cause remains unresolved; Linux
+was left running for a connector-orientation check. Mouse movement cannot
+produce reports before a mouse enumerates.
+
+See the [reattached-dock captures and decoder erratum](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux/validation/20261103/dock-reattached).
+Decoder version 2 corrects the earlier inverted `id_grounded_sample` field:
+USB3320 ID status is **zero when grounded** and **one when floating**. It also
+returns an unknown VBUS sample when the internal comparator is disabled or
+external indication is selected. See
+[Microchip USB3320 sections 5.6.1.1 and 5.6.2.3](https://ww1.microchip.com/downloads/en/DeviceDoc/00001792E.pdf).

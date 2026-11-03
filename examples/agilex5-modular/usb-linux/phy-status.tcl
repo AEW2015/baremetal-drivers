@@ -17,7 +17,8 @@ namespace eval usb_lab_phy {
             error "USB PHY diagnostic: controller is not configured for ULPI"
         }
         echo [format {USB_PHY_CONFIG GSNPSID=0x%08x GUSB2PHYCFG=0x%08x} $identity $config]
-        foreach address {0 1 2 3 10 19} {
+        # Interrupt-enable masks qualify the VBUS comparator (USB3320 5.6.2.3).
+        foreach address {0 1 2 3 10 13 16 19} {
             # Let an already-enabled ID pull-up settle before the live sample.
             if {$address == 19} {after 50}
             set before [read32 0x1100c280]
