@@ -16,4 +16,14 @@ class ConsoleCompletion(unittest.TestCase):
         self.assertFalse(m.prompt_seen(b'echo USB_LINUX# \r\n',True))
         self.assertFalse(m.prompt_seen(b'USB_LINUX_READY\r\n',True))
 
+    def test_only_a_completed_responsive_linux_run_may_skip_restoration(self):
+        live={'status':'partial','linux_ready':True}
+        self.assertTrue(m.can_leave_linux(live,True,False,False))
+        self.assertFalse(m.can_leave_linux(live,False,False,False))
+        self.assertFalse(m.can_leave_linux(live,True,True,False))
+        self.assertFalse(m.can_leave_linux(live,True,False,True))
+        self.assertFalse(m.can_leave_linux({'status':'fail','linux_ready':True},True,False,False))
+        self.assertFalse(m.can_leave_linux({'status':'running','linux_ready':True},True,False,False))
+        self.assertFalse(m.can_leave_linux({'status':'partial','linux_ready':False},True,False,False))
+
 if __name__=='__main__':unittest.main()

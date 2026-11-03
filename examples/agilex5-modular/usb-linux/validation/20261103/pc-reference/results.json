@@ -1,0 +1,53 @@
+{
+  "scope": "PC Linux reference test, not Agilex 5 hardware qualification",
+  "dock": {
+    "usb_id": "413c:b0a2",
+    "usb_product": "Dell Pro Dock WD25",
+    "reported_model_before_enumeration": "DW26"
+  },
+  "usb_super_speed_hubs": {
+    "status": "enumerated",
+    "speed_mbps": 5000,
+    "ids": [
+      "0bda:0480",
+      "0bda:0485",
+      "0bda:0481"
+    ]
+  },
+  "ethernet": {
+    "usb_id": "0bda:8156",
+    "chip": "Realtek RTL8156",
+    "driver": "r8152",
+    "host_kernel": "7.0.0-31-generic",
+    "firmware": "rtl8156b-2 v3 10/20/23",
+    "usb_speed_mbps": 5000,
+    "link_mbps": 1000,
+    "duplex": "full",
+    "dhcp_address_observed": true,
+    "interface_bound_ping": {
+      "peer": "private LAN gateway",
+      "sent": 5,
+      "received": 5,
+      "loss_percent": 0
+    }
+  },
+  "flash": {
+    "usb_id": "21c4:0809",
+    "usb_speed_mbps": 480,
+    "direct_reads": "two matching 4096-byte O_RDONLY/O_DIRECT reads"
+  },
+  "mouse": {
+    "usb_id": "0461:4d65",
+    "usb_speed_mbps": 1.5,
+    "driver": "usbhid",
+    "enumeration": "pass",
+    "movement_capture": "no fresh reports in 45 seconds; not an observed input transfer pass"
+  },
+  "limits": [
+    "No Agilex dock qualification",
+    "No measured throughput benchmark",
+    "No USB-PD or CC-role capture",
+    "The PC success does not establish that USB-PD negotiation is mandatory or the cause of the SOM failure"
+  ],
+  "normalization": "Ethernet ping transcript replaces the MAC-derived host interface name with USB_NIC; raw capture remains on bench"
+}

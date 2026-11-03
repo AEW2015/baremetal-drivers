@@ -95,6 +95,7 @@ def main(argv=None):
     hardware.add_argument('--usb-peer',help='PC IPv4 address reachable from the USB hub Ethernet network')
     hardware.add_argument('--bind',default='192.168.50.1',help='PC address on the HPS boot Ethernet network')
     hardware.add_argument('--board-ip',default='192.168.50.3')
+    hardware.add_argument('--leave-linux-running',action='store_true',help='USB Linux only: leave a responsive Linux session running for hotplug')
     hardware.add_argument('--loader',choices=['jtag','hps'],default='jtag')
     hardware.add_argument('--manifest',default='build/pr/hardware-manifest.json')
     hardware.add_argument('--build',action='store_true',help='Build the current SDK and hardware Hello first')
@@ -167,6 +168,7 @@ def main(argv=None):
             commands.append([sys.executable,str(LAB/'usb-linux/run.py'),'--port',config['uart'],
                              '--bind',args.bind,'--board-ip',args.board_ip])
             if args.usb_peer:commands[-1] += ['--usb-peer',args.usb_peer]
+            if args.leave_linux_running:commands[-1].append('--leave-linux-running')
         if not config['uart'] and not args.dry_run:raise ValueError('Configure --uart with the verified Linux SOM UART device')
     if args.dry_run:
         print(json.dumps({'cwd':str(LAB),'commands':commands,'backend':config['backend']},indent=2));return 0

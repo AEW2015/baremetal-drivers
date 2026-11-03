@@ -19,9 +19,16 @@ those runs. They qualify direct USB storage, not storage through a hub.
 
 After the user connected the hub, a fresh Linux run enumerated no external
 devices. Both live xHCI root ports read `0x000002a0` (connection clear,
-RxDetect, controller port power enabled, no overcurrent flag). Hub model,
-power indication and a connector-flip check are the next physical diagnostics;
+RxDetect, controller port power enabled, no overcurrent flag). Type-C attach
+and power-path checks are the next physical diagnostics;
 neither a hub pass nor a class-transfer pass is claimed for that retry.
+
+A PC reference run identifies the dock as **WD25** (`413c:b0a2`), with USB hubs
+and its RTL8156 NIC at 5000 Mb/s. On the PC it obtained a DHCP address, linked
+at 1000 Mb/s full duplex and passed five interface-bound pings. Two direct
+flash reads through the dock matched. The mouse enumerated at 1.5 Mb/s but no
+fresh movement was captured. See the [PC evidence](validation/20261103/pc-reference).
+These PC results do not qualify the dock on the Agilex SOM.
 
 ## Build
 
@@ -70,7 +77,7 @@ The runner bootstraps DDR, loads and reads back U-Boot and BL31, starts a
 restricted TFTP server on UDP port 1069, and verifies each received payload's
 SHA-256 on the board before `booti`. If the HPS Ethernet ping fails it falls
 back to checked JTAG loads. `--transport jtag` selects that slower path directly.
-It captures the Linux console and restores DDR Hello before releasing the lock.
+It captures the Linux console and normally restores DDR Hello before releasing the lock.
 Do not run a second serial terminal or debugger during this operation.
 
 From the repository root, the configured portable launcher also supports:
@@ -78,6 +85,36 @@ From the repository root, the configured portable launcher also supports:
 ```sh
 python3 lab.py hardware usb-linux --build --usb-peer 192.168.0.66
 ```
+
+### Leave Linux ready for hotplug
+
+Use `--leave-linux-running` to retain a responsive Linux session after the
+batch, while closing UART and releasing the shared hardware lock:
+
+```sh
+python3 lab.py hardware usb-linux --usb-peer 192.168.0.66 --leave-linux-running
+```
+
+This option skips DDR Hello restoration only after Linux reached its prompt
+and the diagnostic batch completed. Exceptions or uncertain programming still
+take the normal recovery path. USB checks can remain **partial** and exit 1
+while Linux is ready; check `final_state: linux-running` in the run record.
+The default remains automatic DDR Hello restoration.
+
+After a cable move, query the existing session from `examples/agilex5-modular`:
+
+```sh
+python3 usb-linux/console.py --port "$AGILEX_UART" report
+python3 usb-linux/console.py --port "$AGILEX_UART" flash
+python3 usb-linux/console.py --port "$AGILEX_UART" mouse
+python3 usb-linux/console.py --port "$AGILEX_UART" --usb-peer 192.168.0.66 usb-network
+```
+
+The console tool takes the same hardware mutex, requires the lab prompt and
+an Agilex device-tree identity, captures each command's output and releases
+UART afterward. It does not program or reboot the board. A successful `report`
+means the inventory command completed, even when its device count is zero.
+Fresh class markers are required for flash, mouse and Ethernet results.
 
 ## What constitutes a result
 
@@ -107,7 +144,7 @@ python3 usb-linux/run.py --port "$AGILEX_UART" --usb-peer 192.168.0.66 \
 ```
 
 While the runner reports `USB_LINUX_COMMAND_QUEUE_READY`, append reviewed names
-to that JSON list: `report`, `drivers`, `dmesg`, `uptime`, `flash`, `mouse`,
+to that JSON list: `report`, `drivers`, `dmesg`, `uptime`, `phy-status`, `flash`, `mouse`,
 `network`, `usb-network`. Append `done` to restore DDR Hello immediately.
 Preserve earlier entries; the queue is append-only. Evidence is written under
 `runs/usb-linux-<UTC timestamp>/`, including failures and restoration status.
@@ -152,8 +189,17 @@ independent power/data-role negotiation. TI explicitly calls out the need for
 USB-PD functionality when a USB host consumes power. A dock that powers its
 computer while remaining a USB peripheral may need that negotiation. See the
 [datasheet, sections 6.1.1 and 7.1](https://www.ti.com/lit/ds/symlink/hd3ss3220.pdf).
-That is a hypothesis for the attached Dell dock, not a confirmed diagnosis:
-the exact label/USB IDs and a PC reference enumeration are still pending.
+That remains a hypothesis for the WD25, not a confirmed diagnosis. The PC
+reference test passes USB enumeration, Ethernet traffic and flash reads; it
+does not establish whether PD negotiation caused the SOM's attachment failure.
+
+When no external device is seen, the runner automatically captures a bounded
+`phy-status` snapshot. The same diagnostic is available in the live queue.
+It reads USB3320 registers `0x00..0x03`, `0x0a` and `0x13` through the DWC3
+ULPI viewport. Viewport writes request PHY **reads**; no PHY configuration or
+read-to-clear latch is touched. A busy viewport is not overwritten. Local PHY
+ID/VBUS indications are recorded without promoting them to a CC-role or
+physical-voltage measurement. This also works while the Linux CPU keeps running.
 
 Offline checks:
 

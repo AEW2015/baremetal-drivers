@@ -95,12 +95,13 @@ class Launcher(unittest.TestCase):
              patch.object(lab,'hardware_environment',return_value={}), \
              patch.object(lab.subprocess,'run') as run, contextlib.redirect_stdout(io.StringIO()) as stream:
             self.assertEqual(lab.main(['--dry-run','hardware','usb-linux','--build',
-                                      '--usb-peer','192.168.2.1']),0)
+                                      '--usb-peer','192.168.2.1','--leave-linux-running']),0)
             commands=json.loads(stream.getvalue())['commands']
             self.assertEqual(commands[0][:2],['docker','exec'])
             self.assertEqual(commands[0][-2:],['bash','usb-linux/build.sh'])
             self.assertEqual(commands[1][0],sys.executable)
-            self.assertEqual(commands[1][-2:],['--usb-peer','192.168.2.1'])
+            self.assertEqual(commands[1][commands[1].index('--usb-peer')+1],'192.168.2.1')
+            self.assertIn('--leave-linux-running',commands[1])
             self.assertIn('/dev/ttyUSB2',commands[1])
             run.assert_not_called()
 

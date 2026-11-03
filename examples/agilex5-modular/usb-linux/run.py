@@ -28,6 +28,28 @@ def prompt_seen(data,linux=False):
     pattern=rb'(?:^|\n)USB_LINUX# ' if linux else rb'(?:SOCFPGA[^\r\n]*#|=>) *[\r\n]*$'
     return re.search(pattern,data.replace(b'\r',b'')) is not None
 
+def phy_status(log):
+    """Decode local PHY inputs without claiming the separate CC controller role."""
+    values={int(address,16):int(value,16) for address,value in
+            re.findall(r'USB_PHY_REGISTER reg=0x([0-9a-f]+) value=0x([0-9a-f]+)',log)}
+    if set(values)!={0,1,2,3,10,19} or 'USB_PHY_STATUS_COMPLETE' not in log:
+        raise ValueError('Incomplete USB PHY status capture')
+    if (values[0]|values[1]<<8,values[2]|values[3]<<8)!=(0x0424,0x0007):
+        raise ValueError('USB PHY does not identify the SOM USB3320')
+    return {'registers':{hex(k):hex(v) for k,v in values.items()},
+            'id_pullup_enabled':bool(values[10]&1),
+            'id_grounded_sample':bool(values[19]&16),
+            'phy_drive_vbus_requested':bool(values[10]&32),
+            'vbus_valid_sample':bool(values[19]&2),
+            'session_valid_sample':bool(values[19]&4),
+            'typec_role':'not measured',
+            'limits':'Local USB3320 input samples only; no CC-controller or PD-message capture; VBUS sample is not a voltage measurement'}
+
+def can_leave_linux(record,requested,uncertain,bootstrap_failed):
+    return bool(requested and record.get('linux_ready') and
+                record.get('status') in ('pass','partial') and
+                not uncertain and not bootstrap_failed)
+
 def validate_bundle(folder):
     record=json.loads((folder/'build.json').read_text())
     if record['addresses']!=ADDRESSES:raise ValueError('Unexpected RAM address plan')
@@ -50,6 +72,7 @@ def main():
     parser.add_argument('--transport',choices=('tftp','jtag'),default='tftp')
     parser.add_argument('--queue',type=Path,help='Append-only JSON list of reviewed Linux diagnostic names')
     parser.add_argument('--hold-seconds',type=int,default=0)
+    parser.add_argument('--leave-linux-running',action='store_true',help='After a responsive Linux run, close UART/release the mutex and leave Linux ready for hotplug instead of restoring DDR Hello')
     a=parser.parse_args();bundle=a.bundle.resolve();manifest=validate_bundle(bundle)
     for address in (a.bind,a.board_ip,*([a.usb_peer] if a.usb_peer else [])):
         if not ipaddress.IPv4Address(address).is_private:parser.error('Use the isolated private test network')
@@ -61,6 +84,7 @@ def main():
             'manifest':manifest,'commands':[],'restoration':'pending','status':'running','mouse_report':'not tested','usb_ethernet':'not tested'}
     record['runner_sha256']=sha(Path(__file__))
     record['tftp_source_sha256']=sha(Path(__file__).with_name('tftp.py'))
+    record['phy_status_source_sha256']=sha(Path(__file__).with_name('phy-status.tcl'))
     record['source_revision']=subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip()
     record['network']={'boot_server':a.bind,'boot_board':a.board_ip,'usb_peer':a.usb_peer or None}
     def save():(out/'results.json').write_text(json.dumps(record,indent=2)+'\n')
@@ -109,6 +133,14 @@ def main():
         print(label+':\n'+data[-8000:].decode(errors='replace'),flush=True)
         if not ready:raise RuntimeError('Console did not return: '+label)
         return data.decode(errors='replace').replace('\r','')
+    def capture_phy(label):
+        chain(label)
+        source=Path(__file__).with_name('phy-status.tcl')
+        # Initialize the memory AP without halting/resetting the Linux CPU.
+        # Embed trusted source: no Tcl interpolation of checkout paths is needed.
+        script='hps.a55.0 configure -event halted {}; hps.a55.0 configure -event resumed {}; gdb port disabled; tcl port disabled; telnet port disabled; init; targets hps.sys_bus;\n'+source.read_text()+'\nshutdown'
+        debug(script,label,budget=30)
+        record['phy_status']=phy_status((out/(label+'.log')).read_text(errors='replace'));save()
     diagnostics={
         'report':'/bin/usb-lab',
         'dmesg':'dmesg',
@@ -176,6 +208,7 @@ def main():
         report=command('sleep 2; '+diagnostics['report'],'linux-usb-report',linux=True)
         counts=re.findall(r'USB_LAB_COUNTS external_devices=(\d+) external_hubs=(\d+)',report)
         record['external_devices'],record['external_hubs']=map(int,counts[-1]) if counts else (0,0)
+        if record['external_devices']==0:capture_phy('linux-phy-status')
         flash=command(diagnostics['flash'],'linux-flash-read',linux=True)
         record['flash_read']='USB_FLASH_READ_PASS' in flash
         command(diagnostics['dmesg'],'linux-dmesg',linux=True)
@@ -195,6 +228,9 @@ def main():
                     if not isinstance(values,list) or len(values)>30:raise ValueError('Invalid diagnostic queue')
                     for item in values[seen:]:
                         if item=='done':deadline=0;break
+                        if item=='phy-status':
+                            capture_phy('queued-'+str(seen)+'-phy-status')
+                            seen+=1;save();continue
                         if item not in diagnostics:raise ValueError('Unknown Linux diagnostic')
                         reply=command(diagnostics[item],'queued-'+str(seen)+'-'+item,linux=True)
                         if item=='report':
@@ -216,10 +252,15 @@ def main():
             except OSError as error:record['uart_restore_error']=repr(error)
             finally:os.close(fd);fd=None
         try:
-            if touched and not uncertain and not bootstrap_failed:bootstrap('restore');record['restoration']='pass'
+            if can_leave_linux(record,a.leave_linux_running,uncertain,bootstrap_failed):
+                record['restoration']='skipped by --leave-linux-running'
+                record['final_state']='linux-running'
+            elif touched and not uncertain and not bootstrap_failed:
+                bootstrap('restore');record['restoration']='pass';record['final_state']='ddr-hello'
             elif touched:record['restoration']='not attempted after bootstrap failure' if bootstrap_failed else 'not attempted: programming completion uncertain'
             else:record['restoration']='not needed'
         except BaseException as error:record['restoration']='fail';record['restore_error']=repr(error)
         save();mcp.close();lock.close();print('DDR Hello restoration:',record['restoration'],flush=True)
-    return int(record['status']!='pass' or record['restoration']!='pass')
+    final_ok=record['restoration']=='pass' or (a.leave_linux_running and record.get('final_state')=='linux-running')
+    return int(record['status']!='pass' or not final_ok)
 if __name__=='__main__':raise SystemExit(main())

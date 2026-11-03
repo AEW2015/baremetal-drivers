@@ -1,0 +1,13 @@
+{
+  "scope": "PC reference host, not Agilex hardware",
+  "status": "pass",
+  "bytes_per_read": 4096,
+  "reads": 2,
+  "direct_io": true,
+  "open_mode": "O_RDONLY",
+  "container_device_permission": "read only",
+  "sha256": [
+    "5441cc368b9f34aad17b926eee05b0beba91501182cd5e7bc91f4eb2e0a3826c",
+    "5441cc368b9f34aad17b926eee05b0beba91501182cd5e7bc91f4eb2e0a3826c"
+  ]
+}

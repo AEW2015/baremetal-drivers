@@ -14,8 +14,8 @@ A subsequent retry **with the hub connection confirmed** reached Linux but
 enumerated no external devices. Live xHCI reads returned `PORTSC=0x000002a0`
 for both root ports: port power enabled in the controller, connection bit clear,
 link state RxDetect, no overcurrent bit. This does not measure VBUS voltage or
-identify the Type-C role. The hub model, power indication and connector-flip
-check remain pending. See the
+identify the Type-C role. The later PC reference test identifies the dock as a
+WD25; the SOM attachment issue is still unresolved. See the
 [connected-hub evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux/validation/20261102/hub-connected).
 
 | Check | Observed result |
@@ -64,6 +64,20 @@ and restores DDR Hello afterward. No SD image, persistent U-Boot environment,
 flash installation or filesystem write to the USB drive is involved. Linux
 uses one CPU, 128 MiB of DDR and a RAM root filesystem for this exercise.
 
+For cable moves and hotplug testing, add `--leave-linux-running`. After a
+responsive Linux batch this retains Linux, closes UART and releases the mutex
+instead of restoring DDR Hello. Incomplete USB checks still report partial;
+they do not imply that Linux failed to boot. From `examples/agilex5-modular`,
+query that live session without another boot:
+
+```sh
+python3 usb-linux/console.py --port "$AGILEX_UART" report
+```
+
+The console tool checks the lab prompt and Agilex device-tree identity under
+the shared mutex. It also supports bounded `flash`, `mouse`, `network` and
+`usb-network` diagnostics. The default batch behavior still restores DDR Hello.
+
 For the individual build/run commands, bounded live diagnostic queue, address
 map and troubleshooting, see the
 [source lab guide](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux).
@@ -104,9 +118,27 @@ DHCP address and ping. The current flash result does not replace those checks.
 
 ## Powered laptop docks and USB-C roles
 
-The attached unit was subsequently reported as a powered **Dell Pro Dock
-“DW26”**, with its top button unlit. The exact bottom-label model and USB IDs
-still need confirmation; do not silently substitute a WD25 or Thunderbolt model.
+The attached unit was first reported as a powered Dell Pro Dock “DW26”, with
+its top button unlit. A subsequent PC enumeration identifies it as **Dell Pro
+Dock WD25**, USB ID **`413c:b0a2`**. This identification comes from the actual
+USB descriptor rather than an assumed model substitution.
+
+### PC reference result
+
+| Function | Observed on the PC | Agilex SOM status |
+|---|---|---|
+| SuperSpeed hub | Three Realtek hub devices at 5000 Mb/s | No external hub enumerated in the connected-dock test |
+| Ethernet | RTL8156 `0bda:8156`, driver `r8152`; USB 5000 Mb/s, copper 1000 Mb/s full duplex; DHCP address and 5/5 interface-bound pings to the LAN gateway | No USB NIC enumerated |
+| Lexar flash | Two matching 4096-byte direct reads through the dock at USB 480 Mb/s | Reads passed when directly attached; dock path not qualified |
+| Optical mouse | `0461:4d65`, `usbhid`, 1.5 Mb/s on the USB2 companion path | No mouse enumerated |
+
+The mouse capture on the PC received no fresh reports during its 45-second
+window, so only enumeration is established. The link rates and short packet
+test are not a throughput benchmark. The
+[PC reference evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux/validation/20261103/pc-reference)
+is explicitly separate from Agilex hardware qualification.
+
+### Role-negotiation hypothesis
 
 There is a plausible role-negotiation compatibility issue. The SOM schematic
 identifies an HD3SS3220 Type-C controller. TI states that this device cannot
@@ -117,9 +149,15 @@ See [TI's datasheet, sections 6.1.1 and 7.1](https://www.ti.com/lit/ds/symlink/h
 and [TI's CC-versus-PD application note](https://www.ti.com/lit/an/slaae24/slaae24.pdf).
 
 This is a **hypothesis**, not a measured role or a confirmed incompatibility of
-this dock. Neither xHCI `PORTSC` nor the top-button light establishes its CC
-role. Next, enumerate the dock on the PC, identify its actual hub/NIC, and check
-the exact model's upstream requirements. A negative PC test also needs its host
-capabilities checked; an ordinary desktop USB-C port is not automatically a
-PD/Thunderbolt/DisplayPort-capable laptop port. Keep video support separate
-from the USB storage, HID and Ethernet checks.
+this dock. The positive PC test does not demonstrate that PD negotiation is
+mandatory or that missing PD caused the SOM failure. Neither xHCI `PORTSC`,
+the top-button light nor a local USB3320 ID sample establishes the separate CC
+controller's role. Keep video support separate from the USB storage, HID and
+Ethernet checks.
+
+The Linux runner now also supports a bounded `phy-status` diagnostic through
+the DWC3 ULPI viewport. It reads the USB3320 vendor/product ID, OTG control and
+live interrupt-status register `0x13`; it does not read the clear-on-read latch
+or change PHY configuration. It refuses an outstanding viewport request and
+times out after 100 polls. This provides local ID/VBUS indications for the next
+attached-versus-unattached comparison, not a CC or PD-message capture.

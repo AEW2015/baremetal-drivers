@@ -1,0 +1,9 @@
+sleep 2; /bin/usb-lab
+USB_LAB_TOPOLOGY_BEGIN
+USB_DEVICE name=usb1 vid=1d6b pid=0002 class=09 speed_mbps=480
+USB_DEVICE name=usb2 vid=1d6b pid=0003 class=09 speed_mbps=10000
+USB_LAB_COUNTS external_devices=0 external_hubs=0
+USB_LAB_STORAGE
+USB_LAB_INPUT
+USB_LAB_TOPOLOGY_END
+USB_LINUX# 

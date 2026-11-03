@@ -1,0 +1,5 @@
+cat /proc/uptime; printf '\nUSB_CONSOLE_STATUS=%s\n' "$?"
+404.53 403.68
+
+USB_CONSOLE_STATUS=0
+USB_LINUX# 
