@@ -1,0 +1,14 @@
+DDR stage: checking UART, container mount, tools and image hashes...
+DDR stage: programming ddr_recovery.sof at verified FPGA position 2.
+Image SHA256: 5c34cd980cdb51183545fcce06dcddbf29eeaa543188d77cba36710c025a2f9b
+Programmer log: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/bootstrap/ddr/program-20261103-000729-832071.log
+DDR stage: waiting for four patterns, payload and three fresh Hello messages.
+UART capture: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/bootstrap/ddr/uart-20261103-000729-832071.bin
+DDR stage: confirming CPU PC through OpenOCD...
+PASS: HPS DDR bank 3A initialized; four 64 MiB patterns and payload readback passed.
+Hello, World! executing from HPS DDR bank 3A @ 0x82000000
+CPU PC confirmed in DDR: 0x82000014. Application left running.
+{"timestamp":"2026-11-03T00:07:29.021Z","event":"programmer_start","level":"INFO","logger":"ProgrammerRuntime","tool":"server","phase":"start","msg":"server","session_id":"e2f303babe29","pid":1732324,"audit_log":null,"audit_log_env":"QUARTUS_AUDIT_LOG_FILE"}
+QuartusIQ Programmer MCP Server running on Stdio
+{"timestamp":"2026-11-03T00:07:29.032Z","event":"tool_call","level":"INFO","logger":"ProgrammerRuntime","tool":"read_jtag_config","phase":"entry","msg":"read_jtag_config","session_id":"e2f303babe29","pid":1732324,"params":{}}
+{"timestamp":"2026-11-03T00:07:29.358Z","event":"tool_success","level":"INFO","logger":"ProgrammerRuntime","tool":"read_jtag_config","phase":"exit","msg":"read_jtag_config","session_id":"e2f303babe29","pid":1732324,"outcome":"success","duration_ms":326,"durationMs":326}

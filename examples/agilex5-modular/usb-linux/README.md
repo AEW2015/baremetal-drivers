@@ -17,6 +17,12 @@ See the [hardware evidence and preserved failure](validation/20261102/README.md)
 The user confirmed that the flash drive was directly attached to the SOM for
 those runs. They qualify direct USB storage, not storage through a hub.
 
+After the user connected the hub, a fresh Linux run enumerated no external
+devices. Both live xHCI root ports read `0x000002a0` (connection clear,
+RxDetect, controller port power enabled, no overcurrent flag). Hub model,
+power indication and a connector-flip check are the next physical diagnostics;
+neither a hub pass nor a class-transfer pass is claimed for that retry.
+
 ## Build
 
 Use the Linux compiler environment described in [container setup](../../../docs/container.md).

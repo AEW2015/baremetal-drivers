@@ -7,15 +7,23 @@ Linux result, separate from the bare-metal and U-Boot-only examples.
 
 The user subsequently confirmed that the flash drive was connected **directly
 to the SOM** during these runs. Their missing-hub entries describe that topology;
-they are not failed tests of a connected hub. Testing through the hub still
-requires reconnecting its upstream cable and downstream devices.
+they are not failed tests of a connected hub. The connected-hub retry below
+is a separate result.
+
+A subsequent retry **with the hub connection confirmed** reached Linux but
+enumerated no external devices. Live xHCI reads returned `PORTSC=0x000002a0`
+for both root ports: port power enabled in the controller, connection bit clear,
+link state RxDetect, no overcurrent bit. This does not measure VBUS voltage or
+identify the Type-C role. The hub model, power indication and connector-flip
+check remain pending. See the
+[connected-hub evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux/validation/20261102/hub-connected).
 
 | Check | Observed result |
 |---|---|
 | U-Boot and Linux boot | Passed on hardware; payload SHA-256 checked on the board |
 | USB host controller | Both USB2 and SuperSpeed root buses created |
 | Lexar flash | Enumerated; two matching 4096-byte reads, disk set read-only |
-| External USB hub | Not present in the captured USB tree |
+| External USB hub | Connected-hub retry enumerated no external devices; both root ports reported connection clear |
 | Mouse reports | No mouse enumerated |
 | USB Ethernet | No USB NIC enumerated |
 | External SuperSpeed transfer | Not established; the flash negotiated 480 Mb/s |

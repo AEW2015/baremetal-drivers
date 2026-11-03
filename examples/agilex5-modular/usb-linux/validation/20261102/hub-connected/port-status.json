@@ -1,0 +1,45 @@
+{
+  "scope": "Live read-only AXI-AP register snapshot; Linux CPU was not halted",
+  "canonical_hardware_lock": "Held by the owned Linux runner throughout",
+  "console_orchestrator": "Temporarily stopped at its idle queue, then resumed; not a second board operator",
+  "commands": [
+    "targets hps.sys_bus",
+    "read_memory 0x11000000 32 8",
+    "read_memory 0x11000420 32 8"
+  ],
+  "capability_address": "0x11000000",
+  "capability_words": [
+    "0x01100020",
+    "0x0200017f",
+    "0x1c0000f1",
+    "0x0200000a",
+    "0x0110ffcc",
+    "0x00002000",
+    "0x00001000",
+    "0x0000003f"
+  ],
+  "ports": [
+    {
+      "address": "0x11000420",
+      "PORTSC": "0x000002a0",
+      "connected": false,
+      "controller_port_power": true,
+      "overcurrent": false,
+      "link_state": "RxDetect"
+    },
+    {
+      "address": "0x11000430",
+      "PORTSC": "0x000002a0",
+      "connected": false,
+      "controller_port_power": true,
+      "overcurrent": false,
+      "link_state": "RxDetect"
+    }
+  ],
+  "limits": [
+    "No VBUS voltage measurement",
+    "No Type-C controller register read",
+    "No conclusion yet about cable, hub power, CC role or physical PHY signaling",
+    "Connector-flip and hub-model responses pending"
+  ]
+}

@@ -53,3 +53,31 @@ hashes and the exact runner/TFTP source hashes. Its responsive-console check
 reached 54 seconds. Both flash comparisons passed and DDR Hello restoration
 passed. Overall status remains **partial**: no external hub, mouse or USB NIC
 was enumerated. This rerun does not turn absent devices into passing results.
+
+## Retry after the user connected the hub
+
+[`hub-connected/results.json`](hub-connected/results.json) is a separate
+physical run after the user confirmed the hub, mouse, flash drive and Ethernet
+were attached. Linux boot and payload hashes passed, but the inventory found
+**zero external devices**. Overall status is partial; hub enumeration failed
+and no downstream class transaction passed. DDR Hello restoration passed.
+
+The extra [live xHCI read](hub-connected/live-port-registers.log) used the
+memory AP without halting Linux. Our idle console orchestrator was briefly
+stopped to serialize access while it retained the canonical hardware lock,
+then resumed. The post-read console [uptime](hub-connected/queued-9-uptime-uart.txt)
+was 495 seconds. No reset or USB register write was made by this diagnostic.
+
+The [decoded register snapshot](hub-connected/port-status.json) records two
+root ports, each with `PORTSC=0x000002a0`: connection clear, controller port
+power enabled, RxDetect, no overcurrent flag. Definitions were checked against
+the pinned kernel's
+[xhci-port.h](https://github.com/altera-fpga/linux-socfpga/blob/0c0e456cdde08783d0a56ef593af45899f5d11af/drivers/usb/host/xhci-port.h).
+These bits do not measure VBUS voltage or reveal the separate Type-C
+controller's role. They locate the observed failure before class enumeration.
+
+The SOM schematic, sheet 41 (150-0330723-B1 rev 2.1), identifies an HD3SS3220
+Type-C controller/mux and a VBUS load switch. Its attachment/role status is
+separate from xHCI; see [TI's controller datasheet](https://www.ti.com/lit/ds/symlink/hd3ss3220.pdf).
+Hub make/model, power indication and the requested USB-C connector-flip result
+remain pending. No specific component or cable has been identified as faulty.
