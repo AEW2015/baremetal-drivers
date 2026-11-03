@@ -101,3 +101,25 @@ UART capture can otherwise misclassify a working console.
 Continue hub qualification by recording an external hub's VID/PID and speed,
 then fresh mouse reports, flash reads through the hub, and a USB-backed NIC's
 DHCP address and ping. The current flash result does not replace those checks.
+
+## Powered laptop docks and USB-C roles
+
+The attached unit was subsequently reported as a powered **Dell Pro Dock
+“DW26”**, with its top button unlit. The exact bottom-label model and USB IDs
+still need confirmation; do not silently substitute a WD25 or Thunderbolt model.
+
+There is a plausible role-negotiation compatibility issue. The SOM schematic
+identifies an HD3SS3220 Type-C controller. TI states that this device cannot
+exchange USB Power Delivery messages and needs additional USB-PD functionality
+for split power/data roles, such as a USB host that consumes power. A laptop dock
+that supplies power while acting as a USB peripheral can require that split.
+See [TI's datasheet, sections 6.1.1 and 7.1](https://www.ti.com/lit/ds/symlink/hd3ss3220.pdf)
+and [TI's CC-versus-PD application note](https://www.ti.com/lit/an/slaae24/slaae24.pdf).
+
+This is a **hypothesis**, not a measured role or a confirmed incompatibility of
+this dock. Neither xHCI `PORTSC` nor the top-button light establishes its CC
+role. Next, enumerate the dock on the PC, identify its actual hub/NIC, and check
+the exact model's upstream requirements. A negative PC test also needs its host
+capabilities checked; an ordinary desktop USB-C port is not automatically a
+PD/Thunderbolt/DisplayPort-capable laptop port. Keep video support separate
+from the USB storage, HID and Ethernet checks.

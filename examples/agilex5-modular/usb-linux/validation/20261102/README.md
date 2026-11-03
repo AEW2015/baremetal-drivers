@@ -81,3 +81,10 @@ Type-C controller/mux and a VBUS load switch. Its attachment/role status is
 separate from xHCI; see [TI's controller datasheet](https://www.ti.com/lit/ds/symlink/hd3ss3220.pdf).
 Hub make/model, power indication and the requested USB-C connector-flip result
 remain pending. No specific component or cable has been identified as faulty.
+
+The user's later identification was “Dell Pro Dock DW26”, powered, with no
+light on the top button. This is retained as reported, not mapped to another
+Dell model. A PC reference enumeration and exact bottom-label model were
+requested. USB-PD split-role compatibility is now a candidate explanation,
+based on TI's documented HD3SS3220 limitations; no CC role or PD exchange has
+been measured, so the cause remains unconfirmed.

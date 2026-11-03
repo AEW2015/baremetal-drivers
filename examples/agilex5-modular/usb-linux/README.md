@@ -146,6 +146,15 @@ Do not infer external enumeration from the USB3320 ID or an xHCI banner.
 The SOM's shared reset also affects UART and other devices; this lab does not
 pulse that reset. Keep unsuccessful attempts as evidence.
 
+For a powered laptop dock, also check USB-C power/data-role compatibility.
+The SOM's HD3SS3220 supports Type-C attach detection but not USB-PD messages or
+independent power/data-role negotiation. TI explicitly calls out the need for
+USB-PD functionality when a USB host consumes power. A dock that powers its
+computer while remaining a USB peripheral may need that negotiation. See the
+[datasheet, sections 6.1.1 and 7.1](https://www.ti.com/lit/ds/symlink/hd3ss3220.pdf).
+That is a hypothesis for the attached Dell dock, not a confirmed diagnosis:
+the exact label/USB IDs and a PC reference enumeration are still pending.
+
 Offline checks:
 
 ```sh
