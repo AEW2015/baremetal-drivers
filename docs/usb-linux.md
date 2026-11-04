@@ -138,22 +138,40 @@ test are not a throughput benchmark. The
 [PC reference evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux/validation/20261103/pc-reference)
 is explicitly separate from Agilex hardware qualification.
 
-### Role-negotiation hypothesis
+### Type-C role investigation
 
-There is a plausible role-negotiation compatibility issue. The SOM schematic
-identifies an HD3SS3220 Type-C controller. TI states that this device cannot
+The SOM schematic identifies an HD3SS3220 Type-C controller. A direct FPGA
+I2C capture verified its identity and read register `0x09=0x90`: the SOM had
+attached as **UFP/sink**, while Linux was configured as USB host. This is a
+measured role mismatch. Register `0x0a=0x00` selected the PORT-pin default.
+See the [first direct CC capture and its repeat-read limitation](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux/validation/20261104/direct-cc-first-capture).
+
+TI states that this controller cannot
 exchange USB Power Delivery messages and needs additional USB-PD functionality
 for split power/data roles, such as a USB host that consumes power. A laptop dock
 that supplies power while acting as a USB peripheral can require that split.
 See [TI's datasheet, sections 6.1.1 and 7.1](https://www.ti.com/lit/ds/symlink/hd3ss3220.pdf)
 and [TI's CC-versus-PD application note](https://www.ti.com/lit/an/slaae24/slaae24.pdf).
 
-This is a **hypothesis**, not a measured role or a confirmed incompatibility of
-this dock. The positive PC test does not demonstrate that PD negotiation is
-mandatory or that missing PD caused the SOM failure. Neither xHCI `PORTSC`,
-the top-button light nor a local USB3320 ID sample establishes the separate CC
-controller's role. Keep video support separate from the USB storage, HID and
-Ethernet checks.
+The capture does not prove that this is the only problem or that the WD25
+cannot attach when the SOM is explicitly configured as DFP. The positive PC
+test does not establish whether PD negotiation is mandatory. Neither xHCI
+`PORTSC`, the top-button light nor a local USB3320 ID sample measures the CC
+role; the separate controller's verified register capture does. Keep video
+support separate from USB storage, HID and Ethernet checks.
+
+The [direct-controller diagnostic](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux/cc-probe)
+provides the FPGA RTL, isolated-platform preparation, slave-model tests and
+host capture tools. Its default build performs only pointer/read transactions.
+An explicitly enabled variant supports TI's limited volatile mode sequence,
+with a fresh unattached-state guard and readback after each write. A successful
+mode configuration still requires a subsequent dock enumeration and class tests.
+
+The corrected reader subsequently passed **three successive hardware captures**
+with the same verified sink state. The fitted image also passed DDR bring-up;
+all 88 final Design Assistant rules passed. A no-write mode preflight correctly
+refused the attached peer. No positive mode-write or WD25 class test is claimed;
+see the [repeatable capture and guarded preflight evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux/validation/20261104/direct-cc-v2).
 
 The Linux runner now also supports a bounded `phy-status` diagnostic through
 the DWC3 ULPI viewport. It reads the USB3320 vendor/product ID, OTG control,

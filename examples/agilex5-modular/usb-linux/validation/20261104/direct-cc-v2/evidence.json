@@ -1,0 +1,17 @@
+{
+  "scope": "Direct CC identity/status and attached-peer preflight; no mode configuration executed",
+  "RTL_sha256": "cbbcf0d3d31b4568af644945576f2c6eac70575e0c379288e4086d3a066fafa0",
+  "maintained_RTL_matches_compiled": true,
+  "final_SDC_sha256": "eb14a79d2c7f8205bca806fd54e1678fd03d69f31d1be261404da27b9fa5d764",
+  "fitted_SOF_sha256": "78c2f27e41336a7d8f6cdd4c2d1ad01def313d68a9d248883bb48e68f9240481",
+  "pin_report_sha256": "95da196da543c916367e1dc158ed81171dd343030c519f8b553a95368e9da6ef",
+  "build_job": "e793c41f-e63b-445e-bcc1-eae3baf99d60",
+  "final_timing_job": "4b3259ac-2d73-4b64-b76a-9f462602926a",
+  "consecutive_CC_captures": 3,
+  "observed_role": "UFP/sink",
+  "General_Control": "0x00, unchanged",
+  "mode_write_hardware_test": "Not executed; attached peer correctly rejected by --check-only, operations=[]",
+  "USB_hardware_result": "zero external devices/hubs; no USB class transactions through WD25",
+  "final_board_state": "Corrected diagnostic image and responsive Linux left running; UART/mutex released",
+  "next_dependency": "User confirmation that upstream cable is unplugged, then fresh unattached-state check before mode selection"
+}

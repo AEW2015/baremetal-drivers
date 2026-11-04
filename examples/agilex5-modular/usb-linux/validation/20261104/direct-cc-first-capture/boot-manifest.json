@@ -1,0 +1,11 @@
+{
+  "boot_order": "fpga-first",
+  "atf_commit": "09c4dc6628810d8570af69db43918d344f9e80e9",
+  "lwh2f_enabled": true,
+  "source_path_base": "examples/agilex5-modular",
+  "source_sof": "build/usb-cc26.3/platform/output_files/baseline_a55.sof",
+  "source_sof_sha256": "38019fc712b4b119188982596a2592f306a8cef0f043c7170f1a46230683658e",
+  "images": {
+    "ddr_recovery.sof": "4c6f94f76c3cc900bf47f50c75cd775025477eefde7cb913cda75d79a65f4294"
+  }
+}

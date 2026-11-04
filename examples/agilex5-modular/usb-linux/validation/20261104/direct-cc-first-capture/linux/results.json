@@ -1,0 +1,288 @@
+{
+  "scope": "Volatile U-Boot to Linux USB lab; RAM root; no media/environment/NVM writes",
+  "manifest": {
+    "scope": "Source-built RAM-only USB lab; execution verdict is recorded by run.py",
+    "linux_commit": "0c0e456cdde08783d0a56ef593af45899f5d11af",
+    "linux_config_sha256": "ac84c294e6bec9620052304c800f79c0f6917816381a934492505036d00d432a",
+    "busybox_version": "1.37.0",
+    "stack_pins": {
+      "release": "26.3",
+      "quartus": {
+        "version": "26.3.0.114",
+        "hps_ip": "14.1.0",
+        "hps_emif_ip": "5.1.0"
+      },
+      "drivers": {
+        "commit": "66bdcc347564c5698a8997169bce83a31647d618",
+        "scope": "Upstream base revision; fork-local fixes remain tracked in Git and per-build source hashes."
+      },
+      "atf": {
+        "commit": "09c4dc6628810d8570af69db43918d344f9e80e9",
+        "tag": "QPDS26.3_REL_BASELINE_PR",
+        "scope": "Vendor release base; DDR and USB builds apply the documented local diagnostic hooks."
+      },
+      "uboot": {
+        "commit": "5ba74aeda63ed07e98670f8c2f0135de06543ba0",
+        "tag": "QPDS26.3_REL_BASELINE_PR",
+        "scope": "Vendor release base; the lab applies its guarded USB command/configuration patches."
+      },
+      "legacy": {
+        "commit": "1419101568f1a9034630b632634fe9fe71773266",
+        "scope": "Frozen historical API regression fixture; not the active firmware platform"
+      }
+    },
+    "source_sha256": {
+      "usb-linux/build.sh": "32691db26937b0260229d12611ecc6ede403c243b44a722cfeb2c29f42e796e9",
+      "usb-linux/kernel.config": "dd9c0081251b64f05a0e24d0dfdfb89cc5b30aab201dad49e968475b9079b464",
+      "usb-linux/prepare.py": "811b3d914673c894ab80bd8e723a572a82816cf89695b937c372573bdbc5648c",
+      "usb-linux/init": "7089d35a2a1cf6af765108826610e376b65f8ab1e937e3b81bfcab38153665a5",
+      "usb-linux/usb-lab": "f1c069e54032ec8259142d21b6fb57cbd5a9e73738a1b378000dc30349a037cc",
+      "usb-linux/usb-flash-read": "c74e15f4a286768baac41d1a980607f0b8a86970880f22e0422395536a22de2d",
+      "usb-linux/usb-mouse-read": "39c0cf6b2e97ba04cfb13fcb3e9abc482cd396b9970d979d39221b90fa8d7122",
+      "usb-linux/usb-net-test": "b100c0f08f7bd62fd25ec9a0ad8421d75b03f0903ef2d88730b2cbe21bfbefa0",
+      "usb-linux/udhcpc-hook": "4a1596b8947334b87cbde637b9b5c04ebb4611db9c6882c0258cbd24051ba160",
+      "usb-bringup/build_uboot.sh": "59e9977abb394a7986217ac2802c27c6edb92a5052e5087d517c05b82fded664",
+      "usb-bringup/patch_monitor.py": "72da7c9b14da2647ecb3565e558928eac41898da59d838e5353dcc10613e19ca"
+    },
+    "bootargs": "console=ttyS0,115200n8 earlycon=uart8250,mmio32,0x10c02000 rdinit=/init maxcpus=1 clk_ignore_unused loglevel=7 panic=0",
+    "disabled_nodes": [
+      "/firmware/svc/fpga-mgr",
+      "/fpga-region",
+      "/soc@0/mmc@10808000",
+      "/soc@0/nand-controller@10b80000",
+      "/soc@0/spi@10da4000",
+      "/soc@0/spi@10da5000",
+      "/soc@0/usb@10b00000",
+      "/soc@0/eccmgr",
+      "/soc@0/watchdog@10d00200",
+      "/soc@0/watchdog@10d00300",
+      "/soc@0/watchdog@10d00400",
+      "/soc@0/watchdog@10d00500",
+      "/soc@0/watchdog@10d00600",
+      "/soc@0/spi@108d2000",
+      "/soc@0/ethernet@10810000",
+      "/soc@0/ethernet@10820000",
+      "/soc@0/ethernet@10830000"
+    ],
+    "reserved_memory": {
+      "base": 2147483648,
+      "bytes": 33554432,
+      "purpose": "Vendor no-map service buffer also protects resident BL31"
+    },
+    "addresses": {
+      "Image": 2181038080,
+      "initramfs.cpio.gz": 2248146944,
+      "board.dtb": 2179989504,
+      "u-boot.bin": 2149580800,
+      "bl31.bin": 2147483648
+    },
+    "artifacts": {
+      "Image": {
+        "bytes": 6778888,
+        "sha256": "ecfdd1bf2eaaf3103affd4c457f90b2198a42c090f55e27cb47e3e2a6872dd62"
+      },
+      "initramfs.cpio.gz": {
+        "bytes": 1185397,
+        "sha256": "49c91c48ff45f297ef5a65687aa0085b952e00d2f4782405482a1a8336cc698d"
+      },
+      "board.dtb": {
+        "bytes": 24956,
+        "sha256": "1607035960997ff499c71496020a1001ce47b44caf8a160fd0ea669d6a9813a8"
+      },
+      "u-boot.bin": {
+        "bytes": 934786,
+        "sha256": "7f92625ea14cc2a87772df4b2b6c4cb260b4ad2a6816e5a9084cd02375835394"
+      },
+      "bl31.bin": {
+        "bytes": 78172,
+        "sha256": "b6244ae63b11518b55365a0b02aad1d60e15299600072e26fcbbe9c704114e05"
+      }
+    }
+  },
+  "commands": [
+    {
+      "command": "setenv autostart no",
+      "label": "disable-autostart",
+      "prompt_returned": true
+    },
+    {
+      "command": "version",
+      "label": "uboot-version",
+      "prompt_returned": true
+    },
+    {
+      "command": "setenv ethrotate no",
+      "label": "fixed-boot-interface",
+      "prompt_returned": true
+    },
+    {
+      "command": "setenv ethact ethernet@10830000",
+      "label": "select-hps-emac2",
+      "prompt_returned": true
+    },
+    {
+      "command": "setenv ipaddr 192.168.50.3",
+      "label": "board-ip",
+      "prompt_returned": true
+    },
+    {
+      "command": "setenv serverip 192.168.50.1",
+      "label": "server-ip",
+      "prompt_returned": true
+    },
+    {
+      "command": "setenv netmask 255.255.255.0",
+      "label": "netmask",
+      "prompt_returned": true
+    },
+    {
+      "command": "setenv tftpdstp 1069",
+      "label": "tftp-port",
+      "prompt_returned": true
+    },
+    {
+      "command": "ping 192.168.50.1",
+      "label": "boot-link",
+      "prompt_returned": true
+    },
+    {
+      "command": "tftpboot 0x82000000 Image",
+      "label": "tftp-Image",
+      "prompt_returned": true
+    },
+    {
+      "command": "hash sha256 0x82000000 0x677008",
+      "label": "hash-Image",
+      "prompt_returned": true
+    },
+    {
+      "command": "tftpboot 0x86000000 initramfs.cpio.gz",
+      "label": "tftp-initramfs.cpio.gz",
+      "prompt_returned": true
+    },
+    {
+      "command": "hash sha256 0x86000000 0x121675",
+      "label": "hash-initramfs.cpio.gz",
+      "prompt_returned": true
+    },
+    {
+      "command": "tftpboot 0x81f00000 board.dtb",
+      "label": "tftp-board.dtb",
+      "prompt_returned": true
+    },
+    {
+      "command": "hash sha256 0x81f00000 0x617c",
+      "label": "hash-board.dtb",
+      "prompt_returned": true
+    },
+    {
+      "command": "setenv bootargs console=ttyS0,115200n8 earlycon=uart8250,mmio32,0x10c02000 rdinit=/init maxcpus=1 clk_ignore_unused loglevel=7 panic=0",
+      "label": "linux-bootargs",
+      "prompt_returned": true
+    },
+    {
+      "command": "booti 0x82000000 0x86000000:0x121675 0x81f00000",
+      "label": "linux-boot",
+      "prompt_returned": true
+    },
+    {
+      "command": "sleep 2; /bin/usb-lab",
+      "label": "linux-usb-report",
+      "prompt_returned": true
+    },
+    {
+      "command": "/bin/usb-flash-read",
+      "label": "linux-flash-read",
+      "prompt_returned": true
+    },
+    {
+      "command": "dmesg",
+      "label": "linux-dmesg",
+      "prompt_returned": true
+    },
+    {
+      "command": "ip link show; ip addr show",
+      "label": "linux-network",
+      "prompt_returned": true
+    },
+    {
+      "command": "/bin/usb-mouse-read",
+      "label": "linux-mouse",
+      "prompt_returned": true
+    },
+    {
+      "command": "/bin/usb-net-test 192.168.0.66",
+      "label": "linux-usb-ethernet",
+      "prompt_returned": true
+    }
+  ],
+  "restoration": "skipped by --leave-linux-running",
+  "status": "partial",
+  "mouse_report": "no fresh reports",
+  "usb_ethernet": "not established",
+  "runner_sha256": "7d36866bcb9a9cea671ab71280f99cfead783ff63e219dae5b69d37a5c36d5f6",
+  "tftp_source_sha256": "15e0e81a58ad5aa7d238a6eee708504f22b2fb451778e91d573757669aceda69",
+  "phy_status_source_sha256": "2cae9565766e4dd60e787dd8020820eb821dd0ce632b2fd3d3d9fb4562c29176",
+  "source_revision": "db19d4c3e091f97c8da79ed53beb3db5c52d1365",
+  "network": {
+    "boot_server": "192.168.50.1",
+    "boot_board": "192.168.50.3",
+    "usb_peer": "192.168.0.66"
+  },
+  "firmware_readback": "pass",
+  "boot_transport": "tftp",
+  "tftp": [
+    {
+      "name": "Image",
+      "bytes": 6778888,
+      "blocks": 4618,
+      "sha256": "ecfdd1bf2eaaf3103affd4c457f90b2198a42c090f55e27cb47e3e2a6872dd62",
+      "seconds": 0.33270244067534804
+    },
+    {
+      "name": "initramfs.cpio.gz",
+      "bytes": 1185397,
+      "blocks": 808,
+      "sha256": "49c91c48ff45f297ef5a65687aa0085b952e00d2f4782405482a1a8336cc698d",
+      "seconds": 0.05621688533574343
+    },
+    {
+      "name": "board.dtb",
+      "bytes": 24956,
+      "blocks": 18,
+      "sha256": "1607035960997ff499c71496020a1001ce47b44caf8a160fd0ea669d6a9813a8",
+      "seconds": 0.0013927817344665527
+    }
+  ],
+  "tftp_errors": [],
+  "linux_payload_hashes": "pass",
+  "linux_ready": true,
+  "external_devices": 0,
+  "external_hubs": 0,
+  "phy_status": {
+    "decoder_version": 2,
+    "registers": {
+      "0x0": "0x24",
+      "0x1": "0x4",
+      "0x2": "0x7",
+      "0x3": "0x0",
+      "0xa": "0x27",
+      "0xd": "0x1f",
+      "0x10": "0x1f",
+      "0x13": "0x14"
+    },
+    "id_pullup_enabled": true,
+    "idgnd_raw_bit": true,
+    "id_grounded_sample": false,
+    "phy_drive_vbus_requested": true,
+    "vbus_valid_raw_bit": false,
+    "vbus_comparator_enabled": true,
+    "vbus_uses_internal_comparator": true,
+    "vbus_valid_sample": false,
+    "session_valid_sample": true,
+    "typec_role": "not measured",
+    "limits": "Local USB3320 input samples only; no CC-controller or PD-message capture; VBUS sample is not a voltage measurement"
+  },
+  "flash_read": false,
+  "final_state": "linux-running"
+}

@@ -221,3 +221,10 @@ USB_LINUX#
 
 Driver references: [Altera Linux source](https://github.com/altera-fpga/linux-socfpga/tree/0c0e456cdde08783d0a56ef593af45899f5d11af)
 and [Altera USB3.1 driver guide](https://altera-fpga.github.io/rel-25.1.1/linux-embedded/drivers/usb3_1/usb3_1/).
+
+For the WD25 attach investigation, see the [direct Type-C-controller FPGA
+diagnostic](cc-probe/README.md). It accesses the SOM clock/USB-mux I2C bus,
+which is distinct from HPS management I2C. Its first verified CC capture found
+the SOM attached as UFP/sink despite Linux running as host. The capture and
+the rejected repeat read are preserved in
+[the hardware evidence](validation/20261104/direct-cc-first-capture/README.md).

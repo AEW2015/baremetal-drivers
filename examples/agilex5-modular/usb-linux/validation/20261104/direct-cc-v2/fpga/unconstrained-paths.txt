@@ -1,0 +1,11 @@
+; Unconstrained Paths Summary                                      ;
++---------------------------------------------------+-------+------+
+; Property                                          ; Setup ; Hold ;
++---------------------------------------------------+-------+------+
+; Illegal Clocks                                    ; 0     ; 0    ;
+; Unconstrained Clocks                              ; 0     ; 0    ;
+; Unconstrained Input Ports                         ; 0     ; 0    ;
+; Paths from Unconstrained Input Ports (Pairs-Only) ; 0     ; 0    ;
+; Unconstrained Output Ports                        ; 0     ; 0    ;
+; Paths to Unconstrained Output Ports (Pairs-Only)  ; 0     ; 0    ;
++---------------------------------------------------+-------+------+

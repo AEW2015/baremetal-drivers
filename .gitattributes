@@ -51,3 +51,8 @@ examples/agilex5-modular/usb-linux/kernel.config text eol=lf
 # USB execution captures retain exact UART bytes and prompt spacing.
 examples/agilex5-modular/usb-linux/validation/**/*.log -text -whitespace
 examples/agilex5-modular/usb-linux/validation/**/*.txt -text -whitespace
+# Preserve the USB diagnostic's unmodified Quartus timing/fit reports.
+examples/agilex5-modular/usb-linux/validation/**/*.rpt -text -whitespace
+examples/agilex5-modular/usb-linux/validation/**/*.summary -text -whitespace
+examples/agilex5-modular/usb-linux/cc-probe/*.sv text eol=lf
+examples/agilex5-modular/usb-linux/cc-probe/*.sdc text eol=lf

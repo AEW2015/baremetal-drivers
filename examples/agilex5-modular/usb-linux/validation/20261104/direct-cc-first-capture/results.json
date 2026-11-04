@@ -1,0 +1,23 @@
+{
+  "status": "pass",
+  "scope": "Read the dedicated FPGA CC probe; no CPU halt, reset or CC configuration write.",
+  "tcl_sha256": "49e7e04a1b109c0b45238ba14f3e9cc0e95963ed472ee634e7521c5ea641ea5c",
+  "registers": {
+    "0x0": "0x32",
+    "0x1": "0x32",
+    "0x2": "0x33",
+    "0x3": "0x42",
+    "0x4": "0x53",
+    "0x5": "0x55",
+    "0x6": "0x54",
+    "0x7": "0x0",
+    "0x8": "0x30",
+    "0x9": "0x90",
+    "0xa": "0x0"
+  },
+  "identity": "HD3SS3220, verified register signature",
+  "attached_state": "UFP/sink",
+  "cable_direction_bit": false,
+  "configured_mode": "PORT pin default",
+  "limits": "CC status only; no PD-message capture, connector-voltage measurement or USB data transfer qualification"
+}

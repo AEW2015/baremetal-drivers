@@ -1,0 +1,11 @@
+{
+  "scope": "First read-only FPGA prototype; one valid attached capture; repeat identity rejected; retired until explicit-pointer reader replaces it",
+  "RTL_sha256": "fea549452255cd7f9efb636926057e0cd702b5c6ca19500b6e8a54770925324f",
+  "fitted_SOF_sha256": "38019fc712b4b119188982596a2592f306a8cef0f043c7170f1a46230683658e",
+  "first_capture": "runs/usb-cc-probe-20261104T125405.633249Z",
+  "repeat_rejected": "runs/usb-cc-probe-20261104T130250.330140Z",
+  "build_job": "aff41340-3a10-4571-993e-ee2c97267b00",
+  "final_timing_job": "bb9a6630-e3bf-4ae1-9e2f-6a9c2007c739",
+  "timing": "nonnegative reported slacks, zero unconstrained paths, no unmatched constraints in final timing run",
+  "USB_qualification": "No external USB device enumerated; CC identity/status only"
+}

@@ -1,0 +1,14 @@
+{
+  "boot_order": "fpga-first",
+  "atf_commit": "09c4dc6628810d8570af69db43918d344f9e80e9",
+  "lwh2f_enabled": true,
+  "source_path_base": "examples/agilex5-modular",
+  "source_sof": "build/usb-cc-host-v2-26.3/platform/output_files/baseline_a55.sof",
+  "source_sof_sha256": "78c2f27e41336a7d8f6cdd4c2d1ad01def313d68a9d248883bb48e68f9240481",
+  "bl2_hex_sha256": "072a4bfc55a50a166aea6e49904b102a325f5d5404c703682761854fc5915518",
+  "bl2_provenance_manifest": "build/usb-cc26.3/boot/build-manifest.json",
+  "bl2_provenance_manifest_sha256": "354de62f5b5801581ba36ea57cb9f287e809e0f9678a4b5b4023f82edb6b79d0",
+  "images": {
+    "ddr_recovery.sof": "6b85b3866e1db96b205a784789b2025ca55aa19a0f4b26de39208271c455509e"
+  }
+}

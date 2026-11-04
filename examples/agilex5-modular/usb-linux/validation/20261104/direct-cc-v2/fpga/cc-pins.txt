@@ -1,0 +1,2 @@
+cc_i2c_scl                   : BR28      : bidir  : 3.3-V LVCMOS      : 3.3V    : 6A        : Y               : 90ps         
+cc_i2c_sda                   : BR31      : bidir  : 3.3-V LVCMOS      : 3.3V    : 6A        : Y               : 87ps         

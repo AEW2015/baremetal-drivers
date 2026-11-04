@@ -1,0 +1,6 @@
+{
+  "status": "fail",
+  "scope": "Read the dedicated FPGA CC probe; no CPU halt, reset or CC configuration write.",
+  "tcl_sha256": "652b82f4fba318bcb8f3b73d246fd81e48f4e1d8b0ed6117ca488122823c416f",
+  "error": "CC device identity does not match HD3SS3220"
+}

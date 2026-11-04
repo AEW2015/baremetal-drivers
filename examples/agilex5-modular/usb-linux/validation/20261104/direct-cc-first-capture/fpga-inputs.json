@@ -1,0 +1,23 @@
+{
+  "scope": "Isolated Modular ES read-only HD3SS3220 FPGA diagnostic",
+  "source_platform": "/home/lada/quartus26-mcp-demos/agilex5-stack-20261101/platform",
+  "source_hashes": {
+    "baseline_a55.sv": "8cfc77cad3a20f837a5c8fbb308954aad0f432db6f8cc1010dd3d6c52ceea916",
+    "baseline_a55.qsf": "923a55f69ef14618f1556d43a1c0bbedcc8f0a06875158693fa4c9b9733c0ebd",
+    "hps_subsys.qsys": "f7d3f60c6be9a4ecfa1e5c5de44e2af07db770e86176820bbd6cf5bb1d3e1a00",
+    "fabric_subsys.qsys": "41aa39991824858e17c83a29e430081ad145d3ca0a30d43676cb60b856861466"
+  },
+  "diagnostic_hashes": {
+    "cc_reader.sv": "fea549452255cd7f9efb636926057e0cd702b5c6ca19500b6e8a54770925324f",
+    "cc-probe.sdc": "72695b59e750d320bed799d55af18694e9bd639b590d411af3b1df7ac40e44f0"
+  },
+  "pins": {
+    "SCL": "BR28",
+    "SDA": "BR31"
+  },
+  "control": "Existing LED PIO bit31 toggle starts read; bits7:4 select returned byte",
+  "status": "Existing switch PIO: done31, busy30, error29:26, fault25, VBUS24, ID23, SCL22, SDA21, tag19:16=0xc, data7:0",
+  "target": "Only 7-bit address 0x47 READ, 11 received bytes; no target data writes",
+  "qualification": "RTL simulated; physical qualification requires fitted image, matched handoff and fresh reads",
+  "timing_only_correction": "Removed obsolete DIP-switch input delay and excepted only asynchronous USB-status inputs to their first synchronizer stage; fitted logic unchanged"
+}

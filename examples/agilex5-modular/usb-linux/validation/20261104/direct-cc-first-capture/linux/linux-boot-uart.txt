@@ -1,0 +1,187 @@
+booti 0x82000000 0x86000000:0x121675 0x81f00000
+## Flattened Device Tree blob at 81f00000
+   Booting using the fdt blob at 0x81f00000
+Working FDT set to 81f00000
+   Loading Ramdisk to 869d8000, end 86af9675 ... OK
+   Loading Device Tree to 00000000869ce000, end 00000000869d717b ... OK
+Working FDT set to 869ce000
+
+Starting kernel ...
+
+Deasserting all peripheral resets
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x412fd050]
+[    0.000000] Linux version 6.18.37+ (dev@lada-box) (aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, GNU ld (GNU Binutils for Ubuntu) 2.42) #2 SMP Mon Nov  2 22:09:22 UTC 2026
+[    0.000000] Machine model: SoCFPGA Agilex5 SoCDK A0 - Modular development kit
+[    0.000000] earlycon: uart8250 at MMIO32 0x0000000010c02000 (options '')
+[    0.000000] printk: legacy bootconsole [uart8250] enabled
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000080000000, size 32 MiB
+[    0.000000] OF: reserved mem: initialized node svcbuffer@0, compatible id shared-dma-pool
+[    0.000000] OF: reserved mem: 0x0000000080000000..0x0000000081ffffff (32768 KiB) nomap non-reusable svcbuffer@0
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000080000000-0x0000000087ffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080000000-0x0000000081ffffff]
+[    0.000000]   node   0: [mem 0x0000000082000000-0x0000000087ffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000080000000-0x0000000087ffffff]
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.5
+[    0.000000] percpu: Embedded 14 pages/cpu s26328 r0 d31016 u57344
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: GICv3 CPU interface
+[    0.000000] CPU features: detected: Virtualization Host Extensions
+[    0.000000] CPU features: kernel page table isolation disabled by kernel configuration
+[    0.000000] alternatives: applying boot alternatives
+[    0.000000] Kernel command line: console=ttyS0,115200n8 earlycon=uart8250,mmio32,0x10c02000 rdinit=/init maxcpus=1 clk_ignore_unused loglevel=7 panic=0
+[    0.000000] printk: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+[    0.000000] Dentry cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.000000] software IO TLB: SWIOTLB bounce buffer size adjusted to 0MB
+[    0.000000] software IO TLB: area num 4.
+[    0.000000] software IO TLB: SWIOTLB bounce buffer size roundup to 1MB
+[    0.000000] software IO TLB: mapped [mem 0x0000000087e2c000-0x0000000087f2c000] (1MB)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 32768
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] SLUB: HWalign=64, Order=0-1, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GICv3: 544 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GICv3: GICv3 features: 16 PPIs
+[    0.000000] GICv3: GICD_CTLR.DS=0, SCR_EL3.FIQ=0
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x000000001d060000
+[    0.000000] ITS [mem 0x1d040000-0x1d05ffff]
+[    0.000000] ITS@0x000000001d040000: allocated 8192 Devices @82850000 (indirect, esz 8, psz 64K, shr 1)
+[    0.000000] ITS@0x000000001d040000: allocated 32768 Interrupt Collections @82860000 (flat, esz 2, psz 64K, shr 1)
+[    0.000000] GICv3: using LPI property table @0x0000000082870000
+[    0.000000] GICv3: CPU0: using allocated LPI pending table @0x0000000082880000
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] arch_timer: cp15 timer running at 400.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0x7ffffffffffffff max_cycles: 0x5c4093a7d1, max_idle_ns: 440795210635 ns
+[    0.000001] sched_clock: 59 bits at 400MHz, resolution 2ns, wraps every 4398046511103ns
+[    0.008290] Console: colour dummy device 80x25
+[    0.012822] Calibrating delay loop (skipped), value calculated using timer frequency.. 800.00 BogoMIPS (lpj=1600000)
+[    0.023317] pid_max: default: 32768 minimum: 301
+[    0.028122] Mount-cache hash table entries: 512 (order: 0, 4096 bytes, linear)
+[    0.035334] Mountpoint-cache hash table entries: 512 (order: 0, 4096 bytes, linear)
+[    0.045418] rcu: Hierarchical SRCU implementation.
+[    0.050233] rcu: 	Max phase no-delay instances is 1000.
+[    0.056188] smp: Bringing up secondary CPUs ...
+[    0.060744] smp: Brought up 1 node, 1 CPU
+[    0.064750] SMP: Total of 1 processors activated.
+[    0.069441] CPU: All CPU(s) started at EL2
+[    0.073532] CPU features: detected: 32-bit EL0 Support
+[    0.078657] CPU features: detected: Data cache clean to the PoU not required for I/D coherence
+[    0.087237] CPU features: detected: CRC32 instructions
+[    0.092371] CPU features: detected: RCpc load-acquire (LDAPR)
+[    0.098113] CPU features: detected: Speculative Store Bypassing Safe (SSBS)
+[    0.105099] alternatives: applying system-wide alternatives
+[    0.111105] Memory: 84864K/131072K available (4288K kernel code, 668K rwdata, 1248K rodata, 320K init, 249K bss, 44860K reserved, 0K cma-reserved)
+[    0.124757] devtmpfs: initialized
+[    0.135362] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.145147] posixtimers hash table entries: 2048 (order: 3, 32768 bytes, linear)
+[    0.152866] futex hash table entries: 1024 (65536 bytes on 1 NUMA nodes, total 64 KiB, linear).
+[    0.162520] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.169093] DMA: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+[    0.176182] DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.183948] DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.192187] ASID allocator initialised with 65536 entries
+[    0.205734] iommu: Default domain type: Translated
+[    0.210532] iommu: DMA domain TLB invalidation policy: strict mode
+[    0.217039] SCSI subsystem initialized
+[    0.221059] usbcore: registered new interface driver usbfs
+[    0.226572] usbcore: registered new interface driver hub
+[    0.231931] usbcore: registered new device driver usb
+[    0.237353] pps_core: LinuxPPS API ver. 1 registered
+[    0.242326] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.251445] PTP clock support registered
+[    0.256484] clocksource: Switched to clocksource arch_sys_counter
+[    0.269143] NET: Registered PF_INET protocol family
+[    0.274237] IP idents hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.282021] tcp_listen_portaddr_hash hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.290401] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.298133] TCP established hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.305791] TCP bind hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    0.313035] TCP: Hash tables configured (established 1024 bind 1024)
+[    0.319524] UDP hash table entries: 256 (order: 2, 16384 bytes, linear)
+[    0.326175] UDP-Lite hash table entries: 256 (order: 2, 16384 bytes, linear)
+[    0.333452] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.339758] Unpacking initramfs...
+[    0.357006] workingset: timestamp_bits=62 max_order=15 bucket_order=0
+[    0.364039] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+[    0.371434] io scheduler mq-deadline registered
+[    0.375958] io scheduler kyber registered
+[    0.450400] Freeing initrd memory: 1156K
+[    0.470476] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.479429] printk: legacy console [ttyS0] disabled
+[    0.484754] 10c02000.serial: ttyS0 at MMIO 0x10c02000 (irq = 14, base_baud = 6250000) is a 16550A
+[    0.493829] printk: legacy console [ttyS0] enabled
+[    0.493829] printk: legacy console [ttyS0] enabled
+[    0.503392] printk: legacy bootconsole [uart8250] disabled
+[    0.503392] printk: legacy bootconsole [uart8250] disabled
+[    0.515223] arm-smmu-v3 16000000.iommu: ias 48-bit, oas 48-bit (features 0x001c1fcf)
+[    0.523963] arm-smmu-v3 16000000.iommu: allocated 262144 entries for cmdq
+[    0.531767] arm-smmu-v3 16000000.iommu: allocated 131072 entries for evtq
+[    0.539153] arm-smmu-v3 16000000.iommu: SMMU currently enabled! Resetting...
+[    0.548591] arm-smmu-v3 16000000.iommu: msi_domain absent - falling back to wired irqs
+[    0.560695] platform firmware:svc: Adding to iommu group 0
+[    0.566397] platform 10db0000.dma-controller: Adding to iommu group 1
+[    0.572901] platform 10dc0000.dma-controller: Adding to iommu group 2
+[    0.581105] usbcore: registered new device driver r8152-cfgselector
+[    0.587411] usbcore: registered new interface driver r8152
+[    0.592925] usbcore: registered new interface driver asix
+[    0.598351] usbcore: registered new interface driver ax88179_178a
+[    0.604468] usbcore: registered new interface driver cdc_ether
+[    0.610332] usbcore: registered new interface driver net1080
+[    0.616010] usbcore: registered new interface driver cdc_subset
+[    0.621951] usbcore: registered new interface driver zaurus
+[    0.627543] usbcore: registered new interface driver cdc_ncm
+[    0.633238] usbcore: registered new interface driver r8153_ecm
+[    0.639504] platform 11000000.usb: Adding to iommu group 3
+[    0.673305] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    0.678834] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 1
+[    0.686816] xhci-hcd xhci-hcd.0.auto: hcc params 0x0110ffcc hci version 0x110 quirks 0x0000808000000010
+[    0.696258] xhci-hcd xhci-hcd.0.auto: irq 18, io mem 0x11000000
+[    0.702213] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    0.707710] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 2
+[    0.715359] xhci-hcd xhci-hcd.0.auto: Host supports USB 3.1 Enhanced SuperSpeed
+[    0.723501] hub 1-0:1.0: USB hub found
+[    0.727338] hub 1-0:1.0: 1 port detected
+[    0.731662] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    0.740326] hub 2-0:1.0: USB hub found
+[    0.744141] hub 2-0:1.0: 1 port detected
+[    0.748695] usbcore: registered new interface driver uas
+[    0.754128] usbcore: registered new interface driver usb-storage
+[    0.760356] mousedev: PS/2 mouse device common for all mice
+[    0.766249] hid: raw HID events driver (C) Jiri Kosina
+[    0.771483] usbcore: registered new interface driver usbhid
+[    0.777049] usbhid: USB HID core driver
+[    0.781301] NET: Registered PF_INET6 protocol family
+[    0.787633] Segment Routing with IPv6
+[    0.791447] In-situ OAM (IOAM) with IPv6
+[    0.795475] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    0.802142] NET: Registered PF_PACKET protocol family
+[    0.815141] clk: Not disabling unused clocks
+[    0.820182] dw-apb-uart 10c02000.serial: forbid DMA for kernel console
+[    0.827240] Freeing unused kernel memory: 320K
+[    0.832253] Run /init as init process
+USB_LINUX_BOOT_BEGIN
+Linux agilex5-usb-lab 6.18.37+ #2 SMP Mon Nov  2 22:09:22 UTC 2026 aarch64 GNU/Linux
+console=ttyS0,115200n8 earlycon=uart8250,mmio32,0x10c02000 rdinit=/init maxcpus=1 clk_ignore_unused loglevel=7 panic=0
+USB_LAB_TOPOLOGY_BEGIN
+USB_DEVICE name=usb1 vid=1d6b pid=0002 class=09 speed_mbps=480
+USB_DEVICE name=usb2 vid=1d6b pid=0003 class=09 speed_mbps=10000
+USB_LAB_COUNTS external_devices=0 external_hubs=0
+USB_LAB_STORAGE
+USB_LAB_INPUT
+USB_LAB_TOPOLOGY_END
+USB_LINUX_READY
+USB_LINUX# 

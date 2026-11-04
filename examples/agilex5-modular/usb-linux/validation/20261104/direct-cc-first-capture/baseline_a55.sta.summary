@@ -1,0 +1,165 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0_outclk0'
+Slack : 2.394
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Setup 'hps_internal_osc'
+Slack : 4.486
+TNS   : 0.000
+Corner: Slow fix6a 0C Model
+
+Type  : Setup 'MAIN_CLOCK_virt'
+Slack : 5.850
+TNS   : 0.000
+Corner: Slow fix6a 0C Model
+
+Type  : Setup 'altera_reserved_tck'
+Slack : 12.122
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Hold 'u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0_outclk0'
+Slack : 0.000
+TNS   : 0.000
+Corner: Slow fix6a 0C Model
+
+Type  : Hold 'altera_reserved_tck'
+Slack : 0.103
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Hold 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_phy_clk_0'
+Slack : 0.340
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Hold 'hps_internal_osc'
+Slack : 2.099
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Hold 'MAIN_CLOCK_virt'
+Slack : 8.506
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Recovery 'u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0_outclk0'
+Slack : 3.544
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Recovery 'altera_reserved_tck'
+Slack : 60.154
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Removal 'u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0_outclk0'
+Slack : 0.166
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Removal 'altera_reserved_tck'
+Slack : 0.173
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Minimum Pulse Width 'altera_int_osc_clk'
+Slack : 0.000
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_vco_clk_periph_0'
+Slack : 0.458
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_vco_base_0'
+Slack : 0.505
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_phy_clk_0'
+Slack : 0.935
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0_outclk0'
+Slack : 2.000
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'hps_internal_osc'
+Slack : 2.118
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_ref_clock'
+Slack : 2.877
+TNS   : 0.000
+Corner: Slow fix6a 0C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0|tennm_ph2_iopll|ref_clk0'
+Slack : 3.498
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_clks_and_rsts|clks_and_rsts|u_sys_pll|iopll_0_refclk'
+Slack : 4.274
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_0_rxclk_gated'
+Slack : 4.887
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_1_rxclk_gated'
+Slack : 4.887
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_2_rxclk_gated'
+Slack : 4.887
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_3_rxclk_gated'
+Slack : 4.887
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_4_rxclk_gated'
+Slack : 4.887
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_5_rxclk_gated'
+Slack : 4.887
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_6_rxclk_gated'
+Slack : 4.887
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_lane_7_rxclk_gated'
+Slack : 4.887
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'u_baseline_top|u_shell_subsys|u_hps_subsys|u_emif_hps|emif_io96b_hps_inst|emif_0_ddr4comp|emif_0_ddr4comp_0_pll_ncntr'
+Slack : 9.597
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Minimum Pulse Width 'altera_reserved_tck'
+Slack : 28.558
+TNS   : 0.000
+Corner: Slow fix6a 0C Model
+
+------------------------------------------------------------
