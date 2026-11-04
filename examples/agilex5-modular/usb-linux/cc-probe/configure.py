@@ -25,7 +25,8 @@ def require_unattached(data):
     if not data['mode_writes_supported']:
         raise RuntimeError('Read-only FPGA image; no mode write permitted')
     if data['attached_state'] != 'unattached':
-        raise RuntimeError('Unplug the dock first: CC reports '+data['attached_state'])
+        raise RuntimeError('Unattached CC state required (currently '+data['attached_state']+
+                           '). Unplug the dock and use usb-linux/console.py ports-off before retrying.')
 
 def plan(mode, current):
     if current not in (0x00,0x01,0x20,0x21):

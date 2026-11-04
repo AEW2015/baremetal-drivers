@@ -1,0 +1,13 @@
+{
+  "scope": "User-confirmed cable unplug; Linux root-port power-off; volatile CC DFP selection with readback",
+  "mode_writes_hardware_verified": [
+    "0x01",
+    "0x21",
+    "0x20"
+  ],
+  "default_restore_0x00": "RTL-simulated, not hardware exercised in this record",
+  "state_before_power_off": "User-confirmed unplug; CC still UFP/sink, current-detect 0, VBUS detector 1",
+  "state_after_power_off": "CC unattached, VBUS detector 0",
+  "final_state": "General Control 0x20 (DFP); Linux running; USB2 and USB3 root ports disabled=1; waiting for powered dock reconnection",
+  "scope_limits": "No USB descriptor or class traffic through reconnected WD25 qualified yet; no measured connector voltage"
+}

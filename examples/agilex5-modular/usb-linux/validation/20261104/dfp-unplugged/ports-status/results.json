@@ -1,0 +1,10 @@
+{
+  "scope": "Live Agilex Linux UART diagnostic; no programming or reboot",
+  "diagnostic": "ports",
+  "status": "pass",
+  "linux_left_running": true,
+  "limits": "A successful inventory/status command does not qualify absent USB devices",
+  "console_source_sha256": "200ce3e537d47f291904537cb5530cf58baf6859b5585b7d8f7e43e7414b14c3",
+  "shared_runner_sha256": "7d36866bcb9a9cea671ab71280f99cfead783ff63e219dae5b69d37a5c36d5f6",
+  "guest_returncode": 0
+}

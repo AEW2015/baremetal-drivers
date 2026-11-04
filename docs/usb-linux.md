@@ -170,8 +170,16 @@ mode configuration still requires a subsequent dock enumeration and class tests.
 The corrected reader subsequently passed **three successive hardware captures**
 with the same verified sink state. The fitted image also passed DDR bring-up;
 all 88 final Design Assistant rules passed. A no-write mode preflight correctly
-refused the attached peer. No positive mode-write or WD25 class test is claimed;
+refused the attached peer. That record includes no mode-write or WD25 class test;
 see the [repeatable capture and guarded preflight evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux/validation/20261104/direct-cc-v2).
+
+In the subsequent unplugged-cable test, Linux still held port power on and
+the CC controller retained sink state. Disabling both root ports through the
+kernel's normal sysfs API dropped the VBUS indication and produced unattached
+status. The guarded mode sequence then **passed on hardware**, with separate
+readbacks of `0x01`, `0x21` and `0x20`. DFP mode is selected; reconnection and
+USB class tests are still pending. See the
+[port-power and positive mode-write evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux/validation/20261104/dfp-unplugged).
 
 The Linux runner now also supports a bounded `phy-status` diagnostic through
 the DWC3 ULPI viewport. It reads the USB3320 vendor/product ID, OTG control,

@@ -1,0 +1,9 @@
+echo 1 > /sys/bus/usb/devices/2-0:1.0/usb2-port1/disable && echo 1 > 
+/sys/bus/usb/devices/1-0:1.0/usb1-port1/disable && sleep 1 && cat /sys/bus/usb/d
+evices/2-0:1.0/usb2-port1/disable /sys/bus/usb/devices/1-0:1.0/usb1-port1/disabl
+e; printf '\nUSB_CONSOLE_STATUS=%s\n' "$?"
+1
+1
+
+USB_CONSOLE_STATUS=0
+USB_LINUX# 

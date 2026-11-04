@@ -1,0 +1,35 @@
+{
+  "status": "fail",
+  "scope": "Select the HD3SS3220's documented DFP/default mode while physically unattached.\n\nRequires the explicit mode-write FPGA variant. No arbitrary register/value,\nI2C software reset, VBUS override, shared reset pulse or NVM write is supported.\n",
+  "requested_mode": "dfp",
+  "operations": [],
+  "check_only": false,
+  "restoration": "not needed; no write yet",
+  "source_sha256": {
+    "configure.py": "b7b41667be6c661693aa9d0d7aec3c9df1880ff9de9a70a70992f1b644b2011e",
+    "read.tcl": "b1668332b3e36e49517659a2753c3d2ff6ec1d3f28cd70ba2cd4169b35aecfbf",
+    "write.tcl": "62693e6549af587ce65f4c7be7dcd5442eb9bcb41a0ec719bb3f84a70519ebc4"
+  },
+  "initial": {
+    "registers": {
+      "0x0": "0x32",
+      "0x1": "0x32",
+      "0x2": "0x33",
+      "0x3": "0x42",
+      "0x4": "0x53",
+      "0x5": "0x55",
+      "0x6": "0x54",
+      "0x7": "0x0",
+      "0x8": "0x0",
+      "0x9": "0x90",
+      "0xa": "0x0"
+    },
+    "identity": "HD3SS3220, verified register signature",
+    "mode_writes_supported": true,
+    "attached_state": "UFP/sink",
+    "cable_direction_bit": false,
+    "configured_mode": "PORT pin default",
+    "limits": "CC status only; no PD-message capture, connector-voltage measurement or USB data transfer qualification"
+  },
+  "error": "Unplug the dock first: CC reports UFP/sink"
+}

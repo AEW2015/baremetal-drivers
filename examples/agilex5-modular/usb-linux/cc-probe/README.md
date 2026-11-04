@@ -119,6 +119,7 @@ and reports a plan if eligible; it sends no mode write.
 After fitting, timing-checking, pairing and loading the explicit variant:
 
 ```sh
+python3 usb-linux/console.py ports-off
 python3 usb-linux/cc-probe/configure.py --mode dfp
 ```
 
@@ -128,8 +129,28 @@ configuration alone is not a successful dock test. To restore the original
 General Control `0x00`, unplug the dock again and run:
 
 ```sh
+python3 usb-linux/console.py ports-off
 python3 usb-linux/cc-probe/configure.py --mode default
 ```
+
+The physical unplug may not immediately clear UFP/sink state if the forced
+Linux host keeps VBUS on. The observed remedy was the normal Linux root-port
+power-off operation above, followed by a fresh unattached-state check. Never
+skip that check merely because the user unplugged the cable.
+
+After reconnecting, require a fresh DFP/source attachment before powering the
+Linux root ports. The console entry point performs that check under its mutex:
+
+```sh
+python3 usb-linux/cc-probe/read.py
+python3 usb-linux/console.py ports-on
+python3 usb-linux/console.py report
+```
+
+`ports-off` refuses to disconnect any enumerated external USB device.
+`ports-on` refuses unattached/UFP/accessory or failed CC captures. The successful
+`0x01 → 0x21 → 0x20` hardware sequence and port-power observations are in
+[the unplugged-mode evidence](../validation/20261104/dfp-unplugged/README.md).
 
 Failure records are retained. An uncertain write needs a fresh read; the tool
 does not change modes behind an attached peer to conceal a failed experiment.

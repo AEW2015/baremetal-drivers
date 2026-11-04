@@ -1,0 +1,37 @@
+(set -eu
+> mode=off
+> for bus in usb1 usb2; do
+>   base=/sys/bus/usb/devices/$bus
+>   case "$(readlink -f "$base")" in *11000000.usb*) ;; *) echo USB_PORT_WRONG_C
+ONTROLLER; exit 1;; esac
+>   test "$(cat "$base/idVendor")" = 1d6b
+>   case "$bus:$(cat "$base/idProduct")" in usb1:0002|usb2:0003) ;; *) exit 1;; 
+esac
+> done
+> if test "$mode" = off; then
+>   for d in /sys/bus/usb/devices/*; do
+>     test -f "$d/idVendor" || continue
+>     case "${d##*/}" in usb*) ;; *) echo USB_PORT_POWER_OFF_REFUSED_EXTERNAL_DE
+VICE; exit 1;; esac
+>   done
+> fi
+> case "$mode" in
+ab>   off) echo 1 > /sys/bus/usb/devices/2-0:1.0/usb2-port1/disable
+>        echo 1 > /sys/bus/usb/devices/1-0:1.0/usb1-port1/disable;;
+>   on)  echo 0 > /sys/bus/usb/devices/1-0:1.0/usb1-port1/disable
+>        echo 0 > /sys/bus/usb/devices/2-0:1.0/usb2-port1/disable;;
+> esac
+> for item in 1:usb1-port1 2:usb2-port1; do
+>   bus=${item%%:*}; port=${item#*:}
+>   state=$(cat /sys/bus/usb/devices/$bus-0:1.0/$port/disable)
+>   case "$mode:$state" in off:1|on:0|status:0|status:1) ;; *) exit 1;; esac
+>   echo USB_PORT_POWER port=$port disabled=$state
+> done
+> echo USB_PORT_POWER_COMPLETE
+> ); printf '\nUSB_CONSOLE_STATUS=%s\n' "$?"
+USB_PORT_POWER port=usb1-port1 disabled=1
+USB_PORT_POWER port=usb2-port1 disabled=1
+USB_PORT_POWER_COMPLETE
+
+USB_CONSOLE_STATUS=0
+USB_LINUX# 
