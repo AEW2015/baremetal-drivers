@@ -1,0 +1,26 @@
+{
+  "decoder_version": 2,
+  "registers": {
+    "0x0": "0x24",
+    "0x1": "0x4",
+    "0x2": "0x7",
+    "0x3": "0x0",
+    "0xa": "0x27",
+    "0xd": "0x1f",
+    "0x10": "0x1f",
+    "0x13": "0x14"
+  },
+  "id_pullup_enabled": true,
+  "idgnd_raw_bit": true,
+  "id_grounded_sample": false,
+  "phy_drive_vbus_requested": true,
+  "vbus_valid_raw_bit": false,
+  "vbus_comparator_enabled": true,
+  "vbus_uses_internal_comparator": true,
+  "vbus_valid_sample": false,
+  "session_valid_sample": true,
+  "typec_role": "not measured",
+  "limits": "Local USB3320 input samples only; no CC-controller or PD-message capture; VBUS sample is not a voltage measurement",
+  "scope": "Live Linux, WD25 attached per user confirmation; no CPU halt/reset or PHY configuration write",
+  "tcl_source_sha256": "2cae9565766e4dd60e787dd8020820eb821dd0ce632b2fd3d3d9fb4562c29176"
+}

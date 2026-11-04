@@ -174,6 +174,14 @@ measurement or a measured Type-C role. The cause remains unresolved; Linux
 was left running for a connector-orientation check. Mouse movement cannot
 produce reports before a mouse enumerates.
 
+The user subsequently flipped and reconnected the SOM-side plug. The
+opposite orientation produced the same zero-device inventory and identical
+PHY/port readings. A targeted HPS management-bus experiment read the correct
+TMP464 ID but received an address NACK from `0x47`; it did not obtain the
+Type-C controller status. Pin settings were restored and Linux remained
+responsive. See the
+[orientation comparison and management-route evidence](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux/validation/20261104/flipped-plug).
+
 See the [reattached-dock captures and decoder erratum](https://github.com/AEW2015/baremetal-drivers/tree/main/examples/agilex5-modular/usb-linux/validation/20261103/dock-reattached).
 Decoder version 2 corrects the earlier inverted `id_grounded_sample` field:
 USB3320 ID status is **zero when grounded** and **one when floating**. It also

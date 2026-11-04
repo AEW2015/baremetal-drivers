@@ -1,0 +1,12 @@
+{
+  "scope": "Diagnostic prototype, not a general-purpose I2C utility; two fixed register-pointer/read transactions only",
+  "linux_commit": "0c0e456cdde08783d0a56ef593af45899f5d11af",
+  "compiler": "aarch64-linux-gnu-gcc 13.3.0",
+  "source_sha256": "0ad0e9bb88efd220a40487235a27324a843fce920f8821bf35465f561bb6e288",
+  "elf_sha256": "026f01dd0e4fcba99dd32d7437658e5e7df44ddd0c821c8850f6778c2e0046ba",
+  "build_command": "aarch64-linux-gnu-gcc -Os -nostdlib -static -fno-stack-protector -fno-asynchronous-unwind-tables -Wl,--build-id=none -s -include .deps/usb-linux-source-26.3/tools/include/nolibc/nolibc.h probe.c -o cc-read",
+  "control_id": "TMP464 0x48 manufacturer 0x5449 received",
+  "cc_result": "0x47 address NACK on tested HPS management route; Type-C controller status remains unmeasured",
+  "pinmux_restoration": "MGMT_RESTORE_OK; original selectors 4/4",
+  "linux_final_state": "responsive, left running; zero external USB devices"
+}

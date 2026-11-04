@@ -1,0 +1,9 @@
+Evidence: /home/lada/quartus26-mcp-demos/baremetal-fixes-20261029/examples/agilex5-modular/runs/usb-linux-console-20261104T043529.393169Z
+/tmp/cc-read probe; printf '\nUSB_CONSOLE_STATUS=%s\n' "$?"
+GPIO_CHIP name=gpiochip0 label=10c03200.gpio lines=24
+I2C_READ address=0x48 pointer=0xfe bytes=54 49 
+I2C_NACK address=0x47 stage=address
+CC_CONTROLLER_NOT_REACHED_ON_THIS_ROUTE
+
+USB_CONSOLE_STATUS=2
+USB_LINUX# 

@@ -1,0 +1,5 @@
+tr '\000' '\n' < /proc/device-tree/compatible; uname -r
+intel,socfpga-agilex5-socdk
+intel,socfpga-agilex5
+6.18.37+
+USB_LINUX# 
